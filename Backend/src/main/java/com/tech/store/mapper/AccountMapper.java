@@ -7,7 +7,9 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
 
-@Mapper(componentModel = "spring",unmappedTargetPolicy = ReportingPolicy.IGNORE)
+import java.math.BigDecimal;
+
+@Mapper(componentModel = "spring")
 public interface AccountMapper {
 
 
@@ -15,5 +17,9 @@ public interface AccountMapper {
 
 
     AccountEntity toAccountEntity(AccountDto accountDto);
+
+    default BigDecimal map(BigDecimal value) {
+        return value;
+    }
 
 }

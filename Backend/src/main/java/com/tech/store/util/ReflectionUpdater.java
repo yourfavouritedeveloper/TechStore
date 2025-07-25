@@ -1,6 +1,7 @@
 package com.tech.store.util;
 
 import java.lang.reflect.*;
+import java.math.BigDecimal;
 import java.util.Map;
 
 public class ReflectionUpdater {
@@ -33,6 +34,7 @@ public class ReflectionUpdater {
         if (type == long.class || type == Long.class) return Long.parseLong(value);
         if (type == boolean.class || type == Boolean.class) return Boolean.parseBoolean(value);
         if (type == double.class || type == Double.class) return Double.parseDouble(value);
+        if (type == BigDecimal.class) return new BigDecimal(value);
         throw new IllegalArgumentException("Unsupported field type: " + type.getName());
     }
 }

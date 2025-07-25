@@ -20,6 +20,7 @@ import java.util.List;
 @Table(name = "accounts")
 public class AccountEntity extends BaseEntity {
 
+    @Column(name = "role", nullable = false)
     private Role role;
 
     @Column(name = "username",nullable = false,unique = true)

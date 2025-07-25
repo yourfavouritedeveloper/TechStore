@@ -9,13 +9,12 @@ import com.tech.store.model.dto.AccountDto;
 import com.tech.store.model.enumeration.Status;
 import com.tech.store.util.ReflectionUpdater;
 import lombok.RequiredArgsConstructor;
-import org.aspectj.util.Reflection;
+
 import org.springframework.stereotype.Service;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+
 import java.util.*;
-import java.util.stream.Collectors;
+
 
 @Service
 @RequiredArgsConstructor
@@ -45,31 +44,29 @@ public class AccountService {
     }
 
     public AccountDto update(Long id, Map<String, String> updates) throws Exception {
-        if(updates.isEmpty()) throw new MisMatchingDataException("Mismatching keys and/or values.");
+        AccountEntity existingEntity = accountRepository.findById(id)
+                .orElseThrow(() -> new AccountNotFoundException("Account not found"));
 
-        Class<AccountDto> accountDtoClass = AccountDto.class;
+        ReflectionUpdater.updateFields(existingEntity, updates);
 
-        if(updates.size() > accountDtoClass.getDeclaredFields().length) throw new MisMatchingDataException("More than required fields found.");
+        AccountEntity savedEntity = accountRepository.save(existingEntity);
 
-        AccountDto accountDto = findById(id);
-        ReflectionUpdater.updateFields(accountDto,updates);
-
-        AccountEntity accountEntity = accountMapper.toAccountEntity(accountDto);
-        return accountMapper.toAccountDto(accountRepository.save(accountEntity));
+        return accountMapper.toAccountDto(savedEntity);
 
     }
 
-    public void delete(Long id) {
+    public AccountDto delete(Long id) {
         AccountEntity accountEntity = accountRepository
                 .findById(id).orElseThrow(() -> new AccountNotFoundException("Account not found."));
 
         accountEntity.setStatus(Status.CLOSED);
-        accountRepository.save(accountEntity);
+        return accountMapper.toAccountDto(accountEntity);
     }
 
-    public void remove(Long id) {
+    public AccountDto remove(Long id) {
         AccountDto accountDto = findById(id);
-        accountRepository.delete(accountMapper.toAccountEntity(accountDto));
+        accountRepository.deleteById(id);
+        return accountDto;
     }
 
 
