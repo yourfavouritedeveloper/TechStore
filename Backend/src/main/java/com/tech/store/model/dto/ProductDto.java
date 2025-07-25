@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 import java.awt.*;
 import java.math.BigDecimal;
 import java.util.HashMap;
+import java.util.Map;
 
 @Data
 @NoArgsConstructor
@@ -37,7 +38,7 @@ public class ProductDto {
     private String company;
 
     @NotBlankMap(message = "Properties map must have non-blank keys and values", groups = {OnCreate.class, OnUpdate.class})
-    private HashMap<String, String> properties;
+    private Map<String, String> properties;
 
     private BigDecimal weight;
 
@@ -46,6 +47,9 @@ public class ProductDto {
     private BigDecimal width;
 
     private BigDecimal volume;
+
+    @NotNull(message = "Product amount cannot be null.", groups = {OnCreate.class, OnUpdate.class})
+    private Long amount;
 
     @NotNull(message = "Provide the guarantee", groups = {OnCreate.class, OnUpdate.class})
     private Byte guarantee;

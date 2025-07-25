@@ -38,7 +38,7 @@ public class AccountDto {
 
     private String profilePictureUrl;
 
-    private List<PurchaseDto> purchaseDto;
+    private List<PurchaseDto> purchases;
 
 
 

@@ -15,6 +15,7 @@ import lombok.Setter;
 import java.awt.*;
 import java.math.BigDecimal;
 import java.util.HashMap;
+import java.util.Map;
 
 @Getter
 @Setter
@@ -33,6 +34,7 @@ public class ProductEntity extends BaseEntity {
     @Column(name = "price",nullable = false)
     private BigDecimal price;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "category",nullable = false)
     private Category category;
 
@@ -43,7 +45,7 @@ public class ProductEntity extends BaseEntity {
     @CollectionTable(name = "product_properties", joinColumns = @JoinColumn(name = "product_id"))
     @Column(name = "value")
     @MapKeyColumn(name = "key")
-    private HashMap<String, String> properties;
+    private Map<String, String> properties;
 
     @Column(name = "weight")
     private BigDecimal weight;
@@ -56,6 +58,9 @@ public class ProductEntity extends BaseEntity {
 
     @Column(name = "volume")
     private BigDecimal volume;
+
+    @Column(name = "amount")
+    private Long amount;
 
     @Column(name = "guarantee",nullable = false)
     private Byte guarantee;

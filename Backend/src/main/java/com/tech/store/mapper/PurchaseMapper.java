@@ -5,10 +5,16 @@ import com.tech.store.model.dto.PurchaseDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 
-@Mapper(componentModel = "spring",unmappedTargetPolicy = ReportingPolicy.IGNORE)
+import java.math.BigDecimal;
+
+@Mapper(componentModel = "spring")
 public interface PurchaseMapper {
 
     PurchaseDto toPurchaseDto(PurchaseEntity purchaseEntity);
 
     PurchaseEntity toPurchaseEntity(PurchaseDto purchaseDto);
+
+    default BigDecimal map(BigDecimal value) {
+        return value;
+    }
 }

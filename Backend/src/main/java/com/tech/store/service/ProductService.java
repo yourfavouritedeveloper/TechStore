@@ -1,13 +1,14 @@
 package com.tech.store.service;
 
-import com.tech.store.dao.entity.AccountEntity;
+
 import com.tech.store.dao.entity.ProductEntity;
 import com.tech.store.dao.repository.ProductRepository;
-import com.tech.store.exception.AccountNotFoundException;
+
 import com.tech.store.exception.MisMatchingDataException;
 import com.tech.store.exception.ProductNotFoundException;
+
 import com.tech.store.mapper.ProductMapper;
-import com.tech.store.model.dto.AccountDto;
+
 import com.tech.store.model.dto.ProductDto;
 import com.tech.store.model.enumeration.Status;
 import com.tech.store.util.ReflectionUpdater;
@@ -45,30 +46,28 @@ public class ProductService {
     }
 
     public ProductDto update(Long id, Map<String, String> updates) throws Exception {
-        if(updates.isEmpty()) throw new MisMatchingDataException("Mismatching keys and/or values.");
+        ProductEntity existingEntity = productRepository.findById(id)
+                .orElseThrow(() -> new ProductNotFoundException("Product not found"));
 
-        Class<ProductDto> productDtoClass = ProductDto.class;
+        ReflectionUpdater.updateFields(existingEntity, updates);
 
-        if(updates.size() > productDtoClass.getDeclaredFields().length) throw new MisMatchingDataException("More than required fields found.");
+        ProductEntity savedEntity = productRepository.save(existingEntity);
 
-        ProductDto productDto = findById(id);
-        ReflectionUpdater.updateFields(productDto,updates);
-
-        ProductEntity productEntity = productMapper.toProductEntity(productDto);
-        return productMapper.toProductDto(productRepository.save(productEntity));
-
+        return productMapper.toProductDto(savedEntity);
     }
 
-    public void delete(Long id) {
+    public ProductDto delete(Long id) {
         ProductEntity productEntity = productRepository
-                .findById(id).orElseThrow(() -> new AccountNotFoundException("Account not found."));
+                .findById(id).orElseThrow(() -> new ProductNotFoundException("Product not found."));
 
         productEntity.setStatus(Status.CLOSED);
         productRepository.save(productEntity);
+        return productMapper.toProductDto(productEntity);
     }
 
-    public void remove(Long id) {
+    public ProductDto remove(Long id) {
         ProductDto productDto = findById(id);
-        productRepository.delete(productMapper.toProductEntity(productDto));
+        productRepository.deleteById(id);
+        return productDto;
     }
 }

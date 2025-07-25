@@ -31,4 +31,7 @@ public class PurchaseEntity extends BaseEntity {
 
     @Column(name = "purchase_date",nullable = false)
     private LocalDateTime purchaseDate;
+
+    @Column(name = "purchased_amount",nullable = false)
+    private Long amount;
 }
