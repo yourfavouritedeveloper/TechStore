@@ -14,7 +14,5 @@ public interface ProductMapper {
 
     ProductEntity toProductEntity(ProductDto productDto);
 
-    default BigDecimal map(BigDecimal value) {
-        return value;
-    }
+
 }

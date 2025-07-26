@@ -1,5 +1,6 @@
 package com.tech.store.model.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.tech.store.util.OnCreate;
 import com.tech.store.util.OnUpdate;
 import jakarta.validation.Valid;
@@ -17,10 +18,12 @@ import java.time.LocalDateTime;
 
 public class PurchaseDto {
 
-    @Valid
+
+    @JsonIgnore
     private AccountDto account;
 
-    @Valid
+
+    @JsonIgnore
     private ProductDto product;
 
     @NotNull(message = "Purchase date must be provided", groups = {OnCreate.class, OnUpdate.class})

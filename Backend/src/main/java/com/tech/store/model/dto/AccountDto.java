@@ -1,5 +1,6 @@
 package com.tech.store.model.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.tech.store.model.enumeration.Role;
 import com.tech.store.util.OnCreate;
 import com.tech.store.util.OnUpdate;
@@ -38,6 +39,7 @@ public class AccountDto {
 
     private String profilePictureUrl;
 
+    @JsonIgnore
     private List<PurchaseDto> purchases;
 
 

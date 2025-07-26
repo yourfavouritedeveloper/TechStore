@@ -18,8 +18,6 @@ public interface AccountMapper {
 
     AccountEntity toAccountEntity(AccountDto accountDto);
 
-    default BigDecimal map(BigDecimal value) {
-        return value;
-    }
+
 
 }

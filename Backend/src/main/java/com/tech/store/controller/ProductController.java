@@ -16,7 +16,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/v1/products")
 @RequiredArgsConstructor
-@Tag(name = "product", description = "APIs for product creation, read, update, and deletion")
+@Tag(name = "Product", description = "APIs for product creation, read, update, and deletion")
 public class ProductController {
 
     private final ProductService productService;
@@ -48,7 +48,7 @@ public class ProductController {
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Update product", description = "Updates the specified product.")
     public ProductDto updateProduct(@PathVariable Long id,@RequestParam Map<String, String> updates) throws Exception {
-        return productService.update(id, updates);
+        return productService.updateProduct(id, updates);
     }
 
     @PutMapping("/delete/{id}")
