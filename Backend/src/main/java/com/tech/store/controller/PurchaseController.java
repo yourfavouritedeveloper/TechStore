@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/purchases")
 @RequiredArgsConstructor
-@Tag(name = "purchase", description = "APIs for purchase creation, read, update, and deletion")
+@Tag(name = "Purchase", description = "APIs for purchase creation, read, update, and deletion")
 public class PurchaseController {
 
     private final PurchaseService purchaseService;

@@ -55,7 +55,7 @@ public class AccountController {
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Update account", description = "Updates the specified account.")
     public AccountDto updateAccount(@PathVariable Long id,@RequestParam Map<String, String> updates) throws Exception {
-        return accountService.update(id, updates);
+        return accountService.updateAccount(id, updates);
     }
 
     @PutMapping("/delete/{id}")

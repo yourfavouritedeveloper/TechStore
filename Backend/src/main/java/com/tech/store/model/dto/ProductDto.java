@@ -37,6 +37,7 @@ public class ProductDto {
     @NotBlank(message = "Provide the company name.", groups = {OnCreate.class, OnUpdate.class})
     private String company;
 
+
     @NotBlankMap(message = "Properties map must have non-blank keys and values", groups = {OnCreate.class, OnUpdate.class})
     private Map<String, String> properties;
 
