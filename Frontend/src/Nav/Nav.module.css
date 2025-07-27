@@ -122,3 +122,15 @@ a {
 }
 
 
+.highlight {
+  color: #000000; 
+  transition: color 0.3s ease;
+}
+
+.highlight:hover {
+    color:white;
+}
+
+.name a:hover {
+  color: black;
+}

@@ -8,11 +8,11 @@ function Module() {
         <>
         <Canvas
         style={{
-            height: "100vh",
+            height: "105vh",
             width: "100vw",
             position: "absolute",
-            marginTop: "-145rem",
-            zIndex: "2"
+            marginTop: "-103rem",
+            zIndex: "2",
         }}>
         <PerspectiveCamera makeDefault position={[-10, 9,10]} fov={0.8} />
         <OrbitControls 
