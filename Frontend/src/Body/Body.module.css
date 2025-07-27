@@ -7,3 +7,302 @@
     overflow-x: hidden;
     z-index: 7;
 }
+
+.title {
+    margin-top:12rem;
+    font-size: clamp(3rem, 1vw, 14rem);
+    display: flex;
+    justify-content: center;
+}
+
+.categories {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem; 
+    padding: 0rem 5rem;
+}
+
+.categories li {
+    flex: 1 0 20%; 
+    box-sizing: border-box; 
+    padding:5.5rem;
+    border-radius: 2rem;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.computers {
+  background-color: #5e7dd4;
+  position: relative;
+  width: 100%;
+  height: 22vh; 
+  padding: 2rem;
+  border-radius: 1rem;
+  overflow: hidden;
+
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  align-items: center;
+  color: white;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.computers img {
+    position: absolute;
+    width: 100%;
+    margin-left:3rem;
+    margin-top:-6rem;
+    object-fit: contain;
+    transform: rotateZ(40deg);
+    transition: all 1s ease;
+    z-index: 5;
+}
+
+.computers:hover {
+    background-color:#6a8df0 ;
+}
+
+.computers:hover img {
+    transform: rotateZ(20deg) scale(1.1);
+    
+}
+
+.computers:hover p {
+    transform : scale(1.05);
+    background-color: rgba(0, 0, 0, 0.075); 
+}
+
+.computers p {
+    color: rgb(255, 255, 255);
+    padding:5.5rem;
+    margin-top: -6.6rem;
+    font-size: clamp(3rem, 1vw, 14rem);
+    font-family: "PoppinsLight";
+    font-weight: bold;
+    z-index: 6;
+    background-color: rgba(0, 0, 0, 0.363); 
+    transition: all 0.3s ease;
+
+}
+
+
+.computers .circle1, .circle2, .circle3, .circle4 {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+  background-color: #ff9a8b; 
+  pointer-events: none; 
+  box-shadow: 0px -20px 20px #664c4869;
+  transition: all 1s ease;
+  transform: rotateZ(20deg);
+}
+
+
+.computers .circle1 {
+  width: 11rem;
+  height: 11rem;
+  top: 4vh;
+  box-shadow: 0px -20px 20px #291f1d69;
+  left: -2vw;
+  z-index: 1;
+
+}
+
+.computers .circle2 {
+  background-color: #ff9a8b; 
+  box-shadow: 15px 10px 20px #664c4869;
+  width: 11rem;
+  height: 8rem;
+  top: -3vh;
+  left: -4vw;
+  z-index: 2;  
+}
+
+.computers .circle3 {
+  background-color: #ff9a8b;     
+  width: 13rem;
+  height: 10rem;
+  bottom: -7vh;
+  box-shadow: 0px -20px 20px #664c4869;
+  right: -3vw;
+  z-index: 4;
+
+}
+
+.computers .circle4 {
+  background-color: #ff9a8b; 
+  width: 13rem;
+  height: 10rem;
+  bottom: 4vh;
+  right: -6vw;
+  z-index: 3;
+
+}
+
+.computers:hover .circle1,
+.computers:hover .circle2, 
+.computers:hover .circle3,
+.computers:hover .circle4 {
+    transform: rotateZ(90deg);
+    width: 12rem;
+    height: 14rem;
+
+}
+
+
+
+
+
+
+
+.mobilePhones {
+    background-color: #33d6a0;
+    position: relative;
+    width: 100%;
+    height: 22vh; 
+    padding: 2rem;
+    border-radius: 1rem;
+    overflow: hidden;
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    align-items: center;
+    color: white;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+
+.mobilePhones img {
+    position: absolute;
+    width: 70%;
+    margin-left:3rem;
+    margin-top:-6rem;
+    object-fit: contain;
+    transform: rotateZ(-30deg);
+    transition: all 1s ease;
+    z-index: 5;
+}
+
+
+.mobilePhones:hover {
+    background-color:#3be7ae ;
+}
+
+.mobilePhones:hover img {
+    transform: rotateZ(-10deg) scale(1.1);
+    
+    
+}
+
+
+.mobilePhones:hover p {
+    transform : scale(1.05);
+    background-color: rgba(0, 0, 0, 0.075); 
+}
+
+.mobilePhones p {
+    color: rgb(255, 255, 255);
+    padding:5.5rem 8.5rem;
+    margin-top: -6.6rem;
+    font-size: clamp(3rem, 1vw, 14rem);
+    font-family: "PoppinsLight";
+    font-weight: bold;
+    z-index: 6;
+    background-color: rgba(0, 0, 0, 0.363); 
+    transition: all 0.3s ease;
+
+}
+
+
+.mobilePhones .circle1, .circle2, .circle3, .circle4 {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+  background-color: #2f4e9b; 
+  pointer-events: none; 
+  box-shadow: 0px 20px 20px #07102975;
+  transition: all 1s ease;
+  transform: rotateZ(20deg);
+
+}
+
+
+.mobilePhones .circle1 {
+  width: 11rem;
+  height: 10rem;
+  top: 4vh;
+  box-shadow: 0px -20px 20px #07102975;
+  left: -4vw;
+  z-index: 2;
+
+}
+
+.mobilePhones .circle2 {
+  width: 11rem;
+  height: 8rem;
+  top: -4vh;
+  left: -4vw;
+  z-index: 1;  
+}
+
+.mobilePhones .circle3 {
+  width: 13rem;
+  height: 10rem;
+  bottom: -4vh;
+  right: -4vw;
+  z-index: 3;
+
+}
+
+.mobilePhones .circle4 {
+  width: 13rem;
+  height: 10rem;
+  bottom: 4vh;
+  right: -6vw;
+  z-index: 4;
+
+}
+
+.mobilePhones:hover .circle1,
+.mobilePhones:hover .circle2, 
+.mobilePhones:hover .circle3,
+.mobilePhones:hover .circle4 {
+    transform: rotateZ(90deg);
+    width: 12rem;
+    height: 14rem;
+
+}
+
+
+.tvs {
+    background-color: #f8832f;
+}
+
+.smartWatches {
+    background-color: #7779fc;
+}
+
+.keyboards {
+    background-color: #e25252;
+}
+
+.headphones {
+    background-color: #9f4dec;
+}
+
+.monitors {
+    background-color: #42b3e7;
+}
+
+.tablets {
+    background-color: #f7d656;
+}
