@@ -1,26 +1,28 @@
 import styles from "./Nav.module.css"
 
 
-function Nav() {
+function Nav({ highlight }) {
+
+
     return (
         <>
             <div className={styles.container}>
 
                 <ul className={styles.navbar}>
                     <li className={styles.name}>
-                        <a href="" >TechStore</a>
+                        <a className={highlight ? styles.highlight : ""} href="" >TechStore</a>
                     </li>
                     <li className={styles.campaign}>
-                        <a href="">Campaign</a>
+                        <a className={highlight ? styles.highlight : ""} href="">Campaign</a>
                     </li>
                     <li className={styles.about}>
-                        <a href="">About</a>
+                        <a className={highlight ? styles.highlight : ""} href="">About</a>
                     </li>
                     <li className={styles.contact}>
-                        <a href="">Contact</a>
+                        <a className={highlight ? styles.highlight : ""} href="">Contact</a>
                     </li>
                     <li className={styles.login}>
-                        <a href="">Login / Signup</a>
+                        <a className={highlight ? styles.highlight : ""} href="">Login / Signup</a>
                     </li>
                 </ul>
             </div>
