@@ -327,6 +327,19 @@ input:focus {
     transform: rotateZ(90deg);
 }
 
+.more input:checked + span {
+    background-color: #8e53d193;      
+}
+
+.more input:checked ~ .moreOption {
+     margin-top: -20rem; 
+    border-radius: 10rem;   
+}
+
+.more input:checked ~ svg {
+    transform: rotateZ(90deg);    
+}
+
 
 
 
