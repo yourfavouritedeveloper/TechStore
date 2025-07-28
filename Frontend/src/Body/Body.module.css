@@ -55,11 +55,11 @@
 
 .computers img {
     position: absolute;
-    width: 100%;
-    margin-left:3.7rem;
-    margin-top:-6rem;
+    width: 80%;
+    margin-left:0rem;
+    margin-top:-9rem;
     object-fit: contain;
-    transform: rotateZ(40deg);
+    transform: rotateZ(20deg);
     transition: all 1s ease;
     z-index: 5;
 }
@@ -69,7 +69,7 @@
 }
 
 .computers:hover img {
-    transform: rotateZ(20deg) scale(1.1);
+    transform: rotateZ(0deg) scale(1.1);
     
 }
 
@@ -126,11 +126,11 @@
 
 .computers .circle3 {
   background-color: #ff9a8b;     
-  width: 11rem;
-  height: 12rem;
-  bottom: -4vh;
+  width: 9rem;
+  height: 10rem;
+  bottom: -0vh;
   box-shadow: 0px -20px 20px #664c4869;
-  right: -3vw;
+  right: -2vw;
   z-index: 4;
   transform: rotateZ(10deg);
 
@@ -138,10 +138,10 @@
 
 .computers .circle4 {
   background-color: #ff9a8b; 
-  width: 13rem;
+  width: 12rem;
   height: 10rem;
   bottom: 6vh;
-  right: -6vw;
+  right: -4vw;
   z-index: 3;
 
 }
@@ -150,9 +150,8 @@
 .computers:hover .circle2, 
 .computers:hover .circle3,
 .computers:hover .circle4 {
-    transform: rotateZ(30deg);
-    width: 12rem;
-    height: 14rem;
+    transform: rotateZ(90deg);
+
 
 }
 
@@ -200,7 +199,7 @@
 
 .mobilePhones:hover img {
     transform: rotateZ(-10deg) scale(1.1);
-    
+    margin-left:0rem;
     
 }
 
@@ -284,26 +283,770 @@
 }
 
 
+
+
+
+
+
+
+
+
+
 .tvs {
-    background-color: #f8832f;
+  background-color: #f8832f;
+  position: relative;
+  width: 100%;
+  height: 22vh; 
+  padding: 2rem;
+  border-radius: 1rem;
+  overflow: hidden;
+
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  align-items: center;
+  color: white;
+  text-align: center;
+  box-sizing: border-box;
 }
+
+.tvs img {
+    position: absolute;
+    width: 70%;
+    margin-left:0rem;
+    margin-top:-5rem;
+    object-fit: contain;
+    transform: rotateZ(-10deg);
+    transition: all 1s ease;
+    z-index: 5;
+}
+
+.tvs:hover {
+  background-color: #fa8d40;
+}
+
+.tvs:hover img {
+    transform: rotateZ(0deg) scale(1.1);
+    
+}
+
+.tvs:hover p {
+    transform : scale(1.05);
+    background-color: rgba(0, 0, 0, 0.075); 
+}
+
+.tvs p {
+    color: rgb(255, 255, 255);
+    padding:5.5rem  11rem;
+    margin-top: -6.6rem;
+    font-size: clamp(3rem, 1vw, 14rem);
+    font-family: "PoppinsLight";
+    font-weight: bold;
+    z-index: 6;
+    background-color: rgba(0, 0, 0, 0.363); 
+    transition: all 0.3s ease;
+
+}
+
+
+.tvs .circle1, .tvs .circle2, .tvs  .circle3, .tvs  .circle4 {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+  background-color: #556B2F; 
+  pointer-events: none; 
+  box-shadow: 0px 20px 20px #07102975;
+  transition: all 1s ease;
+  transform: rotateZ(20deg);
+
+}
+
+
+.tvs .circle1 {
+  width: 10rem;
+  height: 9rem;
+  top: 6vh;
+  box-shadow: 0px -20px 20px #07102975;
+  left: -5vw;
+  z-index: 1;
+
+}
+
+.tvs .circle2 {
+  width: 11rem;
+  height: 8rem;
+  top: -2vh;
+  left: -5vw;
+  z-index: 2;  
+}
+
+.tvs .circle3 {
+  width: 11rem;
+  height: 8rem;
+  bottom: -4vh;
+  right: -4vw;
+  z-index: 3;
+
+}
+
+.tvs .circle4 {
+  width: 11rem;
+  height: 9rem;
+  bottom: 4vh;
+  right: -5vw;
+  z-index: 4;
+
+}
+
+.tvs:hover .circle1,
+.tvs:hover .circle2, 
+.tvs:hover .circle3,
+.tvs:hover .circle4 {
+    transform: rotateZ(90deg);
+    width: 10rem;
+    height: 12rem;
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 .smartWatches {
-    background-color: #7779fc;
+  background-color: #7779fc;
+  position: relative;
+  width: 100%;
+  height: 22vh; 
+  padding: 2rem;
+  border-radius: 1rem;
+  overflow: hidden;
+
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  align-items: center;
+  color: white;
+  text-align: center;
+  box-sizing: border-box;
 }
+
+.smartWatches img {
+    position: absolute;
+    width: 60%;
+    margin-left:0rem;
+    margin-top:-5rem;
+    object-fit: contain;
+    transform: rotateZ(20deg);
+    transition: all 1s ease;
+    z-index: 5;
+}
+
+.smartWatches:hover {
+  background-color: #7073ff;
+}
+
+.smartWatches:hover img {
+    transform: rotateZ(0deg) scale(1.1);
+    
+}
+
+.smartWatches:hover p {
+    transform : scale(1.05);
+    background-color: rgba(0, 0, 0, 0.226); 
+}
+
+.smartWatches p {
+    line-height: 0.9;
+    color: rgb(255, 255, 255);
+    padding:6.5rem  11rem;
+    margin-top: -6.6rem;
+    font-size: clamp(3rem, 1vw, 14rem);
+    font-family: "PoppinsLight";
+    font-weight: bold;
+    z-index: 6;
+    background-color: rgba(0, 0, 0, 0.534); 
+    transition: all 0.3s ease;
+
+}
+
+
+.smartWatches .circle1,
+.smartWatches .circle2,
+.smartWatches  .circle3,
+.smartWatches  .circle4 {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+  background-color: #3be7ae; 
+  pointer-events: none; 
+  box-shadow: 0px 20px 20px #07102938;
+  transition: all 1s ease;
+  transform: rotateZ(20deg);
+
+}
+
+
+.smartWatches .circle1 {
+  width: 12rem;
+  height: 11rem;
+  top: 2vh;
+  box-shadow: 0px -20px 20px #07102938;
+  left: -5vw;
+  z-index: 1;
+
+}
+
+.smartWatches .circle2 {
+  width: 12rem;
+  height: 10rem;
+  top: -5vh;
+  left: -3vw;
+  z-index: 2;  
+}
+
+.smartWatches .circle3 {
+  width: 12rem;
+  height: 10rem;
+  bottom: -4vh;
+  right: -4.5vw;
+  box-shadow: 0px -20px 20px #07102938;
+  z-index: 4;
+
+}
+
+.smartWatches .circle4 {
+  width: 12rem;
+  height: 10rem;
+  bottom: 4vh;
+  right: -5.5vw;
+  z-index: 3;
+
+}
+
+.smartWatches:hover .circle1,
+.smartWatches:hover .circle2, 
+.smartWatches:hover .circle3,
+.smartWatches:hover .circle4 {
+    transform: rotateZ(90deg);
+    width: 12rem;
+    height: 12rem;
+
+}
+
+
+
+
+
+
+
+
+
+
 
 .keyboards {
-    background-color: #e25252;
+  background-color: #e25252;
+  position: relative;
+  width: 100%;
+  height: 22vh; 
+  padding: 2rem;
+  border-radius: 1rem;
+  overflow: hidden;
+
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  align-items: center;
+  color: white;
+  text-align: center;
+  box-sizing: border-box;
 }
+
+.keyboards img {
+    position: absolute;
+    width: 80%;
+    margin-left:0rem;
+    margin-top:-8rem;
+    object-fit: contain;
+    transform: rotateZ(-20deg);
+    transition: all 1s ease;
+    z-index: 5;
+}
+
+.keyboards:hover {
+  background-color: #f05757;
+}
+
+.keyboards:hover img {
+    transform: rotateZ(0deg) scale(1.1);
+    margin-top:-9rem;
+}
+
+.keyboards:hover p {
+    transform : scale(1.05);
+    background-color: rgba(0, 0, 0, 0.116); 
+}
+
+.keyboards p {
+    line-height: 0.9;
+    color: rgb(255, 255, 255);
+    padding:6.5rem  11rem;
+    margin-top: -6.6rem;
+    font-size: clamp(3rem, 1vw, 14rem);
+    font-family: "PoppinsLight";
+    font-weight: bold;
+    z-index: 6;
+    background-color: rgba(0, 0, 0, 0.295); 
+    transition: all 0.3s ease;
+
+}
+
+
+.keyboards .circle1,
+.keyboards .circle2,
+.keyboards  .circle3,
+.keyboards  .circle4 {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+  background-color: #FFF0E0; 
+  pointer-events: none; 
+  box-shadow: 0px 20px 20px #07102938;
+  transition: all 1s ease;
+  transform: rotateZ(20deg);
+
+}
+
+
+.keyboards .circle1 {
+  width: 12rem;
+  height: 11rem;
+  top: 2vh;
+  box-shadow: 0px -20px 20px #07102938;
+  left: -5vw;
+  z-index: 1;
+
+}
+
+.keyboards .circle2 {
+  width: 12rem;
+  height: 10rem;
+  top: -5vh;
+  left: -3vw;
+  z-index: 2;  
+}
+
+.keyboards .circle3 {
+  width: 12rem;
+  height: 10rem;
+  bottom: -4vh;
+  right: -4.5vw;
+  box-shadow: 0px -20px 20px #07102938;
+  z-index: 4;
+
+}
+
+.keyboards .circle4 {
+  width: 12rem;
+  height: 10rem;
+  bottom: 4vh;
+  right: -5.5vw;
+  z-index: 3;
+
+}
+
+.keyboards:hover .circle1,
+.keyboards:hover .circle2, 
+.keyboards:hover .circle3,
+.keyboards:hover .circle4 {
+    transform: rotateZ(90deg);
+    width: 12rem;
+    height: 12rem;
+
+}
+
+
+
 
 .headphones {
-    background-color: #9f4dec;
+  background-color: #9f4dec;
+  position: relative;
+  width: 100%;
+  height: 22vh; 
+  padding: 2rem;
+  border-radius: 1rem;
+  overflow: hidden;
+
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  align-items: center;
+  color: white;
+  text-align: center;
+  box-sizing: border-box;
 }
+
+.headphones img {
+    position: absolute;
+    width: 45%;
+    margin-left:0rem;
+    margin-top:-5rem;
+    object-fit: contain;
+    transform: rotateZ(-20deg);
+    transition: all 1s ease;
+    z-index: 5;
+}
+
+.headphones:hover {
+  background-color: #ae57ff;
+}
+
+.headphones:hover img {
+    transform: rotateZ(0deg) scale(1.1);
+    margin-top:-6rem;
+}
+
+.headphones:hover p {
+    transform : scale(1.05);
+    background-color: rgba(0, 0, 0, 0.116); 
+}
+
+.headphones p {
+    line-height: 0.9;
+    color: rgb(255, 255, 255);
+    padding:6.5rem  11rem;
+    margin-top: -6.6rem;
+    font-size: clamp(3rem, 1vw, 14rem);
+    font-family: "PoppinsLight";
+    font-weight: bold;
+    z-index: 6;
+    background-color: rgba(0, 0, 0, 0.295); 
+    transition: all 0.3s ease;
+
+}
+
+
+.headphones .circle1,
+.headphones .circle2,
+.headphones  .circle3,
+.headphones  .circle4 {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+  background-color: #8ca6ee; 
+  pointer-events: none; 
+  box-shadow: 0px 20px 20px #0710294d;
+  transition: all 1s ease;
+  transform: rotateZ(20deg);
+
+}
+
+
+.headphones .circle1 {
+  width: 12rem;
+  height: 11rem;
+  top: 6vh;
+  box-shadow: 0px -20px 20px #07102938;
+  left: -3vw;
+  z-index: 1;
+
+}
+
+.headphones .circle2 {
+  width: 12rem;
+  height: 11rem;
+  top: 0vh;
+  left: -4vw;
+  z-index: 2;  
+}
+
+.headphones .circle3 {
+  width: 12rem;
+  height: 10rem;
+  bottom: -1vh;
+  right: -4.5vw;
+  box-shadow: 0px -20px 20px #07102938;
+  z-index: 3;
+
+}
+
+.headphones .circle4 {
+  width: 12rem;
+  height: 10rem;
+  bottom: 4vh;
+  right: -4vw;
+  z-index: 4;
+
+}
+
+.headphones:hover .circle1,
+.headphones:hover .circle2, 
+.headphones:hover .circle3,
+.headphones:hover .circle4 {
+    transform: rotateZ(90deg);
+    width: 12rem;
+    height: 12rem;
+
+}
+
+
+
+
+
+
 
 .monitors {
-    background-color: #42b3e7;
+  background-color: #42b3e7;
+  position: relative;
+  width: 100%;
+  height: 22vh; 
+  padding: 2rem;
+  border-radius: 1rem;
+  overflow: hidden;
+
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  align-items: center;
+  color: white;
+  text-align: center;
+  box-sizing: border-box;
 }
 
+.monitors img {
+    position: absolute;
+    width: 70%;
+    margin-left:0rem;
+    margin-top:-5rem;
+    object-fit: contain;
+    transform: rotateZ(-20deg);
+    transition: all 1s ease;
+    z-index: 5;
+}
+
+.monitors:hover {
+  background-color: #4ac0f7;
+}
+
+.monitors:hover img {
+    transform: rotateZ(0deg) scale(1.1);
+    margin-top:-6rem;
+}
+
+.monitors:hover p {
+    transform : scale(1.05);
+    background-color: rgba(0, 0, 0, 0.11); 
+}
+
+.monitors p {
+    line-height: 0.9;
+    color: rgb(255, 255, 255);
+    padding:6.5rem  11rem;
+    margin-top: -6.6rem;
+    font-size: clamp(3rem, 1vw, 14rem);
+    font-family: "PoppinsLight";
+    font-weight: bold;
+    z-index: 6;
+    background-color: rgba(0, 0, 0, 0.212); 
+    transition: all 0.3s ease;
+
+}
+
+.monitors .circle1,
+.monitors .circle2,
+.monitors  .circle3,
+.monitors  .circle4 {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+  background-color:#ff6f61; 
+  pointer-events: none; 
+  box-shadow: 0px 20px 20px #0710294d;
+  transition: all 1s ease;
+  transform: rotateZ(20deg);
+
+}
+
+
+.monitors .circle1 {
+  width: 12rem;
+  height: 11rem;
+  top: 6vh;
+  box-shadow: 0px -20px 20px #07102938;
+  left: -5vw;
+  z-index: 2;
+
+}
+
+.monitors .circle2 {
+  width: 13rem;
+  height: 11rem;
+  top: 0vh;
+  left: -5vw;
+  z-index: 1;  
+}
+
+.monitors .circle3 {
+  width: 13rem;
+  height: 10rem;
+  bottom: -4vh;
+  right: -5vw;
+  box-shadow: 0px -20px 20px #07102938;
+  z-index: 4;
+
+}
+
+.monitors .circle4 {
+  width: 12rem;
+  height: 11rem;
+  bottom: 2vh;
+  right: -4vw;
+  z-index: 3;
+
+}
+
+.monitors:hover .circle1,
+.monitors:hover .circle2, 
+.monitors:hover .circle3,
+.monitors:hover .circle4 {
+    transform: rotateZ(90deg);
+    width: 12rem;
+    height: 12rem;
+
+}
+
+
+
+
+
+
 .tablets {
-    background-color: #f7d656;
+  background-color: #f7d656;
+  position: relative;
+  width: 100%;
+  height: 22vh; 
+  padding: 2rem;
+  border-radius: 1rem;
+  overflow: hidden;
+
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  align-items: center;
+  color: white;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.tablets img {
+    position: absolute;
+    width: 65%;
+    margin-left:0rem;
+    margin-top:-5rem;
+    object-fit: contain;
+    transform: rotateZ(-20deg);
+    transition: all 1s ease;
+    z-index: 5;
+}
+
+.tablets:hover {
+  background-color: #ffe373;
+}
+
+.tablets:hover img {
+    transform: rotateZ(0deg) scale(1.1);
+}
+
+.tablets:hover p {
+    transform : scale(1.05);
+    background-color: rgba(0, 0, 0, 0.11); 
+}
+
+.tablets p {
+    line-height: 0.9;
+    color: rgb(255, 255, 255);
+    padding:6.5rem  11rem;
+    margin-top: -6.6rem;
+    font-size: clamp(3rem, 1vw, 14rem);
+    font-family: "PoppinsLight";
+    font-weight: bold;
+    z-index: 6;
+    background-color: rgba(0, 0, 0, 0.212); 
+    transition: all 0.3s ease;
+
+}
+
+.tablets .circle1,
+.tablets .circle2,
+.tablets  .circle3,
+.tablets  .circle4 {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+  background-color:#e8b4b8; 
+  pointer-events: none; 
+  box-shadow: 0px 20px 20px #07102921;
+  transition: all 1s ease;
+  transform: rotateZ(20deg);
+
+}
+
+
+.tablets .circle1 {
+  width: 11rem;
+  height: 10rem;
+  top: 4vh;
+  box-shadow: 0px -20px 20px #060e2436;
+  left: -4vw;
+  z-index: 2;
+
+}
+
+.tablets .circle2 {
+  width: 11rem;
+  height: 8rem;
+  top: -4vh;
+  left: -4vw;
+  z-index: 1;  
+}
+
+
+.tablets .circle3 {
+  width: 11rem;
+  height: 8rem;
+  bottom: -4vh;
+  right: -3vw;
+  z-index: 3;
+
+}
+
+.tablets .circle4 {
+  width: 11rem;
+  height: 10rem;
+  bottom: 4vh;
+  right: -3vw;
+  z-index: 4;
+
+}
+
+.tablets:hover .circle1,
+.tablets:hover .circle2, 
+.tablets:hover .circle3,
+.tablets:hover .circle4 {
+    transform: rotateZ(90deg);
+    width: 12rem;
+    height: 12rem;
+
 }

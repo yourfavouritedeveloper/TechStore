@@ -1,6 +1,13 @@
 import styles from "./Body.module.css"
-import Macbook from "../assets/Macbook.png"
 import Iphone from "../assets/iphone.png"
+import Macbook from "../assets/macbook.png"
+import TV from "../assets/tv.png"
+import Watch from "../assets/watch.png"
+import Keyboard from "../assets/keyboard.png"
+import Headphone from "../assets/headphone.png"
+import Monitor from "../assets/monitor.png"
+import Tablet from "../assets/tablet.png"
+
 
 function Body() {
     return(
@@ -29,12 +36,74 @@ function Body() {
                         <p>Phones</p>
                         <img src={Iphone} alt="Phones" />
                     </li>
-                    <li className={styles.tvs}>TVs</li>
-                    <li className={styles.smartWatches}>Smart Watches</li>
-                    <li className={styles.keyboards}>Keyboards</li>
-                    <li className={styles.headphones}>Headphones</li>
-                    <li className={styles.monitors}>Monitors</li>
-                    <li className={styles.tablets}>Tablets</li>
+
+
+
+                    <li className={styles.tvs}>
+                        <span className={styles.circle1}></span>
+                        <span className={styles.circle2}></span>
+                        <span className={styles.circle3}></span>    
+                        <span className={styles.circle4}></span> 
+                        <p>TVs</p>
+                        <img src={TV} alt="tvs" />
+                        
+                    </li>
+
+
+
+                    <li className={styles.smartWatches}>
+                        <span className={styles.circle1}></span>
+                        <span className={styles.circle2}></span>
+                        <span className={styles.circle3}></span>    
+                        <span className={styles.circle4}></span> 
+                        <p>Watches</p>
+                        <img src={Watch} alt="watches" />
+                        </li>
+
+
+
+
+                    <li className={styles.keyboards}>
+                        <span className={styles.circle1}></span>
+                        <span className={styles.circle2}></span>
+                        <span className={styles.circle3}></span>    
+                        <span className={styles.circle4}></span> 
+                        <p>Keyboards</p>
+                        <img src={Keyboard} alt="keyboards" />
+                    </li>
+
+
+
+                    <li className={styles.headphones}>
+                        <span className={styles.circle1}></span>
+                        <span className={styles.circle2}></span>
+                        <span className={styles.circle3}></span>    
+                        <span className={styles.circle4}></span>                         
+                        <p>Headphones</p>
+                        <img src={Headphone} alt="headphones" />                        
+                        </li>
+
+
+
+                    <li className={styles.monitors}>
+                        <span className={styles.circle1}></span>
+                        <span className={styles.circle2}></span>
+                        <span className={styles.circle3}></span>    
+                        <span className={styles.circle4}></span>    
+                        <p>Monitors</p>
+                        <img src={Monitor} alt="monitors" />                        
+                        </li>
+
+
+
+                    <li className={styles.tablets}>
+                        <span className={styles.circle1}></span>
+                        <span className={styles.circle2}></span>
+                        <span className={styles.circle3}></span>    
+                        <span className={styles.circle4}></span>                         
+                        <p>Tablets</p>
+                        <img src={Tablet} alt="tablets" />                           
+                    </li>
                 </ul>
             </div>
         </>
