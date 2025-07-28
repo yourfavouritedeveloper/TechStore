@@ -9,17 +9,27 @@
     z-index: 8;
 }
 
+.cover{
+    background-color: white;
+    width: 100%;
+    height: 10%;
+    position: absolute;
+    z-index: 5;
+    margin-top:-13rem
+}
+
 .bar {
     position: absolute;
     display: flex;
     justify-content: center;
     z-index: 10;
-    background-color: #ececec;
+    background-color: #f3f0f0;
     width: 80%;
     margin-left: 10%;
     height: 10vh;
     top:0%;
     border-radius: 2rem;
+    z-index: 8;
 }
 
 .filter {
@@ -28,23 +38,37 @@
     font-family: "PoppinsLight";
     padding: 0.5rem 1.5rem;
     cursor: pointer;
-    left:2rem;
+    left:1rem;
     top:1.5rem;
     border: none;
-    color:white;
-    background-color: #252525;
+    color:rgb(0, 0, 0);
+    background-color: #ffffff;
     border-radius: 2rem;
     transition: all 0.3s ease;
+    z-index: 8;
 }
 
 .filter:hover {
-    transform: scale(1.05);
-    background-color: #3a3a3a;
+    transform: scale(1.02);
+    background-color: #2962FF;
+    color:rgb(255, 255, 255);
 }
+
+.filter:active {
+    transform: scale(1.02);
+    background-color: rgb(26, 65, 172);
+    color:rgb(255, 255, 255);   
+}
+
 
 svg {
     position: relative;
     top:0.2rem;
+    
+}
+
+.filter:hover svg {
+    fill:white;
 }
 
 
@@ -55,6 +79,7 @@ svg {
     gap: 1rem; 
     padding: 0rem 8rem;
     position: relative;
+    
 }
 
 .items h3 {
@@ -82,5 +107,249 @@ svg {
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    background-color: rgb(248, 237, 217);
+    background-color: rgb(231, 231, 231);
+}
+
+input {
+    position: absolute;
+    width: 28rem;
+    padding:0.35rem 1.5rem;
+    padding-left:4rem;
+    margin-top: 1.48rem;
+    border-radius: 1.5rem;
+    left:53.5rem;
+    border:none;
+    font-family: "PoppinsLight";
+    font-size: clamp(1.5rem, 1vw, 2.5rem);
+    transition: transform 0.3s ease;
+    z-index: 8;
+}
+
+input:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.search {
+    position: absolute;
+    margin-top:1.7rem;
+    left:54.5rem;
+    transform: rotateZ(0deg);
+    transition: transform 0.3s ease;
+    z-index: 8;
+}
+
+.inputBar:hover .search{
+    transform: rotateZ(90deg);
+}
+
+
+
+
+.low input, .high input, .newest input, .oldest input, .more input {
+  display: none;
+  
+  
+}
+
+.low span {
+  position: absolute;
+  padding: 0.5rem 1.5rem;
+  border-radius: 2rem;
+  left:9rem;
+  top:1.5rem;
+   font-size: 1.2rem;
+   background: linear-gradient(to right, #f11f187a 40%, #ffaa657c 100%);   
+  color: white;
+  cursor: pointer;
+  background-size: 200% 100%;
+  background-position: 100% 0%;
+  transition: all 0.5s ease;
+  z-index: 8;
+
+}
+
+.low:hover span {
+    background-position: 0% 0%;   
+    transform: scale(1.02);    
+}
+
+
+.low input:checked + span{
+  background: linear-gradient(to right, #f11f18d5 40%, #ffaa65d2 100%);
+  
+}
+
+.high span{
+     position: absolute;
+    font-size: 1.2rem;
+    font-family: "PoppinsLight";
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    left:19.7rem;
+    top:1.5rem;
+    border: none;
+    color:white;
+    background: linear-gradient(to right, #37ac3d79 40%, #d2f53873 100%);
+    border-radius: 2rem;
+    background-size: 200% 100%;
+    background-position: 100% 0%;
+    transition: all 0.5s ease;   
+    z-index: 8;
+}
+
+
+.high:hover span{
+    background-position: 0% 0%;
+    transform: scale(1.02);
+}
+
+.high input:checked + span{
+  background: linear-gradient(to right, #2f7c33d5 40%, #acc92ce5 100%);
+  
+}
+
+
+.newest span{
+     position: absolute;
+    font-size: 1.2rem;
+    font-family: "PoppinsLight";
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    left:30.4rem;
+    top:1.5rem;
+    border: none;
+    color:white;
+    background-color: #4b73e270;
+    border-radius: 2rem;
+    transition: all 0.5s ease; 
+    z-index: 8;  
+}
+
+.newest:hover span {
+     transform: scale(1.02); 
+     background-color: #7498fac5;      
+}
+
+.newest input:checked + span{
+     background-color: #466cd3de;   
+}
+
+
+
+.oldest span{
+     position: absolute;
+    font-size: 1.2rem;
+    font-family: "PoppinsLight";
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    left:38.8rem;
+    top:1.5rem;
+    border: none;
+    color:white;
+    background-color:#6e472c60 ;
+    border-radius: 2rem;
+    transition: all 0.5s ease;   
+    z-index: 8;
+}
+
+.oldest:hover span{
+     transform: scale(1.02); 
+     background-color: #a06f4eb4;      
+}
+
+.oldest input:checked + span{
+     background-color: #5f422ee3;      
+}
+
+.more {
+    cursor: pointer;
+    
+}
+.more span{
+     position: absolute;
+    font-size: 1.2rem;
+    font-family: "PoppinsLight";
+    padding: 0.5rem 1.5em;
+    padding-right: 1rem;
+    left:58.5rem;
+    top:1.5rem;
+    border: none;
+    color:white;
+    background-color:#7636be60 ;
+    border-radius: 2rem;
+    transition: all 0.5s ease;   
+    z-index: 8;
+}
+
+.more:hover span{
+     transform: scale(1.02); 
+     background-color: #8e53d193;      
+}
+
+
+
+
+.more svg {
+    position: absolute;
+    margin-top: 1.88rem;
+    margin-left:-0.8rem;
+    z-index: 8;
+    transition: all 0.3s ease;
+
+}
+
+
+
+.moreOption {
+    width:80%;
+    left:0rem;
+    margin-left: 10%;
+    margin-top: -36.2rem;
+    border-radius: 0rem;
+    position:absolute;
+    height: 30rem;
+    background-color: rgb(207, 207, 207);
+
+    z-index: 1;
+    transition: all 0.5s ease;
+    
+}
+
+.more:hover .moreOption {
+    margin-top: -20rem; 
+    border-radius: 10rem;
+
+}
+
+.more:hover svg {
+    transform: rotateZ(90deg);
+}
+
+
+
+
+
+
+
+.refresh {
+    position: absolute;
+    font-size: 1.2rem;
+    font-family: "PoppinsLight";
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    left:88rem;
+    top:1.5rem;
+    border: none;
+    color:rgb(255, 255, 255);
+    background-color: #797979;
+    border-radius: 2rem;
+    transition: all 0.3s ease;    
+    z-index: 8;
+}
+
+.refresh:hover {
+    transform: scale(1.05);
+    background-color: black;
 }
