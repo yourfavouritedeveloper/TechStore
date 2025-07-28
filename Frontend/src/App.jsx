@@ -2,10 +2,15 @@ import { useState, useEffect, useRef } from "react";
 import Nav from "./Nav/Nav";
 import Background from "./Background/Background";
 import Body from "./Body/Body";
+import Item from "./Items/Item";
 
 function App() {
   const shopRef = useRef(null);
   const [navHighlight, setNavHighlight] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     function onScroll() {
@@ -39,6 +44,7 @@ function App() {
       <Nav highlight={navHighlight} />
       <Background shopRef={shopRef} scrollTo={scrollToShop} />
       <Body shopRef={shopRef} />
+      <Item></Item>
     </>
   );
 }
