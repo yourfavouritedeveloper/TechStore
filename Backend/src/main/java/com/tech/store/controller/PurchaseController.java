@@ -20,14 +20,14 @@ public class PurchaseController {
     private final PurchaseService purchaseService;
 
     @GetMapping("/{id}")
-    @ResponseStatus(HttpStatus.FOUND)
+    @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Get purchase by id", description = "Gets the specified purchase.")
     public PurchaseDto findById(@PathVariable Long id) {
         return purchaseService.findById(id);
     }
 
     @GetMapping("account/{id}")
-    @ResponseStatus(HttpStatus.FOUND)
+    @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Get all purchases of the account", description = "Gets the specified purchase.")
     public List<PurchaseDto> findByAccount(@PathVariable Long id) {
         return purchaseService.findByAccount(id);
@@ -35,7 +35,7 @@ public class PurchaseController {
 
 
     @GetMapping("/all")
-    @ResponseStatus(HttpStatus.FOUND)
+    @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Get all purchases", description = "Gets all purchases.")
     public List<PurchaseDto> getAll() {
         return purchaseService.findAll();

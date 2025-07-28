@@ -22,14 +22,14 @@ public class AccountController {
     private final AccountService accountService;
 
     @GetMapping("/{id}")
-    @ResponseStatus(HttpStatus.FOUND)
+    @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Get account by id", description = "Gets the specified account.")
     public AccountDto findById(@PathVariable Long id) {
         return accountService.findById(id);
     }
 
     @GetMapping("/username/{username}")
-    @ResponseStatus(HttpStatus.FOUND)
+    @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Get account by username", description = "Gets the specified account.")
     public AccountDto findByName(@PathVariable String username) {
         return accountService.findByName(username);
@@ -37,7 +37,7 @@ public class AccountController {
 
 
     @GetMapping("/all")
-    @ResponseStatus(HttpStatus.FOUND)
+    @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Get all accounts", description = "Gets all accounts.")
     public List<AccountDto> getAll() {
         return accountService.findAll();

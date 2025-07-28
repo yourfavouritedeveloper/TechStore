@@ -22,7 +22,7 @@ public class ProductController {
     private final ProductService productService;
 
     @GetMapping("/{id}")
-    @ResponseStatus(HttpStatus.FOUND)
+    @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Get product by id", description = "Gets the specified product.")
     public ProductDto findById(@PathVariable Long id) {
         return productService.findById(id);
@@ -30,7 +30,7 @@ public class ProductController {
 
 
     @GetMapping("/all")
-    @ResponseStatus(HttpStatus.FOUND)
+    @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Get all products", description = "Gets all products.")
     public List<ProductDto> getAll() {
         return productService.findAll();
