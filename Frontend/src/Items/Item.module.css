@@ -366,3 +366,10 @@ input:focus {
     transform: scale(1.05);
     background-color: black;
 }
+
+
+.popular {
+    position: relative;
+    left:-45rem;
+    font-size: clamp(1.5rem, 1.5vw, 2.5rem);
+}
