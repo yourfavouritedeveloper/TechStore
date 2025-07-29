@@ -78,6 +78,7 @@ function Item() {
                       <path d="M400-280v-400l200 200-200 200Z"/></svg>
                       <div className={styles.moreOption}></div>
                     </label>
+                    <p className={styles.popular}>Most Popular</p>
                 <ul className={styles.items}>
                     {items.map((item) => (
                     <li key={item.id} className={styles.item}>
