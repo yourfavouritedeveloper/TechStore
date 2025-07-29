@@ -3,13 +3,17 @@ package com.tech.store.service;
 import com.tech.store.dao.entity.AccountEntity;
 import com.tech.store.dao.repository.AccountRepository;
 import com.tech.store.exception.AccountNotFoundException;
-import com.tech.store.exception.MisMatchingDataException;
 import com.tech.store.mapper.AccountMapper;
+import com.tech.store.model.dto.Account;
 import com.tech.store.model.dto.AccountDto;
 import com.tech.store.model.enumeration.Status;
 import com.tech.store.util.UpdateUtils;
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,11 +23,12 @@ import java.util.*;
 
 @Service
 @RequiredArgsConstructor
-public class AccountService {
+public class AccountService implements UserDetailsService {
 
     private final AccountRepository accountRepository;
     private final AccountMapper accountMapper;
     private final UpdateUtils updateUtils;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(12);
 
     @Transactional(readOnly = true)
     public AccountDto findById(Long id) {
@@ -45,6 +50,7 @@ public class AccountService {
 
     @Transactional
     public AccountDto create(AccountDto accountDto) {
+        accountDto.setPassword(bCryptPasswordEncoder.encode(accountDto.getPassword()));
         AccountEntity accountEntity = accountMapper.toAccountEntity(accountDto);
         return accountMapper.toAccountDto(accountRepository.save(accountEntity));
     }
@@ -77,4 +83,13 @@ public class AccountService {
     }
 
 
+
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+
+        AccountEntity accountEntity = accountRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("Account not found."));
+        System.out.println("Loaded password (hashed): " + accountEntity.getPassword());
+        return new Account(accountEntity);
+    }
 }

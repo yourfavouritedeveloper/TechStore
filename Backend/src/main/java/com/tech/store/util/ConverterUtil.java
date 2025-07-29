@@ -4,7 +4,7 @@ import java.lang.reflect.*;
 import java.math.BigDecimal;
 import java.util.Map;
 
-public class ConverterUtils {
+public class ConverterUtil {
 
     public static Object convertValue(Object value, Class<?> targetType) {
         if (value == null) {

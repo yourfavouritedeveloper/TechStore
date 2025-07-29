@@ -23,4 +23,7 @@ spring:
     change-log: classpath:/db/changelog/db.changelog-master.yaml
 
 
-
+  security:
+    user:
+      name: ${SECURITY_USERNAME}
+      password: ${SECURITY_PASSWORD}

@@ -13,6 +13,6 @@ public enum Role {
     }
 
     public String getName() {
-        return name;
+        return "ROLE_" + name;
     }
 }
