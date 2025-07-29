@@ -6,8 +6,6 @@ import org.springframework.stereotype.Component;
 import java.lang.reflect.Method;
 import java.util.Map;
 
-import static com.tech.store.util.ConverterUtils.convertValue;
-
 @Component
 public class UpdateUtils {
 
@@ -39,7 +37,7 @@ public class UpdateUtils {
             }
 
             Class<?> paramType = setterMethod.getParameterTypes()[0];
-            Object convertedValue = convertValue(valueObj, paramType);
+            Object convertedValue = ConverterUtil.convertValue(valueObj, paramType);
 
             setterMethod.invoke(entity, convertedValue);
         }

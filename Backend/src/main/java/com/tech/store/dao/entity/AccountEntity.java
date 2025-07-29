@@ -20,6 +20,7 @@ import java.util.List;
 @Table(name = "accounts")
 public class AccountEntity extends BaseEntity {
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "role", nullable = false)
     private Role role;
 
