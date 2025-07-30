@@ -1,6 +1,8 @@
 package com.tech.store.controller;
 
+import com.tech.store.model.dto.Account;
 import com.tech.store.model.dto.AccountDto;
+import com.tech.store.model.dto.LoginRequestDto;
 import com.tech.store.service.AccountService;
 import com.tech.store.util.OnCreate;
 import io.swagger.v3.oas.annotations.Operation;
@@ -44,11 +46,18 @@ public class AccountController {
     }
 
 
-    @PostMapping("/create")
+    @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
-    @Operation(summary = "Create a new account", description = "Creates an account with provided information.")
-    public AccountDto createAccount(@Validated(OnCreate.class) @RequestBody AccountDto accountDto) {
-        return accountService.create(accountDto);
+    @Operation(summary = "Register a new account", description = "Creates an account with provided information.")
+    public AccountDto register(@Validated(OnCreate.class) @RequestBody AccountDto accountDto) {
+        return accountService.register(accountDto);
+    }
+
+    @PostMapping("/login")
+    @ResponseStatus(HttpStatus.OK)
+    @Operation(summary = "Log in an account", description = "Logs an account in provided information.")
+    public String login(@Validated(OnCreate.class) @RequestBody LoginRequestDto loginRequest) {
+        return accountService.login(loginRequest);
     }
 
     @PutMapping("/update/{id}")
