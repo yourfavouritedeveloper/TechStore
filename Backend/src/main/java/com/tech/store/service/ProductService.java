@@ -18,6 +18,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
@@ -43,6 +44,28 @@ public class ProductService {
                 .map(productMapper::toProductDto)
                 .toList();
     }
+
+    @Transactional(readOnly = true)
+    public List<ProductDto> findByMostPopular() {
+        List<ProductEntity> productEntities = productRepository.findAll();
+        return productEntities.stream()
+                .sorted(Comparator.comparing(ProductEntity::getSearched).reversed())
+                .limit(6)
+                .map(productMapper::toProductDto)
+                .toList();
+    }
+
+    @Transactional(readOnly = true)
+    public List<ProductDto> findByMostBought() {
+        List<ProductEntity> productEntities = productRepository.findAll();
+        return productEntities.stream()
+                .sorted(Comparator.comparing(ProductEntity::getBought).reversed())
+                .limit(6)
+                .map(productMapper::toProductDto)
+                .toList();
+    }
+
+
 
     @Transactional
     public ProductDto create(ProductDto productDto) {

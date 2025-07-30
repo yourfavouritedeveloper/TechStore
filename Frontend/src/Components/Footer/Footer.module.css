@@ -1,0 +1,51 @@
+.footer {
+  background-color: #1a1a1a;
+  color: #fff;
+  padding: 2rem 5rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.left {
+  margin-bottom: 0.5rem;
+}
+
+.right {
+  text-align: center;
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-top: 0.3rem;
+}
+
+.mail, .number {
+  color: #4ea1f3;
+  text-decoration: none;
+}
+
+.mail:hover, .number:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 600px) {
+  .content {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .right {
+    text-align: right;
+  }
+
+  .contacts {
+    align-items: flex-end;
+  }
+}

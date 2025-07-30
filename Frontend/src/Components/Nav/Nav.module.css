@@ -15,21 +15,21 @@ html,body {
     
 
 }
-li {
-    
+
+
+
+
+
+
+#campaign{
+    border-radius: 2rem;
     padding: 0.3rem;
     font-size: clamp(1rem, 1.2vw, 2.5rem);
     transition: all 0.3s ease;
 
 }
 
-.campaign{
-    border-radius: 2rem;
-    transition: all 0.3s ease;
-
-}
-
-.campaign:hover{
+#campaign:hover{
     position: relative;
     display: inline-flex;
     justify-content: center;
@@ -42,13 +42,15 @@ li {
 
 
 
-.about{
+#about{
+    padding: 0.3rem;
     border-radius: 2rem;
+    font-size: clamp(1rem, 1.2vw, 2.5rem);
     transition: all 0.3s ease;
 
 }
 
-.about:hover{
+#about:hover{
     position: relative;
     display: inline-flex;
     justify-content: center;
@@ -60,13 +62,15 @@ li {
 }
 
 
-.contact{
+#contact{
     border-radius: 2rem;
+    padding: 0.3rem;
+    font-size: clamp(1rem, 1.2vw, 2.5rem);
     transition: all 0.3s ease;
 
 }
 
-.contact:hover{
+#contact:hover{
     position: relative;
     display: inline-flex;
     justify-content: center;
@@ -82,13 +86,15 @@ li {
 
 
 
-.login{
+#login{
     border-radius: 2rem;
+    padding: 0.3rem;
+    font-size: clamp(1rem, 1.2vw, 2.5rem);
     transition: all 0.3s ease;
 
 }
 
-.login:hover{
+#login:hover{
     position: relative;
     display: inline-flex;
     justify-content: center;
@@ -100,7 +106,10 @@ li {
 
 
 
-.name {
+#name {
+    padding: 0.3rem;
+    font-size: clamp(1rem, 1.2vw, 2.5rem);
+    transition: all 0.3s ease;
     position: relative;
     display: inline-flex;
     list-style: none; 
@@ -132,6 +141,7 @@ a {
     color:white;
 }
 
-.name .highlight:hover {
+#name.highlight:hover {
   color: black;
 }
+
