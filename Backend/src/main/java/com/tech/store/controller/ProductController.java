@@ -36,6 +36,20 @@ public class ProductController {
         return productService.findAll();
     }
 
+    @GetMapping("/popular")
+    @ResponseStatus(HttpStatus.OK)
+    @Operation(summary = "Get the most popular products", description = "Gets the most popular 5 products.")
+    public List<ProductDto> getPopular() {
+        return productService.findByMostPopular();
+    }
+
+    @GetMapping("/bought")
+    @ResponseStatus(HttpStatus.OK)
+    @Operation(summary = "Get the most bought products", description = "Gets the most bought 5 products.")
+    public List<ProductDto> getBought() {
+        return productService.findByMostBought();
+    }
+
 
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)

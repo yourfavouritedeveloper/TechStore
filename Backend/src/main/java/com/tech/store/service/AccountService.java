@@ -4,14 +4,16 @@ import com.tech.store.dao.entity.AccountEntity;
 import com.tech.store.dao.repository.AccountRepository;
 import com.tech.store.exception.AccountNotFoundException;
 import com.tech.store.mapper.AccountMapper;
-import com.tech.store.model.dto.Account;
 import com.tech.store.model.dto.AccountDto;
+import com.tech.store.model.dto.LoginRequestDto;
 import com.tech.store.model.enumeration.Status;
 import com.tech.store.util.UpdateUtils;
 import lombok.RequiredArgsConstructor;
 
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -23,12 +25,18 @@ import java.util.*;
 
 @Service
 @RequiredArgsConstructor
-public class AccountService implements UserDetailsService {
+public class AccountService {
 
+
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
+    private final JWTService jwtService;
     private final AccountRepository accountRepository;
     private final AccountMapper accountMapper;
     private final UpdateUtils updateUtils;
     private final BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(12);
+
 
     @Transactional(readOnly = true)
     public AccountDto findById(Long id) {
@@ -49,11 +57,30 @@ public class AccountService implements UserDetailsService {
     }
 
     @Transactional
-    public AccountDto create(AccountDto accountDto) {
+    public AccountDto register(AccountDto accountDto) {
         accountDto.setPassword(bCryptPasswordEncoder.encode(accountDto.getPassword()));
         AccountEntity accountEntity = accountMapper.toAccountEntity(accountDto);
         return accountMapper.toAccountDto(accountRepository.save(accountEntity));
     }
+
+    @Transactional
+    public String login(LoginRequestDto loginRequest) {
+        return verify(loginRequest);
+    }
+
+    public String verify(LoginRequestDto loginRequest) {
+        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(),loginRequest.getPassword()));
+
+        if(authentication.isAuthenticated()) {
+            AccountEntity accountEntity = accountRepository.findByUsername(loginRequest.getUsername())
+                    .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+
+            return jwtService.generateToken(loginRequest.getUsername());
+        }
+        throw new AccountNotFoundException("User not found");
+    }
+
+
 
     @Transactional
     public AccountDto updateAccount(Long id, Map<String, String> updates) throws Exception {
@@ -85,11 +112,5 @@ public class AccountService implements UserDetailsService {
 
 
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        AccountEntity accountEntity = accountRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("Account not found."));
-        System.out.println("Loaded password (hashed): " + accountEntity.getPassword());
-        return new Account(accountEntity);
-    }
 }

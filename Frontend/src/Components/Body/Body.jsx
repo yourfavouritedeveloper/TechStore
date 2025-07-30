@@ -1,12 +1,12 @@
 import styles from "./Body.module.css"
-import Iphone from "../assets/iphone.png"
-import Macbook from "../assets/macbook.png"
-import TV from "../assets/tv.png"
-import Watch from "../assets/watch.png"
-import Keyboard from "../assets/keyboard.png"
-import Headphone from "../assets/headphone.png"
-import Monitor from "../assets/monitor.png"
-import Tablet from "../assets/tablet.png"
+import Iphone from "../../assets/iphone.png";
+import Macbook from "../../assets/macbook.png";
+import TV from "../../assets/tv.png";
+import Watch from "../../assets/watch.png";
+import Keyboard from "../../assets/keyboard.png";
+import Headphone from "../../assets/headphone.png";
+import Monitor from "../../assets/monitor.png";
+import Tablet from "../../assets/tablet.png";
 
 
 function Body() {

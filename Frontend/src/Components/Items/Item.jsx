@@ -4,12 +4,23 @@ import { useState, useEffect } from "react";
 
 
 function Item() {
-  const [items, setItems] = useState([]);
+  const [itemsPopular, setItemsPopular] = useState([]);
+  const [itemsSeller, setitemsSeller] = useState([]);
 
     useEffect(() => {
-    axios.get("http://localhost:8080/api/v1/products/all") 
+    axios.get("http://localhost:8080/api/v1/products/popular") 
       .then(response => {
-        setItems(response.data);
+        setItemsPopular(response.data);
+      })
+      .catch(error => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
+    useEffect(() => {
+    axios.get("http://localhost:8080/api/v1/products/bought") 
+      .then(response => {
+        setitemsSeller(response.data);
       })
       .catch(error => {
         console.error("Error fetching data:", error);
@@ -79,21 +90,28 @@ function Item() {
                       <div className={styles.moreOption}></div>
                     </label>
                     <p className={styles.popular}>Most Popular</p>
-                <ul className={styles.items}>
-                    {items.map((item) => (
+                <ul className={styles.itemsPopular}>
+                    {itemsPopular.map((item) => (
                     <li key={item.id} className={styles.item}>
+                        <p className={styles.searchRate}>Searched {item.searched} times</p>
                         <h3>{item.name}</h3>
-                        <p>{item.guarantee} month</p>
+                        <p className={styles.guarantee}>{item.guarantee} month</p>
                         <span>₼{item.price}</span>
                     </li>
                     ))}
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
                 </ul>
 
+                <p className={styles.sellers}>Most Sellers</p>
+                <ul className={styles.itemsBought}>
+                    {itemsSeller.map((item) => (
+                    <li key={item.id} className={styles.item}>
+                        <p className={styles.boughtRate}>Bought {item.bought} times</p>
+                        <h3>{item.name}</h3>
+                        <p className={styles.guarantee}>{item.guarantee} month</p>
+                        <span>₼{item.price}</span>
+                    </li>
+                    ))}                
+                </ul>
             </div>
         </>
 

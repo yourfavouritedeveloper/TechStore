@@ -41,6 +41,12 @@ public class ProductEntity extends BaseEntity {
     @Column(name = "company",nullable = false)
     private String company;
 
+    @Column(name = "searched",nullable = false)
+    private Integer searched = 0;
+
+    @Column(name = "bought",nullable = false)
+    private Integer bought = 0;
+
     @ElementCollection
     @CollectionTable(name = "product_properties", joinColumns = @JoinColumn(name = "product_id"))
     @Column(name = "value")
