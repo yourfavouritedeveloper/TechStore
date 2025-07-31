@@ -1,11 +1,51 @@
 import styles from "./Item.module.css"
 import axios from 'axios';
 import { useState, useEffect } from "react";
+import { applyFilters } from '../Utils/filterUtil';
 
-
-function Item() {
+function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
   const [itemsPopular, setItemsPopular] = useState([]);
-  const [itemsSeller, setitemsSeller] = useState([]);
+  const [itemsSeller, setItemsSeller] = useState([]);
+  const [originalItems, setOriginalItems] = useState([]);
+  const [filteredItems, setFilteredItems] = useState([]);
+  const [itemsBody, setItemsBody] = useState([]);
+  const [sortOptions, setSortOptions] = useState({
+    price: null,
+    date: null,
+  });
+  const [resetClicked, setResetClicked] = useState(false);
+
+
+
+
+useEffect(() => {
+  if (bodyItems && bodyItems.length > 0) {
+    setOriginalItems(bodyItems);
+    setFilteredItems(bodyItems);
+    setResetClicked(false);
+
+  } else {
+    setOriginalItems(items);
+    setFilteredItems(items);
+   setResetClicked(true);   
+  }
+
+}, [bodyItems, items]);
+
+
+const handleFilterClick = () => {
+  const filtered = applyFilters(filteredItems, sortOptions);
+  setFilteredItems(filtered);
+  setResetClicked(false);
+};
+
+
+const handleReset = () => {
+  
+  setResetClicked(true);
+  setFilteredItems(items);
+  if (onResetFilters) onResetFilters();
+};
 
     useEffect(() => {
     axios.get("http://localhost:8080/api/v1/products/popular") 
@@ -20,21 +60,29 @@ function Item() {
     useEffect(() => {
     axios.get("http://localhost:8080/api/v1/products/bought") 
       .then(response => {
-        setitemsSeller(response.data);
+        setItemsSeller(response.data);
       })
       .catch(error => {
         console.error("Error fetching data:", error);
       });
   }, []);
 
+  
+const handleSortChange = (type, value) => {
+  setSortOptions(prev => ({ ...prev, [type]: value }));
+};
+
+const displayItems = filteredItems.length ? filteredItems : [];
+
+
 
 
     return(
         <>
             <div className={styles.container}>
-              <div className={styles.cover}></div>
                 <div className={styles.bar}>
-                    <button className={styles.filter}>
+                    <button className={styles.filter}
+                    onClick={handleFilterClick}>
                         <svg xmlns="http://www.w3.org/2000/svg" 
                         height="21px" 
                         viewBox="0 -960 960 960" 
@@ -44,6 +92,7 @@ function Item() {
                         </svg>
                         Filter
                     </button>
+                    
                     <form className={styles.input}>
                       <div className={styles.inputBar}>
                       <input type="text" placeholder="Enter the product name"/>
@@ -56,27 +105,34 @@ function Item() {
                         <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
                       </div>
                       <label className={styles.low}>
-                        <input type="radio" name="price" />
+                        <input type="radio" name="price" 
+                        onChange={() => handleSortChange("price", "lowToHigh")}/>
                         <span className={styles.lowSpan}>Low to High</span>
+                        
                       </label>
 
                       <label className={styles.high}>
-                        <input type="radio" name="price" />
+                        <input type="radio" name="price" 
+                          onChange={() => handleSortChange("price", "highToLow")}/>
                         <span className={styles.highSpan}>High to Low</span>
                       </label>
 
                       <label className={styles.newest}>
-                        <input type="radio" name="date" />
+                        <input type="radio" name="date" 
+                        onChange={() => handleSortChange("date", "newest")}/>
                         <span className={styles.newestSpan}>Newest</span>
                       </label>
 
                       <label className={styles.oldest}>
-                        <input type="radio" name="date" />
+                        <input type="radio" name="date"
+                        onChange={() => handleSortChange("date", "oldest")}/>
                         <span className={styles.oldestSpan}>Oldest</span>
                       </label>
 
-                      <button type="reset" className={styles.refresh}>Reset</button>
+                      <button type="reset" className={styles.refresh}
+                        onClick={handleReset}>Reset</button>
                     </form>
+                    
                    </div>
                     <label className={styles.more}>
                       <input type="checkbox" name="more" />
@@ -89,29 +145,46 @@ function Item() {
                       <path d="M400-280v-400l200 200-200 200Z"/></svg>
                       <div className={styles.moreOption}></div>
                     </label>
-                    <p className={styles.popular}>Most Popular</p>
-                <ul className={styles.itemsPopular}>
-                    {itemsPopular.map((item) => (
-                    <li key={item.id} className={styles.item}>
-                        <p className={styles.searchRate}>Searched {item.searched} times</p>
-                        <h3>{item.name}</h3>
-                        <p className={styles.guarantee}>{item.guarantee} month</p>
-                        <span>₼{item.price}</span>
-                    </li>
-                    ))}
-                </ul>
 
-                <p className={styles.sellers}>Most Sellers</p>
-                <ul className={styles.itemsBought}>
-                    {itemsSeller.map((item) => (
-                    <li key={item.id} className={styles.item}>
-                        <p className={styles.boughtRate}>Bought {item.bought} times</p>
-                        <h3>{item.name}</h3>
-                        <p className={styles.guarantee}>{item.guarantee} month</p>
-                        <span>₼{item.price}</span>
-                    </li>
-                    ))}                
-                </ul>
+                    <div className={styles.itemContainer} style={resetClicked ? { marginTop: "-243rem",opacity:0} : {}}>
+                      <ul className={styles.items}>
+                        {displayItems.map((item) => (
+                          <li key={item.id} className={styles.item} style={{ backgroundColor: "rgb(245, 245, 245)" }}>
+                            <img src={item.productImageUrl} alt={item.name} style={{ width: 270 }} />
+                            <h3>{item.name}</h3>
+                            <p className={styles.guarantee}>{item.guarantee} month</p>
+                            <span><b>₼{item.price}</b></span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+
+                    <p className={styles.popular}>Most Popular</p>
+                    <ul className={styles.itemsPopular}>
+                      {itemsPopular.map((item) => (
+                        <li key={item.id} className={styles.item} style={{backgroundColor:"rgb(245, 245, 245)"}}>
+                          <p className={styles.searchRate}><b>Searched {item.searched} times</b></p>
+                          <img  src={item.productImageUrl} alt={item.name} style={{ width: 300 }} />
+                          <h3>{item.name}</h3>
+                          <p className={styles.guarantee}>{item.guarantee} month</p>
+                          <span><b>₼{item.price}</b></span>
+                      </li>
+                      ))}
+                    </ul>
+
+                    <p className={styles.sellers}>Most Sellers</p>
+                    <ul className={styles.itemsBought}>
+                      {itemsSeller.map((item) => (
+                      <li key={item.id} className={styles.item}>
+                          <p className={styles.boughtRate}><b>Bought {item.bought} times</b></p>
+                          <img  src={item.productImageUrl} alt={item.name} style={{ width: 300 }} />
+                          <h3>{item.name}</h3>
+                          <p className={styles.guarantee}>{item.guarantee} month</p>
+                          <span><b>₼{item.price}</b></span>
+                      </li>
+                      ))}                
+                    </ul>
             </div>
         </>
 

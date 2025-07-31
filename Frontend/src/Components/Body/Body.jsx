@@ -1,4 +1,6 @@
 import styles from "./Body.module.css"
+import axios from "axios";
+import { useState, useEffect } from "react";
 import Iphone from "../../assets/iphone.png";
 import Macbook from "../../assets/macbook.png";
 import TV from "../../assets/tv.png";
@@ -7,9 +9,27 @@ import Keyboard from "../../assets/keyboard.png";
 import Headphone from "../../assets/headphone.png";
 import Monitor from "../../assets/monitor.png";
 import Tablet from "../../assets/tablet.png";
+import Item from "../Items/Item";
+import { applyFilters } from '../Utils/filterUtil';
 
+function Body({itemRef,scrollTo, onItemClick,onCategorySelect}) {
+  const [allItems, setAllItems] = useState([]);
+  const [filteredItems, setFilteredItems] = useState([]);
 
-function Body() {
+  useEffect(() => {
+    axios.get("http://localhost:8080/api/v1/products/all")
+      .then(res => {
+        setAllItems(res.data);
+        setFilteredItems(res.data);
+      });
+  }, []);
+
+  function handleClick(category) {
+    scrollTo?.();
+    onItemClick?.();
+    onCategorySelect?.(category);
+  }
+
     return(
         <>
             <div className={styles.container}>
@@ -17,7 +37,7 @@ function Body() {
                 <ul className={styles.categories}>
 
 
-                    <li className={styles.computers}>
+                    <li ref={itemRef} className={styles.computers}  onClick={() => handleClick("COMPUTER")}>
                         <span className={styles.circle1}></span>
                         <span className={styles.circle2}></span>
                         <span className={styles.circle3}></span>    
@@ -28,7 +48,7 @@ function Body() {
 
 
 
-                    <li className={styles.mobilePhones}>
+                    <li ref={itemRef} onClick={() => handleClick("MOBILE_PHONE")}className={styles.mobilePhones} >
                         <span className={styles.circle1}></span>
                         <span className={styles.circle2}></span>
                         <span className={styles.circle3}></span>    
@@ -39,7 +59,7 @@ function Body() {
 
 
 
-                    <li className={styles.tvs}>
+                    <li ref={itemRef} onClick={() => handleClick("TV")} className={styles.tvs}>
                         <span className={styles.circle1}></span>
                         <span className={styles.circle2}></span>
                         <span className={styles.circle3}></span>    
@@ -51,7 +71,7 @@ function Body() {
 
 
 
-                    <li className={styles.smartWatches}>
+                    <li ref={itemRef} onClick={() => handleClick("SMART_WATCH")} className={styles.smartWatches}>
                         <span className={styles.circle1}></span>
                         <span className={styles.circle2}></span>
                         <span className={styles.circle3}></span>    
@@ -63,7 +83,7 @@ function Body() {
 
 
 
-                    <li className={styles.keyboards}>
+                    <li ref={itemRef} onClick={() => handleClick("KEYBOARD")} className={styles.keyboards}>
                         <span className={styles.circle1}></span>
                         <span className={styles.circle2}></span>
                         <span className={styles.circle3}></span>    
@@ -74,7 +94,7 @@ function Body() {
 
 
 
-                    <li className={styles.headphones}>
+                    <li ref={itemRef} onClick={() => handleClick("HEADPHONE")} className={styles.headphones}>
                         <span className={styles.circle1}></span>
                         <span className={styles.circle2}></span>
                         <span className={styles.circle3}></span>    
@@ -85,7 +105,7 @@ function Body() {
 
 
 
-                    <li className={styles.monitors}>
+                    <li ref={itemRef} onClick={() => handleClick("MONITOR")} className={styles.monitors}>
                         <span className={styles.circle1}></span>
                         <span className={styles.circle2}></span>
                         <span className={styles.circle3}></span>    
@@ -96,7 +116,7 @@ function Body() {
 
 
 
-                    <li className={styles.tablets}>
+                    <li ref={itemRef} onClick={() => handleClick("TABLET")} className={styles.tablets}>
                         <span className={styles.circle1}></span>
                         <span className={styles.circle2}></span>
                         <span className={styles.circle3}></span>    
