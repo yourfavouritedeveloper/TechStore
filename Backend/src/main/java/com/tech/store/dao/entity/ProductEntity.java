@@ -47,6 +47,9 @@ public class ProductEntity extends BaseEntity {
     @Column(name = "bought",nullable = false)
     private Integer bought = 0;
 
+    @Column(name = "product_image_url")
+    private String productImageUrl;
+
     @ElementCollection
     @CollectionTable(name = "product_properties", joinColumns = @JoinColumn(name = "product_id"))
     @Column(name = "value")

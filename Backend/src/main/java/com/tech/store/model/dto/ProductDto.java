@@ -1,5 +1,6 @@
 package com.tech.store.model.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.tech.store.model.enumeration.Category;
 import com.tech.store.util.NotBlankMap;
 import com.tech.store.util.OnCreate;
@@ -40,6 +41,9 @@ public class ProductDto {
     private Integer searched;
 
     private Integer bought;
+
+    @JsonProperty("productImageUrl")
+    private String productImageUrl;
 
     @NotBlankMap(message = "Properties map must have non-blank keys and values", groups = {OnCreate.class, OnUpdate.class})
     private Map<String, String> properties;
