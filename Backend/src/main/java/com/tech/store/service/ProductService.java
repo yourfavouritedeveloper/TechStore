@@ -3,6 +3,7 @@ package com.tech.store.service;
 
 import com.tech.store.dao.entity.AccountEntity;
 import com.tech.store.dao.entity.ProductEntity;
+import com.tech.store.dao.repository.ProductRedisRepository;
 import com.tech.store.dao.repository.ProductRepository;
 
 
@@ -23,45 +24,68 @@ import java.util.List;
 import java.util.Map;
 
 
+
 @Service
 @RequiredArgsConstructor
 public class ProductService {
 
+    private final ProductRedisRepository productRedisRepository;
     private final ProductRepository productRepository;
     private final ProductMapper productMapper;
     private final UpdateUtils updateUtils;
 
+
     @Transactional(readOnly = true)
     public ProductDto findById(Long id) {
-        return productMapper.toProductDto(productRepository.findById(id).orElseThrow(() -> new ProductNotFoundException("Product not found.")));
+        return productRedisRepository.findById(id)
+                .orElseGet(() -> {
+
+                    ProductEntity productEntity = productRepository.findById(id)
+                            .orElseThrow(() -> new ProductNotFoundException("Product not found."));
+
+                    ProductDto productDto = productMapper.toProductDto(productEntity);
+                    productRedisRepository.save(productEntity);
+                    return productDto;
+
+                });
     }
 
 
     @Transactional(readOnly = true)
     public List<ProductDto> findAll() {
-        List<ProductEntity> productEntities = productRepository.findAll();
-        return productEntities.stream()
-                .map(productMapper::toProductDto)
-                .toList();
+        return productRedisRepository.findAll()
+                .orElseGet(() -> {
+                    List<ProductEntity> productEntities = productRepository.findAll();
+
+                    if (productEntities.isEmpty()) {
+                        throw new ProductNotFoundException("Product not found.");
+                    }
+
+                    List<ProductDto> productDtos = productEntities.stream()
+                            .map(productMapper::toProductDto).toList();
+
+                    productEntities.forEach(productRedisRepository::save);
+
+                    return productDtos;
+                });
     }
 
     @Transactional(readOnly = true)
     public List<ProductDto> findByMostPopular() {
-        List<ProductEntity> productEntities = productRepository.findAll();
-        return productEntities.stream()
-                .sorted(Comparator.comparing(ProductEntity::getSearched).reversed())
+        List<ProductDto> productDtos = findAll();
+        return productDtos.stream()
+                .sorted(Comparator.comparing(ProductDto::getSearched).reversed())
                 .limit(6)
-                .map(productMapper::toProductDto)
                 .toList();
+
     }
 
     @Transactional(readOnly = true)
     public List<ProductDto> findByMostBought() {
-        List<ProductEntity> productEntities = productRepository.findAll();
-        return productEntities.stream()
-                .sorted(Comparator.comparing(ProductEntity::getBought).reversed())
+        List<ProductDto> productDtos = findAll();
+        return productDtos.stream()
+                .sorted(Comparator.comparing(ProductDto::getBought).reversed())
                 .limit(6)
-                .map(productMapper::toProductDto)
                 .toList();
     }
 
@@ -70,32 +94,29 @@ public class ProductService {
     @Transactional
     public ProductDto create(ProductDto productDto) {
         ProductEntity productEntity = productMapper.toProductEntity(productDto);
-        return productMapper.toProductDto(productRepository.save(productEntity));
+        return productRedisRepository.save(productEntity);
     }
 
     @Transactional
     public ProductDto updateProduct(Long id, Map<String, String> updates) throws Exception {
-        ProductEntity productEntity = productRepository.findById(id).orElseThrow(() -> new ProductNotFoundException("Product not found."));
-        productEntity = (ProductEntity) updateUtils.update(productEntity,updates);
-
-        ProductEntity saved = productRepository.save(productEntity);
-        return productMapper.toProductDto(saved);
+        ProductDto productDto = findById(id);
+        ProductEntity productEntity = (ProductEntity) updateUtils.update(productMapper.toProductEntity(productDto), updates);
+        return productRedisRepository.save(productEntity);
     }
 
     @Transactional
     public ProductDto delete(Long id) {
-        ProductEntity productEntity = productRepository
-                .findById(id).orElseThrow(() -> new ProductNotFoundException("Product not found."));
-
+        ProductDto productDto = findById(id);
+        ProductEntity productEntity = productMapper.toProductEntity(productDto);
         productEntity.setStatus(Status.CLOSED);
-        productRepository.save(productEntity);
-        return productMapper.toProductDto(productEntity);
+        return productRedisRepository.save(productEntity);
+
     }
 
     @Transactional
-    public ProductDto remove(Long id) {
+    public String remove(Long id) {
         ProductDto productDto = findById(id);
-        productRepository.deleteById(id);
-        return productDto;
+        ProductEntity productEntity = productMapper.toProductEntity(productDto);
+        return productRedisRepository.delete(productEntity);
     }
 }

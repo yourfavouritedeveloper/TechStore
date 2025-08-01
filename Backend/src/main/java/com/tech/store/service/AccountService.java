@@ -1,6 +1,7 @@
 package com.tech.store.service;
 
 import com.tech.store.dao.entity.AccountEntity;
+import com.tech.store.dao.repository.AccountRedisRepository;
 import com.tech.store.dao.repository.AccountRepository;
 import com.tech.store.exception.AccountNotFoundException;
 import com.tech.store.mapper.AccountMapper;
@@ -33,6 +34,7 @@ public class AccountService {
 
     private final JWTService jwtService;
     private final AccountRepository accountRepository;
+    private final AccountRedisRepository accountRedisRepository;
     private final AccountMapper accountMapper;
     private final UpdateUtils updateUtils;
     private final BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(12);
@@ -40,27 +42,54 @@ public class AccountService {
 
     @Transactional(readOnly = true)
     public AccountDto findById(Long id) {
-        return accountMapper.toAccountDto(accountRepository.findById(id).orElseThrow(() -> new AccountNotFoundException("Account not found.")));
+        return accountRedisRepository.findById(id)
+                .orElseGet(() -> {
+                    AccountEntity accountEntity = accountRepository.findById(id)
+                            .orElseThrow(() -> new AccountNotFoundException("Account not found"));
+
+                    AccountDto accountDto = accountMapper.toAccountDto(accountEntity);
+                    accountRedisRepository.save(accountEntity);
+                    return accountDto;
+                });
     }
 
     @Transactional(readOnly = true)
     public AccountDto findByName(String username) {
-        return accountMapper.toAccountDto(accountRepository.findByUsername(username).orElseThrow(() -> new AccountNotFoundException("Account not found.")));
+        return accountRedisRepository.findByUsername(username)
+                .orElseGet(() -> {
+                    AccountEntity accountEntity = accountRepository.findByUsername(username)
+                            .orElseThrow(() -> new AccountNotFoundException("Account not found"));
+
+                    AccountDto accountDto = accountMapper.toAccountDto(accountEntity);
+                    accountRedisRepository.save(accountEntity);
+                    return accountDto;
+                });
     }
 
     @Transactional(readOnly = true)
     public List<AccountDto> findAll() {
-        List<AccountEntity> accountEntities = accountRepository.findAll();
-        return accountEntities.stream()
-                .map(accountMapper::toAccountDto)
-                .toList();
+        return accountRedisRepository.findAll()
+                .orElseGet(() -> {
+                    List<AccountEntity> accountEntities = accountRepository.findAll();
+
+                    if (accountEntities.isEmpty()) {
+                        throw new AccountNotFoundException("Account not found");
+                    }
+
+                    List<AccountDto> accountDtos = accountEntities.stream()
+                            .map(accountMapper::toAccountDto).toList();
+
+                    accountEntities.forEach(accountRedisRepository::save);
+
+                    return accountDtos;
+                });
     }
 
     @Transactional
     public AccountDto register(AccountDto accountDto) {
         accountDto.setPassword(bCryptPasswordEncoder.encode(accountDto.getPassword()));
         AccountEntity accountEntity = accountMapper.toAccountEntity(accountDto);
-        return accountMapper.toAccountDto(accountRepository.save(accountEntity));
+        return accountRedisRepository.save(accountEntity);
     }
 
     @Transactional
@@ -84,29 +113,26 @@ public class AccountService {
 
     @Transactional
     public AccountDto updateAccount(Long id, Map<String, String> updates) throws Exception {
-        AccountEntity accountEntity = accountRepository.findById(id).orElseThrow(() -> new AccountNotFoundException("Account not found."));
-        accountEntity = (AccountEntity) updateUtils.update(accountEntity,updates);
+        AccountDto accountDto = findById(id);
 
-        AccountEntity saved = accountRepository.save(accountEntity);
-        return accountMapper.toAccountDto(saved);
+        AccountEntity accountEntity = (AccountEntity) updateUtils.update(accountMapper.toAccountEntity(accountDto), updates);
+        return accountRedisRepository.save(accountEntity);
     }
 
 
     @Transactional
     public AccountDto delete(Long id) {
-        AccountEntity accountEntity = accountRepository
-                .findById(id).orElseThrow(() -> new AccountNotFoundException("Account not found."));
-
+        AccountDto accountDto = findById(id);
+        AccountEntity accountEntity = accountMapper.toAccountEntity(accountDto);
         accountEntity.setStatus(Status.CLOSED);
-        AccountEntity saved = accountRepository.save(accountEntity);
-        return accountMapper.toAccountDto(saved);
+        return accountRedisRepository.save(accountEntity);
     }
 
     @Transactional
-    public AccountDto remove(Long id) {
+    public String remove(Long id) {
         AccountDto accountDto = findById(id);
-        accountRepository.deleteById(id);
-        return accountDto;
+        AccountEntity accountEntity = accountMapper.toAccountEntity(accountDto);
+        return accountRedisRepository.delete(accountEntity);
     }
 
 
