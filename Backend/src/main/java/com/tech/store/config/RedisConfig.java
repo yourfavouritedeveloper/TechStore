@@ -4,24 +4,52 @@ import com.tech.store.dao.entity.ProductEntity;
 import com.tech.store.model.dto.AccountDto;
 import com.tech.store.model.dto.ProductDto;
 import com.tech.store.model.dto.PurchaseDto;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.connection.RedisPassword;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
+import org.springframework.data.redis.connection.jedis.JedisClientConfiguration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
+import java.time.Duration;
+
 @Configuration
 public class RedisConfig {
+
+    @Value("${spring.data.redis.host}")
+    private String host;
+
+    @Value("${spring.data.redis.port}")
+    private int port;
+
+    @Value("${spring.data.redis.password}")
+    private String password;
+
+    @Value("${spring.data.redis.ssl.enabled:false}")
+    private boolean ssl;
 
     @Bean
     public JedisConnectionFactory connectionFactory() {
         RedisStandaloneConfiguration config = new RedisStandaloneConfiguration();
-        config.setHostName("localhost");
-        config.setPort(6379);
-        return new JedisConnectionFactory(config);
+        config.setHostName(host);
+        config.setPort(port);
+        config.setPassword(password);
+
+        JedisClientConfiguration.JedisClientConfigurationBuilder jedisClientConfig = JedisClientConfiguration.builder();
+        if (ssl) {
+            jedisClientConfig.useSsl();
+        }
+
+
+        return new JedisConnectionFactory(config, jedisClientConfig.build());
     }
+
+
+
 
     @Bean
     public RedisTemplate<String, ProductDto> productRedisTemplate() {

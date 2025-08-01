@@ -42,10 +42,10 @@ public class ProductEntity extends BaseEntity {
     @Column(name = "company",nullable = false)
     private String company;
 
-    @Column(name = "searched",nullable = false)
+    @Column(name = "searched")
     private Integer searched = 0;
 
-    @Column(name = "bought",nullable = false)
+    @Column(name = "bought")
     private Integer bought = 0;
 
     @Column(name = "product_image_url")
