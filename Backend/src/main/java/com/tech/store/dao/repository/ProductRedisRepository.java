@@ -16,6 +16,7 @@ import java.util.Set;
 @RequiredArgsConstructor
 public class ProductRedisRepository{
 
+
     private final RedisTemplate<String, ProductDto> productRedisTemplate;
     private final RedisTemplate<String,String> productKeysRedisTemplate;
     private final ProductMapper productMapper;

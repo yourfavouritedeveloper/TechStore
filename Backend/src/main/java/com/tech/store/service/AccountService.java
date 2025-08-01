@@ -89,6 +89,7 @@ public class AccountService {
     public AccountDto register(AccountDto accountDto) {
         accountDto.setPassword(bCryptPasswordEncoder.encode(accountDto.getPassword()));
         AccountEntity accountEntity = accountMapper.toAccountEntity(accountDto);
+        accountRepository.save(accountEntity);
         return accountRedisRepository.save(accountEntity);
     }
 

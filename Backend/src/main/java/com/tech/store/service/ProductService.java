@@ -94,6 +94,7 @@ public class ProductService {
     @Transactional
     public ProductDto create(ProductDto productDto) {
         ProductEntity productEntity = productMapper.toProductEntity(productDto);
+        productRepository.save(productEntity);
         return productRedisRepository.save(productEntity);
     }
 

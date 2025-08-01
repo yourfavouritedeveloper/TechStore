@@ -16,6 +16,7 @@ import java.util.Set;
 @RequiredArgsConstructor
 public class PurchaseRedisRepository {
 
+
     private final RedisTemplate<String, PurchaseDto> purchaseRedisTemplate;
     private final RedisTemplate<String, AccountDto> accountRedisTemplate;
     private final RedisTemplate<String, String> purchaseKeysRedisTemplate;

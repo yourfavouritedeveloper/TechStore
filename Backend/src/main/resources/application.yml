@@ -22,6 +22,16 @@ spring:
   liquibase:
     change-log: classpath:/db/changelog/db.changelog-master.yaml
 
+  data:
+    redis:
+      host: ${REDIS_HOST}
+      port: ${REDIS_PORT}
+      username: ${REDIS_USER}
+      password: ${REDIS_PASSWORD}
+      ssl:
+        enabled: ${REDIS_SSL}
+
+
 
   security:
     user:
