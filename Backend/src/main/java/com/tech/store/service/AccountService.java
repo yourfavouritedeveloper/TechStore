@@ -101,8 +101,7 @@ public class AccountService {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(),loginRequest.getPassword()));
 
         if(authentication.isAuthenticated()) {
-            AccountEntity accountEntity = accountRepository.findByUsername(loginRequest.getUsername())
-                    .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+            AccountDto accountDto = findByName(loginRequest.getUsername());
 
             return jwtService.generateToken(loginRequest.getUsername());
         }
