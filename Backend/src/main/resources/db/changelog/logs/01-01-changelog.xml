@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.24.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1754076033047-1" author="f">
+        <addColumn tableName="products">
+            <column name="bought" type="INT"/>
+            <column name="product_image_url" type="VARCHAR(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="1754076033047-2" author="f">
+        <addNotNullConstraint columnName="bought" tableName="products"/>
+    </changeSet>
+
+</databaseChangeLog>
