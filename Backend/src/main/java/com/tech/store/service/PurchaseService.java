@@ -3,9 +3,7 @@ package com.tech.store.service;
 import com.tech.store.dao.entity.AccountEntity;
 import com.tech.store.dao.entity.ProductEntity;
 import com.tech.store.dao.entity.PurchaseEntity;
-import com.tech.store.dao.repository.AccountRepository;
-import com.tech.store.dao.repository.ProductRepository;
-import com.tech.store.dao.repository.PurchaseRepository;
+import com.tech.store.dao.repository.*;
 import com.tech.store.exception.*;
 import com.tech.store.mapper.AccountMapper;
 import com.tech.store.mapper.ProductMapper;
@@ -22,7 +20,6 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -35,37 +32,71 @@ public class PurchaseService {
     private final AccountMapper accountMapper;
     private final ProductRepository productRepository;
     private final ProductMapper productMapper;
+    private final ProductRedisRepository productRedisRepository;
+    private final PurchaseRedisRepository purchaseRedisRepository;
+    private final AccountRedisRepository accountRedisRepository;
+    private final AccountService accountService;
+    private final ProductService productService;
 
     public PurchaseDto findById(Long id) {
-        return purchaseMapper.toPurchaseDto(purchaseRepository.findById(id).orElseThrow(() -> new PurchaseNotFoundException("Purchase not found.")));
+        return purchaseRedisRepository.findById(id)
+                .orElseGet(() -> {
+                    PurchaseEntity purchaseEntity = purchaseRepository.findById(id)
+                            .orElseThrow(() -> new PurchaseNotFoundException("Purchase not found"));
+
+                    return purchaseRedisRepository.save(purchaseEntity);
+
+
+                });
     }
 
     public List<PurchaseDto> findByAccount(Long id) {
-        AccountDto accountDto = accountMapper
-                .toAccountDto(accountRepository.findById(id)
-                        .orElseThrow(() -> new AccountNotFoundException("Account not found.")));
+        return purchaseRedisRepository.findByAccount(id)
+                .orElseGet(() -> {
+                    AccountDto accountDto = accountService.findById(id);
+                    List<PurchaseEntity> purchaseEntities = accountDto.getPurchases()
+                            .stream().map(purchaseMapper::toPurchaseEntity).toList();
 
-        return accountDto.getPurchases();
+                    purchaseEntities.forEach(purchaseRedisRepository::save);
+
+                    return purchaseEntities.stream().
+                            map(purchaseMapper::toPurchaseDto)
+                            .toList();
+
+
+
+                });
     }
 
 
     public List<PurchaseDto> findAll() {
-        List<PurchaseEntity> purchaseEntities = purchaseRepository.findAll();
-        return purchaseEntities.stream()
-                .map(purchaseMapper::toPurchaseDto)
-                .toList();
+        return purchaseRedisRepository.findAll()
+                .orElseGet(() -> {
+                    List<PurchaseEntity> purchaseEntities = purchaseRepository.findAll();
+
+                    if (purchaseEntities.isEmpty()) {
+                        throw new ProductNotFoundException("Product not found.");
+                    }
+
+                    List<PurchaseDto> purchaseDtos = purchaseEntities.stream()
+                            .map(purchaseMapper::toPurchaseDto).toList();
+
+                    purchaseEntities.forEach(purchaseRedisRepository::save);
+
+                    return purchaseDtos;
+                });
     }
 
     public List<PurchaseDto> purchase(Long accountId, List<Long> productIds, Long amount) {
 
-        AccountEntity accountEntity = accountRepository.findById(accountId)
-                .orElseThrow(() -> new AccountNotFoundException("Account not found."));
+        AccountDto accountDto = accountService.findById(accountId);
+        AccountEntity accountEntity = accountMapper.toAccountEntity(accountDto);
 
         List<PurchaseDto> purchaseDtos = new ArrayList<>();
 
         for (Long productId : productIds) {
-            ProductEntity productEntity = productRepository.findById(productId)
-                    .orElseThrow(() -> new ProductNotFoundException("Product not found."));
+            ProductDto productDto = productService.findById(productId);
+            ProductEntity productEntity = productMapper.toProductEntity(productDto);
 
             if (productEntity.getAmount() == 0) throw new InsufficientAmountException("Amount must be greater than zero.");
             if (productEntity.getAmount() < amount) throw new InsufficientAmountException("Insufficient amount.");
@@ -83,31 +114,34 @@ public class PurchaseService {
             productEntity.setAmount(productEntity.getAmount() - amount);
             accountEntity.setBalance(accountEntity.getBalance().subtract(totalCost));
 
+            accountEntity.getPurchases().add(purchaseEntity);
+
+
             purchaseRepository.save(purchaseEntity);
             productRepository.save(productEntity);
+            accountRepository.save(accountEntity);
 
-            accountEntity.getPurchases().add(purchaseEntity);
+            purchaseRedisRepository.save(purchaseEntity);
+            productRedisRepository.save(productEntity);
+            accountRedisRepository.save(accountEntity);
 
             purchaseDtos.add(purchaseMapper.toPurchaseDto(purchaseEntity));
         }
 
-        accountRepository.save(accountEntity);
 
         return purchaseDtos;
     }
 
     public PurchaseDto delete(Long id) {
-        PurchaseEntity purchaseEntity = purchaseRepository
-                .findById(id).orElseThrow(() -> new PurchaseNotFoundException("Purchase not found."));
-
+        PurchaseDto purchaseDto = findById(id);
+        PurchaseEntity purchaseEntity = purchaseMapper.toPurchaseEntity(purchaseDto);
         purchaseEntity.setStatus(Status.CLOSED);
-        purchaseRepository.save(purchaseEntity);
-        return purchaseMapper.toPurchaseDto(purchaseEntity);
+        return purchaseRedisRepository.save(purchaseEntity);
     }
 
-    public PurchaseDto remove(Long id) {
+    public String remove(Long id) {
         PurchaseDto purchaseDto = findById(id);
-        purchaseRepository.deleteById(id);
-        return purchaseDto;
+        PurchaseEntity purchaseEntity = purchaseMapper.toPurchaseEntity(purchaseDto);
+        return purchaseRedisRepository.delete(purchaseEntity);
     }
 }

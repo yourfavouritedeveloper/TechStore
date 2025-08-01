@@ -58,7 +58,7 @@ public class PurchaseController {
     @DeleteMapping("/remove/{id}")
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Delete purchase", description = "Deletes the specified purchase.")
-    public PurchaseDto removePurchase(@PathVariable Long id) {
+    public String removePurchase(@PathVariable Long id) {
         return purchaseService.remove(id);
     }
 

@@ -75,7 +75,7 @@ public class ProductController {
     @DeleteMapping("/remove/{id}")
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Delete product", description = "Deletes the specified product.")
-    public ProductDto removeProduct(@PathVariable Long id) {
+    public String removeProduct(@PathVariable Long id) {
         return productService.remove(id);
     }
 

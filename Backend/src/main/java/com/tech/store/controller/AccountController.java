@@ -77,7 +77,7 @@ public class AccountController {
     @DeleteMapping("/remove/{id}")
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Delete account", description = "Deletes the specified account.")
-    public AccountDto removeAccount(@PathVariable Long id) {
+    public String removeAccount(@PathVariable Long id) {
         return accountService.remove(id);
     }
 
