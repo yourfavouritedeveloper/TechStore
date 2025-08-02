@@ -22,7 +22,7 @@ export function Model(props) {
     const [showModel, setShowModel] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowModel(true), 300); // 2 sec delay
+    const timer = setTimeout(() => setShowModel(true), 300); 
     return () => clearTimeout(timer);
   }, []);
 
