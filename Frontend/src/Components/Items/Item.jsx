@@ -48,7 +48,7 @@ const handleReset = () => {
 };
 
     useEffect(() => {
-    axios.get("http://localhost:8080/api/v1/products/popular") 
+    axios.get("https://techstore-3fvk.onrender.com/api/v1/products/popular") 
       .then(response => {
         setItemsPopular(response.data);
       })
@@ -58,7 +58,7 @@ const handleReset = () => {
   }, []);
 
     useEffect(() => {
-    axios.get("http://localhost:8080/api/v1/products/bought") 
+    axios.get("https://techstore-3fvk.onrender.com/api/v1/products/bought") 
       .then(response => {
         setItemsSeller(response.data);
       })

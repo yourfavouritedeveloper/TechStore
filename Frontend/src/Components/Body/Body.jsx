@@ -17,7 +17,7 @@ function Body({itemRef,scrollTo, onItemClick,onCategorySelect}) {
   const [filteredItems, setFilteredItems] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/api/v1/products/all")
+    axios.get("https://techstore-3fvk.onrender.com/api/v1/products/all")
       .then(res => {
         setAllItems(res.data);
         setFilteredItems(res.data);
