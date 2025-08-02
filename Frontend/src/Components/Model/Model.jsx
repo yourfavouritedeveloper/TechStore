@@ -8,7 +8,7 @@ import { a, useSpring } from '@react-spring/three';
 
 
 export function Model(props) {
-  const { nodes, materials } = useGLTF('/hp_victus_gaming_laptop/scene.gltf')
+  const { nodes, materials } = useGLTF('/TechStore/hp_victus_gaming_laptop/scene.gltf')
   const ref = useRef();
 
   useFrame(() => {
