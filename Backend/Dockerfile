@@ -15,6 +15,8 @@ RUN apk add --no-cache bash curl
 WORKDIR /app
 
 COPY --from=build /home/app/build/libs/techstore.jar app.jar
+COPY --from=build /home/app/uploads /app/uploads
+
 
 EXPOSE 8080
 
