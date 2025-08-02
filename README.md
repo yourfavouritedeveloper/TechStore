@@ -185,10 +185,10 @@ Before you start, make sure you have installed:
    - You can serve the production build with any static file server. For example:
 
 
-    ```bash
-    npm run build
-    npx serve dist
-    ```
+     ```bash
+     npm run build
+     npx serve dist
+     ```
 
    - Or deploy the build folder to GitHub Pages or any static hosting.
 
