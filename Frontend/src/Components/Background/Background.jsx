@@ -55,7 +55,7 @@ function Background({shopRef,scrollTo, onShopClick}) {
             ref={boxRef}
             className={styles.box}
             variants={{
-                hidden: { y: "250px"},
+                hidden: { y: "100px"},
                 visible: { y: "0px" }
             }}
             viewport={{ margin: "10px" }}
