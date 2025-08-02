@@ -5,9 +5,9 @@ services:
     image: postgres:latest
     container_name: postgres
     environment:
-      POSTGRES_PASSWORD: techstore
+      POSTGRES_PASSWORD:  ${SPRING_DATASOURCE_PASSWORD}
       POSTGRES_DB: techstore
-      POSTGRES_USER: techstore
+      POSTGRES_USER: ${SPRING_DATASOURCE_USERNAME}
     ports:
       - "5432:5432"
     volumes:
@@ -18,19 +18,19 @@ services:
       timeout: 5s
       retries: 5
 
-
-  redis:
-    image: redis:7-alpine
-    container_name: redis
-    ports:
-      - "6379:6379"
-    volumes:
-      - redis-data:/data
-    healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+#
+#  redis:
+#    image: redis:7-alpine
+#    container_name: redis
+#    ports:
+#      - "6379:6379"
+#    volumes:
+#      - redis-data:/data
+#    healthcheck:
+#      test: ["CMD", "redis-cli", "ping"]
+#      interval: 10s
+#      timeout: 5s
+#      retries: 5
 
 
   app:
@@ -41,16 +41,19 @@ services:
       REDIS_HOST: ${REDIS_HOST}
       REDIS_PORT: ${REDIS_PORT}
       REDIS_PASSWORD: ${REDIS_PASSWORD}
+      REDIS_SSL: ${REDIS_SSL}
       SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL}
       SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
       SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
       SECURITY_USERNAME: ${SECURITY_USERNAME}
       SECURITY_PASSWORD: ${SECURITY_PASSWORD}
+    env_file:
+      - .env
     depends_on:
       - postgres
-      - redis
+#      - redis
 
 
 volumes:
   postgres-data:
-  redis-data:
+#  redis-data:

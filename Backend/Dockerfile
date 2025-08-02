@@ -10,6 +10,8 @@ RUN gradle build -x test
 
 FROM eclipse-temurin:21-jdk-alpine
 
+RUN apk add --no-cache bash curl
+
 WORKDIR /app
 
 COPY --from=build /home/app/build/libs/techstore.jar app.jar
