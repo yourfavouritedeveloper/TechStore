@@ -1,3 +1,15 @@
 databaseChangeLog:
-  - includeAll:
-      path: db/changelog/logs
+  - include:
+      file: db/changelog/logs/29-01-changelog.xml
+  - include:
+      file: db/changelog/logs/29-02-changelog.xml
+  - include:
+      file: db/changelog/logs/29-03-changelog.xml
+  - include:
+      file: db/changelog/logs/30-01-changelog.xml
+  - include:
+      file: db/changelog/logs/31-01-changelog.xml
+  - include:
+      file: db/changelog/logs/02-01-changelog.xml
+  - include:
+      file: db/changelog/logs/02-02-changelog.xml
