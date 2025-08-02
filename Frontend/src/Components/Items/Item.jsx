@@ -146,7 +146,7 @@ const displayItems = filteredItems.length ? filteredItems : [];
                       <div className={styles.moreOption}></div>
                     </label>
 
-                    <div className={styles.itemContainer} style={resetClicked ? { marginTop: "-37rem",opacity:0} : {}}>
+                    <div className={styles.itemContainer} style={resetClicked ? { display:"none",opacity:0} : {}}>
                       <ul className={styles.items}>
                         {displayItems.map((item) => (
                           <li key={item.id} className={styles.item} style={{ backgroundColor: "rgb(245, 245, 245)" }}>
