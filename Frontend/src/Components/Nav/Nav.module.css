@@ -20,7 +20,6 @@ html,body {
 
 
 
-
 #campaign{
     border-radius: 2rem;
     padding: 0.3rem;
@@ -124,6 +123,8 @@ html,body {
     list-style: none;
 
 }
+
+
 
 a {
     text-decoration: none;
