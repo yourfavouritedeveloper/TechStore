@@ -282,7 +282,7 @@
     font-size: clamp(3rem, 1.15vw, 2rem);
     width: 70%;
     margin:0;
-    top:-11rem;
+    top:-10rem;
     line-height: 1.1;
     text-align: left;   
     left:3.5rem;
@@ -294,7 +294,7 @@
     width: 55rem;
     padding:1rem 0rem;
     padding-left:4rem;
-    top:-11.5rem;
+    top:-10.5rem;
     border-radius: 1.5rem;
     left:-15.5rem;
     border:none;
@@ -312,7 +312,7 @@
     background: linear-gradient(135deg, #0f0f0f, #1a1a1a, #333333);
     cursor: pointer;
     padding:1rem 2rem;
-    top:-11.5rem;
+    top:-10.5rem;
     left:-15rem;
     font-family: "PoppinsLight";
     border-radius: 1.4rem;
