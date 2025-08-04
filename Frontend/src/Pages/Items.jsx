@@ -1,12 +1,10 @@
-import { useState, useEffect, useRef } from "react";
-import Nav from "../Components/Nav/Nav";
-import Background from "../Components/Background/Background";
-import Body from "../Components/Body/Body";
-import Item from "../Components/Items/Item";
-import Footer from "../Components/Footer/Footer";
 import axios from 'axios';
+import { useState, useEffect, useRef } from "react";
+import { applyFilters } from '../Components/Utils/filterUtil';
+import Filter from '../Components/Filter/Filter';
 
-function Home() {
+function Items() {
+
   const shopRef = useRef(null);
   const itemRef = useRef(null);
   const [navHighlight, setNavHighlight] = useState(false);
@@ -41,7 +39,7 @@ function Home() {
 
   function scrollToShop() {
     if (shopRef.current) {
-      const y = shopRef.current.getBoundingClientRect().top + window.scrollY + 140;
+      const y = shopRef.current.getBoundingClientRect().top + window.scrollY + 230;
       window.scrollTo({ top: y, behavior: "smooth" });    }
   }
 
@@ -77,15 +75,14 @@ function Home() {
     setFilteredItems(allItems);
   }
 
-  return (
-    <>
-      <Nav highlight={navHighlight} />
-      <Background shopRef={shopRef} scrollTo={scrollToShop} />
-      <Body shopRef={shopRef} itemRef={itemRef} scrollTo={scrollToItems} onCategorySelect={handleCategoryFilter} />
-      <Item items={filteredItems} bodyItems={bodyItems} itemRef={itemRef}   onResetFilters={handleResetFilters}  />
-      <Footer />
-    </>
-  );
+
+    return (<>
+        <div style={{height:"100vh",backgroundColor:"white"}}> 
+            <Filter items={filteredItems} bodyItems={bodyItems} itemRef={itemRef}   onResetFilters={handleResetFilters} />
+    
+        </div>
+    
+    </>);
 }
 
-export default Home;
+export default Items;
