@@ -3,6 +3,7 @@ import styles from "./Background.module.css"
 import { motion, useInView, useAnimation } from "framer-motion";
 import React, { useEffect, useRef } from "react";
 import Module from "../Model/Module";
+import Campaign from "../Campaign/Campaign";
 
 function Background({shopRef,scrollTo, onShopClick}) {
   const boxRef = useRef(null);
@@ -97,6 +98,25 @@ function Background({shopRef,scrollTo, onShopClick}) {
 
 
 
+
+
+            </motion.div>
+            <motion.div 
+            ref={boxRef}
+            className={styles.boxCampaign}
+            variants={{
+                hidden: { y: "100px"},
+                visible: { y: "0px" }
+            }}
+            viewport={{ margin: "10px" }}
+            initial="hidden"
+            animate={boxControls}
+            transition={{ duration: 5,delay:0.5 }}   
+            >
+                <p className={styles.title}>Trending Now</p>
+                <Campaign />
+                <p className={styles.subtitle}>Don’t miss out on the most talked-about offers! These deals are gaining serious attention — grab yours before they’re gone.</p>
+                <button>See Campaign</button>
             </motion.div>
             <motion.div className={styles.module}
             ref={moduleRef}

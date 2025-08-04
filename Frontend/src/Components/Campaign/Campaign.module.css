@@ -1,0 +1,219 @@
+.container {
+    background-color: transparent;
+    height: 50%;
+    width: 90%;
+    border-radius: 4rem;
+    position: relative;
+    display: flex;
+    top:9rem;
+    overflow: hidden;
+}
+
+
+.campaign1 {
+background: linear-gradient(
+  135deg,
+  #ff416c,   
+  #ffbd2f    
+);
+
+    width: 100%;
+    height: 100%;
+    position: relative; 
+    z-index: 2;
+    border-radius: 4rem;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+
+
+
+
+.campaign1 .title {
+    font-size: clamp(7rem, 5vw, 0.625rem);
+    line-height: 6rem;
+    text-align: left;
+    color: #FFF4D1;
+    font-weight: bold;
+    position: relative;
+    top: -4.5rem;
+    left: 1rem;
+}
+
+
+.campaign1 .subtitle {
+    font-size: clamp(1.6rem, 5vw, 0.625rem);
+    color: #FFF4D1;
+    font-weight: bold;
+    position: relative;
+    top: -11.5rem;  
+    left: -7rem;   
+}
+
+.campaign1 .subsubtitle {
+    font-size: clamp(1.3rem, 5vw, 0.625rem);
+    color: #FFF4D1;
+    font-weight: bold;
+    position: relative;
+    top: -13.5rem;    
+    left: -16.2rem;  
+}
+
+
+
+
+
+
+
+
+
+.campaign2 {
+   background: linear-gradient(
+     135deg,
+     rgb(40, 100, 150), 
+     rgb(108, 189, 255)   
+   );
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 4rem;
+    z-index: 2;
+    flex-shrink: 0;
+    overflow: hidden;
+
+}
+
+
+
+.campaign2 .title {
+    font-size: clamp(8rem, 5vw, 0.625rem);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    position: relative;
+    top: -8rem;
+    left:-11rem;
+}
+
+
+.campaign2 .subtitle {
+    font-size: clamp(1.5rem, 5vw, 0.625rem);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    position: relative;
+    top: -18rem;   
+    left:-9rem;  
+}
+
+.campaign2 .subsubtitle {
+    font-size: clamp(1.3rem, 5vw, 0.625rem);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    position: relative;
+    left:-12.8rem;  
+    top: -19.5rem;    
+}
+
+.campaign2 button {
+    top: -19.5rem; 
+    left:-20rem;  
+    font-size: clamp(1.6rem, 5vw, 0.625rem);
+    position: relative;
+    border:none;
+    z-index: 3;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    color:rgb(0, 0, 0);
+    font-family: "PoppinsLight";
+    border-radius: 2rem;
+    padding: 0.8rem 2rem;
+    transition: all 0.3s ease;
+}
+
+.campaign2 button:hover {
+    background-color: rgb(14, 63, 92); 
+    color:rgb(255, 255, 255); 
+    transform: scale(1.03);
+}
+
+
+.campaign2 img {
+    position: absolute;
+    right:3rem;
+    width:80%;
+    z-index: -1;
+    top:-0rem;
+}
+
+
+
+
+
+
+
+
+
+.campaign3 {
+    background-color: rgb(0, 26, 255);
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    position: relative;
+    border-radius: 4rem;
+    z-index: 2;
+    overflow: hidden;
+}
+
+
+.slider {
+    display: flex;
+    width: 300%;
+    height: 100%;
+    transition: transform 0.8s ease-in-out;
+}
+
+.controls {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+  z-index: 10;
+}
+
+.controls button {
+  padding: 0.5rem 1rem;
+  border: none;
+  top:0rem;
+  position: relative;
+  border-radius: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.controls button:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+
+
+
+
+@keyframes slide {
+  0%, 20% {
+    transform: translateX(0%);
+  }
+  25%, 45% {
+    transform: translateX(-100%);
+  }
+  50%, 70% {
+    transform: translateX(-200%);
+  }
+  75%, 100% {
+    transform: translateX(0%);
+  }
+}

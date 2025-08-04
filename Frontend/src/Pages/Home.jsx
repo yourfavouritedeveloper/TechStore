@@ -41,7 +41,7 @@ function Home() {
 
   function scrollToShop() {
     if (shopRef.current) {
-      const y = shopRef.current.getBoundingClientRect().top + window.scrollY + 120;
+      const y = shopRef.current.getBoundingClientRect().top + window.scrollY + 230;
       window.scrollTo({ top: y, behavior: "smooth" });    }
   }
 
