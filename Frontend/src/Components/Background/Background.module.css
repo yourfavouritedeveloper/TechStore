@@ -19,16 +19,46 @@ body {
     position: relative;
     display: inline-flex;
     justify-content: center;
-    margin-top: 39rem;
-    width: 80%;
+    margin-top: 26rem;
+    right:34rem;
+    width: 40%;
     height: 50%;
     z-index: 6;
-    border-radius: 10rem;
+    border-radius: 7rem;
     opacity: 1;
-    background-color: rgba(0, 0, 0, 0.384);
-    box-shadow: 0px 0px 0.8rem rgba(255, 255, 255, 0.11);
+    background: linear-gradient(
+     13deg,
+     rgba(0, 0, 0, 0.445), 
+     rgba(19, 19, 19, 0.445), 
+     rgba(255, 255, 255, 0.116), 
+     rgba(19, 19, 19, 0.445), 
+    rgba(0, 0, 0, 0.445)
+   );
     backdrop-filter: blur(12px);
 
+}
+
+.boxCampaign {
+    overflow-y: hidden;
+    position: absolute;
+    display: inline-flex;
+    justify-content: center;
+    margin-top: 8.5rem;
+    left:55.5rem;
+    width: 52%;
+    height: 80%;
+    z-index: 6;
+    border-radius: 7rem;
+    opacity: 1;
+    background: linear-gradient(
+     13deg,
+     rgba(0, 0, 0, 0.445), 
+     rgba(19, 19, 19, 0.445), 
+     rgba(255, 255, 255, 0.116), 
+     rgba(19, 19, 19, 0.445), 
+    rgba(0, 0, 0, 0.445)
+   );
+    backdrop-filter: blur(12px);    
 }
 
 
@@ -68,30 +98,32 @@ body {
     position:absolute;
     color:white;
     z-index: 11;
-    bottom: 16.5rem;
-    font-size: clamp(1.8rem, 11vw, 11.875rem);
+    bottom: 30.5rem;
+    font-size: clamp(2rem, 8vw, 11.875rem);
     font-family: "PoppinsLight";
-    margin-left:28.2%;
-    letter-spacing: -0.7rem;
+    margin-left:3%;
+    letter-spacing: -0.6rem;
 
 }
 
 .subtitle {
     color:rgba(255, 255, 255, 0.781);
-    width:70%;
-    font-size: clamp(2.2rem, 5vw, 0.625rem);
+    width:80%;
+    font-size: clamp(2.1rem, 5vw, 0.625rem);
     line-height: 1.2;
-    padding: 1.3rem 5rem;
+    text-align: left;
+    padding: 2.5rem 2rem;
     justify-content: center;
 }
 
 .shop {
     position: absolute;
-    margin-top:13rem;
+    margin-top:19.5rem;
     font-family: "PoppinsLight";
-    font-size: clamp(1.7rem, 5vw, 0.625rem);
-    padding:0.8rem 4rem;
+    font-size: clamp(1.8rem, 5vw, 0.625rem);
+    padding:1rem 4rem;
     border-radius: 5rem;
+    left:5rem;
     border:none;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -109,3 +141,54 @@ body {
     color:white;
 }
 
+
+
+.boxCampaign .title {
+    text-align: center;
+    position:absolute;
+    color:white;
+    z-index: 11;
+    bottom: 35.5rem;
+    text-align: left;
+    font-size: clamp(2rem, 3vw, 11.875rem);
+    font-family: "PoppinsLight";
+    left: 3rem;
+    letter-spacing: 0rem;   
+}
+
+.boxCampaign .subtitle {
+    color:rgba(255, 255, 255, 0.781);
+    position: absolute;
+    width:90%;
+    font-size: clamp(1.6rem, 5vw, 0.625rem);
+    line-height: 1.2;
+    text-align: center;
+    top:30rem;
+    padding: 2.5rem 2rem;
+    justify-content: center;    
+}
+
+.boxCampaign button {
+    position: absolute;
+    margin-top:39.5rem;
+    font-family: "PoppinsLight";
+    font-size: clamp(1.6rem, 5vw, 0.625rem);
+    padding:0.7rem 3rem;
+    border-radius: 5rem;
+    border:none;
+    transition: all 0.3s ease;
+    cursor: pointer;   
+}
+
+
+.boxCampaign button:hover {
+    transform:scale(1.05);
+    background-color: rgb(255, 140, 0);
+    color:white;
+}
+
+.boxCampaign button:active {
+    transform:scale(1.05);
+    background-color: rgb(255, 178, 85);
+    color:white;
+}
