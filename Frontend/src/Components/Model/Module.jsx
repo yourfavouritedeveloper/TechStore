@@ -12,7 +12,8 @@ function Module() {
             width: "100vw",
             position: "absolute",
             marginTop: "-103rem",
-            zIndex: "2",
+            zIndex: "-1",
+            overflow: "hidden"
         }}>
         <PerspectiveCamera makeDefault position={[-10, 9,10]} fov={0.8} />
         <OrbitControls 

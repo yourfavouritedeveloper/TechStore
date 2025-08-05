@@ -40,7 +40,7 @@ export function Model(props) {
 
   return (
     <a.group ref={ref} {...props} dispose={null} scale={scale}>
-      <a.mesh
+      <a.mesh 
         castShadow
         receiveShadow
         geometry={nodes.victus_aiStandardSurface1_0.geometry}

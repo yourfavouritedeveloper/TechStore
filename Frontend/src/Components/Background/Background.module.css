@@ -11,6 +11,7 @@ body {
     background-color: black;
     overflow-y: hidden;
     overflow-x: hidden;
+    z-index: -2;
 
 }
 
