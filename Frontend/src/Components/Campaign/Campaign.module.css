@@ -284,6 +284,8 @@ background: linear-gradient(
   }
 }
 
+@media (max-width: 1800px) {}
+
 @media (max-width: 1440px) {}
 
 @media (max-width: 1200px) {}
@@ -292,8 +294,151 @@ background: linear-gradient(
 
 @media (max-width: 768px) {}
 
+@media (max-width: 599px) {}
+
 @media (max-width: 576px) {}
 
 @media (max-width: 	480px) {}
 
-@media (max-width: 	360px) {}
+@media (max-width: 	360px) {
+.container {
+    height: 40%;
+    width: 90%;
+    border-radius: 1.4rem;
+    top:3rem;
+}
+
+
+
+.campaign1 .title {
+    font-size: clamp(1.1rem, 5vw, 0.625rem);
+    line-height: 1.3rem;
+    font-weight: normal;
+    top: -0.7rem;
+    left: 0.6rem;
+}
+
+
+.campaign1 .subtitle {
+    font-size: clamp(0.4rem, 5vw, 0.625rem);
+    font-weight: normal;
+    top: -1.95rem;
+    text-align: left;  
+    width: 90%;
+    line-height: 0.65rem;
+    left: 0.65rem;   
+}
+
+.campaign1 .subsubtitle {
+    font-size: clamp(0.2rem, 4vw, 0.525rem);
+    font-weight: normal;
+    top: -2.7rem;    
+    left: -1.05rem;  
+}
+
+
+.campaign2 .title {
+    font-size: clamp(1.1rem, 5vw, 0.625rem);
+    font-weight: normal;
+    top: -0.9rem;
+    left: -3.5rem;
+}
+
+
+.campaign2 .subtitle {
+    font-size: clamp(0.3rem, 5vw, 0.525rem);
+    font-weight: normal;
+    text-align: left;
+    width: 70%;
+    top: -2.3rem; 
+    line-height: 0.55rem;
+    left: 1.1rem;  
+}
+
+.campaign2 .subsubtitle {
+    font-size: clamp(0.2rem, 4vw, 0.425rem);
+    font-weight: normal;
+    top: -2.9rem;  
+    width: 70%;  
+    text-align: left;
+    line-height: 0.55rem;
+    left: 1.1rem; 
+}
+
+.campaign2 button {
+    top: -8rem; 
+    left: 1rem;  
+    font-size: clamp(0.2rem, 4vw, 0.425rem);
+    position: absolute;
+    font-weight: normal;
+    border-radius: 2rem;
+    padding: 0.1rem 0.3rem;
+}
+
+
+
+.campaign2 img {
+    right:0rem;
+    width:80%;
+    top:-1rem;
+}
+
+
+
+
+.campaign3 .title {
+    font-size: clamp(1rem, 5vw, 0.625rem);
+    width: 80%;
+    font-weight: normal;
+    line-height: 0.81;
+    top: -0.5rem;
+    left:1rem;
+}
+
+
+.campaign3 .subtitle {
+    font-size: clamp(0.3rem, 5vw, 0.455rem);
+    color: rgb(0, 0, 0);
+    font-weight: normal;
+    width: 77%;
+    text-align: left;
+    line-height: 1;
+    position: absolute;
+    top: 1.6rem;   
+    left:1rem;  
+}
+
+
+
+.campaign3 button {
+    top: -8.2rem; 
+    left: 1rem;  
+    font-size: clamp(0.2rem, 4vw, 0.425rem);
+    position: absolute;
+    font-weight: normal;
+    border-radius: 2rem;
+    padding: 0.1rem 0.3rem;
+}
+
+
+.campaign3 img {
+    right:1rem;
+    width:40%;
+    top:-1.3rem;
+
+}
+
+
+
+.controls {
+  gap: 0.2rem;
+}
+
+
+.controls button {
+  padding: 0.2rem 0.5rem;
+  top:0.9rem;
+  font-size: 0.4rem;
+}
+
+}

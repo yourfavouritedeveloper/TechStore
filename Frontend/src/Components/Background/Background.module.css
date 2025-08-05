@@ -11,7 +11,7 @@ body {
     background-color: black;
     overflow-y: hidden;
     overflow-x: hidden;
-    z-index: -2;
+    z-index: 1;
 
 }
 
@@ -194,6 +194,7 @@ body {
     color:white;
 }
 
+@media (max-width: 1800px) {}
 
 @media (max-width: 1440px) {}
 
@@ -203,8 +204,84 @@ body {
 
 @media (max-width: 768px) {}
 
+@media (max-width: 599px) {}
+
 @media (max-width: 576px) {}
 
 @media (max-width: 	480px) {}
 
-@media (max-width: 	360px) {}
+@media (max-width: 	360px) {
+ .container {
+    height: 41rem;
+} 
+
+.box {
+    top:-15rem;
+    right:0rem;
+    width: 80%;
+    height: 26%;
+    z-index: 6;
+    border-radius: 2rem;
+    overflow-x: hidden;
+
+}
+
+
+.title{
+    bottom: 30rem;
+    font-size: clamp(2rem, 8vw, 11.875rem);
+    margin-left:4.5rem;
+    letter-spacing: 0rem;
+
+}
+
+.subtitle {
+    font-size: clamp(0.8rem, 5vw, 0.625rem);
+    padding: 0.5rem 0.5rem;
+}
+
+.shop {
+    margin-top:7.5rem;
+    font-size: clamp(0.7rem, 5vw, 0.625rem);
+    padding:0.3rem 1rem;
+    border-radius: 5rem;
+    left:1.2rem;
+}
+
+.boxCampaign {
+    margin-top: 22.5rem;
+    left:1.9rem;
+    width: 80%;
+    height: 34%;
+    border-radius: 2rem;
+    overflow-x: hidden;
+
+}
+
+
+.boxCampaign .title {
+    bottom: 9.9rem;
+    font-size: clamp(1.2rem, 3vw, 11.875rem);
+    left: -3.3rem;
+}
+
+.boxCampaign .subtitle {
+    color:rgba(255, 255, 255, 0.781);
+    position: absolute;
+    width:90%;
+    font-size: clamp(0.6rem, 3vw, 11.875rem);
+    line-height: 1.2;
+    text-align: center;
+    top:5.7rem;
+    padding: 2.5rem 2rem;
+    justify-content: center;    
+}
+
+.boxCampaign button {
+    margin-top:11.3rem;
+    font-size: clamp(0.7rem, 5vw, 0.625rem);
+    padding:0.3rem 1rem;
+    border-radius: 5rem;
+}
+
+}

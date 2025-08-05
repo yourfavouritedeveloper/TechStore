@@ -8,8 +8,8 @@ function Module() {
         <>
         <Canvas
         style={{
-            height: "130vh",
-            width: "100vw",
+            height: "75rem",
+            width: "125rem",
             position: "absolute",
             marginTop: "-103rem",
             zIndex: "-1",

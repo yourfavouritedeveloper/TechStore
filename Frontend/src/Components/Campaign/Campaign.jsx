@@ -44,7 +44,7 @@ function Campaign() {
                         <p className={styles.title}>50% OFF REGISTRATION</p>
                         <p className={styles.subtitle}>Don't miss your chance to get started for half the price!</p>
                         <p className={styles.subsubtitle}>Register now and level up your journey!</p>
-                    </a>
+                    </a> 
                     <a className={styles.campaign2} href="">
                         <div className={styles.inner}></div>   
                         <p className={styles.title}>30% OFF</p>
@@ -66,7 +66,7 @@ function Campaign() {
                     <button onClick={prevSlide}>←</button>
                     <button onClick={nextSlide}>→</button>
                 </div>     
-            </div>
+             </div>
         </>
 
     );
