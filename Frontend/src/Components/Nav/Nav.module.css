@@ -445,6 +445,28 @@ a {
 
 
 
+=======
+@media (max-width: 576px) {
+
+.container {
+    margin-left:-2rem;
+    padding-left: 0rem;
+    position: fixed;
+}
+
+.highcontainer {
+    padding-left: 0rem;
+    
+}
+
+
+}
+
+
+
+
+
+
 
 
 
@@ -462,12 +484,16 @@ a {
 }
 
 #campaign{
+
     margin-left:-15vh;
+
     margin-top: -0.2rem;
     border-radius: 1rem;
     padding: 1.5px 3px;
     padding-left: 6.5vw;
+
     font-size: clamp(0.9rem, 1.2vw, 2.5rem);
+
     width: auto;
 }
 
@@ -483,7 +509,9 @@ a {
     margin-top: -0.2rem;
     padding: 1.5px 3px;
     border-radius: 1rem;
+
     font-size: clamp(0.9rem, 1.2vw, 2.5rem);
+
     width: auto;
 }
 
@@ -498,7 +526,9 @@ a {
     margin-top: -0.2rem;
     border-radius: 1rem;
     padding: 1.5px 3px;
+
     font-size: clamp(0.9rem, 1.2vw, 2.5rem);
+
     width: auto;
 }
 
@@ -514,7 +544,9 @@ a {
     margin-top: -0.2rem;
     border-radius: 1rem;
     padding: 1.5px 3px;
+
     font-size: clamp(0.9rem, 1.2vw, 2.5rem);
+
     width: auto;
 }
 
@@ -529,7 +561,9 @@ a {
 
 #name {
     padding: 0rem;
+
     font-size: clamp(0.9rem, 1.2vw, 2.5rem);
+
     transition: all 0.3s ease;
     margin-top:1rem;  
     position: relative;
@@ -556,7 +590,9 @@ a {
   font-size: 0.6rem;
   top:-0.3rem;
   margin-left: 13.5vh;
+
   left:17vw;
+
   width: 7.2rem;
   padding: 0.3rem 1rem;
   padding-right: 1.6rem;
@@ -564,8 +600,10 @@ a {
 
 .search {
   z-index: 40;
+
   top:0.65rem;
   left:-14vh;
+
   margin-left:5vw;
   height: 18px;
   width: 18px;
@@ -738,11 +776,13 @@ a {
 }
 
 #campaign{
+
     margin-left:-12.5vh;
     margin-top: -0.2rem;
     border-radius: 1rem;
     padding: 1.5px 3px;
     padding-left:45vw;
+
     font-size: clamp(0.7rem, 1.2vw, 2.5rem);
 
 }
@@ -809,8 +849,10 @@ a {
     font-size: clamp(0.7rem, 1.2vw, 2.5rem);
     transition: all 0.3s ease;
     margin-top:1rem;  
+
     left:-4.8vh;
     padding-left: 42vw;
+
     padding-top: 0.3rem;
     padding-right: 1rem;
 }
@@ -825,8 +867,10 @@ a {
 
   font-size: 0.5rem;
   top:-0.3rem;
+
   margin-left: 1vh;
   left:46vw;
+
   width: 6rem;
   padding: 0.3rem 1rem;
   padding-right: 1.6rem;
@@ -835,9 +879,11 @@ a {
 .search {
   position: relative;
   z-index: 40;
+
   top:0.8rem;
   left:-12.5vh;
   padding-left: 8vw;
+
   height: 18px;
   width: 18px;
     
