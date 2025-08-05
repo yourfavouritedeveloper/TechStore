@@ -78,7 +78,7 @@ function Home() {
   }
 
   return (
-    <>
+    <> <title>TechStore</title>
       <Nav highlight={navHighlight} />
       <Background shopRef={shopRef} scrollTo={scrollToShop} />
       <Body shopRef={shopRef} itemRef={itemRef} scrollTo={scrollToItems} onCategorySelect={handleCategoryFilter} />
