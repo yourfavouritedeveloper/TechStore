@@ -189,7 +189,26 @@ a {
 
 @media (max-width: 768px) {}
 
-@media (max-width: 576px) {}
+@media (max-width: 576px) {
+
+.container {
+    margin-left:-2rem;
+    padding-left: 0rem;
+    position: fixed;
+}
+
+.highcontainer {
+    padding-left: 0rem;
+    
+}
+
+
+}
+
+
+
+
+
 
 @media (max-width: 	480px) {
 
