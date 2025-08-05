@@ -8,3 +8,6 @@
   src: url('./assets/Poppins-ExtraLight.ttf') format('truetype');
 }
 
+html,body {
+  overflow-x: hidden;
+}
