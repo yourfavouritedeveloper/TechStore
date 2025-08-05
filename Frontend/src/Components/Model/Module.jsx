@@ -17,7 +17,8 @@ function Module() {
         <PerspectiveCamera makeDefault position={[-10, 9,10]} fov={0.8} />
         <OrbitControls 
         enableZoom={false} 
-        enablePan={false}/>
+        enablePan={false}
+        enableRotate={false}/>
         <ambientLight intensity={10} />
         <directionalLight position={[-600, 100, -500]} intensity={6000} />
         <pointLight position={[0, 5, 10]} intensity={0.8} />
