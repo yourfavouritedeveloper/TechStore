@@ -1,5 +1,7 @@
 # TechStore
 
+![TechStore](./Frontend/public/brand.png)
+
 TechStore is a full-stack e-commerce web application focused on selling technology products such as mobile phones, laptops, and accessories.  
 It features a modern React frontend with dynamic filtering and sorting, and a robust Spring Boot backend exposing REST APIs connected to a PostgreSQL database and Redis cache.  
 The project is containerized with Docker for easy deployment and designed with JWT-based authentication for secure access.
