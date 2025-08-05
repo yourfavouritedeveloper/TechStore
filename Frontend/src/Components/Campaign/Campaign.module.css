@@ -298,7 +298,152 @@ background: linear-gradient(
 
 @media (max-width: 576px) {}
 
-@media (max-width: 	480px) {}
+@media (max-width: 	480px) {
+
+.container {
+    height: 40%;
+    width: 90%;
+    border-radius: 1.4rem;
+    top:3rem;
+}
+
+
+
+.campaign1 .title {
+    font-size: clamp(1.4rem, 5vw, 0.625rem);
+    line-height: 1.3rem;
+    font-weight: normal;
+    top: -0.7rem;
+    left: 0.6rem;
+}
+
+
+.campaign1 .subtitle {
+    font-size: clamp(0.8rem, 5vw, 0.625rem);
+    font-weight: normal;
+    top: -1.95rem;
+    text-align: left;  
+    width: 90%;
+    line-height: 0.8rem;
+    left: 0.65rem;   
+}
+
+.campaign1 .subsubtitle {
+    font-size: clamp(0.5rem, 4vw, 0.625rem);
+    font-weight: normal;
+    top: -2.8rem;    
+    left: 6.1rem;  
+    margin-left:-67.4vw;
+}
+
+
+.campaign2 .title {
+    font-size: clamp(1.5rem, 5vw, 0.625rem);
+    font-weight: normal;
+    top: -1.1rem;
+    left: 3rem;
+    margin-left:-65vw;
+}
+
+
+.campaign2 .subtitle {
+    font-size: clamp(0.8rem, 5vw, 0.625rem);
+    font-weight: normal;
+    text-align: left;
+    width: 70%;
+    top: -2.9rem; 
+    line-height: 0.75rem;
+    left: 1rem;  
+}
+
+.campaign2 .subsubtitle {
+    font-size: clamp(0.5rem, 4vw, 0.625rem);
+    font-weight: normal;
+    top: -3.5rem;  
+    width: 80%;  
+    text-align: left;
+    line-height: 0.55rem;
+    left: 1rem; 
+}
+
+.campaign2 button {
+    top: -8.5rem; 
+    left: 0.9rem;  
+    font-size: clamp(0.5rem, 4vw, 0.425rem);
+    position: absolute;
+    font-weight: normal;
+    border-radius: 2rem;
+    padding: 0.1rem 0.3rem;
+}
+
+
+
+.campaign2 img {
+    right:0rem;
+    width:70%;
+    top:0rem;
+}
+
+
+
+
+.campaign3 .title {
+    font-size: clamp(1.3rem, 5vw, 0.625rem);
+    width: 80%;
+    font-weight: normal;
+    line-height: 0.81;
+    top: -0.5rem;
+    left:1rem;
+}
+
+
+.campaign3 .subtitle {
+    font-size: clamp(0.5rem, 5vw, 0.655rem);
+    color: rgb(0, 0, 0);
+    font-weight: normal;
+    width: 90%;
+    text-align: left;
+    line-height: 1;
+    position: absolute;
+    top: 2.4rem;   
+    left:1rem;  
+}
+
+
+
+.campaign3 button {
+    top: -8.75rem; 
+    left: 0.2rem; 
+    margin-left:3vw; 
+    font-size: clamp(0.5rem, 4vw, 0.425rem);
+    position: absolute;
+    font-weight: normal;
+    border-radius: 2rem;
+    padding: 0.1rem 0.3rem;
+}
+
+
+.campaign3 img {
+    right:0.5rem;
+    width:45%;
+    top:-2rem;
+
+}
+
+
+
+.controls {
+  gap: 0.2rem;
+}
+
+
+.controls button {
+  padding: 0.2rem 0.5rem;
+  top:0.9rem;
+  font-size: 0.4rem;
+}
+
+}
 
 @media (max-width: 	360px) {
 .container {
@@ -333,7 +478,8 @@ background: linear-gradient(
     font-size: clamp(0.2rem, 4vw, 0.525rem);
     font-weight: normal;
     top: -2.7rem;    
-    left: -1.05rem;  
+    left: 5.25rem;  
+    margin-left:-67.4vw;
 }
 
 
@@ -341,7 +487,8 @@ background: linear-gradient(
     font-size: clamp(1.1rem, 5vw, 0.625rem);
     font-weight: normal;
     top: -0.9rem;
-    left: -3.5rem;
+    left: 2.5rem;
+    margin-left:-65vw;
 }
 
 
@@ -400,7 +547,7 @@ background: linear-gradient(
     font-size: clamp(0.3rem, 5vw, 0.455rem);
     color: rgb(0, 0, 0);
     font-weight: normal;
-    width: 77%;
+    width: 80%;
     text-align: left;
     line-height: 1;
     position: absolute;
@@ -412,7 +559,8 @@ background: linear-gradient(
 
 .campaign3 button {
     top: -8.2rem; 
-    left: 1rem;  
+    left: -0rem; 
+    margin-left:5vw; 
     font-size: clamp(0.2rem, 4vw, 0.425rem);
     position: absolute;
     font-weight: normal;
