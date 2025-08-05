@@ -205,13 +205,13 @@ a {
 }
 
 #campaign{
-    margin-left:-15.3vh;
+    margin-left:-13vh;
     margin-top: -0.2rem;
     border-radius: 1rem;
     padding: 1.5px 3px;
     padding-left: 6.5vw;
-    font-size: clamp(0.8rem, 1.2vw, 2.5rem);
-
+    font-size: clamp(0.7rem, 1.2vw, 2.5rem);
+    width: auto;
 }
 
 #campaign:hover{
@@ -226,8 +226,8 @@ a {
     margin-top: -0.2rem;
     padding: 1.5px 3px;
     border-radius: 1rem;
-    font-size: clamp(0.8rem, 1.2vw, 2.5rem);
-
+    font-size: clamp(0.7rem, 1.2vw, 2.5rem);
+    width: auto;
 }
 
 #about:hover{
@@ -241,8 +241,8 @@ a {
     margin-top: -0.2rem;
     border-radius: 1rem;
     padding: 1.5px 3px;
-    font-size: clamp(0.8rem, 1.2vw, 2.5rem);
-
+    font-size: clamp(0.7rem, 1.2vw, 2.5rem);
+    width: auto;
 }
 
 #contact:hover{
@@ -257,8 +257,8 @@ a {
     margin-top: -0.2rem;
     border-radius: 1rem;
     padding: 1.5px 3px;
-    font-size: clamp(0.8rem, 1.2vw, 2.5rem);
-
+    font-size: clamp(0.7rem, 1.2vw, 2.5rem);
+    width: auto;
 }
 
 #login:hover{
@@ -272,12 +272,12 @@ a {
 
 #name {
     padding: 0rem;
-    font-size: clamp(0.8rem, 1.2vw, 2.5rem);
+    font-size: clamp(0.7rem, 1.2vw, 2.5rem);
     transition: all 0.3s ease;
     margin-top:1rem;  
     position: relative;
     left:2.1vh;
-    padding-left:6vw;
+    padding-left:7vw;
     padding-top: 0.3rem;
     padding-right: 1rem;
 }
@@ -307,8 +307,9 @@ a {
 
 .search {
   z-index: 40;
-  top:0.7rem;
-  left:-5.4rem;
+  top:0.75rem;
+  left:-10.8vh;
+  margin-left:5vw;
   height: 18px;
   width: 18px;
     
@@ -396,7 +397,7 @@ a {
     border-radius: 1rem;
     padding: 1.5px 3px;
     font-size: clamp(0.7rem, 1.2vw, 2.5rem);
-
+    
 }
 
 #login:hover{
@@ -438,10 +439,11 @@ a {
 }
 
 .search {
+  position: absolute;
   z-index: 40;
-  top:0.8rem;
-  left:-11.5vh;
-  padding-left: 1.1rem;
+  top:1.3rem;
+  left:9.5vh;
+  padding-left: 10.1rem;
   height: 18px;
   width: 18px;
     
