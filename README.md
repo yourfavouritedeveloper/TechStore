@@ -7,6 +7,10 @@ It features a modern React frontend with dynamic filtering and sorting, and a ro
 The project is containerized with Docker for easy deployment and designed with JWT-based authentication for secure access.
 
 
+## 🌐Live Deployment
+
+[Visit TechStore Webpage](https://yourfavouritedeveloper.github.io/TechStore/)
+
 
 ## Table of Contents
 
@@ -18,7 +22,6 @@ The project is containerized with Docker for easy deployment and designed with J
   - [Backend Setup](#backend-setup)  
   - [Frontend Setup](#frontend-setup)  
 - [Running with Docker](#running-with-docker)  
-- [Deployment](#deployment)  
 - [Authentication and Security](#authentication-and-security)  
 - [CORS Configuration](#cors-configuration)  
 - [Project Structure](#project-structure)  
@@ -193,15 +196,6 @@ Before you start, make sure you have installed:
      ```
 
    - Or deploy the build folder to GitHub Pages or any static hosting.
-
-
-
-## Deployment
-
-- Backend: Hosted on Render at https://techstore-3fvk.onrender.com
-
-- Frontend: Deployed on GitHub Pages at https://yourfavouritedeveloper.github.io/TechStore/
-
 
 
 ## Troubleshooting
