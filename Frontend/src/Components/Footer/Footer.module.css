@@ -2,34 +2,58 @@
   background-color: #1a1a1a;
   color: #fff;
   padding: 2rem 5rem;
+  left:10rem;
+
 }
 
 .content {
+  z-index: 2;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+
 }
 
 .left {
-  margin-bottom: 0.5rem;
+  margin-top: 2.5rem;
+  margin-left: 73rem;
 }
 
 .right {
   text-align: center;
+  position: relative;
+  right:40rem;
+  top:1rem;
+
+}
+
+.right p {
+  position: relative;
+  right:11rem;
+  top:0.2rem;
 }
 
 .contacts {
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  gap: 0rem;
+  top:-0.8rem;
+  position: relative;
   margin-top: 0.3rem;
 }
 
 .mail, .number {
   color: #4ea1f3;
   text-decoration: none;
+  
 }
+
+ .number {
+  position: relative;
+  right: 8rem;
+ }
 
 .mail:hover, .number:hover {
   text-decoration: underline;
@@ -48,4 +72,13 @@
   .contacts {
     align-items: flex-end;
   }
+}
+
+
+.footer img {
+  margin-top:-8rem;
+  z-index: 0;
+  left:-23rem;
+  position: relative;  
+  width:60%;
 }

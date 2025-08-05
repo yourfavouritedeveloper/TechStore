@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Footer.module.css';
+import Brand from '../../assets/branddark.png'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -27,6 +28,7 @@ const Footer = () => {
                 </div>
             </div>
         </div>
+         <img src={Brand} alt="TechStore" />
     </footer>
 
   );
