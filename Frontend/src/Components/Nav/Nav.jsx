@@ -13,7 +13,7 @@ function Nav({ highlight }) {
                     <Link id ={styles.campaign} className={highlight ? styles.highlight : ""} to="/campaign">Campaign</Link>
                     <Link id={styles.about} className={highlight ? styles.highlight : ""} to="/about">About</Link>
                     <Link id={styles.contact} className={highlight ? styles.highlight : ""} to="/contact">Contact</Link>
-                    <Link id={styles.login} className={highlight ? styles.highlight : ""} to="/login">Login / Signup</Link>
+                    <Link id={styles.login} className={highlight ? styles.highlight : ""} to="/login">Account</Link>
                     <div className={styles.inputBar}>
                        <input type="text" placeholder="Enter the product name"/>
                         <svg className={styles.search}
