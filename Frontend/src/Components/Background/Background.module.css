@@ -247,6 +247,7 @@ body {
     border-radius: 5rem;
     left:-0.5rem;
     margin-left:10vw;
+    color:black;
 }
 
 .boxCampaign {
@@ -281,6 +282,7 @@ body {
 
 .boxCampaign button {
     margin-top:13.3rem;
+    color:black;
     font-size: clamp(0.7rem, 5vw, 0.625rem);
     padding:0.3rem 1rem;
     border-radius: 5rem;
