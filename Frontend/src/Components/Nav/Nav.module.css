@@ -445,7 +445,7 @@ a {
 
 
 
-=======
+
 @media (max-width: 576px) {
 
 .container {
@@ -635,7 +635,7 @@ a {
 }
 
 #campaign{
-    margin-left:-18.5vh;
+    margin-left:-9.6rem;
     margin-top: -0.2rem;
     border-radius: 1rem;
     padding: 1.5px 3px;
@@ -706,8 +706,8 @@ a {
     transition: all 0.3s ease;
     margin-top:1rem;  
     position: absolute;
-    left:-10.1vh;
-    padding-left:47vw;
+    left:-5.8rem;
+    padding-left:46vw;
     padding-top: 0.3rem;
     padding-right: 1rem;
 }
@@ -728,8 +728,8 @@ a {
 
   font-size: 0.7rem;
   top:-0.1rem;
-  margin-left: 5vh;
-  left:38vw;
+  margin-left: -1rem;
+  left:54vw;
   width: 8.4rem;
   padding: 0.2rem 0.5rem;
   padding-right: 1.6rem;
@@ -737,10 +737,10 @@ a {
 
 .search {
   z-index: 40;
-  top:1.5rem;
-  position: absolute;
-  left:23.5vh;
-  padding-left:30vw;
+  top:1rem;
+  position: relative;
+  left:-7.5rem;
+  padding-left:3.4vw;
   margin-left:5vw;
   height: 19px;
   width: 19px;
@@ -777,11 +777,11 @@ a {
 
 #campaign{
 
-    margin-left:-12.5vh;
+    margin-left:-8.5rem;
     margin-top: -0.2rem;
     border-radius: 1rem;
     padding: 1.5px 3px;
-    padding-left:45vw;
+    padding-left:55vw;
 
     font-size: clamp(0.7rem, 1.2vw, 2.5rem);
 
@@ -850,8 +850,8 @@ a {
     transition: all 0.3s ease;
     margin-top:1rem;  
 
-    left:-4.8vh;
-    padding-left: 42vw;
+    left:-4.6rem;
+    padding-left: 52vw;
 
     padding-top: 0.3rem;
     padding-right: 1rem;
@@ -866,13 +866,13 @@ a {
 .inputBar input {
 
   font-size: 0.5rem;
-  top:-0.3rem;
+  top:-0.2rem;
 
-  margin-left: 1vh;
-  left:46vw;
+  margin-left: -1.6rem;
+  left:56vw;
 
   width: 6rem;
-  padding: 0.3rem 1rem;
+  padding: 0.2rem 1rem;
   padding-right: 1.6rem;
 }
 
@@ -881,8 +881,8 @@ a {
   z-index: 40;
 
   top:0.8rem;
-  left:-12.5vh;
-  padding-left: 8vw;
+  left:-5.4rem;
+  padding-left: 1vw;
 
   height: 18px;
   width: 18px;
