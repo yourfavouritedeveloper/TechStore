@@ -1,7 +1,47 @@
 import styles from "./Nav.module.css"
 import { Link } from "react-router-dom";
+import { useEffect, useState } from 'react';
 
 function Nav({ highlight }) {
+ const [is480, setIs480] = useState(window.innerWidth === 480);
+ const [menuOpen, setMenuOpen] = useState(false);
+
+
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIs480(window.innerWidth > 480);
+    };
+
+    window.addEventListener('resize', handleResize);
+    
+    handleResize();
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const less480 = (<>
+                <div>
+                    <div className={styles.board}  onClick={() => setMenuOpen(prev => !prev)}>☰</div>
+                    {menuOpen && (
+                        <div className={highlight ? styles.highmenu : styles.menu}>
+                            <Link id={styles.campaign} className={highlight ? styles.highlight : ""} to="/campaign">Campaign</Link>
+                            <Link id={styles.about} className={highlight ? styles.highlight : ""} to="/about">About</Link>
+                            <Link id={styles.contact} className={highlight ? styles.highlight : ""} to="/contact">Contact</Link>
+                            <Link id={styles.login} className={highlight ? styles.highlight : ""} to="/login">Account</Link> 
+                        </div>  
+                        )}
+                </div>
+                </>)
+
+  const greater480 = (<>
+                        <Link id ={styles.campaign} className={highlight ? styles.highlight : ""} to="/campaign">Campaign</Link>
+                        <Link id={styles.about} className={highlight ? styles.highlight : ""} to="/about">About</Link>
+                        <Link id={styles.contact} className={highlight ? styles.highlight : ""} to="/contact">Contact</Link>
+                        <Link id={styles.login} className={highlight ? styles.highlight : ""} to="/login">Account</Link>
+                    </>)
 
 
     return (
@@ -10,10 +50,7 @@ function Nav({ highlight }) {
 
                 <ul className={styles.navbar}>
                     <Link id={styles.name} className={highlight ? styles.highlight : ""} to="/">TechStore</Link>
-                    <Link id ={styles.campaign} className={highlight ? styles.highlight : ""} to="/campaign">Campaign</Link>
-                    <Link id={styles.about} className={highlight ? styles.highlight : ""} to="/about">About</Link>
-                    <Link id={styles.contact} className={highlight ? styles.highlight : ""} to="/contact">Contact</Link>
-                    <Link id={styles.login} className={highlight ? styles.highlight : ""} to="/login">Account</Link>
+                    {is480 ? greater480 : less480}
                     <div className={styles.inputBar}>
                        <input type="text" placeholder="Enter the product name"/>
                         <svg className={styles.search}
