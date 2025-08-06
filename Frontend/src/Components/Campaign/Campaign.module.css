@@ -284,7 +284,7 @@ background: linear-gradient(
   }
 }
 
-@media (max-width: 1700px) {
+@media (max-width: 1900px) {
 
 .container {
     height: 43%;
@@ -296,10 +296,11 @@ background: linear-gradient(
 
 
 .campaign1 .title {
-    font-size: clamp(3.3rem, 5vw, 0.625rem);
-    line-height: 2.7rem;
+    font-size: clamp(4rem, 5vw, 0.625rem);
+    line-height: 3.2rem;
+    width: 70%;
     font-weight: bold;
-    top: -1.6rem;
+    top: -2.3rem;
     left: 0.6rem;
 }
 
@@ -307,27 +308,27 @@ background: linear-gradient(
 .campaign1 .subtitle {
     font-size: clamp(1rem, 5vw, 0.625rem);
     font-weight: bold;
-    top: -4.9rem;
+    top: -6.2rem;
     text-align: left;  
-    width: 60%;
+    width: 80%;
     line-height: 1rem;
-    left: 0.75rem;   
+    left: 0.8rem;   
 }
 
 .campaign1 .subsubtitle {
     font-size: clamp(0.8rem, 4vw, 0.625rem);
     font-weight: bold;
-    top: -6rem;    
-    left:8.05rem;  
+    top: -7.2rem;    
+    left:8.12rem;  
     margin-left:-37.4vw;
 }
 
 
 .campaign2 .title {
-    font-size: clamp(3.4rem, 5vw, 0.625rem);
+    font-size: clamp(4.1rem, 5vw, 0.625rem);
     font-weight: bold;
-    top: -1.7rem;
-    left: 6.2rem;
+    top: -2.7rem;
+    left: 7.4rem;
     margin-left:-35vw;
 }
 
@@ -337,15 +338,15 @@ background: linear-gradient(
     font-weight: bold;
     text-align: left;
     width: 80%;
-    top: -6rem; 
+    top: -8.2rem; 
     line-height: 1rem;
     left: 1.3rem;  
 }
 
 .campaign2 .subsubtitle {
-    font-size: clamp(0.6rem, 4vw, 0.625rem);
+    font-size: clamp(0.7rem, 4vw, 0.625rem);
     font-weight: bold;
-    top: -7rem;  
+    top: -9.1rem;  
     width: 90%;  
     text-align: left;
     line-height: 1.1rem;
@@ -353,7 +354,7 @@ background: linear-gradient(
 }
 
 .campaign2 button {
-    top: -17rem; 
+    top: -16.5rem; 
     left: 1.2rem;  
     font-size: clamp(1rem, 4vw, 0.425rem);
     position: absolute;
