@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from 'react';
 
 function Nav({ highlight }) {
- const [is480, setIs480] = useState(window.innerWidth === 480);
+ const [is599, setIs599] = useState(window.innerWidth === 599);
  const [menuOpen, setMenuOpen] = useState(false);
 
 
 
   useEffect(() => {
     const handleResize = () => {
-      setIs480(window.innerWidth > 480);
+      setIs599(window.innerWidth > 599);
     };
 
     window.addEventListener('resize', handleResize);
@@ -22,7 +22,7 @@ function Nav({ highlight }) {
     };
   }, []);
 
-  const less480 = (<>
+  const less599 = (<>
                 <div>
                     <div className={styles.board}  onClick={() => setMenuOpen(prev => !prev)}>
                         <svg xmlns="http://www.w3.org/2000/svg" 
@@ -43,7 +43,7 @@ function Nav({ highlight }) {
                 </div>
                 </>)
 
-  const greater480 = (<>
+  const greater599 = (<>
                         <Link id ={styles.campaign} className={highlight ? styles.highlight : ""} to="/campaign">Campaign</Link>
                         <Link id={styles.about} className={highlight ? styles.highlight : ""} to="/about">About</Link>
                         <Link id={styles.contact} className={highlight ? styles.highlight : ""} to="/contact">Contact</Link>
@@ -57,7 +57,7 @@ function Nav({ highlight }) {
 
                 <ul className={styles.navbar}>
                     <Link id={styles.name} className={highlight ? styles.highlight : ""} to="/">TechStore</Link>
-                    {is480 ? greater480 : less480}
+                    {is599 ? greater599 : less599}
                     <div className={styles.inputBar}>
                        <input type="text" placeholder="Enter the product name"/>
                         <svg className={styles.search}

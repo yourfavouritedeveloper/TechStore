@@ -878,73 +878,167 @@ a {
 }
 
 .highcontainer {
-    margin-left:-2rem;
     padding-left: 0rem;
-    width: 110%;
-    
+    padding-bottom: 0.1rem; 
 }
 
+.board {
+    border-radius: 0.4rem;
+    left:-6rem;
+    height: 1.38rem;
+    padding:0rem 0.4rem;
+    padding-right: 0.43rem;
+    padding-bottom: 0.2rem;
+    margin-left: 42vw;
+    top: 0.405rem;
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    z-index: 19;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+
+}
+
+svg{
+    height: 22px;
+    width: 18px;
+    margin-top: -0.1rem;
+}
+
+.menu {
+    border-radius: 0.4rem;
+    background: linear-gradient(135deg,#333333e0, #0f0f0f93, #1a1a1a63, #333333c5);
+    height: 7.4rem;
+    padding-right:7rem;
+    margin-left:44vw;
+    position: absolute;
+    left:-6.7rem;
+    top:1.3rem;
+    z-index: 1;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+
+.highmenu {
+    border-radius: 0.4rem;
+    background: linear-gradient(100deg,#7a7a7ae0, #cecece93, #e2e2e263, #c9c9c9c5);
+    height: 7.4rem;
+    padding-right:7rem;
+    margin-left:44vw;
+    position: absolute;
+    left:-6.7rem;
+    top:1.3rem;
+    z-index: 1;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+
+
+
+
 #campaign{
-    margin-left:-8rem;
-    margin-top: -0.2rem;
+    margin-left:-0.1rem;
+    margin-top: 0.8rem;
     border-radius: 1rem;
     padding: 1.5px 3px;
-    padding-left: 50.5vw;
-    font-size: clamp(1.1rem, 1.2vw, 2.5rem);
-    width: auto;
+    padding-left:3vw;
+    position: absolute;
+    font-size: clamp(0.9rem, 1.2vw, 2.5rem);
+
 }
 
 #campaign:hover{
+    position: absolute;
+    display: flex;
+    margin-left:-0.1rem;
+    justify-content: center;
+    background-color: rgba(255, 140, 0, 0);
     border-radius: 1rem;
     padding: 1.5px 3px;
+    padding-left:3vw;
+    cursor: pointer;
 }
+
+
+
 
 
 
 
 #about{
-    margin-top: -0.2rem;
-    padding: 1.5px 3px;
+    margin-left:-0.1rem;
+    margin-top: 2.3rem;
     border-radius: 1rem;
-    font-size: clamp(1.1rem, 1.2vw, 2.5rem);
-    width: auto;
+    padding: 1.5px 3px;
+    padding-left:3vw;
+    position: absolute;
+    font-size: clamp(0.9rem, 1.2vw, 2.5rem);
+
 }
 
 #about:hover{
+    position: absolute;
+    display: flex;
+    margin-left:-0.1rem;
+    justify-content: center;
+    background-color: rgba(255, 140, 0, 0);
     border-radius: 1rem;
     padding: 1.5px 3px;
+    padding-left:3vw;
+    cursor: pointer;
 
 }
 
 
 #contact{
-    margin-top: -0.2rem;
+    margin-left:-0.1rem;
+    margin-top: 3.8rem;
     border-radius: 1rem;
     padding: 1.5px 3px;
-    font-size: clamp(1.1rem, 1.2vw, 2.5rem);
-    width: auto;
+    padding-left:3vw;
+    position: absolute;
+    font-size: clamp(0.9rem, 1.2vw, 2.5rem);
+
 }
 
 #contact:hover{
+    position: absolute;
+    margin-left:-0.1rem;
+    justify-content: center;
+    background-color: rgba(255, 140, 0, 0);
     border-radius: 1rem;
     padding: 1.5px 3px;
+    padding-left:3vw;
+    cursor: pointer;
 }
 
 
 
 
 #login{
-    margin-top: -0.2rem;
+    margin-left:-0.1rem;
+    margin-top: 5.3rem;
     border-radius: 1rem;
     padding: 1.5px 3px;
-    font-size: clamp(1.1rem, 1.2vw, 2.5rem);
-    width: auto;
+    padding-left:3vw;
+    position: absolute;
+    font-size: clamp(0.9rem, 1.2vw, 2.5rem);
+    
 }
 
 #login:hover{
-
+    position: absolute;
+    margin-left:-0.1rem;
+    justify-content: center;
+    background-color: rgba(255, 140, 0, 0);
     border-radius: 1rem;
     padding: 1.5px 3px;
+    padding-left:3vw;
+    cursor: pointer;
 
 }
 
@@ -952,53 +1046,49 @@ a {
 
 #name {
     padding: 0rem;
-    font-size: clamp(1.1rem, 1.2vw, 2.5rem);
-    transition: all 0.3s ease;
-    margin-top: -0.4rem;  
     position: absolute;
-    left:-11rem;
-    padding-left:46vw;
+    font-size: clamp(1.3rem, 1.2vw, 2.5rem);
+    transition: all 0.3s ease;
+    margin-top:-0.09rem;  
+
+    left:-5.6rem;
+    padding-left: 52vw;
+    z-index: 10;
     padding-top: 0.3rem;
     padding-right: 1rem;
 }
 
 .navbar {
-    gap:0.8rem;
+    gap:0.5rem;
 }
 
-.inputBar {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem; 
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-}
+
+
+
 
 .inputBar input {
 
-  font-size: 0.9rem;
-  top:0.3rem;
-  margin-left: -2.8rem;
-  left:44.5vw;
-  width: 11.4rem;
-  padding: 0.2rem 1rem;
-  padding-right: 1.6rem;
+  font-size: 0.6rem;
+  top:-1.03rem;
+
+  margin-left: 0.6rem;
+  left:56vw;
+
+  width: 7.4rem;
+  padding: 0.3rem 1rem;
+  padding-right: 1.3rem;
 }
 
 .search {
+  position: relative;
   z-index: 40;
-  top:2rem;
-  position: absolute;
-  left:10.5rem;
-  padding-left:35.4vw;
-  margin-left:5vw;
-  height: 22px;
-  width: 22px;
-    
-}
 
-.highcontainer {
-   padding-bottom: 2rem;
+  top:0.2rem;
+  left:4.7rem;
+  padding-left: 51vw;
+
+  height: 19px;
+  width: 19px;
     
 }
 
@@ -1069,7 +1159,7 @@ svg{
 
 .highmenu {
     border-radius: 0.4rem;
-    background: linear-gradient(135deg,#a7a7a7e0, #cecece93, #f0f0f063, #9c9c9cc5);
+    background: linear-gradient(100deg,#7a7a7ae0, #cecece93, #e2e2e263, #c9c9c9c5);
     height: 7.4rem;
     padding-right:7rem;
     margin-left:40vw;
@@ -1215,7 +1305,7 @@ svg{
 .inputBar input {
 
   font-size: 0.6rem;
-  top:-0.95rem;
+  top:-1.03rem;
 
   margin-left: 0.6rem;
   left:56vw;
@@ -1302,11 +1392,12 @@ svg{
 
 .highmenu {
     border-radius: 0.4rem;
-    background: linear-gradient(135deg,#a7a7a7e0, #cecece93, #f0f0f063, #9c9c9cc5);
+    background: linear-gradient(100deg,#7a7a7ae0, #cecece93, #e2e2e263, #c9c9c9c5);
     height: 7rem;
     padding-right:5rem;
+    margin-left:40vw;
     position: absolute;
-    left:3.4rem;
+    left:-4.1rem;
     top:1.3rem;
     z-index: 1;
     opacity: 1;
