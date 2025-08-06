@@ -24,7 +24,9 @@ function Nav({ highlight }) {
 
   const less480 = (<>
                 <div>
-                    <div className={styles.board}  onClick={() => setMenuOpen(prev => !prev)}>☰</div>
+                    <div className={styles.board}  onClick={() => setMenuOpen(prev => !prev)}>
+                        <p>☰</p>
+                        </div>
                     {menuOpen && (
                         <div className={highlight ? styles.highmenu : styles.menu}>
                             <Link id={styles.campaign} className={highlight ? styles.highlight : ""} to="/campaign">Campaign</Link>
