@@ -1046,9 +1046,10 @@ a {
 
 }
 
-.board p {
-    font-size: 1.1rem;
-    margin-top:-0.2rem;
+svg{
+    height: 22px;
+    width: 18px;
+    margin-top: -0.1rem;
 }
 
 .menu {
@@ -1278,10 +1279,10 @@ a {
 
 }
 
-.board p {
-    font-size: 0.9rem;
-    margin-top:-0.1rem;
-
+svg{
+    height: 22px;
+    width: 18px;
+    margin-top: -0.15rem;
 }
 
 .menu {
@@ -1429,7 +1430,7 @@ a {
     transition: all 0.3s ease;
     margin-top:0.1rem;  
 
-    left:-4.4rem;
+    left:-4.2rem;
     padding-left: 52vw;
     z-index: 10;
     padding-top: 0.3rem;
@@ -1447,21 +1448,21 @@ a {
 .inputBar input {
 
   font-size: 0.5rem;
-  top:-0.85rem;
+  top:-0.95rem;
 
   margin-left: 0.35rem;
   left:56vw;
 
   width: 6rem;
-  padding: 0.2rem 1rem;
-  padding-right: 1.6rem;
+  padding: 0.3rem 1rem;
+  padding-right: 1.6rem;    
 }
 
 .search {
   position: relative;
   z-index: 40;
 
-  top:0.15rem;
+  top:0.3rem;
   left:3.4rem;
   padding-left: 51vw;
 
