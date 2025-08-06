@@ -599,7 +599,7 @@ background: linear-gradient(
 
 .campaign1 .title {
     font-size: clamp(2rem, 5vw, 0.625rem);
-    line-height: 1.5rem;
+    line-height: 1.7rem;
     font-weight: bold;
     top: -0.8rem;
     left: 0.6rem;
@@ -607,20 +607,20 @@ background: linear-gradient(
 
 
 .campaign1 .subtitle {
-    font-size: clamp(1.4rem, 5vw, 0.625rem);
+    font-size: clamp(1.1rem, 5vw, 0.625rem);
     font-weight: bold;
     top: -2.6rem;
     text-align: left;  
     width: 90%;
-    line-height: 1.3rem;
+    line-height: 1.1rem;
     left: 0.65rem;   
 }
 
 .campaign1 .subsubtitle {
-    font-size: clamp(1.1rem, 4vw, 0.625rem);
+    font-size: clamp(0.9rem, 4vw, 0.625rem);
     font-weight: bold;
-    top: -4.3rem;    
-    left:10.36rem;  
+    top: -4rem;    
+    left:8.26rem;  
     margin-left:-37.4vw;
 }
 
