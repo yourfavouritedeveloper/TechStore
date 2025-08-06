@@ -1031,7 +1031,6 @@ a {
     border-radius: 0.4rem;
     left:-6rem;
     height: 1.38rem;
-    font-size: 1.1rem;
     padding:0rem 0.4rem;
     padding-right: 0.43rem;
     padding-bottom: 0.2rem;
@@ -1041,7 +1040,15 @@ a {
     background-color: rgb(255, 255, 255);
     cursor: pointer;
     z-index: 19;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
 
+}
+
+.board p {
+    font-size: 1.1rem;
+    margin-top:-0rem;
 }
 
 .menu {
@@ -1261,7 +1268,6 @@ a {
     border-radius: 0.4rem;
     left:-4.5rem;
     height: 1.38rem;
-    font-size: 0.9rem;
     padding:0rem 0.3rem;
     margin-left: 42vw;
     top: 0.468rem;
@@ -1269,6 +1275,12 @@ a {
     background-color: rgb(255, 255, 255);
     cursor: pointer;
     z-index: 19;
+
+}
+
+.board p {
+    font-size: 0.9rem;
+    margin-top:-0rem;
 
 }
 
