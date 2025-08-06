@@ -284,19 +284,903 @@ background: linear-gradient(
   }
 }
 
-@media (max-width: 1800px) {}
+@media (max-width: 1880px) {
 
-@media (max-width: 1440px) {}
+.container {
+    height: 43%;
+    width: 90%;
+    border-radius: 2.3rem;
+    top:5.7rem;
+}
 
-@media (max-width: 1200px) {}
 
-@media (max-width: 992px) {}
 
-@media (max-width: 768px) {}
+.campaign1 .title {
+    font-size: clamp(3.3rem, 5vw, 0.625rem);
+    line-height: 2.7rem;
+    font-weight: bold;
+    top: -1.6rem;
+    left: 0.6rem;
+}
 
-@media (max-width: 599px) {}
 
-@media (max-width: 576px) {}
+.campaign1 .subtitle {
+    font-size: clamp(1rem, 5vw, 0.625rem);
+    font-weight: bold;
+    top: -4.9rem;
+    text-align: left;  
+    width: 60%;
+    line-height: 1rem;
+    left: 0.75rem;   
+}
+
+.campaign1 .subsubtitle {
+    font-size: clamp(0.8rem, 4vw, 0.625rem);
+    font-weight: bold;
+    top: -6rem;    
+    left:8.05rem;  
+    margin-left:-37.4vw;
+}
+
+
+.campaign2 .title {
+    font-size: clamp(3.4rem, 5vw, 0.625rem);
+    font-weight: bold;
+    top: -1.7rem;
+    left: 6.2rem;
+    margin-left:-35vw;
+}
+
+
+.campaign2 .subtitle {
+    font-size: clamp(0.9rem, 5vw, 0.625rem);
+    font-weight: bold;
+    text-align: left;
+    width: 80%;
+    top: -6rem; 
+    line-height: 1rem;
+    left: 1.3rem;  
+}
+
+.campaign2 .subsubtitle {
+    font-size: clamp(0.6rem, 4vw, 0.625rem);
+    font-weight: bold;
+    top: -7rem;  
+    width: 90%;  
+    text-align: left;
+    line-height: 1.1rem;
+    left: 1.3rem; 
+}
+
+.campaign2 button {
+    top: -17rem; 
+    left: 1.2rem;  
+    font-size: clamp(1rem, 4vw, 0.425rem);
+    position: absolute;
+    font-weight: normal;
+    border-radius: 2rem;
+    padding: 0.4rem 1rem;
+}
+
+
+
+.campaign2 img {
+    right:0.2em;
+    width:85%;
+    top:-1.5rem;
+}
+
+
+
+
+.campaign3 .title {
+    font-size: clamp(3rem, 5vw, 0.625rem);
+    width: 85%;
+    font-weight: bold;
+    line-height: 0.81;
+    top: -1.4rem;
+    left:1rem;
+}
+
+
+.campaign3 .subtitle {
+    font-size: clamp(1rem, 5vw, 0.655rem);
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    width: 70%;
+    text-align: left;
+    line-height: 0.9rem;
+    position: absolute;
+    top: 5.5rem;   
+    left:1.1rem;  
+}
+
+
+
+.campaign3 button {
+    top: -16.4rem; 
+    left: 1.2rem;  
+    font-size: clamp(1rem, 4vw, 0.425rem);
+    position: absolute;
+    font-weight: normal;
+    border-radius: 2rem;
+    padding: 0.4rem 1rem;
+}
+
+
+.campaign3 img {
+    right:1rem;
+    width:50%;
+    top:-5rem;
+
+}
+
+
+
+.controls {
+  gap: 0.2rem;
+}
+
+
+.controls button {
+  padding: 0.4rem 0.8rem;
+  top:0.75rem;
+  font-size: 0.6rem;
+}
+
+
+}
+
+
+
+
+
+@media (max-width: 1440px) {
+
+.container {
+    height: 43%;
+    width: 90%;
+    border-radius: 2.3rem;
+    top:4.4rem;
+}
+
+
+
+.campaign1 .title {
+    font-size: clamp(2.7rem, 5vw, 0.625rem);
+    line-height: 2.2rem;
+    font-weight: bold;
+    top: -1.6rem;
+    left: 0.6rem;
+}
+
+
+.campaign1 .subtitle {
+    font-size: clamp(1rem, 5vw, 0.625rem);
+    font-weight: bold;
+    top: -4.2rem;
+    text-align: left;  
+    width: 60%;
+    line-height: 1rem;
+    left: 0.65rem;   
+}
+
+.campaign1 .subsubtitle {
+    font-size: clamp(0.8rem, 4vw, 0.625rem);
+    font-weight: bold;
+    top: -5.3rem;    
+    left:8.05rem;  
+    margin-left:-37.4vw;
+}
+
+
+.campaign2 .title {
+    font-size: clamp(3rem, 5vw, 0.625rem);
+    font-weight: bold;
+    top: -2rem;
+    left: 5.7rem;
+    margin-left:-35vw;
+}
+
+
+.campaign2 .subtitle {
+    font-size: clamp(0.9rem, 5vw, 0.625rem);
+    font-weight: bold;
+    text-align: left;
+    width: 80%;
+    top: -6rem; 
+    line-height: 1rem;
+    left: 1.3rem;  
+}
+
+.campaign2 .subsubtitle {
+    font-size: clamp(0.6rem, 4vw, 0.625rem);
+    font-weight: bold;
+    top: -7rem;  
+    width: 90%;  
+    text-align: left;
+    line-height: 1.1rem;
+    left: 1.3rem; 
+}
+
+.campaign2 button {
+    top: -12rem; 
+    left: 1.2rem;  
+    font-size: clamp(0.8rem, 4vw, 0.425rem);
+    position: absolute;
+    font-weight: normal;
+    border-radius: 2rem;
+    padding: 0.1rem 0.5rem;
+}
+
+
+
+.campaign2 img {
+    right:0.2em;
+    width:85%;
+    top:-1.5rem;
+}
+
+
+
+
+.campaign3 .title {
+    font-size: clamp(2.6rem, 5vw, 0.625rem);
+    width: 85%;
+    font-weight: bold;
+    line-height: 0.81;
+    top: -1.4rem;
+    left:1rem;
+}
+
+
+.campaign3 .subtitle {
+    font-size: clamp(0.8rem, 5vw, 0.655rem);
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    width: 90%;
+    text-align: left;
+    line-height: 0.9rem;
+    position: absolute;
+    top: 4.7rem;   
+    left:1.1rem;  
+}
+
+
+
+.campaign3 button {
+    top: -11.2rem; 
+    left: 1rem;  
+    font-size: clamp(0.8rem, 4vw, 0.425rem);
+    position: absolute;
+    font-weight: normal;
+    border-radius: 2rem;
+    padding: 0.1rem 0.5rem;
+}
+
+
+.campaign3 img {
+    right:1rem;
+    width:50%;
+    top:-5rem;
+
+}
+
+
+
+.controls {
+  gap: 0.2rem;
+}
+
+
+.controls button {
+  padding: 0.4rem 0.8rem;
+  top:0.95rem;
+  font-size: 0.6rem;
+}
+
+}
+
+
+
+
+
+
+@media (max-width: 1200px) {
+.container {
+    height: 40%;
+    width: 90%;
+    border-radius: 1.8rem;
+    top:4.4rem;
+}
+
+
+
+.campaign1 .title {
+    font-size: clamp(2rem, 5vw, 0.625rem);
+    line-height: 1.5rem;
+    font-weight: bold;
+    top: -0.8rem;
+    left: 0.6rem;
+}
+
+
+.campaign1 .subtitle {
+    font-size: clamp(1.4rem, 5vw, 0.625rem);
+    font-weight: bold;
+    top: -2.6rem;
+    text-align: left;  
+    width: 90%;
+    line-height: 1.3rem;
+    left: 0.65rem;   
+}
+
+.campaign1 .subsubtitle {
+    font-size: clamp(1.1rem, 4vw, 0.625rem);
+    font-weight: bold;
+    top: -4.3rem;    
+    left:10.36rem;  
+    margin-left:-37.4vw;
+}
+
+
+.campaign2 .title {
+    font-size: clamp(2.1rem, 5vw, 0.625rem);
+    font-weight: bold;
+    top: -1.55rem;
+    left: 3.3rem;
+    margin-left:-35vw;
+}
+
+
+.campaign2 .subtitle {
+    font-size: clamp(1.1rem, 5vw, 0.625rem);
+    font-weight: bold;
+    text-align: left;
+    width: 70%;
+    top: -4.25rem; 
+    line-height: 1rem;
+    left: 1rem;  
+}
+
+.campaign2 .subsubtitle {
+    font-size: clamp(0.8rem, 4vw, 0.625rem);
+    font-weight: bold;
+    top: -5.45rem;  
+    width: 90%;  
+    text-align: left;
+    line-height: 1.1rem;
+    left: 1rem; 
+}
+
+.campaign2 button {
+    top: -12rem; 
+    left: 0.9rem;  
+    font-size: clamp(0.8rem, 4vw, 0.425rem);
+    position: absolute;
+    font-weight: normal;
+    border-radius: 2rem;
+    padding: 0.1rem 0.5rem;
+}
+
+
+
+.campaign2 img {
+    right:0.2em;
+    width:85%;
+    top:-0.5rem;
+}
+
+
+
+
+.campaign3 .title {
+    font-size: clamp(1.9rem, 5vw, 0.625rem);
+    width: 70%;
+    font-weight: bold;
+    line-height: 0.81;
+    top: -0.5rem;
+    left:1rem;
+}
+
+
+.campaign3 .subtitle {
+    font-size: clamp(1rem, 5vw, 0.655rem);
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    width: 90%;
+    text-align: left;
+    line-height: 0.9rem;
+    position: absolute;
+    top: 3.5rem;   
+    left:1.1rem;  
+}
+
+
+
+.campaign3 button {
+    top: -11.8rem; 
+    left: 0.9rem;  
+    font-size: clamp(0.8rem, 4vw, 0.425rem);
+    position: absolute;
+    font-weight: normal;
+    border-radius: 2rem;
+    padding: 0.1rem 0.5rem;
+}
+
+
+.campaign3 img {
+    right:1rem;
+    width:55%;
+    top:-5rem;
+
+}
+
+
+
+.controls {
+  gap: 0.2rem;
+}
+
+
+.controls button {
+  padding: 0.4rem 0.8rem;
+  top:0.95rem;
+  font-size: 0.6rem;
+}
+    
+}
+
+
+
+
+
+@media (max-width: 992px) {
+
+.container {
+    height: 35%;
+    width: 90%;
+    border-radius: 1.8rem;
+    top:4rem;
+}
+
+
+
+.campaign1 .title {
+    font-size: clamp(1.5rem, 5vw, 0.625rem);
+    line-height: 1.5rem;
+    font-weight: bold;
+    top: -0.8rem;
+    left: 0.6rem;
+}
+
+
+.campaign1 .subtitle {
+    font-size: clamp(1rem, 5vw, 0.625rem);
+    font-weight: bold;
+    top: -2.3rem;
+    text-align: left;  
+    width: 90%;
+    line-height: 1rem;
+    left: 0.65rem;   
+}
+
+.campaign1 .subsubtitle {
+    font-size: clamp(0.8rem, 4vw, 0.625rem);
+    font-weight: bold;
+    top: -3.4rem;    
+    left: 8.76rem;  
+    margin-left:-37.4vw;
+}
+
+
+.campaign2 .title {
+    font-size: clamp(1.6rem, 5vw, 0.625rem);
+    font-weight: bold;
+    top: -1.2rem;
+    left: 3.75rem;
+    margin-left:-35vw;
+}
+
+
+.campaign2 .subtitle {
+    font-size: clamp(0.9rem, 5vw, 0.625rem);
+    font-weight: bold;
+    text-align: left;
+    width: 70%;
+    top: -3.25rem; 
+    line-height: 0.9rem;
+    left: 1rem;  
+}
+
+.campaign2 .subsubtitle {
+    font-size: clamp(0.7rem, 4vw, 0.625rem);
+    font-weight: bold;
+    top: -4.25rem;  
+    width: 90%;  
+    text-align: left;
+    line-height: 1.1rem;
+    left: 1rem; 
+}
+
+.campaign2 button {
+    top: -11.3rem; 
+    left: 0.9rem;  
+    font-size: clamp(0.5rem, 4vw, 0.425rem);
+    position: absolute;
+    font-weight: normal;
+    border-radius: 2rem;
+    padding: 0.1rem 0.5rem;
+}
+
+
+
+.campaign2 img {
+    right:0.2em;
+    width:85%;
+    top:0.5rem;
+}
+
+
+
+
+.campaign3 .title {
+    font-size: clamp(1.4rem, 5vw, 0.625rem);
+    width: 70%;
+    font-weight: bold;
+    line-height: 0.81;
+    top: -0.5rem;
+    left:1rem;
+}
+
+
+.campaign3 .subtitle {
+    font-size: clamp(0.7rem, 5vw, 0.655rem);
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    width: 90%;
+    text-align: left;
+    line-height: 1;
+    position: absolute;
+    top: 2.6rem;   
+    left:1.1rem;  
+}
+
+
+
+.campaign3 button {
+    top: -11.6rem; 
+    left: 0.9rem;  
+    font-size: clamp(0.5rem, 4vw, 0.425rem);
+    position: absolute;
+    font-weight: normal;
+    border-radius: 2rem;
+    padding: 0.1rem 0.5rem;
+}
+
+
+.campaign3 img {
+    right:1rem;
+    width:50%;
+    top:-3rem;
+
+}
+
+
+
+.controls {
+  gap: 0.2rem;
+}
+
+
+.controls button {
+  padding: 0.2rem 0.5rem;
+  top:0.9rem;
+  font-size: 0.5rem;
+}
+
+}
+
+
+
+
+
+
+@media (max-width: 768px) {
+.container {
+    height: 45%;
+    width: 90%;
+    border-radius: 1.8rem;
+    top:5rem;
+}
+
+
+
+.campaign1 .title {
+    font-size: clamp(2.3rem, 5vw, 0.625rem);
+    line-height: 1.9rem;
+    font-weight: bold;
+    top: -1.4rem;
+    left: 0.6rem;
+}
+
+
+.campaign1 .subtitle {
+    font-size: clamp(1.4rem, 5vw, 0.625rem);
+    font-weight: bold;
+    top: -3.54rem;
+    text-align: left;  
+    width: 90%;
+    line-height: 1.4rem;
+    left: 0.65rem;   
+}
+
+.campaign1 .subsubtitle {
+    font-size: clamp(1.1rem, 4vw, 0.625rem);
+    font-weight: bold;
+    top: -5.1rem;    
+    left: 12.1rem;  
+    margin-left:-67.4vw;
+}
+
+
+.campaign2 .title {
+    font-size: clamp(2.4rem, 5vw, 0.625rem);
+    font-weight: bold;
+    top: -1.5rem;
+    left: 6rem;
+    margin-left:-65vw;
+}
+
+
+.campaign2 .subtitle {
+    font-size: clamp(1.3rem, 5vw, 0.625rem);
+    font-weight: bold;
+    text-align: left;
+    width: 70%;
+    top: -4.65rem; 
+    line-height: 1.2rem;
+    left: 1rem;  
+}
+
+.campaign2 .subsubtitle {
+    font-size: clamp(1rem, 4vw, 0.625rem);
+    font-weight: bold;
+    top: -5.75rem;  
+    width: 90%;  
+    text-align: left;
+    line-height: 1.1rem;
+    left: 1rem; 
+}
+
+.campaign2 button {
+    top: -15.7rem; 
+    left: 0.9rem;  
+    font-size: clamp(1rem, 4vw, 0.425rem);
+    position: absolute;
+    font-weight: normal;
+    border-radius: 2rem;
+    padding: 0.3rem 0.7rem;
+}
+
+
+
+.campaign2 img {
+    right:1rem;
+    width:75%;
+    top:0.5rem;
+}
+
+
+
+
+.campaign3 .title {
+    font-size: clamp(2.1rem, 5vw, 0.625rem);
+    width: 80%;
+    font-weight: bold;
+    line-height: 0.81;
+    top: -0.7rem;
+    left:1rem;
+}
+
+
+.campaign3 .subtitle {
+    font-size: clamp(1rem, 5vw, 0.655rem);
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    width: 90%;
+    text-align: left;
+    line-height: 1;
+    position: absolute;
+    top: 4rem;   
+    left:1.1rem;  
+}
+
+
+
+.campaign3 button {
+    top: -15.2rem; 
+    left: 0.9rem;  
+    font-size: clamp(1rem, 4vw, 0.425rem);
+    position: absolute;
+    font-weight: normal;
+    border-radius: 2rem;
+    padding: 0.3rem 0.7rem;
+}
+
+
+.campaign3 img {
+    right:1rem;
+    width:55%;
+    top:-2.5rem;
+
+}
+
+
+
+.controls {
+  gap: 0.2rem;
+}
+
+
+.controls button {
+  padding: 0.4rem 1rem;
+  top:0.65rem;
+  font-size: 0.6rem;
+}
+
+
+}
+
+@media (max-width: 599px) {
+.container {
+    height: 40%;
+    width: 90%;
+    border-radius: 1.4rem;
+    top:3rem;
+}
+
+
+
+.campaign1 .title {
+    font-size: clamp(1.6rem, 5vw, 0.625rem);
+    line-height: 1.3rem;
+    font-weight: bold;
+    top: -0.7rem;
+    left: 0.6rem;
+}
+
+
+.campaign1 .subtitle {
+    font-size: clamp(1rem, 5vw, 0.625rem);
+    font-weight: bold;
+    top: -2.14rem;
+    text-align: left;  
+    width: 90%;
+    line-height: 1rem;
+    left: 0.65rem;   
+}
+
+.campaign1 .subsubtitle {
+    font-size: clamp(0.8rem, 4vw, 0.625rem);
+    font-weight: bold;
+    top: -3.2rem;    
+    left: 7.65rem;  
+    margin-left:-67.4vw;
+}
+
+
+.campaign2 .title {
+    font-size: clamp(1.7rem, 5vw, 0.625rem);
+    font-weight: bold;
+    top: -1.5rem;
+    left: 3.2rem;
+    margin-left:-65vw;
+}
+
+
+.campaign2 .subtitle {
+    font-size: clamp(0.8rem, 5vw, 0.625rem);
+    font-weight: bold;
+    text-align: left;
+    width: 70%;
+    top: -3.65rem; 
+    line-height: 0.8rem;
+    left: 1rem;  
+}
+
+.campaign2 .subsubtitle {
+    font-size: clamp(0.6rem, 4vw, 0.625rem);
+    font-weight: bold;
+    top: -4.45rem;  
+    width: 80%;  
+    text-align: left;
+    line-height: 0.55rem;
+    left: 1rem; 
+}
+
+.campaign2 button {
+    top: -9.7rem; 
+    left: 0.9rem;  
+    font-size: clamp(0.6rem, 4vw, 0.425rem);
+    position: absolute;
+    font-weight: normal;
+    border-radius: 2rem;
+    padding: 0.2rem 0.4rem;
+}
+
+
+
+.campaign2 img {
+    right:-1rem;
+    width:75%;
+    top:0.5rem;
+}
+
+
+
+
+.campaign3 .title {
+    font-size: clamp(1.4rem, 5vw, 0.625rem);
+    width: 70%;
+    font-weight: bold;
+    line-height: 0.81;
+    top: -0.7rem;
+    left:1rem;
+}
+
+
+.campaign3 .subtitle {
+    font-size: clamp(0.8rem, 5vw, 0.655rem);
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    width: 85%;
+    text-align: left;
+    line-height: 1;
+    position: absolute;
+    top: 2.4rem;   
+    left:1rem;  
+}
+
+
+
+.campaign3 button {
+    top: -9.7rem; 
+    left: 0.9rem;  
+    font-size: clamp(0.6rem, 4vw, 0.425rem);
+    position: absolute;
+    font-weight: normal;
+    border-radius: 2rem;
+    padding: 0.2rem 0.4rem;
+}
+
+
+.campaign3 img {
+    right:1rem;
+    width:50%;
+    top:-4rem;
+
+}
+
+
+
+.controls {
+  gap: 0.2rem;
+}
+
+
+.controls button {
+  padding: 0.3rem 0.7rem;
+  top:0.95rem;
+  font-size: 0.4rem;
+}
+
+
+}
+
+
+
+
 
 @media (max-width: 	480px) {
 
