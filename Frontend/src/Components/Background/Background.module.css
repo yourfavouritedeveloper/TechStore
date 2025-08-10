@@ -784,13 +784,13 @@ body {
     font-size: clamp(0.7rem, 2.7vw, 11.875rem);
     line-height: 1.2;
     text-align: center;
-    top:6.9rem;
+    top:7.1rem;
     padding: 2.5rem 2rem;
     justify-content: center;    
 }
 
 .boxCampaign button {
-    margin-top:13.3rem;
+    margin-top:13.6rem;
     color:black;
     font-size: clamp(0.7rem, 5vw, 0.625rem);
     padding:0.3rem 1rem;
