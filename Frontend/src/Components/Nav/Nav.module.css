@@ -12,7 +12,8 @@ html,body {
     position: fixed;
     justify-content: center;
     z-index: 10;
-    padding-left: 12.5rem;
+    padding-left:45vw ;
+    margin-left:-41.5rem;
     
 
 }
@@ -23,7 +24,8 @@ html,body {
     position: fixed;
     justify-content: center;
     z-index: 10;
-    padding-left: 12.5rem;
+    padding-left:45vw ;
+    margin-left:-41.5rem;
         
 }
 
@@ -167,7 +169,8 @@ a {
   border: none;
   outline: none;
   font-size: 1rem;
-  top:-1.2rem;
+  top:-0.1rem;
+  margin-top:0.3vw;
   margin-left: -37rem;
   width: 13rem;
   padding: 0.3rem 2rem;
@@ -175,7 +178,8 @@ a {
 
 .search {
   z-index: 40;
-  top:0.5rem;
+  top:0.3rem;
+  margin-top:0.2vw;
   position:absolute;
   left:31rem;
     
@@ -291,6 +295,7 @@ a {
   font-size: 1rem;
   top:-1.2rem;
   margin-left: -24rem;
+  margin-top:1.4rem;
   left:50.5vw;
   width: 13rem;
   padding: 0.3rem 2rem;
@@ -306,7 +311,7 @@ a {
   margin-left:5vw;
   height: 26px;
   width: 26px;
-    
+  margin-top:0vw;    
 }
 }
 
@@ -414,6 +419,7 @@ a {
 }
 
 .inputBar {
+    
   display: flex;
   align-items: center;
   gap: 0.5rem; 
@@ -426,6 +432,7 @@ a {
   font-size: 1rem;
   top:-1.8rem;
   margin-left: -19rem;
+  margin-top:1.5rem;
   left:50.5vw;
   width: 12.4rem;
   padding: 0.3rem 1.2rem;
@@ -441,7 +448,7 @@ a {
   margin-left:5vw;
   height: 26px;
   width: 26px;
-    
+  margin-top:0vw;      
 }
 
 
@@ -558,6 +565,7 @@ a {
   top:-1.8rem;
   margin-left: -17rem;
   left:50.5vw;
+  margin-top:1.5rem;
   width: 12.4rem;
   padding: 0.3rem 1.2rem;
   padding-right: 1.6rem;
@@ -572,7 +580,7 @@ a {
   margin-left:5vw;
   height: 26px;
   width: 26px;
-    
+  margin-top:0vw;      
 }
 
 
@@ -691,7 +699,7 @@ a {
 }
 
 .inputBar input {
-
+  margin-top:1.46rem;
   font-size: 0.9rem;
   top:-1.5rem;
   margin-left: -14rem;
@@ -710,7 +718,7 @@ a {
   margin-left:5vw;
   height: 24px;
   width: 24px;
-    
+  margin-top:0vw;      
 }
 
 
@@ -849,7 +857,7 @@ a {
   margin-left:5vw;
   height: 24px;
   width: 24px;
-    
+  margin-top:0vw;      
 }
 
 .highcontainer {
@@ -1089,7 +1097,7 @@ svg{
 
   height: 19px;
   width: 19px;
-    
+  margin-top:-0.2vw;      
 }
 
 
@@ -1325,7 +1333,7 @@ svg{
 
   height: 19px;
   width: 19px;
-    
+  margin-top:-0.3vw;      
 }
 
 
@@ -1559,7 +1567,7 @@ svg{
 
   height: 18px;
   width: 18px;
-    
+  margin-top:-1vw;      
 }
 
 }
