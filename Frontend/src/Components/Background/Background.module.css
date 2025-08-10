@@ -635,7 +635,7 @@ body {
 
 .box {
     top:-15rem;
-    right:-0.55rem;
+    right:-0.6rem;
     width: 80%;
     margin-right: 0vw;
     height: 28%;
@@ -725,7 +725,7 @@ body {
 .box {
     margin-right: 0vw;
     top:-15rem;
-    right:-0.45rem;
+    right:-0.5rem;
     width: 80%;
     height: 26%;
     z-index: 6;
@@ -739,7 +739,7 @@ body {
     bottom: 29.5rem;
     font-size: clamp(2.3rem, 8vw, 11.875rem);
     letter-spacing: 0rem;
-    margin-left:-5.7rem;
+    margin-left:-5.3rem;
     left:50vw;
 
 }
@@ -807,7 +807,7 @@ body {
 .box {
     margin-right: 0vw;
     top:-15rem;
-    right:0rem;
+    right:-0.3rem;
     width: 80%;
     height: 26%;
     z-index: 6;
