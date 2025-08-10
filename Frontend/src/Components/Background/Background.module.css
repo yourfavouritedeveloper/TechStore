@@ -21,7 +21,8 @@ body {
     display: inline-flex;
     justify-content: center;
     margin-top: 26rem;
-    right:34rem;
+    right:32rem;
+    margin-left: -3vw;
     width: 48rem;
     height: 29.6rem;
     z-index: 6;
@@ -45,7 +46,8 @@ body {
     display: inline-flex;
     justify-content: center;
     margin-top: 8.5rem;
-    left:55.3rem;
+    left:-2.3rem;
+    margin-left:48vw;
     width: 62rem;
     height: 47.2rem;
     z-index: 6;
@@ -102,7 +104,8 @@ body {
     bottom: 30.5rem;
     font-size: clamp(2rem, 9.6rem, 11.875rem);
     font-family: "PoppinsLight";
-    margin-left:3%;
+    left:48vw;
+    margin-left:-53rem;
     letter-spacing: -0.6rem;
 
 }
@@ -151,9 +154,10 @@ body {
     z-index: 11;
     bottom: 35.5rem;
     text-align: left;
-    font-size: clamp(2rem, 3vw, 11.875rem);
+    font-size: clamp(2rem, 3.6rem, 11.875rem);
     font-family: "PoppinsLight";
-    left: 3rem;
+    left: 0vw;
+    margin-left:5rem;
     letter-spacing: 0rem;   
 }
 
@@ -198,11 +202,11 @@ body {
 
 @media (max-width: 1900px) {
   .container {
-    height: 50rem;
+    height: 55rem;
 } 
 
 .box {
-    top:-5.68rem;
+    top:-4rem;
     right:6.5rem;
     margin-right: 40vw;
     width: 37%;
@@ -215,11 +219,11 @@ body {
 
 
 .title{
-    bottom: 27.8rem;
+    bottom: 30.8rem;
     font-size: clamp(2.3rem, 6.5vw, 11.875rem);
     letter-spacing: 0rem;
-    margin-left:-6.6rem;
-    left:13vw;
+    margin-left:-5.2rem;
+    left:11.5vw;
 
 }
 
@@ -239,7 +243,7 @@ body {
 }
 
 .boxCampaign {
-    margin-top: 10.4rem;
+    margin-top: 11.2rem;
     left:8.2rem;
     margin-left:44vw;
     width: 42.5%;
@@ -251,9 +255,9 @@ body {
 
 
 .boxCampaign .title {
-    bottom: 22.4rem;
+    bottom: 24.7rem;
     font-size: clamp(1rem, 2.6vw, 11.875rem);
-    left: 9.5rem;
+    margin-left:3.5rem;
 }
 
 .boxCampaign .subtitle {
@@ -263,13 +267,13 @@ body {
     font-size: clamp(1rem, 1.3rem, 11.875rem);
     line-height: 1.2;
     text-align: center;
-    top:15.6rem;
+    top:17rem;
     padding: 2.5rem 2rem;
     justify-content: center;    
 }
 
 .boxCampaign button {
-    margin-top:25rem;
+    margin-top:26.5rem;
     color:black;
     font-size: clamp(1.1rem, 5vw, 0.625rem);
     padding:0.4rem 1.5rem;
@@ -305,8 +309,8 @@ body {
     bottom: 23.3rem;
     font-size: clamp(2.3rem, 6.5vw, 11.875rem);
     letter-spacing: 0rem;
-    margin-left:-4.7rem;
-    left:13vw;
+    margin-left:-3.3rem;
+    left:11.7vw;
 
 }
 
@@ -340,7 +344,7 @@ body {
 .boxCampaign .title {
     bottom: 16.4rem;
     font-size: clamp(1rem, 2.6vw, 11.875rem);
-    left: 7.5rem;
+    margin-left:3rem;
 }
 
 .boxCampaign .subtitle {
@@ -376,7 +380,7 @@ body {
 } 
 
 .box {
-    top:-5.68rem;
+    top:-10rem;
     right:2.5rem;
     margin-right: 40vw;
     width: 45%;
@@ -389,11 +393,11 @@ body {
 
 
 .title{
-    bottom: 23.3rem;
+    bottom: 27.6rem;
     font-size: clamp(2.5rem, 7vw, 11.875rem);
     letter-spacing: 0rem;
-    margin-left:-4rem;
-    left:13vw;
+    margin-left:-2.3rem;
+    left:11vw;
 
 }
 
@@ -413,7 +417,7 @@ body {
 }
 
 .boxCampaign {
-    margin-top: 13.54rem;
+    margin-top: 9.35rem;
     left:4.6rem;
     margin-left:44vw;
     width: 45%;
@@ -427,7 +431,7 @@ body {
 .boxCampaign .title {
     bottom: 16.1rem;
     font-size: clamp(1.3rem, 3.2vw, 11.875rem);
-    left: 5.8rem;
+    margin-left:2.5rem;
 }
 
 .boxCampaign .subtitle {
@@ -457,15 +461,15 @@ body {
 @media (max-width: 992px) {
 
  .container {
-    height: 45rem;
+    height: 34rem;
 } 
 
 .box {
-    top:-5.68rem;
+    top:-13.68rem;
     right:1.5rem;
     margin-right: 40vw;
     width: 40%;
-    height: 30%;
+    height: 40%;
     z-index: 6;
     border-radius: 3rem;
     overflow-x: hidden;
@@ -474,11 +478,11 @@ body {
 
 
 .title{
-    bottom: 24rem;
+    bottom: 20.5rem;
     font-size: clamp(2rem, 6vw, 11.875rem);
     letter-spacing: 0rem;
     margin-left:-2rem;
-    left:13vw;
+    left:14.5vw;
 
 }
 
@@ -498,11 +502,11 @@ body {
 }
 
 .boxCampaign {
-    margin-top: 13.54rem;
+    margin-top: 5.7rem;
     left:4.5rem;
     margin-left:44vw;
     width: 40%;
-    height: 45%;
+    height: 60%;
     border-radius: 3rem;
     overflow-x: hidden;
 
@@ -512,7 +516,7 @@ body {
 .boxCampaign .title {
     bottom: 15rem;
     font-size: clamp(1.4rem, 3vw, 11.875rem);
-    left: 3.6rem;
+    margin-left:2.2rem;
 }
 
 .boxCampaign .subtitle {
@@ -546,7 +550,7 @@ body {
 
 .box {
     top:-13rem;
-    right:0rem;
+    right:-0.95rem;
     width: 70%;
     margin-right: 0vw;
     height: 29%;
@@ -583,7 +587,7 @@ body {
 
 .boxCampaign {
     margin-top: 31.5rem;
-    left:0.4rem;
+    left:0.8rem;
     margin-left:14vw;
     width: 70%;
     height: 45%;
@@ -596,7 +600,7 @@ body {
 .boxCampaign .title {
     bottom: 20.6rem;
     font-size: clamp(1.7rem, 3vw, 11.875rem);
-    left: 3.2rem;
+    margin-left:2.5rem;
 }
 
 .boxCampaign .subtitle {
@@ -631,7 +635,7 @@ body {
 
 .box {
     top:-15rem;
-    right:0rem;
+    right:-0.55rem;
     width: 80%;
     margin-right: 0vw;
     height: 28%;
@@ -681,7 +685,7 @@ body {
 .boxCampaign .title {
     bottom: 13.3rem;
     font-size: clamp(1.4rem, 3vw, 11.875rem);
-    left: 3.2rem;
+    margin-left:2.2rem;
 }
 
 .boxCampaign .subtitle {
@@ -721,7 +725,7 @@ body {
 .box {
     margin-right: 0vw;
     top:-15rem;
-    right:0rem;
+    right:-0.45rem;
     width: 80%;
     height: 26%;
     z-index: 6;
@@ -770,7 +774,7 @@ body {
 .boxCampaign .title {
     bottom: 12.4rem;
     font-size: clamp(1.2rem, 3vw, 11.875rem);
-    left: 7.2rem;
+    margin-left:1.8rem;
 }
 
 .boxCampaign .subtitle {
@@ -851,7 +855,7 @@ body {
 .boxCampaign .title {
     bottom: 10rem;
     font-size: clamp(1.2rem, 3vw, 11.875rem);
-    left: 8.3rem;
+    margin-left:1.5rem;
 }
 
 .boxCampaign .subtitle {
