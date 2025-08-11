@@ -39,11 +39,20 @@ function Home() {
     };
   }, []);
 
-  function scrollToShop() {
-    if (shopRef.current) {
-      const y = shopRef.current.getBoundingClientRect().top + window.scrollY + 140;
-      window.scrollTo({ top: y, behavior: "smooth" });    }
+function scrollToShop() {
+  if (shopRef.current) {
+    let offset;
+
+    if (window.innerWidth <= 768) {
+      offset = (window.innerHeight * 0.43) + (1000 / window.innerWidth) * 5 + window.innerWidth * 0.05;
+    } else {
+      offset = (window.innerHeight * 0.17) + (1500 / window.innerWidth) * 5 + window.innerWidth * 0.01;
+    }
+
+    const y = shopRef.current.getBoundingClientRect().top + window.scrollY + offset;
+    window.scrollTo({ top: y, behavior: "smooth" });
   }
+}
 
     function scrollToItems() {
     if (itemRef.current) {

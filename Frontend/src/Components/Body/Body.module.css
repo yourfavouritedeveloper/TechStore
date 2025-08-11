@@ -24,9 +24,10 @@
 
 .categories {
     list-style: none;
-    display: flex;
     flex-wrap: wrap;
-    gap: 1rem; 
+    display: grid;
+    gap:1rem;
+    grid-template-columns: repeat(4, 1fr); 
     padding: 0rem 5rem;
 }
 
@@ -1057,11 +1058,8 @@
 }
 
 
-@media (max-width: 1440px) {}
+@media (max-width: 1560px) {
 
-@media (max-width: 1200px) {}
-
-@media (max-width: 992px) {
 .container {
     height: 40rem;
 }
@@ -1069,7 +1067,7 @@
 .title {
     margin-top:4rem;
     margin-bottom: 2rem;
-    font-size: clamp(4rem, 1vw, 14rem);
+    font-size: clamp(5rem, 1vw, 14rem);
 
 
 }
@@ -1079,8 +1077,8 @@
     list-style: none;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 0.7rem;
-    padding: 0rem 1rem;
+    gap: 1rem;
+    padding: 0rem 4rem;
 } 
 
 .categories li {
@@ -1093,15 +1091,15 @@
 }
 
 .computers img {
-    width: 110%;
-    margin-top:-8vw;
+    width: 80%;
+    margin-top:-6vw;
 }
 
 
 .computers p {
 
-    margin-top: -5rem;
-    font-size: clamp(1.7rem, 1vw, 14rem);
+    margin-top: -5.3rem;
+    font-size: clamp(2.3rem, 1vw, 14rem);
 
 
 }
@@ -1152,18 +1150,574 @@
 
 
 .mobilePhones img {
-    width: 115%;
-    margin-left:2rem;
-    margin-top:-7vw;
+    width: 80%;
+    margin-left:3.5rem;
+    margin-top:-4vw;
 
 }
 
 
 .mobilePhones p {
-    margin-top: -5rem;
-    font-size: clamp(1.7rem, 1vw, 14rem);
+    margin-top: -5.3rem;
+    font-size: clamp(2.3rem, 1vw, 14rem);
 
 }
+
+
+
+
+.mobilePhones .circle1 {
+  width: 7rem;
+  height: 6rem;
+  top: 3rem;
+  left: -3rem;
+
+}
+
+.mobilePhones .circle2 {
+  width: 7rem;
+  height: 6rem;
+  top: -1rem;
+  left: -2rem;
+
+}
+
+.mobilePhones .circle3 {
+  width: 7rem;
+  height: 6rem;
+  bottom: -2rem;
+  right: -2rem;
+
+
+}
+
+.mobilePhones .circle4 {
+  width: 7rem;
+  height: 6rem;
+  bottom: 2rem;
+  right: -3rem;
+
+
+}
+
+.mobilePhones:hover .circle1,
+.mobilePhones:hover .circle2, 
+.mobilePhones:hover .circle3,
+.mobilePhones:hover .circle4 {
+
+    width: 7rem;
+    height: 6rem;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+.tvs {
+
+  width: 100%;
+  height: 10rem; 
+}
+
+.tvs img {
+    width: 70%;
+    margin-top:-2vw;
+}
+
+
+.tvs p {
+    margin-top: -5.2rem;
+    font-size: clamp(2.3rem, 1vw, 14rem);
+
+}
+
+
+
+.tvs .circle1 {
+  width: 7rem;
+  height: 6rem;
+  top: 3rem;
+  left: -2rem;
+
+}
+
+.tvs .circle2 {
+  width: 7rem;
+  height: 6rem;
+  top: -1rem;
+  left: -1rem;
+}
+
+.tvs .circle3 {
+  width: 7rem;
+  height: 6rem;
+  bottom: -1rem;
+  right: -2rem;
+
+}
+
+.tvs .circle4 {
+  width: 7rem;
+  height: 6rem;
+  bottom: 2rem;
+
+
+}
+
+.tvs:hover .circle1,
+.tvs:hover .circle2, 
+.tvs:hover .circle3,
+.tvs:hover .circle4 {
+  width: 7rem;
+  height: 6rem;
+
+}
+
+
+
+
+.smartWatches {
+  width: 100%;
+  height: 10rem; 
+}
+
+.smartWatches img {
+    width: 65%;
+    margin-top:-4vw;
+}
+
+
+
+.smartWatches p {
+    margin-top: -5.4rem;
+    font-size: clamp(2.3rem, 1vw, 14rem);
+
+}
+
+
+
+
+.smartWatches .circle1 {
+  width: 7rem;
+  height: 6rem;
+  top: 2rem;
+  left: -2rem;
+
+
+}
+
+.smartWatches .circle2 {
+  width: 7rem;
+  height: 6rem;
+  top: -1rem;
+  left: -1rem;
+
+}
+
+.smartWatches .circle3 {
+  width: 7rem;
+  height: 6rem;
+  bottom: -1rem;
+  right: -2rem;
+
+
+}
+
+.smartWatches .circle4 {
+  width: 7rem;
+  height: 6rem;
+  bottom: 3rem;
+  right: -3rem;
+
+
+}
+
+.smartWatches:hover .circle1,
+.smartWatches:hover .circle2, 
+.smartWatches:hover .circle3,
+.smartWatches:hover .circle4 {
+  width: 7rem;
+  height: 6rem;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+.keyboards {
+  width: 100%;
+  height: 10rem;
+}
+
+.keyboards img {
+    width: 80%;
+    margin-top:-5.6vw;
+}
+
+
+
+.keyboards:hover img {
+    margin-top:-5.6vw;
+  }
+
+
+.keyboards p {
+    margin-top: -5.6rem;
+    font-size: clamp(2.3rem, 1vw, 14rem);
+
+}
+
+
+
+
+
+.keyboards .circle1 {
+  width: 7rem;
+  height: 6rem;
+  top: 2rem;
+  left: -2rem;
+
+
+}
+
+.keyboards .circle2 {
+  width: 7rem;
+  height: 6rem;
+  top: -1rem;
+  left: -2rem;
+
+}
+
+.keyboards .circle3 {
+  width: 7rem;
+  height: 6rem;
+  bottom: -2rem;
+  right: -1rem;
+
+
+}
+
+.keyboards .circle4 {
+  width: 7rem;
+  height: 6rem;
+  bottom: 1rem;
+  right: -2rem;
+
+
+}
+
+.keyboards:hover .circle1,
+.keyboards:hover .circle2, 
+.keyboards:hover .circle3,
+.keyboards:hover .circle4 {
+  width: 7rem;
+  height: 6rem;
+
+}
+
+
+
+
+.headphones {
+  width: 100%;
+  height: 10rem;
+}
+
+.headphones img {
+    width: 45%;
+    margin-top:-3.5vw;
+}
+
+
+.headphones:hover img {
+    margin-top:-3.5vw;
+}
+
+
+
+.headphones p {
+    margin-top: -5.3rem;
+    font-size: clamp(2rem, 1vw, 14rem);
+
+}
+
+
+
+
+
+.headphones .circle1 {
+  width: 7rem;
+  height: 6rem;
+  top: 4rem;
+  left: -1rem;
+
+
+}
+
+.headphones .circle2 {
+  width: 7rem;
+  height: 6rem;
+  top: 1rem;
+  left: -2rem;
+}
+
+.headphones .circle3 {
+  width: 7rem;
+  height: 6rem;
+  bottom: 1rem;
+  right: -2rem;
+
+
+}
+
+.headphones .circle4 {
+  width: 7rem;
+  height: 6rem;
+  bottom: 4rem;
+  right: -1rem;
+
+}
+
+.headphones:hover .circle1,
+.headphones:hover .circle2, 
+.headphones:hover .circle3,
+.headphones:hover .circle4 {
+  width: 7rem;
+  height: 6rem;
+
+}
+
+
+
+
+
+
+
+.monitors {
+  width: 100%;
+  height: 10rem;
+}
+
+.monitors img {
+    width: 65%;
+    margin-top:-3.5vw;
+}
+
+
+.monitors:hover img {
+    margin-top:-3.5vw;
+}
+
+
+
+.monitors p {
+    margin-top: -5.5rem;
+    font-size: clamp(2.3rem, 1vw, 14rem);
+
+}
+
+
+
+
+.monitors .circle1 {
+  width: 7rem;
+  height: 6rem;
+  top: 3rem;
+  left: -2rem;
+}
+
+.monitors .circle2 {
+  width: 7rem;
+  height: 6rem;
+  top: 0rem;
+  left: -1rem;
+  
+}
+
+.monitors .circle3 {
+  width: 7rem;
+  height: 6rem;
+  bottom: -1rem;
+  right: -1rem;
+
+
+}
+
+.monitors .circle4 {
+  width: 7rem;
+  height: 6rem;
+  bottom: 2rem;
+  right: -2rem;
+
+
+}
+
+.monitors:hover .circle1,
+.monitors:hover .circle2, 
+.monitors:hover .circle3,
+.monitors:hover .circle4 {
+  width: 7rem;
+  height: 6rem;
+
+}
+
+
+
+
+
+
+.tablets {
+  width: 100%;
+  height: 10rem;
+}
+
+.tablets img {
+    width: 65%;
+    margin-top:-2vw;
+}
+
+
+
+.tablets p {
+    margin-top: -5.5rem;
+    font-size: clamp(2.3rem, 1vw, 14rem);
+
+}
+
+
+
+
+.tablets .circle1 {
+  width: 7rem;
+  height: 6rem;
+  top: 3rem;
+  left: -1.5rem;
+
+}
+
+.tablets .circle2 {
+  width: 7rem;
+  height: 6rem;
+  top: -1rem;
+  left: -2rem;
+}
+
+
+.tablets .circle3 {
+  width: 7rem;
+  height: 6rem;
+  bottom: 2rem;
+  right: -2rem;
+
+}
+
+.tablets .circle4 {
+  width: 7rem;
+  height: 6rem;
+  bottom: 4rem;
+  right: -1rem;
+
+}
+
+.tablets:hover .circle1,
+.tablets:hover .circle2, 
+.tablets:hover .circle3,
+.tablets:hover .circle4 {
+  width: 7rem;
+  height: 6rem;
+
+}
+
+
+}
+
+@media (max-width: 1200px) {
+
+
+
+.categories {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    padding: 0rem 2rem;
+} 
+
+
+
+
+
+.computers img {
+    width: 100%;
+    margin-top:-8vw;
+}
+
+
+
+
+
+
+.computers .circle1 {
+  width: 7rem;
+  height: 6rem;
+  top: 3rem;
+  left: -3.5rem;
+
+
+}
+
+.computers .circle2 {
+  width: 7rem;
+  height: 6rem;
+  top: -1rem;
+  left: -3rem;
+  z-index: 2;  
+}
+
+.computers .circle3 {   
+  width: 7rem;
+  height: 6rem;
+  bottom: -0rem;
+  right: -2rem;
+
+
+}
+
+.computers .circle4 {
+
+  width: 7rem;
+  height: 6rem;
+  bottom: 3rem;
+  right: -3rem;
+
+
+}
+
+
+
+.mobilePhones img {
+    width: 100%;
+    margin-left:3.5rem;
+    margin-top:-5vw;
+
+}
+
+
+
 
 
 
@@ -1222,23 +1776,13 @@
 
 
 
-.tvs {
-
-  width: 100%;
-  height: 10rem; 
-}
 
 .tvs img {
-    width: 90%;
+    width: 85%;
     margin-top:-3vw;
 }
 
 
-.tvs p {
-    margin-top: -5rem;
-    font-size: clamp(1.7rem, 1vw, 14rem);
-
-}
 
 
 
@@ -1285,22 +1829,11 @@
 
 
 
-.smartWatches {
-  width: 100%;
-  height: 10rem; 
-}
+
 
 .smartWatches img {
-    width: 90%;
-    margin-top:-5.8vw;
-}
-
-
-
-.smartWatches p {
-    margin-top: -5.2rem;
-    font-size: clamp(1.7rem, 1vw, 14rem);
-
+    width: 75%;
+    margin-top:-4.8vw;
 }
 
 
@@ -1353,20 +1886,8 @@
 
 
 
-
-
-
-
-
-
-
-.keyboards {
-  width: 100%;
-  height: 10rem;
-}
-
 .keyboards img {
-    width: 100%;
+    width: 90%;
     margin-top:-6.6vw;
 }
 
@@ -1375,13 +1896,6 @@
 .keyboards:hover img {
     margin-top:-6.6vw;
   }
-
-
-.keyboards p {
-    margin-top: -5.5rem;
-    font-size: clamp(1.7rem, 1vw, 14rem);
-
-}
 
 
 
@@ -1433,28 +1947,14 @@
 
 
 
-
-.headphones {
-  width: 100%;
-  height: 10rem;
-}
-
 .headphones img {
-    width: 65%;
-    margin-top:-6vw;
+    width: 55%;
+    margin-top:-5vw;
 }
 
 
 .headphones:hover img {
-    margin-top:-6vw;
-}
-
-
-
-.headphones p {
-    margin-top: -5.4rem;
-    font-size: clamp(1.6rem, 1vw, 14rem);
-
+    margin-top:-5vw;
 }
 
 
@@ -1504,32 +2004,14 @@
 }
 
 
-
-
-
-
-
-.monitors {
-  width: 100%;
-  height: 10rem;
-}
-
 .monitors img {
-    width: 90%;
+    width: 80%;
     margin-top:-5vw;
 }
 
 
 .monitors:hover img {
     margin-top:-5vw;
-}
-
-
-
-.monitors p {
-    margin-top: -5.4rem;
-    font-size: clamp(1.7rem, 1vw, 14rem);
-
 }
 
 
@@ -1579,27 +2061,10 @@
 
 
 
-
-
-
-.tablets {
-  width: 100%;
-  height: 10rem;
-}
-
 .tablets img {
-    width: 75%;
-    margin-top:-5.5vw;
+    width: 65%;
+    margin-top:-5vw;
 }
-
-
-
-.tablets p {
-    margin-top: -5.4rem;
-    font-size: clamp(1.7rem, 1vw, 14rem);
-
-}
-
 
 
 
@@ -1643,6 +2108,181 @@
   height: 6rem;
 
 }
+
+
+}
+
+@media (max-width: 992px) {
+
+.title {
+    margin-top:4rem;
+    margin-bottom: 2rem;
+    font-size: clamp(4rem, 1vw, 14rem);
+
+
+}
+
+
+.categories {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.7rem;
+    padding: 0rem 1rem;
+} 
+
+
+
+
+.computers img {
+    width: 110%;
+    margin-top:-8vw;
+}
+
+
+.computers p {
+
+    margin-top: -5rem;
+    font-size: clamp(1.7rem, 1vw, 14rem);
+
+
+}
+
+
+
+
+
+
+
+.mobilePhones img {
+    width: 115%;
+    margin-left:2rem;
+    margin-top:-7vw;
+
+}
+
+
+.mobilePhones p {
+    margin-top: -5rem;
+    font-size: clamp(1.7rem, 1vw, 14rem);
+
+}
+
+
+
+
+
+
+
+.tvs img {
+    width: 90%;
+    margin-top:-3vw;
+}
+
+
+.tvs p {
+    margin-top: -5rem;
+    font-size: clamp(1.7rem, 1vw, 14rem);
+
+}
+
+
+
+
+
+
+
+.smartWatches img {
+    width: 90%;
+    margin-top:-5.8vw;
+}
+
+
+
+.smartWatches p {
+    margin-top: -5.2rem;
+    font-size: clamp(1.7rem, 1vw, 14rem);
+
+}
+
+
+
+
+
+.keyboards img {
+    width: 100%;
+    margin-top:-6.6vw;
+}
+
+
+
+.keyboards:hover img {
+    margin-top:-6.6vw;
+  }
+
+
+.keyboards p {
+    margin-top: -5.5rem;
+    font-size: clamp(1.7rem, 1vw, 14rem);
+
+}
+
+
+
+
+.headphones img {
+    width: 65%;
+    margin-top:-6vw;
+}
+
+
+.headphones:hover img {
+    margin-top:-6vw;
+}
+
+
+
+.headphones p {
+    margin-top: -5.4rem;
+    font-size: clamp(1.6rem, 1vw, 14rem);
+
+}
+
+
+
+.monitors img {
+    width: 90%;
+    margin-top:-5vw;
+}
+
+
+.monitors:hover img {
+    margin-top:-5vw;
+}
+
+
+
+.monitors p {
+    margin-top: -5.4rem;
+    font-size: clamp(1.7rem, 1vw, 14rem);
+
+}
+
+
+
+.tablets img {
+    width: 75%;
+    margin-top:-5.5vw;
+}
+
+
+
+.tablets p {
+    margin-top: -5.4rem;
+    font-size: clamp(1.7rem, 1vw, 14rem);
+
+}
+
 
 
 
@@ -1700,41 +2340,7 @@
 
 
 
-.computers .circle1 {
-  width: 7rem;
-  height: 6rem;
-  top: 3rem;
-  left: -3.5rem;
 
-
-}
-
-.computers .circle2 {
-  width: 7rem;
-  height: 6rem;
-  top: -1rem;
-  left: -3rem;
-  z-index: 2;  
-}
-
-.computers .circle3 {   
-  width: 7rem;
-  height: 6rem;
-  bottom: -0rem;
-  right: -2rem;
-
-
-}
-
-.computers .circle4 {
-
-  width: 7rem;
-  height: 6rem;
-  bottom: 3rem;
-  right: -3rem;
-
-
-}
 
 
 .mobilePhones {
@@ -1760,60 +2366,6 @@
 
 
 
-.mobilePhones .circle1 {
-  width: 7rem;
-  height: 6rem;
-  top: 2rem;
-  left: -4rem;
-
-}
-
-.mobilePhones .circle2 {
-  width: 7rem;
-  height: 6rem;
-  top: -2.5rem;
-  left: -2.5rem;
-
-}
-
-.mobilePhones .circle3 {
-  width: 7rem;
-  height: 6rem;
-  bottom: -2rem;
-  right: -4rem;
-
-
-}
-
-.mobilePhones .circle4 {
-  width: 7rem;
-  height: 6rem;
-  bottom: 2rem;
-  right: -5rem;
-
-
-}
-
-.mobilePhones:hover .circle1,
-.mobilePhones:hover .circle2, 
-.mobilePhones:hover .circle3,
-.mobilePhones:hover .circle4 {
-
-    width: 7rem;
-    height: 6rem;
-
-}
-
-
-
-
-
-
-
-
-
-
-
 .tvs {
 
   width: 100%;
@@ -1832,47 +2384,6 @@
 
 }
 
-
-
-.tvs .circle1 {
-  width: 7rem;
-  height: 6rem;
-  top: 2rem;
-  left: -3rem;
-
-}
-
-.tvs .circle2 {
-  width: 7rem;
-  height: 6rem;
-  top: -1rem;
-  left: -2.5rem;
-}
-
-.tvs .circle3 {
-  width: 7rem;
-  height: 6rem;
-  bottom: -1rem;
-  right: -3rem;
-
-}
-
-.tvs .circle4 {
-  width: 7rem;
-  height: 6rem;
-  bottom: 2rem;
-
-
-}
-
-.tvs:hover .circle1,
-.tvs:hover .circle2, 
-.tvs:hover .circle3,
-.tvs:hover .circle4 {
-  width: 7rem;
-  height: 6rem;
-
-}
 
 
 
@@ -1894,56 +2405,6 @@
     font-size: clamp(2rem, 1vw, 14rem);
 
 }
-
-
-
-
-.smartWatches .circle1 {
-  width: 7rem;
-  height: 6rem;
-  top: 1rem;
-  left: -4rem;
-
-
-}
-
-.smartWatches .circle2 {
-  width: 7rem;
-  height: 6rem;
-  top: -2rem;
-  left: -3rem;
-
-}
-
-.smartWatches .circle3 {
-  width: 7rem;
-  height: 6rem;
-  bottom: -2rem;
-  right: -3rem;
-
-
-}
-
-.smartWatches .circle4 {
-  width: 7rem;
-  height: 6rem;
-  bottom: 2rem;
-  right: -4rem;
-
-
-}
-
-.smartWatches:hover .circle1,
-.smartWatches:hover .circle2, 
-.smartWatches:hover .circle3,
-.smartWatches:hover .circle4 {
-  width: 7rem;
-  height: 6rem;
-
-}
-
-
-
 
 
 
@@ -1979,53 +2440,6 @@
 
 
 
-.keyboards .circle1 {
-  width: 7rem;
-  height: 6rem;
-  top: 1rem;
-  left: -3rem;
-
-
-}
-
-.keyboards .circle2 {
-  width: 7rem;
-  height: 6rem;
-  top: -2rem;
-  left: -3rem;
-
-}
-
-.keyboards .circle3 {
-  width: 7rem;
-  height: 6rem;
-  bottom: -2rem;
-  right: -3rem;
-
-
-}
-
-.keyboards .circle4 {
-  width: 7rem;
-  height: 6rem;
-  bottom: 1rem;
-  right: -3.5rem;
-
-
-}
-
-.keyboards:hover .circle1,
-.keyboards:hover .circle2, 
-.keyboards:hover .circle3,
-.keyboards:hover .circle4 {
-  width: 7rem;
-  height: 6rem;
-
-}
-
-
-
-
 .headphones {
   width: 100%;
   height: 8.4rem;
@@ -2048,53 +2462,6 @@
     font-size: clamp(1.9rem, 1vw, 14rem);
 
 }
-
-
-
-
-
-.headphones .circle1 {
-  width: 7rem;
-  height: 6rem;
-  top: 4rem;
-  left: -3rem;
-
-
-}
-
-.headphones .circle2 {
-  width: 7rem;
-  height: 6rem;
-  top: 1rem;
-  left: -4rem;
-}
-
-.headphones .circle3 {
-  width: 7rem;
-  height: 6rem;
-  bottom: -1rem;
-  right: -4rem;
-
-
-}
-
-.headphones .circle4 {
-  width: 7rem;
-  height: 6rem;
-  bottom: 2rem;
-  right: -3rem;
-
-}
-
-.headphones:hover .circle1,
-.headphones:hover .circle2, 
-.headphones:hover .circle3,
-.headphones:hover .circle4 {
-  width: 7rem;
-  height: 6rem;
-
-}
-
 
 
 
@@ -2127,50 +2494,6 @@
 
 
 
-.monitors .circle1 {
-  width: 7rem;
-  height: 6rem;
-  top: 3rem;
-  left: -4.5rem;
-}
-
-.monitors .circle2 {
-  width: 7rem;
-  height: 6rem;
-  top: 0rem;
-  left: -3.5rem;
-  
-}
-
-.monitors .circle3 {
-  width: 7rem;
-  height: 6rem;
-  bottom: -1rem;
-  right: -3rem;
-
-
-}
-
-.monitors .circle4 {
-  width: 7rem;
-  height: 6rem;
-  bottom: 2rem;
-  right: -4rem;
-
-
-}
-
-.monitors:hover .circle1,
-.monitors:hover .circle2, 
-.monitors:hover .circle3,
-.monitors:hover .circle4 {
-  width: 7rem;
-  height: 6rem;
-
-}
-
-
-
 
 
 
@@ -2193,48 +2516,6 @@
 }
 
 
-
-
-.tablets .circle1 {
-  width: 7rem;
-  height: 6rem;
-  top: 3rem;
-  left: -3.5rem;
-
-}
-
-.tablets .circle2 {
-  width: 7rem;
-  height: 6rem;
-  top: -1rem;
-  left: -4rem;
-}
-
-
-.tablets .circle3 {
-  width: 7rem;
-  height: 6rem;
-  bottom: -0rem;
-  right: -3.5rem;
-
-}
-
-.tablets .circle4 {
-  width: 7rem;
-  height: 6rem;
-  bottom: 2rem;
-  right: -3rem;
-
-}
-
-.tablets:hover .circle1,
-.tablets:hover .circle2, 
-.tablets:hover .circle3,
-.tablets:hover .circle4 {
-  width: 7rem;
-  height: 6rem;
-
-}
 
 
 }
