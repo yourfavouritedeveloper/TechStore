@@ -827,7 +827,7 @@ background: linear-gradient(
 
 .campaign3 .title {
     font-size: clamp(1.4rem, 5vw, 0.625rem);
-    width: 70%;
+    width: 72%;
     font-weight: bold;
     line-height: 0.81;
     top: -0.5rem;
