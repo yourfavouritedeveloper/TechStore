@@ -8,6 +8,24 @@
   src: url('./assets/Poppins-ExtraLight.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'PoppinsRegular';
+  src: url('./assets/Poppins-Regular.ttf') format('truetype');
+}
+
+
+@font-face {
+  font-family: 'PoppinsSemiBold';
+  src: url('./assets/Poppins-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'PoppinsMedium';
+  src: url('./assets/Poppins-Medium.ttf') format('truetype');
+}
+
+
+
 html,body {
   overflow-x: hidden;
 }
