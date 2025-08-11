@@ -17,8 +17,7 @@
     margin-top:6rem;
     margin-bottom: 2rem;
     font-size: clamp(7rem, 1vw, 14rem);
-    font-family: "PoppinsLight";
-    font-weight: bold;
+    font-family: "PoppinsRegular";
     display: flex;
     justify-content: center;
 }
@@ -91,8 +90,7 @@
     padding:5.5rem;
     margin-top: -6.6rem;
     font-size: clamp(3rem, 1vw, 14rem);
-    font-family: "PoppinsLight";
-    font-weight: bold;
+    font-family: "PoppinsRegular";
     z-index: 6;
     background-color: rgba(0, 0, 0, 0.363); 
     transition: all 0.3s ease;
@@ -222,8 +220,8 @@
     padding:5.5rem 8.5rem;
     margin-top: -6.6rem;
     font-size: clamp(3rem, 1vw, 14rem);
-    font-family: "PoppinsLight";
-    font-weight: bold;
+    font-family: "PoppinsRegular";
+
     z-index: 6;
     background-color: rgba(0, 0, 0, 0.363); 
     transition: all 0.3s ease;
@@ -349,8 +347,7 @@
     padding:5.5rem  11rem;
     margin-top: -6.6rem;
     font-size: clamp(3rem, 1vw, 14rem);
-    font-family: "PoppinsLight";
-    font-weight: bold;
+    font-family: "PoppinsRegular";
     z-index: 6;
     background-color: rgba(0, 0, 0, 0.363); 
     transition: all 0.3s ease;
@@ -478,8 +475,8 @@
     padding:6.5rem  11rem;
     margin-top: -6.6rem;
     font-size: clamp(3rem, 1vw, 14rem);
-    font-family: "PoppinsLight";
-    font-weight: bold;
+    font-family: "PoppinsRegular";
+
     z-index: 6;
     background-color: rgba(0, 0, 0, 0.534); 
     transition: all 0.3s ease;
@@ -610,8 +607,8 @@
     padding:6.5rem  11rem;
     margin-top: -6.6rem;
     font-size: clamp(3rem, 1vw, 14rem);
-    font-family: "PoppinsLight";
-    font-weight: bold;
+    font-family: "PoppinsRegular";
+
     z-index: 6;
     background-color: rgba(0, 0, 0, 0.295); 
     transition: all 0.3s ease;
@@ -735,8 +732,8 @@
     padding:6.5rem  11rem;
     margin-top: -6.6rem;
     font-size: clamp(3rem, 1vw, 14rem);
-    font-family: "PoppinsLight";
-    font-weight: bold;
+    font-family: "PoppinsRegular";
+
     z-index: 6;
     background-color: rgba(0, 0, 0, 0.295); 
     transition: all 0.3s ease;
@@ -863,8 +860,8 @@
     padding:6.5rem  11rem;
     margin-top: -6.6rem;
     font-size: clamp(3rem, 1vw, 14rem);
-    font-family: "PoppinsLight";
-    font-weight: bold;
+    font-family: "PoppinsRegular";
+
     z-index: 6;
     background-color: rgba(0, 0, 0, 0.212); 
     transition: all 0.3s ease;
@@ -988,8 +985,8 @@
     padding:6.5rem  11rem;
     margin-top: -6.6rem;
     font-size: clamp(3rem, 1vw, 14rem);
-    font-family: "PoppinsLight";
-    font-weight: bold;
+    font-family: "PoppinsRegular";
+
     z-index: 6;
     background-color: rgba(0, 0, 0, 0.212); 
     transition: all 0.3s ease;
