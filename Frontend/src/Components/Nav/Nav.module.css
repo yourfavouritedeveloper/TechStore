@@ -204,15 +204,15 @@ a {
     margin-left:-4.3rem;
     margin-top: 0.2rem;
     border-radius: 1rem;
-    padding: 1.5px 3px;
-    padding-left: 50.5vw;
+    padding: 3px 20px;
+    margin-left: 46.4vw;
     font-size: clamp(1.2rem, 1.2vw, 2.5rem);
     width: auto;
 }
 
 #campaign:hover{
-    border-radius: 1rem;
-    padding: 1.5px 3px;
+    border-radius: 1.2rem;
+    padding: 3px 20px;
 }
 
 
@@ -220,15 +220,15 @@ a {
 
 #about{
     margin-top: 0.2rem;
-    padding: 1.5px 3px;
+    padding: 3px 20px;
     border-radius: 1rem;
     font-size: clamp(1.2rem, 1.2vw, 2.5rem);
     width: auto;
 }
 
 #about:hover{
-    border-radius: 1rem;
-    padding: 1.5px 3px;
+    border-radius: 1.2rem;
+    padding: 3px 20px;
 
 }
 
@@ -236,14 +236,14 @@ a {
 #contact{
     margin-top: 0.2rem;
     border-radius: 1rem;
-    padding: 1.5px 3px;
+    padding: 3px 20px;
     font-size: clamp(1.2rem, 1.2vw, 2.5rem);
     width: auto;
 }
 
 #contact:hover{
-    border-radius: 1rem;
-    padding: 1.5px 3px;
+    border-radius: 1.2rem;
+    padding: 3px 20px;
 }
 
 
@@ -252,15 +252,15 @@ a {
 #login{
     margin-top: 0.2rem;
     border-radius: 1rem;
-    padding: 1.5px 3px;
+    padding: 3px 20px;
     font-size: clamp(1.2rem, 1.2vw, 2.5rem);
     width: auto;
 }
 
 #login:hover{
 
-    border-radius: 1rem;
-    padding: 1.5px 3px;
+    border-radius: 1.2rem;
+    padding: 3px 20px;
 
 }
 
@@ -279,7 +279,7 @@ a {
 }
 
 .navbar {
-    gap:7rem;
+    gap:4rem;
 }
 
 .inputBar {
@@ -340,15 +340,15 @@ a {
     margin-left:-1.3rem;
     margin-top: -0.2rem;
     border-radius: 1rem;
-    padding: 1.5px 3px;
-    padding-left: 50.5vw;
+    padding: 1.5px 10px;
+    margin-left: 50.5vw;
     font-size: clamp(1.2rem, 1.2vw, 2.5rem);
     width: auto;
 }
 
 #campaign:hover{
     border-radius: 1rem;
-    padding: 1.5px 3px;
+    padding: 1.5px 10px;
 }
 
 
@@ -356,7 +356,7 @@ a {
 
 #about{
     margin-top: -0.2rem;
-    padding: 1.5px 3px;
+    padding: 1.5px 10px;
     border-radius: 1rem;
     font-size: clamp(1.2rem, 1.2vw, 2.5rem);
     width: auto;
@@ -364,7 +364,7 @@ a {
 
 #about:hover{
     border-radius: 1rem;
-    padding: 1.5px 3px;
+    padding: 1.5px 10px;
 
 }
 
@@ -372,14 +372,14 @@ a {
 #contact{
     margin-top: -0.2rem;
     border-radius: 1rem;
-    padding: 1.5px 3px;
+    padding: 1.5px 10px;
     font-size: clamp(1.2rem, 1.2vw, 2.5rem);
     width: auto;
 }
 
 #contact:hover{
     border-radius: 1rem;
-    padding: 1.5px 3px;
+    padding: 1.5px 10px;
 }
 
 
@@ -388,7 +388,7 @@ a {
 #login{
     margin-top: -0.2rem;
     border-radius: 1rem;
-    padding: 1.5px 3px;
+    padding: 1.5px 10px;
     font-size: clamp(1.2rem, 1.2vw, 2.5rem);
     width: auto;
 }
@@ -396,7 +396,7 @@ a {
 #login:hover{
 
     border-radius: 1rem;
-    padding: 1.5px 3px;
+    padding: 1.5px 10px;
 
 }
 
@@ -415,7 +415,7 @@ a {
 }
 
 .navbar {
-    gap:3.5rem;
+    gap:2rem;
 }
 
 .inputBar {
@@ -473,15 +473,15 @@ a {
     margin-left:-1.3rem;
     margin-top: -0.2rem;
     border-radius: 1rem;
-    padding: 1.5px 3px;
-    padding-left: 50.5vw;
+    padding: 1.5px 8px;
+    margin-left: 46.5vw;
     font-size: clamp(1.2rem, 1.2vw, 2.5rem);
     width: auto;
 }
 
 #campaign:hover{
     border-radius: 1rem;
-    padding: 1.5px 3px;
+    padding: 1.5px 8px;
 }
 
 
@@ -489,7 +489,7 @@ a {
 
 #about{
     margin-top: -0.2rem;
-    padding: 1.5px 3px;
+    padding: 1.5px 8px;
     border-radius: 1rem;
     font-size: clamp(1.2rem, 1.2vw, 2.5rem);
     width: auto;
@@ -497,7 +497,7 @@ a {
 
 #about:hover{
     border-radius: 1rem;
-    padding: 1.5px 3px;
+    padding: 1.5px 8px;
 
 }
 
@@ -505,14 +505,14 @@ a {
 #contact{
     margin-top: -0.2rem;
     border-radius: 1rem;
-    padding: 1.5px 3px;
+    padding: 1.5px 8px;
     font-size: clamp(1.2rem, 1.2vw, 2.5rem);
     width: auto;
 }
 
 #contact:hover{
     border-radius: 1rem;
-    padding: 1.5px 3px;
+    padding: 1.5px 8px;
 }
 
 
@@ -521,7 +521,7 @@ a {
 #login{
     margin-top: -0.2rem;
     border-radius: 1rem;
-    padding: 1.5px 3px;
+    padding: 1.5px 8px;
     font-size: clamp(1.2rem, 1.2vw, 2.5rem);
     width: auto;
 }
@@ -529,7 +529,7 @@ a {
 #login:hover{
 
     border-radius: 1rem;
-    padding: 1.5px 3px;
+    padding: 1.5px 8px;
 
 }
 
@@ -612,15 +612,15 @@ a {
     margin-left:-1.3rem;
     margin-top: -0.2rem;
     border-radius: 1rem;
-    padding: 1.5px 3px;
-    padding-left: 50.5vw;
+    padding: 1.5px 8px;
+    margin-left: 46.5vw;
     font-size: clamp(1.2rem, 1.2vw, 2.5rem);
     width: auto;
 }
 
 #campaign:hover{
     border-radius: 1rem;
-    padding: 1.5px 3px;
+    padding: 1.5px 8px;
 }
 
 
@@ -628,7 +628,7 @@ a {
 
 #about{
     margin-top: -0.2rem;
-    padding: 1.5px 3px;
+    padding: 1.5px 8px;
     border-radius: 1rem;
     font-size: clamp(1.2rem, 1.2vw, 2.5rem);
     width: auto;
@@ -636,7 +636,7 @@ a {
 
 #about:hover{
     border-radius: 1rem;
-    padding: 1.5px 3px;
+    padding: 1.5px 8px;
 
 }
 
@@ -644,14 +644,14 @@ a {
 #contact{
     margin-top: -0.2rem;
     border-radius: 1rem;
-    padding: 1.5px 3px;
+    padding: 1.5px 8px;
     font-size: clamp(1.2rem, 1.2vw, 2.5rem);
     width: auto;
 }
 
 #contact:hover{
     border-radius: 1rem;
-    padding: 1.5px 3px;
+    padding: 1.5px 8px;
 }
 
 
@@ -660,7 +660,7 @@ a {
 #login{
     margin-top: -0.2rem;
     border-radius: 1rem;
-    padding: 1.5px 3px;
+    padding: 1.5px 8px;
     font-size: clamp(1.2rem, 1.2vw, 2.5rem);
     width: auto;
 }
@@ -668,7 +668,7 @@ a {
 #login:hover{
 
     border-radius: 1rem;
-    padding: 1.5px 3px;
+    padding: 1.5px 8px;
 
 }
 
@@ -680,7 +680,7 @@ a {
     transition: all 0.3s ease;
     margin-top: -0.4rem;  
     position: absolute;
-    left:-18.5rem;
+    left:-20.5rem;
     padding-left:46vw;
     padding-top: 0.3rem;
     padding-right: 1rem;
@@ -703,7 +703,7 @@ a {
   font-size: 0.9rem;
   top:-1.5rem;
   margin-left: -14rem;
-  left:50.5vw;
+  left:48.5vw;
   width: 11.4rem;
   padding: 0.2rem 1.2rem;
   padding-right: 1.6rem;
@@ -713,7 +713,7 @@ a {
   z-index: 40;
   top:0.1rem;
   position: absolute;
-  left:-1.8rem;
+  left:-2.8rem;
   padding-left:45.4vw;
   margin-left:5vw;
   height: 24px;
@@ -751,15 +751,15 @@ a {
     margin-left:-8rem;
     margin-top: -0.2rem;
     border-radius: 1rem;
-    padding: 1.5px 3px;
-    padding-left: 50.5vw;
+    padding: 1.5px 5px;
+    margin-left: 29.5vw;
     font-size: clamp(1.2rem, 1.2vw, 2.5rem);
     width: auto;
 }
 
 #campaign:hover{
     border-radius: 1rem;
-    padding: 1.5px 3px;
+    padding: 1.5px 5px;
 }
 
 
@@ -767,7 +767,8 @@ a {
 
 #about{
     margin-top: -0.2rem;
-    padding: 1.5px 3px;
+    padding: 1.5px 5px;
+
     border-radius: 1rem;
     font-size: clamp(1.2rem, 1.2vw, 2.5rem);
     width: auto;
@@ -775,7 +776,8 @@ a {
 
 #about:hover{
     border-radius: 1rem;
-    padding: 1.5px 3px;
+    padding: 1.5px 5px;
+
 
 }
 
@@ -783,14 +785,16 @@ a {
 #contact{
     margin-top: -0.2rem;
     border-radius: 1rem;
-    padding: 1.5px 3px;
+    padding: 1.5px 5px;
+
     font-size: clamp(1.2rem, 1.2vw, 2.5rem);
     width: auto;
 }
 
 #contact:hover{
     border-radius: 1rem;
-    padding: 1.5px 3px;
+    padding: 1.5px 5px;
+
 }
 
 
@@ -799,7 +803,8 @@ a {
 #login{
     margin-top: -0.2rem;
     border-radius: 1rem;
-    padding: 1.5px 3px;
+    padding: 1.5px 5px;
+
     font-size: clamp(1.2rem, 1.2vw, 2.5rem);
     width: auto;
 }
@@ -807,7 +812,8 @@ a {
 #login:hover{
 
     border-radius: 1rem;
-    padding: 1.5px 3px;
+    padding: 1.5px 5px;
+
 
 }
 
