@@ -58,17 +58,17 @@ color: #f0f4f8;
 
 
 .title {
-    background: linear-gradient(
-    145deg,
-    #313131cb,   
-    #5f5f5fb0,   
-    #1b1b1ba6    
-    );
+background: linear-gradient(145deg,
+  #1b2a3d ,  
+  #4a5f7f,  
+  #4a5f7f,  
+  #1b2a3d  
+);
     position: relative;
     border-radius: 1.7rem;
     padding: 0.4rem;
     left:4.5rem;
-    top:1rem;
+    top:3rem;
     width: 30rem;
     font-size: clamp(1rem, 4vw, 2.5rem);
     letter-spacing: -0.05rem;
@@ -101,7 +101,7 @@ color: #f0f4f8;
     font-family: "PoppinsRegular";
     position:absolute;
     left:5rem;
-    top:10.5rem;
+    top:11.5rem;
     font-size: clamp(0.2rem, 1vw, 2.5rem);    
 }
 
@@ -109,7 +109,7 @@ color: #f0f4f8;
     font-family: "PoppinsRegular";
     position:absolute;
     left:5rem;
-    top:16.5rem;
+    top:17.5rem;
     font-size: clamp(0.2rem, 1vw, 2.5rem);      
 }
 
@@ -117,7 +117,7 @@ color: #f0f4f8;
     position:absolute;
     left:4.5rem;
     width: 29.5rem;
-    top:11rem;
+    top:12rem;
     padding: 0.5rem 0rem;
     border-radius: 1.1rem;
     font-size: clamp(0.2rem, 1vw, 2.5rem);
@@ -127,7 +127,7 @@ color: #f0f4f8;
 
 .password {
     position:absolute;
-    top:17rem;
+    top:18rem;
     left:4.5rem;
     width: 29.5rem;
     padding: 0.5rem 0rem;
@@ -135,4 +135,72 @@ color: #f0f4f8;
     font-size: clamp(0.2rem, 1vw, 2.5rem);
     padding-left: 1rem;
     color:black;    
+}
+
+.submit {
+    position: absolute;
+    bottom:10rem;
+    left:4.5rem;
+    width: 30.3rem;
+    background-color: #1b2a3d  ;
+    color:white;
+    font-size: clamp(0.2rem, 1.5vw, 2.5rem);  
+    padding: 0.5rem 1rem;
+    border:none;
+    font-family: "PoppinsLight";
+    border-radius: 1.1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+}
+
+.submit:hover {
+    transform: scale(1.01);
+    background-color: #274b7a  ;
+}
+
+.forgot {
+    position: absolute;
+    top:22.5rem;
+    left:5rem;
+    color: #1e2227;
+    text-decoration: underline;
+}
+
+
+.toggleBtn {
+    position: absolute;
+    border:none;
+    background-color: rgba(245, 222, 179, 0);
+    top:20rem;
+    left:32rem;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.subtitle {
+    position: absolute;
+    bottom:5rem;
+    left:8.8rem;    
+}
+
+.signnow {
+    position: absolute;
+    bottom:6rem;
+    font-family: "PoppinsSemiBold";
+    right:10.8rem;
+}
+
+.errorMsg {
+    position: absolute;
+    bottom:13rem;
+    left:5rem;
+    color: rgb(180, 39, 39);
+}
+
+.safeMsg {
+    position: absolute;
+    bottom:13rem;
+    left:5rem;
+    color: rgb(29, 77, 29);    
 }

@@ -56,7 +56,7 @@ public class AccountController {
     @PostMapping("/login")
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Log in an account", description = "Logs an account in provided information.")
-    public String login(@Validated(OnCreate.class) @RequestBody LoginRequestDto loginRequest) {
+    public LoginRequestDto login(@Validated(OnCreate.class) @RequestBody LoginRequestDto loginRequest) {
         return accountService.login(loginRequest);
     }
 

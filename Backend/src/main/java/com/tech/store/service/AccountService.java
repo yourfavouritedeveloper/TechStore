@@ -5,6 +5,7 @@ import com.tech.store.dao.repository.AccountRedisRepository;
 import com.tech.store.dao.repository.AccountRepository;
 import com.tech.store.exception.AccountNotFoundException;
 import com.tech.store.mapper.AccountMapper;
+import com.tech.store.model.dto.Account;
 import com.tech.store.model.dto.AccountDto;
 import com.tech.store.model.dto.LoginRequestDto;
 import com.tech.store.model.enumeration.Status;
@@ -94,17 +95,16 @@ public class AccountService {
     }
 
     @Transactional
-    public String login(LoginRequestDto loginRequest) {
+    public LoginRequestDto login(LoginRequestDto loginRequest) {
         return verify(loginRequest);
     }
 
-    public String verify(LoginRequestDto loginRequest) {
+    public LoginRequestDto verify(LoginRequestDto loginRequest) {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(),loginRequest.getPassword()));
 
         if(authentication.isAuthenticated()) {
-            AccountDto accountDto = findByName(loginRequest.getUsername());
 
-            return jwtService.generateToken(loginRequest.getUsername());
+            return loginRequest;
         }
         throw new AccountNotFoundException("User not found");
     }
