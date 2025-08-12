@@ -69,7 +69,7 @@ const handleSubmit =async  (e) => {
         setIsError(true);
         return;
       }
-      const data = await response.text();
+      const data = await response.json();
       login(data);
       localStorage.setItem("authToken", data.token);
       setErrorMsg("Login Successful!");
