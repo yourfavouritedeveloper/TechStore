@@ -10,7 +10,8 @@ import { AuthContext } from "../AuthContext";
 function Nav({ highlight }) {
  const [is599, setIs599] = useState(window.innerWidth === 599);
  const [menuOpen, setMenuOpen] = useState(false);
- const { account, setAccount } = useContext(AuthContext);
+ const { account, logout } = useContext(AuthContext);
+ const [logAccount, setLogAccount] = useState();
 
  useEffect(() => {
     if (!account?.username || !account?.password) return;
@@ -21,7 +22,7 @@ function Nav({ highlight }) {
     }
   }) 
       .then(response => {
-        setAccount(response.data);
+        setLogAccount(response.data);
       })
       .catch(error => {
         console.error("Error fetching data:", error);
@@ -43,6 +44,11 @@ function Nav({ highlight }) {
     };
   }, []);
 
+const handleSignOut = () => {
+    logout();  
+    window.location.reload();      
+  };
+
 
   const guest = (<>
     <p className={styles.logName}>Account</p>
@@ -56,10 +62,10 @@ function Nav({ highlight }) {
 
   const logged = (<>
   <p className={styles.logName}>Account</p>
-  <img className={styles.pp} src={account?.profilePictureUrl ? account?.profilePictureUrl : def} alt="" />
-  <p className={styles.fullname}>{account?.customerName}</p>
-  <p className={styles.username}>{"@" + account?.username}</p>
-  <p className={styles.balance}>Balance: ${account?.balance}</p>
+  <img className={styles.pp} src={logAccount?.profilePictureUrl ? logAccount?.profilePictureUrl : def} alt="" />
+  <p className={styles.fullname}>{logAccount?.customerName}</p>
+  <p className={styles.username}>{"@" + logAccount?.username}</p>
+  <p className={styles.balance}>Balance: ${logAccount?.balance}</p>
   <div className={styles.purchaseHistory}>
     <p className={styles.purchaseText}>Easily track your spending and review past transactions.</p>
     <Link  className={styles.purchaseButton}  to="/login">Purchase History</Link>
@@ -67,7 +73,7 @@ function Nav({ highlight }) {
 
   <Link className={styles.edit}  to="/login"
   >Edit Profile</Link>
-  <Link className={styles.signout}  to="/login">Sign Out</Link>
+  <Link className={styles.signout}  to="/" onClick={handleSignOut}>Sign Out</Link>
 
 
   
