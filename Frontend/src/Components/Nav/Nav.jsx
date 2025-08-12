@@ -1,11 +1,29 @@
 import styles from "./Nav.module.css"
 import { Link } from "react-router-dom";
 import { useEffect, useState } from 'react';
+import def from "../../assets/default.png";
+import axios from 'axios';
 
 function Nav({ highlight }) {
  const [is599, setIs599] = useState(window.innerWidth === 599);
  const [menuOpen, setMenuOpen] = useState(false);
+ const [account, setAccount] = useState();
+ const username = "nihadmammadov";
 
+ useEffect(() => {
+    axios.get("https://techstore-3fvk.onrender.com/api/v1/accounts/username/" + username , {
+    auth: {
+      username: username,
+      password: "Ni16022005"
+    }
+  }) 
+      .then(response => {
+        setAccount(response.data);
+      })
+      .catch(error => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
 
 
   useEffect(() => {
@@ -21,6 +39,35 @@ function Nav({ highlight }) {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+
+  const guest = (<>
+    <p className={styles.title}>Oops! It looks like you’re currently browsing in Guest mode. </p>
+    <p className={styles.subtitle}>To access your account features like order history, saved preferences, and personalized settings, please log in or create an account. We’d love to have you on board!"</p>
+    <Link className={styles.signup}  to="/login">Sign Up</Link>
+    <Link className={styles.log}  to="/login">Log In</Link>
+
+  
+  </>);
+
+  const logged = (<>
+  <p className={styles.logName}>Account</p>
+  <img className={styles.pp} src={account?.profilePictureUrl ? account?.profilePictureUrl : def} alt="" />
+  <p className={styles.fullname}>{account?.customerName}</p>
+  <p className={styles.username}>{"@" + account?.username}</p>
+  <p className={styles.balance}>Balance: ${account?.balance}</p>
+  <div className={styles.purchaseHistory}>
+    <p className={styles.purchaseText}>Easily track your spending and review past transactions.</p>
+    <Link  className={styles.purchaseButton}  to="/login">Purchase History</Link>
+  </div>
+
+  <Link className={styles.edit}  to="/login">Edit Profile</Link>
+  <Link className={styles.signout}  to="/login">Sign Out</Link>
+
+
+  
+  </>);
+
 
   const less599 = (<>
                 <div>
@@ -47,8 +94,15 @@ function Nav({ highlight }) {
                         <Link id ={styles.campaign} className={highlight ? styles.highlight : ""} to="/campaign">Campaign</Link>
                         <Link id={styles.about} className={highlight ? styles.highlight : ""} to="/about">About</Link>
                         <Link id={styles.contact} className={highlight ? styles.highlight : ""} to="/contact">Contact</Link>
-                        <Link id={styles.login} className={highlight ? styles.highlight : ""} to="/login">Account</Link>
+                        <Link id={styles.login} className={highlight ? styles.highlight : ""} onClick={() => setMenuOpen(prev => !prev)}>
+                        Account
+                        <div className={styles.loginSection}>
+                            {logged}
+                        </div>
+                        </Link>
                     </>)
+
+
 
 
     return (
