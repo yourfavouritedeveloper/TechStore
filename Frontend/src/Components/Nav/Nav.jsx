@@ -1,5 +1,6 @@
 import styles from "./Nav.module.css"
 import { Link } from "react-router-dom";
+import { motion, AnimatePresence} from "framer-motion";
 import { useEffect, useState } from 'react';
 import def from "../../assets/default.png";
 import axios from 'axios';
@@ -61,7 +62,8 @@ function Nav({ highlight }) {
     <Link  className={styles.purchaseButton}  to="/login">Purchase History</Link>
   </div>
 
-  <Link className={styles.edit}  to="/login">Edit Profile</Link>
+  <Link className={styles.edit}  to="/login"
+  >Edit Profile</Link>
   <Link className={styles.signout}  to="/login">Sign Out</Link>
 
 
@@ -94,11 +96,21 @@ function Nav({ highlight }) {
                         <Link id ={styles.campaign} className={highlight ? styles.highlight : ""} to="/campaign">Campaign</Link>
                         <Link id={styles.about} className={highlight ? styles.highlight : ""} to="/about">About</Link>
                         <Link id={styles.contact} className={highlight ? styles.highlight : ""} to="/contact">Contact</Link>
-                        <Link id={styles.login} className={highlight ? styles.highlight : ""} onClick={() => setMenuOpen(prev => !prev)}>
-                        Account
-                        <div className={styles.loginSection}>
+                        <Link id={styles.login} className={highlight ? styles.highlight : "" }  onClick={() => setMenuOpen(prev => !prev)}>
+                        
+                        Account 
+                        <AnimatePresence>
+                        {menuOpen && (
+                              <motion.div
+                                className={styles.loginSection}
+                                initial={{ x: "30rem", opacity: 0 }} 
+                                animate={{ x: 0, opacity: 1 }}       
+                                exit={{ x: "80rem"}}    
+                                transition={{ duration: 0.3}}
+                            >
                             {logged}
-                        </div>
+                        </motion.div>) }
+                        </AnimatePresence>
                         </Link>
                     </>)
 

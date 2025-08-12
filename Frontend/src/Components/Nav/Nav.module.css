@@ -118,13 +118,10 @@ html,body {
     cursor: pointer;
 }
 
-#login:focus .loginSection {
-    margin-left: 0;
-}
 
 
 .loginSection {
-    margin-left: 25rem;
+    transform: translateX(25rem);   
     z-index: 1;
     position: absolute;
     top: -55%; 
@@ -139,11 +136,15 @@ html,body {
         #0d1b2a
     );
     opacity: 1;
-    transform: translateY(0px); 
-    transition: all 0.3s ease ease-out;
     cursor:auto;    
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
 
+
+}
+
+.loginSection.open {
+  transform: translateX(0);  
+        
 }
 
 .title {
@@ -209,6 +210,7 @@ html,body {
 
 
 .logName {
+    cursor: pointer;
     position: absolute;
     top:1vw;
     background: linear-gradient(
@@ -220,6 +222,7 @@ html,body {
     );
     width:19.5vw ;
     padding: 0.7rem ; 
+    z-index: 2;
     font-family: "PoppinsRegular";
     font-size: clamp(1.5em, 1.5vw, 2rem);    
 }
