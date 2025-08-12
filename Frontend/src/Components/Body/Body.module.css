@@ -1,7 +1,9 @@
 .container {
+  display: flex;
     position: relative;
+    justify-content: center;
     width: 100%;
-    height: 90vh;
+    height: 53rem;
     padding-bottom: 5rem;
     background: linear-gradient(
       135deg,
@@ -19,6 +21,7 @@
     font-size: clamp(7rem, 1vw, 14rem);
     font-family: "PoppinsRegular";
     display: flex;
+    position: absolute;
     justify-content: center;
 }
 
@@ -27,8 +30,10 @@
     flex-wrap: wrap;
     display: grid;
     gap:1rem;
+    position: absolute;
+    top:17.5rem;
     grid-template-columns: repeat(4, 1fr); 
-    padding: 0rem 5rem;
+    padding: 0rem 4.15vw;
 }
 
 .categories li {
@@ -45,8 +50,8 @@
 .computers {
   background-color: #5e7dd4;
   position: relative;
-  width: 100%;
-  height: 22vh; 
+  width: 26.5rem;
+  height: 12.95rem; 
   padding: 2rem;
   border-radius: 1rem;
   overflow: hidden;
@@ -171,8 +176,8 @@
 .mobilePhones {
     background-color: #33d6a0;
     position: relative;
-    width: 100%;
-    height: 22vh; 
+    width: 26.5rem;
+    height: 12.95rem; 
     padding: 2rem;
     border-radius: 1rem;
     overflow: hidden;
@@ -302,8 +307,8 @@
 .tvs {
   background-color: #f8832f;
   position: relative;
-  width: 100%;
-  height: 22vh; 
+    width: 26.5rem;
+    height: 12.95rem; 
   padding: 2rem;
   border-radius: 1rem;
   overflow: hidden;
@@ -429,8 +434,8 @@
 .smartWatches {
   background-color: #7779fc;
   position: relative;
-  width: 100%;
-  height: 22vh; 
+    width: 26.5rem;
+    height: 12.95rem; 
   padding: 2rem;
   border-radius: 1rem;
   overflow: hidden;
@@ -561,8 +566,8 @@
 .keyboards {
   background-color: #e25252;
   position: relative;
-  width: 100%;
-  height: 22vh; 
+    width: 26.5rem;
+    height: 12.95rem;  
   padding: 2rem;
   border-radius: 1rem;
   overflow: hidden;
@@ -686,8 +691,8 @@
 .headphones {
   background-color: #9f4dec;
   position: relative;
-  width: 100%;
-  height: 22vh; 
+    width: 26.5rem;
+    height: 12.95rem; 
   padding: 2rem;
   border-radius: 1rem;
   overflow: hidden;
@@ -814,8 +819,8 @@
 .monitors {
   background-color: #42b3e7;
   position: relative;
-  width: 100%;
-  height: 22vh; 
+    width: 26.5rem;
+    height: 12.95rem;  
   padding: 2rem;
   border-radius: 1rem;
   overflow: hidden;
@@ -940,8 +945,8 @@
 .tablets {
   background-color: #f7d656;
   position: relative;
-  width: 100%;
-  height: 22vh; 
+    width: 26.5rem;
+    height: 12.95rem; 
   padding: 2rem;
   border-radius: 1rem;
   overflow: hidden;
@@ -2128,6 +2133,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 0.7rem;
+    top:14rem;
     padding: 0rem 1rem;
 } 
 
@@ -2540,11 +2546,16 @@
 
 }
 
+
+
+
+
 .categories {
     list-style: none;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
+    top:8rem;
     padding: 0rem 1rem;
 } 
 
