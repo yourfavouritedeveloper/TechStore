@@ -374,9 +374,34 @@ a {
 }
 
 
+
 .highlight {
   color: #000000; 
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.highlight .signout {
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.highlight .purchaseButton {
+    color: rgb(255, 255, 255);
+    transition: all 0.3s ease;
+ 
+}
+
+.highlight .edit {
+    transition: all 0.3s ease;
+}
+
+.highlight .edit:hover {
+    color:black;
+}
+
+.highlight .purchaseButton:hover {
+    color: rgb(255, 255, 255);
+ 
 }
 
 .highlight a {
