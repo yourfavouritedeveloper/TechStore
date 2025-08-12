@@ -1,0 +1,138 @@
+
+
+.container {
+    position: relative; 
+background: linear-gradient(
+  120deg,
+  #a3b0c4,  
+  #758ba3,  
+  #4a5f7f,  
+  #2e4261,  
+  #1b2a3d   
+); 
+    height: 89.2vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+
+.circle1, .circle2 {
+    position: absolute;
+    height: 90rem;
+    width: 90rem;
+
+background: radial-gradient(circle at 30% 30%,
+  #758ba3,  
+  #4a5f7f,  
+  #1b2a3d  
+);
+    border-radius: 50%;
+}
+
+.circle1 {
+    left: -35rem;
+    top:-5rem;
+}
+
+.circle2 {
+    top:-30rem;
+    right: -35rem;
+}
+
+.box {
+    position: absolute;
+    height: 40rem;
+    width: 40rem;
+    top:7rem;
+    border-radius: 6rem;
+    left:10rem;
+background: linear-gradient(
+  145deg,
+  #ffffff6c,   
+  #ffffff2f,   
+  #ffffff15    
+);
+  backdrop-filter: blur(15px);
+color: #f0f4f8;
+}
+
+
+.title {
+    background: linear-gradient(
+    145deg,
+    #313131cb,   
+    #5f5f5fb0,   
+    #1b1b1ba6    
+    );
+    position: relative;
+    border-radius: 1.7rem;
+    padding: 0.4rem;
+    left:4.5rem;
+    top:1rem;
+    width: 30rem;
+    font-size: clamp(1rem, 4vw, 2.5rem);
+    letter-spacing: -0.05rem;
+    font-family: "PoppinsRegular";
+}
+
+
+
+
+
+
+.techStore {
+    position: absolute;
+    height: 40rem;
+    width: 50rem;
+    top:7rem;
+    border-radius: 6rem;
+    right:10rem;
+background: linear-gradient(
+  145deg,
+  #ffffff6c,   
+  #ffffff2f,   
+  #ffffff15    
+);
+  backdrop-filter: blur(15px);
+color: #f0f4f8;    
+}
+
+.labelUsername {
+    font-family: "PoppinsRegular";
+    position:absolute;
+    left:5rem;
+    top:10.5rem;
+    font-size: clamp(0.2rem, 1vw, 2.5rem);    
+}
+
+.labelPassword {
+    font-family: "PoppinsRegular";
+    position:absolute;
+    left:5rem;
+    top:16.5rem;
+    font-size: clamp(0.2rem, 1vw, 2.5rem);      
+}
+
+.username {
+    position:absolute;
+    left:4.5rem;
+    width: 29.5rem;
+    top:11rem;
+    padding: 0.5rem 0rem;
+    border-radius: 1.1rem;
+    font-size: clamp(0.2rem, 1vw, 2.5rem);
+    padding-left: 1rem;
+    color:black;
+}
+
+.password {
+    position:absolute;
+    top:17rem;
+    left:4.5rem;
+    width: 29.5rem;
+    padding: 0.5rem 0rem;
+    border-radius: 1.1rem;
+    font-size: clamp(0.2rem, 1vw, 2.5rem);
+    padding-left: 1rem;
+    color:black;    
+}
