@@ -43,6 +43,7 @@ function Nav({ highlight }) {
 
 
   const guest = (<>
+    <p className={styles.logName}>Account</p>
     <p className={styles.title}>Oops! It looks like you’re currently browsing in Guest mode. </p>
     <p className={styles.subtitle}>To access your account features like order history, saved preferences, and personalized settings, please log in or create an account. We’d love to have you on board!"</p>
     <Link className={styles.signup}  to="/login">Sign Up</Link>
@@ -108,7 +109,7 @@ function Nav({ highlight }) {
                                 exit={{ x: "80rem"}}    
                                 transition={{ duration: 0.3}}
                             >
-                            {logged}
+                            {guest}
                         </motion.div>) }
                         </AnimatePresence>
                         </Link>

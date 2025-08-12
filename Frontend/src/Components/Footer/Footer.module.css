@@ -1,9 +1,17 @@
 .footer {
   background-color: #1a1a1a;
   color: #fff;
-  padding: 2rem 5rem;
-  left:10rem;
+  padding: 0.2rem 5rem;
+  height: 6rem;
+  position: relative;
 
+
+
+
+
+}
+body {
+    overflow-y: hidden;
 }
 
 .content {
@@ -17,31 +25,34 @@
 }
 
 .left {
-  margin-top: 2.5rem;
+  margin-top: 1rem;
   margin-left: 73rem;
+  font-size: 0.8rem;
 }
 
 .right {
   text-align: center;
   position: relative;
+  top:0.7rem;
   right:40rem;
-  top:1rem;
+
 
 }
 
 .right p {
   position: relative;
   right:11rem;
-  top:0.2rem;
+  font-size: 0.8rem;
 }
 
 .contacts {
   display: flex;
   flex-direction: column;
   gap: 0rem;
-  top:-0.8rem;
+  top:-1rem;
   position: relative;
   margin-top: 0.3rem;
+  font-size: 0.8rem;
 }
 
 .mail, .number {
@@ -50,13 +61,27 @@
   
 }
 
+.mail {
+  position: relative;
+  right: 2.1rem;  
+}
+
  .number {
   position: relative;
-  right: 8rem;
+  right: 8.7rem;
+  top:-0.2rem;
  }
 
 .mail:hover, .number:hover {
   text-decoration: underline;
+}
+
+.footer img {
+  top:0.25rem;
+  z-index: 0;
+  left:22rem;
+  position: absolute;  
+  width:30%;
 }
 
 @media (min-width: 600px) {
@@ -75,13 +100,7 @@
 }
 
 
-.footer img {
-  margin-top:-8rem;
-  z-index: 0;
-  left:-23rem;
-  position: relative;  
-  width:60%;
-}
+
 
 @media (max-width: 1440px) {}
 

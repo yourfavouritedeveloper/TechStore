@@ -1,12 +1,16 @@
 
 import Nav from "../Components/Nav/Nav";
-
+import Log from "../Components/Login/Login";
+import Footer from "../Components/Footer/Footer";
 function Login() {
 
 
-    return  <div style={{height:"100vh",backgroundColor:"black"}}>
+    return  (<>
+    
+        <Log />
+        <Footer />
 
-    </div>;
+    </>);
 }
 
 export default Login;
