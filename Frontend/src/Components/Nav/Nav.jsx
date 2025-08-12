@@ -1,21 +1,23 @@
 import styles from "./Nav.module.css"
-import { Link } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
 import { motion, AnimatePresence} from "framer-motion";
-import { useEffect, useState } from 'react';
+import { useEffect, useState,useContext } from 'react';
 import def from "../../assets/default.png";
 import axios from 'axios';
+import { AuthContext } from "../AuthContext";
+
 
 function Nav({ highlight }) {
  const [is599, setIs599] = useState(window.innerWidth === 599);
  const [menuOpen, setMenuOpen] = useState(false);
- const [account, setAccount] = useState();
- const username = "nihadmammadov";
+ const { account, setAccount } = useContext(AuthContext);
 
  useEffect(() => {
-    axios.get("https://techstore-3fvk.onrender.com/api/v1/accounts/username/" + username , {
+    if (!account?.username || !account?.password) return;
+    axios.get("https://techstore-3fvk.onrender.com/api/v1/accounts/username/" + account.username , {
     auth: {
-      username: username,
-      password: "Ni16022005"
+      username: account.username,
+      password: account.password
     }
   }) 
       .then(response => {
@@ -109,7 +111,7 @@ function Nav({ highlight }) {
                                 exit={{ x: "80rem"}}    
                                 transition={{ duration: 0.3}}
                             >
-                            {guest}
+                            {account ? logged : guest}
                         </motion.div>) }
                         </AnimatePresence>
                         </Link>
