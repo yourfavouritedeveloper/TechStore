@@ -6,6 +6,8 @@ html,body {
 
 }
 
+
+
 .container {
     background-color: rgba(0, 0, 0, 0);
     width: 100%;
@@ -96,14 +98,17 @@ html,body {
 
 
 #login{
+    position: relative;
     border-radius: 2rem;
     padding: 5px 30px;
     font-size: clamp(1rem, 1.2vw, 2.5rem);
     transition: all 0.3s ease;
+    z-index: 10;
+    cursor: pointer;
 
 }
 
-#login:hover{
+#login:hover{   
     position: relative;
     display: inline-flex;
     justify-content: center;
@@ -113,6 +118,229 @@ html,body {
     cursor: pointer;
 }
 
+#login:focus .loginSection {
+    margin-left: 0;
+}
+
+
+.loginSection {
+    margin-left: 25rem;
+    z-index: 1;
+    position: absolute;
+    top: -55%; 
+    left:-1rem;
+    width: 45vw;
+    height: 105vh;
+    background: linear-gradient(
+        135deg,
+        #0d1b2a,
+        #1b263b,
+        #415a77,
+        #0d1b2a
+    );
+    opacity: 1;
+    transform: translateY(0px); 
+    transition: all 0.3s ease ease-out;
+    cursor:auto;    
+    transition: all 0.3s ease;
+
+}
+
+.title {
+    position: absolute;
+    font-family: "PoppinsMedium";
+    font-weight: normal;
+    width: 20vw;
+    left:1vw;
+    line-height: 1;
+    font-size: clamp(0.9rem, 1.5vw, 2rem);
+    text-align: left;
+    top:17.7vw;
+    margin-top:-2rem;
+}
+
+.subtitle {
+    position: absolute;
+    top:20vw;
+    width: 40%;
+    font-size: clamp(0.3rem, 0.8vw, 2.5rem);
+    left:1vw;
+    line-height: 1.1;
+    text-align: left;
+}
+
+.signup {
+    position: absolute;
+    top:25vw;
+    left:1vw;
+    padding: 0.5rem clamp(0.1rem, 8vw, 9rem);
+    font-size: clamp(0.3rem, 1vw, 2.5rem);
+    background-color: rgb(54, 90, 250); 
+    color: white;
+    border-radius: 2rem;
+    transition: all 0.3s ease;
+}
+
+.signup:hover {
+    transform: scale(1.03);
+}
+
+.log {
+    position: absolute;
+    top:28vw;
+    left:1vw;
+    padding: 0.5rem clamp(0.1rem, 8.4vw, 9.5rem);
+    font-size: clamp(0.3rem, 1vw, 2.5rem);
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border-radius: 2rem;
+    transition: all 0.3s ease;
+}
+
+.log:hover {
+    transform: scale(1.03);    
+}
+
+#login:hover .loginSection {
+    opacity: 1;
+    transform: translateY(0); 
+    pointer-events: auto;
+}
+
+
+.logName {
+    position: absolute;
+    top:1vw;
+    background: linear-gradient(
+        135deg,
+        #0d1b2a,
+        #1b263b,
+        #415a77,
+        #0d1b2a
+    );
+    width:19.5vw ;
+    padding: 0.7rem ; 
+    font-family: "PoppinsRegular";
+    font-size: clamp(1.5em, 1.5vw, 2rem);    
+}
+
+.pp {
+    position: absolute;
+    width: 30%;
+    top:8vw;
+    left:3.6vw;
+}
+
+.fullname {
+    position: absolute;
+    top:19vw;
+    left:2.2vw;  
+    font-size: clamp(1.5em, 1.5vw, 2rem);
+    
+}
+
+.username {
+    position: absolute;
+    top:22vw;
+    font-size: clamp(0.8em, 1.1vw, 2rem);
+    left:4.9vw;    
+}
+
+
+.balance {
+    position: absolute;
+    top:24vw;
+    background-color: white;
+    color: black;
+    width: 10.8vw;
+    padding:0.7rem 2rem;
+    font-family: "PoppinsRegular";
+    border-radius: 2rem;
+    font-size: clamp(0.8em, 1.2vw, 2rem);
+    left:3.6vw;      
+}
+
+.purchaseHistory {
+    background: linear-gradient(
+        135deg,
+        #0d1b2a,
+        #415a77,
+        #415a77,
+        #0d1b2a
+    );
+    height: 10rem;
+    position: relative;
+    top:30vw;
+    width: 22rem;
+    left:1.4rem;
+    border-radius: 2rem;
+
+}
+
+.purchaseText {
+    position: absolute;
+    top:0.8vw;
+    font-size: clamp(0.3rem, 1vw, 2.5rem);
+    left:1.6vw; 
+    line-height: 1.1;
+    text-align: left;   
+
+}
+
+.purchaseButton{
+    position: absolute;
+    top:4.3vw;
+    left:1.5vw;
+    width: 5 .8vw;
+    padding:0.5rem 1rem;
+    font-size: clamp(0.3rem, 1vw, 2.5rem);
+    background-color: #3B82F6;
+    color: rgb(255, 255, 255);
+    border-radius: 2rem;
+    transition: all 0.3s ease;     
+}
+
+.purchaseButton:hover {
+    transform: scale(1.02);
+    background-color: #125fdb;
+}
+
+.edit {
+    position: absolute;
+    top:40vw;
+    left:1.9vw;
+    width: 5.8vw;
+    padding: 0.5rem clamp(0.1rem, 5.4vw, 9.5rem);
+    font-size: clamp(0.3rem, 1vw, 2.5rem);
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border-radius: 2rem;
+    transition: all 0.3s ease;    
+}
+
+
+.signout {
+    position: absolute;
+    top:43vw;
+    left:1.9vw;
+    width: 5.8vw;
+    padding: 0.5rem clamp(0.1rem, 5.4vw, 9.5rem);
+    font-size: clamp(0.3rem, 1vw, 2.5rem);
+    background-color:  #EF4444;;
+    color: rgb(255, 255, 255);
+    border-radius: 2rem;
+    transition: all 0.3s ease;      
+}
+
+.edit:hover {
+    transform: scale(1.03);
+    background-color: #E0F2FE;    
+}
+
+.signout:hover {
+    transform: scale(1.03);
+    background-color: #DC2626;
+}
 
 
 #name {
@@ -148,7 +376,25 @@ a {
   transition: color 0.3s ease;
 }
 
+.highlight a {
+  color: #000000; 
+  transition: color 0.3s ease;    
+}
+
+.highlight .loginSection {
+    color: white;
+}
+
+.highlight .signup {
+    color:white;
+}
+
+
 .highlight:hover {
+    color:white;
+}
+
+.highlight a:hover {
     color:white;
 }
 
