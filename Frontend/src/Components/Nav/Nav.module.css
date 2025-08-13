@@ -231,13 +231,14 @@ html,body {
     position: absolute;
     width: 30%;
     top:8vw;
-    left:3.6vw;
+    left:3.4vw;
 }
 
 .fullname {
     position: absolute;
     top:19vw;
-    left:2.2vw;  
+    left:0.6vw;
+    width: 23.1rem;  
     font-size: clamp(1.5em, 1.5vw, 2rem);
     
 }
@@ -245,8 +246,9 @@ html,body {
 .username {
     position: absolute;
     top:22vw;
+    width: 12.7rem;
     font-size: clamp(0.8em, 1.1vw, 2rem);
-    left:4.9vw;    
+    left:4.5vw;    
 }
 
 
@@ -260,7 +262,7 @@ html,body {
     font-family: "PoppinsRegular";
     border-radius: 2rem;
     font-size: clamp(0.8em, 1.2vw, 2rem);
-    left:3.6vw;      
+    left:3.2vw;      
 }
 
 .purchaseHistory {
