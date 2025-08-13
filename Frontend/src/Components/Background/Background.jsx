@@ -141,7 +141,7 @@ function Background({shopRef,scrollTo, onShopClick}) {
             }}
             initial="hidden"
             animate={controls}
-            transition={{ duration:1,delay:1.5}}
+            transition={{ duration:5,delay:1}}
             />
             </motion.div>
             <motion.div

@@ -7,7 +7,7 @@ import axios from 'axios';
 import { AuthContext } from "../AuthContext";
 
 
-function Nav({ highlight }) {
+function Nav({ highlight ,shiftUp, setShiftUp }) {
  const [is599, setIs599] = useState(window.innerWidth === 599);
  const [menuOpen, setMenuOpen] = useState(false);
  const { account, logout } = useContext(AuthContext);
@@ -50,12 +50,16 @@ const handleSignOut = () => {
   };
 
 
+
+
+
   const guest = (<>
     <p className={styles.logName}>Account</p>
     <p className={styles.title}>Oops! It looks like you’re currently browsing in Guest mode. </p>
     <p className={styles.subtitle}>To access your account features like order history, saved preferences, and personalized settings, please log in or create an account. We’d love to have you on board!"</p>
-    <Link className={styles.signup}  to="/login">Sign Up</Link>
-    <Link className={styles.log}  to="/login">Log In</Link>
+    <Link className={styles.signup}  to="/login" onClick={() => setShiftUp(true)}>
+      Sign Up</Link>
+    <Link className={styles.log}  to="/login" onClick={() => setShiftUp(false)}>Log In</Link>
 
   
   </>);

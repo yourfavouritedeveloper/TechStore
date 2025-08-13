@@ -6,7 +6,7 @@ import Item from "../Components/Items/Item";
 import Footer from "../Components/Footer/Footer";
 import axios from 'axios';
 
-function Home() {
+function Home({ shiftUp, setShiftUp }) {
   const shopRef = useRef(null);
   const itemRef = useRef(null);
   const [navHighlight, setNavHighlight] = useState(false);
@@ -88,7 +88,7 @@ function scrollToShop() {
 
   return (
     <> <title>TechStore</title>
-      <Nav highlight={navHighlight} />
+      <Nav highlight={navHighlight} shiftUp={shiftUp} setShiftUp={setShiftUp}/>
       <Background shopRef={shopRef} scrollTo={scrollToShop} />
       <Body shopRef={shopRef} itemRef={itemRef} scrollTo={scrollToItems} onCategorySelect={handleCategoryFilter} />
       <Item items={filteredItems} bodyItems={bodyItems} itemRef={itemRef}   onResetFilters={handleResetFilters}  />

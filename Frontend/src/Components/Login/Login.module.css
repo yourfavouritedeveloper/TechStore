@@ -8,9 +8,10 @@ background: radial-gradient(
   #000000 80%,  
   rgba(0, 0, 0, 0.5) 100%
 );
-    height: 89.2vh;
+    height: 178.4vh;
     overflow-y: hidden;
     overflow-x: hidden;
+
 }
 
 
@@ -44,6 +45,25 @@ filter: blur(20px);
     height: 40rem;
     width: 65rem;
     top:7rem;
+    border-radius: 6rem;
+    left:29rem;
+    background: linear-gradient(
+     13deg,
+     rgb(0, 0, 0), 
+     rgb(8, 8, 8), 
+     rgba(255, 255, 255, 0.103), 
+     rgb(8, 8, 8), 
+    rgb(0, 0, 0)
+   );
+  backdrop-filter: blur(0px);
+color: #f0f4f8;
+}
+
+.box2 {
+    position: absolute;
+    height: 40rem;
+    width: 65rem;
+    top:59.7rem;
     border-radius: 6rem;
     left:29rem;
     background: linear-gradient(
