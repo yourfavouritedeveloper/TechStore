@@ -4,10 +4,11 @@ import React, { useEffect, useRef, useState,useContext  } from "react";
 import { Link,useNavigate,useLocation  } from "react-router-dom";
 import { AuthContext } from "../AuthContext";
 import BrandLogo from "../../../public/brandlogowhite.png"
+import Mixed from "../../assets/mixed.png"
 
 function Login({ shiftUp, setShiftUp }) {
 
-  
+
 
 
 
@@ -52,9 +53,16 @@ useEffect(() => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordAgain, setPasswordAgain] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName,setLastName] = useState("");
+  const [email,setEmail] = useState("");
   const navigate = useNavigate();
   const [errorMsg, setErrorMsg] = useState("");
   const [isError, setIsError] = useState(false);
+
+
+
 
 const handleSubmit =async  (e) => {
   e.preventDefault();
@@ -94,8 +102,96 @@ const handleSubmit =async  (e) => {
 };
 
 
-const [showPassword, setShowPassword] = useState(false);
+const handleSignUp =async  (e) => {
+  e.preventDefault();
+  setErrorMsg("");
+  try {
 
+      if(password!=passwordAgain) {
+        setErrorMsg("Passwords do not match.");
+        setIsError(true);
+        setTimeout(() => {
+          setErrorMsg("");
+        }, 3000);
+        return;        
+      }
+
+
+      const signup = await fetch("https://techstore-3fvk.onrender.com/api/v1/accounts/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          customerName: firstName + " " + lastName,
+          username: username,
+          password: password,
+          email: email,
+          balance: 0 ,
+          role: "USER" 
+        }),
+      });
+      console.log("Signup response status:", signup.status);
+      console.log("Signup response text:", await signup.text());
+
+
+if (signup.status !== 201) {
+  let errorMessage = "Sign up failed. Check your credentials.";
+  try {
+    const contentType = signup.headers.get("content-type");
+    if (contentType && contentType.includes("application/json")) {
+      const errorData = await signup.json();
+      errorMessage = errorData.message || errorMessage;
+    }
+  } catch (err) {
+    console.log("Failed to parse error JSON:", err);
+  }
+  setErrorMsg(errorMessage); 
+  setIsError(true);
+  setTimeout(() => setErrorMsg(""), 3000);
+  return;
+}
+
+      const response = await fetch("https://techstore-3fvk.onrender.com/api/v1/accounts/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username: username,
+          password: password,
+        }),
+      });
+
+      const data = await response.json();
+      login(data);
+      localStorage.setItem("authToken", data.token);
+      setErrorMsg("Signed Up Successfully!");
+      setIsError(false);
+
+        setTimeout(() => {
+            navigate("/");
+        }, 1500);
+    } catch (error) {
+      setErrorMsg("Network error. Please try again later.");
+      setIsError(true);
+    }
+
+};
+
+
+const [showPassword, setShowPassword] = useState(false);
+const [showPassword1, setShowPassword1] = useState(false);
+
+
+
+const toggleShiftUp = (value) => {
+  setShiftUp(value);
+  setUsername("");
+  setPassword("");
+  setPasswordAgain("");
+  setFirstName("");
+  setLastName("");
+  setEmail("");
+  setErrorMsg("");
+  setIsError(false);
+};
     
     return(<>
       <form onSubmit={handleSubmit}>
@@ -152,8 +248,8 @@ const [showPassword, setShowPassword] = useState(false);
             }}
              >
                 <p className={styles.title}>Log In to Your Account</p>
-                <label htmlFor="username" className={styles.labelUsername}>Username</label>
-                <input id="username" 
+                <label htmlFor="loginusername" className={styles.labelUsername}>Username</label>
+                <input id="loginusername" 
                 type="text" 
                 className={styles.username}  
                 placeholder="Enter Your Username"
@@ -161,8 +257,8 @@ const [showPassword, setShowPassword] = useState(false);
                 onChange={(e) => setUsername(e.target.value)}  
                 />
 
-                <label htmlFor="password" className={styles.labelPassword}>Password</label>
-                <input id="password" 
+                <label htmlFor="loginpassword" className={styles.labelPassword}>Password</label>
+                <input id="loginpassword" 
                 type={showPassword ? "text" : "password"}
                 className={styles.password}  
                  placeholder="Enter Your Password"
@@ -194,7 +290,7 @@ const [showPassword, setShowPassword] = useState(false);
                     className={styles.submit}
                     type="submit">Log In</button>
                 <p className={styles.subtitle}>Don't have an account yet?</p>
-                <Link className={styles.signnow}  onClick={() => setShiftUp(true)}>Sign Up now!</Link> 
+                <Link className={styles.signnow}  onClick={() => toggleShiftUp(true)}>Sign Up now!</Link> 
                 <AnimatePresence>
                   {errorMsg && (
                   isError ? (
@@ -223,8 +319,11 @@ const [showPassword, setShowPassword] = useState(false);
             )}
             </AnimatePresence>
                 <div className={styles.logo}>
-                <img  src={BrandLogo} alt="" />
+                <div className={styles.layer}></div>
+                <img className={styles.background} src={Mixed} alt="" />
                 </div>
+                
+
             </motion.div>
   
 
@@ -237,9 +336,13 @@ const [showPassword, setShowPassword] = useState(false);
              className={styles.box2}
 
              >
-                <p className={styles.title}>Log In to Your Account</p>
-                <label htmlFor="username" className={styles.labelUsername}>Username</label>
-                <input id="username" 
+                <p className={styles.title}>Create Your Account</p>
+                <p className={styles.subsubtitle}>
+                  Join our community and unlock personalized features like saved preferences, order history, and exclusive offers. 
+                  It only takes a minute to get started!
+                </p>
+                <label htmlFor="signupusername" className={styles.labelUsername}>Enter Username</label>
+                <input id="signupusername" 
                 type="text" 
                 className={styles.username}  
                 placeholder="Enter Your Username"
@@ -247,8 +350,35 @@ const [showPassword, setShowPassword] = useState(false);
                 onChange={(e) => setUsername(e.target.value)}  
                 />
 
-                <label htmlFor="password" className={styles.labelPassword}>Password</label>
-                <input id="password" 
+                <label htmlFor="signupemail" className={styles.labelEmail}>Enter Email Address</label>
+                <input id="signupemail" 
+                  type="email"
+                className={styles.email}  
+                placeholder="Enter Your Email Address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}  
+                />
+
+                <label htmlFor="signupfirstName" className={styles.labelFirstName}>First Name</label>
+                <input id="signupfirstName" 
+                type="text" 
+                className={styles.firstName}  
+                placeholder="Enter Your First Name"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}  
+                />
+
+                <label htmlFor="signuplastName" className={styles.labelLastName}>Last Name</label>
+                <input id="signuplastName" 
+                type="text" 
+                className={styles.lastName}  
+                placeholder="Enter Your Last Name"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}  
+                />
+
+                <label htmlFor="signuppassword" className={styles.labelPassword}>Enter Password</label>
+                <input id="signuppassword" 
                 type={showPassword ? "text" : "password"}
                 className={styles.password}  
                  placeholder="Enter Your Password"
@@ -256,10 +386,21 @@ const [showPassword, setShowPassword] = useState(false);
                 onChange={(e) => setPassword(e.target.value)}
                  />
 
+                <label htmlFor="signuppasswordagain" className={styles.labelPasswordAgain}>Enter Password Again</label>
+                <input id="signuppasswordagain" 
+                type={showPassword1 ? "text" : "password"}
+                className={styles.passwordAgain}  
+                 placeholder="Enter Your Password Again"
+                value={passwordAgain}
+                onChange={(e) => setPasswordAgain(e.target.value)}
+                 />
+
+                 
+
                 <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className={styles.toggleBtn}
+                className={styles.toggleBtn1}
                 >
                 {showPassword ? (
 
@@ -275,16 +416,43 @@ const [showPassword, setShowPassword] = useState(false);
                 </button>
 
 
-                <Link className={styles.forgot} to="/forgot-password">Forgot Password?</Link>
+                <button
+                type="button"
+                onClick={() => setShowPassword1(!showPassword1)}
+                className={styles.toggleBtn2}
+                >
+                {showPassword1 ? (
+
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#333333ff">
+                    <path d="M480-320q75 0 127.5-52.5T660-500q0-75-52.5-127.5T480-680q-75 0-127.5 52.5T300-500q0 75 52.5 127.5T480-320Zm0-72q-45 0-76.5-31.5T372-500q0-45 31.5-76.5T480-608q45 0 76.5 31.5T588-500q0 45-31.5 76.5T480-392Zm0 192q-146 0-266-81.5T40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200Zm0-300Zm0 220q113 0 207.5-59.5T832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280Z"/>
+                    </svg>
+                ) : (
+
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#333333ff">
+                    <path d="m644-428-58-58q9-47-27-88t-93-32l-58-58q17-8 34.5-12t37.5-4q75 0 127.5 52.5T660-500q0 20-4 37.5T644-428Zm128 126-58-56q38-29 67.5-63.5T832-500q-50-101-143.5-160.5T480-720q-29 0-57 4t-55 12l-62-62q41-17 84-25.5t90-8.5q151 0 269 83.5T920-500q-23 59-60.5 109.5T772-302Zm20 246L624-222q-35 11-70.5 16.5T480-200q-151 0-269-83.5T40-500q21-53 53-98.5t73-81.5L56-792l56-56 736 736-56 56ZM222-624q-29 26-53 57t-41 67q50 101 143.5 160.5T480-280q20 0 39-2.5t39-5.5l-36-38q-11 3-21 4.5t-21 1.5q-75 0-127.5-52.5T300-500q0-11 1.5-21t4.5-21l-84-82Zm319 93Zm-151 75Z"/>
+                    </svg>
+                    )}
+                </button>
+
+
                 <button
                     className={styles.submit}
-                    type="submit">Log In</button>
-                <p className={styles.subtitle}>Don't have an account yet?</p>
-                <Link className={styles.signnow}  onClick={() => setShiftUp(true)}>Sign Up now!</Link> 
+                    type="button" onClick={handleSignUp}  >Sign Up</button>
+                <p className={styles.subtitle}>Already have an account?</p>
+                <Link className={styles.signnow}  onClick={() => toggleShiftUp(false)}>Log in now!</Link> 
                 <AnimatePresence>
                   {errorMsg && (
                   isError ? (
-                    <></>
+                  <motion.p
+        
+                    className={styles.errorMsg}
+                    initial={{ y: -100}}
+                    animate={{ y: 100, }}
+                    exit={{ y: -100}}
+                    transition={{ duration: 1 }}
+                    >
+                  {errorMsg}
+                  </motion.p>
                   ) : (
                   <motion.p
         
@@ -300,7 +468,8 @@ const [showPassword, setShowPassword] = useState(false);
             )}
             </AnimatePresence>
                 <div className={styles.logo}>
-                <img  src={BrandLogo} alt="" />
+                  <div className={styles.layer}></div>
+                <img src={Mixed} alt="" />
                 </div>
             </div>
             
