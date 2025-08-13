@@ -34,7 +34,6 @@ public class AccountDto {
     @Email(message = "Invalid email for creation",groups = {OnCreate.class,OnUpdate.class})
     private String email;
 
-    @NotNull(message = "Account balance cannot be null",groups = {OnCreate.class,OnUpdate.class})
     private BigDecimal balance;
 
     private String profilePictureUrl;
