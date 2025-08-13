@@ -5,6 +5,7 @@ import About from "./Pages/About";
 import Items from "./Pages/Items";
 import Login from "./Pages/Login";
 import { AuthProvider } from "./Components/AuthContext";
+import Register from "./Pages/Register";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/product" element={<Items />}/>
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </HashRouter>
     </AuthProvider>
