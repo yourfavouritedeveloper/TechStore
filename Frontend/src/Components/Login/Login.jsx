@@ -59,6 +59,7 @@ useEffect(() => {
   const [email,setEmail] = useState("");
   const navigate = useNavigate();
   const [errorMsg, setErrorMsg] = useState("");
+  const [errorMsgSign, setErrorMsgSign] = useState("");
   const [isError, setIsError] = useState(false);
 
 
@@ -104,20 +105,20 @@ const handleSubmit =async  (e) => {
 
 const handleSignUp =async  (e) => {
   e.preventDefault();
-  setErrorMsg("");
+  setErrorMsgSign("");
   try {
 
       if(password!=passwordAgain) {
-        setErrorMsg("Passwords do not match.");
+        setErrorMsgSign("Passwords do not match.");
         setIsError(true);
         setTimeout(() => {
-          setErrorMsg("");
+          setErrorMsgSign("");
         }, 3000);
         return;        
       }
 
 
-      const signup = await fetch("https://techstore-3fvk.onrender.com/api/v1/accounts/register", {
+    const signup = await fetch("https://techstore-3fvk.onrender.com/api/v1/accounts/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -129,26 +130,25 @@ const handleSignUp =async  (e) => {
           role: "USER" 
         }),
       });
-      console.log("Signup response status:", signup.status);
-      console.log("Signup response text:", await signup.text());
+    
 
 
-if (signup.status !== 201) {
-  let errorMessage = "Sign up failed. Check your credentials.";
-  try {
-    const contentType = signup.headers.get("content-type");
-    if (contentType && contentType.includes("application/json")) {
-      const errorData = await signup.json();
-      errorMessage = errorData.message || errorMessage;
-    }
-  } catch (err) {
-    console.log("Failed to parse error JSON:", err);
-  }
-  setErrorMsg(errorMessage); 
-  setIsError(true);
-  setTimeout(() => setErrorMsg(""), 3000);
-  return;
-}
+      if (signup.status !== 201) {
+        let errorMessage = "Sign up failed.";
+        try {
+          const contentType = signup.headers.get("content-type");
+          if (contentType && contentType.includes("application/json")) {
+            const errorData = await signup.json();
+            errorMessage = errorData.message || errorMessage;
+          }
+        } catch (err) {
+          console.log("Failed to parse error JSON:", err);
+        }
+        setErrorMsgSign(errorMessage); 
+        setIsError(true);
+        setTimeout(() => setErrorMsgSign(""), 3000);
+        return;
+      }
 
       const response = await fetch("https://techstore-3fvk.onrender.com/api/v1/accounts/login", {
         method: "POST",
@@ -162,14 +162,14 @@ if (signup.status !== 201) {
       const data = await response.json();
       login(data);
       localStorage.setItem("authToken", data.token);
-      setErrorMsg("Signed Up Successfully!");
+      setErrorMsgSign("Signed Up Successfully!");
       setIsError(false);
 
         setTimeout(() => {
             navigate("/");
         }, 1500);
     } catch (error) {
-      setErrorMsg("Network error. Please try again later.");
+      setErrorMsgSign("Network error. Please try again later.");
       setIsError(true);
     }
 
@@ -295,18 +295,18 @@ const toggleShiftUp = (value) => {
                   {errorMsg && (
                   isError ? (
                   <motion.p
-        
+                    key="error-login"  
                     className={styles.errorMsg}
-                    initial={{ y: -300}}
-                    animate={{ y: 0, }}
-                    exit={{ y: -300}}
+                    initial={{ y: -100}}
+                    animate={{ y: 100, }}
+                    exit={{ y: -100}}
                     transition={{ duration: 1 }}
                     >
                   {errorMsg}
                   </motion.p>
                   ) : (
                   <motion.p
-        
+                  key="success-login" 
                   className={styles.safeMsg}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -332,7 +332,7 @@ const toggleShiftUp = (value) => {
 
 
 
-            <div
+            <motion.div
              className={styles.box2}
 
              >
@@ -441,7 +441,7 @@ const toggleShiftUp = (value) => {
                 <p className={styles.subtitle}>Already have an account?</p>
                 <Link className={styles.signnow}  onClick={() => toggleShiftUp(false)}>Log in now!</Link> 
                 <AnimatePresence>
-                  {errorMsg && (
+                  {errorMsgSign && (
                   isError ? (
                   <motion.p
         
@@ -451,18 +451,18 @@ const toggleShiftUp = (value) => {
                     exit={{ y: -100}}
                     transition={{ duration: 1 }}
                     >
-                  {errorMsg}
+                  {errorMsgSign}
                   </motion.p>
                   ) : (
                   <motion.p
         
                   className={styles.safeMsg}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5 }}
+                    initial={{ y: -100}}
+                    animate={{ y: 100, }}
+                    exit={{ y: -100}}
+                    transition={{ duration: 1 }}
                 >
-                  {errorMsg}
+                  {errorMsgSign}
                 </motion.p>
               )
             )}
@@ -471,7 +471,7 @@ const toggleShiftUp = (value) => {
                   <div className={styles.layer}></div>
                 <img src={Mixed} alt="" />
                 </div>
-            </div>
+            </motion.div>
             
 
 
