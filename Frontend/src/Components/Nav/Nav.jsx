@@ -27,7 +27,7 @@ function Nav({ highlight }) {
       .catch(error => {
         console.error("Error fetching data:", error);
       });
-  }, []);
+  }, [account]);
 
 
   useEffect(() => {
@@ -122,6 +122,7 @@ const handleSignOut = () => {
                         </AnimatePresence>
                         </Link>
                     </>)
+
 
 
 

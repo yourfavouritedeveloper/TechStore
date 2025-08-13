@@ -48,7 +48,7 @@ function Background({shopRef,scrollTo, onShopClick}) {
             initial="hidden"
             viewport={{ margin: "10px" }}
             animate={textControls}
-            transition={{ duration: 2.5,delay: 1}} 
+            transition={{ duration: 1}} 
             >
                 Welcome
             </motion.div>
@@ -62,7 +62,7 @@ function Background({shopRef,scrollTo, onShopClick}) {
             viewport={{ margin: "10px" }}
             initial="hidden"
             animate={boxControls}
-            transition={{ duration: 5,delay:0.5 }}   
+            transition={{ duration: 1}}   
             >
 
 
@@ -76,7 +76,7 @@ function Background({shopRef,scrollTo, onShopClick}) {
                 viewport={{ margin: "10px" }}
                 initial="hidden"
                 animate={boxControls}
-                transition={{ duration: 3,delay:3 }}                 
+                transition={{ duration: 2 }}                 
                  >At TechStore, you’ll find a wide selection of the latest tech products, from smartphones and laptops to everyday accessories, all in one easy-to-use website. 
                  </motion.p>
 
@@ -91,7 +91,7 @@ function Background({shopRef,scrollTo, onShopClick}) {
                 viewport={{ margin: "10px" }}
                 initial="hidden"
                 animate={boxControls}
-                transition={{ duration: 3,delay:3 }} 
+                transition={{ duration: 1}} 
                 onClick={handleClick}  
                 >SHOP NOW
                 </motion.button>
@@ -111,7 +111,7 @@ function Background({shopRef,scrollTo, onShopClick}) {
             viewport={{ margin: "10px" }}
             initial="hidden"
             animate={boxControls}
-            transition={{ duration: 5,delay:0.5 }}   
+            transition={{ duration: 1}}   
             >
                 <p className={styles.title}>Trending Now</p>
                 <Campaign />
@@ -141,7 +141,7 @@ function Background({shopRef,scrollTo, onShopClick}) {
             }}
             initial="hidden"
             animate={controls}
-            transition={{ duration:5,delay:2}}
+            transition={{ duration:1,delay:1.5}}
             />
             </motion.div>
             <motion.div
@@ -153,7 +153,7 @@ function Background({shopRef,scrollTo, onShopClick}) {
             }}
             initial="hidden"
             animate={controls}
-            transition={{ duration:2,delay:3}}
+            transition={{ duration:1}}
             />
             
 

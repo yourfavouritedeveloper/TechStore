@@ -1,8 +1,9 @@
 import styles from "./Login.module.css";
-import { motion, useInView, useAnimation } from "framer-motion";
+import { motion, useInView, useAnimation,AnimatePresence  } from "framer-motion";
 import React, { useEffect, useRef, useState,useContext  } from "react";
 import { Link,useNavigate  } from "react-router-dom";
 import { AuthContext } from "../AuthContext";
+import BrandLogo from "../../../public/brandlogowhite.png"
 
 function Login() {
 
@@ -64,9 +65,11 @@ const handleSubmit =async  (e) => {
       });
 
       if (!response.ok) {
-        const errorText = await response.text();
-        setErrorMsg(errorText || "Login failed. Please check your credentials.");
+        setErrorMsg("Login failed. Check your credentials.");
         setIsError(true);
+        setTimeout(() => {
+          setErrorMsg("");
+        }, 3000);
         return;
       }
       const data = await response.json();
@@ -126,10 +129,10 @@ const [showPassword, setShowPassword] = useState(false);
             animate={boxControls}
             variants={{
             hidden: { 
-                x: -300
+                y: 300
             },
             visible: { 
-                x:0
+                y:0
             }
             }}
             initial="hidden"
@@ -182,33 +185,39 @@ const [showPassword, setShowPassword] = useState(false);
                     className={styles.submit}
                     type="submit">Log In</button>
                 <p className={styles.subtitle}>Don't have an account yet?</p>
-                <Link className={styles.signnow} to="/signup">Sign Up now!</Link>                 {errorMsg && <p className={isError ? styles.errorMsg : styles.safeMsg}>{errorMsg}</p> }
-
+                <Link className={styles.signnow} to="/register">Sign Up now!</Link> 
+<AnimatePresence>
+  {errorMsg && (
+    isError ? (
+      <motion.p
+        
+        className={styles.errorMsg}
+        initial={{ y: -300}}
+        animate={{ y: 0, }}
+        exit={{ y: -300}}
+        transition={{ duration: 1 }}
+      >
+        {errorMsg}
+      </motion.p>
+    ) : (
+      <motion.p
+        
+        className={styles.safeMsg}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        {errorMsg}
+      </motion.p>
+    )
+  )}
+</AnimatePresence>
+                <div className={styles.logo}>
+                <img  src={BrandLogo} alt="" />
+                </div>
             </motion.div>
-            <motion.div
-             className={styles.techStore}
-            ref={techStoreRef}
-            animate={techStoreControls}
-            variants={{
-            hidden: { 
-                x: 300,        
 
-            },
-            visible: { 
-                x: 0,
-
-            }
-            }}
-            initial="hidden"
-
-            viewport={{ margin: "10px" }}
-            transition={{
-                duration: 1
-            }}
-             >
-
-
-            </motion.div>
         </div>
 
         </form>
