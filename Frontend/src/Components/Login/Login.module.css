@@ -41,31 +41,13 @@ filter: blur(20px);
 }
 
 .box {
+    overflow: hidden;
     position: absolute;
     height: 40rem;
-    width: 65rem;
+    width: 75rem;
     top:7rem;
     border-radius: 6rem;
-    left:29rem;
-    background: linear-gradient(
-     13deg,
-     rgb(0, 0, 0), 
-     rgb(8, 8, 8), 
-     rgba(255, 255, 255, 0.103), 
-     rgb(8, 8, 8), 
-    rgb(0, 0, 0)
-   );
-  backdrop-filter: blur(0px);
-color: #f0f4f8;
-}
-
-.box2 {
-    position: absolute;
-    height: 40rem;
-    width: 65rem;
-    top:59.7rem;
-    border-radius: 6rem;
-    left:29rem;
+    left:24rem;
     background: linear-gradient(
      13deg,
      rgb(0, 0, 0), 
@@ -79,18 +61,21 @@ color: #f0f4f8;
 }
 
 
-.title {
+
+
+.box .title {
 
     position: relative;
     border-radius: 1.7rem;
     padding: 0.4rem;
-    left:4rem;
-    top:-2rem;
-    width: 30rem;
-    white-space: nowrap;
-    font-size: clamp(1rem, 3.5vw, 8rem);
+    left:4.5rem;
+    top:0rem;
+    width: 34rem;
+    text-align: left;
+    line-height: 0.9;
+    font-size: clamp(1rem, 3.3vw, 8rem);
     letter-spacing: -0.05rem;
-    font-family: "PoppinsExtraLight";
+    font-family: "PoppinsMedium";  
 }
 
 
@@ -116,27 +101,27 @@ background: linear-gradient(
 color: #f0f4f8;    
 }
 
-.labelUsername {
+.box .labelUsername {
     font-family: "PoppinsRegular";
     position:absolute;
     left:5rem;
-    top:11.5rem;
+    top:12.5rem;
     font-size: clamp(0.2rem, 1vw, 2.5rem);    
 }
 
-.labelPassword {
+.box .labelPassword {
     font-family: "PoppinsRegular";
     position:absolute;
     left:5rem;
-    top:17.5rem;
+    top:18.5rem;
     font-size: clamp(0.2rem, 1vw, 2.5rem);      
 }
 
-.username {
+.box .username {
     position:absolute;
     left:4.5rem;
     width: 29.5rem;
-    top:12rem;
+    top:13rem;
     padding: 0.5rem 0rem;
     border-radius: 1.1rem;
     font-size: clamp(0.2rem, 1vw, 2.5rem);
@@ -144,9 +129,9 @@ color: #f0f4f8;
     color:black;
 }
 
-.password {
+.box .password {
     position:absolute;
-    top:18rem;
+    top:19rem;
     left:4.5rem;
     width: 29.5rem;
     padding: 0.5rem 0rem;
@@ -156,9 +141,9 @@ color: #f0f4f8;
     color:black;    
 }
 
-.submit {
+.box .submit {
     position: absolute;
-    bottom:10rem;
+    bottom:9rem;
     left:4.5rem;
     width: 30.3rem;
 background: radial-gradient(
@@ -178,14 +163,14 @@ background: radial-gradient(
 
 }
 
-.submit:hover {
+.box .submit:hover {
     transform: scale(1.01);
     background-color: #274b7a  ;
 }
 
 .forgot {
     position: absolute;
-    top:22.5rem;
+    top:23.5rem;
     left:5rem;
     color: #ffffff;
     text-decoration: underline;
@@ -196,7 +181,7 @@ background: radial-gradient(
     position: absolute;
     border:none;
     background-color: rgba(245, 222, 179, 0);
-    top:20rem;
+    top:21rem;
     left:32rem;
     z-index: 10;
     cursor: pointer;
@@ -204,13 +189,13 @@ background: radial-gradient(
 
 .subtitle {
     position: absolute;
-    bottom:5rem;
+    bottom:4rem;
     left:8.8rem;    
 }
 
 .signnow {
     position: absolute;
-    bottom:6rem;
+    bottom:5rem;
     font-family: "PoppinsSemiBold";
     left:22.7rem;
 }
@@ -259,29 +244,312 @@ background: radial-gradient(
 
 }
 
-.logo {
+.box .logo {
     display: inline-block;
-    width: 40%;  
+    width: 100%; 
+    height: 90%;
     position: relative; 
     overflow: hidden; 
-    left:17rem;
-    bottom: 6rem;
-    border-radius: 50%;
+    left:22rem;
+    bottom: 8rem;
+    object-fit: contain;
+    transform: rotate(90deg);
 
-}     
-.logo img {
+
+}  
+
+.layer {
+    width: 140%; 
+    height: 100%;
+    position: absolute; 
+    background-color: #0000003b;
+    overflow: hidden; 
+    left:1rem;
+    top:0rem;
+    object-fit: contain;
+}
+
+.box .logo .background {
     display: block;
+    z-index: -1;
     width: 100%;
-    height: auto;
-
-    animation: rotateInfinite 19s linear infinite; 
+    height: 120%; 
+    object-fit: contain;
 }
 
-@keyframes rotateInfinite {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+
+
+
+.box2 {
+    overflow: hidden;
+    position: absolute;
+    height: 40rem;
+    width: 75rem;
+    top:59.7rem;
+    border-radius: 6rem;
+    left:24rem;
+    background: linear-gradient(
+     13deg,
+     rgb(0, 0, 0), 
+     rgb(8, 8, 8), 
+     rgba(255, 255, 255, 0.103), 
+     rgb(8, 8, 8), 
+    rgb(0, 0, 0)
+   );
+  backdrop-filter: blur(0px);
+color: #f0f4f8;
 }
+
+.box2 .title {
+    position: relative;
+    border-radius: 1.7rem;
+    padding: 0.4rem;
+    left:42.5rem;
+    top:3rem;
+    width: 30rem;
+    width: 50%;
+    text-align: left;
+    line-height: 0.8;
+    font-size: clamp(1rem, 4.2vw, 8rem);
+    letter-spacing: -0.05rem;
+    font-family: "PoppinsMedium";  
+    z-index: 10;  
+}
+
+
+.box2 .username {
+    position:absolute;
+    left:4.5rem;
+    width: 14rem;
+    top:13rem;
+    padding: 0.8rem 0rem;
+    border-radius: 1.1rem;
+    font-size: clamp(0.2rem, 0.6vw, 2.5rem);
+    padding-left: 1rem;
+    color:black;
+    
+}
+
+
+.box2 .email {
+    position:absolute;
+    left:22rem;
+    width: 14rem;
+    top:13rem;
+    padding: 0.8rem 0rem;
+    border-radius: 1.1rem;
+    font-size: clamp(0.2rem, 0.6vw, 2.5rem);
+    padding-left: 1rem;
+    color:black;
+    
+}
+
+
+
+.box2 .password {
+    position:absolute;
+    top:19rem;
+    left:4.5rem;
+    width: 31.5rem;
+    padding: 0.8rem 0rem;
+    border-radius: 1.1rem;
+    font-size: clamp(0.2rem, 0.6vw, 2.5rem);
+    padding-left: 1rem;
+    color:black;      
+}
+
+
+.box2 .passwordAgain {
+    position:absolute;
+    top:25rem;
+    left:4.5rem;
+    width: 31.5rem;
+    padding: 0.8rem 0rem;
+    border-radius: 1.1rem;
+    font-size: clamp(0.2rem, 0.6vw, 2.5rem);
+    padding-left: 1rem;
+    color:black;      
+}
+
+.box2 .firstName {
+    position:absolute;
+    left:4.5rem;
+    width: 14rem;
+    top:7rem;
+    padding: 0.8rem 0rem;
+    border-radius: 1.1rem;
+    font-size: clamp(0.2rem, 0.6vw, 2.5rem);
+    padding-left: 1rem;
+    color:black;
+}
+
+.box2 .lastName {
+    position:absolute;
+    left:22rem;
+    width: 14rem;
+    top:7rem;
+    padding: 0.8rem 0rem;
+    border-radius: 1.1rem;
+    font-size: clamp(0.2rem, 0.6vw, 2.5rem);
+    padding-left: 1rem;
+    color:black;
+}
+
+.box2 .labelFirstName {
+    font-family: "PoppinsRegular";
+    position:absolute;
+    left:5rem;
+    top:6.5rem;
+    font-size: clamp(0.2rem, 1vw, 2.5rem);    
+}
+
+.box2 .labelLastName {
+    font-family: "PoppinsRegular";
+    position:absolute;
+    left:22.5rem;
+    top:6.5rem;
+    font-size: clamp(0.2rem, 1vw, 2.5rem);      
+}
+
+
+
+.box2 .labelUsername {
+    font-family: "PoppinsRegular";
+    position:absolute;
+    left:5rem;
+    top:12.5rem;
+    font-size: clamp(0.2rem, 1vw, 2.5rem);    
+}
+
+.box2 .labelEmail{
+    font-family: "PoppinsRegular";
+    position:absolute;
+    left:22.5rem;
+    top:12.5rem;
+    font-size: clamp(0.2rem, 1vw, 2.5rem);    
+}
+
+.box2 .labelPassword {
+    font-family: "PoppinsRegular";
+    position:absolute;
+    left:5rem;
+    top:18.5rem;
+    font-size: clamp(0.2rem, 1vw, 2.5rem);      
+}
+
+
+.box2 .labelPasswordAgain{
+    font-family: "PoppinsRegular";
+    position:absolute;
+    left:5rem;
+    top:24.5rem;
+    font-size: clamp(0.2rem, 1vw, 2.5rem);     
+}
+
+.toggleBtn1 {
+    position: absolute;
+    border:none;
+    background-color: rgba(245, 222, 179, 0);
+    top:20.9rem;
+    left:34rem;
+    z-index: 10;
+    cursor: pointer;
+}
+
+
+
+.toggleBtn2 {
+    position: absolute;
+    border:none;
+    background-color: rgba(245, 222, 179, 0);
+    top:26.9rem;
+    left:34rem;
+    z-index: 10;
+    cursor: pointer;
+}
+
+
+.box2 .subtitle {
+    position: absolute;
+    bottom:4rem;
+    left:10rem;    
+}
+
+.box2 .subsubtitle {
+    position: absolute;
+    top:16rem;
+    left:43rem; 
+    width: 40%; 
+    text-align: left;
+    font-family: "PoppinsRegular";
+    line-height: 0.9;
+    font-size: clamp(0.2rem, 1.3vw, 2.5rem);  
+    z-index: 10;    
+}
+
+.box2 .signnow {
+    position: absolute;
+    bottom:5rem;
+    font-family: "PoppinsSemiBold";
+    left:23.5rem;
+}
+
+
+.box2 .logo {
+    display: inline-block;
+    width: 100%; 
+    height: 90%;
+    position: relative; 
+    overflow: hidden; 
+    left:22rem;
+    bottom: 8rem;
+    object-fit: contain;
+    transform: rotate(90deg);
+
+
+}  
+
+.layer {
+    width: 140%; 
+    height: 100%;
+    position: absolute; 
+    background-color: #0000003b;
+    overflow: hidden; 
+    left:1rem;
+    top:0rem;
+    object-fit: contain;
+}
+
+.box2 .logo img {
+    display: block;
+    z-index: -1;
+    width: 100%;
+    height: 120%; 
+    object-fit: contain;
+}
+
+
+.box2 .submit {
+    position: absolute;
+    bottom:10rem;
+    right:7rem;
+    width: 20.3rem;
+    z-index: 10;
+    background-color: white;
+    color:black;
+    font-size: clamp(0.2rem, 1.5vw, 2.5rem);  
+    padding: 0.5rem 1rem;
+    border:none;
+    font-family: "PoppinsLight";
+    border-radius: 1.1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+}
+
+.box2 .submit:hover {
+    transform:scale(1.03);
+    background-color: #2962FF;
+    color:white;
+}
+
