@@ -1,14 +1,37 @@
 import styles from "./Item.module.css"
 import axios from 'axios';
-import { useState, useEffect } from "react";
+import React, { useEffect, useRef, useState,useContext  } from "react";
+import { motion, useInView, useAnimation,AnimatePresence  } from "framer-motion";
 import { applyFilters } from '../Utils/filterUtil';
 import { Link,useNavigate,useLocation  } from "react-router-dom";
 import Filter from "../Filter/Filter";
 function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
+
+
   const [itemsPopular, setItemsPopular] = useState([]);
   const [itemsSeller, setItemsSeller] = useState([]);
 
+  const circleRef1 = useRef(null);
+  const circleRef2 = useRef(null);
+  const boxRef = useRef(null);
 
+  const circleInView1 = useInView(circleRef1, { once: true });
+  const circleInView2 = useInView(circleRef2, { once: true });
+  const boxInView = useInView(boxRef, { once: true });
+
+  const controls1 = useAnimation();
+  const controls2 = useAnimation();
+  const boxControls = useAnimation();
+
+  useEffect(() => {
+   if (circleInView1) controls1.start("visible");
+  }, [circleInView1]);
+  useEffect(() => {
+    if (circleInView2) controls2.start("visible");
+  }, [circleInView2]);
+  useEffect(() => {
+    if (boxInView) boxControls.start("visible");
+  }, [boxInView]);
 
     useEffect(() => {
     axios.get("https://techstore-3fvk.onrender.com/api/v1/products/popular") 
@@ -78,6 +101,77 @@ function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
                       </ul>
                     </div>
                    
+                </div>
+                <div className={styles.type}>
+                <motion.div 
+                  className={styles.circle1}
+                   ref={circleRef1}
+                    animate={controls1}
+                   variants={{
+                    hidden: {x: "-800px"},
+                    visible: {x: "0px"}
+                    }}
+                    initial="hidden"
+                    viewport={{ margin: "10px" }}
+                    transition={{ duration: 1.25}}
+                    >
+                      
+                    </motion.div>
+
+                    <motion.div 
+                    className={styles.circle2}
+                    ref={circleRef2}
+                    animate={controls2}
+                    variants={{
+                    hidden: {x: "800px"},
+                    visible: {x: "0px"}
+                    }}
+                    initial="hidden"
+                    viewport={{ margin: "10px" }}
+                    transition={{ duration: 1.25}}
+                    >
+                    </motion.div>
+                  <p className={styles.choose}>Choose Your Way to Buy</p>
+                  <motion.div className={styles.storePicks}
+                    ref={boxRef}
+                    animate={boxControls}
+                    variants={{
+                    hidden: { 
+                      y: 300
+                    },
+                    visible: { 
+                      y:0
+                    }
+                    }}
+                    initial="hidden"
+
+                     viewport={{ margin: "10px" }}
+                    transition={{
+                    duration: 1
+                    }}                     
+                  >
+                    <p className={styles.titleStore}>Best Store Picks</p>
+                  </motion.div>
+                  <motion.div className={styles.communityMarket}
+                    ref={boxRef}
+                    animate={boxControls}
+                    variants={{
+                    hidden: { 
+                      y: 300
+                    },
+                    visible: { 
+                      y:0
+                    }
+                    }}
+                    initial="hidden"
+
+                     viewport={{ margin: "10px" }}
+                    transition={{
+                    duration: 1
+                    }}                  
+                    >
+                      <p className={styles.titleCommunity}>Community Market</p>
+                  </motion.div>
                 </div>
               <div className={styles.brandnewdiv}>
                       <h2>Looking for something specific?</h2>

@@ -19,17 +19,20 @@ const boxRef = useRef(null);
 const techStoreRef = useRef(null);
 const submitRef = useRef(null);
 
+
 const circleInView1 = useInView(circleRef1, { once: true });
 const circleInView2 = useInView(circleRef2, { once: true });
 const boxInView = useInView(boxRef, { once: true });
 const techStoreInView = useInView(techStoreRef, { once: true });
 const submitInView = useInView(submitRef, { once: true });
 
+
 const controls1 = useAnimation();
 const controls2 = useAnimation();
 const boxControls = useAnimation();
 const techStoreControls = useAnimation();
 const submitControls = useAnimation();
+
 
 useEffect(() => {
   if (circleInView1) controls1.start("visible");
