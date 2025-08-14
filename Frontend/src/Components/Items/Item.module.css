@@ -40,41 +40,36 @@
 
 
 .storePicks {
-    background: linear-gradient(
-     13deg,
-     rgba(0, 0, 0, 0.445), 
-     rgba(19, 19, 19, 0.445), 
-     rgba(255, 255, 255, 0.062), 
-     rgba(19, 19, 19, 0.445), 
-    rgba(0, 0, 0, 0.445)
-   );
+    background-color: rgb(255, 255, 255);
     position: relative;
-    width: 35%;
-    left:14%;
-    top:-3rem;
-    height: 35rem;   
-    border-radius: 3rem; 
+    width: 40%;
+    left:10%;
+    top:-0.9rem;
+    height: 43rem;   
     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.096);
     backdrop-filter: blur(12px);
+      z-index: 2;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.storePicks:hover {
+    background-color: rgb(0, 0, 0);
+
+
 }
 
 .communityMarket {
-    background: linear-gradient(
-     13deg,
-     rgba(0, 0, 0, 0.445), 
-     rgba(19, 19, 19, 0.445), 
-     rgba(255, 255, 255, 0.062), 
-     rgba(19, 19, 19, 0.445), 
-    rgba(0, 0, 0, 0.445)
-   );
+
     width: 35%;
     position: relative;
-    left:53%;
-    top:-41.7rem;
-    height: 35rem;   
+    left:52%;
+    top:-29.5rem;
+    height: 30rem;   
     border-radius: 3rem;
     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.096);
-    backdrop-filter: blur(12px);      
+    backdrop-filter: blur(12px); 
+    z-index: 2;     
 }
 
 
@@ -83,10 +78,21 @@
     width: 100%;
     position: relative;
     top:20rem;
-    height: 65rem;   
+    height: 83rem;   
     overflow: hidden;     
 }
 
+
+.typebox {
+    background-color: rgb(255, 255, 255);
+    width:80%;
+    position: absolute;
+    top:25rem;
+    height: 43rem; 
+    left:10%;
+    z-index: 1;  
+    overflow: hidden;      
+}
 
 .circle1, .circle2 {
     position: absolute;
@@ -485,31 +491,73 @@ background: linear-gradient(135deg,
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.281);
 }
 
+.line {
+  position: absolute;
+  top: 56.05%;           
+  left:49.9%;            
+  width: 0.2%;       
+  height: 51.8%;        
+  background-color: #ff4d4d; 
+  transform: translateY(-50%);
+  z-index: 20;
+}
 .choose {
       font-size: clamp(1rem, 6vw,10rem); 
       text-align: center; 
       line-height: 0.8;
       position: relative;
       top:0rem;   
-      left:32rem;
+      left:30rem;
       width: 50%;
       color: white;
       font-family: "PoppinsSemiBold";    
 }
 
 .titleStore {
-      font-size: clamp(1rem, 3vw,10rem); 
+      font-size: clamp(1rem, 5vw,10rem); 
       text-align: center; 
       line-height: 0.8;
       position: relative;
       top:2rem;  
       text-align: left;  
-      left:2rem;
-      width: 50%;
-      color: white;
-      font-family: "PoppinsLight";     
+      left:5rem;
+      padding: 1rem;
+      z-index: 2;
+      width: 73%;
+      background-color: black;
+      color: rgb(255, 255, 255);
+      font-family: "PoppinsMedium";
+      transition: all 0.3s ease;     
 }
 
+.titleStoreSUB {
+      font-size: clamp(1rem, 1.4vw,10rem); 
+      text-align: center; 
+      line-height: 1;
+      position: relative;
+      top:-2rem;  
+      text-align: left;  
+      left:5rem;
+      z-index: 2;
+      width: 80%;
+      color: rgb(0, 0, 0);
+      font-family: "PoppinsLight";  
+      transition: all 0.3s ease;   
+}
+
+
+.storePicks:hover .titleStore{
+    background-color: rgb(255, 255, 255);
+    color:black;
+
+
+}
+
+.storePicks:hover .titleStoreSUB{
+    color: rgb(255, 255, 255);
+
+
+}
 
 .titleCommunity {
       font-size: clamp(1rem, 3vw,10rem); 
@@ -520,7 +568,8 @@ background: linear-gradient(135deg,
       text-align: left; 
       left:2rem;
       width: 50%;
-      color: white;
+      z-index: 2;
+      color: rgb(0, 0, 0);
       font-family: "PoppinsLight";    
 }
 

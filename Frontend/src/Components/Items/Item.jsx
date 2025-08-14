@@ -103,6 +103,8 @@ function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
                    
                 </div>
                 <div className={styles.type}>
+                  <div className={styles.typebox}></div>
+                  <div className={styles.line}></div>
                 <motion.div 
                   className={styles.circle1}
                    ref={circleRef1}
@@ -151,6 +153,10 @@ function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
                     }}                     
                   >
                     <p className={styles.titleStore}>Best Store Picks</p>
+                          <p className={styles.titleStoreSUB}>• Curated Quality – Handpicked items vetted for performance, durability, and value.</p>
+                          <p className={styles.titleStoreSUB}>• Saves Time – Skip the research and go straight to the best options.</p>
+                          <p className={styles.titleStoreSUB}>• Trusted by Users – Backed by ratings, reviews, and real purchase data.</p>
+                        
                   </motion.div>
                   <motion.div className={styles.communityMarket}
                     ref={boxRef}
@@ -171,14 +177,17 @@ function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
                     }}                  
                     >
                       <p className={styles.titleCommunity}>Community Market</p>
+                      <p className={styles.subtitleCommunity}>A marketplace where community members can sell, trade, or list their own items.</p>
+
                   </motion.div>
+                  </div>
                 </div>
               <div className={styles.brandnewdiv}>
                       <h2>Looking for something specific?</h2>
                       <p>Our smart search helps you find exactly what you need in seconds.</p>
                       <input type="text" placeholder="Try 'wireless headphones', 'gaming laptop'..." />
                       <button>Start Searching</button>
-              </div>
+
             </div>
         </>
 
