@@ -8,7 +8,7 @@
     width: 80%;
     margin-left: 10%;
     height: 10vh;
-    top:0%;
+    top:45rem;
     border-radius: 2rem;
     z-index: 8;
 }
@@ -216,7 +216,7 @@ input:focus {
     padding: 0.5rem 1.5em;
     padding-right: 1rem;
     left:58.5rem;
-    top:1.5rem;
+    top:46.5rem;
     border: none;
     color:white;
     background-color:#7636be60 ;
@@ -235,8 +235,8 @@ input:focus {
 
 .more svg {
     position: absolute;
-    margin-top: 1.88rem;
-    margin-left:-0.8rem;
+    margin-top: 46.78rem;
+    margin-left:-0.7rem;
     z-index: 8;
     transition: all 0.3s ease;
 
@@ -248,7 +248,7 @@ input:focus {
     width:77%;
     left:0rem;
     margin-left: 11.5%;
-    margin-top: -30.2rem;
+    margin-top: 7rem;
     border-radius: 0rem;
     position:absolute;
     height: 20rem;
@@ -260,7 +260,7 @@ input:focus {
 }
 
 .more:hover .moreOption {
-    margin-top: -10rem; 
+    margin-top: 10rem; 
     border-radius: 6rem;
     opacity: 1;
 }
@@ -316,7 +316,7 @@ input:focus {
     border-radius: 3rem;
     padding: 0vh 3rem;
     width: 65%;
-    margin-top:-0rem;
+    margin-top:20rem;
     margin-left:14.5%;
     opacity:1;
 

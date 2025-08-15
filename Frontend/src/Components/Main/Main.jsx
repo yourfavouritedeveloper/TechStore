@@ -147,7 +147,7 @@ const circleRef1 = useRef(null);
                         <h2>Looking for something specific?</h2>
                         <p>Our smart search helps you find exactly what you need in seconds.</p>
                         <input type="text" placeholder="Try 'wireless headphones', 'gaming laptop'..." />
-                        <Link className={styles.search}>Start Searching</Link>
+                        <Link className={styles.search} to="/product">Start Searching</Link>
                         <img src={BrandLogo} alt="" />
 
                     </div>

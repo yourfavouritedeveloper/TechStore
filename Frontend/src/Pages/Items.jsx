@@ -2,8 +2,14 @@ import axios from 'axios';
 import { useState, useEffect, useRef } from "react";
 import { applyFilters } from '../Components/Utils/filterUtil';
 import Filter from '../Components/Filter/Filter';
+import Nav from "../Components/Nav/Nav"
+import Product from "../Components/Product/Product"
 
-function Items() {
+function Items({ shiftUp, setShiftUp }) {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const shopRef = useRef(null);
   const itemRef = useRef(null);
@@ -77,10 +83,12 @@ function Items() {
 
 
     return (<>
-        <div style={{height:"100vh",backgroundColor:"white"}}> 
+            <title>TechStore | Products </title>
+            <Nav highlight={navHighlight} shiftUp={shiftUp} setShiftUp={setShiftUp}/>
+            <Product />
             <Filter items={filteredItems} bodyItems={bodyItems} itemRef={itemRef}   onResetFilters={handleResetFilters} />
     
-        </div>
+
     
     </>);
 }

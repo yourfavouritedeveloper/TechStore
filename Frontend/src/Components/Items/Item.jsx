@@ -49,7 +49,7 @@ function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
                   <div className={styles.popularExplanation}>
                     <p className={styles.subtitle}>Most Popular Products</p>
                     <p className={styles.subsubtitle}>Discover our top-selling items that customers love the most! From trending gadgets to must-have accessories, explore the products that everyone is talking about. Stay ahead of the trend and find your favorites today.</p>
-                    <Link className={styles.popularButton}>Shop Now</Link>
+                    <Link className={styles.popularButton} to="/product">Shop Now</Link>
                   </div>
                   <div className={styles.populardiv}>
                     <ul className={styles.itemsPopular}>

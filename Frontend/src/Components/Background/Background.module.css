@@ -173,8 +173,10 @@ body {
     justify-content: center;    
 }
 
-.boxCampaign button {
+.boxCampaign .button {
     position: absolute;
+    background-color: white;
+    color: black;
     margin-top:39.5rem;
     font-family: "PoppinsLight";
     font-size: clamp(1.6rem, 5vw, 0.625rem);
@@ -186,13 +188,13 @@ body {
 }
 
 
-.boxCampaign button:hover {
+.boxCampaign .button:hover {
     transform:scale(1.05);
     background-color: rgb(255, 140, 0);
     color:white;
 }
 
-.boxCampaign button:active {
+.boxCampaign .button:active {
     transform:scale(1.05);
     background-color: rgb(255, 178, 85);
     color:white;
@@ -272,7 +274,7 @@ body {
     justify-content: center;    
 }
 
-.boxCampaign button {
+.boxCampaign .button {
     margin-top:26.5rem;
     color:black;
     font-size: clamp(1.1rem, 5vw, 0.625rem);
@@ -359,7 +361,7 @@ body {
     justify-content: center;    
 }
 
-.boxCampaign button {
+.boxCampaign .button {
     margin-top:18.5rem;
     color:black;
     font-size: clamp(1.1rem, 5vw, 0.625rem);
@@ -446,7 +448,7 @@ body {
     justify-content: center;    
 }
 
-.boxCampaign button {
+.boxCampaign .button {
     margin-top:18.2rem;
     color:black;
     font-size: clamp(1.1rem, 5vw, 0.625rem);
@@ -531,7 +533,7 @@ body {
     justify-content: center;    
 }
 
-.boxCampaign button {
+.boxCampaign .button {
     margin-top:16.4rem;
     color:black;
     font-size: clamp(0.75rem, 5vw, 0.625rem);
@@ -615,7 +617,7 @@ body {
     justify-content: center;    
 }
 
-.boxCampaign button {
+.boxCampaign .button {
     margin-top:23.4rem;
     color:black;
     font-size: clamp(1.1rem, 5vw, 0.625rem);
@@ -700,7 +702,7 @@ body {
     justify-content: center;    
 }
 
-.boxCampaign button {
+.boxCampaign .button {
     margin-top:14.5rem;
     color:black;
     font-size: clamp(0.9rem, 5vw, 0.625rem);
@@ -789,7 +791,7 @@ body {
     justify-content: center;    
 }
 
-.boxCampaign button {
+.boxCampaign .button {
     margin-top:13.6rem;
     color:black;
     font-size: clamp(0.7rem, 5vw, 0.625rem);
@@ -870,7 +872,7 @@ body {
     justify-content: center;    
 }
 
-.boxCampaign button {
+.boxCampaign .button {
     margin-top:11.3rem;
     font-size: clamp(0.7rem, 5vw, 0.625rem);
     padding:0.3rem 1rem;

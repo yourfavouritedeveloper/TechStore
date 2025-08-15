@@ -58,7 +58,7 @@ const displayItems = filteredItems.length ? filteredItems : [];
 
 
     return (
-        <>
+        <> 
                 <div className={styles.bar}>
                     <button className={styles.filter}
                     onClick={handleFilterClick}>
