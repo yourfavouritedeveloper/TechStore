@@ -1,3 +1,10 @@
+.container {
+    height: 85rem;
+    width: 100%;
+    overflow: hidden;
+}
+
+
 .bar {
     
     position: absolute;
@@ -8,9 +15,22 @@
     width: 80%;
     margin-left: 10%;
     height: 10vh;
-    top:45rem;
+    top:55rem;
     border-radius: 2rem;
     z-index: 8;
+}
+
+.cover {
+    
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    z-index: 6;
+    background-color: #ffffff;
+    width: 100%;
+    height: 20rem;
+    top:35rem;
+
 }
 
 .filter {
@@ -216,7 +236,7 @@ input:focus {
     padding: 0.5rem 1.5em;
     padding-right: 1rem;
     left:58.5rem;
-    top:46.5rem;
+    top:56.5rem;
     border: none;
     color:white;
     background-color:#7636be60 ;
@@ -235,7 +255,7 @@ input:focus {
 
 .more svg {
     position: absolute;
-    margin-top: 46.78rem;
+    top: 57rem;
     margin-left:-0.7rem;
     z-index: 8;
     transition: all 0.3s ease;
@@ -247,20 +267,20 @@ input:focus {
 .moreOption {
     width:77%;
     left:0rem;
-    margin-left: 11.5%;
-    margin-top: 7rem;
+    left: 11.5%;
+    top: 50rem;
     border-radius: 0rem;
     position:absolute;
-    height: 20rem;
+    height: 10rem;
     background-color: rgb(207, 207, 207);
-    opacity: 0;
     z-index: 1;
     transition: all 0.5s ease;
     
 }
 
 .more:hover .moreOption {
-    margin-top: 10rem; 
+    top: 55rem;
+    height: 20rem;
     border-radius: 6rem;
     opacity: 1;
 }
@@ -316,7 +336,8 @@ input:focus {
     border-radius: 3rem;
     padding: 0vh 3rem;
     width: 65%;
-    margin-top:20rem;
+    position: relative;
+    top:30rem;
     margin-left:14.5%;
     opacity:1;
 

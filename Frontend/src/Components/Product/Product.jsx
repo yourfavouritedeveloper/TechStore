@@ -3,14 +3,14 @@ import Keyboard from "../../assets/keyboard.png";
 import Iphone from "../../assets/iphone.png";
 import Macbook from "../../assets/macbook.png";
 
-function Product() {
+function Product({shopRef}) {
 
     function scroll() {
         window.scrollTo({ top: 600, behavior: 'smooth' });
     }
 
     return (<>
-    <div className={styles.container}>
+    <div ref={shopRef} className={styles.container}>
         <p className={styles.title}>Explore All Products</p>
         <img className={styles.macbook} src={Macbook} alt="" />
         <div className={styles.macbookBox}>
