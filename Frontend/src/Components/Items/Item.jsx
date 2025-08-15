@@ -14,14 +14,18 @@ function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
   const circleRef1 = useRef(null);
   const circleRef2 = useRef(null);
   const boxRef = useRef(null);
+  const lineRef = useRef(null);
 
   const circleInView1 = useInView(circleRef1, { once: true });
   const circleInView2 = useInView(circleRef2, { once: true });
   const boxInView = useInView(boxRef, { once: true });
+  const lineInView = useInView(lineRef, { once: true })
 
   const controls1 = useAnimation();
   const controls2 = useAnimation();
   const boxControls = useAnimation();
+  const lineControls = useAnimation();
+  
 
   useEffect(() => {
    if (circleInView1) controls1.start("visible");
@@ -32,6 +36,10 @@ function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
   useEffect(() => {
     if (boxInView) boxControls.start("visible");
   }, [boxInView]);
+  useEffect(() => {
+    if (lineInView) lineControls.start("visible");
+  }, [lineInView]);
+
 
     useEffect(() => {
     axios.get("https://techstore-3fvk.onrender.com/api/v1/products/popular") 
@@ -103,8 +111,28 @@ function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
                    
                 </div>
                 <div className={styles.type}>
-                  <div className={styles.typebox}></div>
-                  <div className={styles.line}></div>
+                  <div className={styles.typebox}>
+                    <motion.div className={styles.line}
+                    ref={lineRef}
+                    animate={lineControls}
+                    variants={{
+                    hidden: { 
+                      y: 200
+                    },
+                    visible: { 
+                      y:0
+                    }
+                    }}
+                    initial="hidden"
+
+                     viewport={{ margin: "10px" }}
+                    transition={{
+                    duration: 0.25,delay:0.5
+                    }}    
+                    
+                    ></motion.div>  
+                  </div>
+                  
                 <motion.div 
                   className={styles.circle1}
                    ref={circleRef1}
@@ -114,8 +142,8 @@ function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
                     visible: {x: "0px"}
                     }}
                     initial="hidden"
-                    viewport={{ margin: "10px" }}
-                    transition={{ duration: 1.25}}
+                    viewport={{ margin: "0px" }}
+                    transition={{ duration: 1.25,delay:0.5}}
                     >
                       
                     </motion.div>
@@ -129,8 +157,8 @@ function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
                     visible: {x: "0px"}
                     }}
                     initial="hidden"
-                    viewport={{ margin: "10px" }}
-                    transition={{ duration: 1.25}}
+                    viewport={{ margin: "0px" }}
+                    transition={{ duration: 1.25,delay:0.5}}
                     >
                     </motion.div>
                   <p className={styles.choose}>Choose Your Way to Buy</p>
@@ -139,7 +167,7 @@ function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
                     animate={boxControls}
                     variants={{
                     hidden: { 
-                      y: 300
+                      y: 100
                     },
                     visible: { 
                       y:0
@@ -149,7 +177,7 @@ function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
 
                      viewport={{ margin: "10px" }}
                     transition={{
-                    duration: 1
+                    duration: 0.5
                     }}                     
                   >
                     <p className={styles.titleStore}>Best Store Picks</p>
@@ -163,7 +191,7 @@ function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
                     animate={boxControls}
                     variants={{
                     hidden: { 
-                      y: 300
+                      y: 100
                     },
                     visible: { 
                       y:0
@@ -173,11 +201,13 @@ function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
 
                      viewport={{ margin: "10px" }}
                     transition={{
-                    duration: 1
+                    duration: 0.5
                     }}                  
                     >
                       <p className={styles.titleCommunity}>Community Market</p>
-                      <p className={styles.subtitleCommunity}>A marketplace where community members can sell, trade, or list their own items.</p>
+                       <p className={styles.titleCommunitySUB}>• Diverse Listings – A wide range of products from different sellers in one place.</p>
+                          <p className={styles.titleCommunitySUB}>• Competitive Pricing – Sellers compete, giving you better deals and discounts.</p>
+                          <p className={styles.titleCommunitySUB}>• Direct Seller Connection – Communicate directly with sellers for personalized offers and support.</p>
 
                   </motion.div>
                   </div>
