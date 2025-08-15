@@ -55,6 +55,25 @@ function Items({ shiftUp, setShiftUp }) {
       window.scrollTo({ top: y, behavior: "smooth" });    }
   }
 
+    useEffect(() => {
+    function onScroll() {
+      if (!shopRef.current) return;
+
+      const shopTop = shopRef.current.getBoundingClientRect().top + 200;
+    
+      if (shopTop <= 20) {
+        setNavHighlight(true);
+      } else {
+        setNavHighlight(false);
+      }
+    }
+
+    window.addEventListener("scroll", onScroll);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
 
   useEffect(() => {
     axios.get("https://techstore-3fvk.onrender.com/api/v1/products/all")
@@ -85,7 +104,7 @@ function Items({ shiftUp, setShiftUp }) {
     return (<>
             <title>TechStore | Products </title>
             <Nav highlight={navHighlight} shiftUp={shiftUp} setShiftUp={setShiftUp}/>
-            <Product />
+            <Product shopRef={shopRef}/>
             <Filter items={filteredItems} bodyItems={bodyItems} itemRef={itemRef}   onResetFilters={handleResetFilters} />
     
 

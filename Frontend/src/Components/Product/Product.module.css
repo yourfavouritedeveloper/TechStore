@@ -1,8 +1,10 @@
+
 .container {
     height: 35rem;
     background: linear-gradient(135deg, #3B82F6, #1E3A8A);
     width: 100%;
     position: relative;
+    overflow: hidden;
 }
 
 .title {
@@ -129,3 +131,5 @@ background: linear-gradient(135deg, #1e3a8a, #111827);
     z-index: 3;
     pointer-events: none;
 }
+
+

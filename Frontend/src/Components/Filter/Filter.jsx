@@ -58,7 +58,9 @@ const displayItems = filteredItems.length ? filteredItems : [];
 
 
     return (
-        <> 
+        <>        
+        <div className={styles.container}>
+        <div className={styles.cover}></div>
                 <div className={styles.bar}>
                     <button className={styles.filter}
                     onClick={handleFilterClick}>
@@ -137,6 +139,7 @@ const displayItems = filteredItems.length ? filteredItems : [];
                         ))}
                       </ul>
                     </div>
+                  </div>
         </>
     );
 }
