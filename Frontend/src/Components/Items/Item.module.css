@@ -42,10 +42,10 @@
 .storePicks {
     background-color: rgb(255, 255, 255);
     position: relative;
-    width: 40%;
+    width: 39.9%;
     left:10%;
     top:-0.9rem;
-    height: 43rem;   
+    height: 40rem;   
     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.096);
     backdrop-filter: blur(12px);
       z-index: 2;
@@ -54,22 +54,35 @@
 }
 
 .storePicks:hover {
-    background-color: rgb(0, 0, 0);
+    background-color: #008080;
+    width:80%;
+    z-index: 20;
 
 
 }
 
 .communityMarket {
-
-    width: 35%;
+    background-color: rgb(255, 255, 255);
+    width: 39.9%;
     position: relative;
-    left:52%;
-    top:-29.5rem;
-    height: 30rem;   
-    border-radius: 3rem;
+    left:50%;
+    top:-42.55rem;
+    height: 40rem;   
     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.096);
     backdrop-filter: blur(12px); 
     z-index: 2;     
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.communityMarket:hover {
+    background-color: #fc7f4e;
+    width:80%;
+    left:10%;
+    top:-42.2rem;
+    z-index: 20;
+
+
 }
 
 
@@ -78,20 +91,30 @@
     width: 100%;
     position: relative;
     top:20rem;
-    height: 83rem;   
+    height: 80rem;   
     overflow: hidden;     
 }
 
 
 .typebox {
-    background-color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0);
     width:80%;
     position: absolute;
-    top:25rem;
-    height: 43rem; 
+    top:22.9rem;
+    height: 40rem; 
     left:10%;
-    z-index: 1;  
+    z-index: 0;  
     overflow: hidden;      
+}
+
+.line {
+  position: absolute;           
+  left:49.9%;            
+  width: 0.2%;       
+  height: 115%;        
+  background-color: #ff4d4d; 
+  transform: translateY(-50%);
+  z-index: 30;
 }
 
 .circle1, .circle2 {
@@ -491,24 +514,16 @@ background: linear-gradient(135deg,
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.281);
 }
 
-.line {
-  position: absolute;
-  top: 56.05%;           
-  left:49.9%;            
-  width: 0.2%;       
-  height: 51.8%;        
-  background-color: #ff4d4d; 
-  transform: translateY(-50%);
-  z-index: 20;
-}
+
+
 .choose {
-      font-size: clamp(1rem, 6vw,10rem); 
+      font-size: clamp(1rem, 5.5vw,10rem); 
       text-align: center; 
       line-height: 0.8;
       position: relative;
-      top:0rem;   
-      left:30rem;
-      width: 50%;
+      top:3rem;   
+      left:36rem;
+      width: 40%;
       color: white;
       font-family: "PoppinsSemiBold";    
 }
@@ -517,14 +532,14 @@ background: linear-gradient(135deg,
       font-size: clamp(1rem, 5vw,10rem); 
       text-align: center; 
       line-height: 0.8;
-      position: relative;
-      top:2rem;  
+      position: absolute;
+      top:-2rem;  
       text-align: left;  
       left:5rem;
       padding: 1rem;
       z-index: 2;
       width: 73%;
-      background-color: black;
+    background-color: #008080;
       color: rgb(255, 255, 255);
       font-family: "PoppinsMedium";
       transition: all 0.3s ease;     
@@ -535,13 +550,13 @@ background: linear-gradient(135deg,
       text-align: center; 
       line-height: 1;
       position: relative;
-      top:-2rem;  
+      top:20rem;  
       text-align: left;  
       left:5rem;
       z-index: 2;
       width: 80%;
       color: rgb(0, 0, 0);
-      font-family: "PoppinsLight";  
+      font-family: "PoppinsRegular";  
       transition: all 0.3s ease;   
 }
 
@@ -549,29 +564,85 @@ background: linear-gradient(135deg,
 .storePicks:hover .titleStore{
     background-color: rgb(255, 255, 255);
     color:black;
+    top:-2.5rem; 
+    font-size: clamp(1rem, 8vw,10rem); 
+    width: 30%;
 
 
 }
 
 .storePicks:hover .titleStoreSUB{
     color: rgb(255, 255, 255);
-
+    left:40rem;
+    background-color: rgb(0, 0, 0);
+    padding:1rem;
+    top:7.1rem;
+    width: 50%;
+    font-size: clamp(1rem, 1.3vw,10rem); 
 
 }
+
+
+
 
 .titleCommunity {
-      font-size: clamp(1rem, 3vw,10rem); 
+      font-size: clamp(1rem, 5vw,10rem); 
       text-align: center; 
       line-height: 0.8;
-      position: relative;
-      top:2rem;  
-      text-align: left; 
-      left:2rem;
-      width: 50%;
+      position: absolute;
+      top:-2rem;  
+      text-align: left;  
+      left:4.5rem;
+      padding: 1rem;
       z-index: 2;
-      color: rgb(0, 0, 0);
-      font-family: "PoppinsLight";    
+      width: 76%;
+    background-color: #fc7f4e;
+      color: rgb(255, 255, 255);
+      font-family: "PoppinsMedium";
+      transition: all 0.3s ease;   
 }
+
+
+
+
+.titleCommunitySUB {
+      font-size: clamp(1rem, 1.4vw,10rem); 
+      text-align: center; 
+      line-height: 1;
+      position: relative;
+      top:20rem;  
+      text-align: left;  
+      left:5rem;
+      z-index: 2;
+      width: 80%;
+      color: rgb(0, 0, 0);
+      font-family: "PoppinsRegular";  
+      transition: all 0.3s ease;   
+}
+
+.communityMarket:hover .titleCommunity{
+    background-color: rgb(255, 255, 255);
+    color:black;
+    top:-7rem; 
+
+    font-size: clamp(1rem, 8vw,10rem); 
+    width: 88%;
+
+
+}
+
+
+.communityMarket:hover .titleCommunitySUB{
+    color: rgb(255, 255, 255);
+    left:4.5rem;
+    background-color: rgb(0, 0, 0);
+    padding:1rem;
+    top:21.1rem;
+    width: 50%;
+    font-size: clamp(1rem, 1.1vw,10rem); 
+
+}
+
 
 
 .brandnewdiv {
