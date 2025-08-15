@@ -1,0 +1,131 @@
+.container {
+    height: 35rem;
+    background: linear-gradient(135deg, #3B82F6, #1E3A8A);
+    width: 100%;
+    position: relative;
+}
+
+.title {
+    font-size: clamp(7rem, 8vw,20rem);
+    font-family: "PoppinsSemiBold";
+    width: 60%;
+    text-align: left;
+    line-height: 0.9;
+    letter-spacing: -0.4rem;
+    position: absolute;
+    top:5rem;
+    left:3rem;
+    color: white;
+    z-index: 2;
+   
+}
+
+
+.macbookHoverContainer {
+    position: absolute;
+    left:66.7rem;
+    top:11rem;
+    width: 35rem;
+    height: 30rem;
+    cursor: pointer;
+    z-index: auto;
+}
+
+
+
+
+.keyboard, .iphone, .macbook {
+    position: absolute;
+}
+
+.keyboard {
+    width: 150%;
+    top:-1rem;
+    transform: rotate(-90deg);
+    right: -12rem;
+    z-index: 1;
+    transition: all 1s ease;
+
+}
+
+.macbookHoverContainer:hover .keyboard {
+    opacity: 1;
+    top:-2rem;
+    transform: rotate(-48deg);
+    right: -21rem;
+
+}
+
+.iphone {
+    width: 90%;
+    top:-5rem;
+    right: 2rem;
+    z-index: 2;
+    padding: 5rem;
+    transition: all 1s ease;
+
+
+}
+
+.macbookHoverContainer:hover .iphone {
+    opacity: 1;
+    top:-9rem;
+    transform: rotate(-35deg);
+    right: 14rem;
+
+}
+
+.macbookBox {
+    position: absolute;
+background: linear-gradient(135deg, #1e3a8a, #111827);
+    width: 31.45rem;
+    right: 19.1rem;
+    top:13rem;
+    height: 20rem;
+    pointer-events: none;
+    z-index: 4;
+}
+
+
+.macbookDescription {
+    color: white;
+    width: 95%;
+    top:3rem;
+    left:0.7rem;
+    position: relative;
+    font-size: clamp(1rem, 1.7vw,20rem);
+    font-family: "PoppinsMedium";
+    line-height: 0.9;
+}
+
+.macbookButton {
+    border:none;
+    position: absolute;
+    background-color: white;
+    font-family: "PoppinsRegular";
+    padding: 0.7rem 2rem;
+    top:14rem;
+    right:10.7rem;
+    border-radius: 2rem;
+    font-size: clamp(1rem, 1.3vw,20rem);
+    z-index: 10;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: all 0.3s ease;
+}
+
+.macbookButton:hover {
+    background-color: #2962FF;
+    color: white;
+    transform: scale(1.05);
+
+}
+
+
+.macbook {
+    width: 40%;
+    right: 11rem;
+    top:0rem;
+    z-index: 3;
+    pointer-events: none;
+}

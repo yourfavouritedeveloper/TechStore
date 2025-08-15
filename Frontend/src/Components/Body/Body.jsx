@@ -1,6 +1,8 @@
 import styles from "./Body.module.css"
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
 import Iphone from "../../assets/iphone.png";
 import Macbook from "../../assets/macbook.png";
 import TV from "../../assets/tv.png";
@@ -24,11 +26,15 @@ function Body({itemRef,scrollTo, onItemClick,onCategorySelect}) {
       });
   }, []);
 
+  const navigate = useNavigate(null);
+
   function handleClick(category) {
     scrollTo?.();
     onItemClick?.();
+    navigate("/product")
     onCategorySelect?.(category);
   }
+
 
     return(
         <>

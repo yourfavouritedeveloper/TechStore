@@ -4,6 +4,7 @@ import { motion, useInView, useAnimation } from "framer-motion";
 import React, { useEffect, useRef } from "react";
 import Module from "../Model/Module";
 import Campaign from "../Campaign/Campaign";
+import { Link  } from "react-router-dom";
 
 function Background({shopRef,scrollTo, onShopClick}) {
   const boxRef = useRef(null);
@@ -116,7 +117,7 @@ function Background({shopRef,scrollTo, onShopClick}) {
                 <p className={styles.title}>Trending Now</p>
                 <Campaign />
                 <p className={styles.subtitle}>Don’t miss out on the most talked-about offers! These deals are gaining serious attention — grab yours before they’re gone.</p>
-                <button>See Campaign</button>
+                <Link className={styles.button} to="/campaign">See Campaign</Link>
             </motion.div>
             <motion.div className={styles.module}
             ref={moduleRef}

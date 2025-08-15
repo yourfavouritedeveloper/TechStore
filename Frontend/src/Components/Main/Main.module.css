@@ -300,7 +300,7 @@ filter: blur(20px);
     padding-bottom: 5rem;
     position: relative;
     top:0rem;
-    z-index: 30;
+    z-index: 2;
       
 }
 

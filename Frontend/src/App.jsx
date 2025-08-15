@@ -15,7 +15,7 @@ function App() {
       <HashRouter>
         <Routes>
           <Route path="/" element={<Home  shiftUp={shiftUp} setShiftUp={setShiftUp}/>} />
-          <Route path="/product" element={<Items />}/>
+          <Route path="/product" element={<Items shiftUp={shiftUp} setShiftUp={setShiftUp}/>}/>
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login shiftUp={shiftUp} setShiftUp={setShiftUp}/>} />
           <Route path="/register" element={<Register />} />
