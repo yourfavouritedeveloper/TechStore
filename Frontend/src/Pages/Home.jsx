@@ -3,6 +3,7 @@ import Nav from "../Components/Nav/Nav";
 import Background from "../Components/Background/Background";
 import Body from "../Components/Body/Body";
 import Item from "../Components/Items/Item";
+import Main from "../Components/Main/Main"
 import Footer from "../Components/Footer/Footer";
 import axios from 'axios';
 
@@ -90,8 +91,9 @@ function scrollToShop() {
     <> <title>TechStore</title>
       <Nav highlight={navHighlight} shiftUp={shiftUp} setShiftUp={setShiftUp}/>
       <Background shopRef={shopRef} scrollTo={scrollToShop} />
-      <Body shopRef={shopRef} itemRef={itemRef} scrollTo={scrollToItems} onCategorySelect={handleCategoryFilter} />
       <Item items={filteredItems} bodyItems={bodyItems} itemRef={itemRef}   onResetFilters={handleResetFilters}  />
+      <Body shopRef={shopRef} itemRef={itemRef} scrollTo={scrollToItems} onCategorySelect={handleCategoryFilter} />
+      <Main />
       <Footer />
     </>
   );
