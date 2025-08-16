@@ -101,7 +101,7 @@ const displayItems = filteredItems.length ? filteredItems : [];
 
     return (
         <>        
-        <div className={styles.container}>
+        <div className={styles.container} style={displayItems.length === 0 || resetClicked ?{ marginBottom: "26rem"} : {marginBottom: "0rem"}}>
         <div className={styles.cover}>
 
           <div className={styles.subtitle}>From phones to TVs discover it all.
