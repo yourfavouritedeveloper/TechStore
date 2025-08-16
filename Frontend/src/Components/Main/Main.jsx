@@ -24,6 +24,9 @@ const circleRef1 = useRef(null);
   const controls2 = useAnimation();
   const boxControls = useAnimation();
   const lineControls = useAnimation();
+
+  const navigate = useNavigate();
+ const [searchTerm, setSearchTerm] = useState("");
   
 
   useEffect(() => {
@@ -146,8 +149,27 @@ const circleRef1 = useRef(null);
                     <div className={styles.brandnewdiv}>
                         <h2>Looking for something specific?</h2>
                         <p>Our smart search helps you find exactly what you need in seconds.</p>
-                        <input type="text" placeholder="Try 'wireless headphones', 'gaming laptop'..." />
-                        <Link className={styles.search} to="/product">Start Searching</Link>
+                      <form
+                        onSubmit={(e) => {
+                        e.preventDefault();
+                        navigate("/product", { state: { search: searchTerm, category: null } });
+                        }}
+                        >
+                          <input
+                            type="text"
+                            placeholder="Try 'wireless headphones', 'gaming laptop'..."
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)} 
+                            onKeyDown={(e) => {
+                               if (e.key === "Enter") {
+                                 e.preventDefault(); 
+                                 console.log(searchTerm);
+                                  navigate("/product", { state: { search: searchTerm, category: null } }); 
+                                }
+                           }}
+                          />
+                       <button type="submit" className={styles.search}>Start Searching</button>
+                      </form>
                         <img src={BrandLogo} alt="" />
 
                     </div>
