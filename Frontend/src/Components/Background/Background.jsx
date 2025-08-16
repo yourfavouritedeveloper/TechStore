@@ -2,9 +2,9 @@
 import styles from "./Background.module.css"
 import { motion, useInView, useAnimation } from "framer-motion";
 import { useEffect, useRef } from "react";
-import Module from "../Model/Module";
 import Campaign from "../Campaign/Campaign";
 import { Link  } from "react-router-dom";
+import backvideo from "../../assets/background.mov"
 
 function Background({shopRef,scrollTo, onShopClick}) {
   const boxRef = useRef(null);
@@ -131,14 +131,14 @@ function Background({shopRef,scrollTo, onShopClick}) {
             transition={{ duration: 1.5 }} 
                          
             >
-                <Module />
+                <video className={styles.video} src={backvideo} autoPlay loop muted playsInline></video>
 
             <motion.div
             ref={ref}
             className={styles.fadeOverlay}
             variants={{
             hidden: { opacity: 1 },
-            visible: { opacity: 0.5 },
+            visible: { opacity: 0.2 },
             }}
             initial="hidden"
             animate={controls}
