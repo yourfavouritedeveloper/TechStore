@@ -132,7 +132,7 @@ function Background({shopRef,scrollTo, onShopClick}) {
             transition={{ duration: 1.5 }} 
                          
             >
-                <video className={styles.video} src="https://github.com/yourfavouritedeveloper/TechStore/releases/download/ReleasesUpload/background.mov" autoPlay loop muted playsInline></video>
+                <video className={styles.video} src="https://github.com/yourfavouritedeveloper/TechStore/releases/download/ReleasesUpload/background.mov" autoPlay loop muted></video>
 
             <motion.div
             ref={ref}
