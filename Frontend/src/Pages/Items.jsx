@@ -5,6 +5,7 @@ import Filter from '../Components/Filter/Filter';
 import Nav from "../Components/Nav/Nav"
 import Product from "../Components/Product/Product"
 import Footer from "../Components/Footer/Footer"
+import CampaignAdd from '../Components/CampaignAdd/CampaignAdd';
 
 function Items({ shiftUp, setShiftUp }) {
 
@@ -107,7 +108,7 @@ function Items({ shiftUp, setShiftUp }) {
             <Nav highlight={navHighlight} shiftUp={shiftUp} setShiftUp={setShiftUp}/>
             <Product shopRef={shopRef}/>
             <Filter items={filteredItems} bodyItems={bodyItems} itemRef={itemRef}   onResetFilters={handleResetFilters} />
-            <div style={{height:"100rem",width:"100%"}}></div>
+            <CampaignAdd />
             <Footer />
     
 
