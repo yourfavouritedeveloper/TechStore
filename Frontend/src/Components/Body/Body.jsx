@@ -31,7 +31,7 @@ function Body({itemRef,scrollTo, onItemClick,onCategorySelect}) {
   function handleClick(category) {
     scrollTo?.();
     onItemClick?.();
-    navigate("/product")
+    navigate("/product", { state: { category } })
     onCategorySelect?.(category);
   }
 

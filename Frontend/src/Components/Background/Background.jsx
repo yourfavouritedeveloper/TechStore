@@ -139,6 +139,7 @@ useEffect(() => {
                 <p className={styles.subtitle}>Don’t miss out on the most talked-about offers! These deals are gaining serious attention — grab yours before they’re gone.</p>
                 <Link className={styles.button} to="/campaign">See Campaign</Link>
             </motion.div>
+            <video  ref={videoRef} className={styles.video} src={backvideo} autoPlay loop muted playsInline></video>
             <motion.div className={styles.module}
             ref={moduleRef}
             variants={{
@@ -151,7 +152,7 @@ useEffect(() => {
             transition={{ duration: 1.5 }} 
                          
             >
-                <video  ref={videoRef} className={styles.video} src={backvideo} autoPlay loop muted playsInline></video>
+              
 
             <motion.div
             ref={ref}
