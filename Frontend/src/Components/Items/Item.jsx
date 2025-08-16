@@ -54,7 +54,7 @@ function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
                   <div className={styles.populardiv}>
                     <ul className={styles.itemsPopular}>
                       {itemsPopular.map((item) => (
-                        <li key={item.id} className={styles.item} style={{backgroundColor:"rgb(245, 245, 245)"}}>
+                        <li key={item.name} className={styles.item} style={{backgroundColor:"rgb(245, 245, 245)"}}>
                           <p className={styles.searchRate}><b>Searched {item.searched} times</b></p>
                           <img  src={item.productImageUrl} alt={item.name} style={{ width: 200 }} />
                           <h3>{item.name}</h3>
@@ -74,7 +74,7 @@ function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
                     <div className={styles.sellerdiv}>
                       <ul className={styles.itemsBought}>
                         {itemsSeller.map((item) => (
-                        <li key={item.id} className={styles.item}>
+                        <li key={item.name} className={styles.item}>
                             <p className={styles.boughtRate}><b>Bought {item.bought} times</b></p>
                             <img  src={item.productImageUrl} alt={item.name} style={{ width: 200 }} />
                             <h3>{item.name}</h3>
