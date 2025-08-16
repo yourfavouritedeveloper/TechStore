@@ -1,7 +1,7 @@
 
 import styles from "./Background.module.css"
 import { motion, useInView, useAnimation } from "framer-motion";
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import Module from "../Model/Module";
 import Campaign from "../Campaign/Campaign";
 import { Link  } from "react-router-dom";
