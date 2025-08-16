@@ -151,7 +151,7 @@ useEffect(() => {
             transition={{ duration: 1.5 }} 
                          
             >
-                <video  ref={videoRef} className={styles.video} src={backvideo} autoPlay loop muted></video>
+                <video  ref={videoRef} className={styles.video} src={backvideo} autoPlay loop muted playsInline></video>
 
             <motion.div
             ref={ref}
