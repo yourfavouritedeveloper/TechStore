@@ -4,7 +4,8 @@ import { motion, useInView, useAnimation } from "framer-motion";
 import { useEffect, useRef } from "react";
 import Campaign from "../Campaign/Campaign";
 import { Link  } from "react-router-dom";
-import backvideo from "../../assets/background.mov"
+
+
 
 function Background({shopRef,scrollTo, onShopClick}) {
   const boxRef = useRef(null);
@@ -131,7 +132,7 @@ function Background({shopRef,scrollTo, onShopClick}) {
             transition={{ duration: 1.5 }} 
                          
             >
-                <video className={styles.video} src={backvideo} autoPlay loop muted playsInline></video>
+                <video className={styles.video} src="https://github.com/yourfavouritedeveloper/TechStore/releases/download/ReleasesUpload/background.mov" autoPlay loop muted playsInline></video>
 
             <motion.div
             ref={ref}
