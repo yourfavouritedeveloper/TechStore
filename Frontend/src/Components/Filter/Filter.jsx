@@ -2,10 +2,15 @@ import styles from "./Filter.module.css"
 import axios from 'axios';
 import { useState, useEffect } from "react";
 import { applyFilters } from '../Utils/filterUtil';
+import { useLocation } from "react-router-dom";
 
 function Filter({ items, itemRef,bodyItems,  onResetFilters  }) {
 
 
+  const location = useLocation();
+  const category = location.state?.category;
+  const search = location.state?.search || "";
+  const [name, setName] = useState("");
   const [originalItems, setOriginalItems] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
   const [sortOptions, setSortOptions] = useState({
@@ -14,28 +19,61 @@ function Filter({ items, itemRef,bodyItems,  onResetFilters  }) {
   });
   const [resetClicked, setResetClicked] = useState(false);
 
+useEffect(() => {
+  setName(search);
+}, [search]);
+
 
 
 
 useEffect(() => {
-  if (bodyItems && bodyItems.length > 0) {
-    setOriginalItems(bodyItems);
-    setFilteredItems(bodyItems);
+  const query = (name || "").trim().toLowerCase();
+
+  console.log("Search query:", query);
+  console.log("Original items:", items);
+
+  const filtered = query
+    ? (items || []).filter(item => item.name.toLowerCase().includes(query.toLowerCase()))
+    : (items || []);
+    
+
+    
+  console.log("Filtered items:", filtered);
+
+  setOriginalItems(filtered);
+  setFilteredItems(filtered);
+  setResetClicked(false);   
+
+
+  if (query) window.scrollTo({ top: 720, behavior: "smooth" });
+}, [items, name]);
+
+
+
+useEffect(() => {
+  if (category) {
+      const filtered = items.filter(item => item.category === category);
+    setOriginalItems(filtered);
+    setFilteredItems(filtered);
     setResetClicked(false);
+    window.scrollTo({
+    top: 720,
+    behavior: "smooth"
+    });
 
-  } else {
-    setOriginalItems(items);
-    setFilteredItems(items);
-   setResetClicked(true);   
-  }
+  } 
 
-}, [bodyItems, items]);
+}, [category, items]);
 
 
 const handleFilterClick = () => {
   const filtered = applyFilters(filteredItems, sortOptions);
   setFilteredItems(filtered);
   setResetClicked(false);
+    window.scrollTo({
+    top: 720,
+    behavior: "smooth"
+  });
 };
 
 
@@ -44,6 +82,7 @@ const handleReset = () => {
   setResetClicked(true);
   setFilteredItems(items);
   if (onResetFilters) onResetFilters();
+
 };
 
 
@@ -60,7 +99,14 @@ const displayItems = filteredItems.length ? filteredItems : [];
     return (
         <>        
         <div className={styles.container}>
-        <div className={styles.cover}></div>
+        <div className={styles.cover}>
+
+          <div className={styles.subtitle}>From phones to TVs discover it all.
+            <div className={styles.circle1}></div>
+            <div className={styles.circle2}></div>
+
+          </div>
+        </div>
                 <div className={styles.bar}>
                     <button className={styles.filter}
                     onClick={handleFilterClick}>
@@ -76,7 +122,20 @@ const displayItems = filteredItems.length ? filteredItems : [];
                     
                     <form className={styles.input}>
                       <div className={styles.inputBar}>
-                      <input type="text" placeholder="Enter the product name"/>
+                      <input type="text" placeholder="Enter the product name" 
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                          e.preventDefault(); 
+                          setResetClicked(false);
+                          window.scrollTo({
+                            top: 720,
+                            behavior: "smooth"
+                          });
+                        }
+                        }}
+                      />
                       <svg className={styles.search}
                         xmlns="http://www.w3.org/2000/svg" 
                         height="34px" 
@@ -127,10 +186,10 @@ const displayItems = filteredItems.length ? filteredItems : [];
                       <div className={styles.moreOption}></div>
                     </label>
 
-                    <div className={styles.itemContainer} style={resetClicked ? { display:"none",opacity:0} : {}}>
+                    <div className={styles.itemContainer} style={displayItems.length === 0 || resetClicked ?{ display:"none",opacity:0} : {}}>
                       <ul className={styles.items}>
                         {displayItems.map((item) => (
-                          <li key={item.id} className={styles.item} style={{ backgroundColor: "rgb(245, 245, 245)" }}>
+                          <li key={item.name} className={styles.item} style={{ backgroundColor: "rgb(245, 245, 245)" }}>
                             <img src={item.productImageUrl} alt={item.name} style={{ width: 270 }} />
                             <h3>{item.name}</h3>
                             <p className={styles.guarantee}>{item.guarantee} month</p>

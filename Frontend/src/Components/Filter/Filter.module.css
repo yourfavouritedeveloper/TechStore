@@ -15,7 +15,7 @@
     width: 80%;
     margin-left: 10%;
     height: 10vh;
-    top:55rem;
+    top:51rem;
     border-radius: 2rem;
     z-index: 8;
 }
@@ -31,7 +31,58 @@
     height: 20rem;
     top:35rem;
 
+
 }
+
+.subtitle {
+    font-size: clamp(1.5rem, 3vw, 10rem);
+    font-family: "PoppinsSemiBold";
+    color: rgb(255, 255, 255);
+    width: 40%;
+    top:1.5rem;
+    height: 10rem;
+    position: relative;
+    padding: 0rem 35rem;
+    padding-top: 2.9rem;
+    line-height: 0.9;
+    background-color: rgb(135, 206, 250);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.circle1, .circle2 {
+    border-radius: 50%;
+    width: 50rem;
+    height: 30rem;
+background-color: rgb(70, 130, 180);
+    position: absolute;
+    z-index: 20;
+    transition: all 1s ease;
+
+}
+
+.circle1 {
+    left:-12rem;
+    top:-15rem;
+}
+
+.circle2 {
+    right:-12rem;
+    bottom:-15rem;
+}
+
+.subtitle:hover .circle1 {
+    left:-16rem;
+    top:-12rem;  
+    transform: rotate(-15deg); 
+}
+
+.subtitle:hover .circle2 {
+    right:-16rem;
+    bottom:-12rem;  
+    transform: rotate(-15deg); 
+}
+
 
 .filter {
     position: absolute;
@@ -236,7 +287,7 @@ input:focus {
     padding: 0.5rem 1.5em;
     padding-right: 1rem;
     left:58.5rem;
-    top:56.5rem;
+    top:52.5rem;
     border: none;
     color:white;
     background-color:#7636be60 ;
@@ -255,7 +306,7 @@ input:focus {
 
 .more svg {
     position: absolute;
-    top: 57rem;
+    top: 53rem;
     margin-left:-0.7rem;
     z-index: 8;
     transition: all 0.3s ease;
@@ -268,7 +319,7 @@ input:focus {
     width:77%;
     left:0rem;
     left: 11.5%;
-    top: 50rem;
+    top: 45rem;
     border-radius: 0rem;
     position:absolute;
     height: 10rem;
@@ -279,7 +330,7 @@ input:focus {
 }
 
 .more:hover .moreOption {
-    top: 55rem;
+    top: 51rem;
     height: 20rem;
     border-radius: 6rem;
     opacity: 1;
@@ -294,7 +345,8 @@ input:focus {
 }
 
 .more input:checked ~ .moreOption {
-    margin-top: -10rem;
+    top: 51rem;
+    height: 20rem;
     border-radius: 6rem;
     opacity: 1;
 }
@@ -337,7 +389,7 @@ input:focus {
     padding: 0vh 3rem;
     width: 65%;
     position: relative;
-    top:30rem;
+    top:25rem;
     margin-left:14.5%;
     opacity:1;
 

@@ -12,7 +12,12 @@ function Nav({ highlight ,shiftUp, setShiftUp }) {
  const [menuOpen, setMenuOpen] = useState(false);
  const { account, logout } = useContext(AuthContext);
  const [logAccount, setLogAccount] = useState();
+ const [searchTerm, setSearchTerm] = useState("");
+ const [filteredItems, setFilteredItems] = useState([]); 
 
+  const navigate = useNavigate();
+
+  
  useEffect(() => {
     if (!account?.username || !account?.password) return;
     axios.get("https://techstore-3fvk.onrender.com/api/v1/accounts/username/" + account.username , {
@@ -140,7 +145,18 @@ const handleSignOut = () => {
                     <Link id={styles.name} className={highlight ? styles.highlight : ""} to="/">TechStore</Link>
                     {is599 ? greater599 : less599}
                     <div className={styles.inputBar}>
-                       <input type="text" placeholder="Enter the product name"/>
+                       <input type="text" placeholder="Enter the product name"
+                       value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        e.preventDefault();
+                        console.log(searchTerm);
+                        navigate("/product", { state: { search: searchTerm, category: null } });
+                        }
+                      }}
+                       
+                       />
                         <svg className={styles.search}
                         xmlns="http://www.w3.org/2000/svg" 
                         height="28px" 

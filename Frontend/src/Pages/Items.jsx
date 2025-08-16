@@ -4,6 +4,7 @@ import { applyFilters } from '../Components/Utils/filterUtil';
 import Filter from '../Components/Filter/Filter';
 import Nav from "../Components/Nav/Nav"
 import Product from "../Components/Product/Product"
+import Footer from "../Components/Footer/Footer"
 
 function Items({ shiftUp, setShiftUp }) {
 
@@ -106,6 +107,7 @@ function Items({ shiftUp, setShiftUp }) {
             <Nav highlight={navHighlight} shiftUp={shiftUp} setShiftUp={setShiftUp}/>
             <Product shopRef={shopRef}/>
             <Filter items={filteredItems} bodyItems={bodyItems} itemRef={itemRef}   onResetFilters={handleResetFilters} />
+            <Footer />
     
 
     
