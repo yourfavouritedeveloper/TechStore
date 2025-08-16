@@ -1,12 +1,12 @@
 import styles from "./Filter.module.css"
 import axios from 'axios';
-import { useState, useEffect } from "react";
+import { useState, useEffect,useRef } from "react";
 import { applyFilters } from '../Utils/filterUtil';
 import { useLocation } from "react-router-dom";
 
 function Filter({ items, itemRef,bodyItems,  onResetFilters  }) {
 
-
+  const scrollRef = useRef(null);
   const location = useLocation();
   const category = location.state?.category;
   const search = location.state?.search || "";
@@ -27,6 +27,13 @@ useEffect(() => {
 
 
 useEffect(() => {
+  if(!name) {
+    setOriginalItems(items);
+    setFilteredItems(items);
+      setResetClicked(true);  
+      return; 
+  }
+
   const query = (name || "").trim().toLowerCase();
 
   console.log("Search query:", query);
@@ -45,7 +52,8 @@ useEffect(() => {
   setResetClicked(false);   
 
 
-  if (query) window.scrollTo({ top: 720, behavior: "smooth" });
+  if (query)   window.scrollTo({ top: 500, behavior: "smooth" });
+
 }, [items, name]);
 
 
@@ -56,10 +64,8 @@ useEffect(() => {
     setOriginalItems(filtered);
     setFilteredItems(filtered);
     setResetClicked(false);
-    window.scrollTo({
-    top: 720,
-    behavior: "smooth"
-    });
+    window.scrollTo({ top: 500, behavior: "smooth" });
+
 
   } 
 
@@ -70,10 +76,7 @@ const handleFilterClick = () => {
   const filtered = applyFilters(filteredItems, sortOptions);
   setFilteredItems(filtered);
   setResetClicked(false);
-    window.scrollTo({
-    top: 720,
-    behavior: "smooth"
-  });
+  window.scrollTo({ top: 500, behavior: "smooth" });
 };
 
 
@@ -120,7 +123,7 @@ const displayItems = filteredItems.length ? filteredItems : [];
                         Filter
                     </button>
                     
-                    <form className={styles.input}>
+                    <form ref={scrollRef}  className={styles.input}>
                       <div className={styles.inputBar}>
                       <input type="text" placeholder="Enter the product name" 
                       value={name}
@@ -129,10 +132,9 @@ const displayItems = filteredItems.length ? filteredItems : [];
                         if (e.key === "Enter") {
                           e.preventDefault(); 
                           setResetClicked(false);
-                          window.scrollTo({
-                            top: 720,
-                            behavior: "smooth"
-                          });
+                          window.scrollTo({ top: 720, behavior: "smooth" });
+
+
                         }
                         }}
                       />
@@ -186,7 +188,7 @@ const displayItems = filteredItems.length ? filteredItems : [];
                       <div className={styles.moreOption}></div>
                     </label>
 
-                    <div className={styles.itemContainer} style={displayItems.length === 0 || resetClicked ?{ display:"none",opacity:0} : {}}>
+                    <div className={styles.itemContainer} style={displayItems.length === 0 || resetClicked ?{ display:"none"} : {}}>
                       <ul className={styles.items}>
                         {displayItems.map((item) => (
                           <li key={item.name} className={styles.item} style={{ backgroundColor: "rgb(245, 245, 245)" }}>

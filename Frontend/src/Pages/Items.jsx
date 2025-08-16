@@ -107,6 +107,7 @@ function Items({ shiftUp, setShiftUp }) {
             <Nav highlight={navHighlight} shiftUp={shiftUp} setShiftUp={setShiftUp}/>
             <Product shopRef={shopRef}/>
             <Filter items={filteredItems} bodyItems={bodyItems} itemRef={itemRef}   onResetFilters={handleResetFilters} />
+            <div style={{height:"100rem",width:"100%"}}></div>
             <Footer />
     
 

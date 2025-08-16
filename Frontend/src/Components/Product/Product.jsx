@@ -6,7 +6,7 @@ import Macbook from "../../assets/macbook.png";
 function Product({shopRef}) {
 
     function scroll() {
-        window.scrollTo({ top: 600, behavior: 'smooth' });
+        window.scrollTo({ top: 500, behavior: 'smooth' });
     }
 
     return (<>

@@ -110,7 +110,7 @@ background: linear-gradient(135deg, #1e3a8a, #111827);
     right:10.7rem;
     border-radius: 2rem;
     font-size: clamp(1rem, 1.3vw,20rem);
-    z-index: 10;
+    z-index: 7;
     cursor: pointer;
     pointer-events: auto;
     transition: all 0.3s ease;
