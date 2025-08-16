@@ -4,10 +4,29 @@ import { motion, useInView, useAnimation } from "framer-motion";
 import { useEffect, useRef } from "react";
 import Campaign from "../Campaign/Campaign";
 import { Link  } from "react-router-dom";
+import backvideo from "../../assets/backvideo.mov"
 
 
 
 function Background({shopRef,scrollTo, onShopClick}) {
+const videoRef = useRef(null);
+
+useEffect(() => {
+  const startVideo = () => {
+    videoRef.current?.play();
+  };
+  
+  window.addEventListener('mousemove', startVideo, { once: true });
+  window.addEventListener('touchstart', startVideo, { once: true });
+
+  return () => {
+    window.removeEventListener('mousemove', startVideo);
+    window.removeEventListener('touchstart', startVideo);
+  };
+}, []);
+
+
+
   const boxRef = useRef(null);
   const moduleRef = useRef(null);
   const ref = useRef(null);
@@ -132,7 +151,7 @@ function Background({shopRef,scrollTo, onShopClick}) {
             transition={{ duration: 1.5 }} 
                          
             >
-                <video className={styles.video} src="https://github.com/yourfavouritedeveloper/TechStore/releases/download/ReleasesUpload/background.mov" autoPlay loop muted></video>
+                <video  ref={videoRef} className={styles.video} src={backvideo} autoPlay loop muted></video>
 
             <motion.div
             ref={ref}
