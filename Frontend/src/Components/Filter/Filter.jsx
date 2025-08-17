@@ -203,7 +203,7 @@ const displayItems = filteredItems.length ? filteredItems : [];
                             type="radio"
                             id="rating"
                             name="sortOption"
-                            onChange={() => handleSortChange("rating", "highToLow")}
+                            onChange={() => handleSortChange("searchRating", "highToLow")}
                           />
                           <label htmlFor="rating">Most Searched</label>
                         </div>
@@ -242,6 +242,24 @@ const displayItems = filteredItems.length ? filteredItems : [];
                             onChange={() => handleSortChange("stock", "lowToHigh")}
                           />
                           <label htmlFor="outOfStock">Sold Out</label>
+                        </div>
+                        <div className={styles.highestRating}>
+                          <input
+                            type="radio"
+                            id="highestRating"
+                            name="sortOption"
+                            onChange={() => handleSortChange("rating", "highToLow")}
+                          />
+                          <label htmlFor="highestRating">Highest Rating</label>
+                        </div>
+                        <div className={styles.lowestRating}>
+                          <input
+                            type="radio"
+                            id="lowestRating"
+                            name="sortOption"
+                            onChange={() => handleSortChange("rating", "lowToHigh")}
+                          />
+                          <label htmlFor="lowestRating">Lowest Rating</label>
                         </div>
 
                             <button type="button" onClick={handleFilterClick}>
