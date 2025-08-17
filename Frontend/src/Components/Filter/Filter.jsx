@@ -14,9 +14,15 @@ function Filter({ items, itemRef,bodyItems,  onResetFilters  }) {
   const [originalItems, setOriginalItems] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
   const [sortOptions, setSortOptions] = useState({
-    price: null,
-    date: null,
-  });
+  price: null,
+  date: null,
+  bestSelling: null,
+  searchRating: null,
+  alphabetical: null,
+  stock: null,
+  rating: null,
+  discount: null
+});
   const [resetClicked, setResetClicked] = useState(false);
 
 useEffect(() => {
@@ -90,8 +96,15 @@ const handleReset = () => {
 
 
   
-const handleSortChange = (type, value) => {
-  setSortOptions(prev => ({ ...prev, [type]: value }));
+const handleSortChange = (key, value) => {
+  setSortOptions(prev => {
+    const newOptions = Object.keys(prev).reduce((acc, k) => {
+      acc[k] = null;
+      return acc;
+    }, {});
+    newOptions[key] = value; 
+    return newOptions;
+  });
 };
 
 const displayItems = filteredItems.length ? filteredItems : [];
