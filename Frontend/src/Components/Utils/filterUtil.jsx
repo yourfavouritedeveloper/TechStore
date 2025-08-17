@@ -1,23 +1,27 @@
-export const applyFilters = (items, options) => {
-  let filtered = [...items];
-
-  if (options.category) {
-    filtered = filtered.filter(item => item.category === options.category);
-  }
+export function applyFilters(items, sortOptions) {
+  return [...items].sort((a, b) => {
 
 
+    if (sortOptions.price) {
+      const priceDiff = sortOptions.price === "lowToHigh" ? a.price - b.price : b.price - a.price;
+      if (priceDiff !== 0) return priceDiff;
+    }
 
-  if (options.date === "newest") {
-    filtered.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-  } else if (options.date === "oldest") {
-    filtered.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
-  }
+    if (sortOptions.date) {
+      const dateDiff = sortOptions.date === "newest"
+        ? (b.createdAt > a.createdAt ? 1 : -1)
+        : (a.createdAt > b.createdAt ? 1 : -1);
+      if (dateDiff !== 0) return dateDiff;
+    }
 
-  if (options.price === "lowToHigh") {
-    filtered.sort((a, b) => a.price - b.price);
-  } else if (options.price === "highToLow") {
-    filtered.sort((a, b) => b.price - a.price);
-  }
+        if (sortOptions.bestSelling) {
+      const diff = sortOptions.bestSelling === "highToLow" ? b.bought - a.bought : a.bought - b.bought;
+      if (diff !== 0) return diff;
+    }
 
-  return filtered;
-};
+
+
+
+    return 0; 
+  });
+}

@@ -17,9 +17,22 @@
     height: 10vh;
     top:51rem;
     border-radius: 2rem;
-    z-index: 8;
-
+    z-index: auto;
 }
+
+.inBar {
+    
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+    background-color: #f3f0f0;
+    width: 100%;
+    height: 10vh;
+    border-radius: 2rem;
+    z-index: 2;
+}
+
 
 .cover {
     
@@ -98,7 +111,7 @@ background-color: rgb(70, 130, 180);
     background-color: #ffffff;
     border-radius: 2rem;
     transition: all 0.3s ease;
-    z-index: 8;
+    z-index: 12;
 }
 
 .filter:hover {
@@ -136,7 +149,7 @@ input {
     font-family: "PoppinsLight";
     font-size: clamp(1.5rem, 1vw, 2.5rem);
     transition: transform 0.3s ease;
-    z-index: 8;
+    z-index: 4;
 }
 
 input:focus {
@@ -151,7 +164,7 @@ input:focus {
     left:54.5rem;
     transform: rotateZ(0deg);
     transition: transform 0.3s ease;
-    z-index: 8;
+    z-index: 4;
 }
 
 .inputBar:hover .search{
@@ -279,6 +292,7 @@ input:focus {
 
 .more {
     cursor: pointer;
+    z-index: -1;
     
 }
 .more span{
@@ -287,14 +301,14 @@ input:focus {
     font-family: "PoppinsLight";
     padding: 0.5rem 1.5em;
     padding-right: 1rem;
-    left:58.5rem;
-    top:52.5rem;
+    left:46.5rem;
+    top:1.5rem;
     border: none;
     color:white;
     background-color:#7636be60 ;
     border-radius: 2rem;
     transition: all 0.5s ease;   
-    z-index: 8;
+    z-index: 4;
 }
 
 .more:hover span{
@@ -307,7 +321,7 @@ input:focus {
 
 .more svg {
     position: absolute;
-    top: 53rem;
+    top: 2rem;
     margin-left:-0.7rem;
     z-index: 8;
     transition: all 0.3s ease;
@@ -317,21 +331,51 @@ input:focus {
 
 
 .moreOption {
-    width:77%;
-    left:0rem;
-    left: 11.5%;
-    top: 45rem;
+    width:96%;
+    left: 2%;
+    top: -4.5rem;
+    cursor:auto;
     border-radius: 0rem;
     position:absolute;
     height: 10rem;
     background-color: rgb(207, 207, 207);
     z-index: 1;
     transition: all 0.5s ease;
+    pointer-events: auto;
+
     
 }
 
+.bestSelling label {
+    background: linear-gradient(to right, #ffd9008c 40%, #ffb30083 100%);
+    color: white;
+    top:7rem;
+    left:2rem;
+    cursor: pointer;
+    position: absolute;
+    z-index: 10;
+    border-radius: 2rem;
+    font-size: 1.2rem;
+    padding: 0.5rem 1.5rem;
+    transition: all 0.3s ease;
+
+}
+
+
+.bestSelling label:hover {
+    background: linear-gradient(to right, #f8db36 40%, #ffc43b 100%);
+    transform: scale(1.02);
+
+}
+
+.bestSelling input:checked + label {
+    background: linear-gradient(to right, #ffd900 40%, #ffb300 100%);    
+}
+
+
+
 .more:hover .moreOption {
-    top: 51rem;
+    top: 1rem;
     height: 20rem;
     border-radius: 6rem;
     opacity: 1;
@@ -346,7 +390,7 @@ input:focus {
 }
 
 .more input:checked ~ .moreOption {
-    top: 51rem;
+    top: 1rem;
     height: 20rem;
     border-radius: 6rem;
     opacity: 1;
@@ -394,7 +438,7 @@ input:focus {
     position: relative;
     margin: 0 auto;
     margin-top: 18rem;
-
+    z-index: -1;
     opacity:1;
 
 }
