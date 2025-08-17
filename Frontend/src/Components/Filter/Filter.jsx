@@ -262,9 +262,17 @@ const displayItems = filteredItems.length ? filteredItems : [];
                           <label htmlFor="lowestRating">Lowest Rating</label>
                         </div>
 
-                            <button type="button" onClick={handleFilterClick}>
-                              Apply
-                            </button>
+                        <div className={styles.discount}>
+                          <input
+                            type="radio"
+                            id="discount"
+                            name="sortOption"
+                            onChange={() => handleSortChange("discount", "highToLow")}
+                          />
+                          <label htmlFor="discount">Discounted Items</label>
+                        </div>
+
+                          <p className={styles.moreText}>Make browsing faster and more precise</p>
                       </div>
 
 

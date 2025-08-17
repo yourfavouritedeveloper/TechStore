@@ -618,6 +618,50 @@ input:focus {
     color:rgb(255, 255, 255);  
 }
 
+.discount label {
+    background-color: white;
+    color: black;
+    top:7rem;
+    left:42.7rem;
+    cursor: pointer;
+    position: absolute;
+    z-index: 10;
+    border-radius: 2rem;
+    font-size: 1.2rem;
+    padding: 0.5rem 1.5rem;
+    transition: all 0.3s ease;
+
+}
+
+
+.discount label:hover {
+    background-color: #2962FF;
+    color:rgb(255, 255, 255);
+    transform: scale(1.02);
+
+}
+
+.discount input:checked + label {
+    background-color: #4476ff;
+    color:rgb(255, 255, 255);  
+}
+
+
+.moreText {
+    font-family: "PoppinsMedium";
+    color: black;
+    top:5rem;
+    right:2.5rem;
+    position: absolute;
+    z-index: 10;
+    width: 40%;
+    line-height: 0.9;
+    text-align: right;
+    border-radius: 2rem;
+    font-size: 2.8rem;
+
+
+}
 
 
 

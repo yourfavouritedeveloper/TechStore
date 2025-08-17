@@ -35,8 +35,12 @@ export function applyFilters(items, sortOptions) {
     }
 
    else if (sortOptions.rating) {
-      if(!b.rating) console.log("value do not exist")
       const diff = sortOptions.rating === "highToLow" ? Number(b.rating) - Number(a.rating) : Number(a.rating) - Number(b.rating);
+      if (diff !== 0) return diff;
+    }
+
+   else if (sortOptions.discount) {
+      const diff = sortOptions.discount === "highToLow" ? b.discount - a.discount :a.discount -b.discount;
       if (diff !== 0) return diff;
     }
 
