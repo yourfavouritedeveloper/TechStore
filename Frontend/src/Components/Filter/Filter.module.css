@@ -342,8 +342,8 @@ input:focus {
 
 .more:hover .moreOption {
     top: 1rem;
-    height: 20rem;
-    border-radius: 6rem;
+    height: 16rem;
+    border-radius: 3.5rem;
     opacity: 1;
 }
 
@@ -357,8 +357,8 @@ input:focus {
 
 .more input:checked ~ .moreOption {
     top: 1rem;
-    height: 20rem;
-    border-radius: 6rem;
+    height: 16rem;
+    border-radius: 3.5rem;
     opacity: 1;
 }
 
@@ -555,6 +555,65 @@ input:focus {
 }
 
 .outOfStock input:checked + label {
+    background-color: #4476ff;
+    color:rgb(255, 255, 255);  
+}
+
+
+
+.highestRating label {
+    background-color: white;
+    color: black;
+    top:11rem;
+    left:33.2rem;
+    cursor: pointer;
+    position: absolute;
+    z-index: 10;
+    border-radius: 2rem;
+    font-size: 1.2rem;
+    padding: 0.5rem 1.5rem;
+    transition: all 0.3s ease;
+
+}
+
+
+.highestRating label:hover {
+    background-color: #2962FF;
+    color:rgb(255, 255, 255);
+    transform: scale(1.02);
+
+}
+
+.highestRating input:checked + label {
+    background-color: #4476ff;
+    color:rgb(255, 255, 255);  
+}
+
+
+.lowestRating label {
+    background-color: white;
+    color: black;
+    top:11rem;
+    left:45.7rem;
+    cursor: pointer;
+    position: absolute;
+    z-index: 10;
+    border-radius: 2rem;
+    font-size: 1.2rem;
+    padding: 0.5rem 1.5rem;
+    transition: all 0.3s ease;
+
+}
+
+
+.lowestRating label:hover {
+    background-color: #2962FF;
+    color:rgb(255, 255, 255);
+    transform: scale(1.02);
+
+}
+
+.lowestRating input:checked + label {
     background-color: #4476ff;
     color:rgb(255, 255, 255);  
 }

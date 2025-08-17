@@ -19,18 +19,24 @@ export function applyFilters(items, sortOptions) {
       if (diff !== 0) return diff;
     }
 
-    if (sortOptions.rating) {
-      const diff = sortOptions.rating === "highToLow" ? b.searched - a.searched : a.searched - b.searched;
+    else if (sortOptions.searchRating) {
+      const diff = sortOptions.searchRating === "highToLow" ? b.searched - a.searched : a.searched - b.searched;
       if (diff !== 0) return diff;
     }
 
-      if (sortOptions.alphabetical) {
+     else if (sortOptions.alphabetical) {
       const diff = sortOptions.alphabetical === "highToLow" ?b.name.localeCompare(a.name) : a.name.localeCompare(b.name);
       if (diff !== 0) return diff;
     }
 
-    if (sortOptions.stock) {
+    else if (sortOptions.stock) {
       const diff = sortOptions.stock === "highToLow" ? b.amount - a.amount : a.amount - b.amount;
+      if (diff !== 0) return diff;
+    }
+
+   else if (sortOptions.rating) {
+      if(!b.rating) console.log("value do not exist")
+      const diff = sortOptions.rating === "highToLow" ? Number(b.rating) - Number(a.rating) : Number(a.rating) - Number(b.rating);
       if (diff !== 0) return diff;
     }
 

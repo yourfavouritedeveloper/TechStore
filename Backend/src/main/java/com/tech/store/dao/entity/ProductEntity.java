@@ -72,6 +72,9 @@ public class ProductEntity extends BaseEntity {
     @Column(name = "rating")
     private BigDecimal rating;
 
+    @Column(name = "discount")
+    private Integer discount;
+
     @Column(name = "amount")
     private Long amount;
 
