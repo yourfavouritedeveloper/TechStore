@@ -42,6 +42,8 @@ public class AccountEntity extends BaseEntity {
     @Column(name = "profile_picture_url")
     private String profilePictureUrl;
 
+
+
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<PurchaseEntity> purchases;
