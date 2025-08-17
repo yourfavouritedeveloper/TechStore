@@ -1,6 +1,6 @@
 .container {
-    height: 60rem;
-    background-color: rgb(121, 121, 121);
+    height: 67.5rem;
+    background-color: rgb(255, 255, 255);
     position: relative;
     overflow: hidden;
 
@@ -8,12 +8,106 @@
 
 .box {
     position: absolute;
-    height: 20rem;
-    width: 80%;
-    left:10%;
+    height: 60rem;
+    width: 100%;
     top:3rem;
-    background-color: rgb(0, 0, 0);
-
+    background: linear-gradient(135deg, #08101a, #121927);
+    overflow: hidden;
 
 
 }
+
+
+.title {
+    font-size: clamp(1.9rem, 3.5vw, 25rem);   
+    top:17rem;
+    width: 50%;
+    left:18rem;
+    text-align: left;
+    line-height: 0.9;
+    position: relative;
+    font-family: "PoppinsMedium"; 
+    color: rgb(255, 255, 255);
+    z-index: 10;
+}
+
+
+.subtitle {
+
+    font-size: clamp(1.9rem, 1.5vw, 25rem);   
+    top:14rem;
+    width: 30%;
+    left:18rem;
+    text-align: left;
+    line-height: 1;
+    position: relative;
+    font-family: "PoppinsLight"; 
+    color: rgb(255, 255, 255);
+    z-index: 10;
+}
+
+.subsubtitle {
+    font-size: clamp(1.9rem, 2vw, 25rem);   
+    top:21rem;
+    width: 30%;
+    left:70rem;
+    text-align: right;
+    line-height: 1;
+    position: absolute;
+    font-family: "PoppinsRegular"; 
+    color: rgb(255, 255, 255);
+    z-index: 10;    
+}
+
+.button {
+    font-size: clamp(1.9rem, 1.5vw, 25rem);   
+    top:30rem;
+    background-color: white;
+    left:90.5rem;
+    border-radius: 2rem;
+    padding: 1rem 3rem;
+    text-align: left;
+    line-height: 1;
+    position: absolute;
+    font-family: "PoppinsLight"; 
+    color: rgb(0, 0, 0);
+    z-index: 10; 
+    transition: all 0.3s ease;    
+}
+
+.button:hover {
+    background-color: #2962FF;
+    color: rgb(255, 255, 255);
+    transform: scale(1.05);
+}
+
+
+.photo90 {
+    width: 75%;
+    position: relative;
+    top:-40rem;
+    left:-19rem;
+    transform: rotate(-90deg);
+    z-index: 9;
+    opacity: 0.8;
+}
+
+
+.circle {
+    position: absolute;
+    height: 90rem;
+    width: 90rem;
+background: radial-gradient(
+  circle,
+  #08101a 0%,                
+  #121927 60%,               
+  rgba(121, 121, 121, 0.856) 85%, 
+  rgba(255, 255, 255, 0.671) 90%
+);
+    filter: blur(20px);
+    border-radius: 50%;
+    z-index: 0;
+    right: -30rem;
+    top:-5rem;
+}
+

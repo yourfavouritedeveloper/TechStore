@@ -104,13 +104,14 @@ const displayItems = filteredItems.length ? filteredItems : [];
         <div className={styles.container} style={displayItems.length === 0 || resetClicked ?{ marginBottom: "26rem"} : {marginBottom: "0rem"}}>
         <div className={styles.cover}>
 
-          <div className={styles.subtitle}>From phones to TVs discover it all.
+          <div className={styles.subtitle}>From phones to TVs discover it all
             <div className={styles.circle1}></div>
             <div className={styles.circle2}></div>
 
           </div>
         </div>
                 <div className={styles.bar}>
+                  <div className={styles.inBar}></div>
                     <button className={styles.filter}
                     onClick={handleFilterClick}>
                         <svg xmlns="http://www.w3.org/2000/svg" 
@@ -173,9 +174,6 @@ const displayItems = filteredItems.length ? filteredItems : [];
 
                       <button type="reset" className={styles.refresh}
                         onClick={handleReset}>Reset</button>
-                    </form>
-                    
-                   </div>
                     <label className={styles.more}>
                       <input type="checkbox" name="more" />
                       <span className={styles.moreSpan}>More</span>
@@ -185,8 +183,41 @@ const displayItems = filteredItems.length ? filteredItems : [];
                          width="28px"
                           fill="#ffffffff">
                       <path d="M400-280v-400l200 200-200 200Z"/></svg>
-                      <div className={styles.moreOption}></div>
+
+
+
+
+                      <div className={styles.moreOption}>
+                        <div className={styles.bestSelling}>
+                          <input
+                            type="radio"
+                            id="bestSelling"
+                            name="sortOption"
+                            onChange={() => handleSortChange("bestSelling", "highToLow")}
+                          />
+                          <label htmlFor="bestSelling">Best Selling</label>
+                        </div>
+
+                        <div className={styles.mostSearched}>
+                          <input
+                            type="radio"
+                            id="ratingLow"
+                            name="sortOption"
+                            onChange={() => handleSortChange("rating", "lowToHigh")}
+                          />
+                          <label htmlFor="ratingLow">Rating: Low to High</label>
+                        </div>
+
+                            <button type="button" onClick={handleFilterClick}>
+                              Apply
+                            </button>
+                      </div>
+
                     </label>
+                    </form>
+                    
+                   </div>
+
 
                     <div className={styles.itemContainer} style={displayItems.length === 0 || resetClicked ?{ display:"none"} : {}}>
                       <ul className={styles.items}>
