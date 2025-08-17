@@ -38,6 +38,7 @@ public class AccountDto {
 
     private String profilePictureUrl;
 
+
     @JsonIgnore
     private List<PurchaseDto> purchases;
 

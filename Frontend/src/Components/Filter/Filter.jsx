@@ -201,11 +201,47 @@ const displayItems = filteredItems.length ? filteredItems : [];
                         <div className={styles.mostSearched}>
                           <input
                             type="radio"
-                            id="ratingLow"
+                            id="rating"
                             name="sortOption"
-                            onChange={() => handleSortChange("rating", "lowToHigh")}
+                            onChange={() => handleSortChange("rating", "highToLow")}
                           />
-                          <label htmlFor="ratingLow">Rating: Low to High</label>
+                          <label htmlFor="rating">Most Searched</label>
+                        </div>
+                        <div className={styles.AZ}>
+                          <input
+                            type="radio"
+                            id="alphabeticalLow"
+                            name="sortOption"
+                            onChange={() => handleSortChange("alphabetical", "lowToHigh")}
+                          />
+                          <label htmlFor="alphabeticalLow">Alphabetical: A → Z</label>
+                        </div>
+                        <div className={styles.ZA}>
+                          <input
+                            type="radio"
+                            id="alphabeticalHigh"
+                            name="sortOption"
+                            onChange={() => handleSortChange("alphabetical", "highToLow")}
+                          />
+                          <label htmlFor="alphabeticalHigh">Alphabetical: Z → A</label>
+                        </div>
+                        <div className={styles.inStock}>
+                          <input
+                            type="radio"
+                            id="inStock"
+                            name="sortOption"
+                            onChange={() => handleSortChange("stock", "highToLow")}
+                          />
+                          <label htmlFor="inStock">Available</label>
+                        </div>
+                         <div className={styles.outOfStock}>
+                          <input
+                            type="radio"
+                            id="outOfStock"
+                            name="sortOption"
+                            onChange={() => handleSortChange("stock", "lowToHigh")}
+                          />
+                          <label htmlFor="outOfStock">Sold Out</label>
                         </div>
 
                             <button type="button" onClick={handleFilterClick}>
@@ -213,7 +249,14 @@ const displayItems = filteredItems.length ? filteredItems : [];
                             </button>
                       </div>
 
+
+
+
                     </label>
+
+
+
+
                     </form>
                     
                    </div>

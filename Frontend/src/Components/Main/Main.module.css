@@ -73,8 +73,9 @@
 .line {
   position: absolute;           
   left:49.9%;            
-  width: 0.2%;       
-  height: 115%;        
+  width: 0.2%; 
+  bottom:0.2%;      
+  height: 116%;        
   background-color: #ff4d4d; 
   transform: translateY(-50%);
   z-index: 30;

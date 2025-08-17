@@ -107,16 +107,16 @@ background-color: rgb(70, 130, 180);
     left:1rem;
     top:1.5rem;
     border: none;
-    color:rgb(0, 0, 0);
-    background-color: #ffffff;
+    background-color: #2962FF;
+    color:rgb(255, 255, 255);
     border-radius: 2rem;
     transition: all 0.3s ease;
-    z-index: 12;
+    z-index: 2;
 }
 
 .filter:hover {
     transform: scale(1.02);
-    background-color: #2962FF;
+    background-color: #4375ff;
     color:rgb(255, 255, 255);
 }
 
@@ -130,6 +130,7 @@ background-color: rgb(70, 130, 180);
 svg {
     position: relative;
     top:0.2rem;
+    fill:white;
     
 }
 
@@ -187,8 +188,8 @@ input:focus {
   left:9rem;
   top:1.5rem;
    font-size: 1.2rem;
-   background: linear-gradient(to right, #f11f187a 40%, #ffaa657c 100%);   
-  color: white;
+    background-color: white;
+    color: black;
   cursor: pointer;
   background-size: 200% 100%;
   background-position: 100% 0%;
@@ -198,13 +199,15 @@ input:focus {
 }
 
 .low:hover span {
-    background-position: 0% 0%;   
+    background-color: #2962FF;
+    color:rgb(255, 255, 255);
     transform: scale(1.02);    
 }
 
 
 .low input:checked + span{
-  background: linear-gradient(to right, #f11f18d5 40%, #ffaa65d2 100%);
+    background-color: #2962FF;
+    color:rgb(255, 255, 255);
   
 }
 
@@ -217,8 +220,8 @@ input:focus {
     left:19.7rem;
     top:1.5rem;
     border: none;
-    color:white;
-    background: linear-gradient(to right, #37ac3d79 40%, #d2f53873 100%);
+    background-color: white;
+    color: black;
     border-radius: 2rem;
     background-size: 200% 100%;
     background-position: 100% 0%;
@@ -228,12 +231,14 @@ input:focus {
 
 
 .high:hover span{
-    background-position: 0% 0%;
+    background-color: #2962FF;
+    color:rgb(255, 255, 255);
     transform: scale(1.02);
 }
 
 .high input:checked + span{
-  background: linear-gradient(to right, #2f7c33d5 40%, #acc92ce5 100%);
+    background-color: #2962FF;
+    color:rgb(255, 255, 255);
   
 }
 
@@ -247,8 +252,8 @@ input:focus {
     left:30.4rem;
     top:1.5rem;
     border: none;
-    color:white;
-    background-color: #4b73e270;
+    background-color: white;
+    color: black;
     border-radius: 2rem;
     transition: all 0.5s ease; 
     z-index: 8;  
@@ -256,11 +261,13 @@ input:focus {
 
 .newest:hover span {
      transform: scale(1.02); 
-     background-color: #7498fac5;      
+    background-color: #2962FF;
+    color:rgb(255, 255, 255);    
 }
 
 .newest input:checked + span{
-     background-color: #466cd3de;   
+    background-color: #2962FF;
+    color:rgb(255, 255, 255);
 }
 
 
@@ -274,8 +281,8 @@ input:focus {
     left:38.8rem;
     top:1.5rem;
     border: none;
-    color:white;
-    background-color:#6e472c60 ;
+    background-color: white;
+    color: black;
     border-radius: 2rem;
     transition: all 0.5s ease;   
     z-index: 8;
@@ -283,11 +290,13 @@ input:focus {
 
 .oldest:hover span{
      transform: scale(1.02); 
-     background-color: #a06f4eb4;      
+    background-color: #2962FF;
+    color:rgb(255, 255, 255);   
 }
 
 .oldest input:checked + span{
-     background-color: #5f422ee3;      
+    background-color: #2962FF;
+    color:rgb(255, 255, 255);   
 }
 
 .more {
@@ -313,7 +322,7 @@ input:focus {
 
 .more:hover span{
      transform: scale(1.02); 
-     background-color: #8e53d193;      
+     background-color: #8e53d1;      
 }
 
 
@@ -330,14 +339,42 @@ input:focus {
 
 
 
+
+.more:hover .moreOption {
+    top: 1rem;
+    height: 20rem;
+    border-radius: 6rem;
+    opacity: 1;
+}
+
+.more:hover svg {
+    transform: rotateZ(90deg);
+}
+
+.more input:checked + span {
+    background-color:#7536be ; 
+}
+
+.more input:checked ~ .moreOption {
+    top: 1rem;
+    height: 20rem;
+    border-radius: 6rem;
+    opacity: 1;
+}
+
+.more input:checked ~ svg {
+    transform: rotateZ(90deg);    
+}
+
+
 .moreOption {
     width:96%;
     left: 2%;
-    top: -4.5rem;
+    top: -15rem;
     cursor:auto;
     border-radius: 0rem;
     position:absolute;
-    height: 10rem;
+    height: 20rem;
     background-color: rgb(207, 207, 207);
     z-index: 1;
     transition: all 0.5s ease;
@@ -347,8 +384,8 @@ input:focus {
 }
 
 .bestSelling label {
-    background: linear-gradient(to right, #ffd9008c 40%, #ffb30083 100%);
-    color: white;
+    background-color: white;
+    color: black;
     top:7rem;
     left:2rem;
     cursor: pointer;
@@ -363,42 +400,165 @@ input:focus {
 
 
 .bestSelling label:hover {
-    background: linear-gradient(to right, #f8db36 40%, #ffc43b 100%);
+    background-color: #2962FF;
+    color:rgb(255, 255, 255);
     transform: scale(1.02);
 
 }
 
 .bestSelling input:checked + label {
-    background: linear-gradient(to right, #ffd900 40%, #ffb300 100%);    
+    background-color: #4476ff;
+    color:rgb(255, 255, 255);   
+}
+
+
+.mostSearched label {
+    background-color: white;
+    color: black;
+    top:11rem;
+    left:2rem;
+    cursor: pointer;
+    position: absolute;
+    z-index: 10;
+    border-radius: 2rem;
+    font-size: 1.2rem;
+    padding: 0.5rem 1.5rem;
+    transition: all 0.3s ease;
+
+}
+
+
+.mostSearched label:hover {
+    background-color: #2962FF;
+    color:rgb(255, 255, 255);
+    transform: scale(1.02);
+
+}
+
+.mostSearched input:checked + label {
+    background-color: #4476ff;
+    color:rgb(255, 255, 255);  
+}
+
+
+.AZ label {
+    background-color: white;
+    color: black;
+    top:7rem;
+    left:12.5rem;
+    cursor: pointer;
+    position: absolute;
+    z-index: 10;
+    border-radius: 2rem;
+    font-size: 1.2rem;
+    padding: 0.5rem 1.5rem;
+    transition: all 0.3s ease;
+
+}
+
+
+.AZ label:hover {
+    background-color: #2962FF;
+    color:rgb(255, 255, 255);
+    transform: scale(1.02);
+
+}
+
+.AZ input:checked + label {
+    background-color: #4476ff;
+    color:rgb(255, 255, 255);  
 }
 
 
 
-.more:hover .moreOption {
-    top: 1rem;
-    height: 20rem;
-    border-radius: 6rem;
-    opacity: 1;
+.ZA label {
+    background-color: white;
+    color: black;
+    top:7rem;
+    left:27.5rem;
+    cursor: pointer;
+    position: absolute;
+    z-index: 10;
+    border-radius: 2rem;
+    font-size: 1.2rem;
+    padding: 0.5rem 1.5rem;
+    transition: all 0.3s ease;
+
 }
 
-.more:hover svg {
-    transform: rotateZ(90deg);
+
+.ZA label:hover {
+    background-color: #2962FF;
+    color:rgb(255, 255, 255);
+    transform: scale(1.02);
+
 }
 
-.more input:checked + span {
-    background-color: #8e53d193;      
+.ZA input:checked + label {
+    background-color: #4476ff;
+    color:rgb(255, 255, 255);  
 }
 
-.more input:checked ~ .moreOption {
-    top: 1rem;
-    height: 20rem;
-    border-radius: 6rem;
-    opacity: 1;
+
+.inStock label {
+    background-color: white;
+    color: black;
+    top:11rem;
+    left:14.8rem;
+    cursor: pointer;
+    position: absolute;
+    z-index: 10;
+    border-radius: 2rem;
+    font-size: 1.2rem;
+    padding: 0.5rem 1.5rem;
+    transition: all 0.3s ease;
+
 }
 
-.more input:checked ~ svg {
-    transform: rotateZ(90deg);    
+
+.inStock label:hover {
+    background-color: #2962FF;
+    color:rgb(255, 255, 255);
+    transform: scale(1.02);
+
 }
+
+.inStock input:checked + label {
+    background-color: #4476ff;
+    color:rgb(255, 255, 255);  
+}
+
+
+
+
+.outOfStock label {
+    background-color: white;
+    color: black;
+    top:11rem;
+    left:24.2rem;
+    cursor: pointer;
+    position: absolute;
+    z-index: 10;
+    border-radius: 2rem;
+    font-size: 1.2rem;
+    padding: 0.5rem 1.5rem;
+    transition: all 0.3s ease;
+
+}
+
+
+.outOfStock label:hover {
+    background-color: #2962FF;
+    color:rgb(255, 255, 255);
+    transform: scale(1.02);
+
+}
+
+.outOfStock input:checked + label {
+    background-color: #4476ff;
+    color:rgb(255, 255, 255);  
+}
+
 
 
 
@@ -438,7 +598,7 @@ input:focus {
     position: relative;
     margin: 0 auto;
     margin-top: 18rem;
-    z-index: -1;
+    z-index: 0;
     opacity:1;
 
 }
