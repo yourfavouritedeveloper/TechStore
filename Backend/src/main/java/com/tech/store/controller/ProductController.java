@@ -21,14 +21,14 @@ public class ProductController {
 
     private final ProductService productService;
 
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Get product by id", description = "Gets the specified product.")
     public ProductDto findById(@PathVariable Long id) {
         return productService.findById(id);
     }
 
-    @GetMapping("/{name}")
+    @GetMapping("/name/{name}")
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Get product by id", description = "Gets the specified product.")
     public ProductDto findById(@PathVariable String name) {
