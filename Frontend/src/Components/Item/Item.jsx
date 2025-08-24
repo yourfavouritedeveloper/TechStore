@@ -47,7 +47,7 @@ function Item({name}) {
             <button className={styles.favourite}>Add to favourites</button>
         </div>
         <div className={styles.properties}>
-        {Object.entries(item.properties).map(([key, value]) => (
+        {item.properties &&  Object.entries(item.properties).map(([key, value]) => (
                 <div key={key} className={styles.property}>
                 <strong>{key}:</strong> {value}
                 </div>
