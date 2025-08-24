@@ -21,7 +21,7 @@ html,body {
 }
 
 .highcontainer {
-    background-color: rgb(211, 211, 211);
+    background-color: rgb(240, 240, 240);
     width: 100%;
     position: fixed;
     justify-content: center;
@@ -442,10 +442,10 @@ a {
 
 .inputBar input {
   flex: 1;
-  border: none;
   outline: none;
   font-size: 1rem;
   top:-0.1rem;
+  border: 0.13rem solid rgb(211, 211, 211);
   margin-top:0.3vw;
   margin-left: -37rem;
   width: 13rem;
