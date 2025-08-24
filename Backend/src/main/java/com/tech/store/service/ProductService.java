@@ -50,6 +50,20 @@ public class ProductService {
                 });
     }
 
+    @Transactional(readOnly = true)
+        public ProductDto findByName(String name) {
+            return productRedisRepository.findByName(name).orElseGet(() -> {
+
+                ProductEntity productEntity = productRepository.findByName(name)
+                        .orElseThrow( () -> new ProductNotFoundException("Product not found."));
+                ProductDto productDto = productMapper.toProductDto(productEntity);
+                productRedisRepository.save(productEntity);
+                return productDto;
+            });
+
+
+    }
+
 
     @Transactional(readOnly = true)
     public List<ProductDto> findAll() {

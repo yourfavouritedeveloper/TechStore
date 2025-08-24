@@ -138,6 +138,11 @@ svg {
     fill:white;
 }
 
+
+.search {
+    fill: #757575ff;
+}
+
 input {
     position: absolute;
     width: 28rem;
@@ -733,7 +738,7 @@ input:focus {
     left:3.5rem; 
 }
 
-.items li {
+.items .item {
     
     flex: 0 0 calc(20% - 1rem);
     box-sizing: border-box; 
@@ -764,15 +769,15 @@ input:focus {
     align-items: center;
     margin-left: -0.5rem;
     padding: 0rem 0.4rem;
-    font-size: clamp(1rem, 1vw, 2rem);
+    font-size: clamp(1rem, 0.7vw, 2rem);
 }
 
 
-.items li {
+.items .item {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.items li:hover {
+.items .item:hover {
     transform: scale(1.03);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.281);
 }

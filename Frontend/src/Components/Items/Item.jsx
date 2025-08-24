@@ -54,13 +54,15 @@ function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
                   <div className={styles.populardiv}>
                     <ul className={styles.itemsPopular}>
                       {itemsPopular.map((item) => (
-                        <li key={item.name} className={styles.item} style={{backgroundColor:"rgb(245, 245, 245)"}}>
+                        <Link key={item.name} className={styles.item} 
+                        to= {"/product/" + item.name}
+                        style={{backgroundColor:"rgb(245, 245, 245)"}}>
                           <p className={styles.searchRate}><b>Searched {item.searched} times</b></p>
                           <img  src={item.productImageUrl} alt={item.name} style={{ width: 200 }} />
                           <h3>{item.name}</h3>
                           <p className={styles.guarantee}>{item.guarantee} month</p>
                           <span><b>₼{item.price}</b></span>
-                      </li>
+                      </Link>
                       ))}
                     </ul>
                     </div>
@@ -74,13 +76,15 @@ function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
                     <div className={styles.sellerdiv}>
                       <ul className={styles.itemsBought}>
                         {itemsSeller.map((item) => (
-                        <li key={item.name} className={styles.item}>
+                        <Link key={item.name} className={styles.item}
+                          to= {"/product/" + item.name}
+                        >
                             <p className={styles.boughtRate}><b>Bought {item.bought} times</b></p>
                             <img  src={item.productImageUrl} alt={item.name} style={{ width: 200 }} />
                             <h3>{item.name}</h3>
                             <p className={styles.guarantee}>{item.guarantee} month</p>
                             <span><b>₼{item.price}</b></span>
-                        </li>
+                        </Link>
                         ))}                
                       </ul>
                     </div>
