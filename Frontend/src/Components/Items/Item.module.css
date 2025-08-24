@@ -180,7 +180,7 @@ background: linear-gradient(135deg,
     left:1.5rem; 
 }
 
-.itemsPopular li {
+.itemsPopular .item {
     margin-top: 0rem;
     flex: 1 0 30%; 
     box-sizing: border-box; 
@@ -211,7 +211,7 @@ background: linear-gradient(135deg,
     align-items: center;
     margin-left: 7rem;
     padding: 0rem 0.4rem;
-    font-size: clamp(0.5rem, 1vw, 2rem);
+    font-size: clamp(0.5rem, 0.8vw, 2rem);
 
 
 }
@@ -346,7 +346,7 @@ background: linear-gradient(135deg,
     left:1.5rem; 
 }
 
-.itemsBought li {
+.itemsBought .item {
     margin-top: 0rem;
     flex: 1 0 30%; 
     box-sizing: border-box; 
@@ -377,18 +377,18 @@ background: linear-gradient(135deg,
     align-items: center;
     margin-left: 7rem;
     padding: 0rem 0.4rem;
-    font-size: clamp(0.5rem, 1vw, 2rem);
+    font-size: clamp(0.5rem, 0.8vw, 2rem);
 
 
 }
 
-.itemsPopular li,
-.itemsBought li {
+.itemsPopular .item,
+.itemsBought .item {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.itemsPopular li:hover,
-.itemsBought li:hover {
+.itemsPopular .item:hover,
+.itemsBought .item:hover {
     transform: scale(1.03);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.281);
 }
@@ -407,8 +407,8 @@ background: linear-gradient(135deg,
 
 
 
-.itemsPopular li:hover,
-.itemsBought li:hover {
+.itemsPopular .item:hover,
+.itemsBought .item:hover {
     transform: scale(1.03);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.281);
 }

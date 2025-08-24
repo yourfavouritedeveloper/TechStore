@@ -3,6 +3,7 @@ import { HashRouter,Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
 import Items from "./Pages/Items";
+import Item from "./Pages/Item"
 import Login from "./Pages/Login";
 import { AuthProvider } from "./Components/AuthContext";
 import Register from "./Pages/Register";
@@ -19,6 +20,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login shiftUp={shiftUp} setShiftUp={setShiftUp}/>} />
           <Route path="/register" element={<Register />} />
+          <Route path="/product/:name"   element={<Item shiftUp={shiftUp} setShiftUp={setShiftUp} />} />
         </Routes>
       </HashRouter>
     </AuthProvider>

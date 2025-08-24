@@ -2,7 +2,7 @@ import styles from "./Filter.module.css"
 import axios from 'axios';
 import { useState, useEffect,useRef } from "react";
 import { applyFilters } from '../Utils/filterUtil';
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 function Filter({ items, itemRef,bodyItems,  onResetFilters  }) {
 
@@ -304,12 +304,14 @@ const displayItems = filteredItems.length ? filteredItems : [];
                     <div className={styles.itemContainer} style={displayItems.length === 0 || resetClicked ?{ display:"none"} : {}}>
                       <ul className={styles.items}>
                         {displayItems.map((item) => (
-                          <li key={item.name} className={styles.item} style={{ backgroundColor: "rgb(245, 245, 245)" }}>
+                          <Link key={item.name} className={styles.item} 
+                          to= {"/product/" + item.name}
+                          style={{ backgroundColor: "rgb(245, 245, 245)" }}>
                             <img src={item.productImageUrl} alt={item.name} style={{ width: 270 }} />
                             <h3>{item.name}</h3>
                             <p className={styles.guarantee}>{item.guarantee} month</p>
                             <span><b>₼{item.price}</b></span>
-                          </li>
+                          </Link>
                         ))}
                       </ul>
                     </div>

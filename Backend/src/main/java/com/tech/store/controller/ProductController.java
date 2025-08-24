@@ -28,6 +28,14 @@ public class ProductController {
         return productService.findById(id);
     }
 
+    @GetMapping("/{name}")
+    @ResponseStatus(HttpStatus.OK)
+    @Operation(summary = "Get product by id", description = "Gets the specified product.")
+    public ProductDto findById(@PathVariable String name) {
+        return productService.findByName(name);
+    }
+
+
 
     @GetMapping("/all")
     @ResponseStatus(HttpStatus.OK)

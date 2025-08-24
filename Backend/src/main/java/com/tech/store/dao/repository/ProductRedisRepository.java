@@ -31,6 +31,12 @@ public class ProductRedisRepository{
         return Optional.ofNullable(productDto);
     }
 
+    public Optional<ProductDto> findByName(String name) {
+        String key = KEY_PREFIX + name;
+        ProductDto productDto = productRedisTemplate.opsForValue().get(key);
+        return Optional.ofNullable(productDto);
+    }
+
     public Optional<List<ProductDto>> findAll() {
         Set<String> keys = productKeysRedisTemplate.opsForSet().members(ALL_KEYS_SET);
         if (keys == null || keys.isEmpty()) {
