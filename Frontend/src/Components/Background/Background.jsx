@@ -31,7 +31,7 @@
             videoRef.current.play().catch(() => {});
         }
     };
-        const interval = setInterval(checkVideo, 3000); // every 3 seconds
+        const interval = setInterval(checkVideo, 3000); 
         return () => clearInterval(interval);
         }, []);
 
