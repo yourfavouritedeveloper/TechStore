@@ -489,7 +489,8 @@ background: linear-gradient(135deg,
   }
 
   .sellerExplanation .subtitle {
-    right: 1rem;
+    left: 16vw;
+    margin-left:-4rem;
   }
 
   .popularButton,
@@ -506,8 +507,8 @@ background: linear-gradient(135deg,
   }
 
   .sellerButton {
-    left: 77vw;
-    margin-left:-11rem;
+    left: 75vw;
+    margin-left:-10.6rem;
     top: 16.5rem;
   }
 
