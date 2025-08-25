@@ -1,7 +1,11 @@
+body {
+    overflow-x: hidden; 
+}
+
 
 .container {
     overflow-x: hidden;
-    height: 115rem;
+    height: 180rem;
 }
 
 
@@ -12,8 +16,8 @@
     
     flex: 0 0 calc(20% - 1rem);
     box-sizing: border-box; 
-    padding:25rem 30rem;
-    left:3vw;
+    padding:25rem 20rem;
+    left:13.5rem;
     top:7rem;
     border-radius: 2rem;
     color: black;
@@ -25,14 +29,25 @@
 
 
 
+.amount {
+    position: absolute;
+    font-size: clamp(1rem, 1.5rem, 10rem);  
+    font-family: "PoppinsSemiBold";
+    background-color:#FF4136;
+    color:white;
+    padding: 0.5rem 2rem;
+    border-radius: 1rem;
+    top:2rem;
+    right: 4rem;
 
+}
 
 
 .image {
     width: 50rem;
     position: absolute;
-    left:-1.3rem;
-    top:1.5rem;
+    left:-6rem;
+    top:5rem;
 }
 
 .itemDescription {
@@ -40,7 +55,7 @@
     flex: 0 0 calc(20% - 1rem);
     box-sizing: border-box; 
     padding:25rem 25rem;
-    right:3vw;
+    right:13.5rem;
     top:7rem;
     border-radius: 2rem;
     color: black;
@@ -98,14 +113,12 @@
 
 .price {
     position: absolute;
-    top:20.5rem;    
-    font-size: clamp(1rem, 1.5rem, 10rem);
-    margin-left: 2rem;  
-    color:rgb(0, 0, 0);
-    font-family: "PoppinsRegular";
+    top:29.5rem;       
+    font-size: clamp(1rem, 2.5rem, 10rem);
+    left:0rem; 
+    color: #000000;  
+    font-family: "PoppinsSemiBold";
     padding: 1rem 4rem;
-    background-color: white;  
-    border: 0.15rem solid rgb(68, 68, 68);
     border-radius: 2rem;
 }
 
@@ -271,34 +284,258 @@
     border: 0.15rem solid rgb(245, 245, 245);
 }
 
+.propertiesTitle {
+    position:absolute;
+    z-index: 5;
+    font-size: clamp(1rem, 3rem, 10rem);
+    font-family: "PoppinsSemiBold";
+    top:59rem;
+    left:18.5rem;
+}
+
 
 .properties {
-    width: 111.8rem;
-    box-sizing: border-box; 
-    padding:25rem 25rem;
-    right:3vw;
-    gap: 1rem;
-    top:59rem;
-    border-radius: 2rem;
-    color: black;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    position: absolute;
-      display: flex;
-    overflow: hidden;
-    background-color: rgb(245, 245, 245);    
+  width: 92.2rem;
+  box-sizing: border-box; 
+  padding: 5rem;
+  padding-top: 10rem;
+  right: 13.5rem;
+  gap: 1rem;
+  top: 59rem;
+  border-radius: 2rem;
+  color: black;
+  position: absolute;
+  display: grid; 
+  grid-template-columns: repeat(2, 1fr);
+  overflow: hidden;
+  background-color: rgb(245, 245, 245);    
 }
 
 
 .property {
-  padding: 0.3rem 1.5rem;
+  padding: 1rem 1.5rem;
   font-size: clamp(1rem, 1rem, 2rem);
   cursor: pointer;
-  border: 0.15rem solid rgb(68, 68, 68);
   color: rgb(68, 68, 68);
-  border-radius: 2rem;
+  border-radius: 1rem;
   background-color: white;
   font-family: "PoppinsRegular";
   transition: all 0.3s ease;  
+
+  display: flex;                  
+  justify-content: space-between; 
+  align-items: center;            
 }
 
+.property:hover {
+    transform: scale(1.02);
+}
+
+
+.review {
+  width: 92.2rem;
+  box-sizing: border-box; 
+  padding: 5rem;
+  padding-top: 10rem;
+  right: 13.5rem;
+  gap: 1rem;
+  top: 120.5rem;
+  border-radius: 2rem;
+  color: black;
+  position: absolute;
+  display: grid; 
+  grid-template-columns: repeat(2, 1fr);
+  overflow: hidden;
+  background-color: rgb(245, 245, 245);    
+}
+
+.reviewTitle {
+    position:absolute;
+    z-index: 5;
+    font-size: clamp(1rem, 3rem, 10rem);
+    font-family: "PoppinsSemiBold";
+    top:-0.5rem;
+    left:4.5rem;
+}
+
+.items {
+  display: grid; 
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 1rem;
+  list-style: none; 
+  padding: 0; 
+  margin: 0;
+}
+
+.similar {
+  width: 92.2rem;
+  box-sizing: border-box; 
+  padding: 5rem;
+  padding-top: 10rem;
+  right: 13.5rem;
+  gap: 1rem;
+  top: 137.5rem;
+  border-radius: 2rem;
+  color: black;
+  position: absolute;
+  display: grid; 
+
+  overflow: hidden;
+    background-color: rgb(231, 231, 231);
+}
+
+.similarTitle {
+    position:absolute;
+    z-index: 5;
+    font-size: clamp(1rem, 3rem, 10rem);
+    font-family: "PoppinsSemiBold";
+    top:1rem;
+    left:5rem;
+}
+
+
+.itemContainer {
+    border-radius: 3rem;
+    padding: 0rem 3rem;
+    padding-top: 9rem;
+    width: 65%;
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 18rem;
+    z-index: 0;
+    opacity:1;
+
+}
+
+
+.items {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem; 
+    margin-top:-19rem;
+    padding: 1rem 1rem;
+    padding-top: 20rem;
+    position: relative;
+    justify-content: flex-start; 
+    background-color: rgb(231, 231, 231);
+
+    
+}
+
+
+
+.items span {
+    position: absolute;
+    top:18.5rem;    
+}
+
+.items .guarantee {
+    position: absolute;
+    top:18rem;   
+    left:2rem; 
+    font-size: clamp(0rem, 0.8rem, 2rem);
+
+}
+
+.items .similarItem {
+    
+    flex: 0 0 calc(25% - 1rem);
+    box-sizing: border-box; 
+    padding:10.5rem 1rem;
+    border-radius: 2rem;
+    color: black;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+
+}
+
+
+
+.items h3 {
+    text-align: left;
+    position: absolute;
+    top:1rem;
+    width: 30%;
+    line-height: 1.1;
+    margin-top: 3.5rem;
+    align-items: center;
+    right: 1rem;
+    padding: 0rem 0.4rem;
+    font-size: clamp(1rem, 1.3rem, 2rem);
+}
+
+
+.items .similarItem {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.items .similarItem:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.281);
+}
+
+.items img {
+    position: absolute;
+    left:-1.3rem;
+    top:2rem;
+}
+
+
+
+.items .itemOld {
+    position: absolute;
+    top:17.7rem;    
+    font-size: clamp(1rem, 1.5rem, 2rem);
+    right: 2rem;  
+    color:rgb(0, 0, 0);
+    padding:0.3rem 1rem;
+    border-radius: 1rem;
+}
+
+.items .itemNew {
+    position: absolute;
+    top:16.3rem;    
+    font-size: clamp(1rem, 1.2rem, 2rem);
+    right: 2rem;  
+    color:rgb(68, 67, 67);
+    padding:0.3rem 1rem;
+    border-radius: 1rem;
+}
+
+
+
+
+.itemLine {
+    position: absolute;
+    background-color:rgb(92, 92, 92);
+    height: 0.2rem;
+    top:17.3rem;
+
+}
+
+.itemDiscount {
+    position: absolute;
+    top:16.8rem;       
+    font-size: clamp(1rem, 1.2rem, 10rem);
+    left:6rem; 
+    color: white;
+    background-color: #FF4136;  
+    font-family: "PoppinsSemiBold";
+    padding: 0.1rem 0.7rem;
+    border-radius: 1rem;
+
+}
+
+.itemDiscountedPrice {
+    position: absolute;
+    top:16rem;       
+    font-size: clamp(1rem, 1.5rem, 2rem);
+    left:9rem; 
+    color: #FF4136;
+    font-family: "PoppinsSemiBold";
+    padding: 0.5rem 1.4rem;
+    border-radius: 2rem;
+}

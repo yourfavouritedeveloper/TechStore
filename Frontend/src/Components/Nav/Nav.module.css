@@ -581,7 +581,7 @@ a {
 
 .search {
   z-index: 40;
-  top:0.5rem;
+  top:0.6rem;
   position: absolute;
   left:-9.8rem;
   padding-left:45.4vw;
@@ -718,7 +718,7 @@ a {
 
 .search {
   z-index: 40;
-  top:0rem;
+  top:0.1rem;
   position: absolute;
   left:-5.8rem;
   padding-left:45.4vw;
@@ -850,7 +850,7 @@ a {
 
 .search {
   z-index: 40;
-  top:0rem;
+  top:0.1rem;
   position: absolute;
   left:-3.8rem;
   padding-left:45.4vw;
@@ -988,7 +988,7 @@ a {
 
 .search {
   z-index: 40;
-  top:0.1rem;
+  top:0.2rem;
   position: absolute;
   left:-2.8rem;
   padding-left:45.4vw;
@@ -1133,9 +1133,9 @@ a {
 
 .search {
   z-index: 40;
-  top:2.1rem;
+  top:2.25rem;
   position: absolute;
-  left:11.5rem;
+  left:11.8rem;
   padding-left:35.4vw;
   margin-left:5vw;
   height: 24px;
@@ -1192,10 +1192,11 @@ a {
 
 }
 
-svg{
+.board svg{
     height: 22px;
     width: 18px;
     margin-top: -0.1rem;
+    fill: black;
 }
 
 .menu {
@@ -1374,8 +1375,8 @@ svg{
   position: relative;
   z-index: 40;
 
-  top:0.2rem;
-  left:4.7rem;
+  top:0.3rem;
+  left:4.9rem;
   padding-left: 51vw;
 
   height: 19px;
@@ -1427,10 +1428,11 @@ svg{
 
 }
 
-svg{
+.board svg{
     height: 22px;
     width: 18px;
     margin-top: -0.1rem;
+    fill: black;
 }
 
 .menu {
@@ -1610,8 +1612,8 @@ svg{
   position: relative;
   z-index: 40;
 
-  top:0.2rem;
-  left:4.7rem;
+  top:0.3rem;
+  left:4.9rem;
   padding-left: 51vw;
 
   height: 19px;
@@ -1660,10 +1662,11 @@ svg{
 
 }
 
-svg{
+.board svg{
     height: 22px;
     width: 18px;
     margin-top: -0.15rem;
+    fill: black;
 }
 
 .menu {
@@ -1844,7 +1847,7 @@ svg{
   position: relative;
   z-index: 40;
 
-  top:0.3rem;
+  top:0.4rem;
   left:3.4rem;
   padding-left: 51vw;
 
