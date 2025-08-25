@@ -6,8 +6,9 @@
     position: relative;
     display: flex;
     top:9rem;
-    overflow: hidden;
     transition: all 0.4s ease;
+    overflow: hidden;
+
 }
 
 
@@ -117,7 +118,7 @@ background: linear-gradient(
 }
 
 .campaign2 button {
-    top: -24.5rem; 
+    top: 15rem; 
     left: 2.3rem;  
     font-size: clamp(1.6rem, 5vw, 0.625rem);
     position: absolute;
@@ -199,7 +200,7 @@ background: linear-gradient(
 
 
 .campaign3 button {
-    top:-23.5rem; 
+    top:16rem; 
     left:2rem;  
     font-size: clamp(1.6rem, 5vw, 0.625rem);
     position: absolute;
@@ -354,7 +355,7 @@ background: linear-gradient(
 }
 
 .campaign2 button {
-    top: -16.5rem; 
+    top: 8.5rem; 
     left: 1.2rem;  
     font-size: clamp(1rem, 4vw, 0.425rem);
     position: absolute;
@@ -399,7 +400,7 @@ background: linear-gradient(
 
 
 .campaign3 button {
-    top: -16.4rem; 
+    top: 8.8rem; 
     left: 1.2rem;  
     font-size: clamp(1rem, 4vw, 0.425rem);
     position: absolute;
@@ -505,7 +506,7 @@ background: linear-gradient(
 }
 
 .campaign2 button {
-    top: -12rem; 
+    top: 6.5rem; 
     left: 1.2rem;  
     font-size: clamp(0.8rem, 4vw, 0.425rem);
     position: absolute;
@@ -550,7 +551,7 @@ background: linear-gradient(
 
 
 .campaign3 button {
-    top: -11.2rem; 
+    top: 7.3rem; 
     left: 1rem;  
     font-size: clamp(0.8rem, 4vw, 0.425rem);
     position: absolute;
@@ -655,7 +656,7 @@ background: linear-gradient(
 }
 
 .campaign2 button {
-    top: -12rem; 
+    top: 6.3rem; 
     left: 0.9rem;  
     font-size: clamp(0.8rem, 4vw, 0.425rem);
     position: absolute;
@@ -700,7 +701,7 @@ background: linear-gradient(
 
 
 .campaign3 button {
-    top: -11.8rem; 
+    top: 6.35rem; 
     left: 0.9rem;  
     font-size: clamp(0.8rem, 4vw, 0.425rem);
     position: absolute;
@@ -805,7 +806,7 @@ background: linear-gradient(
 }
 
 .campaign2 button {
-    top: -11.3rem; 
+    top: 5.25rem; 
     left: 0.9rem;  
     font-size: clamp(0.5rem, 4vw, 0.425rem);
     position: absolute;
@@ -850,7 +851,7 @@ background: linear-gradient(
 
 
 .campaign3 button {
-    top: -11.6rem; 
+    top: 4.8rem; 
     left: 0.9rem;  
     font-size: clamp(0.5rem, 4vw, 0.425rem);
     position: absolute;
@@ -955,7 +956,7 @@ background: linear-gradient(
 }
 
 .campaign2 button {
-    top: -15.7rem; 
+    top: 7.7rem; 
     left: 0.9rem;  
     font-size: clamp(1rem, 4vw, 0.425rem);
     position: absolute;
@@ -1000,7 +1001,7 @@ background: linear-gradient(
 
 
 .campaign3 button {
-    top: -15.2rem; 
+    top: 8.3rem; 
     left: 0.9rem;  
     font-size: clamp(1rem, 4vw, 0.425rem);
     position: absolute;
@@ -1101,7 +1102,7 @@ background: linear-gradient(
 }
 
 .campaign2 button {
-    top: -9.7rem; 
+    top: 4.75rem; 
     left: 0.9rem;  
     font-size: clamp(0.6rem, 4vw, 0.425rem);
     position: absolute;
@@ -1146,7 +1147,7 @@ background: linear-gradient(
 
 
 .campaign3 button {
-    top: -9.7rem; 
+    top: 4.8rem; 
     left: 0.9rem;  
     font-size: clamp(0.6rem, 4vw, 0.425rem);
     position: absolute;
@@ -1255,7 +1256,7 @@ background: linear-gradient(
 }
 
 .campaign2 button {
-    top: -9rem; 
+    top: 4.7rem; 
     left: 0.9rem;  
     font-size: clamp(0.5rem, 4vw, 0.425rem);
     position: absolute;
@@ -1301,7 +1302,7 @@ background: linear-gradient(
 
 
 .campaign3 button {
-    top: -9.1rem; 
+    top: 4.5rem; 
     left: 0.2rem; 
     margin-left:3vw; 
     font-size: clamp(0.5rem, 4vw, 0.425rem);
@@ -1404,7 +1405,7 @@ background: linear-gradient(
 }
 
 .campaign2 button {
-    top: -7.6rem; 
+    top: 3.8rem; 
     left: 0.75rem;  
     font-size: clamp(0.2rem, 4vw, 0.425rem);
     position: absolute;
@@ -1450,7 +1451,7 @@ background: linear-gradient(
 
 
 .campaign3 button {
-    top: -7.8rem; 
+    top: 3.6rem; 
     left: -0rem; 
     margin-left:5vw; 
     font-size: clamp(0.2rem, 4vw, 0.425rem);
