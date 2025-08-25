@@ -139,7 +139,10 @@
                     <p className={styles.subtitle}>Don’t miss out on the most talked-about offers! These deals are gaining serious attention — grab yours before they’re gone.</p>
                     <Link className={styles.button} to="/campaign">See Campaign</Link>
                 </motion.div>
-                <video  ref={videoRef} className={styles.video} src={backvideo} autoPlay loop muted playsInline preload="auto"></video>
+                <video className={styles.video} autoPlay loop muted playsInline preload="auto">
+                    <source src={backvideo} type="video/mp4"/>
+                    Your browser does not support the video tag.
+                </video>
                 <motion.div className={styles.module}
                 ref={moduleRef}
                 variants={{
