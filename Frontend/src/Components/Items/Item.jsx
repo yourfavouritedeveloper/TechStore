@@ -59,9 +59,9 @@ function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
                         style={{backgroundColor:"rgb(245, 245, 245)"}}>
                           <p className={styles.searchRate}>Searched {item.searched} times</p>
                           <img  src={item.productImageUrl} alt={item.name} />
-                          <h3>{item.name}</h3>
+                          <p className={styles.name}>{item.name}</p>
                           <p className={styles.guarantee}>{item.guarantee} month</p>
-                          <span><b>₼{item.price}</b></span>
+                          <span>₼{item.price}</span>
                       </Link>
                       ))}
                     </ul>
@@ -79,11 +79,11 @@ function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
                         <Link key={item.name} className={styles.item}
                           to= {"/product/" + item.name}
                         >
-                            <p className={styles.boughtRate}><b>Bought {item.bought} times</b></p>
+                            <p className={styles.boughtRate}>Bought {item.bought} times</p>
                             <img  src={item.productImageUrl} alt={item.name}/>
-                            <h3>{item.name}</h3>
+                            <p className={styles.name}>{item.name}</p>
                             <p className={styles.guarantee}>{item.guarantee} month</p>
-                            <span><b>₼{item.price}</b></span>
+                            <span>₼{item.price}</span>
                         </Link>
                         ))}                
                       </ul>

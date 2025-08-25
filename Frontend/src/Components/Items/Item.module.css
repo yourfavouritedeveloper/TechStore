@@ -202,7 +202,7 @@ background: linear-gradient(135deg,
     color:rgb(16, 82, 16);
 }
 
-.itemsPopular h3 {
+.itemsPopular .name {
     text-align: left;
     position: absolute;
     top:1rem;
@@ -370,7 +370,7 @@ background: linear-gradient(135deg,
     color:rgb(16, 82, 16);
 }
 
-.itemsBought h3 {
+.itemsBought .name {
     text-align: left;
     position: absolute;
     top:1rem;
@@ -548,15 +548,17 @@ background: linear-gradient(135deg,
     left: 35.5vw;
     font-size: clamp(0rem, 0.65rem, 2rem);
     color: rgb(0, 0, 0);
+    font-family: "PoppinsSemiBold";
   }
 
-  .itemsPopular h3,
-  .itemsBought h3 {
+  .itemsPopular .name,
+  .itemsBought .name {
     top: 3.4rem;
-    width: 95%;
-    left: -6.7rem;
+    width: 96%;
+    font-family: "PoppinsMedium";
+    left: -7.1rem;
     padding: 0rem 0.4rem;
-    font-size: clamp(0.1rem, 0.5rem, 2rem);
+    font-size: clamp(0.1rem, 0.55rem, 2rem);
   }
 
   .item img {
@@ -592,7 +594,7 @@ background: linear-gradient(135deg,
   .itemsBought .boughtRate {
     top: 7.5rem;
     margin-left:-3.3rem;
-    left: 10.2vw;
+    left: 9vw;
     font-size: clamp(0.1rem, 0.6rem, 2rem);
     color: white;
     text-align: left;
@@ -674,13 +676,16 @@ background: linear-gradient(135deg,
 
   .itemsPopular span,
   .itemsBought span {
-    top: 6.9rem; 
-    font-size: clamp(0rem, 0.6rem, 2rem); 
+    top: 7.1rem; 
+    margin-left:-4rem;
+    left:38vw;
+    font-size: clamp(0rem, 0.55rem, 2rem); 
   }
 
-  .itemsPopular h3,
-  .itemsBought h3 {
+  .itemsPopular .name,
+  .itemsBought .name {
     top: 2.3rem; 
+    width: 90%;
     left: -7.1rem; 
     font-size: clamp(0.1rem, 0.45rem, 2rem);
   }
@@ -693,7 +698,7 @@ background: linear-gradient(135deg,
 
   .itemsPopular .guarantee,
   .itemsBought .guarantee {
-    top: 5.23rem; 
+    top: 5.43rem; 
     font-size: clamp(0rem, 0.5rem, 2rem); 
   }
 }
