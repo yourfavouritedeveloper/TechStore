@@ -25,6 +25,16 @@
     };
     }, []);
 
+    useEffect(() => {
+      const checkVideo = () => {
+        if (videoRef.current && videoRef.current.paused) {
+            videoRef.current.play().catch(() => {});
+        }
+    };
+        const interval = setInterval(checkVideo, 3000); // every 3 seconds
+        return () => clearInterval(interval);
+        }, []);
+
 
 
     const boxRef = useRef(null);
