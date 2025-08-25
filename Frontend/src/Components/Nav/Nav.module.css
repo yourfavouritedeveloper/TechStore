@@ -1361,7 +1361,7 @@ a {
 .inputBar input {
 
   font-size: 0.6rem;
-  top:-1.03rem;
+  top:-1.15rem;
 
   margin-left: 0.6rem;
   left:56vw;
@@ -1375,7 +1375,7 @@ a {
   position: relative;
   z-index: 40;
 
-  top:0.3rem;
+  top:0.2rem;
   left:4.9rem;
   padding-left: 51vw;
 
@@ -1598,7 +1598,7 @@ a {
 .inputBar input {
 
   font-size: 0.6rem;
-  top:-1.03rem;
+  top:-1.15rem;
 
   margin-left: 0.6rem;
   left:56vw;
@@ -1612,7 +1612,7 @@ a {
   position: relative;
   z-index: 40;
 
-  top:0.3rem;
+  top:0.2rem;
   left:4.9rem;
   padding-left: 51vw;
 
@@ -1833,7 +1833,7 @@ a {
 .inputBar input {
 
   font-size: 0.5rem;
-  top:-0.95rem;
+  top:-1.1rem;
 
   margin-left: 0.35rem;
   left:56vw;
@@ -1847,8 +1847,8 @@ a {
   position: relative;
   z-index: 40;
 
-  top:0.4rem;
-  left:3.4rem;
+  top:0.3rem;
+  left:3.55rem;
   padding-left: 51vw;
 
   height: 18px;
