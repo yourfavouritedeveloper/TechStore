@@ -6,10 +6,9 @@
   position: relative;
   z-index: 1;
 
-
-
-
 }
+
+
 body {
     overflow-y: hidden;
 }
@@ -84,20 +83,7 @@ body {
   width:30%;
 }
 
-@media (min-width: 600px) {
-  .content {
-    flex-direction: row;
-    align-items: center;
-  }
 
-  .right {
-    text-align: right;
-  }
-
-  .contacts {
-    align-items: flex-end;
-  }
-}
 
 
 
@@ -112,6 +98,66 @@ body {
 
 @media (max-width: 576px) {}
 
-@media (max-width: 	480px) {}
+@media (max-width: 	480px) {
 
-@media (max-width: 	360px) {}
+.footer {
+  padding: 0.2rem 5rem;
+  height: 4rem;
+}
+
+
+.left {
+  margin-top: 0.1rem;
+  margin-left: 100%;
+  font-size: 0.45rem;
+  white-space: nowrap;
+}
+
+.right {
+  top:-1.45rem;
+  margin-right:-24rem;
+  right:45vw;
+
+
+}
+
+.right p {
+  font-size: 0.45rem;
+}
+
+
+.contacts {
+  gap: 0rem;
+  top:-1rem;
+  margin-top: 0.3rem;
+  font-size: 0.5rem;
+}
+
+
+
+.mail {
+  top:0.6rem;
+  right: 8.1rem;  
+}
+
+ .number {
+  right: 10.1rem;
+  top:0.6rem;
+ }
+
+ .footer img {
+  top:1.2rem;
+  z-index: 0;
+  margin-left:-12.5rem;
+  left:100vw;
+  position: absolute;  
+  width:15rem;
+}
+
+
+
+
+}
+
+
+
