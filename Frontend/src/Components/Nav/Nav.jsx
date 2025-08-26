@@ -10,6 +10,7 @@ import { AuthContext } from "../AuthContext";
 function Nav({ highlight ,shiftUp, setShiftUp }) {
  const [is599, setIs599] = useState(window.innerWidth === 599);
  const [menuOpen, setMenuOpen] = useState(false);
+ const [accountMenu, setAccountMenu] = useState(false)
  const { account, logout } = useContext(AuthContext);
  const [logAccount, setLogAccount] = useState();
  const [searchTerm, setSearchTerm] = useState("");
@@ -105,7 +106,20 @@ const handleSignOut = () => {
                             <Link id={styles.campaign} className={highlight ? styles.highlight : ""} to="/campaign">Campaign</Link>
                             <Link id={styles.about} className={highlight ? styles.highlight : ""} to="/about">About</Link>
                             <Link id={styles.contact} className={highlight ? styles.highlight : ""} to="/contact">Contact</Link>
-                            <Link id={styles.login} className={highlight ? styles.highlight : ""} to="/login">Account</Link> 
+                            <Link id={styles.login} className={highlight ? styles.highlight : ""} onClick={() => setAccountMenu(prev => !prev)}>Account
+                              <AnimatePresence>
+                              {accountMenu && (
+                                <motion.div
+                                  className={styles.loginSection}
+                                  initial={{ x: "30rem", opacity: 0 }} 
+                                  animate={{ x: 0, opacity: 1 }}       
+                                  exit={{ x: "80rem"}}    
+                                  transition={{ duration: 0.3}}
+                                >
+                                  {account ? logged : guest}
+                                </motion.div>) }
+                              </AnimatePresence>
+                            </Link> 
                         </div>  
                         )}
                 </div>

@@ -122,7 +122,7 @@ html,body {
 
 .loginSection {
     transform: translateX(25rem);   
-    z-index: 1;
+    z-index: 10;
     position: absolute;
     top: -55%; 
     left:-1rem;
@@ -442,6 +442,7 @@ a {
 
 .inputBar input {
   flex: 1;
+  z-index: 0;
   outline: none;
   font-size: 1rem;
   top:-0.1rem;
@@ -453,7 +454,7 @@ a {
 }
 
 .search {
-  z-index: 40;
+  z-index: 1;
   top:0.3rem;
   margin-top:0.2vw;
   position:absolute;
@@ -1610,7 +1611,7 @@ a {
 
 .search {
   position: relative;
-  z-index: 40;
+  z-index: 0;
 
   top:0.2rem;
   left:4.9rem;
@@ -1620,6 +1621,58 @@ a {
   width: 19px;
   margin-top:-0.3vw;      
 }
+
+
+
+.loginSection {
+    top: -8rem; 
+    left:9.5rem;
+    width: 55vw;
+    overflow: hidden;
+}
+
+.logName {
+    top:1vw;
+    margin-left:-2.3rem;
+    left:5vw;
+    width:57vw;
+    padding: 0.7rem;   
+}
+
+
+.title {
+    width: 95%;
+    left:0.3rem;
+    font-size: clamp(0rem, 1rem, 2rem);
+    top:13.7rem;
+}
+
+.subtitle {
+    top:15rem;
+    width: 95%;
+    font-size: clamp(0.3rem, 0.8rem, 2.5rem);
+    left:0.3rem;
+
+}
+
+.signup {
+    top:22.5rem;
+    margin-left:-3.5rem;
+    left:17vw;
+    padding: 0.3rem clamp(0.1rem, 17.5vw, 9rem);
+    font-size: clamp(0.3rem, 0.9rem, 2.5rem);
+
+}
+
+
+.log {
+    top:24.8rem;
+    margin-left:-3.5rem;
+    left:17vw;
+    padding: 0.3rem clamp(0.1rem, 19vw, 9rem);
+    font-size: clamp(0.3rem, 0.9rem, 2.5rem);
+}
+
 
 
 
@@ -1845,7 +1898,7 @@ a {
 
 .search {
   position: relative;
-  z-index: 40;
+  z-index: 0;
 
   top:0.3rem;
   left:3.55rem;
@@ -1855,5 +1908,56 @@ a {
   width: 18px;
   margin-top:-1vw;      
 }
+
+.loginSection {
+    top: -8rem; 
+    left:9.5rem;
+    width: 55vw;
+    overflow: hidden;
+}
+
+.logName {
+    top:1vw;
+    margin-left:-3.4rem;
+    left:13vw;
+    width:47vw;
+    padding: 0.7rem ;   
+}
+
+
+.title {
+    width: 80%;
+    left:0.3rem;
+    font-size: clamp(0rem, 0.8rem, 2rem);
+    top:14rem;
+}
+
+.subtitle {
+    top:15rem;
+    width: 70%;
+    font-size: clamp(0.3rem, 0.6rem, 2.5rem);
+    left:0.3rem;
+
+}
+
+.signup {
+    top:21.5rem;
+    margin-left:-3rem;
+    left:17vw;
+    padding: 0.3rem clamp(0.1rem, 14vw, 9rem);
+    font-size: clamp(0.3rem, 0.7rem, 2.5rem);
+
+}
+
+
+.log {
+    top:23.5rem;
+    margin-left:-3rem;
+    left:17vw;
+    padding: 0.3rem clamp(0.1rem, 15.5vw, 9rem);
+    font-size: clamp(0.3rem, 0.7rem, 2.5rem);
+}
+
+
 
 }
