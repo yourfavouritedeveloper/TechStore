@@ -470,6 +470,12 @@ color: #f0f4f8;
     cursor: pointer;
 }
 
+.toggleBtn1 svg {
+    fill: black;
+    height: 24px;
+    width: 24px;
+}
+
 
 
 .toggleBtn2 {
@@ -481,6 +487,13 @@ color: #f0f4f8;
     z-index: 10;
     cursor: pointer;
 }
+
+.toggleBtn2 svg {
+    fill: black;
+    height: 24px;
+    width: 24px;
+}
+
 
 
 .box2 .subtitle {
@@ -790,6 +803,267 @@ color: #f0f4f8;
 
 
 } 
+
+
+.box2 {
+    height: 30rem;
+    width: 90%;
+    top:40rem;
+    border-radius: 3rem;
+    left:5%;
+}
+
+.box2 .title {
+    left:1rem;
+    top:0.5rem;
+    width: 15rem;
+    line-height: 1;
+    font-size: clamp(1rem, 1.7rem, 8rem);
+}
+
+
+.box2 .username {
+    left:1.3rem;
+    width: 32.5vw;
+    top:9.4rem;
+    padding: 0.3rem 0rem;
+    border-radius: 0.6rem;
+    font-size: clamp(0.2rem, 0.5rem, 2.5rem);     
+    padding-left: 1rem;
+    
+}
+
+
+.box2 .email {
+    left:47.5vw;
+    width: 32.5vw;
+    top:9.4rem;
+    padding: 0.3rem 0rem;
+    border-radius: 0.6rem;
+    font-size: clamp(0.2rem, 0.5rem, 2.5rem);     
+    padding-left: 1rem;
+    
+}
+
+
+
+.box2 .password {
+    left:1.3rem;
+    width: 74.7vw;
+    top:12.4rem;
+    padding: 0.3rem 0rem;
+    border-radius: 0.6rem;
+    font-size: clamp(0.2rem, 0.5rem, 2.5rem);     
+    padding-left: 1rem;   
+}
+
+
+.box2 .passwordAgain {
+    left:1.3rem;
+    width: 74.7vw;
+    top:15.4rem;
+    padding: 0.3rem 0rem;
+    border-radius: 0.6rem;
+    font-size: clamp(0.2rem, 0.5rem, 2.5rem);     
+    padding-left: 1rem;
+}
+
+.box2 .firstName {
+    left:1.3rem;
+    width: 32.5vw;
+    top:6.4rem;
+    padding: 0.3rem 0rem;
+    border-radius: 0.6rem;
+    font-size: clamp(0.2rem, 0.5rem, 2.5rem);     
+    padding-left: 1rem;
+}
+
+.box2 .lastName {
+    left:47.5vw;
+    width: 32.5vw;
+    top:6.4rem;
+    padding: 0.3rem 0rem;
+    border-radius: 0.6rem;
+    font-size: clamp(0.2rem, 0.5rem, 2.5rem);     
+    padding-left: 1rem;
+}
+
+.box2 .labelFirstName {
+    left:1.5rem;
+    top:7rem;
+    font-size: clamp(0.2rem, 0.5rem, 2.5rem);     
+}
+
+.box2 .labelLastName {
+    left:48.5vw;
+    top:7rem;
+    font-size: clamp(0.2rem, 0.5rem, 2.5rem);     
+}
+
+
+
+.box2 .labelUsername {
+    left:1.5rem;
+    top:10rem;
+    font-size: clamp(0.2rem, 0.5rem, 2.5rem);    
+}
+
+.box2 .labelEmail{
+    left:48.5vw;
+    top:10rem;
+    font-size: clamp(0.2rem, 0.5rem, 2.5rem);     
+}
+
+.box2 .labelPassword {
+    left:1.5rem;
+    top:13rem;
+    font-size: clamp(0.2rem, 0.5rem, 2.5rem);       
+}
+
+
+.box2 .labelPasswordAgain{
+    left:1.5rem;
+    top:16rem;
+    font-size: clamp(0.2rem, 0.5rem, 2.5rem);      
+}
+
+.toggleBtn1 {
+    top:13.9rem;
+    left:76vw;
+}
+
+.toggleBtn1 svg {
+    fill: black;
+    height: 14px;
+    width: 14px;
+}
+
+
+
+.toggleBtn2 {
+    top:16.9rem;
+    left:76vw;
+}
+
+.toggleBtn2 svg {
+    fill: black;
+    height: 14px;
+    width: 14px;
+}
+
+
+
+.box2 .subtitle {
+    bottom:9rem;
+    margin-left:-6.6rem;
+    left:50vw;
+
+}
+
+.box2 .subsubtitle {
+    top:21.5rem;
+    left:1.5rem; 
+    width: 90%; 
+    font-size: clamp(0.2rem, 0.8rem, 2.5rem);     
+}
+
+.box2 .signnow {
+    bottom:9.5rem;
+    margin-left:0.2rem;
+    left:50vw;
+}
+
+
+.box2 .logo {
+    width: 21.5rem; 
+    height: 100%; 
+    left:2rem;
+    bottom: -9.5rem;
+
+
+
+}  
+
+.layer {
+    width: 100%; 
+    height: 100%;
+    left:0rem;
+    top:0rem;
+
+}
+
+.box2 .logo img {
+
+    z-index: -1;
+    width: 150%;
+    height: 120%; 
+    left:-19rem;
+
+}
+
+
+.box2 .submit {
+    bottom:2rem;
+    margin-left: 1rem;
+    left:20vw;
+    width: 38vw;
+    font-size: clamp(0.2rem, 0.8rem, 2.5rem);  
+    padding: 0.3rem 1rem;
+    border-radius: 0.6rem;
+
+}
+
+.box2 .submit:hover {
+    transform:scale(1.03);
+    background-color: #2962FF;
+    color:white;
+}
+
+.box2 .errorMsg {
+    position: absolute;
+    z-index: 20;
+    top:-6.4rem;
+    left:23rem;
+    width: 28.3rem;
+    background: radial-gradient(
+    circle,
+    rgb(180, 39, 39) 0%,     
+    rgb(220, 50, 50) 60%,    
+     rgba(255, 100, 100, 0.3) 100%  
+    );
+    color:white;
+    font-size: clamp(0.2rem, 1.3vw, 2.5rem);  
+    padding: 0.7rem 1rem;
+    border:none;
+    font-family: "PoppinsLight";
+    border-radius: 1.1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+}
+
+.box2 .safeMsg {
+    position: absolute;
+    z-index: 20;
+    top:-6.4rem;
+    left:23rem;
+    width: 28.3rem;
+    background: radial-gradient(
+    circle,
+     rgb(29, 77, 29) 0%,               
+     rgb(50, 120, 50) 70%,               
+     rgba(200, 255, 200, 0.1) 100%       
+    );
+    color:white;
+    font-size: clamp(0.2rem, 1.5vw, 2.5rem);  
+    padding: 0.5rem 1rem;
+    border:none;
+    font-family: "PoppinsLight";
+    border-radius: 1.1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+}
 
 
 }
