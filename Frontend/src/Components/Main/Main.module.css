@@ -305,7 +305,7 @@ filter: blur(20px);
       
 }
 
-.brandnewdiv h2 {
+.brandnewdiv .title {
     font-size: clamp(1rem, 5vw, 10rem);
     width: 70%;
     margin:0;
@@ -318,7 +318,7 @@ filter: blur(20px);
 }
 
 
-.brandnewdiv p {
+.brandnewdiv .subtitle {
     font-size: clamp(2rem, 1vw, 2rem);
     width: 70%;
     margin:0;
@@ -370,4 +370,273 @@ filter: blur(20px);
     top:6rem;
     right:6.25rem;
 
+}
+
+
+@media (max-width: 1440px) {}
+
+@media (max-width: 1200px) {}
+
+@media (max-width: 992px) {}
+
+@media (max-width: 768px) {}
+
+@media (max-width: 576px) {}
+
+@media (max-width: 	480px) {
+  .type {
+    height: 60rem;
+  }
+
+  .storePicks,
+  .communityMarket {
+    width: 80%;
+    left: 10%;
+    top: 1rem;
+    height: 23rem;
+  }
+
+  .communityMarket:hover,
+  .storePicks:hover {
+    width: 80%;
+    left: 10%;
+    top: 1rem;
+  }
+
+  .typebox {
+    width: 80%;
+    top: 22.9rem;
+    height: 40rem;
+    left: 10%;
+  }
+
+  .line {
+    display: none;
+  }
+
+  .circle1,
+  .circle2 {
+    height: 40rem;
+    width: 50rem;
+  }
+
+  .circle1 {
+    left: -40rem;
+    top: -5rem;
+  }
+
+  .circle2 {
+    top: 15rem;
+    right: -40rem;
+  }
+
+  .choose {
+    font-size: clamp(1rem, 1.9rem, 10rem);
+    line-height: 0.9;
+    top: 1rem;
+    left: 10%;
+    width: 80%;
+  }
+
+  .titleStore,
+  .titleCommunity {
+    font-size: clamp(1rem, 1.9rem, 10rem);
+    line-height: 0.9;
+    padding: 0.5rem;
+    position: relative;
+    top: 1rem;
+    text-align: left;
+    left: 10%;
+    width: 75%;
+  }
+
+  .titleStoreSUB,
+  .titleCommunitySUB {
+    font-size: clamp(0rem, 0.9rem, 10rem);
+    top: 0.5rem;
+    left: 11%;
+  }
+
+  .storeShop,
+  .communityShop {
+    font-size: clamp(1rem, 1.3rem, 10rem);
+    padding: 0.5rem 2rem;
+    top: 1.5rem;
+  }
+
+    .communityShop {
+        top:0.8rem;
+    }
+
+
+  .storePicks:hover .titleStore,
+  .communityMarket:hover .titleCommunity {
+    top: 1rem;
+    left: 8%;
+    padding: 0.7rem;
+    font-size: clamp(1rem, 2.1rem, 10rem);
+    width: 75%;
+  }
+
+  .storePicks:hover .titleStoreSUB,
+  .communityMarket:hover .titleCommunitySUB {
+    left: 9.7%;
+    padding: 0.4rem;
+    top: 0rem;
+    width: 75%;
+    font-size: clamp(0rem, 0.7rem, 10rem);
+  }
+
+  .storePicks:hover .storeShop,
+  .communityMarket:hover .communityShop {
+    left: 0rem;
+    top: 1rem;
+    padding: 0.6rem 1.3rem;
+    font-size: clamp(1rem, 1.6rem, 10rem);
+  }
+
+  .brandnewdiv {
+    padding: 5rem 0rem 8rem;
+    overflow: hidden;
+  }
+
+  .brandnewdiv .title {
+    font-size: clamp(1rem, 1.8rem, 10rem);
+    width: 100%;
+    top: -1rem;
+    line-height: 1;
+    left: 5%;
+  }
+
+  .brandnewdiv .subtitle {
+    font-size: clamp(0rem, 1.2rem, 2rem);
+    width: 85%;
+    top: -0.5rem;
+    left: 5%;
+  }
+
+  .brandnewdiv input {
+    width: 80%;
+    padding: 0.6rem 1rem;
+    padding-left: 1.5rem;
+    top: -1.4rem;
+    border-radius: 0.7rem;
+    left: 0rem;
+    font-size: clamp(0rem, 0.8rem, 2.5rem);
+  }
+
+  .search {
+    font-size: clamp(0rem, 1.1rem, 2.5rem);
+    padding: 0.5rem 1rem;
+    top: 15.5rem;
+    left: 49vw;
+    margin-left: -5rem;
+    font-family: "PoppinsLight";
+    border-radius: 0.7rem;
+  }
+
+  .brandnewdiv img {
+    width: 160%;
+    top: 1rem;
+    opacity: 0.2;
+    right: -17rem;
+    z-index: 1;
+  }
+
+}
+
+
+@media (max-width: 360px) {
+  .type {
+    height: 55rem;
+  }
+
+  .storePicks,
+  .communityMarket {
+    height: 20rem;
+  }
+
+  .communityMarket:hover,
+  .storePicks:hover {
+    height: 20rem;
+  }
+
+  .circle1 {
+    left: -45rem;
+  }
+
+  .circle2 {
+    top: 10rem;
+    right: -45rem;
+  }
+
+  .choose {
+    font-size: clamp(1rem, 1.7rem, 10rem);
+    left: 5%;
+    width: 90%;
+  }
+
+  .titleStore,
+  .titleCommunity {
+    font-size: clamp(1rem, 1.7rem, 10rem);
+    left: 10%;
+    width: 70%;
+  }
+
+  .titleStoreSUB,
+  .titleCommunitySUB {
+    font-size: clamp(0rem, 0.7rem, 10rem);
+  }
+
+  .storeShop,
+  .communityShop {
+    font-size: clamp(1rem, 1rem, 10rem);
+    top: 2rem;
+  }
+
+  .communityShop {
+    top: 1.5rem;
+  }
+
+  .storePicks:hover .titleStore,
+  .communityMarket:hover .titleCommunity {
+    font-size: clamp(1rem, 1.8rem, 10rem);
+    width: 74%;
+  }
+
+  .storePicks:hover .titleStoreSUB,
+  .communityMarket:hover .titleCommunitySUB {
+    left: 9.5%;
+    font-size: clamp(0rem, 0.6rem, 10rem);
+    width: 74%;
+  }
+
+  .storePicks:hover .storeShop,
+  .communityMarket:hover .communityShop {
+    font-size: clamp(1rem, 1.4rem, 10rem);
+  }
+
+  .brandnewdiv .title {
+    font-size: clamp(1rem, 1.5rem, 10rem);
+  }
+
+  .brandnewdiv .subtitle {
+    font-size: clamp(0rem, 1rem, 2rem);
+  }
+
+  .brandnewdiv input {
+    padding: 0.5rem 0rem 0.5rem 1rem;
+    top: -1rem;
+    font-size: clamp(0rem, 0.6rem, 2.5rem);
+  }
+
+  .search {
+    font-size: clamp(0rem, 0.8rem, 2.5rem);
+    top: 14rem;
+    margin-left: -4rem;
+  }
+
+  .brandnewdiv img {
+    width: 180%;
+  }
 }

@@ -147,8 +147,8 @@ const circleRef1 = useRef(null);
                   </motion.div>
                   </div>  
                     <div className={styles.brandnewdiv}>
-                        <h2>Looking for something specific?</h2>
-                        <p>Our smart search helps you find exactly what you need in seconds.</p>
+                        <p className={styles.title}>Looking for something specific?</p>
+                        <p className={styles.subtitle}>Our smart search helps you find exactly what you need in seconds.</p>
                       <form
                         onSubmit={(e) => {
                         e.preventDefault();
