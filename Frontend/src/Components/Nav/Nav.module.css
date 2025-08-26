@@ -1628,6 +1628,7 @@ a {
     top: -8rem; 
     left:9.5rem;
     width: 55vw;
+    height: 145vh;
     overflow: hidden;
 }
 
@@ -1670,6 +1671,90 @@ a {
     margin-left:-3.5rem;
     left:17vw;
     padding: 0.3rem clamp(0.1rem, 19vw, 9rem);
+    font-size: clamp(0.3rem, 0.9rem, 2.5rem);
+}
+
+
+.pp {
+    width: 70%;
+    top:8rem;
+    margin-left:-2.1rem;
+    left:16vw;
+}
+
+.fullname {
+    top:68vw;
+    margin-left:-7.75rem;
+    left:28vw;
+    width: 15.1rem;  
+    font-size: clamp(0rem, 5vw, 2rem);
+    
+}
+
+.username {
+    top:76vw;
+    font-size: clamp(0.8rem, 3.2vw, 5rem);
+    margin-left:-6.7rem;
+    left:28vw; 
+}
+
+
+.balance {
+    top:83vw;
+    width: 30.5vw;
+    white-space: nowrap;
+    padding:0.4rem 1rem;
+    border-radius: 2rem;
+    font-size: clamp(0.8rem, 3.5vw, 5rem);
+    margin-left:-2.2rem;
+    left:17vw;     
+}
+
+.purchaseHistory {
+    height: 7rem;
+    top:100vw;
+    width: 43vw;
+    margin-left:-1.6rem;
+    left:12vw;   
+    border-radius: 1rem;
+
+}
+
+.purchaseText {
+    top:0.8rem;
+    font-size: clamp(0.3rem, 3vw, 2.5rem);
+    left:3vw; 
+ 
+
+}
+
+.purchaseButton{
+    top:4.5rem;
+    left:1.5vw;
+    padding:0.3rem 0.5rem;
+    font-size: clamp(0.3rem, 3vw, 2.5rem);
+    border-radius: 2rem;
+  
+}
+
+
+
+.edit {
+    top:138vw;
+    margin-left:-1.5rem;
+    left:10vw;
+    width: 20vw;
+    padding: 0.3rem clamp(0.1rem, 13vw, 9rem);
+    font-size: clamp(0.3rem, 0.9rem, 2.5rem);
+}
+
+
+.signout {
+    top:149vw;
+    margin-left:-1.5rem;
+    left:10vw;
+    width: 20vw;
+    padding: 0.3rem clamp(0.1rem, 13vw, 9rem);
     font-size: clamp(0.3rem, 0.9rem, 2.5rem);
 }
 
@@ -1913,13 +1998,14 @@ a {
     top: -8rem; 
     left:9.5rem;
     width: 55vw;
+    height: 125vh;
     overflow: hidden;
 }
 
 .logName {
     top:1vw;
-    margin-left:-3.4rem;
-    left:13vw;
+    margin-left:-2.3rem;
+    left:7vw;
     width:47vw;
     padding: 0.7rem ;   
 }
@@ -1957,6 +2043,91 @@ a {
     padding: 0.3rem clamp(0.1rem, 15.5vw, 9rem);
     font-size: clamp(0.3rem, 0.7rem, 2.5rem);
 }
+
+
+.pp {
+    width: 60%;
+    top:8.5rem;
+    margin-left:-2rem;
+    left:16vw;
+}
+
+.fullname {
+    top:75vw;
+    margin-left:-8.65rem;
+    left:28vw;
+    width: 15.1rem;  
+    font-size: clamp(0rem, 4vw, 2rem);
+    
+}
+
+.username {
+    top:82vw;
+    font-size: clamp(0.8em, 1.1vw, 2rem);
+    margin-left:-7.5rem;
+    left:28vw; 
+}
+
+
+.balance {
+    top:90vw;
+    width: 26vw;
+    white-space: nowrap;
+    padding:0.4rem 1rem;
+    border-radius: 2rem;
+    font-size: clamp(0.8em, 1.1vw, 2rem);
+    margin-left:-2.5rem;
+    left:17vw;     
+}
+
+.purchaseHistory {
+    height: 7rem;
+    top:105vw;
+    width: 37vw;
+    margin-left:-1.6rem;
+    left:12vw;   
+    border-radius: 1rem;
+
+}
+
+.purchaseText {
+    top:0.8rem;
+    font-size: clamp(0.3rem, 3vw, 2.5rem);
+    left:3vw; 
+ 
+
+}
+
+.purchaseButton{
+    top:4rem;
+    left:1.5vw;
+    padding:0.3rem 0.5rem;
+    font-size: clamp(0.3rem, 3vw, 2.5rem);
+    border-radius: 2rem;
+  
+}
+
+
+
+.edit {
+    top:145vw;
+    margin-left:-1.5rem;
+    left:10vw;
+    width: 20vw;
+    padding: 0.3rem clamp(0.1rem, 10vw, 9rem);
+    font-size: clamp(0.3rem, 0.7rem, 2.5rem);
+}
+
+
+.signout {
+    top:156vw;
+    margin-left:-1.5rem;
+    left:10vw;
+    width: 20vw;
+    padding: 0.3rem clamp(0.1rem, 10vw, 9rem);
+    font-size: clamp(0.3rem, 0.7rem, 2.5rem);   
+}
+
 
 
 
