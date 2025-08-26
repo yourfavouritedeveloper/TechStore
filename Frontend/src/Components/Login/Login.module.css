@@ -185,6 +185,13 @@ background: radial-gradient(
     left:32rem;
     z-index: 10;
     cursor: pointer;
+
+}
+
+.toggleBtn svg {
+    height: 24px;
+    width: 24px;
+    fill: black;
 }
 
 .subtitle {
@@ -605,5 +612,175 @@ color: #f0f4f8;
     border-radius: 1.1rem;
     transition: all 0.3s ease;
     cursor: pointer;
+
+}
+
+
+@media (max-width: 1440px) {}
+
+@media (max-width: 1200px) {}
+
+@media (max-width: 992px) {}
+
+@media (max-width: 768px) {}
+
+@media (max-width: 576px) {}
+
+@media (max-width: 	480px) {
+.container {
+    height: 178.4vh;
+    
+
+}
+
+
+.circle1, .circle2 {
+    height: 40rem;
+    width: 40rem;
+}
+
+.circle1 {
+    left: -10rem;
+    top:-25rem;
+}
+
+.circle2 {
+    top:20rem;
+    left: -10rem;
+}
+
+.box {
+    height: 20rem;
+    width: 90%;
+    top:13rem;
+    border-radius: 3rem;
+    left:5%;
+}
+
+
+
+
+.box .title {
+
+    left:1rem;
+    top:0.5rem;
+    width: 15rem;
+    line-height: 1;
+    font-size: clamp(1rem, 1.7rem, 8rem);
+
+}
+
+
+
+
+.box .labelUsername {
+    left:1.5rem;
+    top:7rem;
+    font-size: clamp(0.2rem, 0.5rem, 2.5rem);    
+}
+
+.box .labelPassword {
+    left:1.5rem;
+    top:10rem;
+    font-size: clamp(0.2rem, 0.5rem, 2.5rem);     
+}
+
+.box .username {
+    left:1.3rem;
+    width: 69.5vw;
+    top:6.4rem;
+    padding: 0.3rem 0rem;
+    border-radius: 0.6rem;
+    font-size: clamp(0.2rem, 0.6rem, 2.5rem);     
+    padding-left: 1rem;
+
+}
+
+.box .password {
+    left:1.3rem;
+    width: 69.5vw;
+    top:9.4rem;
+    padding: 0.3rem 0rem;
+    border-radius: 0.6rem;
+    font-size: clamp(0.2rem, 0.6rem, 2.5rem);     
+    padding-left: 1rem; 
+}
+
+.box .submit {
+    bottom:4rem;
+    left:1.3rem;
+    width: 74.5vw;
+    font-size: clamp(0.2rem, 0.8rem, 2.5rem);  
+    padding: 0.3rem 1rem;
+    border-radius: 0.6rem;
+
+
+}
+
+
+
+.forgot {
+    top:12.7rem;
+    left:1.5rem;
+    font-size: clamp(0.2rem, 0.5rem, 2.5rem);    
+}
+
+
+.toggleBtn {
+    top:11rem;
+    left:71vw;
+
+}
+
+.toggleBtn svg {
+    height: 14px;
+    width: 14px;
+}
+
+.subtitle {
+    bottom:1.7rem;
+    left:1.7rem;  
+    font-size: clamp(0.2rem, 0.5rem, 2.5rem);    
+
+}
+
+.signnow {
+    position: absolute;
+    bottom:2.2rem;
+    font-size: clamp(0.2rem, 0.5rem, 2.5rem);    
+    left:8.7rem;  
+}
+
+
+
+.box .errorMsg {
+
+    top:-6rem;
+    left:14%;
+    width: 60%;
+    font-size: clamp(0.2rem, 0.6rem, 2.5rem);  
+    padding: 0.4rem 1rem;
+    white-space: nowrap;
+    border-radius: 0.7rem;
+
+
+}
+
+.box .safeMsg {
+    bottom:3.2rem;
+    left:1.28rem;
+    width: 74.5vw;
+    font-size: clamp(0.2rem, 0.8rem, 2.5rem);  
+    padding: 0.3rem 0rem;
+    border-radius: 0.6rem;
+
+}
+
+.box .logo {
+    display: none;
+
+
+} 
+
 
 }

@@ -24,16 +24,17 @@ body {
 }
 
 .left {
-  margin-top: 1rem;
-  margin-left: 71rem;
+  margin-top: 2rem;
+  margin-left: 51rem;
   font-size: 0.8rem;
 }
 
 .right {
   text-align: center;
   position: relative;
-  top:0.7rem;
-  right:44rem;
+  top:-3.8rem;
+  margin-right:-114rem;
+  right:50rem;
 
 
 }
@@ -62,12 +63,12 @@ body {
 
 .mail {
   position: relative;
-  right: 2.1rem;  
+  right: 6.5rem;  
 }
 
  .number {
   position: relative;
-  right: 8.7rem;
+  right: 9.8rem;
   top:-0.2rem;
  }
 
@@ -78,6 +79,7 @@ body {
 .footer img {
   top:0.25rem;
   z-index: 0;
+  margin-left:-6.5rem;
   left:21rem;
   position: absolute;  
   width:30%;
