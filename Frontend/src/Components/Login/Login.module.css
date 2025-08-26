@@ -629,6 +629,15 @@ color: #f0f4f8;
 @media (max-width: 	480px) {
 .container {
     height: 178.4vh;
+    background: linear-gradient(
+     13deg,
+     rgb(0, 0, 0), 
+    rgb(29, 29, 29), 
+     rgb(19, 19, 19), 
+     rgb(15, 15, 15), 
+     rgb(34, 34, 34), 
+    rgb(0, 0, 0)
+   );
     
 
 }
@@ -640,19 +649,19 @@ color: #f0f4f8;
 }
 
 .circle1 {
-    left: -10rem;
-    top:-25rem;
+    left:-7.5rem;
+    top:-28rem;
 }
 
 .circle2 {
-    top:20rem;
-    left: -10rem;
+    top:-10rem;
+    left: -20rem;
 }
 
 .box {
     height: 20rem;
     width: 90%;
-    top:13rem;
+    top:9rem;
     border-radius: 3rem;
     left:5%;
 }
