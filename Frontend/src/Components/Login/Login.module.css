@@ -1020,48 +1020,24 @@ color: #f0f4f8;
 }
 
 .box2 .errorMsg {
-    position: absolute;
-    z-index: 20;
-    top:-6.4rem;
-    left:23rem;
-    width: 28.3rem;
-    background: radial-gradient(
-    circle,
-    rgb(180, 39, 39) 0%,     
-    rgb(220, 50, 50) 60%,    
-     rgba(255, 100, 100, 0.3) 100%  
-    );
-    color:white;
-    font-size: clamp(0.2rem, 1.3vw, 2.5rem);  
-    padding: 0.7rem 1rem;
-    border:none;
-    font-family: "PoppinsLight";
-    border-radius: 1.1rem;
-    transition: all 0.3s ease;
-    cursor: pointer;
+    top:-6rem;
+    left:15%;
+    width: 60%;
+    font-size: clamp(0.2rem, 0.6rem, 2.5rem);  
+    padding: 0.4rem 1rem;
+    white-space: nowrap;
+    border-radius: 0.7rem;
 
 }
 
 .box2 .safeMsg {
-    position: absolute;
-    z-index: 20;
-    top:-6.4rem;
-    left:23rem;
-    width: 28.3rem;
-    background: radial-gradient(
-    circle,
-     rgb(29, 77, 29) 0%,               
-     rgb(50, 120, 50) 70%,               
-     rgba(200, 255, 200, 0.1) 100%       
-    );
-    color:white;
-    font-size: clamp(0.2rem, 1.5vw, 2.5rem);  
-    padding: 0.5rem 1rem;
-    border:none;
-    font-family: "PoppinsLight";
-    border-radius: 1.1rem;
-    transition: all 0.3s ease;
-    cursor: pointer;
+    top:-6rem;
+    left:15%;
+    width: 60%;
+    font-size: clamp(0.2rem, 0.6rem, 2.5rem);  
+    padding: 0.4rem 1rem;
+    white-space: nowrap;
+    border-radius: 0.7rem;
 
 }
 
