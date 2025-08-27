@@ -24,7 +24,7 @@ function Home({ shiftUp, setShiftUp }) {
     function onScroll() {
       if (!shopRef.current) return;
 
-      const shopTop = shopRef.current.getBoundingClientRect().top + 200;
+      const shopTop = shopRef.current.getBoundingClientRect().top + 1800;
     
       if (shopTop <= 20) {
         setNavHighlight(true);

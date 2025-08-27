@@ -1,11 +1,11 @@
 
     import styles from "./Background.module.css"
     import { motion, useInView, useAnimation } from "framer-motion";
-    import { useEffect, useRef } from "react";
+    import { useEffect, useRef, useState } from "react";
     import Campaign from "../Campaign/Campaign";
     import { Link  } from "react-router-dom";
     import backvideo from "../../assets/backvideo.mov"
-
+    import campaignPhoto from "../../assets/campaign.png"
 
 
     function Background({shopRef,scrollTo, onShopClick}) {
@@ -53,6 +53,30 @@
     const textInView = useInView(textRef, {once : true})
 
 
+  const [offset, setOffset] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if(window.scrollY>1500) return;
+      setOffset(window.scrollY); 
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+    const y = -200 + offset * 0.3;          
+  const rotateZ = offset * 0.05;     
+  const scale = 0.8 + offset * 0.0002;    
+  const opacity = Math.min(offset / 300, 1);
+  const rotateX = Math.max((150- offset+300 * 0.35)*0.3, 0);
+  const rotateY = Math.min(55 - offset * 0.01, 0);
+
+
+  
+
+
         function handleClick() {
             scrollTo?.(); 
             onShopClick?.();
@@ -68,7 +92,8 @@
         
         return (
             <>
-            <div className={styles.container}>   
+            <div className={styles.container}> 
+
                 <motion.div
                 className={styles.title}
                 ref={textRef}
@@ -77,12 +102,19 @@
                     visible: { opacity:0.8,y: "0px",filter: "blur(0px)"}
                 }}
                 initial="hidden"
-                viewport={{ margin: "10px" }}
+                viewport={{ margin: "0px" }}
                 animate={textControls}
                 transition={{ duration: 1}} 
                 >
-                    Welcome
+                    Welcome to Tech Store
                 </motion.div>
+                <div
+                className={styles.line}
+                >
+                </div>
+
+
+
                 <motion.div 
                 ref={boxRef}
                 className={styles.box}
@@ -90,7 +122,6 @@
                     hidden: { y: "100px"},
                     visible: { y: "0px" }
                 }}
-                viewport={{ margin: "10px" }}
                 initial="hidden"
                 animate={boxControls}
                 transition={{ duration: 1}}   
@@ -104,7 +135,7 @@
                         hidden: { opacity: 0},
                         visible: { opacity: 1 }
                     }}
-                    viewport={{ margin: "10px" }}
+
                     initial="hidden"
                     animate={boxControls}
                     transition={{ duration: 2 }}                 
@@ -119,7 +150,7 @@
                         hidden: { opacity: 0},
                         visible: { opacity: 1 }
                     }}
-                    viewport={{ margin: "10px" }}
+                    viewport={{ margin: "0px" }}
                     initial="hidden"
                     animate={boxControls}
                     transition={{ duration: 1}} 
@@ -132,6 +163,20 @@
 
 
                 </motion.div>
+                <div className={styles.coverBox}>
+                          <p className={styles.coverTitle}
+                            style={{
+                            transform: `translateY(${offset*0.8}px)`, 
+                            transition: "all 0.1s linear",
+                            fontSize:  `clamp(0rem, ${offset*0.01-2}vw, 3.5vw)`,
+                            width: `min(${offset*0.1-5}%,66%)`,
+                            opacity: `${offset*0.002}`,
+                            left: `max(${(100-offset*0.1+41)/2}%,35%)`
+                            }}
+                        >                                                                       
+                            Explore a wide range of tech products to suit every need.
+                        </p>
+                </div>  
                 <motion.div 
                 ref={boxRef}
                 className={styles.boxCampaign}
@@ -144,11 +189,40 @@
                 animate={boxControls}
                 transition={{ duration: 1}}   
                 >
-                    <p className={styles.title}>Trending Now</p>
                     <Campaign />
-                    <p className={styles.subtitle}>Don’t miss out on the most talked-about offers! These deals are gaining serious attention — grab yours before they’re gone.</p>
-                    <Link className={styles.button} to="/campaign">See Campaign</Link>
                 </motion.div>
+                <motion.div
+                className={styles.boxExplanation}
+                style={{
+                    transform: `
+                    translateY(${y*0.3}px) 
+                    rotateZ(max(${(30-rotateZ)*0.5}deg,0deg))
+                    rotateX(${rotateX*1.1}deg)
+                    rotateY(${rotateY-20}deg)
+                    scale(${scale})
+                    `,
+                    transformStyle: "preserve-3d",
+                    perspective: "1000px",
+
+                }}
+                >
+                <p className={styles.title}>Campaigns</p>
+                <motion.div className={styles.boxCampaignExplanation}>
+                    <img
+                    className={styles.campaignPhoto}
+                    src={campaignPhoto}
+                    alt="Campaign Photo"
+                    />
+                    <p className={styles.subtitle}>
+                    Don’t miss out on the most talked-about offers! These deals are gaining
+                    serious attention — grab yours before they’re gone.
+                    </p>
+                    <Link className={styles.button} to="/campaign">
+                    See Campaign
+                    </Link>
+                </motion.div>
+                </motion.div>
+     
                 <video className={styles.video} autoPlay loop muted playsInline preload="auto">
                     <source src={backvideo} type="video/mp4"/>
                     Your browser does not support the video tag.
@@ -172,7 +246,7 @@
                 className={styles.fadeOverlay}
                 variants={{
                 hidden: { opacity: 1 },
-                visible: { opacity: 0.2 },
+                visible: { opacity: 0.6 },
                 }}
                 initial="hidden"
                 animate={controls}
