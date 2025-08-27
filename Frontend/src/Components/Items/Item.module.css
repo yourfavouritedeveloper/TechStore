@@ -51,7 +51,7 @@
     padding-left: 6rem;
     color:rgb(0, 0, 0);    
     font-weight: bold;  
-    font-size: clamp(7rem, 6vw,10rem);
+    font-size: clamp(4rem, 4vw,10rem);
 }
 
 .popularExplanation {
