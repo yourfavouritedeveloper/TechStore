@@ -21,9 +21,7 @@ function Items({ shiftUp, setShiftUp }) {
   const [bodyItems, setBodyItems] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+
 
   useEffect(() => {
     function onScroll() {

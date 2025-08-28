@@ -117,7 +117,8 @@ const displayItems = filteredItems.length ? filteredItems : [];
         <div className={styles.container} style={displayItems.length === 0 || resetClicked ?{ marginBottom: "26rem"} : {marginBottom: "0rem"}}>
         <div className={styles.cover}>
 
-          <div className={styles.subtitle}>From phones to TVs discover it all
+          <div className={styles.subtitle}>
+            <p>From phones to TVs discover it all</p>
             <div className={styles.circle1}></div>
             <div className={styles.circle2}></div>
 

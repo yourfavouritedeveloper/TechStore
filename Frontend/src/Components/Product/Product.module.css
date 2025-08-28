@@ -4,7 +4,9 @@
     background: linear-gradient(135deg, #3B82F6, #1E3A8A);
     width: 100%;
     position: relative;
-    overflow: hidden;
+    overflow-y: hidden;
+    overflow-x: hidden;
+
 }
 
 .title {
@@ -79,13 +81,15 @@
 
 .macbookBox {
     position: absolute;
-background: linear-gradient(135deg, #1e3a8a, #111827);
+    background: linear-gradient(135deg, #1e3a8a, #111827);
     width: 31.45rem;
     right: 19.1rem;
     top:13rem;
     height: 20rem;
     pointer-events: none;
     z-index: 4;
+    overflow-y: hidden;
+
 }
 
 
@@ -98,6 +102,8 @@ background: linear-gradient(135deg, #1e3a8a, #111827);
     font-size: clamp(1rem, 1.7vw,20rem);
     font-family: "PoppinsMedium";
     line-height: 0.9;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .macbookButton {
@@ -133,3 +139,214 @@ background: linear-gradient(135deg, #1e3a8a, #111827);
 }
 
 
+@media (max-width: 1440px) {
+
+}
+
+@media (max-width: 1200px) {}
+
+@media (max-width: 992px) {}
+
+@media (max-width: 768px) {
+
+}
+
+@media (max-width: 576px) {}
+
+@media (max-width: 	480px) {
+
+.container {
+    height: 32rem;
+
+}
+
+.title {
+    font-size: clamp(1rem, 4rem,20rem);
+    width: 100%;
+    letter-spacing: -0.1rem;
+    top:7rem;
+    left:0.5rem;
+   
+}
+
+
+.macbookHoverContainer {
+    left:0rem;
+    top:11rem;
+    width: 35rem;
+    height: 30rem;
+
+}
+
+
+.keyboard {
+    width: 17.6rem;
+    top:10rem;
+    right: 10rem;
+
+
+}
+
+.macbookHoverContainer:hover .keyboard {
+    top:8.5rem;
+    right: 7.5rem;
+
+}
+
+.iphone {
+    width: 13rem;
+    top:6rem;
+    right: 15rem;
+
+
+}
+
+.macbookHoverContainer:hover .iphone {
+    top:2rem;
+    right: 19rem;
+
+}
+
+
+
+.macbookBox {
+
+    width: 15rem;
+    right: 58vw;
+    margin-right:-9.18rem;
+    top:21.15rem;
+    height: 9.5rem;
+
+}
+
+
+.macbookDescription {
+    width: 95%;
+    top:1rem;
+    left:2.5%;
+    font-size: clamp(0rem, 1.1rem,20rem);
+
+}
+
+.macbookButton {
+    padding: 0.5rem 1.5rem;
+    top:16rem;
+    right:-39vw;
+    margin-right:28.4rem;
+    white-space: nowrap;
+    font-size: clamp(0rem, 0.9rem,20rem);
+
+}
+
+
+
+
+.macbook {
+    width: 22.6rem;
+    right: -13rem;
+    margin-right:58vw;
+    top:15rem;
+
+}
+
+
+
+}
+
+@media (max-width: 	360px) {
+
+.container {
+    height: 32rem;
+
+}
+
+.title {
+    font-size: clamp(1rem, 3.5rem,20rem);
+    width: 100%;
+    letter-spacing: -0.1rem;
+    top:7rem;
+    left:0.5rem;
+   
+}
+
+
+.macbookHoverContainer {
+    left:0rem;
+    top:11rem;
+    width: 35rem;
+    height: 30rem;
+
+}
+
+
+.keyboard {
+    width: 15.6rem;
+    top:12rem;
+    right: 15rem;
+
+
+}
+
+.macbookHoverContainer:hover .keyboard {
+    top:10rem;
+    right: 12rem;
+
+}
+
+.iphone {
+    width: 10rem;
+    top:6rem;
+    right: 15rem;
+
+
+}
+
+.macbookHoverContainer:hover .iphone {
+    top:4rem;
+    right: 22rem;
+
+}
+
+
+
+.macbookBox {
+
+    width: 12.375rem;
+    right: 58vw;
+    margin-right:-7.68rem;
+    top:23rem;
+    height: 8rem;
+
+}
+
+
+.macbookDescription {
+    width: 95%;
+    top:1rem;
+    left:2.5%;
+    font-size: clamp(0rem, 0.9rem,20rem);
+
+}
+
+.macbookButton {
+    padding: 0.5rem 1.5rem;
+    top:17rem;
+    right:-39vw;
+    margin-right:29.3rem;
+    white-space: nowrap;
+    font-size: clamp(0rem, 0.7rem,20rem);
+
+}
+
+
+
+
+.macbook {
+    width: 18.6rem;
+    right: -10.8rem;
+    margin-right:58vw;
+    top:18rem;
+
+}
+
+}
