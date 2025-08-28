@@ -1192,138 +1192,143 @@ background: linear-gradient(
 @media (max-width: 	480px) {
 
 .container {
-    height: 40%;
+    height: 15%;
     width: 90%;
-    border-radius: 1.4rem;
-    top:3rem;
+    border-radius: 0rem;
+    top:-5rem;
 }
 
 
 
 .campaign1 .title {
+    font-size: clamp(1.3rem, 1.8rem, 10rem);
+    line-height: 1rem;
     font-family: "PoppinsMedium";
-    font-size: clamp(1.6rem, 5vw, 0.625rem);
-    line-height: 1.2rem;
     font-weight: normal;
     top: -0.7rem;
     left: 0.6rem;
+    line-height: 0.8;
+    letter-spacing: 0rem;
 }
 
 
 .campaign1 .subtitle {
-    font-size: clamp(0.7rem, 5vw, 0.625rem);
+    font-size: clamp(0.4rem, 0.65rem, 10rem);
     font-weight: normal;
-    top: -2.2rem;
+    top: -2.5rem;
     text-align: left;  
     width: 90%;
-    line-height: 0.6rem;
+    line-height: 0.65rem;
     left: 0.65rem;   
 }
 
 .campaign1 .subsubtitle {
-    font-size: clamp(0.4rem, 4vw, 0.625rem);
+    font-size: clamp(0.2rem, 0.525rem, 10rem);
     font-weight: normal;
-    top: -3.1rem;    
-    left: 6.1rem;  
-    margin-left:-67.4vw;
+    top: -3.2rem;    
+    left:5.8rem;  
+    margin-left:-90vw;
 }
 
 
 .campaign2 .title {
-    font-size: clamp(1.7rem, 5vw, 0.625rem);
-    font-family: "PoppinsMedium";
-
+    font-size: clamp(1.3rem, 2.2rem, 10rem);
+    font-family: "PoppinsSemiBold";
     font-weight: normal;
-    top: -1.4rem;
-    left: 3.6rem;
-    margin-left:-65vw;
+    top: -1.8rem;
+    left: 4.3rem;
+    margin-left:-85vw;
+    letter-spacing: -0.1rem;
+
 }
 
 
 .campaign2 .subtitle {
-    font-size: clamp(0.7rem, 5vw, 0.625rem);
+    font-size: clamp(0.3rem, 0.65rem, 10rem);
     font-weight: normal;
     text-align: left;
     width: 70%;
-    top: -3.7rem; 
-    line-height: 0.75rem;
-    left: 1rem;  
+    top: -4.7rem; 
+    line-height: 0.55rem;
+    left: 0.85rem;  
 }
 
 .campaign2 .subsubtitle {
-    font-size: clamp(0.2rem, 3vw, 0.625rem);
+    font-size: clamp(0.2rem, 0.55rem, 10rem);
     font-weight: normal;
-    top: -4.3rem;  
-    width: 80%;  
+    top: -5.4rem;  
+    width: 70%;  
     text-align: left;
     line-height: 0.55rem;
-    left: 1rem; 
+    left: 0.85rem; 
 }
 
 .campaign2 button {
     top: 4.7rem; 
-    left: 0.9rem;  
-    font-size: clamp(0.5rem, 4vw, 0.425rem);
+    left: 0.75rem;  
+    font-size: clamp(0.2rem, 3vw,10rem);
     position: absolute;
     font-weight: normal;
-    border-radius: 2rem;
+    border-radius: 0.4rem;
     padding: 0.1rem 0.3rem;
 }
 
 
 
 .campaign2 img {
-    right:0rem;
-    width:70%;
-    top:1.2rem;
+    right:-1rem;
+    width:60%;
+    top:-0rem;
 }
 
 
 
 
 .campaign3 .title {
-    font-family: "PoppinsMedium";
-    font-size: clamp(1.4rem, 5vw, 0.625rem);
-    width: 78%;
+    font-size: clamp(1.3rem, 1.4rem, 10rem);
+    line-height: 1rem;
+    font-family: "PoppinsSemiBold";
     font-weight: normal;
+    top: 0.1rem;
+    left: 0.6rem;
     line-height: 0.8;
-    top: -0.5rem;
-    left:1rem;
+    letter-spacing: 0rem;
 }
 
 
 .campaign3 .subtitle {
-    font-size: clamp(0.6rem, 5vw, 0.655rem);
+    font-size: clamp(0.4rem, 3rem, 0.455rem);
     color: rgb(0, 0, 0);
     font-weight: normal;
-    width: 90%;
+    width: 80%;
     text-align: left;
     line-height: 1;
     position: absolute;
-    top: 2.5rem;   
-    left:1rem;  
+    top: 3.3rem;   
+    left:0.7rem;  
 }
 
 
 
 .campaign3 button {
-    top: 4.5rem; 
-    left: 0.2rem; 
-    margin-left:3vw; 
-    font-size: clamp(0.5rem, 4vw, 0.425rem);
+    top: 4.8rem; 
+    left: 0.6rem; 
+    font-size: clamp(0.2rem, 3vw,10rem);
     position: absolute;
     font-weight: normal;
-    border-radius: 2rem;
+    border-radius: 0.4rem;
     padding: 0.1rem 0.3rem;
 }
 
 
 .campaign3 img {
-    right:0.5rem;
-    width:45%;
-    top:-2rem;
+    right:1rem;
+    width:40%;
+    top:-1.3rem;
 
 }
+
+
 
 
 
@@ -1342,67 +1347,71 @@ background: linear-gradient(
 
 @media (max-width: 	360px) {
 .container {
-    height: 40%;
+    height: 15%;
     width: 90%;
-    border-radius: 1.4rem;
-    top:3rem;
+    border-radius: 0rem;
+    top:-5rem;
 }
 
 
 
 .campaign1 .title {
-    font-size: clamp(1.3rem, 5vw, 0.625rem);
+    font-size: clamp(1.3rem, 1.8rem, 10rem);
     line-height: 1rem;
     font-family: "PoppinsMedium";
     font-weight: normal;
     top: -0.7rem;
     left: 0.6rem;
+    line-height: 0.8;
+    letter-spacing: 0rem;
 }
 
 
 .campaign1 .subtitle {
-    font-size: clamp(0.4rem, 5vw, 0.625rem);
+    font-size: clamp(0.4rem, 0.65rem, 10rem);
     font-weight: normal;
-    top: -1.9rem;
+    top: -2.5rem;
     text-align: left;  
     width: 90%;
-    line-height: 0.55rem;
+    line-height: 0.65rem;
     left: 0.65rem;   
 }
 
 .campaign1 .subsubtitle {
-    font-size: clamp(0.2rem, 4vw, 0.525rem);
+    font-size: clamp(0.2rem, 0.525rem, 10rem);
     font-weight: normal;
-    top: -2.7rem;    
-    left: 5.25rem;  
-    margin-left:-67.4vw;
+    top: -3.2rem;    
+    left:5.8rem;  
+    margin-left:-90vw;
 }
 
 
 .campaign2 .title {
-    font-size: clamp(1.4rem, 5vw, 0.625rem);
-    font-family: "PoppinsMedium";
+    font-size: clamp(1.3rem, 2.2rem, 10rem);
+    font-family: "PoppinsSemiBold";
     font-weight: normal;
-    top: -1rem;
-    left: 3rem;
-    margin-left:-65vw;
+    top: -1.8rem;
+    left: 4.4rem;
+    margin-left:-85vw;
+    letter-spacing: -0.1rem;
+
 }
 
 
 .campaign2 .subtitle {
-    font-size: clamp(0.3rem, 5vw, 0.525rem);
+    font-size: clamp(0.3rem, 0.65rem, 10rem);
     font-weight: normal;
     text-align: left;
     width: 70%;
-    top: -2.9rem; 
+    top: -4.7rem; 
     line-height: 0.55rem;
     left: 0.85rem;  
 }
 
 .campaign2 .subsubtitle {
-    font-size: clamp(0.2rem, 4vw, 0.425rem);
+    font-size: clamp(0.2rem, 0.55rem, 10rem);
     font-weight: normal;
-    top: -3.4rem;  
+    top: -5.4rem;  
     width: 70%;  
     text-align: left;
     line-height: 0.55rem;
@@ -1410,59 +1419,59 @@ background: linear-gradient(
 }
 
 .campaign2 button {
-    top: 3.8rem; 
+    top: 4.7rem; 
     left: 0.75rem;  
-    font-size: clamp(0.2rem, 4vw, 0.425rem);
+    font-size: clamp(0.2rem, 3vw,10rem);
     position: absolute;
     font-weight: normal;
-    border-radius: 2rem;
+    border-radius: 0.4rem;
     padding: 0.1rem 0.3rem;
 }
 
 
 
 .campaign2 img {
-    right:0rem;
-    width:80%;
-    top:-1rem;
+    right:-1rem;
+    width:60%;
+    top:-0rem;
 }
 
 
 
 
 .campaign3 .title {
-    font-size: clamp(1.1rem, 5vw, 0.625rem);
-    width: 75%;
-    font-family: "PoppinsMedium";
+    font-size: clamp(1.3rem, 1.4rem, 10rem);
+    line-height: 1rem;
+    font-family: "PoppinsSemiBold";
     font-weight: normal;
-    line-height: 0.81;
-    top: -0.4rem;
-    left:1rem;
+    top: 0.1rem;
+    left: 0.6rem;
+    line-height: 0.8;
+    letter-spacing: 0rem;
 }
 
 
 .campaign3 .subtitle {
-    font-size: clamp(0.4rem, 5vw, 0.455rem);
+    font-size: clamp(0.4rem, 3rem, 0.455rem);
     color: rgb(0, 0, 0);
     font-weight: normal;
     width: 80%;
     text-align: left;
     line-height: 1;
     position: absolute;
-    top: 2rem;   
-    left:1rem;  
+    top: 3.3rem;   
+    left:0.7rem;  
 }
 
 
 
 .campaign3 button {
-    top: 3.6rem; 
-    left: -0rem; 
-    margin-left:5vw; 
-    font-size: clamp(0.2rem, 4vw, 0.425rem);
+    top: 4.8rem; 
+    left: 0.1rem; 
+    font-size: clamp(0.2rem, 3vw,10rem);
     position: absolute;
     font-weight: normal;
-    border-radius: 2rem;
+    border-radius: 0.4rem;
     padding: 0.1rem 0.3rem;
 }
 
