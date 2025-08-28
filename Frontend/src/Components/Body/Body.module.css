@@ -2561,11 +2561,12 @@
 
 .categories li {
     padding:3rem;
+    border-radius: 0.5rem;
 }
 
 .computers {
   width: 100%;
-  height: 8.4rem; 
+  height: 6rem; 
 }
 
 .computers img {
@@ -2624,7 +2625,7 @@
 
 .mobilePhones {
   width: 100%;
-  height: 8.4rem; 
+  height: 6rem; 
 }
 
 
@@ -2702,7 +2703,7 @@
 .tvs {
 
   width: 100%;
-  height: 8.4rem; 
+  height: 6rem; 
 }
 
 .tvs img {
@@ -2764,7 +2765,7 @@
 
 .smartWatches {
   width: 100%;
-  height: 8.4rem; 
+  height: 6rem; 
 }
 
 .smartWatches img {
@@ -2839,7 +2840,7 @@
 
 .keyboards {
   width: 100%;
-  height: 8.4rem;
+  height: 6rem; 
 }
 
 .keyboards img {
@@ -2913,7 +2914,7 @@
 
 .headphones {
   width: 100%;
-  height: 8.4rem;
+  height: 6rem; 
 }
 
 .headphones img {
@@ -2988,7 +2989,7 @@
 
 .monitors {
   width: 100%;
-  height: 8.4rem;
+  height: 6rem; 
 }
 
 .monitors img {
@@ -3061,7 +3062,7 @@
 
 .tablets {
   width: 100%;
-  height: 8.4rem;
+  height: 6rem; 
 }
 
 .tablets img {
@@ -3134,22 +3135,23 @@
 
  .title {
     margin-top:2rem;
+    font-family: "PoppinsRegular";
     margin-bottom: 0rem;
-    font-size: clamp(2rem, 1vw, 14rem);
+    font-size: clamp(2rem, 2.5rem, 14rem);
 
 
 }
 
 
 .computers img {
-    width: 110%;
+    width: 90%;
     margin-top:-18.5vw;
 }
 
 
 .computers p {
 
-    margin-top: -5.4rem;
+    margin-top: -6.4rem;
     font-size: clamp(1.5rem, 1vw, 14rem);
 
 
@@ -3157,60 +3159,60 @@
 
 
 .mobilePhones img {
-    width: 100%;
-    margin-left:1rem;
-    margin-top:-10vw;
+    width: 90%;
+    margin-left:2rem;
+    margin-top:-12vw;
 
 }
 
 
 .mobilePhones p {
-    margin-top: -5.4rem;
+    margin-top: -6.4rem;
     font-size: clamp(1.5rem, 1vw, 14rem);
 
 }
 
 
 .tvs img {
-    width: 90%;
-    margin-top:-7.5vw;
+    width: 80%;
+    margin-top:-11.5vw;
 }
 
 
 .tvs p {
-    margin-top: -5.4rem;
+    margin-top: -6.4rem;
     font-size: clamp(1.5rem, 1vw, 14rem);
 
 }
 
 .smartWatches img {
-    width: 80%;
-    margin-top:-10.8vw;
+    width: 70%;
+    margin-top:-11.8vw;
 }
 
 
 
 .smartWatches p {
-    margin-top: -6rem;
+    margin-top: -7rem;
     font-size: clamp(1.5rem, 1vw, 14rem);
 
 }
 
 
 .keyboards img {
-    width: 100%;
-    margin-top:-15.6vw;
+    width: 90%;
+    margin-top:-16.6vw;
 }
 
 
 
 .keyboards:hover img {
-    margin-top:-15.6vw;
+    margin-top:-18.6vw;
   }
 
 
 .keyboards p {
-    margin-top: -6rem;
+    margin-top: -7rem;
     font-size: clamp(1.5rem, 1vw, 14rem);
 
 }
@@ -3218,51 +3220,51 @@
 
 .headphones img {
     width: 60%;
-    margin-top:-11vw;
+    margin-top:-12vw;
 }
 
 
 .headphones:hover img {
-    margin-top:-11vw;
+    margin-top:-13vw;
 }
 
 
 
 .headphones p {
-    margin-top: -5.8rem;
+    margin-top: -6.8rem;
     font-size: clamp(1.3rem, 1vw, 14rem);
 
 }
 
 
 .monitors img {
-    width: 80%;
+    width: 70%;
     margin-top:-10vw;
 }
 
 
 .monitors:hover img {
-    margin-top:-10vw;
+    margin-top:-11vw;
 }
 
 
 
 .monitors p {
-    margin-top: -5.9rem;
+    margin-top: -6.9rem;
     font-size: clamp(1.5rem, 1vw, 14rem);
 
 }
 
 
 .tablets img {
-    width: 70%;
-    margin-top:-11vw;
+    width: 60%;
+    margin-top:-12vw;
 }
 
 
 
 .tablets p {
-    margin-top: -5.9rem;
+    margin-top: -6.9rem;
     font-size: clamp(1.5rem, 1vw, 14rem);
 
 }

@@ -520,7 +520,7 @@ body {
 }
 
 .boxCampaign {
-    top: 38.5rem;
+    top: 28.5rem;
     left:0rem;
 
 }
@@ -566,6 +566,7 @@ body {
     padding:0.7rem 3rem;
     border-radius: 0.9rem;
     left:-27rem;
+    color: black;
 
 }
 

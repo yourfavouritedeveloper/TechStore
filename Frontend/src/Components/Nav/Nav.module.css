@@ -1439,7 +1439,7 @@ a {
 
 .menu {
     border-radius: 0.4rem;
-    background: linear-gradient(135deg,#333333e0, #0f0f0f93, #1a1a1a63, #333333c5);
+    background: linear-gradient(135deg,#333333, #0f0f0f, #1a1a1a, #333333);
     height: 7.4rem;
     padding-right:7rem;
     margin-left:40vw;
