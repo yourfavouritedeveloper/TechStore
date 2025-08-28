@@ -2,7 +2,8 @@
     height: 67.5rem;
     background-color: rgb(255, 255, 255);
     position: relative;
-    overflow: hidden;
+    overflow-y: hidden;
+    overflow-x: hidden;
 
 }
 
