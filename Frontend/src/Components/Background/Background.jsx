@@ -1,15 +1,30 @@
 
     import styles from "./Background.module.css"
-    import { motion, useInView, useAnimation } from "framer-motion";
+    import { motion, useInView, useAnimation,useScroll, useTransform } from "framer-motion";
     import { useEffect, useRef, useState } from "react";
     import Campaign from "../Campaign/Campaign";
     import { Link  } from "react-router-dom";
     import backvideo from "../../assets/backvideo.mov"
     import campaignPhoto from "../../assets/campaign.png"
+    import axios from "axios";
 
 
     function Background({shopRef,scrollTo, onShopClick}) {
     const videoRef = useRef(null);
+    const [items, setItems] = useState([]);
+
+
+
+    useEffect(() => {
+    axios.get("https://techstore-3fvk.onrender.com/api/v1/products/all") 
+      .then(response => {
+        setItems(response.data.slice(0, 6));
+        
+      })
+      .catch(error => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
 
     useEffect(() => {
     const startVideo = () => {
@@ -65,14 +80,20 @@
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  const { scrollY } = useScroll();
 
     const y = -200 + offset * 0.3;          
   const rotateZ = offset * 0.05;     
   const scale = 0.8 + offset * 0.0002;    
-  const opacity = Math.min(offset / 300, 1);
+  const opacity = Math.min(offset / 10000, 1);
   const rotateX = Math.max((150- offset+300 * 0.35)*0.3, 0);
   const rotateY = Math.min(55 - offset * 0.01, 0);
-
+  const left = useTransform(
+    scrollY,
+    [0, 1500],   
+    ["37%", "0%"]  
+  );
+  
 
   
 
@@ -164,18 +185,18 @@
 
                 </motion.div>
                 <div className={styles.coverBox}>
-                          <p className={styles.coverTitle}
+                          <motion.p className={styles.coverTitle}
                             style={{
-                            transform: `translateY(${offset*0.8}px)`, 
-                            transition: "all 0.1s linear",
-                            fontSize:  `clamp(0rem, ${offset*0.01-2}vw, 3.5vw)`,
-                            width: `min(${offset*0.1-5}%,66%)`,
+                            transform: `translateY(${offset*0.85}px)`, 
+                            transition: "all 0.5s ease",
+                            fontSize:  `clamp(0rem, min(${3000/offset+1}vw,3.5vw), 3.5vw)`,
+                            width: `min(max(${1280-offset}%,49%),66%)`,
                             opacity: `${offset*0.002}`,
-                            left: `max(${(100-offset*0.1+41)/2}%,35%)`
+                            left
                             }}
                         >                                                                       
-                            Explore a wide range of tech products to suit every need.
-                        </p>
+                            Explore a wide range of tech products to suit every need!
+                        </motion.p>
                 </div>  
                 <motion.div 
                 ref={boxRef}
@@ -195,17 +216,19 @@
                 className={styles.boxExplanation}
                 style={{
                     transform: `
-                    translateY(${y*0.3}px) 
+                    translateY(min(${y*0.3}px,7px)) 
                     rotateZ(max(${(30-rotateZ)*0.5}deg,0deg))
                     rotateX(${rotateX*1.1}deg)
                     rotateY(${rotateY-20}deg)
-                    scale(${scale})
+                    scale(min(${scale},0.9))
                     `,
                     transformStyle: "preserve-3d",
                     perspective: "1000px",
+                    
 
                 }}
                 >
+                
                 <p className={styles.title}>Campaigns</p>
                 <motion.div className={styles.boxCampaignExplanation}>
                     <img
@@ -239,7 +262,48 @@
                 transition={{ duration: 1.5 }} 
                             
                 >
-                
+                <motion.div
+                className={styles.box3}
+                style={{
+                    transform: `
+                    translateX(${250-y}px) 
+                    rotateZ(max(${(70 - rotateZ) * 0.5}deg,0deg))
+                    rotateX(${rotateX * 0.5}deg)
+                    rotateY(${rotateY-15}deg)
+                    scale(min(${scale}, 0.9))
+                    `,
+                    transformStyle: "preserve-3d",
+                    perspective: "1000px",
+                    transition: "transform 0.3s ease-out",
+                }}
+                >
+                <div className={styles.navdiv}></div>
+
+                <div className={styles.accountdiv}>
+                    <div className={styles.circle}></div>
+                    <p className={styles.accountTitle}>Account</p>
+                    <div className={styles.randomBox}></div>
+                    <div className={styles.randomBox}></div>
+                    <div className={styles.randomBox}></div>
+                </div>
+
+                <div className={styles.itemsdiv}>
+                    <ul className={styles.items}>
+                    {items.map((item) => (
+                        <Link
+                        key={item.name}
+                        className={styles.item}
+                        to={"/product/" + item.name}
+                        >
+                        <img src={item.productImageUrl} alt={item.name} />
+                        <p className={styles.name}>{item.name}</p>
+                        <p className={styles.guarantee}>{item.guarantee} month</p>
+                        <span>{item.price}₼</span>
+                        </Link>
+                    ))}
+                    </ul>
+                </div>
+                </motion.div>
 
                 <motion.div
                 ref={ref}
