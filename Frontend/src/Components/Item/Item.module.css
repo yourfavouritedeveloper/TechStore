@@ -570,7 +570,7 @@ body {
 
 
 .container {
-    height: 147rem;
+    height: 150rem;
 }
 
 
@@ -775,7 +775,7 @@ body {
 
 
 .property {
-  padding: 0.5rem 1rem;
+  padding: 0rem 1rem;
   font-size: clamp(0rem, 0.6rem, 2rem);
   white-space: nowrap;
   border-radius: 0.7rem;
@@ -789,7 +789,7 @@ body {
   padding: 3rem;
   padding-top: 5rem;
   right: 5%;
-  top: 105.7rem;
+  top: 110rem;
   border-radius: 1rem;
   grid-template-columns: repeat(2, 1fr);
 
@@ -812,7 +812,7 @@ body {
   padding-top: 4rem;
   right: 5%;
   gap: 1rem;
-  top: 114.5rem;
+  top: 119rem;
   border-radius: 1rem;
 
 }
@@ -940,7 +940,7 @@ body {
 
 
 .container {
-    height: 147rem;
+    height: 150.5rem;
 }
 
 
@@ -1143,7 +1143,7 @@ body {
 
 
 .property {
-  padding: 0.5rem 1rem;
+  padding: 0.1rem 1rem;
   font-size: clamp(0rem, 0.5rem, 2rem);
   border-radius: 0.7rem;
         
@@ -1156,7 +1156,7 @@ body {
   padding: 3rem;
   padding-top: 5rem;
   right: 5%;
-  top: 105.5rem;
+  top: 109.5rem;
   border-radius: 1rem;
   grid-template-columns: repeat(2, 1fr);
 
@@ -1179,7 +1179,7 @@ body {
   padding-top: 4rem;
   right: 5%;
   gap: 1rem;
-  top: 114.5rem;
+  top: 118.5rem;
   border-radius: 1rem;
 
 }
