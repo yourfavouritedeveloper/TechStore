@@ -95,7 +95,6 @@ function scrollToShop() {
       <Item items={filteredItems} bodyItems={bodyItems} itemRef={itemRef}   onResetFilters={handleResetFilters}  />
       <Body shopRef={shopRef} itemRef={itemRef} scrollTo={scrollToItems} onCategorySelect={handleCategoryFilter} />
       <Main />
-      <AdBanner slot="1234567890" /> 
       <Footer />
     </>
   );

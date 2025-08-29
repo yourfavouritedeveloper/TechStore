@@ -189,7 +189,8 @@
 
 .macbookHoverContainer:hover .keyboard {
     top:8.5rem;
-    right: 7.5rem;
+    right: -40vw;
+    margin-right:17rem;
 
 }
 
@@ -203,7 +204,8 @@
 
 .macbookHoverContainer:hover .iphone {
     top:2rem;
-    right: 19rem;
+    right: -40vw;
+    margin-right:28rem;
 
 }
 
@@ -290,7 +292,8 @@
 
 .macbookHoverContainer:hover .keyboard {
     top:10rem;
-    right: 12rem;
+    right: -40vw;
+    margin-right:20rem;
 
 }
 
@@ -304,7 +307,8 @@
 
 .macbookHoverContainer:hover .iphone {
     top:4rem;
-    right: 22rem;
+    right: -40vw;
+    margin-right:29.5rem;
 
 }
 

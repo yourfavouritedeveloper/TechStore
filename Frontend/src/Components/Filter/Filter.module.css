@@ -1,3 +1,6 @@
+
+
+
 .container {
     width: 100%;
     margin-bottom: 26rem;
@@ -12,13 +15,15 @@
     display: flex;
     justify-content: center;
     z-index: 10;
-    background-color: #f3f0f0;
+    background-color: #ffffff;
     width: 80%;
     margin-left: 10%;
-    height: 10vh;
+    height: 17rem;
     top:51rem;
     border-radius: 2rem;
     z-index: auto;
+    overflow-x: hidden;
+    overflow-y: visible;
 }
 
 .inBar {
@@ -29,7 +34,7 @@
     z-index: 10;
     background-color: #f3f0f0;
     width: 100%;
-    height: 10vh;
+    height: 5.95rem;
     border-radius: 2rem;
     z-index: 2;
 }
@@ -175,8 +180,10 @@ input:focus {
 }
 
 .search {
+    width: 34px;
+    height: 34px;
     position: absolute;
-    margin-top:1.7rem;
+    margin-top:1.9rem;
     left:54.5rem;
     transform: rotateZ(0deg);
     transition: transform 0.3s ease;
@@ -316,7 +323,8 @@ input:focus {
 
 .more {
     cursor: pointer;
-    z-index: -1;
+    z-index: 10;  
+    overflow: visible;
     
 }
 .more span{
@@ -744,7 +752,7 @@ input:focus {
     top:18.5rem;    
 }
 
-.items p {
+.items .guarantee {
     position: absolute;
     top:17.7657rem;   
     left:3.5rem; 
@@ -772,16 +780,17 @@ input:focus {
     color:rgb(16, 82, 16);
 }
 
-.items h3 {
+.items .name {
     text-align: left;
     position: absolute;
     top:12rem;
-    line-height: 1.1;
+    line-height: 0.9;
     margin-top: 3.5rem;
     align-items: center;
     margin-left: -0.5rem;
+    font-family: "PoppinsSemiBold";
     padding: 0rem 0.4rem;
-    font-size: clamp(1rem, 0.7vw, 2rem);
+    font-size: clamp(1rem, 0.8vw, 2rem);
 }
 
 
@@ -798,6 +807,7 @@ input:focus {
     position: absolute;
     left:-1.3rem;
     top:1.5rem;
+    width: 270px;
 }
 
 
@@ -812,6 +822,39 @@ input:focus {
 @media (max-width: 576px) {}
 
 @media (max-width: 	480px) {
+
+.container {
+    width: 100%;
+    margin-bottom: 6rem;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+
+.bar {
+    width: 90%;
+    margin-left: 5%;
+    height: 15rem;
+    top:41rem;
+    border-radius: 1rem;
+
+}
+
+.inBar {
+
+    width: 100%;
+    height: 6.2rem;
+    border-radius: 1rem;
+}
+
+
+.cover {
+
+    height: 10rem;
+    top:35rem;
+
+
+}
 
 .subtitle {
 
@@ -861,6 +904,322 @@ background-color: rgb(70, 130, 180);
     bottom:-12rem;  
     transform: rotate(-15deg); 
 }
+
+
+.filter {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.7rem;
+    left:0.8rem;
+    top:0.5rem;
+
+}
+
+
+
+
+.filter svg {
+    top:0.1445rem;
+    height: 13px;
+    width: 13px;
+    
+}
+
+
+
+input {
+    width: 76vw;
+    padding:0.35rem 0rem;
+    padding-left:6.3vw;
+    margin-top: 4.1rem;
+    border-radius: 0.5rem;
+    left:0.8rem;
+    font-size: clamp(0rem, 0.6rem, 2.5rem);
+
+}
+
+
+
+.search {
+    margin-top:4.35rem;
+    left:1.05rem;
+    width: 16px;
+    height: 16px;
+}
+
+
+
+
+.low span {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.7rem;
+    left:90vw;
+    margin-left:-12.5rem;
+    top:0.55rem;
+
+}
+
+
+
+.high span{
+    font-size: 0.7rem;
+    padding: 0.2rem 0.7rem;
+    left:90vw;
+    margin-left:-6.3rem;
+    top:0.55rem;
+}
+
+
+
+
+.newest span{
+    font-size: 0.7rem;
+    padding: 0.2rem 0.7rem;
+    left:90vw;
+    margin-left:-9.5rem;
+    top:2.4rem;
+}
+
+
+
+.oldest span{
+    font-size: 0.7rem;
+    padding: 0.2rem 0.7rem;
+    left:90vw;
+    margin-left:-4.6rem;
+    top:2.4rem;
+}
+
+.more span{
+    font-size: 0.7rem;
+    padding: 0.2rem 0.8rem;
+    padding-left: 1.3rem;
+    left:0.8rem;
+    top:2.4rem;
+}
+
+
+
+
+.more svg {
+    top: 2.55rem;
+    height: 18px;
+    width: 18px;
+    left:1.8rem;
+
+
+}
+
+
+
+
+.more:hover .moreOption {
+    top: 3rem;
+    height: 11rem;
+    border-radius: 1rem;
+}
+
+
+.more input:checked ~ .moreOption {
+    top: 3rem;
+    height: 11rem;
+    border-radius: 1rem;
+
+}
+
+
+.moreOption {
+    width:96%;
+    left: 2%;
+    top: -8rem;
+    border-radius: 0rem;
+    height: 11rem;
+
+    
+}
+
+
+.bestSelling label {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.7rem;
+    left:0.8rem;
+    top:3.7rem;
+
+}
+
+
+
+.mostSearched label {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.7rem;
+    left:5.9rem;
+    top:3.7rem;
+}
+
+
+
+.AZ label {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.7rem;
+    left:12.2rem;
+    top:3.7rem;
+
+}
+
+
+
+.ZA label {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.7rem;
+    left:0.8rem;
+    top:5.5rem;
+
+}
+
+
+
+.inStock label {
+
+    font-size: 0.6rem;
+    padding: 0.2rem 0.7rem;
+    left:8.3rem;
+    top:5.5rem;
+
+}
+
+
+
+
+
+
+.outOfStock label {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.7rem;
+    left:12.8rem;
+    top:5.5rem;
+
+}
+
+
+
+
+.highestRating label {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.7rem;
+    left:0.8rem;
+    top:7.2rem;
+
+}
+
+
+
+
+.lowestRating label {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.7rem;
+    left:7rem;
+    top:7.2rem;
+}
+
+
+
+.discount label {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.7rem;
+    left:0.8rem;
+    top:9rem;
+
+}
+
+
+
+
+.moreText {
+
+    top:6rem;
+    right:1.4rem;
+    width: 28%;
+    line-height: 1.1;
+    border-radius: 2rem;
+    font-size: 0.8rem;
+
+
+}
+
+
+
+
+.refresh {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.8rem;
+    left:5.4rem;
+    top:2.4rem;
+}
+
+
+
+.itemContainer {
+    border-radius: 1.5rem;
+    padding: 0rem 0.5rem;
+    padding-top: 9rem;
+    width: 80%;
+    margin-top: 8rem;
+
+}
+
+
+.items {
+    gap: 0.5rem; 
+    margin-top:-19rem;
+    padding: 2rem 0.6vw;
+    padding-top: 18rem;
+    
+}
+
+
+
+
+.items .guarantee {
+    top:9.4rem;   
+    left:0.6rem; 
+    font-size: 0.6rem;
+}
+
+.items .item {
+    
+    flex: 0 1 10%;
+    padding:5.5rem 19vw;
+    border-radius: 0.7rem;
+}
+
+
+.items span {
+    top:9.9rem;    
+    font-size: clamp(0rem, 0.7rem, 2rem);
+    left: 35vw;  
+    margin-left:-3rem;
+}
+
+.items .name {
+    top:4.85rem;
+    line-height: 1;
+    align-items: center;
+    left: 0.6rem;
+    padding: 0rem 0.4rem;
+    font-size: clamp(0rem, 0.6rem, 2rem);
+}
+
+
+
+
+
+.items img {
+    left:17vw;
+    margin-left: -4.7rem;
+    top:0.5rem;
+    width: 165px;
+}
+
+
 }
 
 
@@ -870,7 +1229,7 @@ background-color: rgb(70, 130, 180);
 
 .container {
     width: 100%;
-    margin-bottom: 26rem;
+    margin-bottom: 6rem;
     overflow-y: hidden;
     overflow-x: hidden;
 }
@@ -879,7 +1238,7 @@ background-color: rgb(70, 130, 180);
 .bar {
     width: 90%;
     margin-left: 5%;
-    height: 5rem;
+    height: 15rem;
     top:41rem;
     border-radius: 1rem;
 
@@ -888,19 +1247,13 @@ background-color: rgb(70, 130, 180);
 .inBar {
 
     width: 100%;
-    height: 5rem;
+    height: 6.2rem;
     border-radius: 1rem;
 }
 
 
 .cover {
-    
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    z-index: 2;
-    background-color: #ffffff;
-    width: 100%;
+
     height: 10rem;
     top:35rem;
 
@@ -977,8 +1330,25 @@ background-color: rgb(70, 130, 180);
 
 
 
+input {
+    width: 74vw;
+    padding:0.35rem 0rem;
+    padding-left:1.3rem;
+    margin-top: 4.1rem;
+    border-radius: 0.5rem;
+    left:0.8rem;
+    font-size: clamp(0rem, 0.6rem, 2.5rem);
+
+}
 
 
+
+.search {
+    margin-top:4.35rem;
+    left:1rem;
+    width: 16px;
+    height: 16px;
+}
 
 
 
@@ -1025,10 +1395,9 @@ background-color: rgb(70, 130, 180);
 
 .more span{
     font-size: 0.6rem;
-    padding: 0.2rem 0.7rem;
-    padding-left: 1rem;
-    left:90vw;
-    margin-left:-15.9rem;
+    padding: 0.2rem 0.8rem;
+    padding-left: 1.3rem;
+    left:0.8rem;
     top:2.4rem;
 }
 
@@ -1039,7 +1408,7 @@ background-color: rgb(70, 130, 180);
     top: 2.45rem;
     height: 18px;
     width: 18px;
-    margin-left:-7.4rem;
+    left:1.8rem;
 
 
 }
@@ -1048,47 +1417,212 @@ background-color: rgb(70, 130, 180);
 
 
 .more:hover .moreOption {
-    top: 1rem;
-    height: 13rem;
-    border-radius: 2rem;
-    opacity: 1;
+    top: 3rem;
+    height: 11.5rem;
+    border-radius: 1rem;
 }
 
-.more:hover svg {
-    transform: rotateZ(90deg);
-}
-
-.more input:checked + span {
-    background-color:#7536be ; 
-}
 
 .more input:checked ~ .moreOption {
-    top: 1rem;
-    height: 13rem;
-    border-radius: 2rem;
+    top: 3rem;
+    height: 11.5rem;
+    border-radius: 1rem;
 
-}
-
-.more input:checked ~ svg {
-    transform: rotateZ(90deg);    
 }
 
 
 .moreOption {
     width:96%;
     left: 2%;
-    top: -15rem;
-    cursor:auto;
+    top: -8rem;
     border-radius: 0rem;
-    position:absolute;
-    height: 20rem;
-    background-color: rgb(207, 207, 207);
-    z-index: 1;
-    transition: all 0.5s ease;
-    pointer-events: auto;
+    height: 11rem;
 
     
 }
+
+
+.bestSelling label {
+    font-size: 0.5rem;
+    padding: 0.2rem 0.7rem;
+    left:0.8rem;
+    top:3.7rem;
+
+}
+
+
+
+.mostSearched label {
+    font-size: 0.5rem;
+    padding: 0.2rem 0.7rem;
+    left:5.5rem;
+    top:3.7rem;
+}
+
+
+
+.AZ label {
+    font-size: 0.5rem;
+    padding: 0.2rem 0.7rem;
+    left:0.8rem;
+    top:5.2rem;
+
+}
+
+
+
+.ZA label {
+    font-size: 0.5rem;
+    padding: 0.2rem 0.7rem;
+    left:0.8rem;
+    top:6.7rem;
+
+}
+
+
+
+.inStock label {
+
+    font-size: 0.5rem;
+    padding: 0.2rem 0.7rem;
+    left:7.3rem;
+    top:5.2rem;
+
+}
+
+
+
+
+
+
+.outOfStock label {
+    font-size: 0.5rem;
+    padding: 0.2rem 0.7rem;
+    left:7.3rem;
+    top:6.7rem;
+
+}
+
+
+
+
+.highestRating label {
+    font-size: 0.5rem;
+    padding: 0.2rem 0.7rem;
+    left:0.8rem;
+    top:8.2rem;
+
+}
+
+
+
+
+.lowestRating label {
+    font-size: 0.5rem;
+    padding: 0.2rem 0.7rem;
+    left:6.2rem;
+    top:8.2rem;
+}
+
+
+
+.discount label {
+    font-size: 0.5rem;
+    padding: 0.2rem 0.7rem;
+    left:0.8rem;
+    top:9.7rem;
+
+}
+
+
+
+
+.moreText {
+
+    top:4.5rem;
+    right:0.8rem;
+    width: 30%;
+    border-radius: 2rem;
+    font-size: 0.85rem;
+
+
+}
+
+
+
+
+.refresh {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.8rem;
+    left:4.8rem;
+    top:2.4rem;
+}
+
+
+
+.itemContainer {
+    border-radius: 1.5rem;
+    padding: 0rem 0.5rem;
+    padding-top: 9rem;
+    width: 80%;
+    margin-top: 8rem;
+
+}
+
+
+.items {
+    gap: 0.5rem; 
+    margin-top:-19rem;
+    padding: 2rem 0.6vw;
+    padding-top: 18rem;
+    
+}
+
+
+
+
+.items .guarantee {
+    top:7.5rem;   
+    left:0.6rem; 
+    font-size: 0.5rem;
+}
+
+.items .item {
+    
+    flex: 0 1 10%;
+    padding:4.5rem 19vw;
+    border-radius: 0.7rem;
+}
+
+
+.items span {
+    top:7.9rem;    
+    font-size: clamp(0rem, 0.6rem, 2rem);
+    left: 35vw;  
+    margin-left:-2.7rem;
+}
+
+.items .name {
+    top:3.45rem;
+    line-height: 1;
+    align-items: center;
+    left: 0.6rem;
+    padding: 0rem 0.4rem;
+    font-size: clamp(0rem, 0.5rem, 2rem);
+}
+
+
+
+
+
+.items img {
+    left:17vw;
+    margin-left: -4.2rem;
+    top:0.3rem;
+    width: 145px;
+}
+
+
 
 
 }
