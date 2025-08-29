@@ -1196,7 +1196,7 @@ a {
 .board svg{
     height: 22px;
     width: 18px;
-    margin-top: -0.1rem;
+    margin-top: 0.1rem;
     fill: black;
 }
 
@@ -1432,7 +1432,7 @@ a {
 .board svg{
     height: 22px;
     width: 18px;
-    margin-top: -0.1rem;
+    margin-top: 0.1rem;
     fill: black;
 }
 
@@ -1803,7 +1803,7 @@ a {
 .board svg{
     height: 22px;
     width: 18px;
-    margin-top: -0.15rem;
+    margin-top: 0rem;
     fill: black;
 }
 
