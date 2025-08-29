@@ -926,7 +926,7 @@ background-color: rgb(70, 130, 180);
 
 
 
-input {
+.input input {
     width: 76vw;
     padding:0.35rem 0rem;
     padding-left:6.3vw;
@@ -1330,7 +1330,7 @@ background-color: rgb(70, 130, 180);
 
 
 
-input {
+.input input {
     width: 74vw;
     padding:0.35rem 0rem;
     padding-left:1.3rem;
