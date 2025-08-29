@@ -112,8 +112,8 @@ function Item({name}) {
                     <Link key={i.name} className={styles.similarItem} 
                     to= {"/product/" + i.name}
                     style={{ backgroundColor: "rgb(245, 245, 245)" }}>
-                        <img src={i.productImageUrl} alt={i.name} style={{ width: 270 }} />
-                        <h3>{i.name}</h3>
+                        <img src={i.productImageUrl} alt={i.name} />
+                        <p className={styles.itemName}>{i.name}</p>
                         <p className={styles.guarantee}>{i.guarantee} month</p>
                         {i.discount && (
                         <>

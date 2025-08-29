@@ -133,13 +133,16 @@ body {
     border-radius: 2rem;
 }
 
-.line {
-    position: absolute;
-    width: 11.5rem;
-    background-color:rgb(92, 92, 92);
-    height: 0.2rem;
-    top:31.5rem;
-    left:11.5rem;
+.discounted::after {
+  content: "";
+  position: absolute;
+  left: 3rem;
+  right: 0;
+  height: 3px;          
+  background: rgb(68, 67, 67);  
+  width: 70%;   
+  top: 50%;             
+  transform: translateY(-50%);
 }
 
 .discount {
@@ -454,11 +457,12 @@ body {
 
 
 
-.items h3 {
+.items .itemName  {
     text-align: left;
     position: absolute;
     top:1rem;
     width: 30%;
+    font-family: "PoppinsRegular";
     line-height: 1.1;
     margin-top: 3.5rem;
     align-items: center;
@@ -481,6 +485,7 @@ body {
     position: absolute;
     left:-1.3rem;
     top:2rem;
+    width: 270px;
 }
 
 
@@ -503,24 +508,29 @@ body {
     color:rgb(68, 67, 67);
     padding:0.3rem 1rem;
     border-radius: 1rem;
+    text-decoration: line-through;
+
 }
 
 
 
-
-.itemLine {
-    position: absolute;
-    background-color:rgb(92, 92, 92);
-    height: 0.2rem;
-    top:17.3rem;
-
+.itemNew::after {
+  content: "";
+  position: absolute;
+  left: 0.7rem;
+  right: 0;
+  height: 2px;          
+  background: rgb(68, 67, 67);  
+  width: 80%;   
+  top: 50%;             
+  transform: translateY(-50%);
 }
 
 .itemDiscount {
     position: absolute;
     top:16.8rem;       
     font-size: clamp(1rem, 1.2rem, 10rem);
-    left:6rem; 
+    right:9rem; 
     color: white;
     background-color: #FF4136;  
     font-family: "PoppinsSemiBold";
@@ -533,9 +543,758 @@ body {
     position: absolute;
     top:16rem;       
     font-size: clamp(1rem, 1.5rem, 2rem);
-    left:9rem; 
+    right:0.5rem; 
     color: #FF4136;
     font-family: "PoppinsSemiBold";
     padding: 0.5rem 1.4rem;
     border-radius: 2rem;
+}
+
+
+@media (max-width: 1440px) {
+
+}
+
+@media (max-width: 1200px) {}
+
+@media (max-width: 992px) {}
+
+@media (max-width: 768px) {
+
+}
+
+@media (max-width: 576px) {}
+
+
+@media (max-width: 	480px) {
+
+
+.container {
+    height: 147rem;
+}
+
+
+
+
+
+.item {
+    
+    padding:10rem 0rem;
+    width: 90%;
+    left:5%;
+    top:7rem;
+    border-radius: 1rem;
+
+}
+
+
+
+
+.amount {
+    font-size: clamp(0rem, 0.9rem, 10rem);  
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    top:0rem;
+    right: 1rem;
+
+}
+
+
+.image {
+    width: 23rem;
+    left:45vw;
+    margin-left:-12rem;
+
+    top:2rem;
+}
+
+.itemDescription {
+    
+    padding:10rem 0rem;
+    padding-bottom: 8rem;
+    right:5%;
+    width: 90%;
+    top:28rem;
+    border-radius: 1rem;
+
+}
+
+
+
+.guarantee {
+    top:13rem;   
+    left:1.5rem; 
+    font-size: clamp(0rem, 0.9rem, 10rem);  
+}
+
+.company {
+    top:1rem;
+    left:1rem;
+    font-size: clamp(0rem, 0.9rem, 10rem);    
+}
+
+.name {
+    top:1.8rem;
+    left:1rem;
+    font-size: clamp(1rem, 1.4rem, 10rem);
+}
+
+.description {
+    top:5rem;
+    width: 85%;
+    left:1rem;
+    font-size: clamp(0rem, 0.9rem, 10rem);    
+}
+
+
+.price {
+    top:14.5rem;       
+    font-size: clamp(1rem, 1.6rem, 10rem);
+    left:-2.5rem; 
+    padding: 1rem 4rem;
+}
+
+.discounted {
+    top:13.3rem;    
+    font-size: clamp(1rem, 1.3rem, 10rem);
+    left:1.5rem; 
+
+}
+
+.discounted::after {
+  left: 3.5rem;
+  height: 2px;          
+  width: 50%;   
+}
+
+.discount {
+    top:14.6rem;       
+    font-size: clamp(1rem, 1.1rem, 10rem);
+    left:1.5rem; 
+    padding: 0.05rem 0.5rem;
+    border-radius: 0.5rem;
+
+}
+
+.discountedPrice {
+    top:14.8rem;       
+    font-size: clamp(1rem, 1.5rem, 10rem);
+    left:-2.5rem; 
+    padding: 1rem 4rem;
+}
+
+.buy {
+    position: relative;
+    top: 9.8rem;
+    padding: 0.4rem 2rem;
+    font-size: clamp(1rem, 1rem, 10rem);
+    left:-45vw;
+    white-space: nowrap;
+    margin-left:11rem;
+    border-radius: 1rem;
+
+
+}
+
+
+
+.cart {
+    position: relative;
+    top: 6.5rem;
+    padding: 0.3rem 1.9rem;
+    font-size: clamp(0rem, 0.6rem, 10rem);
+    left:-25vw;
+    white-space: nowrap;
+    margin-left:16.5rem;
+
+}
+
+
+
+.favourite {
+    position: relative;
+    top: 6.78rem;
+    padding: 0.3rem 1rem;
+    font-size: clamp(0rem, 0.6rem, 10rem);
+    left:-25vw;
+    white-space: nowrap;
+    margin-left:16.5rem;
+}
+
+
+
+
+.rating {
+    top:8rem;
+    font-size: clamp(0rem, 0.7rem, 10rem);    
+    left:1.5rem;
+}
+
+
+.ratingLine {
+    height: 0.5rem;
+    top:10rem;
+    left:1.5rem;
+}
+
+.overallRating {
+    height: 0.5rem;
+    width: 15rem;
+    top:10rem;
+    left:1.5rem;
+}
+
+
+.check {
+    padding: 0.5rem 2rem;
+    font-size: clamp(0rem, 0.8rem, 10rem);
+    top:11rem;
+    left:1.5rem;
+
+}
+
+
+.propertiesTitle {
+    font-size: clamp(1rem, 1.5rem, 10rem);
+    top:53rem;
+    left:2.5rem;
+}
+
+
+.properties {
+  width: 90%;
+  padding: 1rem;
+  padding-top: 4rem;
+  right: 5%;
+  gap: 0.5rem;
+  top: 53rem;
+  border-radius: 1rem;
+  grid-template-columns: repeat(1, 1fr);
+
+}
+
+
+.property {
+  padding: 0.5rem 1rem;
+  font-size: clamp(0rem, 0.6rem, 2rem);
+  white-space: nowrap;
+  border-radius: 0.7rem;
+        
+}
+
+
+
+.review {
+  width: 90%;
+  padding: 3rem;
+  padding-top: 5rem;
+  right: 5%;
+  top: 105.7rem;
+  border-radius: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+
+}
+
+.reviewTitle {
+    font-size: clamp(1rem, 1.5rem, 10rem);
+    top:-0.5rem;
+    left:1.5rem;
+}
+
+.items {
+  grid-template-columns: repeat(2, 2fr); 
+  gap: 1rem;
+}
+
+.similar {
+  width: 90%;
+  padding: 1rem;
+  padding-top: 4rem;
+  right: 5%;
+  gap: 1rem;
+  top: 114.5rem;
+  border-radius: 1rem;
+
+}
+
+.similarTitle {
+    font-size: clamp(1rem, 1.5rem, 10rem);
+    top:0rem;
+    left:1.5rem;
+}
+
+
+.itemContainer {
+    border-radius: 3rem;
+    padding: 0rem 1rem;
+    padding-top: 5rem;
+    width: 65%;
+    margin-top: 18rem;
+    z-index: 0;
+    opacity:1;
+
+}
+
+
+.items {
+
+    gap: 1rem; 
+    margin-top:-19rem;
+    padding: 1rem 0rem;
+    padding-top: 19rem;
+    align-items: stretch;
+
+    
+}
+
+
+
+.items span {
+    top:18.5rem;    
+}
+
+.items .guarantee {
+    top:-0.2rem;   
+    left:0.5rem; 
+    font-size: clamp(0rem, 0.8rem, 2rem);
+
+}
+
+.items .similarItem {
+    
+    flex: 2 1 130px;
+    padding:5rem 2rem; 
+    border-radius: 1rem;
+    justify-content: space-between;
+    min-height: 183px;
+
+
+}
+
+
+
+.items .itemName {
+
+    top:4.5rem;
+    width: 93%;
+    line-height: 1;
+    left: 0rem;
+    font-size: clamp(0rem, 0.65rem, 2rem);
+}
+
+
+
+
+.items img {
+    left:22vw;
+    margin-left:-5.4rem;
+    top:1rem;
+    width: 150px;
+}
+
+
+
+.items .itemOld {
+    top:9.5rem;    
+    font-size: clamp(0rem, 0.9rem, 2rem);
+    right: -0.5rem;  
+}
+
+.items .itemNew {
+    top:9rem;    
+    font-size: clamp(0rem, 0.6rem, 2rem);
+    right: 0rem;  
+    text-decoration: line-through;
+}
+
+.itemNew::after {
+  left: 0.7rem;
+  height: 1.7px;          
+  width: 70%;   
+
+}
+
+
+
+.itemDiscount {
+    top:9.35rem;       
+    font-size: clamp(0rem, 0.6rem, 10rem);
+    right:4.5rem; 
+    padding: 0.1rem 0.4rem;
+    border-radius: 0.5rem;
+
+}
+
+.itemDiscountedPrice {
+    top:8.5rem;       
+    font-size: clamp(0rem, 0.9rem, 2rem);
+    right:-1rem; 
+
+}
+
+
+ }
+
+
+@media (max-width: 360px) {
+
+
+.container {
+    height: 147rem;
+}
+
+
+
+
+
+.item {
+    
+    padding:10rem 0rem;
+    width: 90%;
+    left:5%;
+    top:7rem;
+    border-radius: 1rem;
+
+}
+
+
+
+
+.amount {
+    font-size: clamp(0rem, 0.8rem, 10rem);  
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    top:0rem;
+    right: 1rem;
+
+}
+
+
+.image {
+    width: 20rem;
+    left:45vw;
+    margin-left:-10.5rem;
+
+    top:2rem;
+}
+
+.itemDescription {
+    
+    padding:10rem 0rem;
+    padding-bottom: 10rem;
+    right:5%;
+    width: 90%;
+    top:28rem;
+    border-radius: 1rem;
+
+}
+
+
+
+.guarantee {
+    top:13rem;   
+    left:1.5rem; 
+    font-size: clamp(0rem, 0.8rem, 10rem);  
+}
+
+.company {
+    top:1rem;
+    left:1rem;
+    font-size: clamp(0rem, 0.8rem, 10rem);    
+}
+
+.name {
+    top:2rem;
+    left:1rem;
+    font-size: clamp(1rem, 1.2rem, 10rem);
+}
+
+.description {
+    top:4.8rem;
+    width: 85%;
+    left:1rem;
+    font-size: clamp(0rem, 0.8rem, 10rem);    
+}
+
+
+.price {
+    top:14.5rem;       
+    font-size: clamp(1rem, 1.4rem, 10rem);
+    left:-2.5rem; 
+    padding: 1rem 4rem;
+}
+
+.discounted {
+    top:13.55rem;    
+    font-size: clamp(1rem, 1.2rem, 10rem);
+    left:1.3rem; 
+
+}
+
+.discounted::after {
+  left: 3.5rem;
+  height: 2px;          
+  width: 50%;   
+}
+
+.discount {
+    top:14.75rem;       
+    font-size: clamp(1rem, 1rem, 10rem);
+    left:1.5rem; 
+    padding: 0.05rem 0.5rem;
+    border-radius: 0.5rem;
+
+}
+
+.discountedPrice {
+    top:15.3rem;       
+    font-size: clamp(1rem, 1.2rem, 10rem);
+    left:-2.5rem; 
+    padding: 1rem 4rem;
+}
+
+.buy {
+    position: relative;
+    top: 9.5rem;
+    padding: 0.4rem 2rem;
+    font-size: clamp(1rem, 1rem, 10rem);
+    left:-30vw;
+    margin-left:5rem;
+    border-radius: 1rem;
+
+
+}
+
+
+
+.cart {
+    position: relative;
+    top: 10rem;
+    padding: 0.3rem 1rem;
+    font-size: clamp(0rem, 0.6rem, 10rem);
+    left:-30vw;
+    margin-left:2.5rem;
+
+}
+
+
+
+.favourite {
+    position: relative;
+    top: 8.2rem;
+    padding: 0.3rem 1rem;
+    font-size: clamp(0rem, 0.6rem, 10rem);
+    left:-15vw;
+    white-space: nowrap;
+    margin-left:10rem;
+}
+
+
+
+
+.rating {
+    top:8rem;
+    font-size: clamp(0rem, 0.7rem, 10rem);    
+    left:1.5rem;
+}
+
+
+.ratingLine {
+    height: 0.5rem;
+    top:10rem;
+    left:1.5rem;
+}
+
+.overallRating {
+    height: 0.5rem;
+    width: 15rem;
+    top:10rem;
+    left:1.5rem;
+}
+
+
+.check {
+    padding: 0.5rem 2rem;
+    font-size: clamp(0rem, 0.8rem, 10rem);
+    top:11rem;
+    left:1.5rem;
+
+}
+
+
+.propertiesTitle {
+    font-size: clamp(1rem, 1.3rem, 10rem);
+    top:55rem;
+    left:2.5rem;
+}
+
+
+.properties {
+  width: 90%;
+  padding: 1rem;
+  padding-top: 4rem;
+  right: 5%;
+  gap: 0.5rem;
+  top: 55rem;
+  border-radius: 1rem;
+  grid-template-columns: repeat(1, 1fr);
+
+}
+
+
+.property {
+  padding: 0.5rem 1rem;
+  font-size: clamp(0rem, 0.5rem, 2rem);
+  border-radius: 0.7rem;
+        
+}
+
+
+
+.review {
+  width: 90%;
+  padding: 3rem;
+  padding-top: 5rem;
+  right: 5%;
+  top: 105.5rem;
+  border-radius: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+
+}
+
+.reviewTitle {
+    font-size: clamp(1rem, 1.3rem, 10rem);
+    top:0rem;
+    left:1.5rem;
+}
+
+.items {
+  grid-template-columns: repeat(2, 2fr); 
+  gap: 1rem;
+}
+
+.similar {
+  width: 90%;
+  padding: 1rem;
+  padding-top: 4rem;
+  right: 5%;
+  gap: 1rem;
+  top: 114.5rem;
+  border-radius: 1rem;
+
+}
+
+.similarTitle {
+    font-size: clamp(1rem, 1.3rem, 10rem);
+    top:0.5rem;
+    left:1.5rem;
+}
+
+
+.itemContainer {
+    border-radius: 3rem;
+    padding: 0rem 1rem;
+    padding-top: 5rem;
+    width: 65%;
+    margin-top: 18rem;
+    z-index: 0;
+    opacity:1;
+
+}
+
+
+.items {
+
+    gap: 1rem; 
+    margin-top:-19rem;
+    padding: 1rem 0rem;
+    padding-top: 20rem;
+
+
+    
+}
+
+
+
+.items span {
+    top:18.5rem;    
+}
+
+.items .guarantee {
+    top:0.2rem;   
+    left:0.5rem; 
+    font-size: clamp(0rem, 0.6rem, 2rem);
+
+}
+
+.items .similarItem {
+    
+    flex: 0 0 10%;
+    padding:5rem 18.5vw;
+    border-radius: 1rem;
+
+
+}
+
+
+
+.items .itemName {
+
+    top:4.5rem;
+    width: 95%;
+    line-height: 1;
+    left: 0rem;
+    font-size: clamp(0rem, 0.55rem, 2rem);
+}
+
+
+
+
+.items img {
+    left:18vw;
+    margin-left:-4.7rem;
+    top:1rem;
+    width: 150px;
+}
+
+
+
+.items .itemOld {
+    top:9.5rem;    
+    font-size: clamp(0rem, 0.9rem, 2rem);
+    right: -0.5rem;  
+}
+
+.items .itemNew {
+    top:9rem;    
+    font-size: clamp(0rem, 0.6rem, 2rem);
+    right: 0rem;  
+    text-decoration: line-through;
+}
+
+.itemNew::after {
+  left: 0.7rem;
+  height: 1.7px;          
+  width: 70%;   
+
+}
+
+
+
+.itemDiscount {
+    top:9.35rem;       
+    font-size: clamp(0rem, 0.6rem, 10rem);
+    right:4.5rem; 
+    padding: 0.1rem 0.4rem;
+    border-radius: 0.5rem;
+
+}
+
+.itemDiscountedPrice {
+    top:8.5rem;       
+    font-size: clamp(0rem, 0.9rem, 2rem);
+    right:-1rem; 
+
+}
+
 }
