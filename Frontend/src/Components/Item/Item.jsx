@@ -93,7 +93,7 @@ function Item({name}) {
                 const formattedKey = key.charAt(0).toUpperCase() + key.slice(1);
                 return (
                 <div key={key} className={styles.property}>
-                    <strong>{formattedKey}</strong>
+                    <p style={{fontFamily:"PoppinsSemiBold"}}>{formattedKey}</p>
                     <span>{value}</span>
                 </div>
                 );
