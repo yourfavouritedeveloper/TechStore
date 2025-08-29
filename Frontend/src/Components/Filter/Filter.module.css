@@ -348,6 +348,8 @@ input:focus {
     top: 2rem;
     margin-left:-0.7rem;
     z-index: 8;
+    width: 28px;
+    height: 28px;
     transition: all 0.3s ease;
 
 }
@@ -956,10 +958,10 @@ background-color: rgb(70, 130, 180);
 
 
 .filter {
-    font-size: 0.9rem;
-    padding: 0.3rem 1rem;
-    left:1rem;
-    top:1.5rem;
+    font-size: 0.6rem;
+    padding: 0.2rem 0.7rem;
+    left:0.8rem;
+    top:0.5rem;
 
 }
 
@@ -967,9 +969,9 @@ background-color: rgb(70, 130, 180);
 
 
 .filter svg {
-    top:0.2rem;
-    height: 17px;
-    width: 17px;
+    top:0.15rem;
+    height: 12px;
+    width: 12px;
     
 }
 
@@ -982,81 +984,110 @@ background-color: rgb(70, 130, 180);
 
 
 .low span {
-  padding: 0.3rem 1rem;
-  left:7rem;
-  top:1.5rem;
-  white-space: nowrap;
-  font-size: 0.9rem;
+    font-size: 0.6rem;
+    padding: 0.2rem 0.7rem;
+    left:90vw;
+    margin-left:-11rem;
+    top:0.55rem;
 
 }
 
 
 
 .high span{
-  padding: 0.3rem 1rem;
-  left:7rem;
-  top:4.5rem;
-  white-space: nowrap;
-  font-size: 0.9rem;
+    font-size: 0.6rem;
+    padding: 0.2rem 0.7rem;
+    left:90vw;
+    margin-left:-5.8rem;
+    top:0.55rem;
 }
 
 
 
 
 .newest span{
-     position: absolute;
-    font-size: 1.2rem;
-    font-family: "PoppinsLight";
-    padding: 0.5rem 1.5rem;
-    cursor: pointer;
-    left:30.4rem;
-    top:1.5rem;
-    border: none;
-    background-color: white;
-    color: black;
-    border-radius: 2rem;
-    transition: all 0.5s ease; 
-    z-index: 8;  
-}
-
-.newest:hover span {
-     transform: scale(1.02); 
-    background-color: #2962FF;
-    color:rgb(255, 255, 255);    
-}
-
-.newest input:checked + span{
-    background-color: #2962FF;
-    color:rgb(255, 255, 255);
+    font-size: 0.6rem;
+    padding: 0.2rem 0.7rem;
+    left:90vw;
+    margin-left:-8.4rem;
+    top:2.4rem;
 }
 
 
 
 .oldest span{
-     position: absolute;
-    font-size: 1.2rem;
-    font-family: "PoppinsLight";
-    padding: 0.5rem 1.5rem;
-    cursor: pointer;
-    left:38.8rem;
-    top:1.5rem;
-    border: none;
-    background-color: white;
-    color: black;
+    font-size: 0.6rem;
+    padding: 0.2rem 0.7rem;
+    left:90vw;
+    margin-left:-4.4rem;
+    top:2.4rem;
+}
+
+.more span{
+    font-size: 0.6rem;
+    padding: 0.2rem 0.7rem;
+    padding-left: 1rem;
+    left:90vw;
+    margin-left:-15.9rem;
+    top:2.4rem;
+}
+
+
+
+
+.more svg {
+    top: 2.45rem;
+    height: 18px;
+    width: 18px;
+    margin-left:-7.4rem;
+
+
+}
+
+
+
+
+.more:hover .moreOption {
+    top: 1rem;
+    height: 13rem;
     border-radius: 2rem;
-    transition: all 0.5s ease;   
-    z-index: 8;
+    opacity: 1;
 }
 
-.oldest:hover span{
-     transform: scale(1.02); 
-    background-color: #2962FF;
-    color:rgb(255, 255, 255);   
+.more:hover svg {
+    transform: rotateZ(90deg);
 }
 
-.oldest input:checked + span{
-    background-color: #2962FF;
-    color:rgb(255, 255, 255);   
+.more input:checked + span {
+    background-color:#7536be ; 
+}
+
+.more input:checked ~ .moreOption {
+    top: 1rem;
+    height: 13rem;
+    border-radius: 2rem;
+
+}
+
+.more input:checked ~ svg {
+    transform: rotateZ(90deg);    
+}
+
+
+.moreOption {
+    width:96%;
+    left: 2%;
+    top: -15rem;
+    cursor:auto;
+    border-radius: 0rem;
+    position:absolute;
+    height: 20rem;
+    background-color: rgb(207, 207, 207);
+    z-index: 1;
+    transition: all 0.5s ease;
+    pointer-events: auto;
+
+    
 }
 
 
