@@ -112,3 +112,166 @@ background: radial-gradient(
     top:-5rem;
 }
 
+@media (max-width: 1440px) {}
+
+@media (max-width: 1200px) {}
+
+@media (max-width: 992px) {}
+
+@media (max-width: 768px) {}
+
+@media (max-width: 576px) {}
+
+@media (max-width: 	480px) {
+
+.container {
+    height: 40rem;
+
+
+}
+
+.box {
+    height: 60rem;
+
+
+
+}
+
+
+.title {
+    font-size: clamp(0rem, 1.4rem, 25rem);   
+    top:12.5rem;
+    width: 60%;
+    left:70vw;
+    margin-left:-13rem;
+
+}
+
+
+.subtitle {
+
+    font-size: clamp(0rem, 0.9rem, 25rem);   
+    top:12rem;
+    width: 62%;
+    left:70vw;
+    margin-left:-13rem;
+
+}
+
+.subsubtitle {
+    font-size: clamp(0rem, 1.2rem, 25rem);   
+    top:23rem;
+    width: 70%;
+    left:70vw;
+    margin-left:-14rem;
+    text-align: left;
+
+}
+
+.button {
+    font-size: clamp(0rem, 1rem, 25rem);   
+    top:27.5rem;
+    left:70vw;
+    margin-left:-14rem;
+    border-radius: 0.9rem;
+    padding: 0.7rem 2.2rem;
+  
+}
+
+
+
+
+.photo90 {
+    width: 31rem;
+    top:-8rem;
+    left:20vw;
+    margin-left:-10rem;
+
+}
+
+
+.circle {
+    height: 40rem;
+    width: 40rem;
+    right: -30rem;
+    top:-5rem;
+}
+
+}
+
+
+@media (max-width: 	360px) {
+.container {
+    height: 40rem;
+
+
+}
+
+.box {
+    height: 60rem;
+
+
+
+}
+
+
+.title {
+    font-size: clamp(0rem, 1rem, 25rem);   
+    top:13.5rem;
+    width: 60%;
+    left:3rem;
+    margin-left:0rem;
+
+}
+
+
+.subtitle {
+
+    font-size: clamp(0rem, 0.7rem, 25rem);   
+    top:13rem;
+    width: 60%;
+    left:3rem;
+    margin-left:0rem;
+
+}
+
+.subsubtitle {
+    font-size: clamp(0rem, 0.9rem, 25rem);   
+    top:23rem;
+    width: 70%;
+    left:1.5rem;
+    text-align: left;
+    margin-left:0rem;
+
+}
+
+.button {
+    font-size: clamp(0rem, 0.8rem, 25rem);   
+    top:26.5rem;
+    left:1.5rem;
+    border-radius: 0.6rem;
+    padding: 0.6rem 2rem;
+      margin-left:0rem;
+
+}
+
+
+
+
+.photo90 {
+    width: 26.5rem;
+    top:-3.5rem;
+    left:-3.9rem;
+    margin-left:0rem;
+
+}
+
+
+.circle {
+    height: 40rem;
+    width: 40rem;
+    right: -30rem;
+    top:-5rem;
+}
+
+ }
