@@ -299,8 +299,8 @@ const displayItems = filteredItems.length ? filteredItems : [];
                     <div className={styles.itemContainer} style={displayItems.length === 0 || resetClicked ?{ display:"none"} : {}}>
                       <ul className={styles.items}>
                         {displayItems.map((item) => (
-                          <Link key={item.name} className={styles.item} 
-                          to= {"/product/" + item.name}
+                          <Link key={item.id} className={styles.item} 
+                          to= {"/product/" + item.id}
                           style={{ backgroundColor: "rgb(245, 245, 245)" }}>
                             <img src={item.productImageUrl} alt={item.name}/>
                             <p className={styles.name}>{item.name}</p>

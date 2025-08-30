@@ -2,13 +2,18 @@ import styles from "./Item.module.css"
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import Choice from "../Choice/Choice"
 
 function Item({name}) {
 
     const [item,setItem] = useState([]);
     const [similarItems,setSimilarItems] = useState([]);
+    const [isChoice,setIsChoice] = useState(false);
 
+    useEffect(() => {
+       setIsChoice(false);
+    }, [name]);
+    
     useEffect(() => {
     axios.get(`https://techstore-3fvk.onrender.com/api/v1/products/name/${name}`) 
       .then(response => {
@@ -17,11 +22,15 @@ function Item({name}) {
       .catch(error => {
         console.error("Error fetching data:", error);
       });
-  }, [name]);
+    }, [name]);
 
-  useEffect(() => {
-  window.scrollTo(0, 0);
-}, [name]);
+    useEffect(() => {
+    window.scrollTo(0, 0);
+    }, [name]);
+
+    const buy = function() {
+        setIsChoice(!isChoice);
+    }
 
 
     useEffect(() => {
@@ -44,6 +53,7 @@ function Item({name}) {
     : null;
 
     return(<>
+    { isChoice ? <Choice item={item} setIsChoice={setIsChoice} /> : null }
     <div className={styles.container}>
         <div className={styles.item} 
             style={{ backgroundColor: "rgb(245, 245, 245)" }}>
@@ -68,7 +78,7 @@ function Item({name}) {
                 </>
             )
             }
-            <button className={styles.buy}>Buy now</button>
+            <button className={styles.buy} onClick={buy}>Buy now</button>
             <button className={styles.cart}>Add to cart</button>
             <button className={styles.favourite}>Add to favourites</button>
         </div>
@@ -109,8 +119,8 @@ function Item({name}) {
             <p className={styles.similarTitle}>Check similar items</p>
              <ul className={styles.items}>
                 {similarItems.map((i) => (
-                    <Link key={i.name} className={styles.similarItem} 
-                    to= {"/product/" + i.name}
+                    <Link key={i.id} className={styles.similarItem} 
+                    to= {"/product/" + i.id}
                     style={{ backgroundColor: "rgb(245, 245, 245)" }}>
                         <img src={i.productImageUrl} alt={i.name} />
                         <p className={styles.itemName}>{i.name}</p>
@@ -129,7 +139,6 @@ function Item({name}) {
             </ul>
         </div>
     </div>
-
     
     </>);
 }

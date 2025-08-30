@@ -20,7 +20,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login shiftUp={shiftUp} setShiftUp={setShiftUp}/>} />
           <Route path="/register" element={<Register />} />
-          <Route path="/product/:name"   element={<Item shiftUp={shiftUp} setShiftUp={setShiftUp} />} />
+          <Route path="/product/:id"   element={<Item shiftUp={shiftUp} setShiftUp={setShiftUp} />} />
         </Routes>
       </HashRouter>
     </AuthProvider>
