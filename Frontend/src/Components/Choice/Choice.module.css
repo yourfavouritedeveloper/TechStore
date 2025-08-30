@@ -1,0 +1,376 @@
+.container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.315);
+    backdrop-filter: blur(5px); 
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 6;
+    
+}
+
+
+.choice {
+    position: relative;
+    width: 60%;
+    height: 60%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 3rem;
+    left:20%;    
+    top:20%;
+
+    display: flex;          
+    flex-direction: row;     
+    justify-content: space-around; 
+    align-items: center; 
+    overflow: hidden; 
+}
+
+.close {
+    position: absolute;
+    right: 5rem;
+    top:1.7rem;
+    z-index: 10;
+    padding: 0rem 0.5rem;
+    border:none;
+    background-color: white;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close svg {
+    position: relative;
+    top:0.05rem;
+    height: 35px;
+    fill: rgb(56, 56, 56);
+    width: 35px;
+}
+
+.close:hover {
+    background-color: rgb(197, 69, 69);
+
+}
+
+.close:hover svg {
+    fill: white;
+}
+
+.choice .title {
+   position: absolute;
+   font-size: clamp(0rem,3.5rem,10rem); 
+   font-family: "PoppinsSemiBold";
+   width: 80%;
+   text-align: left;
+   line-height: 0.9;
+   left:-31rem;
+   top:-3.6rem;
+   color: white;
+   padding: 1.5rem 50%;
+   background-color: rgb(60, 100, 87);
+}
+
+.choice .bestStore {
+    position: relative;
+    width: 40%;
+    height: 65%;
+    top:13%;
+    left:2%;
+    background-color: #61b9b9;
+    border-radius: 2rem;
+}
+
+.choice .community {
+    position: relative;
+    width: 40%;
+    height: 65%;
+    top:13%;
+    right:2%;
+    background-color: #cf8568;
+    border-radius: 2rem;
+}
+
+.bestStoreBox {
+    position: relative;
+    background-color: white;
+    width: 90%;
+    left:5%;
+    height: 60%;
+    top:-8%;
+    border-radius: 1.3rem;
+}
+
+.communityBox {
+    position: relative;
+    background-color: white;
+    width: 90%;
+    left:5%;
+    height: 60%;
+    top:-8%;
+    border-radius: 1.3rem;
+}
+
+.subtitle {
+    font-size: clamp(0rem,3rem,10rem);
+    position: relative;
+    text-align: left;
+    width: 80%;
+    left:1rem;
+    line-height: 0.85;
+    top:2rem;
+    font-family: "PoppinsSemiBold";
+}
+
+.subsubtitle {
+    font-size: clamp(0rem,1.4rem,10rem);
+    position: relative;
+    text-align: left;
+    width: 75%;
+    left:1rem;
+    line-height: 0.85;
+    top:0rem;
+    font-family: "PoppinsLight";
+}
+
+.bestStore .buy,
+.community .buy {
+    display: inline-block;
+    font-size: clamp(0rem,1.5rem,10rem);
+    color: black;
+    position: relative;
+    background-color: white;
+    padding: 0.7rem 2.5rem;
+    border-radius: 1.5rem;
+    top:0.5rem;
+    transition: all 0.3s ease;
+
+}
+
+.bestStore .buy:hover,
+.community .buy:hover {
+    transform: scale(1.02);
+    color: white;
+}
+
+.bestStore .buy:hover {
+    background-color: #036969;
+}
+
+.community .buy:hover {
+    background-color: #8d2f09;
+}
+
+
+@media (max-width: 1440px) {
+
+}
+
+@media (max-width: 1200px) {}
+
+@media (max-width: 992px) {}
+
+@media (max-width: 768px) {
+
+}
+
+@media (max-width: 576px) {}
+
+
+@media (max-width: 	480px) {
+
+
+.choice {
+    width: 90%;
+    height: 50%;
+    border-radius: 2rem;
+    left:5%;    
+    top:25%;
+
+
+}
+
+.close {
+    right: 1.6rem;
+    top:1.7rem;
+    padding: 0rem 0.5rem;
+    border-radius: 0.6rem;
+
+}
+
+.close svg {
+    top:0.05rem;
+    height: 27px;
+    width: 27px;
+}
+
+
+.choice .title {
+   font-size: clamp(0rem,1.4rem,10rem); 
+   width: 73%;
+   line-height: 1;
+   left:-50vw;
+   margin-left:2.5rem;
+   top:-1.5rem;
+}
+
+
+
+.choice .bestStore {
+    width: 40%;
+    height: 55%;
+    top:15%;
+    left:2%;
+    border-radius: 1rem;
+}
+
+.choice .community {
+    width: 40%;
+    height: 55%;
+    top:15%;
+    right:2%;
+    border-radius: 1rem;
+}
+
+.bestStoreBox {
+    width: 90%;
+    left:5%;
+    height: 60%;
+    top:-5.5%;
+    border-radius: 0.8rem;
+}
+
+.communityBox {
+    width: 90%;
+    left:5%;
+    height: 60%;
+    top:-5.5%;
+    border-radius: 0.8rem;
+}
+
+
+
+.subtitle {
+    font-size: clamp(0rem,1.1rem,10rem);
+    width: 85%;
+    left:0.3rem;
+    top:0.9rem;
+}
+
+.subsubtitle {
+    font-size: clamp(0rem,0.8rem,10rem);
+    width: 95%;
+    left:0.3rem;
+    top:0.4rem;
+}
+
+
+.bestStore .buy,
+.community .buy {
+    font-size: clamp(0rem,0.9rem,10rem);
+    white-space: nowrap;
+    padding: 0.3rem 1.5rem;
+    border-radius: 1.5rem;
+
+}
+
+
+}
+
+@media (max-width: 360px) {
+
+
+.choice {
+    width: 90%;
+    height: 40%;
+    border-radius: 2rem;
+    left:5%;    
+    top:25%;
+
+
+}
+
+.close {
+    right: 1.6rem;
+    top:1.7rem;
+    padding: 0rem 0.5rem;
+    border-radius: 0.6rem;
+
+}
+
+.close svg {
+    top:0.05rem;
+    height: 27px;
+    width: 27px;
+}
+
+
+.choice .title {
+   font-size: clamp(0rem,1.2rem,10rem); 
+   width: 65%;
+   line-height: 1;
+   left:-50vw;
+   margin-left:2.5rem;
+   top:-1.5rem;
+}
+
+
+
+.choice .bestStore {
+    width: 40%;
+    height: 55%;
+    top:15%;
+    left:2%;
+    border-radius: 1rem;
+}
+
+.choice .community {
+    width: 40%;
+    height: 55%;
+    top:15%;
+    right:2%;
+    border-radius: 1rem;
+}
+
+.bestStoreBox {
+    width: 90%;
+    left:5%;
+    height: 60%;
+    top:-4%;
+    border-radius: 0.8rem;
+}
+
+.communityBox {
+    width: 90%;
+    left:5%;
+    height: 60%;
+    top:-4%;
+    border-radius: 0.8rem;
+}
+
+
+
+.subtitle {
+    font-size: clamp(0rem,0.9rem,10rem);
+    width: 100%;
+    left:0.3rem;
+    top:0.9rem;
+}
+
+.subsubtitle {
+    font-size: clamp(0rem,0.7rem,10rem);
+    width: 95%;
+    left:0.3rem;
+    top:0.4rem;
+}
+
+
+.bestStore .buy,
+.community .buy {
+    font-size: clamp(0rem,0.8rem,10rem);
+    white-space: nowrap;
+    padding: 0.3rem 1.5rem;
+    border-radius: 1.5rem;
+
+}
+
+}

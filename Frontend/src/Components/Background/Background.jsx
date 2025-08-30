@@ -328,7 +328,7 @@
                         <Link
                         key={item.name}
                         className={styles.item}
-                        to={"/product/" + item.name}
+                        to={"/product/" + item.id}
                         >
                         <img src={item.productImageUrl} alt={item.name} />
                         <p className={styles.name}>{item.name}</p>
