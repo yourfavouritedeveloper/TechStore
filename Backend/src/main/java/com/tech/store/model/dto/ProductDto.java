@@ -23,6 +23,9 @@ import java.util.Map;
 
 public class ProductDto {
 
+
+    private Integer id;
+
     @NotBlank(message = "Name of the Product cannot be empty.", groups = {OnCreate.class, OnUpdate.class})
     private String name;
 

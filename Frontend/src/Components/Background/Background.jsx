@@ -51,17 +51,22 @@
         }, []);
 
 
-
+    const circleRef1 = useRef(null)
+    const circleRef2 = useRef(null)
     const boxRef = useRef(null);
     const moduleRef = useRef(null);
     const ref = useRef(null);
     const textRef = useRef(null)
 
+    const circleControls1 = useAnimation();
+    const circleControls2 = useAnimation();
     const boxControls = useAnimation();
     const moduleControls = useAnimation();
     const controls = useAnimation();
     const textControls = useAnimation();
 
+    const circleInView1 = useInView(circleRef1, { once: true });
+    const circleInView2 = useInView(circleRef2, { once: true });
     const boxInView = useInView(boxRef, { once: true });
     const moduleInView = useInView(moduleRef, { once: true });
     const inView = useInView(ref, { once: true });
@@ -109,7 +114,10 @@
         if (moduleInView) moduleControls.start("visible");
         if (inView) controls.start("visible");
         if (textInView) textControls.start("visible")
-    }, [boxInView, moduleInView,inView,textInView]);
+        if (circleInView1) circleControls1.start("visible")
+        if (circleInView2) circleControls2.start("visible")
+
+    }, [boxInView, moduleInView,inView,textInView,circleInView1,circleInView2]);
         
         return (
             <>
@@ -185,6 +193,32 @@
 
                 </motion.div>
                 <div className={styles.coverBox}>
+                        <motion.div 
+                        className={styles.circleBack1}
+                        ref={circleRef1}
+                            animate={circleControls1}
+                        variants={{
+                            hidden: {x: "800px"},
+                            visible: {x: "0px"}
+                            }}
+                            initial="hidden"
+                            viewport={{ margin: "0px" }}
+                            transition={{ duration: 1.25}}
+                            >
+                        <motion.div 
+                        className={styles.circleBack2}
+                        ref={circleRef2}
+                            animate={circleControls2}
+                        variants={{
+                            hidden: {x: "-800px"},
+                            visible: {x: "0px"}
+                            }}
+                            initial="hidden"
+                            viewport={{ margin: "0px" }}
+                            transition={{ duration: 1.25}}
+                            ></motion.div>
+                            
+                            </motion.div>
                           <motion.p className={styles.coverTitle}
                             style={{
                             transform: `translateY(${offset*0.85}px)`, 
@@ -212,6 +246,7 @@
                 >
                     <Campaign />
                 </motion.div>
+
                 <motion.div
                 className={styles.boxExplanation}
                 style={{
