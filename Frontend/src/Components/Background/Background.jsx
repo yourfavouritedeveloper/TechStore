@@ -195,30 +195,13 @@
                 <div className={styles.coverBox}>
                         <motion.div 
                         className={styles.circleBack1}
-                        ref={circleRef1}
-                            animate={circleControls1}
-                        variants={{
-                            hidden: {x: "800px"},
-                            visible: {x: "0px"}
-                            }}
-                            initial="hidden"
-                            viewport={{ margin: "0px" }}
-                            transition={{ duration: 1.25}}
-                            >
+                        >
+                            
+                        </motion.div>
                         <motion.div 
                         className={styles.circleBack2}
-                        ref={circleRef2}
-                            animate={circleControls2}
-                        variants={{
-                            hidden: {x: "-800px"},
-                            visible: {x: "0px"}
-                            }}
-                            initial="hidden"
-                            viewport={{ margin: "0px" }}
-                            transition={{ duration: 1.25}}
-                            ></motion.div>
-                            
-                            </motion.div>
+                        ></motion.div>
+                        
                           <motion.p className={styles.coverTitle}
                             style={{
                             transform: `translateY(${offset*0.85}px)`, 
