@@ -206,8 +206,7 @@
                             style={{
                             transform: `translateY(${offset*0.85}px)`, 
                             transition: "all 0.5s ease",
-                            fontSize:  `clamp(0rem, min(${3000/offset+1}vw,3.5vw), 3.5vw)`,
-                            width: `min(max(${1280-offset}%,49%),66%)`,
+
                             opacity: `${offset*0.002}`,
                             left
                             }}
