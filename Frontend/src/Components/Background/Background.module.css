@@ -564,7 +564,9 @@ body {
 }
 
 .coverTitle {
-    margin-left:-2rem;
+    margin-left:-9rem;
+    font-size: clamp(0rem, 6vw,5rem);
+    width: 110%;
 
 
 }
@@ -817,7 +819,9 @@ body {
 
 
 .coverTitle {
-    margin-left:-2rem;
+    margin-left:-7rem;
+    font-size: clamp(0rem, 5vw,5rem);
+    width: 90%;
 
 
 }

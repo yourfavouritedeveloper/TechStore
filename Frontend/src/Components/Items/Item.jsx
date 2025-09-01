@@ -6,8 +6,9 @@ import { applyFilters } from '../Utils/filterUtil';
 import { Link,useNavigate,useLocation  } from "react-router-dom";
 import Filter from "../Filter/Filter";
 import BrandLogo from "../../../public/brandblack.png"
-
-
+import Apple from "../../assets/apple.png"
+import Keyboard from "../../assets/keykeyboard.png"
+import TV from "../../assets/tvv.png"
 
 function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
 
@@ -20,7 +21,7 @@ function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
     useEffect(() => {
     axios.get("https://techstore-3fvk.onrender.com/api/v1/products/popular") 
       .then(response => {
-        setItemsPopular(response.data);
+        setItemsPopular(response.data.slice(0, 5));
       })
       .catch(error => {
         console.error("Error fetching data:", error);
@@ -30,7 +31,7 @@ function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
     useEffect(() => {
     axios.get("https://techstore-3fvk.onrender.com/api/v1/products/bought") 
       .then(response => {
-        setItemsSeller(response.data);
+        setItemsSeller(response.data.slice(0, 5));
       })
       .catch(error => {
         console.error("Error fetching data:", error);
@@ -44,19 +45,40 @@ function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
     return(
         <>
             <div className={styles.container}>
+              <div className={styles.discoverBox}>
                   <p className={styles.title}>Discover</p>
+                  <p className={styles.subtitle}>the newest, most valued products and stay ahead of trends.</p>
+                  <img src={Apple} alt="" />
+              </div>
+              <div className={styles.containers}>
                 <div className={styles.container1}>
                   <div className={styles.popularExplanation}>
                     <p className={styles.subtitle}>Most Popular Products</p>
-                    <p className={styles.subsubtitle}>Discover our top-selling items that customers love the most! From trending gadgets to must-have accessories, explore the products that everyone is talking about. Stay ahead of the trend and find your favorites today.</p>
+                    <p className={styles.subsubtitle}>Discover top gadgets and accessories loved by all!</p>
                     <Link className={styles.popularButton} to="/product">Shop Now</Link>
                   </div>
-                  <div className={styles.populardiv}>
+                    <img src={Keyboard} alt="" />
+                  
+                </div>
+
+                <div className={styles.container2}>
+                  <div className={styles.sellerExplanation}>
+                    <p className={styles.subtitle}>Best Selling Products</p>
+                    <p className={styles.subsubtitle}>Shop top picks, best deals, trusted by many!</p>
+                    <Link className={styles.sellerButton} to="/product">Shop Now</Link>
+                  </div>
+                    <img src={TV} alt="" />
+                </div>
+
+                
+              </div>
+
+                <div className={styles.populardiv}>
                     <ul className={styles.itemsPopular}>
                       {itemsPopular.map((item) => (
                         <Link key={item.id} className={styles.item} 
                         to= {"/product/" + item.id}
-                        style={{backgroundColor:"rgb(245, 245, 245)"}}>
+                       >
                           <p className={styles.searchRate}>Searched {item.searched} times</p>
                           <img  src={item.productImageUrl} alt={item.name} />
                           <p className={styles.name}>{item.name}</p>
@@ -66,14 +88,10 @@ function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
                       ))}
                     </ul>
                     </div>
-                </div>
-                <div className={styles.container2}>
-                  <div className={styles.sellerExplanation}>
-                    <p className={styles.subtitle}>Best Sellers</p>
-                    <p className={styles.subsubtitle}>Explore our most-purchased products that have won the trust of thousands of customers. From premium quality items to unbeatable deals, these are the choices people can’t stop buying. Get yours before they’re gone!</p>
-                    <Link className={styles.sellerButton} to="/product">Shop Now</Link>
-                  </div>
-                    <div className={styles.sellerdiv}>
+
+
+
+                 <div className={styles.sellerdiv}>
                       <ul className={styles.itemsBought}>
                         {itemsSeller.map((item) => (
                         <Link key={item.id} className={styles.item}
@@ -89,7 +107,6 @@ function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
                       </ul>
                     </div>
                    
-                </div>
 
                 </div>
           

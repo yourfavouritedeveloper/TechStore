@@ -428,6 +428,10 @@ a {
     color:white;
 }
 
+.highlight .log:hover {
+    color: black;
+}
+
 #name.highlight:hover {
   color: black;
 }
