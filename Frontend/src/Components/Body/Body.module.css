@@ -3,22 +3,17 @@
     position: relative;
     justify-content: center;
     width: 100%;
-    height: 50rem;
+    height: 45rem;
     padding-bottom: 5rem;
-    background: linear-gradient(
-      165deg,
-      rgb(255, 255, 255), 
-      rgb(124, 145, 165)
-    );
+    background-color: white;
     overflow-y: hidden;
     overflow-x: hidden;
     z-index: 7;
 }
 
 .title {
-    margin-top:6rem;
     margin-bottom: 2rem;
-    font-size: clamp(7rem, 1vw, 14rem);
+    font-size: clamp(5rem, 1vw, 14rem);
     font-family: "PoppinsRegular";
     display: flex;
     position: absolute;
@@ -31,7 +26,7 @@
     display: grid;
     gap:1rem;
     position: absolute;
-    top:17.5rem;
+    top:15rem;
     grid-template-columns: repeat(4, 1fr); 
     padding: 0rem 4.15vw;
 }
@@ -40,7 +35,7 @@
     flex: 1 0 20%; 
     box-sizing: border-box; 
     padding:5.5rem;
-    border-radius: 2rem;
+    border-radius: 1rem;
     color: white;
     position: relative;
     overflow: hidden;
@@ -50,8 +45,8 @@
 .computers {
   background-color: #5e7dd4;
   position: relative;
-  width: 26.5rem;
-  height: 12.95rem; 
+  width: 21rem;
+  height: 11rem; 
   padding: 2rem;
   border-radius: 1rem;
   overflow: hidden;
@@ -70,7 +65,7 @@
     position: absolute;
     width: 80%;
     margin-left:0rem;
-    margin-top:-9rem;
+    margin-top:-8rem;
     object-fit: contain;
     transform: rotateZ(20deg);
     transition: all 1s ease;
@@ -95,7 +90,7 @@
     color: rgb(255, 255, 255);
     padding:5.5rem;
     margin-top: -6.6rem;
-    font-size: clamp(3rem, 1vw, 14rem);
+    font-size: clamp(1.8rem, 1vw, 14rem);
     font-family: "PoppinsRegular";
     z-index: 6;
     background-color: rgba(0, 0, 0, 0.363); 
@@ -176,8 +171,8 @@
 .mobilePhones {
     background-color: #33d6a0;
     position: relative;
-    width: 26.5rem;
-    height: 12.95rem; 
+  width: 21rem;
+  height: 11rem; 
     padding: 2rem;
     border-radius: 1rem;
     overflow: hidden;
@@ -225,7 +220,7 @@
     color: rgb(255, 255, 255);
     padding:5.5rem 8.5rem;
     margin-top: -6.6rem;
-    font-size: clamp(3rem, 1vw, 14rem);
+    font-size: clamp(1.8rem, 1vw, 14rem);
     font-family: "PoppinsRegular";
 
     z-index: 6;
@@ -307,8 +302,8 @@
 .tvs {
   background-color: #f8832f;
   position: relative;
-    width: 26.5rem;
-    height: 12.95rem; 
+  width: 21rem;
+  height: 11rem; 
   padding: 2rem;
   border-radius: 1rem;
   overflow: hidden;
@@ -352,7 +347,7 @@
     color: rgb(255, 255, 255);
     padding:5.5rem  11rem;
     margin-top: -6.6rem;
-    font-size: clamp(3rem, 1vw, 14rem);
+    font-size: clamp(1.8rem, 1vw, 14rem);
     font-family: "PoppinsRegular";
     z-index: 6;
     background-color: rgba(0, 0, 0, 0.363); 
@@ -434,8 +429,8 @@
 .smartWatches {
   background-color: #7779fc;
   position: relative;
-    width: 26.5rem;
-    height: 12.95rem; 
+  width: 21rem;
+  height: 11rem; 
   padding: 2rem;
   border-radius: 1rem;
   overflow: hidden;
@@ -480,7 +475,7 @@
     color: rgb(255, 255, 255);
     padding:6.5rem  11rem;
     margin-top: -6.6rem;
-    font-size: clamp(3rem, 1vw, 14rem);
+    font-size: clamp(1.8rem, 1vw, 14rem);
     font-family: "PoppinsRegular";
 
     z-index: 6;
@@ -566,8 +561,8 @@
 .keyboards {
   background-color: #e25252;
   position: relative;
-    width: 26.5rem;
-    height: 12.95rem;  
+  width: 21rem;
+  height: 11rem; 
   padding: 2rem;
   border-radius: 1rem;
   overflow: hidden;
@@ -599,7 +594,6 @@
 
 .keyboards:hover img {
     transform: rotateZ(0deg) scale(1.1);
-    margin-top:-9rem;
 }
 
 .keyboards:hover p {
@@ -611,8 +605,8 @@
     line-height: 0.9;
     color: rgb(255, 255, 255);
     padding:6.5rem  11rem;
-    margin-top: -6.6rem;
-    font-size: clamp(3rem, 1vw, 14rem);
+    margin-top: -7.2rem;
+    font-size: clamp(1.8rem, 1vw, 14rem);
     font-family: "PoppinsRegular";
 
     z-index: 6;
@@ -691,8 +685,8 @@
 .headphones {
   background-color: #9f4dec;
   position: relative;
-    width: 26.5rem;
-    height: 12.95rem; 
+  width: 21rem;
+  height: 11rem; 
   padding: 2rem;
   border-radius: 1rem;
   overflow: hidden;
@@ -736,8 +730,8 @@
     line-height: 0.9;
     color: rgb(255, 255, 255);
     padding:6.5rem  11rem;
-    margin-top: -6.6rem;
-    font-size: clamp(3rem, 1vw, 14rem);
+    margin-top: -7.2rem;
+    font-size: clamp(1.8rem, 1vw, 14rem);
     font-family: "PoppinsRegular";
 
     z-index: 6;
@@ -819,8 +813,8 @@
 .monitors {
   background-color: #42b3e7;
   position: relative;
-    width: 26.5rem;
-    height: 12.95rem;  
+  width: 21rem;
+  height: 11rem; 
   padding: 2rem;
   border-radius: 1rem;
   overflow: hidden;
@@ -864,8 +858,8 @@
     line-height: 0.9;
     color: rgb(255, 255, 255);
     padding:6.5rem  11rem;
-    margin-top: -6.6rem;
-    font-size: clamp(3rem, 1vw, 14rem);
+    margin-top: -7.1rem;
+    font-size: clamp(1.8rem, 1vw, 14rem);
     font-family: "PoppinsRegular";
 
     z-index: 6;
@@ -945,8 +939,8 @@
 .tablets {
   background-color: #f7d656;
   position: relative;
-    width: 26.5rem;
-    height: 12.95rem; 
+  width: 21rem;
+  height: 11rem; 
   padding: 2rem;
   border-radius: 1rem;
   overflow: hidden;
@@ -989,8 +983,8 @@
     line-height: 0.9;
     color: rgb(255, 255, 255);
     padding:6.5rem  11rem;
-    margin-top: -6.6rem;
-    font-size: clamp(3rem, 1vw, 14rem);
+    margin-top: -7rem;
+    font-size: clamp(1.8rem, 1vw, 14rem);
     font-family: "PoppinsRegular";
 
     z-index: 6;
