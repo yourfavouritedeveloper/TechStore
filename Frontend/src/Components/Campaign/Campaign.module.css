@@ -1446,6 +1446,7 @@ background: linear-gradient(
     font-weight: normal;
     top: 0.1rem;
     left: 0.6rem;
+    width: 80%;
     line-height: 0.8;
     letter-spacing: 0rem;
 }
@@ -1467,7 +1468,7 @@ background: linear-gradient(
 
 .campaign3 button {
     top: 4.8rem; 
-    left: 0.1rem; 
+    left: 0.6rem; 
     font-size: clamp(0.2rem, 3vw,10rem);
     position: absolute;
     font-weight: normal;

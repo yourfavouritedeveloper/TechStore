@@ -491,14 +491,155 @@
     height: 80.5rem;
   }
 
-  .container1 {
-    height: 45rem;
-  }
 
-  .container2 {
-    top: 13rem;
-    height: 44rem;
-  }
+.container1 {
+
+    width: 37%;
+    left:3.5%;
+    top:-5rem;
+    height: 15rem;
+}
+
+.container2 {
+
+    width: 37%;
+    right:3.5%;
+    top:-5rem;
+    height: 15rem;
+}
+
+
+.discoverBox {
+  width: 80%;
+  left:10%;
+  height: 20rem;
+
+
+
+  
+}
+
+.discoverBox .title {
+    left:0rem;
+    top: 2.5rem;
+    padding-left: 1rem;
+    font-weight: normal;  
+    font-size: clamp(1rem, 2.2rem,10rem);
+}
+
+.discoverBox .subtitle {
+  top:0rem;
+  font-size: clamp(0.8rem, 0.8rem,10rem);
+  width: 80%;
+  left:0rem;
+  padding-left: 1rem;
+
+}
+
+.discoverBox img {
+  width: 20rem;
+  position: relative;
+  left:0vw;
+  margin-left:-0.8rem;
+  top:3rem;
+}
+
+.popularExplanation {
+
+    padding:3rem 0rem;
+    padding-bottom: 5rem;
+    width: 105%;
+    height: 32rem;
+    left:5rem;
+    top:17rem;
+    border-radius: 3rem; 
+}
+
+.popularExplanation .subtitle {
+      font-size: clamp(0rem, 1.15rem,10rem); 
+      top:-20rem;
+      left:-4rem;
+  
+      width: 30%; 
+}
+
+.popularExplanation .subsubtitle {
+      font-size: clamp(0rem, 0.65rem,10rem); 
+      top:-21rem;   
+      left:-4rem;
+      width: 75%;
+}
+
+
+.popularButton {
+      font-size: clamp(0rem, 0.65rem,10rem); 
+      text-align: left; 
+      line-height: 1.3;
+      left:-4rem;
+      top: -8.5rem;
+      padding: 0.3rem 0.8rem;
+
+
+
+}
+
+
+.container1 img {
+  width: 8rem;
+  top:8.5rem;
+  left:5%;
+}
+
+.sellerExplanation {
+
+
+    padding:3rem 0rem;
+    padding-bottom: 5rem;
+    width: 105%;
+    height: 32rem;
+    left:5rem;
+    top:17rem;
+    border-radius: 3rem; 
+}
+
+.sellerExplanation .subtitle {
+      font-size: clamp(0rem, 1.15rem,10rem); 
+      top:-20rem;  
+      left:-4rem;
+
+      width: 30%; 
+}
+
+.sellerExplanation .subsubtitle {
+      font-size: clamp(0rem, 0.65rem,10rem); 
+      top:-21rem;
+      left:-4rem;
+   
+      width: 75%;
+}
+
+
+.sellerButton {
+      font-size: clamp(0rem, 0.65rem,10rem); 
+      text-align: left; 
+      line-height: 1.3;
+      left:-4rem;
+
+      top: -8.5rem;
+      padding: 0.3rem 0.8rem;
+
+
+}
+
+
+
+
+.container2 img {
+  width: 8rem;
+  top:9.5rem;
+  left:5%;
+}
+
 
   .title {
     left: -5rem;
@@ -509,59 +650,7 @@
     font-size: clamp(0rem, 2.5rem, 10rem);
   }
 
-  .popularExplanation,
-  .sellerExplanation {
-    padding: 3rem 0rem 5rem;
-    width: 35%;
-    height: 32rem;
-    left: 5rem;
-    top: 17rem;
-    border-radius: 3rem;
-  }
-
-  .popularExplanation .subtitle,
-  .sellerExplanation .subtitle {
-    font-size: clamp(1rem, 1.7rem, 10rem);
-    width: 200%;
-    top: -20.5rem;
-  }
-
-  .popularExplanation .subsubtitle,
-  .sellerExplanation .subsubtitle {
-    font-size: clamp(0.5rem, 0.75rem, 10rem);
-    width: 250%;
-    top: -21.5rem;
-    left: -4rem;
-  }
-
-  .popularExplanation .subtitle {
-    left: -4rem;
-  }
-
-  .sellerExplanation .subtitle {
-    left: 16vw;
-    margin-left:-4rem;
-  }
-
-  .popularButton,
-  .sellerButton {
-    font-size: clamp(0rem, 0.8rem, 10rem);
-    width: auto;
-    padding: 0.3rem 2rem;
-    white-space: nowrap;
-  }
-
-  .popularButton {
-    left: -4rem;
-    top: 21rem;
-  }
-
-  .sellerButton {
-    left: 75vw;
-    margin-left:-10.6rem;
-    top: 16.5rem;
-  }
-
+  
   .populardiv,
   .sellerdiv {
     padding: 2rem 0rem 5rem;
@@ -674,40 +763,154 @@
     height: 76rem; 
   }
 
-  .container1 {
-    height: 42rem;
-  }
 
-  .container2 {
-    height: 40.5rem; 
-  }
+.container1 {
+
+    width: 37%;
+    left:3.5%;
+    top:-5rem;
+    height: 15rem;
+}
+
+.container2 {
+
+    width: 37%;
+    right:3.5%;
+    top:-5rem;
+    height: 15rem;
+}
+
+
+.discoverBox {
+  width: 80%;
+  left:10%;
+  height: 20rem;
+
+
+
+  
+}
+
+.discoverBox .title {
+    left:0rem;
+    top: 2.5rem;
+    padding-left: 1rem;
+    font-weight: normal;  
+    font-size: clamp(1rem, 2.2rem,10rem);
+}
+
+.discoverBox .subtitle {
+  top:0rem;
+  font-size: clamp(0.8rem, 0.8rem,10rem);
+  width: 80%;
+  left:0rem;
+  padding-left: 1rem;
+
+}
+
+.discoverBox img {
+  width: 16rem;
+  position: relative;
+  left:0vw;
+  margin-left:-0.1rem;
+  top:3rem;
+}
+
+.popularExplanation {
+
+    padding:3rem 0rem;
+    padding-bottom: 5rem;
+    width: 105%;
+    height: 32rem;
+    left:5rem;
+    top:17rem;
+    border-radius: 3rem; 
+}
+
+.popularExplanation .subtitle {
+      font-size: clamp(0rem, 1.15rem,10rem); 
+      top:-20rem;  
+      left:-4rem;
+      width: 30%; 
+}
+
+.popularExplanation .subsubtitle {
+      font-size: clamp(0rem, 0.65rem,10rem); 
+      top:-21rem;
+      left:-4rem;   
+      width: 75%;
+}
+
+
+.popularButton {
+      font-size: clamp(0rem, 0.65rem,10rem); 
+      text-align: left; 
+      line-height: 1.3;
+      left:-4rem;
+      top: -8.5rem;
+      padding: 0.3rem 0.8rem;
+
+
+
+}
+
+
+.container1 img {
+  width: 6rem;
+  top:9.5rem;
+  left:5%;
+}
+
+.sellerExplanation {
+
+
+    padding:3rem 0rem;
+    padding-bottom: 5rem;
+    width: 105%;
+    height: 32rem;
+    left:5rem;
+    top:17rem;
+    border-radius: 3rem; 
+}
+
+.sellerExplanation .subtitle {
+      font-size: clamp(0rem, 1.15rem,10rem); 
+      top:-20rem;  
+      left:-4rem;
+      width: 30%; 
+}
+
+.sellerExplanation .subsubtitle {
+      font-size: clamp(0rem, 0.65rem,10rem); 
+      top:-21rem;   
+      left:-4rem;
+      width: 75%;
+}
+
+
+.sellerButton {
+      font-size: clamp(0rem, 0.65rem,10rem); 
+      text-align: left; 
+      line-height: 1.3;
+      left:-4rem;
+      top: -8.5rem;
+      padding: 0.3rem 0.8rem;
+
+
+}
+
+
+
+
+.container2 img {
+  width: 6rem;
+  top:10rem;
+  left:5%;
+}
+
 
   .title {
     top: -10rem; 
-  }
-
-  .popularExplanation,
-  .sellerExplanation {
-    height: 32rem; 
-  }
-
-  .popularExplanation .subtitle,
-  .sellerExplanation .subtitle {
-    font-size: clamp(1rem, 1.5rem, 10rem); 
-  }
-
-  .popularExplanation .subsubtitle,
-  .sellerExplanation .subsubtitle {
-    font-size: clamp(0.5rem, 0.7rem, 10rem); 
-  }
-
-  .popularButton,
-  .sellerButton {
-    font-size: clamp(0rem, 0.7rem, 10rem); 
-  }
-
-  .popularButton {
-    top: 20.7rem; 
   }
 
   .populardiv,
