@@ -2,7 +2,7 @@
     padding-top: 10rem;
     position: relative;
     width: 100%;
-    height: 95rem;
+    height: 90rem;
     background-color: rgb(255, 255, 255);
     overflow-y: hidden;
     overflow-x: hidden;
@@ -28,7 +28,7 @@
     position: relative;
     background-color: rgb(221, 229, 233);
     left:7.2%;
-    top:0rem;
+    top:-5rem;
     height: 15rem;
 }
 
@@ -38,7 +38,7 @@
     position: relative;
     background-color: rgb(221, 229, 233);
     right:7.2%;
-    top:0rem;
+    top:-5rem;
     height: 15rem;
 }
 
@@ -48,7 +48,7 @@
   left:15%;
   height: 30rem;
   background-color: rgb(205, 199, 238);
-  top:-5rem;
+  top:-10rem;
   position: relative;
 
   
@@ -221,7 +221,7 @@
     height: 25rem;
     position: relative;
     left:15%;
-    top:8rem;
+    top:3rem;
     
 }
 
@@ -339,7 +339,7 @@
     height: 25rem;
     position: relative;
     left:15%;
-    top:14rem;
+    top:9rem;
     
 }
 

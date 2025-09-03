@@ -3,13 +3,14 @@
     import { motion, useInView, useAnimation,useScroll, useTransform } from "framer-motion";
     import { useEffect, useRef, useState } from "react";
     import Campaign from "../Campaign/Campaign";
-    import { Link  } from "react-router-dom";
+    import { Link,useNavigate  } from "react-router-dom";
     import backvideo from "../../assets/backvideo.mov"
     import campaignPhoto from "../../assets/campaign.png"
     import axios from "axios";
+    import Iphone from "../../assets/iphoneCommercial.png"
+    import Phone from "../../assets/iphone.png"
 
-
-    function Background({shopRef,scrollTo, onShopClick}) {
+    function Background({shopRef,scrollTo, onShopClick,onItemClick}) {
     const videoRef = useRef(null);
     const [items, setItems] = useState([]);
 
@@ -96,18 +97,26 @@
   const left = useTransform(
     scrollY,
     [0, 1500],   
-    ["37%", "0%"]  
+    ["37%", "-15%"]  
   );
-  
+
+    const navigate = useNavigate(null);
 
   
+    function handlePhone(categories) {
+    onItemClick?.();
+    navigate("/product", { state:{categories}  })
+    onCategorySelect?.(category);
+  }
+
+  
 
 
-        function handleClick() {
-            scrollTo?.(); 
-            onShopClick?.();
+    function handleClick() {
+        scrollTo?.(); 
+        onShopClick?.();
     
-        }
+    }
 
     useEffect(() => {
         if (boxInView) boxControls.start("visible");
@@ -142,7 +151,14 @@
                 >
                 </div>
 
-
+                <div className={styles.commercial}>
+                    <div className={styles.overflow}>
+                        <img className={styles.phoneCommercial} src={Iphone} alt="" />
+                    </div>
+                    <p className={styles.commercialTitle}>Technology in your hands</p>
+                    <p className={styles.commercialSubtitle}>Check the latest model phones and innovate through!</p>
+                    <button onClick={() => handlePhone("MOBILE_PHONE")}>See Phones</button>
+                </div>
 
                 <motion.div 
                 ref={boxRef}
@@ -204,10 +220,10 @@
                         
                           <motion.p className={styles.coverTitle}
                             style={{
-                            transform: `translateY(${offset*0.85}px)`, 
+                            transform: `translateY(${offset*0.95-50}px)`, 
                             transition: "all 0.5s ease",
 
-                            opacity: `${offset*0.002}`,
+                            opacity: `${offset*0.002-1.9}`,
                             left
                             }}
                         >                                                                       
@@ -231,19 +247,7 @@
 
                 <motion.div
                 className={styles.boxExplanation}
-                style={{
-                    transform: `
-                    translateY(min(${y*0.3}px,7px)) 
-                    rotateZ(max(${(30-rotateZ)*0.5}deg,0deg))
-                    rotateX(${rotateX*1.1}deg)
-                    rotateY(${rotateY-20}deg)
-                    scale(min(${scale},0.9))
-                    `,
-                    transformStyle: "preserve-3d",
-                    perspective: "1000px",
-                    
 
-                }}
                 >
                 
                 <p className={styles.title}>Campaigns</p>
@@ -262,11 +266,14 @@
                     </Link>
                 </motion.div>
                 </motion.div>
+
+
      
                 <video className={styles.video} autoPlay loop muted playsInline preload="auto">
                     <source src={backvideo} type="video/mp4"/>
                     Your browser does not support the video tag.
                 </video>
+                
                 <motion.div className={styles.module}
                 ref={moduleRef}
                 variants={{
@@ -279,48 +286,7 @@
                 transition={{ duration: 1.5 }} 
                             
                 >
-                <motion.div
-                className={styles.box3}
-                style={{
-                    transform: `
-                    translateX(${250-y}px) 
-                    rotateZ(max(${(70 - rotateZ) * 0.5}deg,0deg))
-                    rotateX(${rotateX * 0.5}deg)
-                    rotateY(${rotateY-15}deg)
-                    scale(min(${scale}, 0.9))
-                    `,
-                    transformStyle: "preserve-3d",
-                    perspective: "1000px",
-                    transition: "transform 0.3s ease-out",
-                }}
-                >
-                <div className={styles.navdiv}></div>
-
-                <div className={styles.accountdiv}>
-                    <div className={styles.circle}></div>
-                    <p className={styles.accountTitle}>Account</p>
-                    <div className={styles.randomBox}></div>
-                    <div className={styles.randomBox}></div>
-                    <div className={styles.randomBox}></div>
-                </div>
-
-                <div className={styles.itemsdiv}>
-                    <ul className={styles.items}>
-                    {items.map((item) => (
-                        <Link
-                        key={item.name}
-                        className={styles.item}
-                        to={"/product/" + item.id}
-                        >
-                        <img src={item.productImageUrl} alt={item.name} />
-                        <p className={styles.name}>{item.name}</p>
-                        <p className={styles.guarantee}>{item.guarantee} month</p>
-                        <span>{item.price}₼</span>
-                        </Link>
-                    ))}
-                    </ul>
-                </div>
-                </motion.div>
+               
 
                 <motion.div
                 ref={ref}
@@ -345,6 +311,7 @@
                 animate={controls}
                 transition={{ duration:1}}
                 />
+
                 
 
             </div>

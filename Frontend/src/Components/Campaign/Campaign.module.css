@@ -1,7 +1,7 @@
 .container {
     background-color: transparent;
     height: 40%;
-    width: 90%;
+    width: 75%;
     border-radius: 0rem;
     position: relative;
     display: flex;
@@ -53,7 +53,7 @@ background: linear-gradient(
     font-family: "PoppinsRegular";
     position: relative;
     top: -12rem;  
-    left: -24.5rem;   
+    left: -15.5rem;   
 }
 
 .campaign1 .subsubtitle {
@@ -62,7 +62,7 @@ background: linear-gradient(
     font-family: "PoppinsRegular";
     position: relative;
     top: -14.5rem;    
-    left: -35.5rem;  
+    left: -26.4rem;  
 }
 
 
@@ -97,7 +97,7 @@ background: linear-gradient(
     letter-spacing: -0.4rem;
     position: relative;
     top: -8.5rem;
-    left: -35rem;
+    left: -26rem;
 }
 
 
@@ -107,7 +107,7 @@ background: linear-gradient(
     font-family: "PoppinsRegular";
     position: relative;
     top: -20.5rem;  
-    left: -27rem;   
+    left: -18rem;   
 }
 
 .campaign2 .subsubtitle {
@@ -116,7 +116,7 @@ background: linear-gradient(
     font-family: "PoppinsRegular";
     position: relative;
     top: -23.5rem;  
-    left: -35.5rem;     
+    left: -26.5rem;     
 }
 
 .campaign2 button {
