@@ -20,10 +20,10 @@
 
 
 .title {
-    font-size: clamp(1.9rem, 3.5vw, 25rem);   
-    top:17rem;
-    width: 50%;
-    left:18rem;
+    font-size: clamp(1.9rem, 2.5vw, 25rem);   
+    top:21rem;
+    width: 40%;
+    left:24rem;
     text-align: left;
     line-height: 0.9;
     position: relative;
@@ -35,10 +35,10 @@
 
 .subtitle {
 
-    font-size: clamp(1.9rem, 1.5vw, 25rem);   
-    top:14rem;
-    width: 30%;
-    left:18rem;
+    font-size: clamp(1rem, 1vw, 25rem);   
+    top:19rem;
+    width: 25%;
+    left:24rem;
     text-align: left;
     line-height: 1;
     position: relative;
@@ -48,10 +48,10 @@
 }
 
 .subsubtitle {
-    font-size: clamp(1.9rem, 2vw, 25rem);   
-    top:21rem;
-    width: 30%;
-    left:70rem;
+    font-size: clamp(1rem, 1.5vw, 25rem);   
+    top:22rem;
+    width: 20%;
+    right:24rem;
     text-align: right;
     line-height: 1;
     position: absolute;
@@ -61,10 +61,10 @@
 }
 
 .button {
-    font-size: clamp(1.9rem, 1.5vw, 25rem);   
-    top:30rem;
+    font-size: clamp(1rem, 1.2vw, 25rem);   
+    top:28rem;
     background-color: white;
-    left:90.5rem;
+    right:24rem;
     border-radius: 2rem;
     padding: 1rem 3rem;
     text-align: left;
@@ -84,9 +84,9 @@
 
 
 .photo90 {
-    width: 75%;
+    width: 55%;
     position: relative;
-    top:-40rem;
+    top:-20rem;
     left:-19rem;
     transform: rotate(-90deg);
     z-index: 9;

@@ -10,15 +10,15 @@
 }
 
 .title {
-    font-size: clamp(7rem, 8vw,20rem);
+    font-size: clamp(7rem, 7vw,20rem);
     font-family: "PoppinsSemiBold";
     width: 60%;
     text-align: left;
     line-height: 0.9;
     letter-spacing: -0.4rem;
     position: absolute;
-    top:5rem;
-    left:3rem;
+    top:9rem;
+    left:10rem;
     color: white;
     z-index: 2;
    

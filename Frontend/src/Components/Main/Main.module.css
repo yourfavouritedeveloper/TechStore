@@ -3,7 +3,7 @@
     width: 100%;
     position: relative;
     top:0rem;
-    height: 75rem;   
+    height: 70rem;   
     overflow: hidden; 
     z-index: 1;    
 }
@@ -11,11 +11,11 @@
 
 .storePicks {
     background-color: rgb(255, 255, 255);
-    position: relative;
-    width: 39.9%;
-    left:10%;
-    top:-0.9rem;
-    height: 40rem;   
+    position: absolute;
+    width: 34.9%;
+    left:15%;
+    top:18rem;
+    height: 35rem;   
     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.096);
     backdrop-filter: blur(12px);
       z-index: 2;
@@ -25,7 +25,6 @@
 
 .storePicks:hover {
     background-color: #008080;
-    width:80%;
     z-index: 20;
 
 
@@ -33,11 +32,11 @@
 
 .communityMarket {
     background-color: rgb(255, 255, 255);
-    width: 39.9%;
-    position: relative;
-    left:50%;
-    top:-42.2rem;
-    height: 40rem;   
+    width: 34.9%;
+    position: absolute;
+    right:15%;
+    top:18rem;
+    height: 35rem;   
     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.096);
     backdrop-filter: blur(12px); 
     z-index: 2;     
@@ -47,9 +46,6 @@
 
 .communityMarket:hover {
     background-color: #fc7f4e;
-    width:80%;
-    left:10%;
-    top:-42.2rem;
     z-index: 20;
 
 
@@ -61,11 +57,11 @@
 
 .typebox {
     background-color: rgba(255, 255, 255, 0);
-    width:80%;
+    width:100%;
     position: absolute;
-    top:22.9rem;
+    top:18rem;
     height: 40rem; 
-    left:10%;
+    left:0%;
     z-index: 0;  
     overflow: hidden;      
 }
@@ -74,8 +70,8 @@
   position: absolute;           
   left:49.9%;            
   width: 0.2%; 
-  bottom:0.2%;      
-  height: 116%;        
+  top:-1rem;
+  height: 36rem;   
   background-color: #ff4d4d; 
   transform: translateY(-50%);
   z-index: 30;
@@ -108,7 +104,7 @@ filter: blur(20px);
 
 
 .choose {
-      font-size: clamp(1rem, 5.5vw,10rem); 
+      font-size: clamp(1rem, 3.5vw,10rem); 
       text-align: center; 
       line-height: 0.8;
       position: relative;
@@ -120,7 +116,7 @@ filter: blur(20px);
 }
 
 .titleStore {
-      font-size: clamp(1rem, 5vw,10rem); 
+      font-size: clamp(1rem, 3.5vw,10rem); 
       text-align: center; 
       line-height: 0.8;
       position: absolute;
@@ -137,11 +133,11 @@ filter: blur(20px);
 }
 
 .titleStoreSUB {
-      font-size: clamp(1rem, 1.1vw,10rem); 
+      font-size: clamp(0rem, 0.9vw,10rem); 
       text-align: center; 
       line-height: 1;
       position: relative;
-      top:18rem;  
+      top:13rem;  
       text-align: left;  
       left:5rem;
       z-index: 2;
@@ -154,10 +150,10 @@ filter: blur(20px);
 
 .storeShop {
     background-color: #000000;
-    font-size: clamp(1rem,2vw,10rem); 
+    font-size: clamp(1rem,1.5vw,10rem); 
     padding: 1rem 3rem ;
     position: relative;
-    top:19rem;
+    top:17rem;
     z-index: 30;
     transition: all 0.3s ease;
 
@@ -166,34 +162,25 @@ filter: blur(20px);
 .storePicks:hover .titleStore{
     background-color: rgb(255, 255, 255);
     color:black;
-    top:-2.5rem; 
-    left:55rem;
-    padding: 2rem;
-    font-size: clamp(1rem, 8vw,10rem); 
-    width: 30%;
+
 
 
 }
 
 .storePicks:hover .titleStoreSUB{
     color: rgb(255, 255, 255);
-    left:7rem;
     background-color: rgb(0, 0, 0);
-    padding:0.7rem;
-    top:7.1rem;
-    width: 45%;
-    font-size: clamp(1rem, 1.1vw,10rem); 
+    padding: 0.5rem 0rem;
+    top:12rem;
+
 
 }
 
 .storePicks:hover .storeShop {
     background-color: rgb(255, 255, 255);
     color:rgb(0, 0, 0);
-    left:-18.5rem;
-    top:10rem;
-    padding: 1rem 10.3rem ;
-    font-size: clamp(1rem,4vw,10rem); 
-    font-family: "PoppinsMedium";
+    top:14rem;
+
 
 }
 
@@ -203,16 +190,16 @@ filter: blur(20px);
 
 
 .titleCommunity {
-      font-size: clamp(1rem, 5vw,10rem); 
+      font-size: clamp(1rem, 3.5vw,10rem); 
       text-align: center; 
       line-height: 0.8;
       position: absolute;
       top:-2rem;  
       text-align: left;  
-      left:4.5rem;
+      left:5rem;
       padding: 1rem;
       z-index: 2;
-      width: 76%;
+      width: 73%;
     background-color: #fc7f4e;
       color: rgb(255, 255, 255);
       font-family: "PoppinsMedium";
@@ -223,11 +210,11 @@ filter: blur(20px);
 
 
 .titleCommunitySUB {
-    font-size: clamp(1rem, 1.1vw,10rem); 
+      font-size: clamp(0rem, 0.9vw,10rem); 
       text-align: center; 
       line-height: 1;
       position: relative;
-      top:18rem;  
+      top:13rem;  
       text-align: left;  
       left:5rem;
       z-index: 2;
@@ -239,10 +226,10 @@ filter: blur(20px);
 
 .communityShop {
     background-color: #000000;
-    font-size: clamp(1rem,2vw,10rem); 
+    font-size: clamp(1rem,1.5vw,10rem); 
     padding: 1rem 3rem ;
     position: relative;
-    top:19rem;
+    top:17rem;
     z-index: 30;
     transition: all 0.3s ease;
 
@@ -252,10 +239,6 @@ filter: blur(20px);
 .communityMarket:hover .titleCommunity{
     background-color: rgb(255, 255, 255);
     color:black;
-    top:-4rem; 
-    left:8rem;
-    font-size: clamp(1rem, 7vw,10rem); 
-    width: 80%;
 
 
 }
@@ -263,26 +246,16 @@ filter: blur(20px);
 
 .communityMarket:hover .titleCommunitySUB{
     color: rgb(255, 255, 255);
-    left:8rem;
     background-color: rgb(0, 0, 0);
-    padding:0.7rem;
-    top:21.1rem;
-    width: 45%;
-    font-size: clamp(1rem, 1.1vw,10rem); 
+    padding: 0.5rem 0rem;
+    top:12rem;
 
 }
 
 .communityMarket:hover .communityShop {
-    background-color: #ffffff;
-    color: black;
-    font-size: clamp(1rem,4vw,10rem); 
-    padding: 4.1rem 3rem ;
-    position: relative;
-    top:8.8rem;
-    left:23.85rem;
-    z-index: 30;
-    font-family: "PoppinsMedium";
-    transition: all 0.3s ease;
+    background-color: rgb(255, 255, 255);
+    color:rgb(0, 0, 0);
+    top:14rem;
 
 }
 
@@ -297,65 +270,72 @@ filter: blur(20px);
       rgb(255, 255, 255), 
       rgb(112, 130, 146)
     );
-    padding:20rem 0rem;
+    padding:40rem 0rem;
     padding-bottom: 5rem;
     position: relative;
     top:0rem;
     z-index: 2;
+    overflow: hidden;
       
 }
 
 .brandnewdiv .title {
-    font-size: clamp(1rem, 5vw, 10rem);
-    width: 70%;
+    font-size: clamp(1rem, 3vw, 10rem);
+    width: 50%;
     margin:0;
-    top:-11rem;
+    top:-24rem;
     line-height: 0.9;
-    text-align: left;   
-    left:9rem;
+    text-align: center;   
+    left:25%;
+    z-index: 10;
     font-family: "PoppinsSemiBold";
     position: relative;
 }
 
 
 .brandnewdiv .subtitle {
-    font-size: clamp(2rem, 1vw, 2rem);
+    font-size: clamp(1rem, 1.3vw, 2rem);
     width: 70%;
     margin:0;
-    top:-9rem;
+    top:-23rem;
     line-height: 1.1;
-    text-align: left;   
-    left:9rem;
+    text-align: center;   
+    left:15%;
+      z-index: 10;
+
     position: relative;   
 }
 
 .brandnewdiv input {
-    position: relative;
-    width: 45rem;
+    position: absolute;
+    width: 30%;
     padding:1rem 0rem;
     padding-left:2rem;
-    top:-9rem;
+    top:22rem;
     border-radius: 1.5rem;
-    left:-27rem;
+    left:28%;
     border:none;
     font-family: "PoppinsLight";
-    font-size: clamp(1rem, 1.5vw, 2.5rem);
+    font-size: clamp(1rem, 1vw, 2.5rem);
     transition: transform 0.3s ease;
-    z-index: 8;
+    z-index: 10;
+
 }
 
 .search {
     position: absolute;
-    font-size: clamp(1rem, 1.5vw, 2.5rem);
+    font-size: clamp(1rem, 1vw, 2.5rem);
     border:none;
     color:white;
     background: linear-gradient(135deg, #0f0f0f, #1a1a1a, #333333);
     cursor: pointer;
     padding:1rem 2rem;
-    top:25.5rem;
-    left:57rem;
+    top:23.3rem;
+    right:28%;
     font-family: "PoppinsLight";
     border-radius: 1.4rem;
+      z-index: 10;
+
     transition: all 0.4s ease;
 }
 
@@ -364,13 +344,32 @@ filter: blur(20px);
 }
 
 
-.brandnewdiv img {
-    width: 25%;
+.circle3, .circle4 {
     position: absolute;
-    top:6rem;
-    right:6.25rem;
+    height: 90rem;
+    width: 90rem;
+background: radial-gradient(
+  circle,            
+  rgba(121, 121, 121, 0.856) 15%,  
+  rgba(255, 255, 255, 0.671) 40%
+);
 
+filter: blur(20px);
+    border-radius: 50%;
 }
+
+.circle3 {
+    left: -40rem;
+    top:10rem;
+}
+
+.circle4 {
+    top:-55rem;
+    right: -45rem;
+}
+
+
+
 
 
 @media (max-width: 1440px) {}

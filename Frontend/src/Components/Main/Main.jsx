@@ -170,7 +170,8 @@ const circleRef1 = useRef(null);
                           />
                        <button type="submit" className={styles.search}>Start Searching</button>
                       </form>
-                        <img src={BrandLogo} alt="" />
+                      <div className={styles.circle3}></div>
+                      <div className={styles.circle4}></div>
 
                     </div>
     
