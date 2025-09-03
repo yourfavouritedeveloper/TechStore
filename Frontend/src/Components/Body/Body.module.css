@@ -3280,7 +3280,7 @@
 
 .computers p {
 
-    margin-top: -5.2rem;
+    margin-top: -6.2rem;
     font-size: clamp(1.2rem, 1vw, 14rem);
 
 
@@ -3296,7 +3296,7 @@
 
 
 .mobilePhones p {
-    margin-top: -5.2rem;
+    margin-top: -6.2rem;
     font-size: clamp(1.2rem, 1vw, 14rem);
 
 }
@@ -3310,7 +3310,7 @@
 
 
 .tvs p {
-    margin-top: -5.2rem;
+    margin-top: -6.2rem;
     font-size: clamp(1.2rem, 1vw, 14rem);
 
 }
@@ -3325,7 +3325,7 @@
 
 
 .smartWatches p {
-    margin-top: -5.7rem;
+    margin-top: -6.7rem;
     font-size: clamp(1.2rem, 1vw, 14rem);
 
 }
@@ -3346,7 +3346,7 @@
 
 
 .keyboards p {
-    margin-top: -5.8rem;
+    margin-top: -6.8rem;
     font-size: clamp(1.2rem, 1vw, 14rem);
 
 }
@@ -3365,7 +3365,7 @@
 
 
 .headphones p {
-    margin-top: -5.7rem;
+    margin-top: -6.7rem;
     font-size: clamp(1.1rem, 1vw, 14rem);
 
 }
@@ -3384,7 +3384,7 @@
 
 
 .monitors p {
-    margin-top: -5.7rem;
+    margin-top: -6.7rem;
     font-size: clamp(1.2rem, 1vw, 14rem);
 
 }
@@ -3398,7 +3398,7 @@
 
 
 .tablets p {
-    margin-top: -5.7rem;
+    margin-top: -6.7rem;
     font-size: clamp(1.2rem, 1vw, 14rem);
 
 }
