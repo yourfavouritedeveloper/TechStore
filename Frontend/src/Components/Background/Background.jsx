@@ -10,7 +10,7 @@
     import Iphone from "../../assets/iphoneCommercial.png"
     import Phone from "../../assets/iphone.png"
 
-    function Background({shopRef,scrollTo, onShopClick,onItemClick}) {
+    function Background({shopRef,scrollTo, onShopClick,onItemClick,onCategorySelect}) {
     const videoRef = useRef(null);
     const [items, setItems] = useState([]);
 
@@ -100,12 +100,12 @@
     ["37%", "-15%"]  
   );
 
-    const navigate = useNavigate(null);
+    const navigate = useNavigate();
 
   
-    function handlePhone(categories) {
-    onItemClick?.();
-    navigate("/product", { state:{categories}  })
+    function handlePhone(category) {
+    onShopClick?.();
+    navigate("/product", { state: { category } });
     onCategorySelect?.(category);
   }
 

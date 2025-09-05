@@ -15,7 +15,16 @@ function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
 
   const [itemsPopular, setItemsPopular] = useState([]);
   const [itemsSeller, setItemsSeller] = useState([]);
-
+  const [sortOptions, setSortOptions] = useState({
+  price: null,
+  date: null,
+  bestSelling: null,
+  searchRating: null,
+  alphabetical: null,
+  stock: null,
+  rating: null,
+  discount: null
+});
 
 
     useEffect(() => {
@@ -38,6 +47,16 @@ function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
       });
   }, []);
 
+  const handleSortChange = (key, value) => {
+  setSortOptions(prev => {
+    const newOptions = Object.keys(prev).reduce((acc, k) => {
+      acc[k] = null;
+      return acc;
+    }, {});
+    newOptions[key] = value; 
+    return newOptions;
+  });
+};
   
 
 
@@ -55,7 +74,7 @@ function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
                   <div className={styles.popularExplanation}>
                     <p className={styles.subtitle}>Most Popular Products</p>
                     <p className={styles.subsubtitle}>Discover top gadgets and accessories loved by all!</p>
-                    <Link className={styles.popularButton} to="/product">Shop Now</Link>
+                    <Link className={styles.popularButton} to="/product" onClick={() => handleSortChange("bestSelling", "highToLow")}>Shop Now</Link>
                   </div>
                     <img src={Keyboard} alt="" />
                   
@@ -65,7 +84,7 @@ function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
                   <div className={styles.sellerExplanation}>
                     <p className={styles.subtitle}>Best Selling Products</p>
                     <p className={styles.subsubtitle}>Shop top picks, best deals, trusted by many!</p>
-                    <Link className={styles.sellerButton} to="/product">Shop Now</Link>
+                    <Link className={styles.sellerButton} to="/product" state={{ sort: "bestSelling" }} >Shop Now</Link>
                   </div>
                     <img src={TV} alt="" />
                 </div>
