@@ -1,5 +1,5 @@
 .container {
-    height: 67.5rem;
+    height: 64rem;
     background-color: rgb(255, 255, 255);
     position: relative;
     overflow-y: hidden;
@@ -11,7 +11,7 @@
     position: absolute;
     height: 60rem;
     width: 100%;
-    top:3rem;
+    top:0rem;
     background: linear-gradient(135deg, #08101a, #121927);
     overflow: hidden;
 

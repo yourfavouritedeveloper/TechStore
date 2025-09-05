@@ -91,7 +91,7 @@ function scrollToShop() {
   return (
     <> <title>TechStore</title>
       <Nav highlight={navHighlight} shiftUp={shiftUp} setShiftUp={setShiftUp}/>
-      <Background shopRef={shopRef} scrollTo={scrollToShop} />
+      <Background shopRef={shopRef} scrollTo={scrollToShop} onCategorySelect={handleCategoryFilter} />
       <Item items={filteredItems} bodyItems={bodyItems} itemRef={itemRef}   onResetFilters={handleResetFilters}  />
       <Body shopRef={shopRef} itemRef={itemRef} scrollTo={scrollToItems} onCategorySelect={handleCategoryFilter} />
       <Main />
