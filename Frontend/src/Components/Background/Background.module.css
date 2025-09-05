@@ -170,7 +170,7 @@ body {
 
 .circleBack2 {
     left: -30rem;
-    top:45rem;
+    top:35rem;
 }
 
 .line {
@@ -615,8 +615,8 @@ body {
     font-size: clamp(1.6rem, 1.6rem,10rem);
     letter-spacing: -0.3rem;
     top:-3rem;
-    left:15vw;
-    margin-left: -5.5rem;
+    left:2vw;
+    margin-left: -2.6rem;
     letter-spacing: 0rem;
  
 }
@@ -629,8 +629,8 @@ body {
 
 .boxCampaignExplanation .button {
     top:12rem;
-    left:40vw;
-    margin-left:-4.1rem;
+    left:43vw;
+    margin-left:-5.7rem;
     font-size: clamp(0rem, 0.8rem, 10rem);
     padding:0.7rem 2rem;
     border-radius: 1rem;

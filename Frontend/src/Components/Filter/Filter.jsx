@@ -23,6 +23,8 @@ function Filter({ items, itemRef,bodyItems,  onResetFilters  }) {
   rating: null,
   discount: null
 });
+
+
   const [resetClicked, setResetClicked] = useState(false);
 
 useEffect(() => {

@@ -47,15 +47,10 @@ function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
       });
   }, []);
 
-  const handleSortChange = (key, value) => {
-  setSortOptions(prev => {
-    const newOptions = Object.keys(prev).reduce((acc, k) => {
-      acc[k] = null;
-      return acc;
-    }, {});
-    newOptions[key] = value; 
-    return newOptions;
-  });
+const navigate = useNavigate();
+
+const handleSortChange = (key, value) => {
+  navigate("/product", { state: { sort: key, order: value } });
 };
   
 

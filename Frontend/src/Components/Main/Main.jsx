@@ -46,25 +46,8 @@ const circleRef1 = useRef(null);
     return ( <>
                   <div className={styles.type}>
                   <div className={styles.typebox}>
-                    <motion.div className={styles.line}
-                    ref={lineRef}
-                    animate={lineControls}
-                    variants={{
-                    hidden: { 
-                      y: 200
-                    },
-                    visible: { 
-                      y:0
-                    }
-                    }}
-                    initial="hidden"
-
-                     viewport={{ margin: "10px" }}
-                    transition={{
-                    duration: 0.25,delay:0.5
-                    }}    
-                    
-                    ></motion.div>  
+                    <div className={styles.line}
+                    ></div>  
                   </div>
                   
                 <motion.div 
@@ -96,47 +79,17 @@ const circleRef1 = useRef(null);
                     >
                     </motion.div>
                   <p className={styles.choose}>Choose Your Way to Shop</p>
-                  <motion.div className={styles.storePicks}
-                    ref={boxRef}
-                    animate={boxControls}
-                    variants={{
-                    hidden: { 
-                      y: 100
-                    },
-                    visible: { 
-                      y:0
-                    }
-                    }}
-                    initial="hidden"
-
-                     viewport={{ margin: "10px" }}
-                    transition={{
-                    duration: 0.5
-                    }}                     
+                  <div className={styles.storePicks}
+                   
                   >
                     <p className={styles.titleStore}>Best Store Picks</p>
                     <p className={styles.titleStoreSUB}>• Curated Quality – Handpicked items vetted for performance, durability, and value.</p>
                     <p className={styles.titleStoreSUB}>• Saves Time – Skip the research and go straight to the best options.</p>
                     <p className={styles.titleStoreSUB}>• Trusted by Users – Backed by ratings, reviews, and real purchase data.</p>
                     <Link className={styles.storeShop} to="/product">Shop now</Link> 
-                  </motion.div>
-                  <motion.div className={styles.communityMarket}
-                    ref={boxRef}
-                    animate={boxControls}
-                    variants={{
-                    hidden: { 
-                      y: 100
-                    },
-                    visible: { 
-                      y:0
-                    }
-                    }}
-                    initial="hidden"
-
-                     viewport={{ margin: "10px" }}
-                    transition={{
-                    duration: 0.5
-                    }}                  
+                  </div>
+                  <div className={styles.communityMarket}
+              
                     >
                       <p className={styles.titleCommunity}>Community Market</p>
                        <p className={styles.titleCommunitySUB}>• Diverse Listings – A wide range of products from different sellers in one place.</p>
@@ -144,7 +97,7 @@ const circleRef1 = useRef(null);
                           <p className={styles.titleCommunitySUB}>• Direct Seller Connection – Communicate directly with sellers for personalized offers and support.</p>
                           <Link className={styles.communityShop} to="/product">Shop now</Link> 
 
-                  </motion.div>
+                  </div>
                   </div>  
                     <div className={styles.brandnewdiv}>
                         <p className={styles.title}>Looking for something specific?</p>
