@@ -498,7 +498,7 @@ const toggleShiftUp = (value) => {
              className={styles.box2}
 
              >
-               {signUpSecond}
+               {signUpFirst}
             </motion.div>
             
 
