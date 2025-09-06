@@ -21,6 +21,11 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
     }
 
+    @ExceptionHandler(CommentNotFoundException.class)
+    public ResponseEntity<String> handleCommentNotFound(CommentNotFoundException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+    }
+
 
     @ExceptionHandler(InsufficientBalanceException.class)
     public ResponseEntity<String> handleInsufficientBalance(InsufficientBalanceException ex) {

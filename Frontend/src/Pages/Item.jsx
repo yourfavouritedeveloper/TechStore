@@ -23,7 +23,7 @@ function Item({ shiftUp, setShiftUp }) {
   }, [id]);
 
     return (<>
-    <title>{item.name}</title>
+    <title>{"TechStore | " + item.name}</title>
     <Nav highlight={true}/>
     <Product name = {item.name} />
     <Footer />

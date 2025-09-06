@@ -20,8 +20,10 @@ public class PurchaseDto {
 
 
     @JsonIgnore
-    private AccountDto account;
+    private AccountDto buyer;
 
+    @JsonIgnore
+    private AccountDto seller;
 
     @JsonIgnore
     private ProductDto product;

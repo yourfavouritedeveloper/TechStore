@@ -1,5 +1,6 @@
 package com.tech.store.model.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.tech.store.model.enumeration.Category;
 import com.tech.store.util.NotBlankMap;
@@ -15,6 +16,7 @@ import lombok.NoArgsConstructor;
 import java.awt.*;
 import java.math.BigDecimal;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Data
@@ -70,5 +72,11 @@ public class ProductDto {
     private Byte guarantee;
 
     private String color;
+
+    @JsonIgnore
+    private List<CommentDto> comments;
+
+    @JsonIgnore
+    private AccountDto account;
 
 }

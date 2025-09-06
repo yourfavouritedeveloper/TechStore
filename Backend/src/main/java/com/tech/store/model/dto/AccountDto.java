@@ -28,6 +28,8 @@ public class AccountDto {
     @NotBlank(message = "Customer name cannot be null",groups = {OnCreate.class,OnUpdate.class})
     private String customerName;
 
+    private String description;
+
     @NotBlank(message = "Password should be provided",groups = {OnCreate.class,OnUpdate.class})
     private String password;
 
@@ -38,10 +40,20 @@ public class AccountDto {
 
     private String profilePictureUrl;
 
-
     @JsonIgnore
     private List<PurchaseDto> purchases;
 
+    @JsonIgnore
+    private List<PurchaseDto> sells;
+
+    @JsonIgnore
+    private List<CommentDto> sentComments;
+
+    @JsonIgnore
+    private List<CommentDto> receivedComments;
+
+    @JsonIgnore
+    private List<ProductDto> products;
 
 
 }

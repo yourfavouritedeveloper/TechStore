@@ -30,6 +30,9 @@ public class AccountEntity extends BaseEntity {
     @Column(name = "customer_name",nullable = false)
     private String customerName;
 
+    @Column(name = "description")
+    private String description;
+
     @Column(name = "password",nullable = false)
     private String password;
 
@@ -43,8 +46,23 @@ public class AccountEntity extends BaseEntity {
     private String profilePictureUrl;
 
 
+    @OneToMany(mappedBy = "buyer", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<PurchaseEntity> purchases;
+
+    @OneToMany(mappedBy = "seller", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<PurchaseEntity> sells;
+
+    @OneToMany(mappedBy = "fromAccount", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<CommentEntity> sentComments;
+
+    @OneToMany(mappedBy = "toAccount", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<CommentEntity> receivedComments;
 
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
-    private List<PurchaseEntity> purchases;
+    private List<ProductEntity> products;
 }

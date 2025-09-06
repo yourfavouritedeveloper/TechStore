@@ -11,11 +11,9 @@ import java.math.BigDecimal;
 @Mapper(componentModel = "spring")
 public interface PurchaseMapper {
 
-    @Mapping(target = "account", ignore = true)
     @Mapping(target = "product", ignore = true)
     PurchaseDto toPurchaseDto(PurchaseEntity purchaseEntity);
 
-    @Mapping(target = "account", ignore = true)
     @Mapping(target = "productEntity", ignore = true)
     PurchaseEntity toPurchaseEntity(PurchaseDto purchaseDto);
 

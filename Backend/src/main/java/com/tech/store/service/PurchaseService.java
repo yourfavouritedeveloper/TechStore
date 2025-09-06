@@ -87,62 +87,71 @@ public class PurchaseService {
                 });
     }
 
-    public List<PurchaseDto> purchase(Long accountId, List<Long> productIds, Long amount) {
+    public PurchaseDto purchase(String sellerUsername,String buyerUsername, Long productId, Long amount) {
 
-        AccountEntity accountEntity = accountRepository.findById(accountId)
+        AccountEntity sellerAccount = accountRepository.findByUsername(sellerUsername)
                 .orElseThrow(() -> new AccountNotFoundException("Account not found"));
 
-        List<PurchaseDto> purchaseDtos = new ArrayList<>();
+        AccountEntity buyerAccount = accountRepository.findByUsername(buyerUsername)
+                .orElseThrow(() -> new AccountNotFoundException("Account not found"));
 
-        for (Long productId : productIds) {
-            ProductEntity productEntity = productRepository.findById(productId)
-                    .orElseThrow(() -> new ProductNotFoundException("Product not found"));
+        ProductEntity productEntity = productRepository.findById(productId)
+                .orElseThrow(() -> new ProductNotFoundException("Product not found"));
 
-            if (productEntity.getAmount() == 0) throw new InsufficientAmountException("Amount must be greater than zero.");
-            if (productEntity.getAmount() < amount) throw new InsufficientAmountException("Insufficient amount.");
+        PurchaseEntity purchaseEntity = new PurchaseEntity();
 
-            BigDecimal totalCost = productEntity.getPrice().multiply(BigDecimal.valueOf(amount));
-            if (accountEntity.getBalance().compareTo(totalCost) < 0)
+
+        if (productEntity.getAmount() == 0) throw new InsufficientAmountException("Amount must be greater than zero.");
+        if (productEntity.getAmount() < amount) throw new InsufficientAmountException("Insufficient amount.");
+
+        BigDecimal totalCost = productEntity.getPrice().multiply(BigDecimal.valueOf(amount));
+        if (buyerAccount.getBalance().compareTo(totalCost) < 0)
                 throw new InsufficientBalanceException("Insufficient balance.");
 
-            PurchaseEntity purchaseEntity = new PurchaseEntity();
-            purchaseEntity.setAccount(accountEntity);
+
+            purchaseEntity.setBuyer(buyerAccount);
+            purchaseEntity.setSeller(sellerAccount);
             purchaseEntity.setProductEntity(productEntity);
             purchaseEntity.setPurchaseDate(LocalDateTime.now());
             purchaseEntity.setAmount(amount);
 
             productEntity.setAmount(productEntity.getAmount() - amount);
-            accountEntity.setBalance(accountEntity.getBalance().subtract(totalCost));
+            buyerAccount.setBalance(buyerAccount.getBalance().subtract(totalCost));
+            sellerAccount.setBalance(sellerAccount.getBalance().add(totalCost));
 
-            accountEntity.getPurchases().add(purchaseEntity);
+            sellerAccount.getPurchases().add(purchaseEntity);
 
 
             purchaseRepository.save(purchaseEntity);
             productRepository.save(productEntity);
-            accountRepository.save(accountEntity);
+            accountRepository.save(buyerAccount);
+            accountRepository.save(sellerAccount);
 
             purchaseRedisRepository.save(purchaseEntity);
             productRedisRepository.save(productEntity);
-            accountRedisRepository.save(accountEntity);
-
-            purchaseDtos.add(purchaseMapper.toPurchaseDto(purchaseEntity));
-        }
+            accountRedisRepository.save(buyerAccount);
+            accountRedisRepository.save(sellerAccount);
 
 
-        return purchaseDtos;
+
+
+        return purchaseMapper.toPurchaseDto(purchaseEntity);
     }
 
+
+
+
     public PurchaseDto delete(Long id) {
-        PurchaseDto purchaseDto = findById(id);
-        PurchaseEntity purchaseEntity = purchaseMapper.toPurchaseEntity(purchaseDto);
+        PurchaseEntity purchaseEntity = purchaseRepository.findById(id)
+                .orElseThrow(() -> new PurchaseNotFoundException("Purchase not found"));
         purchaseEntity.setStatus(Status.CLOSED);
         purchaseRepository.save(purchaseEntity);
         return purchaseRedisRepository.save(purchaseEntity);
     }
 
     public String remove(Long id) {
-        PurchaseDto purchaseDto = findById(id);
-        PurchaseEntity purchaseEntity = purchaseMapper.toPurchaseEntity(purchaseDto);
+        PurchaseEntity purchaseEntity = purchaseRepository.findById(id)
+                .orElseThrow(() -> new PurchaseNotFoundException("Purchase not found"));
         purchaseRepository.delete(purchaseEntity);
         return purchaseRedisRepository.delete(purchaseEntity);
     }
