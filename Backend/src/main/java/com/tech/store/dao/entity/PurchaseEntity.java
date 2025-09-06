@@ -21,9 +21,13 @@ import java.time.LocalDateTime;
 public class PurchaseEntity extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "account",nullable = false)
-    @JsonBackReference
-    private AccountEntity account;
+    @JoinColumn(name = "buyer",nullable = false)
+    private AccountEntity buyer;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "seller",nullable = false)
+    private AccountEntity seller;
+
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product",nullable = false)

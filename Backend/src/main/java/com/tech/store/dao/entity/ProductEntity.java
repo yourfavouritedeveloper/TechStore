@@ -1,5 +1,8 @@
 package com.tech.store.dao.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.tech.store.model.dto.AccountDto;
 import com.tech.store.model.enumeration.Category;
 import com.tech.store.util.NotBlankMap;
 import com.tech.store.util.OnCreate;
@@ -16,6 +19,7 @@ import org.springframework.data.redis.core.RedisHash;
 import java.awt.*;
 import java.math.BigDecimal;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Getter
@@ -83,4 +87,12 @@ public class ProductEntity extends BaseEntity {
 
     @Column(name = "color")
     private String color;
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<CommentEntity> comments;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "account")
+    private AccountEntity account;
 }

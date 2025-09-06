@@ -2,6 +2,7 @@ package com.tech.store.config;
 
 import com.tech.store.dao.entity.ProductEntity;
 import com.tech.store.model.dto.AccountDto;
+import com.tech.store.model.dto.CommentDto;
 import com.tech.store.model.dto.ProductDto;
 import com.tech.store.model.dto.PurchaseDto;
 import org.springframework.beans.factory.annotation.Value;
@@ -100,6 +101,21 @@ public class RedisConfig {
     }
 
     @Bean
+    public RedisTemplate<String, CommentDto> commentRedisTemplate() {
+        RedisTemplate<String, CommentDto> template = new RedisTemplate<>();
+        template.setConnectionFactory(connectionFactory());
+
+        template.setKeySerializer(new StringRedisSerializer());
+        template.setHashKeySerializer(new StringRedisSerializer());
+
+        template.setValueSerializer(new GenericJackson2JsonRedisSerializer());
+        template.setHashValueSerializer(new GenericJackson2JsonRedisSerializer());
+
+        template.afterPropertiesSet();
+        return template;
+    }
+
+    @Bean
     public RedisTemplate<String, String> productKeysRedisTemplate() {
         RedisTemplate<String, String> template = new RedisTemplate<>();
         template.setConnectionFactory(connectionFactory());
@@ -125,6 +141,18 @@ public class RedisConfig {
 
     @Bean
     public RedisTemplate<String, String> purchaseKeysRedisTemplate() {
+        RedisTemplate<String, String> template = new RedisTemplate<>();
+        template.setConnectionFactory(connectionFactory());
+        template.setKeySerializer(new StringRedisSerializer());
+        template.setValueSerializer(new StringRedisSerializer());
+        template.setHashKeySerializer(new StringRedisSerializer());
+        template.setHashValueSerializer(new StringRedisSerializer());
+        template.afterPropertiesSet();
+        return template;
+    }
+
+    @Bean
+    public RedisTemplate<String, String> commentKeysRedisTemplate() {
         RedisTemplate<String, String> template = new RedisTemplate<>();
         template.setConnectionFactory(connectionFactory());
         template.setKeySerializer(new StringRedisSerializer());

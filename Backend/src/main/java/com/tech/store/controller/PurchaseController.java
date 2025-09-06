@@ -41,11 +41,11 @@ public class PurchaseController {
         return purchaseService.findAll();
     }
 
-    @PostMapping("/purchase/{accountId}")
+    @PostMapping("/purchase/{buyerUsername}/{sellerUsername}")
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(summary = "Purchase an item", description = "Makes a purchase")
-    public List<PurchaseDto> create(@PathVariable Long accountId, @RequestParam List<Long> productId, @RequestParam Long amount) {
-        return purchaseService.purchase(accountId, productId, amount);
+    public PurchaseDto create(@PathVariable String buyerUsername,@PathVariable String sellerUsername, @RequestParam Long productId, @RequestParam Long amount) {
+        return purchaseService.purchase(buyerUsername,sellerUsername, productId, amount);
     }
 
     @PutMapping("/delete/{id}")

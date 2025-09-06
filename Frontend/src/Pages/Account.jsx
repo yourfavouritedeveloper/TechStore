@@ -7,6 +7,11 @@ import axios from "axios";
 
 function Account() {
 
+    useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+    window.onbeforeunload = () => window.scrollTo(0, 0);
+    }, []);
+
     const USERNAME = import.meta.env.VITE_API_USERNAME;
     const PASSWORD = import.meta.env.VITE_API_PASSWORD;
 
@@ -32,6 +37,7 @@ function Account() {
 
     return (
         <>
+        <title>{"Account | " + account.customerName}</title>
         <Nav highlight={true}></Nav>
         <Profile account={account} />
         </>
