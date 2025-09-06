@@ -7,6 +7,7 @@ import com.tech.store.dao.repository.ProductRedisRepository;
 import com.tech.store.dao.repository.ProductRepository;
 
 
+import com.tech.store.exception.AccountNotFoundException;
 import com.tech.store.exception.ProductNotFoundException;
 
 import com.tech.store.mapper.ProductMapper;
@@ -114,24 +115,30 @@ public class ProductService {
 
     @Transactional
     public ProductDto updateProduct(Long id, Map<String, String> updates) throws Exception {
-        ProductDto productDto = findById(id);
-        ProductEntity productEntity = (ProductEntity) updateUtils.update(productMapper.toProductEntity(productDto), updates);
+        ProductEntity productEntity = productRepository.findById(id)
+                .orElseThrow(() -> new ProductNotFoundException("Product not found"));
+
+        updateUtils.update(productEntity, updates);
+        productRepository.save(productEntity);
         return productRedisRepository.save(productEntity);
     }
 
     @Transactional
     public ProductDto delete(Long id) {
-        ProductDto productDto = findById(id);
-        ProductEntity productEntity = productMapper.toProductEntity(productDto);
+        ProductEntity productEntity = productRepository.findById(id)
+                .orElseThrow(() -> new ProductNotFoundException("Product not found"));
+
         productEntity.setStatus(Status.CLOSED);
+        productRepository.save(productEntity);
         return productRedisRepository.save(productEntity);
 
     }
 
     @Transactional
     public String remove(Long id) {
-        ProductDto productDto = findById(id);
-        ProductEntity productEntity = productMapper.toProductEntity(productDto);
+        ProductEntity productEntity = productRepository.findById(id)
+                .orElseThrow(() -> new ProductNotFoundException("Product not found"));
+        productRepository.delete(productEntity);
         return productRedisRepository.delete(productEntity);
     }
 }

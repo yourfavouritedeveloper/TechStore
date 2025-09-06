@@ -89,14 +89,14 @@ public class PurchaseService {
 
     public List<PurchaseDto> purchase(Long accountId, List<Long> productIds, Long amount) {
 
-        AccountDto accountDto = accountService.findById(accountId);
-        AccountEntity accountEntity = accountMapper.toAccountEntity(accountDto);
+        AccountEntity accountEntity = accountRepository.findById(accountId)
+                .orElseThrow(() -> new AccountNotFoundException("Account not found"));
 
         List<PurchaseDto> purchaseDtos = new ArrayList<>();
 
         for (Long productId : productIds) {
-            ProductDto productDto = productService.findById(productId);
-            ProductEntity productEntity = productMapper.toProductEntity(productDto);
+            ProductEntity productEntity = productRepository.findById(productId)
+                    .orElseThrow(() -> new ProductNotFoundException("Product not found"));
 
             if (productEntity.getAmount() == 0) throw new InsufficientAmountException("Amount must be greater than zero.");
             if (productEntity.getAmount() < amount) throw new InsufficientAmountException("Insufficient amount.");
@@ -136,12 +136,14 @@ public class PurchaseService {
         PurchaseDto purchaseDto = findById(id);
         PurchaseEntity purchaseEntity = purchaseMapper.toPurchaseEntity(purchaseDto);
         purchaseEntity.setStatus(Status.CLOSED);
+        purchaseRepository.save(purchaseEntity);
         return purchaseRedisRepository.save(purchaseEntity);
     }
 
     public String remove(Long id) {
         PurchaseDto purchaseDto = findById(id);
         PurchaseEntity purchaseEntity = purchaseMapper.toPurchaseEntity(purchaseDto);
+        purchaseRepository.delete(purchaseEntity);
         return purchaseRedisRepository.delete(purchaseEntity);
     }
 }

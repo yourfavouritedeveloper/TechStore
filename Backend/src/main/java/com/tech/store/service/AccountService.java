@@ -113,25 +113,29 @@ public class AccountService {
 
     @Transactional
     public AccountDto updateAccount(String username, Map<String, String> updates) throws Exception {
-        AccountDto accountDto = findByName(username);
+        AccountEntity accountEntity = accountRepository.findByUsername(username)
+                .orElseThrow(() -> new AccountNotFoundException("Account not found"));
 
-        AccountEntity accountEntity = (AccountEntity) updateUtils.update(accountMapper.toAccountEntity(accountDto), updates);
+        updateUtils.update(accountEntity, updates);
+        accountRepository.save(accountEntity);
         return accountRedisRepository.save(accountEntity);
     }
 
 
     @Transactional
     public AccountDto delete(Long id) {
-        AccountDto accountDto = findById(id);
-        AccountEntity accountEntity = accountMapper.toAccountEntity(accountDto);
+        AccountEntity accountEntity = accountRepository.findById(id)
+                .orElseThrow(() -> new AccountNotFoundException("Account not found"));
         accountEntity.setStatus(Status.CLOSED);
+        accountRepository.save(accountEntity);
         return accountRedisRepository.save(accountEntity);
     }
 
     @Transactional
     public String remove(Long id) {
-        AccountDto accountDto = findById(id);
-        AccountEntity accountEntity = accountMapper.toAccountEntity(accountDto);
+        AccountEntity accountEntity = accountRepository.findById(id)
+                .orElseThrow(() -> new AccountNotFoundException("Account not found"));
+        accountRepository.delete(accountEntity);
         return accountRedisRepository.delete(accountEntity);
     }
 
