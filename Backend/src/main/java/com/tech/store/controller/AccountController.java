@@ -60,11 +60,11 @@ public class AccountController {
         return accountService.login(loginRequest);
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/update/{username}")
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Update account", description = "Updates the specified account.")
-    public AccountDto updateAccount(@PathVariable Long id,@RequestParam Map<String, String> updates) throws Exception {
-        return accountService.updateAccount(id, updates);
+    public AccountDto updateAccount(@PathVariable String username,@RequestParam Map<String, String> updates) throws Exception {
+        return accountService.updateAccount(username, updates);
     }
 
     @PutMapping("/delete/{id}")

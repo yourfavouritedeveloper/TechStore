@@ -2,7 +2,7 @@ import styles from "./Nav.module.css"
 import { Link ,useNavigate} from "react-router-dom";
 import { motion, AnimatePresence} from "framer-motion";
 import { useEffect, useState,useContext } from 'react';
-import def from "../../assets/default.png";
+import def from "/default.png";
 import axios from 'axios';
 import { AuthContext } from "../AuthContext";
 
@@ -56,7 +56,21 @@ const handleSignOut = () => {
   };
 
 
-  
+  useEffect(() => {
+    if (!logAccount) return;
+
+
+      if(!logAccount?.profilePictureUrl) {
+        axios.put(`/api/accounts/update/${logAccount.id}`, null, {
+        params: { profilePictureUrl: "/default.png" }
+      })
+      .then(response => {
+        setLogAccount(response.data); 
+      })
+      .catch(err => console.error(err));
+      }
+    
+  }, [logAccount])
 
 
 
@@ -81,7 +95,9 @@ const handleSignOut = () => {
     <p className={styles.purchaseText}>Easily track your spending and review past transactions.</p>
     <Link  className={styles.purchaseButton}  to="/login">Purchase History</Link>
   </div>
-
+  <Link className={styles.view} to={`/account/${logAccount?.username}`}>
+    View Profile
+  </Link>  
   <Link className={styles.edit}  to="/login"
   >Edit Profile</Link>
   <Link className={styles.signout}  to="/" onClick={handleSignOut}>Sign Out</Link>

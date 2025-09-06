@@ -344,7 +344,7 @@ const displayItems = filteredItems.length ? filteredItems : [];
                     </div>
                     <div className={styles.itemContainer}>
                       <ul className={styles.items}>
-                        {displayItems.map((item) => (
+                       {displayItems && displayItems.length > 0 ? (displayItems.map((item) => (
                           <Link key={item.id} className={styles.item} 
                           to= {"/product/" + item.id}
                           style={{ backgroundColor: "rgba(247, 247, 247, 1)" }}>
@@ -355,7 +355,10 @@ const displayItems = filteredItems.length ? filteredItems : [];
                             <p className={styles.price}>₼{item.price}</p>
                             </div>
                           </Link>
-                        ))}
+                        ))) : (
+                            <li className={styles.noItem}>
+                              <p>No item found</p>
+                            </li>)}
                       </ul>
                     </div>
                   </div>
