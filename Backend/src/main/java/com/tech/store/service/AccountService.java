@@ -112,8 +112,8 @@ public class AccountService {
 
 
     @Transactional
-    public AccountDto updateAccount(Long id, Map<String, String> updates) throws Exception {
-        AccountDto accountDto = findById(id);
+    public AccountDto updateAccount(String username, Map<String, String> updates) throws Exception {
+        AccountDto accountDto = findByName(username);
 
         AccountEntity accountEntity = (AccountEntity) updateUtils.update(accountMapper.toAccountEntity(accountDto), updates);
         return accountRedisRepository.save(accountEntity);

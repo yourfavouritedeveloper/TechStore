@@ -310,9 +310,23 @@ html,body {
     background-color: #125fdb;
 }
 
-.edit {
+.view {
     position: absolute;
     top:40vw;
+    left:1.9vw;
+    width: 5.8vw;
+    padding: 0.5rem clamp(0.1rem, 5.4vw, 9.5rem);
+    font-size: clamp(0.3rem, 1vw, 2.5rem);
+    background-color: #3B82F6;
+    color: rgb(255, 255, 255);
+    border-radius: 2rem;
+    transition: all 0.3s ease;    
+}
+
+
+.edit {
+    position: absolute;
+    top:43vw;
     left:1.9vw;
     width: 5.8vw;
     padding: 0.5rem clamp(0.1rem, 5.4vw, 9.5rem);
@@ -326,7 +340,7 @@ html,body {
 
 .signout {
     position: absolute;
-    top:43vw;
+    top:46vw;
     left:1.9vw;
     width: 5.8vw;
     padding: 0.5rem clamp(0.1rem, 5.4vw, 9.5rem);
@@ -335,6 +349,11 @@ html,body {
     color: rgb(255, 255, 255);
     border-radius: 2rem;
     transition: all 0.3s ease;      
+}
+
+.view:hover {
+    transform: scale(1.03);
+    background-color: #125fdb;    
 }
 
 .edit:hover {
@@ -400,6 +419,12 @@ a {
 .highlight .edit:hover {
     color:black;
 }
+
+.highlight .view {
+    color:white;
+    transition: all 0.3s ease;
+}
+
 
 .highlight .purchaseButton:hover {
     color: rgb(255, 255, 255);
