@@ -18,7 +18,7 @@ public class UpdateUtils {
         for (String key : updates.keySet()) {
             String valueObj = updates.get(key);
 
-            String setterName = "set" + key.substring(0, 1).toUpperCase() + key.substring(1).toLowerCase();
+            String setterName = "set" + key.substring(0, 1).toUpperCase() + key.substring(1);
 
             Method setterMethod = null;
 
