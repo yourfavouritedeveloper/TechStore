@@ -56,21 +56,30 @@ const handleSignOut = () => {
   };
 
 
-  useEffect(() => {
-    if (!logAccount) return;
+useEffect(() => {
+  if (!logAccount || logAccount?.profilePictureUrl) return; 
 
+  const defaultPicUrl = "https://github.com/yourfavouritedeveloper/TechStore/blob/main/Frontend/public/default.png?raw=true";
 
-      if(!logAccount?.profilePictureUrl) {
-        axios.put(`/api/accounts/update/${logAccount.username}`, null, {
-        params: { profilePictureUrl: "/default.png" }
-      })
-      .then(response => {
-        setLogAccount(response.data); 
-      })
-      .catch(err => console.error(err));
+  axios.put(
+    `https://techstore-3fvk.onrender.com/api/v1/accounts/update/${logAccount.username}`,
+    null,
+    {
+      params: { profilePictureUrl: defaultPicUrl },
+      auth: {
+        username: account.username,
+        password: account.password
       }
-    
-  }, [logAccount])
+    }
+  )
+  .then(response => {
+    if (response.data?.profilePictureUrl) {
+      setLogAccount(response.data);
+    }
+  })
+  .catch(err => console.error(err));
+}, [logAccount]);
+
 
 
 
