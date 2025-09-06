@@ -18,7 +18,8 @@ function Home({ shiftUp, setShiftUp }) {
   const [filteredItems, setFilteredItems] = useState([]);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: "auto" });
+    window.onbeforeunload = () => window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {

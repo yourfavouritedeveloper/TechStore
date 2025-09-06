@@ -61,7 +61,7 @@ const handleSignOut = () => {
 
 
       if(!logAccount?.profilePictureUrl) {
-        axios.put(`/api/accounts/update/${logAccount.id}`, null, {
+        axios.put(`/api/accounts/update/${logAccount.username}`, null, {
         params: { profilePictureUrl: "/default.png" }
       })
       .then(response => {
