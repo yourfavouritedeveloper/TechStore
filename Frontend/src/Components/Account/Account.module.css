@@ -1,55 +1,124 @@
 .container {
     height: 100rem;
     width: 100%;
+    background-color: rgb(7, 7, 7);
+
 }
 
 .account {
-    position: relative;
-    background-color: rgb(235, 235, 235);
-    width: 70%;
+    position: relative; 
+    background-color: rgb(12, 12, 12);
+    width: 35%;
     height: 25rem;
-    left:15%;
-    top:7%;
-
+    left: 5%;
+    top: 7%;
+    border-radius: 2rem;
+    overflow: hidden;
 }
 
 .account .pp {
     width: 13rem;
-    position: relative;
-    left:-35vw;
-    margin-left:14rem;
-    top:12rem;
-    z-index: 5;
+    position: absolute; 
+    left: 0rem;         
+    top: 12rem;  
+    z-index: 5;      
 }
 
 .account .name {
+    position: absolute;  
+    top: 13rem;         
+    width: 100%;   
+    left:0rem;     
+
+    display: flex;
+    flex-direction: column;    
+    align-items: left;     
+    
+
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.644), rgba(255, 255, 255, 0));
-    position: relative;
-    backdrop-filter: blur(20px);        
-    -webkit-backdrop-filter: blur(10px); 
-    top:0.5rem;
-    padding: 1rem 0;
-    padding-top: 0.5rem;
+    backdrop-filter: blur(5px);        
+    -webkit-backdrop-filter: blur(5px); 
+    padding: 1rem 1rem;
+    padding-bottom: 11rem;
+    padding-left: 14rem;
+    z-index: 4;
 }
 
 .account .name .customerName {
-    position: relative;
-    color:white;
-    left:-35vw;
-    margin-left:47rem;
-    top:-0rem;
+    color: white;
     font-family: "PoppinsRegular";
     white-space: nowrap;
-    font-size: clamp(1rem,2rem,10rem);
+    position: absolute;
+    font-size: clamp(1rem, 2rem, 10rem);
 }
 
 .account .name .username {
-    position: relative;
-    color:white;
-    left:-35vw;
-    margin-left:40.5rem;
-    top:-2.5rem;
+    color: white;
     font-family: "PoppinsLight";
     white-space: nowrap;
-    font-size: clamp(0rem,1.2rem,10rem);
+    font-size: clamp(0.8rem, 1.2rem, 10rem);
+    margin-top: 4.5rem; 
+    position: absolute;
+}
+
+.descriptionTitle {
+    font-family: "PoppinsMedium";
+    white-space: nowrap;
+    font-size: clamp(0.8rem, 2.3rem, 10rem);
+    margin-top: 8.5rem; 
+    position: absolute;
+    left: 6%;
+    color: rgb(209, 209, 209);
+}
+
+.accountDescription {
+    position: relative;
+    top:12rem;
+    width: 35%;
+    left:5%;
+    height: 15rem;
+    background-color: rgb(12, 12, 12);
+    border-radius: 2rem;
+}
+
+.description {
+    font-family: "PoppinsRegular";
+    font-size: clamp(0.8rem, 1rem, 10rem);
+    margin-top: 1.3rem; 
+    text-align: left;
+    position: absolute;
+    width: 90%;
+    left: 4.5%;
+    color: rgb(209, 209, 209);
+}
+
+
+.itemsContainer {
+    position: absolute; 
+    background-color: rgb(12, 12, 12);
+    width: 50%;
+    height: 45rem;
+    right: 5%;
+    top: 7rem;
+    border-radius: 2rem;
+    overflow: hidden;    
+}
+
+.itemTitle {
+    font-family: "PoppinsMedium";
+    white-space: nowrap;
+    font-size: clamp(0.8rem, 2.3rem, 10rem);
+    position: absolute;
+    left: 6%;
+    color: rgb(209, 209, 209);    
+}
+
+.items {
+    position: absolute; 
+    width: 97%;
+    height: 37rem;
+    right: 1%;
+    top: 7rem;
+    border-radius: 1.6rem;
+    overflow: hidden;       
 }

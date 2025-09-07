@@ -11,6 +11,14 @@ function Account({ account }) {
                     <p className={styles.username}>@{account.username}</p>
                 </div>
             </div>
+            <p className={styles.descriptionTitle}>Description</p>
+            <div className={styles.accountDescription}>
+                <p className={styles.description}>{account.description}</p>
+            </div>
+            <div className={styles.itemsContainer}>
+                <p className={styles.itemTitle}>Items</p>
+                <div className={styles.items}></div>
+            </div>
 
 
         </div>
