@@ -38,7 +38,7 @@ function Account() {
     return (
         <>
         <title>{"Account | " + account.customerName}</title>
-        <Nav highlight={true}></Nav>
+        <Nav></Nav>
         <Profile account={account} />
         </>
     );
