@@ -1,6 +1,7 @@
 package com.tech.store.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.tech.store.dao.entity.ProductEntity;
 import com.tech.store.model.enumeration.Role;
 import com.tech.store.util.OnCreate;
 import com.tech.store.util.OnUpdate;
@@ -49,6 +50,8 @@ public class AccountDto {
     private List<CommentSummaryDto> sentComments;
 
     private List<CommentSummaryDto> receivedComments;
+
+    private List<ProductSummaryDto> products;
 
 
 
