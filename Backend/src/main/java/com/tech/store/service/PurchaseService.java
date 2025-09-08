@@ -55,7 +55,8 @@ public class PurchaseService {
                 .orElseGet(() -> {
                     AccountDto accountDto = accountService.findById(id);
                     List<PurchaseEntity> purchaseEntities = accountDto.getPurchases()
-                            .stream().map(purchaseMapper::toPurchaseEntity).toList();
+                            .stream().map(purchaseSummaryDto -> findById(purchaseSummaryDto.getId()))
+                            .map(purchaseMapper::toPurchaseEntity).toList();
 
                     purchaseEntities.forEach(purchaseRedisRepository::save);
 
