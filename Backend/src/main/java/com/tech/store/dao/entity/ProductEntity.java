@@ -1,7 +1,9 @@
 package com.tech.store.dao.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.tech.store.model.dto.AccountDto;
 import com.tech.store.model.enumeration.Category;
 import com.tech.store.util.NotBlankMap;
@@ -28,6 +30,9 @@ import java.util.Map;
 @AllArgsConstructor
 @Entity
 @Table(name = "products")
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
 public class ProductEntity extends BaseEntity {
 
     @Column(name = "name",nullable = false)
@@ -89,10 +94,15 @@ public class ProductEntity extends BaseEntity {
     private String color;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonManagedReference("product-comments")
     private List<CommentEntity> comments;
+
+    @OneToMany(mappedBy = "productEntity", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference("product-purchases")
+    private List<PurchaseEntity> purchases;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "account")
+    @JsonBackReference("account-products")
     private AccountEntity account;
 }

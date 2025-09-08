@@ -13,6 +13,7 @@ import com.tech.store.exception.ProductNotFoundException;
 import com.tech.store.mapper.ProductMapper;
 
 
+import com.tech.store.model.dto.AccountDto;
 import com.tech.store.model.dto.ProductDto;
 import com.tech.store.model.enumeration.Status;
 import com.tech.store.util.UpdateUtils;
@@ -83,6 +84,17 @@ public class ProductService {
 
                     return productDtos;
                 });
+    }
+
+    @Transactional(readOnly = true)
+    public List<ProductDto> findByAccount(AccountDto accountDto) {
+        List<ProductEntity> productEntities = productRepository.findAll();
+        return productEntities.stream()
+                .filter(productEntity -> {
+                    ProductDto productDto = productMapper.toProductDto(productEntity);
+                   return productDto.getAccount().equals(accountDto);
+                }
+                ).map(productMapper::toProductDto).toList();
     }
 
     @Transactional(readOnly = true)

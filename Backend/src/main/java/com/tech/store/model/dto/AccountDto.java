@@ -20,6 +20,8 @@ import java.util.List;
 
 public class AccountDto {
 
+    private Long id;
+
     private Role role;
 
     @NotBlank(message = "Username cannot be null",groups = {OnCreate.class, OnUpdate.class})
@@ -40,20 +42,15 @@ public class AccountDto {
 
     private String profilePictureUrl;
 
-    @JsonIgnore
-    private List<PurchaseDto> purchases;
+    private List<PurchaseSummaryDto> purchases;
 
-    @JsonIgnore
-    private List<PurchaseDto> sells;
+    private List<PurchaseSummaryDto> sells;
 
-    @JsonIgnore
-    private List<CommentDto> sentComments;
+    private List<CommentSummaryDto> sentComments;
 
-    @JsonIgnore
-    private List<CommentDto> receivedComments;
+    private List<CommentSummaryDto> receivedComments;
 
-    @JsonIgnore
-    private List<ProductDto> products;
+
 
 
 }
