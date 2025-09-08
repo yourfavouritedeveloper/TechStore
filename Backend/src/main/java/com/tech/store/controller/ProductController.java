@@ -1,5 +1,6 @@
 package com.tech.store.controller;
 
+import com.tech.store.model.dto.AccountDto;
 import com.tech.store.model.dto.ProductDto;
 import com.tech.store.service.ProductService;
 import com.tech.store.util.OnCreate;
@@ -42,6 +43,13 @@ public class ProductController {
     @Operation(summary = "Get all products", description = "Gets all products.")
     public List<ProductDto> getAll() {
         return productService.findAll();
+    }
+
+    @GetMapping("/account")
+    @ResponseStatus(HttpStatus.OK)
+    @Operation(summary = "Get all products being sold by an account", description = "Gets products of an account.")
+    public List<ProductDto> getByAccount(AccountDto accountDto) {
+        return productService.findByAccount(accountDto);
     }
 
     @GetMapping("/popular")

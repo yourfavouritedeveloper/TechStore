@@ -20,20 +20,21 @@ import java.util.List;
 
 public class CommentDto {
 
+    private Long id;
+
     @NotNull(message = "The comment sender cannot be null.",groups = {OnCreate.class, OnUpdate.class})
-    private AccountDto fromAccount;
+    private AccountSummaryDto fromAccount;
 
-    private AccountDto toAccount;
+    private AccountSummaryDto toAccount;
 
-    private CommentDto repliedComment;
+    private CommentSummaryDto repliedComment;
 
-    @JsonIgnore
-    private List<CommentDto> replies;
+    private List<CommentSummaryDto> replies;
 
     @NotEmpty(message = "The comment cannot be empty.",groups = {OnCreate.class, OnUpdate.class})
     private String comment;
 
     @NotNull(message = "Product cannot be null.", groups = {OnCreate.class, OnUpdate.class})
-    private ProductDto product;
+    private ProductSummaryDto product;
 
 }

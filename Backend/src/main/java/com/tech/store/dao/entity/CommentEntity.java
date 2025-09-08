@@ -1,7 +1,9 @@
 package com.tech.store.dao.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.tech.store.model.dto.AccountDto;
 import com.tech.store.model.dto.ProductDto;
 import com.tech.store.util.OnCreate;
@@ -24,25 +26,28 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "comments")
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
 public class CommentEntity extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "from_account",nullable = false)
-    @JsonBackReference
+    @JsonBackReference("account-sent-comments")
     private AccountEntity fromAccount;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "to_account")
-    @JsonBackReference
+    @JsonBackReference("account-received-comments")
     private AccountEntity toAccount;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "replied_comment")
-    @JsonBackReference
+    @JsonBackReference("comment-replies")
     private CommentEntity repliedComment;
 
     @OneToMany(mappedBy = "repliedComment", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonManagedReference("comment-replies")
     private List<CommentEntity> replies = new ArrayList<>();
 
     @Column(name="comment",nullable = false)
@@ -50,7 +55,7 @@ public class CommentEntity extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product",nullable = false)
-    @JsonBackReference
+    @JsonBackReference("product-comments")
     private ProductEntity product;
 
 

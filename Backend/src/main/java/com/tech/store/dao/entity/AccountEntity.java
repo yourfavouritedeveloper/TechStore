@@ -1,6 +1,9 @@
 package com.tech.store.dao.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.tech.store.model.dto.PurchaseDto;
 import com.tech.store.model.enumeration.Role;
 import jakarta.persistence.*;
@@ -18,6 +21,9 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "accounts")
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
 public class AccountEntity extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
@@ -47,22 +53,22 @@ public class AccountEntity extends BaseEntity {
 
 
     @OneToMany(mappedBy = "buyer", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonManagedReference("buyer-purchases")
     private List<PurchaseEntity> purchases;
 
     @OneToMany(mappedBy = "seller", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonManagedReference("seller-purchases")
     private List<PurchaseEntity> sells;
 
     @OneToMany(mappedBy = "fromAccount", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonManagedReference("account-sent-comments")
     private List<CommentEntity> sentComments;
 
     @OneToMany(mappedBy = "toAccount", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonManagedReference("account-received-comments")
     private List<CommentEntity> receivedComments;
 
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonManagedReference("account-products")
     private List<ProductEntity> products;
 }
