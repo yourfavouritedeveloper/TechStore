@@ -1,9 +1,11 @@
 package com.tech.store.dao.repository;
 
 import com.tech.store.dao.entity.PurchaseEntity;
+import com.tech.store.exception.PurchaseNotFoundException;
 import com.tech.store.mapper.PurchaseMapper;
 import com.tech.store.model.dto.AccountDto;
 import com.tech.store.model.dto.PurchaseDto;
+import com.tech.store.service.PurchaseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
@@ -38,7 +40,11 @@ public class PurchaseRedisRepository {
             return Optional.empty();
         }
 
-        return Optional.of(accountDto.getPurchases());
+
+        return Optional.of(accountDto.getPurchases().stream()
+                .map(purchaseSummaryDtos -> findById(purchaseSummaryDtos.getId())
+                        .orElseThrow(() -> new PurchaseNotFoundException("Purchase not found")))
+                .toList());
 
     }
 
