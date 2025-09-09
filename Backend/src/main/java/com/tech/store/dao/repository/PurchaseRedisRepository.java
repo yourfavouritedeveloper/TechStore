@@ -33,15 +33,29 @@ public class PurchaseRedisRepository {
         return Optional.ofNullable(purchaseDto);
     }
 
-    public Optional<List<PurchaseDto>> findByAccount(Long accountId) {
+    public Optional<List<PurchaseDto>> findByFromAccount(Long accountId) {
         String accountKey = KEY_PREFIX + accountId;
         AccountDto accountDto = accountRedisTemplate.opsForValue().get(accountKey);
         if (accountDto == null || accountDto.getPurchases() == null) {
             return Optional.empty();
         }
 
-
         return Optional.of(accountDto.getPurchases().stream()
+                .map(purchaseSummaryDtos -> findById(purchaseSummaryDtos.getId())
+                        .orElseThrow(() -> new PurchaseNotFoundException("Purchase not found")))
+                .toList());
+
+    }
+
+
+    public Optional<List<PurchaseDto>> findByToAccount(Long accountId) {
+        String accountKey = KEY_PREFIX + accountId;
+        AccountDto accountDto = accountRedisTemplate.opsForValue().get(accountKey);
+        if (accountDto == null || accountDto.getSells() == null) {
+            return Optional.empty();
+        }
+
+        return Optional.of(accountDto.getSells().stream()
                 .map(purchaseSummaryDtos -> findById(purchaseSummaryDtos.getId())
                         .orElseThrow(() -> new PurchaseNotFoundException("Purchase not found")))
                 .toList());

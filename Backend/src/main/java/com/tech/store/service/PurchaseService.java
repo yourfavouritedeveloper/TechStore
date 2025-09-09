@@ -50,11 +50,30 @@ public class PurchaseService {
                 });
     }
 
-    public List<PurchaseDto> findByAccount(Long id) {
-        return purchaseRedisRepository.findByAccount(id)
+    public List<PurchaseDto> findByFromAccount(Long id) {
+        return purchaseRedisRepository.findByFromAccount(id)
                 .orElseGet(() -> {
                     AccountDto accountDto = accountService.findById(id);
                     List<PurchaseEntity> purchaseEntities = accountDto.getPurchases()
+                            .stream().map(purchaseSummaryDto -> findById(purchaseSummaryDto.getId()))
+                            .map(purchaseMapper::toPurchaseEntity).toList();
+
+                    purchaseEntities.forEach(purchaseRedisRepository::save);
+
+                    return purchaseEntities.stream().
+                            map(purchaseMapper::toPurchaseDto)
+                            .toList();
+
+
+
+                });
+    }
+
+    public List<PurchaseDto> findByToAccount(Long id) {
+        return purchaseRedisRepository.findByToAccount(id)
+                .orElseGet(() -> {
+                    AccountDto accountDto = accountService.findById(id);
+                    List<PurchaseEntity> purchaseEntities = accountDto.getSells()
                             .stream().map(purchaseSummaryDto -> findById(purchaseSummaryDto.getId()))
                             .map(purchaseMapper::toPurchaseEntity).toList();
 

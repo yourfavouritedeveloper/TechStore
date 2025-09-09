@@ -5,6 +5,7 @@ import { useEffect, useState,useContext } from 'react';
 import def from "/default.png";
 import axios from 'axios';
 import { AuthContext } from "../AuthContext";
+import spinner from "../../../public/brandlogowhite.png"
 
 
 function Nav({ highlight ,shiftUp, setShiftUp }) {
@@ -95,24 +96,44 @@ useEffect(() => {
   </>);
 
   const logged = (<>
-  <p className={styles.logName}>Account</p>
-  <img className={styles.pp} src={logAccount?.profilePictureUrl ? logAccount?.profilePictureUrl : def} alt="" />
-  <p className={styles.fullname}>{logAccount?.customerName}</p>
-  <p className={styles.username}>{"@" + logAccount?.username}</p>
-  <p className={styles.balance}>Balance: ${logAccount?.balance}</p>
-  <div className={styles.purchaseHistory}>
-    <p className={styles.purchaseText}>Easily track your spending and review past transactions.</p>
-    <Link  className={styles.purchaseButton}  to="/login">Purchase History</Link>
-  </div>
-  <Link className={styles.view} to={`/account/${logAccount?.username}`}>
-    View Profile
-  </Link>  
-  <Link className={styles.edit}  to="/login"
-  >Edit Profile</Link>
-  <Link className={styles.signout}  to="/" onClick={handleSignOut}>Sign Out</Link>
+    {logAccount ? (
+      <>
+        <p className={styles.logName}>Account</p>
+        <img
+          className={styles.pp}
+          src={logAccount.profilePictureUrl ? logAccount.profilePictureUrl : def}
+          alt="Profile"
+        />
+        <p className={styles.fullname}>{logAccount.customerName}</p>
+        <p className={styles.username}>@{logAccount.username}</p>
+        <p className={styles.balance}>Balance: ${logAccount.balance}</p>
 
+        <div className={styles.purchaseHistory}>
+          <p className={styles.purchaseText}>
+            Easily track your spending and review past transactions.
+          </p>
+          <Link className={styles.purchaseButton} to="/login">
+            Purchase History
+          </Link>
+        </div>
 
-  
+        <Link className={styles.view} to={`/account/${logAccount.username}`}>
+          View Profile
+        </Link>
+
+        <Link className={styles.edit} to="/login">
+          Edit Profile
+        </Link>
+
+        <Link className={styles.signout} to="/" onClick={handleSignOut}>
+          Sign Out
+        </Link>
+      </>
+    ) : (
+      <div className={styles.loadingContainer}>
+        <img src={spinner} alt="Loading..." className={styles.loadingImage} />
+      </div>
+    )}
   </>);
 
 

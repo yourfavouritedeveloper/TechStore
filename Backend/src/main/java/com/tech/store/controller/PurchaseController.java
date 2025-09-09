@@ -26,11 +26,18 @@ public class PurchaseController {
         return purchaseService.findById(id);
     }
 
-    @GetMapping("account/{id}")
+    @GetMapping("account/from/{id}")
     @ResponseStatus(HttpStatus.OK)
-    @Operation(summary = "Get all purchases of the account", description = "Gets the specified purchase.")
-    public List<PurchaseDto> findByAccount(@PathVariable Long id) {
-        return purchaseService.findByAccount(id);
+    @Operation(summary = "Get all purchases of the buyer account", description = "Gets the specified purchase.")
+    public List<PurchaseDto> findByFromAccount(@PathVariable Long id) {
+        return purchaseService.findByFromAccount(id);
+    }
+
+    @GetMapping("account/to/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    @Operation(summary = "Get all purchases of the seller account", description = "Gets the specified purchase.")
+    public List<PurchaseDto> findByToAccount(@PathVariable Long id) {
+        return purchaseService.findByToAccount(id);
     }
 
 
