@@ -119,7 +119,18 @@ const handleSortChange = (key, value) => {
   });
 };
 
-const displayItems = filteredItems.length ? filteredItems : [];
+ const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 32;
+
+    const totalItems = filteredItems ? filteredItems.length : 0;
+    const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const currentItems = filteredItems
+    ? filteredItems.slice(startIndex, startIndex + itemsPerPage)
+    : [];
+
+const displayItems = currentItems.length ? currentItems : [];
 
 
 
@@ -360,6 +371,19 @@ const displayItems = filteredItems.length ? filteredItems : [];
                               <p>No item found</p>
                             </li>)}
                       </ul>
+                        {totalPages > 1 && (
+                         <div className={styles.pagination}>
+                            {Array.from({ length: totalPages }, (_, i) => (
+                           <button
+                              key={i}
+                             onClick={() => setCurrentPage(i + 1)}
+                             className={`${styles.pageButton} ${currentPage === i + 1 ? styles.active : ""}`}
+                             >
+                               {i + 1}
+                             </button>
+                          ))}
+                         </div>
+                        )}
                     </div>
                   </div>
         </>

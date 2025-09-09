@@ -9,6 +9,7 @@ import BrandLogo from "../../../public/brandblack.png"
 import Apple from "../../assets/apple.png"
 import Keyboard from "../../assets/keykeyboard.png"
 import TV from "../../assets/tvv.png"
+import spinner from "../../../public/brandlogo.png"
 
 function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
 
@@ -86,40 +87,42 @@ const handleSortChange = (key, value) => {
 
                 
               </div>
-
-                <div className={styles.populardiv}>
+              {itemsPopular && itemsPopular.length > 0 && itemsSeller && itemsSeller.length > 0 ? (
+                <>
+                  <div className={styles.populardiv}>
                     <ul className={styles.itemsPopular}>
                       {itemsPopular.map((item) => (
-                        <Link key={item.id} className={styles.item} 
-                        to= {"/product/" + item.id}
-                       >
+                        <Link key={item.id} className={styles.item} to={"/product/" + item.id}>
                           <p className={styles.searchRate}>Searched {item.searched} times</p>
-                          <img  src={item.productImageUrl} alt={item.name} />
+                          <img src={item.productImageUrl} alt={item.name} />
                           <p className={styles.name}>{item.name}</p>
                           <p className={styles.guarantee}>{item.guarantee} month</p>
                           <span>₼{item.price}</span>
-                      </Link>
+                        </Link>
                       ))}
                     </ul>
-                    </div>
+                  </div>
 
-
-
-                 <div className={styles.sellerdiv}>
-                      <ul className={styles.itemsBought}>
-                        {itemsSeller.map((item) => (
-                        <Link key={item.id} className={styles.item}
-                          to= {"/product/" + item.id}
-                        >
-                            <p className={styles.boughtRate}>Bought {item.bought} times</p>
-                            <img  src={item.productImageUrl} alt={item.name}/>
-                            <p className={styles.name}>{item.name}</p>
-                            <p className={styles.guarantee}>{item.guarantee} month</p>
-                            <span>₼{item.price}</span>
+                  <div className={styles.sellerdiv}>
+                    <ul className={styles.itemsBought}>
+                      {itemsSeller.map((item) => (
+                        <Link key={item.id} className={styles.item} to={"/product/" + item.id}>
+                          <p className={styles.boughtRate}>Bought {item.bought} times</p>
+                          <img src={item.productImageUrl} alt={item.name} />
+                          <p className={styles.name}>{item.name}</p>
+                          <p className={styles.guarantee}>{item.guarantee} month</p>
+                          <span>₼{item.price}</span>
                         </Link>
-                        ))}                
-                      </ul>
-                    </div>
+                      ))}
+                    </ul>
+                  </div>
+                </>
+              ) : (
+                <div className={styles.loadingContainer}>
+                  <img src={spinner} alt="Loading..." className={styles.loadingImage} />
+                </div>
+              )}
+
                    
 
                 </div>

@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Choice from "../Choice/Choice"
+import spinner from "../../../public/brandlogo.png"
 
 function Item({name}) {
 
@@ -52,7 +53,7 @@ function Item({name}) {
     ? (item.price * (100 - item.discount) / 100).toFixed(2) 
     : null;
 
-    return(<>
+    return item.productImageUrl ? (<>
     { isChoice ? <Choice item={item} setIsChoice={setIsChoice} /> : null }
     <div className={styles.container}>
         <div className={styles.item} 
@@ -140,7 +141,11 @@ function Item({name}) {
         </div>
     </div>
     
-    </>);
+    </>) : (
+        <div className={styles.loadingContainer}>
+            <img src={spinner} alt="Loading..." className={styles.loadingImage} />
+        </div>
+    )
 }
 
 

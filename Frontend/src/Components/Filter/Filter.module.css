@@ -806,6 +806,7 @@ input:focus {
     flex-wrap: wrap;
     gap: 1rem; 
     padding: 0rem 3rem;
+    padding-bottom: 3rem;
     left:12.5rem;
     position: relative;
     
@@ -895,6 +896,36 @@ input:focus {
     color: rgb(58, 58, 58);
     z-index: 20;
     font-size: clamp(0.5rem, 1.5vw, 5rem);
+}
+
+
+
+.pagination {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  bottom: 1rem;
+  left: 60%;
+  transform: translateX(-50%);
+}
+
+.pageButton {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #ffffff;
+  cursor: pointer;
+  border-radius: 0.3rem;
+  transition: background 0.2s ease;
+}
+
+.pageButton:hover {
+  background-color: #ddd;
+}
+
+.pageButton.active {
+  background-color: #333;
+  color: white;
 }
 
 
