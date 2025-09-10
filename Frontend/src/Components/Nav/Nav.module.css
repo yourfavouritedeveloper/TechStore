@@ -229,9 +229,12 @@ html,body {
 
 .pp {
     position: absolute;
-    width: 30%;
-    top:8vw;
-    left:3.4vw;
+    width: 13.5rem;
+    top:8.7vw;
+    left:4.6vw;
+    background-color: white;
+    border-radius: 50%;
+    overflow: hidden;
 }
 
 .fullname {

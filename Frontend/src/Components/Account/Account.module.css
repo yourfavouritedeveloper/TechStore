@@ -24,12 +24,17 @@
 }
 
 .account .pp {
-    width: 13rem;
+    width: 11.5rem;
+    height: 11.5rem;
     position: absolute; 
-    left: 0rem;         
-    top: 12rem;  
+    left: 1rem;         
+    top: 12.5rem;  
     z-index: 5;    
+    padding: 0;
+    background-color: white;
+    border-radius: 50%;
     transition: all 1s ease;  
+    overflow: hidden;
 }
 
 .account.active .pp {
@@ -77,6 +82,34 @@
     font-size: clamp(1rem, 6rem, 10rem);
     line-height: 1;
 
+}
+
+.ppPreviewTitle {
+    color: rgb(0, 0, 0);
+    font-family: "PoppinsRegular";
+    white-space: nowrap;
+    position: absolute;
+    z-index: 10;
+    top:2rem;
+    left:23.8rem;
+    padding: 0.5rem 2rem;
+    border-radius: 1rem;
+    background-color: white;
+    font-size: clamp(1rem, 1.2rem, 10rem);  
+}
+
+.ppPreview {
+    width: 10.2rem;
+    height: 10.2rem;
+    position: absolute; 
+    left: 23rem;         
+    top: 6.9rem;  
+    z-index: 5;    
+    padding: 0;
+    background-color: white;
+    border-radius: 50%;
+    transition: all 1s ease;  
+    overflow: hidden;    
 }
 
 .account .name {
@@ -677,6 +710,23 @@
   height: 100vh; 
 }
 
+.loadingContainerPage {
+  position: fixed;
+  display: flex;
+  z-index: 6;
+  width: 100%;
+  background-color: #00000042;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+}
+
+.loadingImage {
+  width: 80px;
+  height: 80px;
+  animation: spin 1s linear infinite;
+}
+
 .loadingImage {
   width: 80px;
   height: 80px;
@@ -686,4 +736,90 @@
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+
+.cropModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+
+
+.cropContainer {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  width: 400px;
+  max-width: 90%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+
+  position: absolute;
+  top: 25rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cropContainer .reactEasyCrop_Container {
+  width: 100%;
+  height: 300px ;
+  background: #f3f3f3;
+  border-radius: 0.5rem;
+  position: absolute;
+  top:0rem;
+}
+
+.cropContainer input[type="range"] {
+  width: 50%;
+  position: absolute;
+  top: 35rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.cropModal button {
+  padding: 0.5rem 3rem;
+  top:14rem;
+  margin-left: 1rem;
+  font-family: "PoppinsLight";
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  font-size: clamp(0rem,1.5rem,10rem);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.cropModal button:first-of-type {
+  background: #3B82F6; 
+  color: white;
+
+
+}
+
+.cropModal button:first-of-type:hover {
+    transform: scale(1.03);
+    background: #1864df; 
+}
+
+.cropModal button:last-of-type {
+  background: #eee;
+  color: #333;
+
+}
+
+.cropModal button:last-of-type:hover {
+  transform: scale(1.03);
+  background: #c0c0c0;
 }
