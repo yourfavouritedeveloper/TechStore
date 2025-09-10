@@ -21,12 +21,20 @@ function Account({ account }) {
       const [purchases, setPurchases] = useState([]);
       const [sellPurchases, setSellPurchases] = useState([]);
       const [edit, setEdit] = useState(false);
+      const [logAccount, setLogAccount] = useState(account);
+      const [draftAccount, setDraftAccount] = useState(account);
+
+
+      useEffect(() => {
+        setLogAccount(account);
+        setDraftAccount(account);
+      }, [account]);
 
   useEffect(() => {
     if (!account?.id) return;
 
     axios
-      .get(`https://techstore-3fvk.onrender.com/api/v1/purchases/account/to/${account.id}`,
+      .get(`https://techstore-3fvk.onrender.com/api/v1/purchases/account/to/${logAccount.id}`,
         {
         auth: {
             username: USERNAME, 
@@ -42,8 +50,9 @@ function Account({ account }) {
       .catch((error) => {
         console.error("Error fetching purchases:", error);
       });
-  }, [account]);
+  }, [logAccount]);
 
+  
 
 const getLastMonthData = (purchases = []) => {
   const now = new Date();
@@ -70,7 +79,7 @@ const getLastMonthData = (purchases = []) => {
 
 
 
-const purchaseData = getLastMonthData(account?.purchases || []);
+const purchaseData = getLastMonthData(logAccount?.purchases || []);
 
 const tickDates = (() => {
   const len = purchaseData.length;
@@ -108,9 +117,10 @@ const getLastMonthDataSell = (sellPurchases = []) => {
   }));
 };
 
-    const updateChanges = function() {
-      setEdit(true);
-    }
+const updateChanges = () => {
+  setEdit(!edit);
+  setDraftAccount(logAccount); 
+};
 
 const purchaseDataSell = getLastMonthDataSell(sellPurchases || []);
 
@@ -127,40 +137,106 @@ const tickDatesSell = (() => {
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 8;
 
-    const totalItems = account.products ? account.products.length : 0;
+    const totalItems = logAccount.products ? logAccount.products.length : 0;
     const totalPages = Math.ceil(totalItems / itemsPerPage);
 
     const startIndex = (currentPage - 1) * itemsPerPage;
-    const currentItems = account.products
-    ? account.products.slice(startIndex, startIndex + itemsPerPage)
+    const currentItems = logAccount.products
+    ? logAccount.products.slice(startIndex, startIndex + itemsPerPage)
     : [];
 
-    return  account.profilePictureUrl ? (
+    return  logAccount.profilePictureUrl ? (
     <>
         <div className={styles.container}>
-            <div className={styles.account}>
-                <img className={styles.pp} src={account.profilePictureUrl} alt="Profile" />
-                {account.backgroundImageUrl ? (<></>) : <></>}
+            <div className={`${styles.account} ${edit ? styles.active : ""}`}>
+              {edit && (
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={(e) => handleProfilePicChange(e)}
+                />
+              )}
+              <img className={styles.pp} src={logAccount.profilePictureUrl} alt="Profile" />
+                
+                {logAccount.backgroundImageUrl ? (<></>) : <></>}
                 <div className={styles.name}>
-                    <p className={styles.customerName}>{account.customerName}</p>
-                    <p className={styles.username}>@{account.username}</p>
+                  {edit ? (
+                    <textarea
+                      className={styles.nameInput}
+                      value={draftAccount.customerName}
+                      onChange={(e) =>
+                        setDraftAccount((prev) => ({ ...prev, customerName: e.target.value }))
+                      }
+                    />
+                  ) : (
+                    <p className={styles.customerName}>{logAccount.customerName}</p>
+                  )}
+
+                  {edit ? (
+                    <textarea
+                      className={styles.usernameInput}
+                      value={draftAccount.username}
+                      onChange={(e) =>
+                        setDraftAccount((prev) => ({ ...prev, username: e.target.value }))
+                      }
+                    />
+                  ) : (
+                    <p className={styles.username}>@{logAccount.username}</p>
+                  )}
                 </div>
             </div>
-            <div className={styles.balanceContainer}>
-                <p className={styles.balance}>Balance: ₼{account.balance}</p>
+            <div className={`${styles.balanceContainer} ${edit ? styles.hidden : ""}`}>
+                <p className={styles.balance}>Balance: ₼{logAccount.balance}</p>
                 <button className={styles.add}>Add Balance</button>
                 <button className={styles.transaction}>Transaction History</button>
             </div>
-            <p className={styles.descriptionTitle}>Description</p>
-            <div className={styles.accountDescription}>
-                <p className={styles.description}>{account.description}</p>
+            <p className={`${styles.descriptionTitle} ${edit ? styles.active : ""}`}>Description</p>
+            <div className={`${styles.accountDescription} ${edit ? styles.active : ""}`}>
+                  {edit ? (
+                    <textarea
+                      className={styles.descriptionInput}
+                      value={draftAccount.description}
+                      onChange={(e) =>
+                        setDraftAccount((prev) => ({ ...prev, description: e.target.value }))
+                      }
+                    />
+                  ) : (
+                    <p className={styles.description}>{logAccount.description}</p>
+                  )}
             </div>
-            <div className={styles.editContainer}>
-                <p className={styles.editTitle}>Edit Your Profile</p>
-                <button className={styles.edit} onClick={updateChanges}>Update</button>
-                <button className={styles.save}>Save</button>
+            <div className={` ${styles.editContainer} ${edit ? styles.active : ""}`}>
+              <p className={styles.editTitle}>Edit Your Profile</p>
+
+              {edit ? (
+                <>
+                  <button className={styles.cancel} onClick={updateChanges}>Cancel</button>
+                  <button
+                    className={styles.saveEdit}
+                    onClick={() => {
+                      axios.put(
+                        `https://techstore-3fvk.onrender.com/api/v1/accounts/update`,
+                        logAccount, 
+                        {
+                          auth: { username: USERNAME, password: PASSWORD },
+                        }
+                      )
+                      .then((response) => {
+                        setLogAccount(response.data);
+                        setEdit(false); 
+                      })
+                      .catch((err) => console.error("Error saving account:", err));
+                    }}
+                  >
+                    Save
+                  </button>
+                </>
+              ) : (<>
+                  <button className={styles.edit} onClick={updateChanges}>Update</button>
+                  <button className={styles.save}>Save</button>
+              </>)}
             </div>
-            <div className={styles.activityContainer}>
+
+            <div className={`${styles.activityContainer} ${edit ? styles.hidden : ""}`}>
                 <p className={styles.activityTitle}>Money Earned from Products</p>
                 <p className={styles.activitySubTitle}>This chart shows how much money you earned each day from your product sales in the last month. Days without sales appear as zero, and the dates at the start, middle, and end make it easy to track your earnings over time.</p>
             <div className={styles.chart}>
@@ -209,7 +285,7 @@ const tickDatesSell = (() => {
                             </li>)}
                               <li className={styles.addItem}>
                                 <Link
-                                to={"/" + account.username + "/product/add"}
+                                to={"/" + logAccount.username + "/product/add"}
                                 className={styles.item}
                                 style={{
                                     display: "flex",

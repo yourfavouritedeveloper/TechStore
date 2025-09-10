@@ -63,10 +63,12 @@ useEffect(() => {
   const defaultPicUrl = "https://github.com/yourfavouritedeveloper/TechStore/blob/main/Frontend/public/default.png?raw=true";
 
   axios.put(
-    `https://techstore-3fvk.onrender.com/api/v1/accounts/update/${logAccount.username}`,
-    null,
+    `https://techstore-3fvk.onrender.com/api/v1/accounts/update/`,
+     {
+      ...account,               
+      profilePictureUrl: defaultPicUrl 
+    },
     {
-      params: { profilePictureUrl: defaultPicUrl },
       auth: {
         username: account.username,
         password: account.password
