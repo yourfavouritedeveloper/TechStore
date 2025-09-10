@@ -11,19 +11,33 @@ import {
   ResponsiveContainer
 } from "recharts";
 import spinner from "../../../public/brandlogo.png"
+import spinnerBlack from "../../../public/brandblack.png"
 import axios from "axios";
+import Cropper from "react-easy-crop";
+import getCroppedImg from "../Utils/cropImage"; 
 
     const USERNAME = import.meta.env.VITE_API_USERNAME;
     const PASSWORD = import.meta.env.VITE_API_PASSWORD;
 
+    
+
 function Account({ account }) {
+
+      const [cropModalOpen, setCropModalOpen] = useState(false);
+      const [cropImageSrc, setCropImageSrc] = useState(null);
+      const [crop, setCrop] = useState({ x: 0, y: 0 });
+      const [zoom, setZoom] = useState(1);
+      const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
+
+
+      
 
       const [purchases, setPurchases] = useState([]);
       const [sellPurchases, setSellPurchases] = useState([]);
       const [edit, setEdit] = useState(false);
       const [logAccount, setLogAccount] = useState(account);
       const [draftAccount, setDraftAccount] = useState(account);
-
+      const [loading, setLoading] = useState(false);
 
       useEffect(() => {
         setLogAccount(account);
@@ -31,22 +45,52 @@ function Account({ account }) {
       }, [account]);
 
       const handleProfilePicChange = (e) => {
-          const file = e.target.files[0];
-          if (!file) return;
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = () => {
+          setCropImageSrc(reader.result);
+          setCropModalOpen(true);
+        };
+        reader.readAsDataURL(file);
+      };
 
+      const onCropComplete = (croppedArea, croppedAreaPixels) => {
+        setCroppedAreaPixels(croppedAreaPixels);
+      };
+
+      const saveCroppedImage = async () => {
+        try {
+          setLoading(true);
+          const blob = await getCroppedImg(cropImageSrc, croppedAreaPixels);
           const formData = new FormData();
-          formData.append("file", file);
+          formData.append("file", blob, "profile.png");
 
-        axios.post("https://techstore-3fvk.onrender.com/api/v1/accounts/uploadProfilePicture", formData, {
-            auth: { username: USERNAME, password: PASSWORD }
-        })
-        .then((res) => {
-            const newUrl = "https://techstore-3fvk.onrender.com" + res.data.url + "?t=" + new Date().getTime();
-            setLogAccount(prev => ({ ...prev, profilePictureUrl: newUrl }));
-            setDraftAccount(prev => ({ ...prev, profilePictureUrl: newUrl }));
-        })
-        .catch(err => console.error(err));
-    };
+          const previewUrl = URL.createObjectURL(blob);
+          setLogAccount(prev => ({ ...prev, profilePictureUrl: previewUrl }));
+          setDraftAccount(prev => ({ ...prev, profilePictureUrl: previewUrl }));
+
+          const res = await axios.post(
+            "https://techstore-3fvk.onrender.com/api/v1/accounts/uploadProfilePicture",
+            formData,
+            { auth: { username: USERNAME, password: PASSWORD } }
+          );
+
+          let fileUrl = res.data.url.startsWith('/') 
+            ? `https://techstore-3fvk.onrender.com${res.data.url}` 
+            : res.data.url;
+          fileUrl += `?t=${Date.now()}`;
+
+          setLogAccount(prev => ({ ...prev, profilePictureUrl: fileUrl }));
+          setDraftAccount(prev => ({ ...prev, profilePictureUrl: fileUrl }));
+          setCropModalOpen(false);
+        } catch (err) {
+          console.error(err);
+        }finally {
+          setLoading(false);
+        }
+      };
+
 
   useEffect(() => {
     if (!account?.id) return;
@@ -165,6 +209,9 @@ const tickDatesSell = (() => {
 
     return  logAccount.profilePictureUrl ? (
     <>
+        {loading && <div className={styles.loadingContainerPage}>
+            <img src={spinnerBlack} alt="Loading..." className={styles.loadingImage} />
+        </div>}
         <div className={styles.container}>
             <div className={`${styles.account} ${edit ? styles.active : ""}`}>
               {edit ? (
@@ -175,6 +222,16 @@ const tickDatesSell = (() => {
                 <p>+</p>
                 <input type="file" accept="image/*" onChange={handleProfilePicChange} style={{ display: 'none' }} />
               </label>
+              {draftAccount.profilePictureUrl && (
+                <>
+                <p className={styles.ppPreviewTitle}>Preview</p>
+              <img
+                src={draftAccount.profilePictureUrl}
+                alt="Preview"
+                className={styles.ppPreview}
+              />
+              </>
+            )}
               </>
               ) : (
                 <img className={styles.pp} src={logAccount.profilePictureUrl} alt="Profile" />
@@ -241,6 +298,7 @@ const tickDatesSell = (() => {
                   <button
                     className={styles.saveEdit}
                     onClick={() => {
+                      setLoading(true);
                       axios.put(
                         `https://techstore-3fvk.onrender.com/api/v1/accounts/update`,
                         draftAccount, 
@@ -251,6 +309,7 @@ const tickDatesSell = (() => {
                       .then((response) => {
                         setLogAccount(response.data);
                         setEdit(false); 
+                        setLoading(false);
                       })
                       .catch((err) => console.error("Error saving account:", err));
                     }}
@@ -379,11 +438,38 @@ const tickDatesSell = (() => {
 
 
         </div>
+            {cropModalOpen && (
+      <div className={styles.cropModal}>
+        <div className={styles.cropContainer}>
+          <Cropper
+            image={cropImageSrc}
+            crop={crop}
+            zoom={zoom}
+            aspect={1}
+            onCropChange={setCrop}
+            onZoomChange={setZoom}
+            onCropComplete={onCropComplete}
+          />
+          <input
+            type="range"
+            min={1}
+            max={3}
+            step={0.1}
+            value={zoom}
+            onChange={(e) => setZoom(e.target.value)}
+          />
+        </div>
+        <button onClick={saveCroppedImage}>Save</button>
+        <button onClick={() => setCropModalOpen(false)}>Cancel</button>
+      </div>
+    )}
     </>) : (
         <>
         <div className={styles.loadingContainer}>
             <img src={spinner} alt="Loading..." className={styles.loadingImage} />
         </div>
+
+        
     </>
     
     
