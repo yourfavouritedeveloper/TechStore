@@ -20,8 +20,11 @@ function Account({ account }) {
 
       const [purchases, setPurchases] = useState([]);
       const [sellPurchases, setSellPurchases] = useState([]);
+      const [edit, setEdit] = useState(false);
 
   useEffect(() => {
+    if (!account?.id) return;
+
     axios
       .get(`https://techstore-3fvk.onrender.com/api/v1/purchases/account/to/${account.id}`,
         {
@@ -105,7 +108,9 @@ const getLastMonthDataSell = (sellPurchases = []) => {
   }));
 };
 
-    
+    const updateChanges = function() {
+      setEdit(true);
+    }
 
 const purchaseDataSell = getLastMonthDataSell(sellPurchases || []);
 
@@ -152,7 +157,7 @@ const tickDatesSell = (() => {
             </div>
             <div className={styles.editContainer}>
                 <p className={styles.editTitle}>Edit Your Profile</p>
-                <button className={styles.edit}>Update</button>
+                <button className={styles.edit} onClick={updateChanges}>Update</button>
                 <button className={styles.save}>Save</button>
             </div>
             <div className={styles.activityContainer}>

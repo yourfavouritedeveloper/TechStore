@@ -126,11 +126,8 @@ public class ProductService {
     }
 
     @Transactional
-    public ProductDto updateProduct(Long id, Map<String, String> updates) throws Exception {
-        ProductEntity productEntity = productRepository.findById(id)
-                .orElseThrow(() -> new ProductNotFoundException("Product not found"));
-
-        updateUtils.update(productEntity, updates);
+    public ProductDto updateProduct(ProductDto productDto) throws Exception {
+        ProductEntity productEntity = productMapper.toProductEntity(productDto);
         productRepository.save(productEntity);
         return productRedisRepository.save(productEntity);
     }
