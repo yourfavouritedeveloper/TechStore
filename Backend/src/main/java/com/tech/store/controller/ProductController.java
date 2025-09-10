@@ -74,11 +74,11 @@ public class ProductController {
         return productService.create(accountDto);
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/update")
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Update product", description = "Updates the specified product.")
-    public ProductDto updateProduct(@PathVariable Long id,@RequestParam Map<String, String> updates) throws Exception {
-        return productService.updateProduct(id, updates);
+    public ProductDto updateProduct(@RequestBody ProductDto productDto) throws Exception {
+        return productService.updateProduct(productDto);
     }
 
     @PutMapping("/delete/{id}")
