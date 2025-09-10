@@ -48,7 +48,7 @@ public class AccountController {
             Path filePath = Paths.get(UPLOAD_DIR, filename);
             Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
 
-            String fileUrl = "/images/" + filename;
+            String fileUrl = "https://techstore-3fvk.onrender.com/images/" + filename;
             return ResponseEntity.ok(Map.of("url", fileUrl));
 
         } catch (IOException e) {

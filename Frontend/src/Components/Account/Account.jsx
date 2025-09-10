@@ -41,7 +41,7 @@ function Account({ account }) {
             auth: { username: USERNAME, password: PASSWORD }
         })
         .then((res) => {
-            const newUrl = res.data.url + "?t=" + new Date().getTime(); // cache-busting
+            const newUrl = "https://techstore-3fvk.onrender.com" + res.data.url + "?t=" + new Date().getTime();
             setLogAccount(prev => ({ ...prev, profilePictureUrl: newUrl }));
             setDraftAccount(prev => ({ ...prev, profilePictureUrl: newUrl }));
         })
