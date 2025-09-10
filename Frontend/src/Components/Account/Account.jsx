@@ -31,28 +31,22 @@ function Account({ account }) {
       }, [account]);
 
       const handleProfilePicChange = (e) => {
-  const file = e.target.files[0];
-  if (!file) return;
+          const file = e.target.files[0];
+          if (!file) return;
 
-  const formData = new FormData();
-  formData.append("file", file);
+          const formData = new FormData();
+          formData.append("file", file);
 
-  axios.post("https://techstore-3fvk.onrender.com/api/v1/accounts/uploadProfilePicture", formData,
-        {
-        auth: {
-            username: USERNAME, 
-            password: PASSWORD
-        }
-        }
-  )
-       .then((res) => {
-           setLogAccount(prev => ({
-             ...prev,
-             profilePictureUrl: res.data.url, 
-           }));
-       })
-       .catch((err) => console.error(err));
-};
+        axios.post("https://techstore-3fvk.onrender.com/api/v1/accounts/uploadProfilePicture", formData, {
+            auth: { username: USERNAME, password: PASSWORD }
+        })
+        .then((res) => {
+            const newUrl = res.data.url + "?t=" + new Date().getTime(); // cache-busting
+            setLogAccount(prev => ({ ...prev, profilePictureUrl: newUrl }));
+            setDraftAccount(prev => ({ ...prev, profilePictureUrl: newUrl }));
+        })
+        .catch(err => console.error(err));
+    };
 
   useEffect(() => {
     if (!account?.id) return;

@@ -30,7 +30,7 @@ import java.util.Map;
 public class AccountController {
 
     private final AccountService accountService;
-    private final String UPLOAD_DIR = "uploads/";
+    private final String UPLOAD_DIR = "/app/uploads/";
 
     @PostMapping("/uploadProfilePicture")
     public ResponseEntity<Map<String, String>> uploadProfilePicture(
