@@ -30,6 +30,30 @@ function Account({ account }) {
         setDraftAccount(account);
       }, [account]);
 
+      const handleProfilePicChange = (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+
+  const formData = new FormData();
+  formData.append("file", file);
+
+  axios.post("https://techstore-3fvk.onrender.com/api/v1/accounts/uploadProfilePicture", formData,
+        {
+        auth: {
+            username: USERNAME, 
+            password: PASSWORD
+        }
+        }
+  )
+       .then((res) => {
+           setLogAccount(prev => ({
+             ...prev,
+             profilePictureUrl: res.data.url, 
+           }));
+       })
+       .catch((err) => console.error(err));
+};
+
   useEffect(() => {
     if (!account?.id) return;
 
@@ -149,18 +173,24 @@ const tickDatesSell = (() => {
     <>
         <div className={styles.container}>
             <div className={`${styles.account} ${edit ? styles.active : ""}`}>
-              {edit && (
-                <input
-                  type="file"
-                  accept="image/*"
-                  onChange={(e) => handleProfilePicChange(e)}
-                />
+              {edit ? (
+              <>
+              <p className={styles.editPpTitle}>Edit Profile Picture</p>
+              <label className={styles.uploadButton}>
+
+                <p>+</p>
+                <input type="file" accept="image/*" onChange={handleProfilePicChange} style={{ display: 'none' }} />
+              </label>
+              </>
+              ) : (
+                <img className={styles.pp} src={logAccount.profilePictureUrl} alt="Profile" />
               )}
-              <img className={styles.pp} src={logAccount.profilePictureUrl} alt="Profile" />
                 
                 {logAccount.backgroundImageUrl ? (<></>) : <></>}
                 <div className={styles.name}>
                   {edit ? (
+                    <>
+                    <p className={styles.editName}>Full Name</p>
                     <textarea
                       className={styles.nameInput}
                       value={draftAccount.customerName}
@@ -168,11 +198,14 @@ const tickDatesSell = (() => {
                         setDraftAccount((prev) => ({ ...prev, customerName: e.target.value }))
                       }
                     />
+                    </>
                   ) : (
                     <p className={styles.customerName}>{logAccount.customerName}</p>
                   )}
 
                   {edit ? (
+                    <>
+                    <p className={styles.editUsername}>Username</p>
                     <textarea
                       className={styles.usernameInput}
                       value={draftAccount.username}
@@ -180,6 +213,7 @@ const tickDatesSell = (() => {
                         setDraftAccount((prev) => ({ ...prev, username: e.target.value }))
                       }
                     />
+                    </>
                   ) : (
                     <p className={styles.username}>@{logAccount.username}</p>
                   )}
@@ -215,7 +249,7 @@ const tickDatesSell = (() => {
                     onClick={() => {
                       axios.put(
                         `https://techstore-3fvk.onrender.com/api/v1/accounts/update`,
-                        logAccount, 
+                        draftAccount, 
                         {
                           auth: { username: USERNAME, password: PASSWORD },
                         }

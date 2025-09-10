@@ -37,6 +37,48 @@
     top: 9rem;  
 }
 
+.editPpTitle {
+    color: rgb(0, 0, 0);
+    font-family: "PoppinsRegular";
+    white-space: nowrap;
+    position: absolute;
+    z-index: 10;
+    top:2rem;
+    left:3rem;
+    padding: 0.5rem 2rem;
+    border-radius: 1rem;
+    background-color: white;
+    font-size: clamp(1rem, 1.2rem, 10rem);    
+}
+
+.uploadButton{
+    z-index: 10;
+    position: absolute;
+    left:5rem;
+    bottom: 3rem;
+    border-radius: 50%;
+    height: 10rem;
+    width: 10rem;
+    background-color: rgb(138, 138, 248);
+    color:white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.uploadButton:hover {
+    transform: scale(1.02);
+    background-color: rgb(94, 94, 255);
+}
+
+.uploadButton p {
+    top:-3.8rem;
+    position: relative;
+    font-family: "PoppinsExtraLight";
+    font-size: clamp(1rem, 6rem, 10rem);
+    line-height: 1;
+
+}
+
 .account .name {
     position: absolute;  
     top: 13rem;         
@@ -59,8 +101,11 @@
 }
 
 .account.active .name {
-    top: 9rem;    
-    padding-left: 12rem;   
+    top: 0rem;    
+    background: linear-gradient(-90deg, rgba(49, 49, 49, 0.644), rgba(255, 255, 255, 0));
+    padding: 10rem 1rem;
+    padding-left: 2rem;
+ 
 }
 
 .account .name .customerName {
@@ -71,9 +116,19 @@
     font-size: clamp(1rem, 2rem, 10rem);
 }
 
+.editName {
+    color: white;
+    font-family: "PoppinsRegular";
+    white-space: nowrap;
+    position: absolute;
+    right: 46%;
+    top: 3rem;
+    font-size: clamp(1rem, 1.1rem, 10rem);    
+}
+
 .nameInput {
   position: absolute;
-  top: -5rem;
+  top: 6rem;
   right: 35%;
   width: 10%;
   white-space: nowrap;
@@ -106,9 +161,19 @@
     position: absolute;
 }
 
+.editUsername {
+    color: white;
+    font-family: "PoppinsRegular";
+    white-space: nowrap;
+    position: absolute;
+    right: 46%;
+    top: 9rem;
+    font-size: clamp(1rem, 1.1rem, 10rem);    
+}
+
 .usernameInput {
   position: absolute;
-  top: -1rem;
+  top: 12rem;
   right: 35%;
   width: 10%;
   white-space: nowrap;
