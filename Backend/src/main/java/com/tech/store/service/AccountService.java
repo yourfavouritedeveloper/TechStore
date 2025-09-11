@@ -123,6 +123,16 @@ public class AccountService {
         return accountRedisRepository.save(accountEntity);
     }
 
+    @Transactional
+    public AccountDto changePassword(Long id, String password) throws Exception {
+        AccountEntity accountEntity = accountRepository.findById(id)
+                .orElseThrow(() -> new AccountNotFoundException("Account not found"));
+
+        accountEntity.setPassword(bCryptPasswordEncoder.encode(password));
+        accountRepository.save(accountEntity);
+        return accountRedisRepository.save(accountEntity);
+    }
+
 
     @Transactional
     public AccountDto delete(Long id) {

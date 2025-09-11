@@ -102,6 +102,13 @@ public class AccountController {
         return accountService.updateAccount(accountDto);
     }
 
+    @PutMapping("/password")
+    @ResponseStatus(HttpStatus.OK)
+    @Operation(summary = "Change password", description = "Changes the password of an Account")
+    public AccountDto changePassword(@RequestParam Long id, @RequestParam String password) throws Exception {
+        return accountService.changePassword(id,password);
+    }
+
     @PutMapping("/delete/{id}")
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Close account", description = "Closes the specified account.")
