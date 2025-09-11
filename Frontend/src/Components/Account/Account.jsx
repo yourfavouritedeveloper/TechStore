@@ -70,7 +70,7 @@ function Account({ account, edit, setEdit }) {
           lowercase: !/[a-z]/.test(password),
           uppercase: !/[A-Z]/.test(password),
           number: !/[0-9]/.test(password),
-          special: !/[@$!%*?&]/.test(password),
+          special: !/[^A-Za-z0-9]/.test(password),
         };
 
         setErrors(newErrors);
@@ -224,6 +224,9 @@ const getLastMonthDataSell = (sellPurchases = []) => {
 const updateChanges = () => {
   setEdit(!edit);
   setDraftAccount(logAccount); 
+  setPassword("");
+  setPasswordCheck("");
+
 };
 
 const purchaseDataSell = getLastMonthDataSell(sellPurchases || []);
@@ -463,9 +466,30 @@ const tickDatesSell = (() => {
                       .then((response) => {
                         setLogAccount(response.data);
                         setEdit(false); 
-                        setLoading(false);
+      
                       })
                       .catch((err) => console.error("Error saving account:", err));
+                      if(password && password!="") {
+                      axios.put(
+                        `https://techstore-3fvk.onrender.com/api/v1/accounts/password`,
+                        {}, 
+                          {
+                          params: {
+                            accountId: draftAccount.id,
+                            newPassword: password
+                          },
+                          
+                          auth: { username: USERNAME, password: PASSWORD },
+                          }
+                      )
+                      .then((response) => {
+                        setLogAccount(response.data);
+                        setEdit(false); 
+      
+                      })
+                      .catch((err) => console.error("Error saving account:", err));
+                      }
+                      setLoading(false);
                     }}
                   >
                     Save
