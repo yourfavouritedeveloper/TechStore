@@ -7,6 +7,8 @@ import axios from 'axios';
 import { AuthContext } from "../AuthContext";
 import spinner from "../../../public/brandlogowhite.png"
 
+    const USERNAME = import.meta.env.VITE_API_USERNAME;
+    const PASSWORD = import.meta.env.VITE_API_PASSWORD;
 
 function Nav({ highlight ,shiftUp, setShiftUp,onEditClick = () => {} }) {
  const [is599, setIs599] = useState(window.innerWidth === 599);
@@ -24,8 +26,8 @@ function Nav({ highlight ,shiftUp, setShiftUp,onEditClick = () => {} }) {
     if (!account?.username || !account?.password) return;
     axios.get("https://techstore-3fvk.onrender.com/api/v1/accounts/username/" + account.username , {
     auth: {
-      username: account.username,
-      password: account.password
+      username: USERNAME,
+      password: PASSWORD
     }
   }) 
       .then(response => {
@@ -57,31 +59,33 @@ const handleSignOut = () => {
   };
 
 
-useEffect(() => {
-  if (!logAccount || logAccount?.profilePictureUrl) return; 
+  useEffect(() => {
+    if (!logAccount || logAccount?.profilePictureUrl) return;
 
-  const defaultPicUrl = "https://github.com/yourfavouritedeveloper/TechStore/blob/main/Frontend/public/default.png?raw=true";
+    const defaultPicUrl = "https://github.com/yourfavouritedeveloper/TechStore/blob/main/Frontend/public/default.png?raw=true";
 
-  axios.put(
-    `https://techstore-3fvk.onrender.com/api/v1/accounts/update/`,
-     {
-      ...account,               
-      profilePictureUrl: defaultPicUrl 
-    },
-    {
-      auth: {
-        username: account.username,
-        password: account.password
+    const accountToUpdate = {
+      ...logAccount,
+      profilePictureUrl: defaultPicUrl
+    };
+
+    axios.put(
+      `https://techstore-3fvk.onrender.com/api/v1/accounts/update`,
+      accountToUpdate,
+      {
+        auth: {
+          username: account.username,
+          password: account.password
+        }
       }
-    }
-  )
-  .then(response => {
-    if (response.data?.profilePictureUrl) {
-      setLogAccount(response.data);
-    }
-  })
-  .catch(err => console.error(err));
-}, [logAccount]);
+    )
+    .then(response => {
+      if (response.data?.profilePictureUrl) {
+        setLogAccount(response.data);
+      }
+    })
+    .catch(err => console.error(err));
+  }, [logAccount]);
 
 
 
