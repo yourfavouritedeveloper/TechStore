@@ -8,6 +8,7 @@ import com.tech.store.mapper.AccountMapper;
 import com.tech.store.model.dto.Account;
 import com.tech.store.model.dto.AccountDto;
 import com.tech.store.model.dto.LoginRequestDto;
+import com.tech.store.model.dto.RegisterRequestDto;
 import com.tech.store.model.enumeration.Status;
 import com.tech.store.util.UpdateUtils;
 import lombok.RequiredArgsConstructor;
@@ -87,9 +88,10 @@ public class AccountService {
     }
 
     @Transactional
-    public AccountDto register(AccountDto accountDto) {
-        accountDto.setPassword(bCryptPasswordEncoder.encode(accountDto.getPassword()));
+    public AccountDto register(RegisterRequestDto registerRequestDto) {
+        AccountDto accountDto = accountMapper.toAccountDto(registerRequestDto);
         AccountEntity accountEntity = accountMapper.toAccountEntity(accountDto);
+        accountEntity.setPassword(bCryptPasswordEncoder.encode(registerRequestDto.getPassword()));
         accountRepository.save(accountEntity);
         return accountRedisRepository.save(accountEntity);
     }

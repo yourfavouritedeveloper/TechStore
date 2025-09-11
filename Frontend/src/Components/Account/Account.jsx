@@ -21,7 +21,7 @@ import getCroppedImg from "../Utils/cropImage";
 
     
 
-function Account({ account }) {
+function Account({ account, edit, setEdit }) {
 
       const [cropModalOpen, setCropModalOpen] = useState(false);
       const [cropImageSrc, setCropImageSrc] = useState(null);
@@ -34,10 +34,11 @@ function Account({ account }) {
 
       const [purchases, setPurchases] = useState([]);
       const [sellPurchases, setSellPurchases] = useState([]);
-      const [edit, setEdit] = useState(false);
       const [logAccount, setLogAccount] = useState(account);
       const [draftAccount, setDraftAccount] = useState(account);
+      const [checkAccount, setCheckAccount] = useState(account);
       const [loading, setLoading] = useState(false);
+      const [isError, setIsError] = useState(false);
 
       useEffect(() => {
         setLogAccount(account);
@@ -257,16 +258,62 @@ const tickDatesSell = (() => {
                   {edit ? (
                     <>
                     <p className={styles.editUsername}>Username</p>
+                    {isError ? (
+                      <p className={styles.errorUsername}>This username is taken!</p>
+                    ) : ( 
+                      <p className={styles.confirmUsername}> Valid username!</p>
+                    )}
                     <textarea
                       className={styles.usernameInput}
                       value={draftAccount.username}
                       onChange={(e) =>
-                        setDraftAccount((prev) => ({ ...prev, username: e.target.value }))
+                      {
+                        const newUsername = e.target.value;
+                        setDraftAccount((prev) => ({ ...prev, username: newUsername  }));
+                        axios.get(
+                        `https://techstore-3fvk.onrender.com/api/v1/accounts/username/${newUsername}`,
+                          
+                        {
+                          auth: { username: USERNAME, password: PASSWORD },
+                        }
+                      )
+                      .then((response) => {
+                        setCheckAccount(response.data);
+                        if(response.data?.username === newUsername) {
+                          setIsError(true);
+                        }
+                        else {
+                        }
+                        
+                      })
+                      .catch((err) => {
+                        if (err.response?.status === 404) {
+                          setCheckAccount(null);
+                          setIsError(false);
+                        } else {
+                          console.error("Unexpected error:", err);
+                        }
+                      });
+                      }
                       }
                     />
                     </>
                   ) : (
                     <p className={styles.username}>@{logAccount.username}</p>
+                  )}
+                  {edit ? (
+                    <>
+                    <p className={styles.editName}>New Password</p>
+                    <textarea
+                      className={styles.passwordInput}
+                      value={draftAccount.password}
+                      onChange={(e) =>
+                        setDraftAccount((prev) => ({ ...prev, customerName: e.target.value }))
+                      }
+                    />
+                    </>
+                  ) : (
+                    <p className={styles.customerName}>{logAccount.customerName}</p>
                   )}
                 </div>
             </div>
@@ -289,14 +336,14 @@ const tickDatesSell = (() => {
                     <p className={styles.description}>{logAccount.description}</p>
                   )}
             </div>
-            <div className={` ${styles.editContainer} ${edit ? styles.active : ""}`}>
+            <div className={ !isError ? ` ${styles.editContainer} ${edit ? styles.active : ""}` : styles.errorEditContainer}>
               <p className={styles.editTitle}>Edit Your Profile</p>
 
               {edit ? (
                 <>
                   <button className={styles.cancel} onClick={updateChanges}>Cancel</button>
                   <button
-                    className={styles.saveEdit}
+                    className={!isError ? styles.saveEdit : styles.errorSave}
                     onClick={() => {
                       setLoading(true);
                       axios.put(

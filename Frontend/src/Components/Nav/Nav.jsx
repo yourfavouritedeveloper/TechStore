@@ -8,7 +8,7 @@ import { AuthContext } from "../AuthContext";
 import spinner from "../../../public/brandlogowhite.png"
 
 
-function Nav({ highlight ,shiftUp, setShiftUp }) {
+function Nav({ highlight ,shiftUp, setShiftUp,onEditClick = () => {} }) {
  const [is599, setIs599] = useState(window.innerWidth === 599);
  const [menuOpen, setMenuOpen] = useState(false);
  const [accountMenu, setAccountMenu] = useState(false)
@@ -114,7 +114,7 @@ useEffect(() => {
           <p className={styles.purchaseText}>
             Easily track your spending and review past transactions.
           </p>
-          <Link className={styles.purchaseButton} to="/login">
+          <Link className={styles.purchaseButton} to={`/account/${logAccount.username}`}>
             Purchase History
           </Link>
         </div>
@@ -123,7 +123,11 @@ useEffect(() => {
           View Profile
         </Link>
 
-        <Link className={styles.edit} to="/login">
+        <Link className={styles.edit}     to="#"
+        onClick={(e) => {
+          e.preventDefault();
+          navigate(`/account/${logAccount?.username}`, { state: { edit: true } });
+        }}>
           Edit Profile
         </Link>
 
