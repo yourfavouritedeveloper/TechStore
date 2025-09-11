@@ -15,12 +15,13 @@
     z-index: 2;
     border-radius: 2rem;
     overflow: hidden;
-    transition: all 1s ease;
+    transition: all 0.8s ease;
 }
 
 .account.active {
       width: 80%; 
       height: 20rem; 
+      top: 15rem;
 }
 
 .account .pp {
@@ -154,7 +155,8 @@
     font-family: "PoppinsRegular";
     white-space: nowrap;
     position: absolute;
-    right: 46%;
+    right: 44.8vw;
+    margin-right: 2.2rem;
     top: 3rem;
     font-size: clamp(1rem, 1.1rem, 10rem);    
 }
@@ -162,7 +164,7 @@
 .nameInput {
   position: absolute;
   top: 6rem;
-  right: 35%;
+  right: 45.8%;
   width: 10%;
   white-space: nowrap;
   height: 1.5rem;
@@ -199,7 +201,8 @@
     font-family: "PoppinsRegular";
     white-space: nowrap;
     position: absolute;
-    right: 46%;
+    right: 44.8vw;
+    margin-right: 2.2rem;
     top: 9rem;
     font-size: clamp(1rem, 1.1rem, 10rem);    
 }
@@ -207,7 +210,7 @@
 .usernameInput {
   position: absolute;
   top: 12rem;
-  right: 35%;
+  right: 45.8%;
   width: 10%;
   white-space: nowrap;
   height: 1.5rem;
@@ -233,7 +236,7 @@
 .errorUsername {
   position: absolute;
   top: 12.2rem;
-  right: 35%;
+  right: 45.8%;
   width: 10%;
   white-space: nowrap;
   height: 1.5rem;
@@ -261,7 +264,7 @@
 .confirmUsername {
   position: absolute;
   top: 12.2rem;
-  right: 35%;
+  right: 45.8%;
   width: 10%;
   white-space: nowrap;
   height: 1.5rem;
@@ -284,7 +287,149 @@
   transition: all 1s ease;   
 }
 
+.editPassword {
+    color: white;
+    font-family: "PoppinsRegular";
+    white-space: nowrap;
+    position: absolute;
+    margin-right:-7.5rem; 
+    right: 33.3vw;      
+    top: 3rem;        
+    font-size: clamp(1rem, 1.1rem, 10rem);    
+}
 
+.passwordInput {
+  position: absolute;
+  top: 4.5rem;
+  left: 58.5%;
+  width: 10%;
+  white-space: nowrap;
+  height: 1.5rem;
+
+    font-family: "PoppinsRegular";
+
+  background-color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 1rem;
+
+  padding: 0.5rem 5rem;
+  padding-left: 2rem;
+  font-size: 1rem;
+  color: #333;
+  resize: none; 
+  outline: none; 
+  
+  overflow-y: hidden;
+
+  transition: all 1s ease;    
+}
+
+.editPasswordAgain {
+    color: white;
+    font-family: "PoppinsRegular";
+    white-space: nowrap;
+    position: absolute;
+    margin-right:-7.5rem; 
+    right: 33.3vw;     
+    top: 9rem;
+    font-size: clamp(1rem, 1.1rem, 10rem);    
+}
+
+.passwordAgainInput {
+  position: absolute;
+  top: 10.5rem;
+  left: 58.5%;
+  width: 10%;
+  white-space: nowrap;
+  height: 1.5rem;
+
+    font-family: "PoppinsRegular";
+
+  background-color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 1rem;
+
+  padding: 0.5rem 5rem;
+  padding-left: 2rem;
+  font-size: 1rem;
+  color: #333;
+  resize: none; 
+  outline: none; 
+  
+  overflow-y: hidden;
+
+  transition: all 1s ease;    
+}
+
+
+
+.toggleBtn1 {
+    position: absolute;
+    border:none;
+    background-color: rgba(245, 222, 179, 0);
+    top:6.43rem;
+    left:54.7vw;
+    margin-left: 6rem;
+    z-index: 7;
+    cursor: pointer;
+}
+
+.toggleBtn1 svg {
+    fill: rgb(80, 80, 80);
+    height: 24px;
+    width: 24px;
+}
+
+
+
+.toggleBtn2 {
+    position: absolute;
+    border:none;
+    background-color: rgba(245, 222, 179, 0);
+    top:12.45rem;
+    left:54.7vw;
+    margin-left: 6rem;
+    z-index: 7;
+    cursor: pointer;
+}
+
+.toggleBtn2 svg {
+    fill: rgb(80, 80, 80);
+    height: 24px;
+    width: 24px;
+}
+
+.passwordContainer {
+    background-color: rgb(255, 255, 255);
+    position:absolute;
+    right:7%; 
+    font-size: clamp(0.5rem, 0.8rem, 10rem);  
+    top: 4.5rem; 
+    border-radius: 1rem; 
+    text-align: left;
+    padding: 0rem  0.5rem;
+    padding-top:2rem;
+    font-family: "PoppinsRegular";
+    overflow: hidden;
+}
+
+.passwordContainer .passwordType {
+    padding: 0rem 0.4rem;
+    color: white;
+    border-radius: 0.3rem;
+}
+
+.passwordTitle {
+    font-size: clamp(0.5rem, 1.2rem, 10rem); 
+    background-color: rgb(37, 37, 37); 
+    color:white;
+    margin:0;
+    position: absolute;
+    padding:0.3rem 4rem;
+    white-space: nowrap;
+    top:0rem;
+    left:-0.3rem;
+}
 
 .balanceContainer {
     position: absolute; 
@@ -300,7 +445,7 @@
 }
 
 .balanceContainer.hidden {
-  left:-45%;
+  top: 23rem;
   pointer-events: none; 
 }
 
@@ -365,7 +510,7 @@
 }
 
 .descriptionTitle.active {
-    top: 26rem;   
+    top: 34rem;   
 }
 
 .accountDescription {
@@ -382,7 +527,7 @@
 
 .accountDescription.active {
     width: 80%;    
-    top:32rem;
+    top:40rem;
 
 }
 
@@ -432,20 +577,21 @@
     top:7rem;
     border-radius: 2rem;
     position: absolute;
+    z-index: 9;
     transition: all 1s ease;
 }
 
 .editContainer.active {
   background-color: #76abff;
-  top:50rem;
+  right:29%;
 }
 
 .errorEditContainer {
     background-color: rgb(240, 67, 67);
     height: 6.5rem;
     width: 42%;
-    right:10%;
-    top:50rem;
+    right:29%;
+    top:7rem;    
     border-radius: 2rem;
     position: absolute;
     transition: all 1s ease;
