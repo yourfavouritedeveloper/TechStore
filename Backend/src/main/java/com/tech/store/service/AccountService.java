@@ -115,7 +115,10 @@ public class AccountService {
 
     @Transactional
     public AccountDto updateAccount(AccountDto accountDto) throws Exception {
-        AccountEntity accountEntity = accountMapper.toAccountEntity(accountDto);
+        AccountEntity accountEntity = accountRepository.findById(accountDto.getId())
+                .orElseThrow(() -> new AccountNotFoundException("Account not found"));
+
+        updateUtils.copyNonNullProperties(accountDto, accountEntity);
         accountRepository.save(accountEntity);
         return accountRedisRepository.save(accountEntity);
     }
