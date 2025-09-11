@@ -230,6 +230,61 @@
   transition: all 1s ease;    
 }
 
+.errorUsername {
+  position: absolute;
+  top: 12.2rem;
+  right: 35%;
+  width: 10%;
+  white-space: nowrap;
+  height: 1.5rem;
+
+    font-family: "PoppinsRegular";
+  overflow: hidden;
+  background: linear-gradient(90deg, #cc6666 0%, #aa4444 100%);
+  border: none;
+  border-radius: 1rem;
+
+  padding: 0.5rem 4.5rem;
+  text-align: center;
+  padding-left: 2.5rem;
+  padding-top: 1.5rem;
+  font-size: 1rem;
+  color: #ffffff;
+  resize: none; 
+  outline: none; 
+  
+  overflow-y: hidden;
+
+  transition: all 1s ease; 
+}
+
+.confirmUsername {
+  position: absolute;
+  top: 12.2rem;
+  right: 35%;
+  width: 10%;
+  white-space: nowrap;
+  height: 1.5rem;
+
+    font-family: "PoppinsRegular";
+
+  background: linear-gradient(90deg, #66bb66 0%, #559955 100%);
+  border: none;
+  border-radius: 1rem;
+
+  padding: 0.5rem 3.5rem;
+  padding-top: 1.5rem;
+  font-size: 1rem;
+  color: #ffffff;
+  resize: none; 
+  outline: none; 
+  
+  overflow-y: hidden;
+
+  transition: all 1s ease;   
+}
+
+
 
 .balanceContainer {
     position: absolute; 
@@ -385,6 +440,17 @@
   top:50rem;
 }
 
+.errorEditContainer {
+    background-color: rgb(240, 67, 67);
+    height: 6.5rem;
+    width: 42%;
+    right:10%;
+    top:50rem;
+    border-radius: 2rem;
+    position: absolute;
+    transition: all 1s ease;
+}
+
 .editContainer .editTitle {
      font-family: "PoppinsMedium";
     white-space: nowrap;
@@ -395,11 +461,35 @@
     color: rgb(49, 49, 49);   
 }
 
+.errorEditContainer .editTitle {
+     font-family: "PoppinsMedium";
+    white-space: nowrap;
+    font-size: clamp(0.8rem, 2.3rem, 10rem);
+    margin-top: 1.5rem; 
+    position: absolute;
+    left: 4rem;
+    color: white; 
+}
+
 .editContainer.active .editTitle {
     color: white;
 }
 
 .editContainer button {
+    color:rgb(255, 255, 255);
+    font-family: "PoppinsRegular";
+    position:absolute;
+    top:1.8rem;
+    border: none;
+    border-radius: 0.8rem;
+    padding: 0.5rem 3rem;
+    background-color: #ffffff;
+    font-size: clamp(0.8rem, 1.2rem, 10rem);  
+    cursor: pointer;  
+    transition: all 0.3s ease;  
+}
+
+.errorEditContainer button {
     color:rgb(255, 255, 255);
     font-family: "PoppinsRegular";
     position:absolute;
@@ -428,6 +518,11 @@
     right:5rem;
 }
 
+.errorEditContainer .cancel {
+    background-color: #797979;
+    right:5rem;  
+}
+
 
 .editContainer .saveEdit {
     background-color: #ffffff;
@@ -435,9 +530,20 @@
     right:17rem;
 }
 
+.errorEditContainer .errorSave {
+    background-color: #797979;
+    color: rgb(255, 255, 255);
+    right:17rem;
+    pointer-events: none; 
+    cursor: not-allowed; 
+}
 
 
 .editContainer button:hover {
+    transform: scale(1.02);
+}
+
+.errorEditContainer button:hover {
     transform: scale(1.02);
 }
 

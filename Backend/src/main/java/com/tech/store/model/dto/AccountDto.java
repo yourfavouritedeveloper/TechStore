@@ -33,9 +33,6 @@ public class AccountDto {
 
     private String description;
 
-    @NotBlank(message = "Password should be provided",groups = {OnCreate.class,OnUpdate.class})
-    private String password;
-
     @Email(message = "Invalid email for creation",groups = {OnCreate.class,OnUpdate.class})
     private String email;
 

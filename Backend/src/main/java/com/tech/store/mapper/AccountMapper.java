@@ -2,6 +2,7 @@ package com.tech.store.mapper;
 
 import com.tech.store.dao.entity.AccountEntity;
 import com.tech.store.model.dto.AccountDto;
+import com.tech.store.model.dto.RegisterRequestDto;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -17,6 +18,8 @@ public interface AccountMapper {
 
 
     AccountEntity toAccountEntity(AccountDto accountDto);
+
+    AccountDto toAccountDto(RegisterRequestDto registerRequestDto);
 
 
 
