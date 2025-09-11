@@ -24,8 +24,6 @@ public class AccountSummaryDto {
 
     private String description;
 
-    private String password;
-
     private String email;
 
     private BigDecimal balance;
