@@ -287,6 +287,41 @@ body {
     border: 0.15rem solid rgb(245, 245, 245);
 }
 
+.videoSection {
+    margin-top: 5rem;
+    padding: 2rem;
+    background-color: rgb(245, 245, 245);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.videoTitle {
+    font-family: "PoppinsSemiBold";
+    font-size: clamp(1rem, 1.5rem, 2rem);
+}
+
+.uploadButton {
+    margin-top: 0.5rem;
+    background-color: #4CAF50; /* green button */
+    color: white;
+    border: none;
+    border-radius: 0.7rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-family: "PoppinsSemiBold";
+    transition: background-color 0.2s ease;
+}
+
+.uploadButton:hover {
+    background-color: #45a049; /* slightly darker green on hover */
+}
+
+
+
+
 .propertiesTitle {
     position:absolute;
     z-index: 5;

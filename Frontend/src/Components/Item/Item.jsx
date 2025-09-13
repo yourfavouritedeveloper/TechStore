@@ -1,21 +1,106 @@
 import styles from "./Item.module.css"
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect,useRef } from "react";
 import { Link } from "react-router-dom";
 import Choice from "../Choice/Choice"
 import spinner from "../../../public/brandlogo.png"
 
 function Item({name}) {
 
+    const fileInputRef = useRef(null);
+
     const [item,setItem] = useState([]);
     const [similarItems,setSimilarItems] = useState([]);
     const [isChoice,setIsChoice] = useState(false);
+
+    const [videoFile, setVideoFile] = useState(null);
+    const [videoUrl, setVideoUrl] = useState(item.videoUrl || "");
+
+ const handleVideoChange = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const formData = new FormData();
+    formData.append("file", file);
+
+  try {
+    const res = await axios.post(
+        "https://techstore-3fvk.onrender.com/api/v1/products/uploadProductVideo",
+        formData
+    );
+
+    const uploadedUrl = res.data.url;
+    console.log("Uploaded video URL:", uploadedUrl);
+
+    const updatedProduct = { ...item, videoUrl: uploadedUrl };
+    await axios.put(
+        "https://techstore-3fvk.onrender.com/api/v1/products/update",
+        updatedProduct
+    );
+
+    setVideoUrl(uploadedUrl);
+    setItem(updatedProduct);
+    alert("Video uploaded & saved!");
+    } catch (err) {
+        // Check if it's an Axios error with response from backend
+        if (err.response) {
+            console.error("Server responded with an error:");
+            console.error("Status:", err.response.status);
+            console.error("Data:", err.response.data);
+        } else if (err.request) {
+            console.error("No response from server. Request made:");
+            console.error(err.request);
+        } else {
+            console.error("Error setting up request:", err.message);
+        }
+        console.error(err.config);
+        alert("Error uploading video. Check console for details.");
+    }
+    };
+
+    const uploadVideo = async () => {
+  if (!videoFile) return;
+
+  const formData = new FormData();
+    formData.append("file", videoFile);
+
+    try {
+        // Upload video file
+        const res = await axios.post(
+        "https://techstore-3fvk.onrender.com/api/v1/products/uploadProductVideo",
+        formData
+        );
+        console.log(videoFile);
+        const uploadedUrl = res.data.url;
+
+        // Update product in DB
+        const updatedProduct = { ...item, videoUrl: uploadedUrl };
+        await axios.put(
+        "https://techstore-3fvk.onrender.com/api/v1/products/update",
+        updatedProduct
+        );
+
+        // Update React state
+        setVideoUrl(uploadedUrl);
+        setItem(updatedProduct);
+
+        alert("Video uploaded & saved!");
+    } catch (err) {
+        console.error(err);
+        alert("Error uploading video");
+    }
+    };
+
+
+
+
 
     useEffect(() => {
        setIsChoice(false);
     }, [name]);
     
     useEffect(() => {
+    if (!name) return;
     axios.get(`https://techstore-3fvk.onrender.com/api/v1/products/name/${name}`) 
       .then(response => {
         setItem(response.data);
@@ -35,7 +120,7 @@ function Item({name}) {
 
 
     useEffect(() => {
-    if (!item.category) return;
+    if (!item?.category) return;
 
     axios.get("https://techstore-3fvk.onrender.com/api/v1/products/all")
         .then(response => {
@@ -83,6 +168,33 @@ function Item({name}) {
             <button className={styles.cart}>Add to cart</button>
             <button className={styles.favourite}>Add to favourites</button>
         </div>
+        <div className={styles.videoSection}>
+        <input
+        type="file"
+        accept="video/*"
+        onChange={handleVideoChange}
+        ref={fileInputRef}
+        style={{ display: "none" }}
+        />
+
+        {/* Button triggers file input, then uploads automatically */}
+        <button
+        className={styles.uploadButton}
+        onClick={() => {
+            fileInputRef.current.click();
+        }}
+        >
+        {videoUrl ? "Replace Video" : "Upload Video"}
+        </button>
+
+        {/* Optional: automatically upload after selecting file */}
+        {videoFile && (
+        <button className={styles.uploadButton} onClick={uploadVideo}>
+            Save Video
+        </button>
+        )}
+        </div>
+
         <p className={styles.propertiesTitle}>Properties</p>
         <div className={styles.properties}>
 
