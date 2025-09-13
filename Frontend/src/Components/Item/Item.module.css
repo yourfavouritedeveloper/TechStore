@@ -5,7 +5,7 @@ body {
 
 .container {
     overflow-x: hidden;
-    height: 180rem;
+    height: 250rem;
 }
 
 
@@ -288,7 +288,7 @@ body {
 }
 
 .videoSection {
-    margin-top: 5rem;
+    margin-top: 58.5rem;
     padding: 2rem;
     background-color: rgb(245, 245, 245);
     border-radius: 1rem;
@@ -296,6 +296,12 @@ body {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
+}
+
+.videoSection video {
+  width: 82.2rem;
+    right: 18.5rem;
+    position: absolute;
 }
 
 .videoTitle {
@@ -327,7 +333,7 @@ body {
     z-index: 5;
     font-size: clamp(1rem, 3rem, 10rem);
     font-family: "PoppinsSemiBold";
-    top:59rem;
+    top:99rem;
     left:18.5rem;
 }
 
@@ -339,7 +345,7 @@ body {
   padding-top: 10rem;
   right: 13.5rem;
   gap: 1rem;
-  top: 59rem;
+  top: 99rem;
   border-radius: 2rem;
   color: black;
   position: absolute;
@@ -377,7 +383,7 @@ body {
   padding-top: 10rem;
   right: 13.5rem;
   gap: 1rem;
-  top: 120.5rem;
+  top: 160.5rem;
   border-radius: 2rem;
   color: black;
   position: absolute;
@@ -412,7 +418,7 @@ body {
   padding-top: 10rem;
   right: 13.5rem;
   gap: 1rem;
-  top: 137.5rem;
+  top: 177.5rem;
   border-radius: 2rem;
   color: black;
   position: absolute;
