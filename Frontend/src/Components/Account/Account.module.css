@@ -665,7 +665,8 @@
 }
 
 .errorEditContainer .cancel {
-    background-color: #797979;
+    background-color: #ffffff;
+    color: black;
     right:5rem;  
 }
 

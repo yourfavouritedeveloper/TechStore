@@ -87,7 +87,6 @@ function AddItem() {
                 style={{ display: "none" }}
                 />
         
-                {/* Button triggers file input, then uploads automatically */}
                 <button
                 className={styles.uploadButton}
                 onClick={() => {
@@ -97,7 +96,6 @@ function AddItem() {
                 {videoUrl ? "Replace Video" : "Upload Video"}
                 </button>
         
-                {/* Optional: automatically upload after selecting file */}
                 {videoFile && (
                 <button className={styles.uploadButton} onClick={uploadVideo}>
                     Save Video

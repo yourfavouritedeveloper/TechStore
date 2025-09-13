@@ -15,7 +15,7 @@
 }
 
 .videoSection video {
-    width: 100%; /* full width of the section */
+    width: 100%; 
     border-radius: 1rem;
 }
 

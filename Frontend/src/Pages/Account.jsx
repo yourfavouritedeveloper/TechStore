@@ -3,9 +3,11 @@ import Profile from "../Components/Account/Account";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import {useEffect,useState} from "react";
 import axios from "axios";
-
+import { usePurchase } from "../Components/Utils/PurchaseContext";
 
 function Account() {
+
+      const { isPurchase, setIsPurchase } = usePurchase();
 
     useEffect(() => {
     window.scrollTo({ top: 0, behavior: "auto" });
@@ -52,8 +54,8 @@ function Account() {
     return (
         <>
         <title>{"Account | " + account.customerName}</title>
-        <Nav highlight={true}  onEditClick={handleEditClick}></Nav>
-        <Profile account={account}  edit={edit} setEdit={setEdit} />
+        <Nav highlight={true}  onEditClick={handleEditClick} ></Nav>
+        <Profile account={account}  edit={edit} setEdit={setEdit}  isPurchase={isPurchase}/>
         </>
     );
 }
