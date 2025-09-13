@@ -226,6 +226,8 @@ const updateChanges = () => {
   setDraftAccount(logAccount); 
   setPassword("");
   setPasswordCheck("");
+  setShowPassword(false);
+  setShowPassword1(false);
 
 };
 
@@ -454,43 +456,37 @@ const tickDatesSell = (() => {
                   <button className={styles.cancel} onClick={updateChanges}>Cancel</button>
                   <button
                     className={!(isError || isErrorPassword) ? styles.saveEdit : styles.errorSave}
-                    onClick={() => {
-                      setLoading(true);
-                      axios.put(
-                        `https://techstore-3fvk.onrender.com/api/v1/accounts/update`,
-                        draftAccount, 
-                        {
-                          auth: { username: USERNAME, password: PASSWORD },
+                    onClick={async () => {
+                      try {
+                        setLoading(true);
+
+                        const accountResponse = await axios.put(
+                          `https://techstore-3fvk.onrender.com/api/v1/accounts/update`,
+                          draftAccount, 
+                          { auth: { username: USERNAME, password: PASSWORD } }
+                        );
+                        setLogAccount(accountResponse.data);
+
+                        if(password && password !== "") {
+                          const passwordResponse = await axios.put(
+                            `https://techstore-3fvk.onrender.com/api/v1/accounts/password`,
+                            {}, 
+                            {
+                              params: { id: draftAccount.id, password },
+                              auth: { username: USERNAME, password: PASSWORD }
+                            }
+                          );
+                          setLogAccount(passwordResponse.data);
                         }
-                      )
-                      .then((response) => {
-                        setLogAccount(response.data);
+
                         setEdit(false); 
-      
-                      })
-                      .catch((err) => console.error("Error saving account:", err));
-                      if(password && password!="") {
-                      axios.put(
-                        `https://techstore-3fvk.onrender.com/api/v1/accounts/password`,
-                        {}, 
-                          {
-                          params: {
-                            accountId: draftAccount.id,
-                            newPassword: password
-                          },
-                          
-                          auth: { username: USERNAME, password: PASSWORD },
-                          }
-                      )
-                      .then((response) => {
-                        setLogAccount(response.data);
-                        setEdit(false); 
-      
-                      })
-                      .catch((err) => console.error("Error saving account:", err));
+                      } catch(err) {
+                        console.error("Error saving account:", err);
+                      } finally {
+                        setLoading(false); 
                       }
-                      setLoading(false);
                     }}
+
                   >
                     Save
                   </button>

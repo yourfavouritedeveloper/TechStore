@@ -39,6 +39,8 @@ public class ProductSummaryDto {
 
     private String productImageUrl;
 
+    private String videoUrl;
+
     private Map<String, String> properties;
 
     private BigDecimal weight;

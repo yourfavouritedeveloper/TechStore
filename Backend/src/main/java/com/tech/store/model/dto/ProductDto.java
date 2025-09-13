@@ -74,6 +74,8 @@ public class ProductDto {
 
     private String color;
 
+    private String videoUrl;
+
     private List<CommentSummaryDto> comments;
 
     private List<PurchaseSummaryDto> purchases;
