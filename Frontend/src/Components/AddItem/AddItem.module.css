@@ -1,0 +1,36 @@
+.container {
+    height: 120rem;
+}
+
+.videoSection {
+    top:15rem;
+    position: relative;
+    padding: 2rem;
+    background-color: rgb(245, 245, 245);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.videoSection video {
+    width: 100%; /* full width of the section */
+    border-radius: 1rem;
+}
+
+.uploadButton {
+    margin-top: 0.5rem;
+    background-color: #4CAF50; 
+    color: white;
+    border: none;
+    border-radius: 0.7rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-family: "PoppinsSemiBold";
+    transition: background-color 0.2s ease;
+}
+
+.uploadButton:hover {
+    background-color: #45a049;
+}
