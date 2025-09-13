@@ -577,7 +577,7 @@
     top:7rem;
     border-radius: 2rem;
     position: absolute;
-    z-index: 9;
+    z-index:5;
     transition: all 1s ease;
 }
 

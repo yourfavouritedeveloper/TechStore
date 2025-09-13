@@ -8,9 +8,17 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 import java.util.Map;
 
@@ -21,6 +29,39 @@ import java.util.Map;
 public class ProductController {
 
     private final ProductService productService;
+    private final String PRODUCT_VIDEO_UPLOAD_DIR = "/app/product-videos/";
+
+    @PostMapping("/uploadProductVideo")
+    public ResponseEntity<Map<String, String>> uploadProductVideo(
+            @RequestParam("file") MultipartFile file) {
+
+        if (file.isEmpty()) {
+            return ResponseEntity.badRequest().body(Map.of("error", "No video uploaded"));
+        }
+
+        try {
+            File uploadDir = new File(PRODUCT_VIDEO_UPLOAD_DIR);
+            if (!uploadDir.exists()) uploadDir.mkdirs();
+
+            String filename = System.currentTimeMillis() + "_" + file.getOriginalFilename();
+
+            String lowerName = filename.toLowerCase();
+            if (!(lowerName.endsWith(".mp4") || lowerName.endsWith(".mov") || lowerName.endsWith(".avi") || lowerName.endsWith(".mkv"))) {
+                return ResponseEntity.badRequest().body(Map.of("error", "Invalid video format. Allowed: mp4, mov, avi, mkv"));
+            }
+
+            Path filePath = Paths.get(PRODUCT_VIDEO_UPLOAD_DIR, filename);
+            Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
+
+            String fileUrl = "https://techstore-3fvk.onrender.com/videos/" + filename;
+
+            return ResponseEntity.ok(Map.of("url", fileUrl));
+
+        } catch (IOException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(Map.of("error", "Could not save video"));
+        }
+    }
 
     @GetMapping("/id/{id}")
     @ResponseStatus(HttpStatus.OK)

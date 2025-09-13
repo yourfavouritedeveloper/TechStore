@@ -93,6 +93,9 @@ public class ProductEntity extends BaseEntity {
     @Column(name = "color")
     private String color;
 
+    @Column(name = "video_url")
+    private String videoUrl;
+
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference("product-comments")
     private List<CommentEntity> comments;
