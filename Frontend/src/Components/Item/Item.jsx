@@ -42,19 +42,7 @@ function Item({name}) {
     setItem(updatedProduct);
     alert("Video uploaded & saved!");
     } catch (err) {
-        // Check if it's an Axios error with response from backend
-        if (err.response) {
-            console.error("Server responded with an error:");
-            console.error("Status:", err.response.status);
-            console.error("Data:", err.response.data);
-        } else if (err.request) {
-            console.error("No response from server. Request made:");
-            console.error(err.request);
-        } else {
-            console.error("Error setting up request:", err.message);
-        }
-        console.error(err.config);
-        alert("Error uploading video. Check console for details.");
+      
     }
     };
 
@@ -193,6 +181,14 @@ function Item({name}) {
             Save Video
         </button>
         )}
+          {videoUrl && (
+                <video
+                src={videoUrl}
+                controls
+                width="100%"
+                style={{ marginTop: "1rem", borderRadius: "1rem" }}
+                />
+            )}
         </div>
 
         <p className={styles.propertiesTitle}>Properties</p>
