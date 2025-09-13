@@ -1,6 +1,6 @@
 import styles from "./Account.module.css"
 import { Link } from "react-router-dom";
-import { useState,useEffect } from "react";
+import { useState,useEffect,useRef,useLayoutEffect  } from "react";
 import {
   LineChart,
   Line,
@@ -21,13 +21,23 @@ import getCroppedImg from "../Utils/cropImage";
 
     
 
-function Account({ account, edit, setEdit }) {
+function Account({ account, edit, setEdit , isPurchase, setIsPurchase}) {
 
       const [cropModalOpen, setCropModalOpen] = useState(false);
       const [cropImageSrc, setCropImageSrc] = useState(null);
       const [crop, setCrop] = useState({ x: 0, y: 0 });
       const [zoom, setZoom] = useState(1);
       const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
+
+      const purchaseRef = useRef(null);
+
+
+    useLayoutEffect(() => {
+      if (!isPurchase) return;
+      if (purchaseRef.current) {
+        purchaseRef.current.scrollIntoView({ behavior: "smooth" });
+      }
+    }, [isPurchase, account?.purchases]);
 
 
       
@@ -258,7 +268,7 @@ const tickDatesSell = (() => {
 
     return  logAccount.profilePictureUrl ? (
     <>
-        {loading && <div className={styles.loadingContainerPage}>
+        {loading &&  <div className={styles.loadingContainerPage}>
             <img src={spinnerBlack} alt="Loading..." className={styles.loadingImage} />
         </div>}
         <div className={styles.container}>
@@ -579,7 +589,7 @@ const tickDatesSell = (() => {
                         )}
             </div>
 
-            <div className={styles.purchaseContainer}>
+            <div className={styles.purchaseContainer} ref={purchaseRef}>
                 <p className={styles.itemTitle}>Purchase History</p>
                 <p className={styles.itemSubtitle}>View all your past purchases in one place. Easily track what you bought, when you bought it, and how much you spent.</p>
             </div>

@@ -6,11 +6,12 @@ import def from "/default.png";
 import axios from 'axios';
 import { AuthContext } from "../AuthContext";
 import spinner from "../../../public/brandlogowhite.png"
+import { usePurchase } from "../../Components/Utils/PurchaseContext";
 
     const USERNAME = import.meta.env.VITE_API_USERNAME;
     const PASSWORD = import.meta.env.VITE_API_PASSWORD;
 
-function Nav({ highlight ,shiftUp, setShiftUp,onEditClick = () => {} }) {
+function Nav({ highlight ,shiftUp, setShiftUp,onEditClick = () => {}}) {
  const [is599, setIs599] = useState(window.innerWidth === 599);
  const [menuOpen, setMenuOpen] = useState(false);
  const [accountMenu, setAccountMenu] = useState(false)
@@ -18,7 +19,7 @@ function Nav({ highlight ,shiftUp, setShiftUp,onEditClick = () => {} }) {
  const [logAccount, setLogAccount] = useState();
  const [searchTerm, setSearchTerm] = useState("");
  const [filteredItems, setFilteredItems] = useState([]); 
-
+  const { setIsPurchase } = usePurchase();
   const navigate = useNavigate();
 
   
@@ -118,7 +119,12 @@ const handleSignOut = () => {
           <p className={styles.purchaseText}>
             Easily track your spending and review past transactions.
           </p>
-          <Link className={styles.purchaseButton} to={`/account/${logAccount.username}`}>
+          <Link className={styles.purchaseButton}  
+            onClick={(e) => {
+              e.preventDefault();
+              setIsPurchase(true); 
+              navigate(`/account/${logAccount?.username}`);
+            }}>
             Purchase History
           </Link>
         </div>

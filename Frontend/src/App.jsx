@@ -8,13 +8,15 @@ import Login from "./Pages/Login";
 import { AuthProvider } from "./Components/AuthContext";
 import Register from "./Pages/Register";
 import Account from "./Pages/Account";
-
+import AddProduct from "./Pages/AddProduct";
+import { PurchaseProvider } from "./Components/Utils/PurchaseContext";
 
 function App() {
     const [shiftUp, setShiftUp] = useState(false);
   return (
     <>
     <AuthProvider>
+      <PurchaseProvider>
       <HashRouter>
         <Routes>
           <Route path="/" element={<Home  shiftUp={shiftUp} setShiftUp={setShiftUp}/>} />
@@ -24,8 +26,10 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/product/:id"   element={<Item shiftUp={shiftUp} setShiftUp={setShiftUp} />} />
           <Route path="/account/:username" element={<Account />} />
+          <Route path=":username/product/add" element={<AddProduct />} />
         </Routes>
       </HashRouter>
+      </PurchaseProvider>
     </AuthProvider>
     </>
   );
