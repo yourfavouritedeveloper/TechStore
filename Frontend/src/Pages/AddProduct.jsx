@@ -5,7 +5,8 @@ import Nav from "../Components/Nav/Nav";
 
 function AddProduct() {
     return(<>
-        <Nav highlight={true}/>
+    <title>Add a new Product</title>
+        <Nav />
         <AddItem />
     
     </>);

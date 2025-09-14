@@ -868,6 +868,20 @@
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.164);
 }
 
+.items .addItem .item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: #3B82F6;
+    background-color: rgba(247, 247, 247, 1);
+    transition: all 0.3s ease;
+}
+
+.items .addItem .item:hover {
+    background-color:#65a0ff;
+    color: white;
+}
 
 .items .price {
     position: absolute;
