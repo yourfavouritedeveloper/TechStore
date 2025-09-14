@@ -558,14 +558,6 @@ const tickDatesSell = (() => {
                                 <Link
                                 to={"/" + logAccount.username + "/product/add"}
                                 className={styles.item}
-                                style={{
-                                    display: "flex",
-                                    justifyContent: "center",
-                                    alignItems: "center",
-                                    fontSize: "2rem",
-                                    color: "#3B82F6",
-                                    backgroundColor: "rgba(247, 247, 247, 1)",
-                                }}
                                 >
                                 +
                                     <div className={styles.info}>
