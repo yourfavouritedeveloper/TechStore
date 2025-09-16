@@ -24,8 +24,8 @@
 .middle .design .box2,
 .middle .design .box3 {
     background-color: white;
-    width: 30rem;
-    height: 35rem; 
+    width: 25rem;
+    height: 30rem; 
     position: absolute;
     border-radius: 4rem;
     overflow: hidden;
@@ -35,23 +35,23 @@
 
 
 .middle .design .box1 {
-    top: 30%;        
-    left: 5%; 
+    top: 32%;        
+    left: 8%; 
     transform: rotate(-25deg);
 
 
 }
 
 .middle .design .box2 {
-    top: 20%;
-    left: 12%;
+    top: 22%;
+    left: 15%;
     transform: rotate(-12.5deg);
 
 }
 
 .middle .design .box3 {
-    top: 15%;
-    left: 22%;
+    top: 17%;
+    left: 25%;
 
 }
 
@@ -64,12 +64,12 @@
 
 .middle .design .boxTitle {
     position: absolute;
-    top: 1rem;
+    top: 1.5rem;
     left: 50%;
     white-space: nowrap;
     transform: translate(-50%, -50%);
     font-family: "PoppinsRegular";
-    font-size: clamp(2rem, 3rem, 10rem);
+    font-size: clamp(2rem, 2.5rem, 10rem);
     color: rgb(0, 0, 0);
     text-align: center;
 }
@@ -81,7 +81,7 @@
     white-space: nowrap;
     transform: translate(-50%, -50%);
     font-family: "PoppinsLight";
-    font-size: clamp(1rem, 1.2rem, 10rem);
+    font-size: clamp(1rem, 1rem, 10rem);
     color: rgb(0, 0, 0);
     text-align: center;
 }
@@ -89,26 +89,25 @@
 .middle .design .boxPrice {
     position: absolute;
     top: 9rem;
-    left: 70%;
+    left: 71%;
     white-space: nowrap;
     transform: translate(-50%, -50%);
     font-family: "PoppinsSemiBold";
-    font-size: clamp(1rem, 1.4rem, 10rem);
+    font-size: clamp(1rem, 1.2rem, 10rem);
     color: rgb(0, 0, 0);
     text-align: center;
 }
 
 .middle .design .boxLine {
     position: absolute;
-    top: 12rem;
+    top: 11.5rem;
     height: 0.5rem;
     border-radius: 1rem;
-    width: 40%;
-    left: 70%;
+    width: 41%;
+    left: 71%;
     white-space: nowrap;
     transform: translate(-50%, -50%);
     font-family: "PoppinsLight";
-    font-size: clamp(2rem, 2rem, 10rem);
     background-color: rgb(255, 57, 57);
     text-align: center;
 }
@@ -120,7 +119,7 @@
     white-space: nowrap;
     transform: translate(-50%, -50%);
     font-family: "PoppinsLight";
-    font-size: clamp(1rem, 1.2rem, 10rem);
+    font-size: clamp(1rem, 1rem, 10rem);
     color: rgb(0, 0, 0);
     text-align: center;
 }
@@ -128,22 +127,22 @@
 .middle .design .boxGuarantee {
     position: absolute;
     top: 9rem;
-    left: 21%;
+    left: 22%;
     white-space: nowrap;
     transform: translate(-50%, -50%);
     font-family: "PoppinsSemiBold";
-    font-size: clamp(1rem, 1.4rem, 10rem);
+    font-size: clamp(1rem, 1.2rem, 10rem);
     color: rgb(0, 0, 0);
     text-align: center;
 }
 
 .middle .design .boxLineGuarantee {
     position: absolute;
-    top: 12rem;
+    top: 11.5rem;
     height: 0.5rem;
     border-radius: 1rem;
-    width: 25%;
-    left: 21%;
+    width: 26%;
+    left: 22%;
     white-space: nowrap;
     transform: translate(-50%, -50%);
     font-family: "PoppinsLight";
@@ -175,11 +174,12 @@
 }
 
 .middle .addItemContainer .title {
-    font-size: clamp(2rem, 7vw, 10rem);
+    font-size: clamp(2rem, 6vw, 10rem);
     line-height: 0.8;
     top:-3rem;
     position:relative;
-    width: 60%;  
+    width: 60%; 
+    left: 2%; 
     text-align: right;   
     letter-spacing: -0.05em;
     font-family: "PoppinsSemiBold";
@@ -189,12 +189,12 @@
 
 
 .middle .addItemContainer .subtitle {
-    font-size: clamp(1rem, 1.5rem, 2rem);
+    font-size: clamp(1rem, 1.4rem, 2rem);
     line-height: 1.2;
-    top:-2rem;
+    top:-1.5rem;
     position:relative;
     width: 45%;
-    left: 20%;
+    left: 17%;
     text-align: right;   
     letter-spacing: -0.05em;
     font-family: "PoppinsLight";
@@ -211,8 +211,8 @@
     position:absolute;
     font-family: "PoppinsLight";
     padding: 1rem 4rem;
-    top:30rem;
-    right: 35%;
+    top:29rem;
+    right: 38%;
     font-size: clamp(2rem, 2rem, 10rem);
     transition: all 0.3s ease;
 }     
