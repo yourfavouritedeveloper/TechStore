@@ -2,8 +2,11 @@ import { useState,useEffect, useRef  } from "react";
 import styles from "./AddItem.module.css"
 import axios from "axios";
 import background from "../../assets/backgroundItem.mp4"
+import Iphone from "../../assets/iphonePink.png"
+import Airpods from "../../assets/airpods.png"
+import Macbook from "../../assets/macbookPink.png"
 
-function AddItem() {
+function AddItem({highlight,setHighlight}) {
 
     const fileInputRef = useRef(null);
 
@@ -87,6 +90,9 @@ function AddItem() {
 
       const handleAddNow = () => {
             setButtonActive(!buttonActive); 
+            setTimeout(() => {
+            setHighlight(!highlight);
+            }, 800);
         };
 
 
@@ -95,18 +101,53 @@ function AddItem() {
 
     return (<>
     <div className={styles.container}>
-                <div   className={buttonActive ? styles.left : styles.middle}  style={{width:"100%"}}>
+                <div   className={styles.middle}  style={{
+                    width:"100%",
+                    left: buttonActive ? "-50%" : "0%" }}>
+                    <div className={styles.design}>
+                        <div className={styles.box1}>
+                            <p className={styles.boxTitle}>Macbook Air</p>
+                            <p className={styles.priceTag}>Price:</p>
+                            <p className={styles.boxPrice}>2899₼/18 months</p>
+                            <p className={styles.guaranteeTag}>Guarantee:</p>
+                            <p className={styles.boxGuarantee}>24 months</p>                            
+                            <div className={styles.boxLine}></div>
+                            <div className={styles.boxLineGuarantee}></div>
+                            <img src={Macbook} alt="" />
+                        </div>
+                        <div className={styles.box2}>
+                            <p className={styles.boxTitle}>Airpods 3</p>
+                            <p className={styles.priceTag}>Price:</p>
+                            <p className={styles.boxPrice}>299₼/18 months</p>
+                            <p className={styles.guaranteeTag}>Guarantee:</p> 
+                            <p className={styles.boxGuarantee}>24 months</p>                            
+                            <div className={styles.boxLine}></div>   
+                            <div className={styles.boxLineGuarantee}></div>
+                            <img src={Airpods} alt="" />
+                        </div>
+                        <div className={styles.box3}>
+                            <p className={styles.boxTitle}>Iphone 16</p>
+                            <p className={styles.priceTag}>Price:</p>
+                            <p className={styles.boxPrice}>2399₼/12 months</p>
+                            <p className={styles.guaranteeTag}>Guarantee:</p>
+                            <p className={styles.boxGuarantee}>24 months</p>                            
+                            <div className={styles.boxLine}></div>
+                            <div className={styles.boxLineGuarantee}></div>                        
+                            <img src={Iphone} alt="" />
+                        </div>
+                    </div>
                     <video src={background}
                     autoPlay
                     loop
                     muted
+                    style={{
+                        right: buttonActive ? "50%" : "0%" 
+                    }}
                     ></video>
                     <div className={styles.addItemContainer}>
                         <p className={styles.title}>Add a New Product</p>
-                        <div className={styles.box}>
                             <p className={styles.subtitle}>Add your brand-new product here and make it shine. Pick a category, upload images or videos, and fill in all the details to showcase your product to the world. Once saved, it will be live and ready for customers to discover!</p>
-                            <button className={styles.addButton}>Add now!</button>
-                        </div>
+                            <button className={styles.addButton} onClick={handleAddNow}>Add now!</button>
 
                     </div>
                 </div>
