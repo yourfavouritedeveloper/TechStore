@@ -2,74 +2,228 @@
     height: 100%;
 }
 
+
+
 .middle {
-     position: absolute;
+    position: absolute;
     left:0%;
     width: 40%;
     height: 100%;
-    background: linear-gradient(135deg, #10151f, #080c16);
-    overflow: hidden;   
+    background: linear-gradient(135deg,  #6310a3b4, #25033ff6,#150229);
+    overflow: hidden; 
+    transition: all 1s ease;  
+}
+
+.middle .design {
+    width: 50%;
+    height: 100%;
+
+}
+
+.middle .design .box1,
+.middle .design .box2,
+.middle .design .box3 {
+    background-color: white;
+    width: 30rem;
+    height: 35rem; 
+    position: absolute;
+    border-radius: 4rem;
+    overflow: hidden;
+    box-shadow: -10px 10px 30px #29074e8c;
+}
+
+
+
+.middle .design .box1 {
+    top: 30%;        
+    left: 5%; 
+    transform: rotate(-25deg);
+
+
+}
+
+.middle .design .box2 {
+    top: 20%;
+    left: 12%;
+    transform: rotate(-12.5deg);
+
+}
+
+.middle .design .box3 {
+    top: 15%;
+    left: 22%;
+
+}
+
+.middle .design  img{
+    position: relative;
+    top:10rem;
+    left:-10%;
+    width: 120%;
+}
+
+.middle .design .boxTitle {
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    white-space: nowrap;
+    transform: translate(-50%, -50%);
+    font-family: "PoppinsRegular";
+    font-size: clamp(2rem, 3rem, 10rem);
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+.middle .design .priceTag {
+    position: absolute;
+    top: 7.5rem;
+    left: 55%;
+    white-space: nowrap;
+    transform: translate(-50%, -50%);
+    font-family: "PoppinsLight";
+    font-size: clamp(1rem, 1.2rem, 10rem);
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+.middle .design .boxPrice {
+    position: absolute;
+    top: 9rem;
+    left: 70%;
+    white-space: nowrap;
+    transform: translate(-50%, -50%);
+    font-family: "PoppinsSemiBold";
+    font-size: clamp(1rem, 1.4rem, 10rem);
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+.middle .design .boxLine {
+    position: absolute;
+    top: 12rem;
+    height: 0.5rem;
+    border-radius: 1rem;
+    width: 40%;
+    left: 70%;
+    white-space: nowrap;
+    transform: translate(-50%, -50%);
+    font-family: "PoppinsLight";
+    font-size: clamp(2rem, 2rem, 10rem);
+    background-color: rgb(255, 57, 57);
+    text-align: center;
+}
+
+.middle .design .guaranteeTag {
+    position: absolute;
+    top: 7.5rem;
+    left: 20%;
+    white-space: nowrap;
+    transform: translate(-50%, -50%);
+    font-family: "PoppinsLight";
+    font-size: clamp(1rem, 1.2rem, 10rem);
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+.middle .design .boxGuarantee {
+    position: absolute;
+    top: 9rem;
+    left: 21%;
+    white-space: nowrap;
+    transform: translate(-50%, -50%);
+    font-family: "PoppinsSemiBold";
+    font-size: clamp(1rem, 1.4rem, 10rem);
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+.middle .design .boxLineGuarantee {
+    position: absolute;
+    top: 12rem;
+    height: 0.5rem;
+    border-radius: 1rem;
+    width: 25%;
+    left: 21%;
+    white-space: nowrap;
+    transform: translate(-50%, -50%);
+    font-family: "PoppinsLight";
+    font-size: clamp(2rem, 2rem, 10rem);
+    background-color: rgb(214, 214, 214);
+    text-align: center;
 }
 
 .middle video {
   position: fixed;      
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;         
+  top: -10%;
+  right: 0;
+  width: 50%;
+  height: 120%;         
   object-fit: cover;    
-  opacity: 0.2;         
+  opacity: 0.6;  
+  transition: all 1s ease;       
 }
 
 .middle .addItemContainer {
     position: absolute;
     top: 50%;    
-    left: 50%;    
+    left:85%;   
     transform: translate(-50%, -50%);
     text-align: center;   
-    width: 90%;           
+    width: 70%;  
+
+
 }
 
 .middle .addItemContainer .title {
     font-size: clamp(2rem, 7vw, 10rem);
-    line-height: 1;
-    top:1rem;
-    text-align: center;   
+    line-height: 0.8;
+    top:-3rem;
+    position:relative;
+    width: 60%;  
+    text-align: right;   
     letter-spacing: -0.05em;
     font-family: "PoppinsSemiBold";
     color: white;
     margin: 0;
 }
 
+
 .middle .addItemContainer .subtitle {
-    font-size: clamp(1rem, 1.5vw, 2rem);
+    font-size: clamp(1rem, 1.5rem, 2rem);
     line-height: 1.2;
-    text-align: left;   
-    left:16%;
+    top:-2rem;
+    position:relative;
+    width: 45%;
+    left: 20%;
+    text-align: right;   
+    letter-spacing: -0.05em;
     font-family: "PoppinsLight";
     color: white;
-    margin-top: 12rem;
+    margin: 0;
+
+}
+
+.middle .addItemContainer .addButton {
+    border:none;
+    background-color: white;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    position:absolute;
+    font-family: "PoppinsLight";
+    padding: 1rem 4rem;
+    top:30rem;
+    right: 35%;
+    font-size: clamp(2rem, 2rem, 10rem);
+    transition: all 0.3s ease;
+}     
+
+.middle .addItemContainer .addButton:hover {
+    background-color: #9b59b6;
+    color:white;
+    transform: scale(1.03);
 }
 
 
-.left {
-    position: absolute;
-    left:0%;
-    width: 40%;
-    height: 100%;
-    background: linear-gradient(135deg, #10151f, #080c16);
-    overflow: hidden;
-}
-
-.left video {
-  position: fixed;      
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;         
-  object-fit: cover;    
-  opacity: 0.2;         
-}
 
 .addItemContainer {
     position: absolute;
