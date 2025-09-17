@@ -1,6 +1,9 @@
 .container {
     height: 100%;
+    overflow: hidden;
 }
+
+
 
 
 
@@ -12,11 +15,13 @@
     background: linear-gradient(135deg,  #6310a3b4, #25033ff6,#150229);
     overflow: hidden; 
     transition: all 1s ease;  
+    z-index: 2;
 }
 
 .middle .design {
     width: 50%;
     height: 100%;
+
 
 }
 
@@ -34,24 +39,26 @@
 
 
 
+
+
 .middle .design .box1 {
-    top: 32%;        
-    left: 8%; 
+    top: 34%;        
+    left: 12%; 
     transform: rotate(-25deg);
 
 
 }
 
 .middle .design .box2 {
-    top: 22%;
-    left: 15%;
+    top: 24%;
+    left: 19%;
     transform: rotate(-12.5deg);
 
 }
 
 .middle .design .box3 {
-    top: 17%;
-    left: 25%;
+    top: 19%;
+    left: 29%;
 
 }
 
@@ -165,7 +172,7 @@
 .middle .addItemContainer {
     position: absolute;
     top: 50%;    
-    left:85%;   
+    left:83%;   
     transform: translate(-50%, -50%);
     text-align: center;   
     width: 70%;  
@@ -268,6 +275,42 @@
 .categoryContainer {
     position: relative;
     top:10rem;
+
+}
+
+.categoryContainer label {
+    position: absolute;
+    top: 1.5rem;
+    left: 30%;
+    white-space: nowrap;
+    transform: translate(-50%, -50%);
+    font-family: "PoppinsRegular";
+    font-size: clamp(1rem, 1.5rem, 10rem);
+    color: rgb(0, 0, 0);
+}
+
+.categoryContainer select {
+    position: absolute;
+    top: 1.5rem;
+    left: 50%;
+    white-space: nowrap;
+    transform: translate(-50%, -50%);
+    font-family: "PoppinsRegular";
+    font-size: clamp(1rem, 1rem, 10rem);
+    color: rgb(0, 0, 0);
+    cursor: pointer;  
+    border-radius: 1rem; 
+    padding: 0.5rem 1rem; 
+}
+
+.categoryContainer option {
+    position: absolute;
+    white-space: nowrap;
+    transform: translate(-50%, -50%);
+    font-family: "PoppinsRegular";
+    font-size: clamp(1rem, 1rem, 10rem);
+    color: rgb(0, 0, 0);
+    cursor: pointer;    
 }
 
 .videoSection {

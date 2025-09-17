@@ -5,6 +5,7 @@ import background from "../../assets/backgroundItem.mp4"
 import Iphone from "../../assets/iphonePink.png"
 import Airpods from "../../assets/airpods.png"
 import Macbook from "../../assets/macbookPink.png"
+import { motion } from "framer-motion";
 
 function AddItem({highlight,setHighlight}) {
 
@@ -103,9 +104,14 @@ function AddItem({highlight,setHighlight}) {
     <div className={styles.container}>
                 <div   className={styles.middle}  style={{
                     width:"100%",
-                    left: buttonActive ? "-50%" : "0%" }}>
+                    left: buttonActive ? "-55%" : "0%" }}>
                     <div className={styles.design}>
-                        <div className={styles.box1}>
+                        <motion.div
+                                className={styles.box1}
+                                initial={{ rotate: -35, x: -200}}
+                                animate={{ rotate: -25, x: 0}}
+                                transition={{ duration: 1, ease: "easeOut" }}
+                            >
                             <p className={styles.boxTitle}>Macbook Air</p>
                             <p className={styles.priceTag}>Price:</p>
                             <p className={styles.boxPrice}>2899₼/18 months</p>
@@ -114,8 +120,11 @@ function AddItem({highlight,setHighlight}) {
                             <div className={styles.boxLine}></div>
                             <div className={styles.boxLineGuarantee}></div>
                             <img src={Macbook} alt="" />
-                        </div>
-                        <div className={styles.box2}>
+                        </motion.div>
+                        <motion.div className={styles.box2}
+                                initial={{ rotate: -22.5, x: -200}}
+                                animate={{ rotate: -12.5, x: 0}}
+                                transition={{ duration: 1, ease: "easeOut" }}>
                             <p className={styles.boxTitle}>Airpods 3</p>
                             <p className={styles.priceTag}>Price:</p>
                             <p className={styles.boxPrice}>299₼/18 months</p>
@@ -124,8 +133,11 @@ function AddItem({highlight,setHighlight}) {
                             <div className={styles.boxLine}></div>   
                             <div className={styles.boxLineGuarantee}></div>
                             <img src={Airpods} alt="" />
-                        </div>
-                        <div className={styles.box3}>
+                        </motion.div>
+                        <motion.div className={styles.box3}
+                                initial={{ rotate: -10, x: -200}}
+                                animate={{ rotate: 0, x: 0}}
+                                transition={{ duration: 1, ease: "easeOut" }}>
                             <p className={styles.boxTitle}>Iphone 16</p>
                             <p className={styles.priceTag}>Price:</p>
                             <p className={styles.boxPrice}>2399₼/12 months</p>
@@ -134,8 +146,9 @@ function AddItem({highlight,setHighlight}) {
                             <div className={styles.boxLine}></div>
                             <div className={styles.boxLineGuarantee}></div>                        
                             <img src={Iphone} alt="" />
-                        </div>
+                        </motion.div>
                     </div>
+                    {/*
                     <video src={background}
                     autoPlay
                     loop
@@ -144,32 +157,38 @@ function AddItem({highlight,setHighlight}) {
                         right: buttonActive ? "50%" : "0%" 
                     }}
                     ></video>
-                    <div className={styles.addItemContainer}>
+                     */}
+                    <motion.div className={styles.addItemContainer}
+                            initial={{x: "-45%",y : "-50%"}}
+                            animate={{x: "-50%",y : "-50%"}}
+                            transition={{ duration: 1, ease: "easeOut" }}>
                         <p className={styles.title}>Add a New Product</p>
                             <p className={styles.subtitle}>Add your brand-new product here and make it shine. Pick a category, upload images or videos, and fill in all the details to showcase your product to the world. Once saved, it will be live and ready for customers to discover!</p>
                             <button className={styles.addButton} onClick={handleAddNow}>Add now!</button>
 
-                    </div>
+                    </motion.div>
                 </div>
-                <div className={styles.right}  style={{display:"none",left:"100%"}}>
+                <div className={styles.right}  style={{
+                    display:  buttonActive ? "" : "none",
+                    left:  buttonActive ? "50%" : "100%"}}>
                     <div className={styles.categoryContainer}>
-                        <label htmlFor="category">Choose a category:</label>
+                        <label htmlFor="category">Choose a category: </label>
                         <select
                         id="category"
                         value={category}
                         onChange={(e) => setCategory(e.target.value)}
                         >
-                        <option value="">-- Select a category --</option>
+                        <option value="">Select a category</option>
                         {categories.map((cat) => (
                             <option key={cat} value={cat}>
-                            {cat}
+                            {cat.charAt(0).toUpperCase() + cat.slice(1)}
                             </option>
                         ))}
                         </select>
 
                         {category && (
                         <p>
-                            You selected: <strong>{category}</strong>
+                            You selected: {category}
                         </p>
                         )}
                     </div>
