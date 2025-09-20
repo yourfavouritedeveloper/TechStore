@@ -16,6 +16,7 @@ function AddItem({highlight,setHighlight}) {
     const [videoUrl, setVideoUrl] = useState("");
     const [category, setCategory] = useState(""); 
     const [buttonActive, setButtonActive] = useState(false);
+    const [isDiscount, setIsDiscount] = useState(false);
 
     const categories = [
         "computer",
@@ -27,6 +28,42 @@ function AddItem({highlight,setHighlight}) {
         "smart watch",
         "tablet",
     ];
+
+      const [formData, setFormData] = useState({
+        name: "",
+        description: "",
+        price: "",
+        category: "",
+        company: "",
+        productImageUrl: "",
+        properties: {}, // dynamic key-value
+        weight: "",
+        height: "",
+        width: "",
+        volume: "",
+        discount: "",
+        amount: "",
+        guarantee: "",
+        color: "",
+        videoUrl: "",
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({ ...prev, [name]: value }));
+    };
+
+    const handlePropertyChange = (key, value) => {
+        setFormData((prev) => ({
+        ...prev,
+        properties: { ...prev.properties, [key]: value },
+        }));
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        onSubmit(formData);
+    };
 
 
  const handleVideoChange = async (e) => {
@@ -104,7 +141,7 @@ function AddItem({highlight,setHighlight}) {
     <div className={styles.container}>
                 <div   className={styles.middle}  style={{
                     width:"100%",
-                    left: buttonActive ? "-55%" : "0%" }}>
+                    left: buttonActive ? "-65%" : "0%" }}>
                     <div className={styles.design}>
                         <motion.div
                                 className={styles.box1}
@@ -161,16 +198,168 @@ function AddItem({highlight,setHighlight}) {
                     <motion.div className={styles.addItemContainer}
                             initial={{x: "-45%",y : "-50%"}}
                             animate={{x: "-50%",y : "-50%"}}
-                            transition={{ duration: 1, ease: "easeOut" }}>
+                            transition={{ duration: 1, ease: "easeOut" }}
+                             style={{
+                                left: buttonActive ? "90%" : "83%"}}>
                         <p className={styles.title}>Add a New Product</p>
                             <p className={styles.subtitle}>Add your brand-new product here and make it shine. Pick a category, upload images or videos, and fill in all the details to showcase your product to the world. Once saved, it will be live and ready for customers to discover!</p>
                             <button className={styles.addButton} onClick={handleAddNow}>Add now!</button>
 
                     </motion.div>
                 </div>
-                <div className={styles.right}  style={{
-                    display:  buttonActive ? "" : "none",
-                    left:  buttonActive ? "50%" : "100%"}}>
+                <div className={styles.right}>
+                    <div className={styles.productForm}>
+
+                        <div className={styles.generalInfo}>
+                            <p className={styles.generalInfoTitle}>General Information</p>
+                            <p className={styles.productNameLabel}>Product Name</p>
+                            <input
+                            className={styles.productName}
+                            type="text"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            placeholder="Product Name"
+                            required
+                            />
+                            <p className={styles.productDescriptionLabel}>Product Description</p>
+                            <textarea
+                            name="description"
+                            className={styles.productDescription}
+                            value={formData.description}
+                            onChange={handleChange}
+                            placeholder="Description"
+                            required
+                            />
+                        </div>
+
+                        <div className={styles.priceInfo}>
+                        <p className={styles.priceInfoTitle}>Pricing</p>
+                        <p className={styles.productPriceLabel}>Price</p>
+                        <input
+                        type="text"
+                        className={styles.productPrice}
+                        step="0.01"
+                        name="price"
+                        value={formData.price}
+                        onChange={handleChange}
+                        placeholder="Price"
+                        required
+                        />
+
+                        <p className={styles.isDiscountLabel}>Discount?</p>
+                        <select
+                            name="hasDiscount"
+                            id="discountSelect"
+                            value={isDiscount}
+                            onChange={(e) => setIsDiscount(e.target.value === "true")}
+                        >
+                            <option value="">Select</option>
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                        </select>
+                        {isDiscount && (
+                            <>
+                        <p className={styles.discountLabel}>Discount Amount</p>
+                        <input
+                        type="text"
+                        name="discount"
+                        value={formData.discount}
+                        className={styles.productDiscount}
+                        onChange={handleChange}
+                        placeholder="Discount %"
+                        />
+                        </>
+                        )}
+                        </div>
+
+
+                        <input
+                        type="text"
+                        name="company"
+                        className={styles.productCompany}
+                        value={formData.company}
+                        onChange={handleChange}
+                        placeholder="Company"
+                        required
+                        />
+
+                        <input
+                        type="url"
+                        name="productImageUrl"
+                        className={styles.productImageUrl}
+                        value={formData.productImageUrl}
+                        onChange={handleChange}
+                        placeholder="Product Image URL"
+                        />
+
+                        <input
+                        type="number"
+                        step="0.01"
+                        name="weight"
+                        className={styles.productWeight}
+                        value={formData.weight}
+                        onChange={handleChange}
+                        placeholder="Weight"
+                        />
+                        <input
+                        type="number"
+                        step="0.01"
+                        name="height"
+                        value={formData.height}
+                        className={styles.productHeight}
+                        onChange={handleChange}
+                        placeholder="Height"
+                        />
+                        <input
+                        type="number"
+                        step="0.01"
+                        name="width"
+                        value={formData.width}
+                        className={styles.productWidth}
+                        onChange={handleChange}
+                        placeholder="Width"
+                        />
+                        <input
+                        type="number"
+                        step="0.01"
+                        name="volume"
+                        value={formData.volume}
+                        className={styles.productVolume}
+                        onChange={handleChange}
+                        placeholder="Volume"
+                        />
+
+
+                        <input
+                        type="number"
+                        name="amount"
+                        value={formData.amount}
+                        className={styles.productAmount}
+                        onChange={handleChange}
+                        placeholder="Amount"
+                        required
+                        />
+
+                        <input
+                        type="number"
+                        name="guarantee"
+                        value={formData.guarantee}
+                        className={styles.productGuarantee}
+                        onChange={handleChange}
+                        placeholder="Guarantee (months)"
+                        required
+                        />
+
+                        <input
+                        type="text"
+                        name="color"
+                        value={formData.color}
+                        className={styles.productColor}
+                        onChange={handleChange}
+                        placeholder="Color"
+                        />
+                    </div>
                     <div className={styles.categoryContainer}>
                         <label htmlFor="category">Choose a category: </label>
                         <select
