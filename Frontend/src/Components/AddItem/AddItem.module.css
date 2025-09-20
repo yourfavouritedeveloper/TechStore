@@ -1,6 +1,7 @@
 .container {
     height: 100%;
     overflow: hidden;
+    background-color: rgb(238, 238, 238);
 }
 
 
@@ -12,7 +13,7 @@
     left:0%;
     width: 40%;
     height: 100%;
-    background: linear-gradient(135deg,  #6310a3b4, #25033ff6,#150229);
+    background: linear-gradient(135deg,  #ae56f1, #380c5a,#150229);
     overflow: hidden; 
     transition: all 1s ease;  
     z-index: 2;
@@ -237,6 +238,7 @@
     top:10vw;
     height: 20rem;
     padding: 10rem 0rem;
+    transition: all 1s ease;
 }
 
 .addItemContainer .title {
@@ -266,22 +268,222 @@
 
 .right {
     position: absolute;
+    width: 65%;
     right: 0%;
-    width: 60%;
     height: 100%;
+    background-color: rgb(248, 248, 248);
+    transition: all 0.5s ease;
+}
+
+
+
+.productForm .generalInfo {
     background-color: rgb(255, 255, 255);
+    width: 40rem;
+    height: 25rem;
+    position:absolute;
+    top: 33%;    
+    left:30%; 
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
+    border-radius: 1rem;
+}
+
+.generalInfo .generalInfoTitle {
+    font-family: "PoppinsMedium";
+    position: absolute;
+    left:1.5rem;
+    top:0rem;
+    font-size: clamp(1rem,1.5rem,10rem);
+}
+
+
+
+.generalInfo .productName {
+    top: 27%;    
+    left:50%;
+    width: 87%; 
+    padding: 0.4rem 1rem; 
+    border-radius: 0.5rem; 
+    font-size: clamp(1rem,1.1rem,10rem);
+    transform: translate(-50%, -50%);
+    background-color: rgb(240, 240, 240);
+    color:rgb(26, 26, 26);
+    font-family: "PoppinsMedium";
+
+}
+
+.generalInfo .productName::placeholder {
+    color:rgb(105, 105, 105);
+    font-family: "PoppinsRegular";
+}
+
+.generalInfo .productNameLabel {
+    top: 20%;    
+    left:13.5%;
+    position: absolute;
+    padding: 0.4rem 1rem; 
+    border-radius: 0.5rem; 
+    font-size: clamp(1rem,1rem,10rem);
+    font-family: "PoppinsMedium";
+    transform: translate(-50%, -50%);
+    color:rgb(131, 131, 131);
+}
+
+.generalInfo .productDescription {
+    position:absolute;
+    top: 74%;    
+    left:50%;
+    border: none;
+    width: 87%; 
+    padding: 0.4rem 1rem; 
+    padding-bottom: 6.7rem;
+    border-radius: 0.5rem; 
+    font-size: clamp(1rem,1.1rem,10rem);
+    transform: translate(-50%, -50%);
+    background-color: rgb(240, 240, 240);
+    color:rgb(26, 26, 26);
+    resize: none;   
+    font-family: "PoppinsRegular";
+}
+
+.generalInfo .productDescriptionLabel {
+    top: 45%;    
+    left:16.5%;
+    position: absolute;
+    padding: 0.4rem 1rem; 
+    border-radius: 0.5rem; 
+    font-size: clamp(1rem,1rem,10rem);
+    font-family: "PoppinsMedium";
+    transform: translate(-50%, -50%);
+    color:rgb(131, 131, 131);
+}
+
+textarea:focus {
+  outline: none;       
+  border: none;         
+}
+
+select:focus {
+   outline: none;       
+  border: none;    
+}
+
+
+
+.productForm .priceInfo {
+    background-color: rgb(255, 255, 255);
+    width: 40rem;
+    height: 16rem;
+    position:absolute;
+    top: 70%;    
+    left:30%; 
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
+    border-radius: 1rem;
+}
+
+
+.priceInfo .priceInfoTitle {
+    font-family: "PoppinsMedium";
+    position: absolute;
+    left:1.5rem;
+    top:0rem;
+    font-size: clamp(1rem,1.5rem,10rem);
+}
+
+.priceInfo .productPrice {
+    top: 35%;    
+    left:50%;
+    width: 87%; 
+    padding: 0.4rem 1rem; 
+    border-radius: 0.5rem; 
+    font-size: clamp(1rem,1.1rem,10rem);
+    transform: translate(-50%, -50%);
+    background-color: rgb(240, 240, 240);
+    color:rgb(26, 26, 26);
+    font-family: "PoppinsMedium";
+
+}
+
+.priceInfo .productPriceLabel {
+    top: 25%;    
+    left:7.5%;
+    position: absolute;
+    padding: 0.4rem 1rem; 
+    border-radius: 0.5rem; 
+    font-size: clamp(1rem,1rem,10rem);
+    font-family: "PoppinsMedium";
+    transform: translate(-50%, -50%);
+    color:rgb(131, 131, 131);
+}
+
+.priceInfo .isDiscountLabel {
+    top: 61%;    
+    left:10.5%;
+    position: absolute;
+    padding: 0.4rem 1rem; 
+    border-radius: 0.5rem; 
+    font-size: clamp(1rem,1rem,10rem);
+    font-family: "PoppinsMedium";
+    transform: translate(-50%, -50%);
+    color:rgb(131, 131, 131);
+}
+
+.priceInfo select {
+    position:absolute;
+    cursor: pointer;
+    top: 81%;    
+    left:24%;
+    border: none;
+    width: 40%; 
+    padding: 0.4rem 1rem; 
+    border-radius: 0.5rem; 
+    font-size: clamp(1rem,1.1rem,10rem);
+    transform: translate(-50%, -50%);
+    background-color: rgb(240, 240, 240);
+    color:rgb(26, 26, 26);
+    resize: none;   
+    font-family: "PoppinsRegular";   
+}
+
+.priceInfo .discountLabel {
+    top: 61%;    
+    left:60.5%;
+    position: absolute;
+    padding: 0.4rem 1rem; 
+    border-radius: 0.5rem; 
+    font-size: clamp(1rem,1rem,10rem);
+    font-family: "PoppinsMedium";
+    transform: translate(-50%, -50%);
+    color:rgb(131, 131, 131);
+}
+
+.priceInfo .productDiscount {
+    position:absolute;
+    top: 71.7%;    
+    left:72%;
+    border: none;
+    width: 40%; 
+    padding: 0.4rem 1rem; 
+    border-radius: 0.5rem; 
+    font-size: clamp(1rem,1.1rem,10rem);
+    transform: translate(-50%, -50%);
+    background-color: rgb(240, 240, 240);
+    color:rgb(26, 26, 26);
+    font-family: "PoppinsRegular";   
 }
 
 .categoryContainer {
     position: relative;
-    top:10rem;
+    top:40rem;
 
 }
 
 .categoryContainer label {
     position: absolute;
     top: 1.5rem;
-    left: 30%;
+    left: 80%;
     white-space: nowrap;
     transform: translate(-50%, -50%);
     font-family: "PoppinsRegular";
@@ -292,7 +494,7 @@
 .categoryContainer select {
     position: absolute;
     top: 1.5rem;
-    left: 50%;
+    left: 80%;
     white-space: nowrap;
     transform: translate(-50%, -50%);
     font-family: "PoppinsRegular";
@@ -314,7 +516,7 @@
 }
 
 .videoSection {
-    top:15rem;
+    top:55rem;
     position: relative;
     padding: 2rem;
     background-color: rgb(245, 245, 245);
