@@ -233,9 +233,49 @@ function AddItem({highlight,setHighlight}) {
                             />
                         </div>
 
+
+                        <div className={styles.specifiedInfo}>
+                            <p className={styles.specifiedInfoTitle}>Specified Information</p>
+                            <p className={styles.productCompanyLabel}>Company</p>
+
+                            <input
+                            type="text"
+                            name="company"
+                            className={styles.productCompany}
+                            value={formData.company}
+                            onChange={handleChange}
+                            placeholder="Company"
+                            required
+                            />
+
+                            <p className={styles.productGuaranteeLabel}>Guarantee</p>
+                            <input
+                            type="text"
+                            name="guarantee"
+                            value={formData.guarantee}
+                            className={styles.productGuarantee}
+                            onChange={handleChange}
+                            placeholder="Months"
+                            pattern="^(100|[1-9][0-9]?)$|^$"
+                            />
+
+                            <p className={styles.productColorLabel}>Color</p>
+                            <input
+                            type="text"
+                            name="color"
+                            value={formData.color}
+                            className={styles.productColor}
+                            onChange={handleChange}
+                            placeholder="Color"
+                            />
+                        </div>
+
+
+
+
                         <div className={styles.priceInfo}>
                         <p className={styles.priceInfoTitle}>Pricing</p>
-                        <p className={styles.productPriceLabel}>Price</p>
+                        <p className={styles.productPriceLabel}>Price (₼)</p>
                         <input
                         type="text"
                         className={styles.productPrice}
@@ -244,7 +284,7 @@ function AddItem({highlight,setHighlight}) {
                         value={formData.price}
                         onChange={handleChange}
                         placeholder="Price"
-                        required
+                        pattern="^\d*\.?\d*$|^$"
                         />
 
                         <p className={styles.isDiscountLabel}>Discount?</p>
@@ -268,30 +308,70 @@ function AddItem({highlight,setHighlight}) {
                         className={styles.productDiscount}
                         onChange={handleChange}
                         placeholder="Discount %"
+                        pattern="^(100|[1-9][0-9]?)$|^$"
                         />
                         </>
                         )}
                         </div>
 
+                        <div className={styles.videoSection}>
+                            <p className={styles.videoSectionTitle}>Product Media</p>
+                            <p className={styles.productImageLabel}>Product Image</p>
+                            <div className={styles.imageBox}>
+                                <input
+                                type="file"
+                                name="productImage"
+                                accept="image/*"
+                                style={{ display: "none" }}
+                                className={styles.productImage}
+                                onChange={(e) => {
+                                    const file = e.target.files[0];
+                                    if (file) {
+                                    const imageUrl = URL.createObjectURL(file);
+                                    setFormData({ ...formData, productImageUrl: imageUrl });
+                                    }
+                                }}
+                                />
+                                <label htmlFor="productImage" className={styles.customUploadBtn}>
+                                Upload Image
+                                </label>
+                            </div>
 
-                        <input
-                        type="text"
-                        name="company"
-                        className={styles.productCompany}
-                        value={formData.company}
-                        onChange={handleChange}
-                        placeholder="Company"
-                        required
-                        />
+                            <input
+                            type="file"
+                            accept="video/*"
+                            onChange={handleVideoChange}
+                            ref={fileInputRef}
+                            style={{ display: "none" }}
+                            />
+                    
+                            <button
+                            className={styles.uploadButton}
+                            onClick={() => {
+                                fileInputRef.current.click();
+                            }}
+                            >
+                            {videoUrl ? "Replace Video" : "Upload Video"}
+                            </button>
+                    
+                            {videoFile && (
+                            <button className={styles.uploadButton} onClick={uploadVideo}>
+                                Save Video
+                            </button>
+                            )}
+                            {videoUrl && (
+                                    <video
+                                    src={videoUrl}
+                                    controls
+                                    width="100%"
+                                    style={{ marginTop: "1rem", borderRadius: "1rem" }}
+                                    />
+                                )}
+                        </div>
 
-                        <input
-                        type="url"
-                        name="productImageUrl"
-                        className={styles.productImageUrl}
-                        value={formData.productImageUrl}
-                        onChange={handleChange}
-                        placeholder="Product Image URL"
-                        />
+
+
+
 
                         <input
                         type="number"
@@ -341,24 +421,7 @@ function AddItem({highlight,setHighlight}) {
                         required
                         />
 
-                        <input
-                        type="number"
-                        name="guarantee"
-                        value={formData.guarantee}
-                        className={styles.productGuarantee}
-                        onChange={handleChange}
-                        placeholder="Guarantee (months)"
-                        required
-                        />
 
-                        <input
-                        type="text"
-                        name="color"
-                        value={formData.color}
-                        className={styles.productColor}
-                        onChange={handleChange}
-                        placeholder="Color"
-                        />
                     </div>
                     <div className={styles.categoryContainer}>
                         <label htmlFor="category">Choose a category: </label>
@@ -381,38 +444,7 @@ function AddItem({highlight,setHighlight}) {
                         </p>
                         )}
                     </div>
-                    <div className={styles.videoSection}>
-                    <input
-                    type="file"
-                    accept="video/*"
-                    onChange={handleVideoChange}
-                    ref={fileInputRef}
-                    style={{ display: "none" }}
-                    />
-            
-                    <button
-                    className={styles.uploadButton}
-                    onClick={() => {
-                        fileInputRef.current.click();
-                    }}
-                    >
-                    {videoUrl ? "Replace Video" : "Upload Video"}
-                    </button>
-            
-                    {videoFile && (
-                    <button className={styles.uploadButton} onClick={uploadVideo}>
-                        Save Video
-                    </button>
-                    )}
-                    {videoUrl && (
-                            <video
-                            src={videoUrl}
-                            controls
-                            width="100%"
-                            style={{ marginTop: "1rem", borderRadius: "1rem" }}
-                            />
-                        )}
-                    </div>
+
 
                 </div>
 
