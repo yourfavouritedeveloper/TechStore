@@ -275,15 +275,23 @@
     transition: all 0.5s ease;
 }
 
+.productForm {
+    position: relative;
+    width: 100%;
+    top:50%;
+    transform: translate(0%, -50%);
+    height: 47rem;
+}
+
 
 
 .productForm .generalInfo {
     background-color: rgb(255, 255, 255);
-    width: 40rem;
-    height: 25rem;
+    width: 31rem;
+    height: 19rem;
     position:absolute;
-    top: 33%;    
-    left:30%; 
+    top: 31%;    
+    left:27%; 
     transform: translate(-50%, -50%);
     box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
     border-radius: 1rem;
@@ -292,9 +300,9 @@
 .generalInfo .generalInfoTitle {
     font-family: "PoppinsMedium";
     position: absolute;
-    left:1.5rem;
+    left:1.2rem;
     top:0rem;
-    font-size: clamp(1rem,1.5rem,10rem);
+    font-size: clamp(1rem,1.3rem,10rem);
 }
 
 
@@ -302,10 +310,10 @@
 .generalInfo .productName {
     top: 27%;    
     left:50%;
-    width: 87%; 
+    width: 86%; 
     padding: 0.4rem 1rem; 
     border-radius: 0.5rem; 
-    font-size: clamp(1rem,1.1rem,10rem);
+    font-size: clamp(0rem,0.8rem,10rem);
     transform: translate(-50%, -50%);
     background-color: rgb(240, 240, 240);
     color:rgb(26, 26, 26);
@@ -313,18 +321,15 @@
 
 }
 
-.generalInfo .productName::placeholder {
-    color:rgb(105, 105, 105);
-    font-family: "PoppinsRegular";
-}
+
 
 .generalInfo .productNameLabel {
-    top: 20%;    
-    left:13.5%;
+    top: 21%;    
+    left:15%;
     position: absolute;
     padding: 0.4rem 1rem; 
     border-radius: 0.5rem; 
-    font-size: clamp(1rem,1rem,10rem);
+    font-size: clamp(0rem,0.9rem,10rem);
     font-family: "PoppinsMedium";
     transform: translate(-50%, -50%);
     color:rgb(131, 131, 131);
@@ -332,14 +337,14 @@
 
 .generalInfo .productDescription {
     position:absolute;
-    top: 74%;    
+    top: 73.5%;    
     left:50%;
     border: none;
-    width: 87%; 
+    width: 86%; 
     padding: 0.4rem 1rem; 
-    padding-bottom: 6.7rem;
+    padding-bottom: 5rem;
     border-radius: 0.5rem; 
-    font-size: clamp(1rem,1.1rem,10rem);
+    font-size: clamp(0rem,0.8rem,10rem);
     transform: translate(-50%, -50%);
     background-color: rgb(240, 240, 240);
     color:rgb(26, 26, 26);
@@ -348,15 +353,20 @@
 }
 
 .generalInfo .productDescriptionLabel {
-    top: 45%;    
-    left:16.5%;
+    top: 44%;    
+    left:18.8%;
     position: absolute;
     padding: 0.4rem 1rem; 
     border-radius: 0.5rem; 
-    font-size: clamp(1rem,1rem,10rem);
+    font-size: clamp(0rem,0.9rem,10rem);
     font-family: "PoppinsMedium";
     transform: translate(-50%, -50%);
     color:rgb(131, 131, 131);
+}
+
+input::placeholder {
+    color:rgb(105, 105, 105);
+    font-family: "PoppinsRegular";
 }
 
 textarea:focus {
@@ -371,13 +381,121 @@ select:focus {
 
 
 
+
+
+.productForm .specifiedInfo {
+    background-color: rgb(255, 255, 255);
+    width: 31rem;
+    height: 8rem;
+    position:absolute;
+    top: 61%;    
+    left:27%; 
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
+    border-radius: 1rem;
+}
+
+.specifiedInfo .specifiedInfoTitle {
+     font-family: "PoppinsMedium";
+    position: absolute;
+    left:1.2rem;
+    top:-0.3rem;
+    font-size: clamp(1rem,1.3rem,10rem);   
+}
+
+
+.specifiedInfo .productCompanyLabel {
+    top: 37%;    
+    left:11.5%;
+    position: absolute;
+    padding: 0.4rem 1rem; 
+    border-radius: 0.5rem; 
+    font-size: clamp(0rem,0.9rem,10rem);
+    font-family: "PoppinsMedium";
+    transform: translate(-50%, -50%);
+    color:rgb(131, 131, 131);
+}
+
+.specifiedInfo .productCompany {
+    top: 52%;    
+    left:19.5%;
+    width: 25%; 
+    padding: 0.4rem 1rem; 
+    border-radius: 0.5rem; 
+    font-size: clamp(0rem,0.8rem,10rem);
+    transform: translate(-50%, -50%);
+    background-color: rgb(240, 240, 240);
+    color:rgb(26, 26, 26);
+    font-family: "PoppinsMedium";
+}
+
+.specifiedInfo .productGuaranteeLabel {
+    top: 37%;    
+    left:48.6%;
+    position: absolute;
+    padding: 0.4rem 1rem; 
+    border-radius: 0.5rem; 
+    font-size: clamp(0rem,0.9rem,10rem);
+    font-family: "PoppinsMedium";
+    transform: translate(-50%, -50%);
+    color:rgb(131, 131, 131);
+}
+
+.specifiedInfo .productGuarantee {
+    top: 52%;    
+    left:51%;
+    width: 15%; 
+    padding: 0.4rem 1rem; 
+    border-radius: 0.5rem; 
+    font-size: clamp(0rem,0.8rem,10rem);
+    transform: translate(-50%, -50%);
+    background-color: rgb(240, 240, 240);
+    color:rgb(26, 26, 26);
+    font-family: "PoppinsMedium";
+}
+
+
+.productGuarantee:invalid {
+  border: 2px solid red;
+}
+
+
+.specifiedInfo .productColorLabel {
+    top: 37%;    
+    left:71%;
+    position: absolute;
+    padding: 0.4rem 1rem; 
+    border-radius: 0.5rem; 
+    font-size: clamp(0rem,0.9rem,10rem);
+    font-family: "PoppinsMedium";
+    transform: translate(-50%, -50%);
+    color:rgb(131, 131, 131);
+}
+
+.specifiedInfo .productColor {
+    top: 52%;    
+    left:81.5%;
+    width: 23%; 
+    padding: 0.4rem 1rem; 
+    border-radius: 0.5rem; 
+    font-size: clamp(0rem,0.8rem,10rem);
+    transform: translate(-50%, -50%);
+    background-color: rgb(240, 240, 240);
+    color:rgb(26, 26, 26);
+    font-family: "PoppinsMedium";
+}
+
+
+
+
+
 .productForm .priceInfo {
     background-color: rgb(255, 255, 255);
-    width: 40rem;
-    height: 16rem;
+    width: 31rem;
+    height: 13rem;
     position:absolute;
-    top: 70%;    
-    left:30%; 
+    top: 85%;    
+    left:27%; 
     transform: translate(-50%, -50%);
     box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
     border-radius: 1rem;
@@ -387,18 +505,18 @@ select:focus {
 .priceInfo .priceInfoTitle {
     font-family: "PoppinsMedium";
     position: absolute;
-    left:1.5rem;
+    left:1.2rem;
     top:0rem;
-    font-size: clamp(1rem,1.5rem,10rem);
+    font-size: clamp(1rem,1.3rem,10rem);
 }
 
 .priceInfo .productPrice {
     top: 35%;    
     left:50%;
-    width: 87%; 
+    width: 86%; 
     padding: 0.4rem 1rem; 
     border-radius: 0.5rem; 
-    font-size: clamp(1rem,1.1rem,10rem);
+    font-size: clamp(0rem,0.8rem,10rem);
     transform: translate(-50%, -50%);
     background-color: rgb(240, 240, 240);
     color:rgb(26, 26, 26);
@@ -406,13 +524,21 @@ select:focus {
 
 }
 
+
+
+
+
+.productPrice:invalid {
+  border: 2px solid red;
+}
+
 .priceInfo .productPriceLabel {
-    top: 25%;    
-    left:7.5%;
+    top: 26%;    
+    left:10.8%;
     position: absolute;
     padding: 0.4rem 1rem; 
     border-radius: 0.5rem; 
-    font-size: clamp(1rem,1rem,10rem);
+    font-size: clamp(0rem,0.9rem,10rem);
     font-family: "PoppinsMedium";
     transform: translate(-50%, -50%);
     color:rgb(131, 131, 131);
@@ -420,11 +546,11 @@ select:focus {
 
 .priceInfo .isDiscountLabel {
     top: 61%;    
-    left:10.5%;
+    left:11.4%;
     position: absolute;
     padding: 0.4rem 1rem; 
     border-radius: 0.5rem; 
-    font-size: clamp(1rem,1rem,10rem);
+    font-size: clamp(0rem,0.9rem,10rem);
     font-family: "PoppinsMedium";
     transform: translate(-50%, -50%);
     color:rgb(131, 131, 131);
@@ -436,10 +562,10 @@ select:focus {
     top: 81%;    
     left:24%;
     border: none;
-    width: 40%; 
+    width: 39.5%; 
     padding: 0.4rem 1rem; 
     border-radius: 0.5rem; 
-    font-size: clamp(1rem,1.1rem,10rem);
+    font-size: clamp(0rem,0.8rem,10rem);
     transform: translate(-50%, -50%);
     background-color: rgb(240, 240, 240);
     color:rgb(26, 26, 26);
@@ -449,34 +575,115 @@ select:focus {
 
 .priceInfo .discountLabel {
     top: 61%;    
-    left:60.5%;
+    left:61.5%;
     position: absolute;
     padding: 0.4rem 1rem; 
     border-radius: 0.5rem; 
-    font-size: clamp(1rem,1rem,10rem);
+    font-size: clamp(0rem,0.9rem,10rem);
     font-family: "PoppinsMedium";
     transform: translate(-50%, -50%);
     color:rgb(131, 131, 131);
 }
 
+
 .priceInfo .productDiscount {
     position:absolute;
-    top: 71.7%;    
-    left:72%;
+    top: 69.8%;    
+    left:72.5%;
     border: none;
-    width: 40%; 
+    width: 41%; 
     padding: 0.4rem 1rem; 
     border-radius: 0.5rem; 
-    font-size: clamp(1rem,1.1rem,10rem);
+    font-size: clamp(0rem,0.8rem,10rem);
     transform: translate(-50%, -50%);
     background-color: rgb(240, 240, 240);
     color:rgb(26, 26, 26);
     font-family: "PoppinsRegular";   
 }
 
+.productDiscount:invalid {
+  border: 2px solid red;
+}
+
+
+.videoSection {
+    top: 41.7%;    
+    left:75.5%;
+    transform: translate(-50%, -50%);
+    width: 24rem;
+    height: 25rem;    
+    position: absolute;
+    padding: 2rem;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.videoSection .videoSectionTitle {
+    font-family: "PoppinsMedium";
+    position: absolute;
+    left:1.2rem;
+    top:0rem;
+    font-size: clamp(1rem,1.3rem,10rem);    
+}
+
+.videoSection .productImageLabel {
+    top: 13.7%;    
+    left:17%;
+    position: absolute;
+    padding: 0.4rem 1rem; 
+    border-radius: 0.5rem; 
+    font-size: clamp(0rem,0.9rem,10rem);
+    font-family: "PoppinsMedium";
+    transform: translate(-50%, -50%);
+    color:rgb(131, 131, 131);
+}
+
+.videoSection .productImage {
+    top: 35%;    
+    left:50%;
+    width: 86%; 
+    padding: 0.4rem 1rem; 
+    border-radius: 0.5rem; 
+    font-size: clamp(0rem,0.8rem,10rem);
+    transform: translate(-50%, -50%);
+    background-color: rgb(240, 240, 240);
+    color:rgb(26, 26, 26);
+    font-family: "PoppinsMedium";
+
+}
+
+
+.videoSection video {
+    width: 100%; 
+    border-radius: 1rem;
+}
+
+.uploadButton {
+    position: absolute;
+    top: 12.5rem;
+    background-color: #4CAF50; 
+    color: white;
+    border: none;
+    border-radius: 0.7rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-family: "PoppinsSemiBold";
+    transition: background-color 0.2s ease;
+}
+
+.uploadButton:hover {
+    background-color: #45a049;
+}
+
+
 .categoryContainer {
     position: relative;
-    top:40rem;
+    top:-5rem;
 
 }
 
@@ -515,35 +722,4 @@ select:focus {
     cursor: pointer;    
 }
 
-.videoSection {
-    top:55rem;
-    position: relative;
-    padding: 2rem;
-    background-color: rgb(245, 245, 245);
-    border-radius: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-}
 
-.videoSection video {
-    width: 100%; 
-    border-radius: 1rem;
-}
-
-.uploadButton {
-    margin-top: 0.5rem;
-    background-color: #4CAF50; 
-    color: white;
-    border: none;
-    border-radius: 0.7rem;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    font-family: "PoppinsSemiBold";
-    transition: background-color 0.2s ease;
-}
-
-.uploadButton:hover {
-    background-color: #45a049;
-}
