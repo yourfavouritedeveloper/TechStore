@@ -10,10 +10,12 @@ import { motion } from "framer-motion";
 function AddItem({highlight,setHighlight}) {
 
     const fileInputRef = useRef(null);
+    const imageInputRef = useRef(null);
 
     const [videoFile, setVideoFile] = useState(null);
     const [item, setItem] = useState({});
     const [videoUrl, setVideoUrl] = useState("");
+    const [imageUrl, setImageUrl] = useState("");
     const [category, setCategory] = useState(""); 
     const [buttonActive, setButtonActive] = useState(false);
     const [isDiscount, setIsDiscount] = useState(false);
@@ -66,6 +68,48 @@ function AddItem({highlight,setHighlight}) {
     };
 
 
+
+
+    const handleImageChange = async (e) => {
+    const file = e.target.files[0];
+    if (!file) {
+        console.warn("⚠️ No file selected");
+        return;
+    }
+
+    console.log("📂 File selected:", file.name);
+    setVideoFile(file);
+
+    const formData = new FormData();
+    formData.append("file", file);
+
+    try {
+        console.log("⏳ Uploading file:", file.name);
+        const res = await axios.post(
+        "https://techstore-3fvk.onrender.com/api/v1/products/uploadProductImage",
+        formData,
+        { headers: { "Content-Type": "multipart/form-data" } }
+        );
+
+        const uploadedUrl = res.data.url;
+        setImageUrl(uploadedUrl);
+
+        console.log("✅ Image uploaded. URL:", uploadedUrl);
+
+        try {
+        await axios.head(uploadedUrl);
+        console.log("✅ Image is accessible on server:", uploadedUrl);
+        } catch {
+        console.warn("⚠️ Image uploaded, but not accessible yet:", uploadedUrl);
+        }
+
+    } catch (err) {
+        console.error("❌ Error uploading image:", err);
+    }
+    };
+
+
+
     const handleVideoChange = async (e) => {
     const file = e.target.files[0];
     if (!file) {
@@ -92,7 +136,6 @@ function AddItem({highlight,setHighlight}) {
 
         console.log("✅ Video uploaded. URL:", uploadedUrl);
 
-        // Check if accessible
         try {
         await axios.head(uploadedUrl);
         console.log("✅ Video is accessible on server:", uploadedUrl);
@@ -306,23 +349,38 @@ function AddItem({highlight,setHighlight}) {
                             <p className={styles.videoSectionTitle}>Product Media</p>
                             <p className={styles.productImageLabel}>Product Image</p>
                             <div className={styles.imageBox}>
+
+                                 {!imageUrl && (<>
+                                  <p className={styles.imageBoxTitle}>Upload a Image for Your Product</p>
+                                  <p className={styles.imageBoxSubtitle}>Broadly introduce your products with a detailed images</p>
+                                </>)
+                                }
+
                                 <input
                                 type="file"
                                 name="productImage"
                                 accept="image/*"
+                                onChange={handleImageChange}
+                                ref={imageInputRef}
                                 style={{ display: "none" }}
                                 className={styles.productImage}
-                                onChange={(e) => {
-                                    const file = e.target.files[0];
-                                    if (file) {
-                                    const imageUrl = URL.createObjectURL(file);
-                                    setFormData({ ...formData, productImageUrl: imageUrl });
-                                    }
-                                }}
                                 />
-                                <label htmlFor="productImage" className={styles.customUploadBtn}>
-                                Upload Image
-                                </label>
+                                <button
+                                className={imageUrl ? styles.replaceButton : styles.uploadButton}
+                                onClick={() => {
+                                    imageInputRef.current.click();
+                                }}
+                                >
+                                {imageUrl ? "Replace Image" : "Upload Image"}
+                                </button>
+
+                                {imageUrl && (
+                                        <img
+                                        src={imageUrl}
+                                        width="100%"
+                                        style={{ marginTop: "1rem", borderRadius: "1rem" }}
+                                        />
+                                    )}
                             </div>
 
                             <p className={styles.productVideoLabel}>Product Video</p>

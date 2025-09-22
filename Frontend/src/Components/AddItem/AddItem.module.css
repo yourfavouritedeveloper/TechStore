@@ -608,11 +608,11 @@ select:focus {
 
 
 .videoSection {
-    top: 41.7%;    
+    top: 47%;    
     left:75.5%;
     transform: translate(-50%, -50%);
     width: 24rem;
-    height: 25rem;    
+    height: 30rem;    
     position: absolute;
     padding: 2rem;
     background-color: rgb(255, 255, 255);
@@ -661,7 +661,7 @@ select:focus {
 
 
 .videoSection .productVideoLabel {
-    top: 52%;    
+    top: 57%;    
     left:17%;
     position: absolute;
     padding: 0.4rem 1rem; 
@@ -672,14 +672,86 @@ select:focus {
     color:rgb(131, 131, 131);
 }
 
-.videoSection .videoBox {
-   top:77%;
+
+
+.videoSection .imageBox {
+   top:36%;
    width: 91%;
    border: 2px dashed #9b59b6;
    border-radius: 1rem;
    left:50%;
    transform: translate(-50%, -50%);
-   height: 37%;
+   height: 33.5%;
+   position: absolute;
+   background-color: rgb(240, 240, 240);
+}
+
+.imageBox .imageBoxTitle {
+    font-family: "PoppinsMedium";
+    position: absolute;
+    width: 100%;
+    top:1rem;
+    left:50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(1rem,1.4rem,10rem);
+}
+
+.imageBox .imageBoxSubtitle {
+    font-family: "PoppinsLight";
+    position: absolute;
+    width: 70%;
+    top:4rem;
+    line-height: 1;
+    left:50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(0rem,0.8rem,10rem);
+}
+
+
+.imageBox .uploadButton {
+    top:78%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    border: none;
+    background-color: #9b59b6; 
+    color: rgb(255, 255, 255);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-family: "PoppinsLight";
+    transition: all 0.3s ease;
+}
+
+.imageBox .replaceButton {
+    top:87%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    border: none;
+    background-color: #9b59b6; 
+    color: rgb(255, 255, 255);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-family: "PoppinsLight";
+    transition: all 0.3s ease;
+}
+
+
+
+
+
+
+
+.videoSection .videoBox {
+   top:79.5%;
+   width: 91%;
+   border: 2px dashed #9b59b6;
+   border-radius: 1rem;
+   left:50%;
+   transform: translate(-50%, -50%);
+   height: 33.5%;
    position: absolute;
    background-color: rgb(240, 240, 240);
 }
