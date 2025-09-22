@@ -36,7 +36,7 @@ function AddItem({highlight,setHighlight}) {
         category: "",
         company: "",
         productImageUrl: "",
-        properties: {}, // dynamic key-value
+        properties: {}, 
         weight: "",
         height: "",
         width: "",
@@ -66,65 +66,52 @@ function AddItem({highlight,setHighlight}) {
     };
 
 
- const handleVideoChange = async (e) => {
+    const handleVideoChange = async (e) => {
     const file = e.target.files[0];
-    if (!file) return;
+    if (!file) {
+        console.warn("⚠️ No file selected");
+        return;
+    }
+
+    console.log("📂 File selected:", file.name);
+    setVideoFile(file);
 
     const formData = new FormData();
     formData.append("file", file);
 
-  try {
-    const res = await axios.post(
-        "https://techstore-3fvk.onrender.com/api/v1/products/uploadProductVideo",
-        formData
-    );
-
-    const uploadedUrl = res.data.url;
-    console.log("Uploaded video URL:", uploadedUrl);
-
-    const updatedProduct = { ...item, videoUrl: uploadedUrl };
-    await axios.put(
-        "https://techstore-3fvk.onrender.com/api/v1/products/update",
-        updatedProduct
-    );
-
-    setVideoUrl(uploadedUrl);
-    setItem(updatedProduct);
-    alert("Video uploaded & saved!");
-    } catch (err) {
-      
-    }
-    };
-
-    const uploadVideo = async () => {
-  if (!videoFile) return;
-
-  const formData = new FormData();
-    formData.append("file", videoFile);
-
     try {
+        console.log("⏳ Uploading file:", file.name);
         const res = await axios.post(
         "https://techstore-3fvk.onrender.com/api/v1/products/uploadProductVideo",
-        formData
+        formData,
+        { headers: { "Content-Type": "multipart/form-data" } }
         );
-        console.log(videoFile);
+
         const uploadedUrl = res.data.url;
-
-        const updatedProduct = { ...item, videoUrl: uploadedUrl };
-        await axios.put(
-        "https://techstore-3fvk.onrender.com/api/v1/products/update",
-        updatedProduct
-        );
-
         setVideoUrl(uploadedUrl);
-        setItem(updatedProduct);
 
-        alert("Video uploaded & saved!");
+        console.log("✅ Video uploaded. URL:", uploadedUrl);
+
+        // Check if accessible
+        try {
+        await axios.head(uploadedUrl);
+        console.log("✅ Video is accessible on server:", uploadedUrl);
+        } catch {
+        console.warn("⚠️ Video uploaded, but not accessible yet:", uploadedUrl);
+        }
+
     } catch (err) {
-        console.error(err);
-        alert("Error uploading video");
+        console.error("❌ Error uploading video:", err);
     }
     };
+
+
+
+
+
+
+
+
 
       const handleAddNow = () => {
             setButtonActive(!buttonActive); 
@@ -314,6 +301,7 @@ function AddItem({highlight,setHighlight}) {
                         )}
                         </div>
 
+
                         <div className={styles.videoSection}>
                             <p className={styles.videoSectionTitle}>Product Media</p>
                             <p className={styles.productImageLabel}>Product Image</p>
@@ -337,36 +325,42 @@ function AddItem({highlight,setHighlight}) {
                                 </label>
                             </div>
 
-                            <input
-                            type="file"
-                            accept="video/*"
-                            onChange={handleVideoChange}
-                            ref={fileInputRef}
-                            style={{ display: "none" }}
-                            />
-                    
-                            <button
-                            className={styles.uploadButton}
-                            onClick={() => {
-                                fileInputRef.current.click();
-                            }}
-                            >
-                            {videoUrl ? "Replace Video" : "Upload Video"}
-                            </button>
-                    
-                            {videoFile && (
-                            <button className={styles.uploadButton} onClick={uploadVideo}>
-                                Save Video
-                            </button>
-                            )}
-                            {videoUrl && (
-                                    <video
-                                    src={videoUrl}
-                                    controls
-                                    width="100%"
-                                    style={{ marginTop: "1rem", borderRadius: "1rem" }}
-                                    />
-                                )}
+                            <p className={styles.productVideoLabel}>Product Video</p>
+                            <div className={styles.videoBox}>
+                                {!videoUrl && (<>
+                                  <p className={styles.videoBoxTitle}>Upload a Video for Your Product</p>
+                                  <p className={styles.videoBoxSubtitle}>Broadly introduce your products with a short, descriptive videos</p>
+                                </>)
+                                }
+                              
+                                <input
+                                type="file"
+                                accept="video/*"
+                                onChange={handleVideoChange}
+                                ref={fileInputRef}
+                                style={{ display: "none" }}
+                                />
+                        
+                                <button
+                                className={videoUrl ? styles.replaceButton : styles.uploadButton}
+                                onClick={() => {
+                                    fileInputRef.current.click();
+                                }}
+                                >
+                                {videoUrl ? "Replace Video" : "Upload Video"}
+                                </button>
+
+                                {videoUrl && (
+                                        <video
+                                        src={videoUrl}
+                                        controls
+                                        width="100%"
+                                        style={{ marginTop: "1rem", borderRadius: "1rem" }}
+                                        />
+                                    )}
+                            </div>
+
+
                         </div>
 
 

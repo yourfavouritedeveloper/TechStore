@@ -29,6 +29,7 @@ import java.util.Map;
 public class ProductController {
 
     private final ProductService productService;
+    private final String UPLOAD_DIR = "/app/uploads/";
     private final String PRODUCT_VIDEO_UPLOAD_DIR = "/app/product-videos/";
 
     @PostMapping("/uploadProductVideo")
@@ -62,6 +63,32 @@ public class ProductController {
                     .body(Map.of("error", "Could not save video"));
         }
     }
+
+    @PostMapping("/uploadProductImage")
+    public ResponseEntity<Map<String, String>> uploadProfilePicture(
+            @RequestParam("file") MultipartFile file) {
+
+        if (file.isEmpty()) {
+            return ResponseEntity.badRequest().body(Map.of("error", "No file uploaded"));
+        }
+
+        try {
+            File uploadDir = new File(UPLOAD_DIR);
+            if (!uploadDir.exists()) uploadDir.mkdirs();
+
+            String filename = System.currentTimeMillis() + "_" + file.getOriginalFilename();
+            Path filePath = Paths.get(UPLOAD_DIR, filename);
+            Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
+
+            String fileUrl = "https://techstore-3fvk.onrender.com/images/" + filename;
+            return ResponseEntity.ok(Map.of("url", fileUrl));
+
+        } catch (IOException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(Map.of("error", "Could not save file"));
+        }
+    }
+
 
     @GetMapping("/id/{id}")
     @ResponseStatus(HttpStatus.OK)
