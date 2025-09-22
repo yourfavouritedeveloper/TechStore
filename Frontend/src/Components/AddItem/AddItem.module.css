@@ -277,10 +277,11 @@
 
 .productForm {
     position: relative;
-    width: 100%;
+    width: 63rem;
     top:50%;
     transform: translate(0%, -50%);
     height: 47rem;
+
 }
 
 
@@ -388,7 +389,7 @@ select:focus {
     width: 31rem;
     height: 8rem;
     position:absolute;
-    top: 61%;    
+    top: 61.3%;    
     left:27%; 
     transform: translate(-50%, -50%);
     box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
@@ -658,27 +659,104 @@ select:focus {
 }
 
 
-.videoSection video {
-    width: 100%; 
-    border-radius: 1rem;
+
+.videoSection .productVideoLabel {
+    top: 52%;    
+    left:17%;
+    position: absolute;
+    padding: 0.4rem 1rem; 
+    border-radius: 0.5rem; 
+    font-size: clamp(0rem,0.9rem,10rem);
+    font-family: "PoppinsMedium";
+    transform: translate(-50%, -50%);
+    color:rgb(131, 131, 131);
 }
 
-.uploadButton {
+.videoSection .videoBox {
+   top:77%;
+   width: 91%;
+   border: 2px dashed #9b59b6;
+   border-radius: 1rem;
+   left:50%;
+   transform: translate(-50%, -50%);
+   height: 37%;
+   position: absolute;
+   background-color: rgb(240, 240, 240);
+}
+
+.videoBox .videoBoxTitle {
+    font-family: "PoppinsMedium";
     position: absolute;
-    top: 12.5rem;
-    background-color: #4CAF50; 
-    color: white;
+    width: 100%;
+    top:1rem;
+    left:50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(1rem,1.4rem,10rem);
+}
+
+.videoBox .videoBoxSubtitle {
+    font-family: "PoppinsLight";
+    position: absolute;
+    width: 70%;
+    top:4rem;
+    line-height: 1;
+    left:50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(0rem,0.8rem,10rem);
+}
+
+
+.videoBox .uploadButton {
+    top:78%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
     border: none;
-    border-radius: 0.7rem;
+    background-color: #9b59b6; 
+    color: rgb(255, 255, 255);
+    border-radius: 0.5rem;
     padding: 0.5rem 1rem;
     cursor: pointer;
-    font-family: "PoppinsSemiBold";
-    transition: background-color 0.2s ease;
+    font-family: "PoppinsLight";
+    transition: all 0.3s ease;
 }
 
-.uploadButton:hover {
-    background-color: #45a049;
+.videoBox .replaceButton {
+    top:87%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    border: none;
+    background-color: #9b59b6; 
+    color: rgb(255, 255, 255);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-family: "PoppinsLight";
+    transition: all 0.3s ease;
 }
+
+
+
+
+.uploadButton:hover {
+    transform: translate(-50%, -50%) scale(1.03);
+    background-color: #a734d4;
+}
+
+
+
+
+.videoSection video {
+    width: 70%; 
+    border-radius: 0.5rem;
+    top:3.2rem;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+
+
 
 
 .categoryContainer {
