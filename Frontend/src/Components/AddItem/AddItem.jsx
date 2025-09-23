@@ -34,7 +34,7 @@ function AddItem({highlight,setHighlight}) {
         "tablet",
     ];
 
-      const [formData, setFormData] = useState({
+    const initialFormData = {
         name: "",
         description: "",
         price: "",
@@ -51,7 +51,9 @@ function AddItem({highlight,setHighlight}) {
         guarantee: "",
         color: "",
         videoUrl: "",
-    });
+        };
+
+      const [formData, setFormData] = useState(initialFormData);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -177,6 +179,16 @@ function AddItem({highlight,setHighlight}) {
             setLastPage(!lastPage);
         }
 
+        const cancelClick = () => {
+                setButtonActive(!buttonActive); 
+                setTimeout(() => {
+                setHighlight(!highlight);
+                setNewPage(!newPage);
+                }, 800);   
+                setLastPage(!lastPage);   
+                setFormData(initialFormData);     
+        }
+
 
 
 
@@ -258,20 +270,24 @@ function AddItem({highlight,setHighlight}) {
                              style={{
                                 left: buttonActive ? "90%" : "83%"}}>
                             <p className={styles.title}>
-                            {newPage ?"General Overview" : "Add a New Product"}
+                            {newPage ? ( lastPage ? "Property Overview" : "General Overview") : "Add a New Product"}
                             </p>
                             <p className={styles.subtitle}>
-                                {newPage ?  "Provide a brief overview of the product, including its main features and general information." : 
+                                {newPage ? ( lastPage ? "Add the essential product characteristics that describe its functionality and build." : "Provide a brief overview of the product, including its main features and general information." ) : 
                                 "Add your brand-new product here and make it shine. Pick a category, upload images or videos, and fill in all the details to showcase your product to the world. Once saved, it will be live and ready for customers to discover!"
                                 }</p>
                             {newPage ? (
-                                <>
-                                <button className={styles.back} onClick={handleAddNow}>ᐸ</button>
+                            <>
+                                <button className={styles.back} style={{right : lastPage ? "38%" : "46%"}} onClick={handleAddNow}>ᐸ</button>
+
+                                {lastPage ? (
+                                    <></>
+                                ) : (
                                 <button className={styles.next} onClick={onRight}>ᐳ</button>
-                                </>
+                                )}
+                            </>
                             ) : (
                             <button className={styles.addButton} onClick={handleAddNow}>Add now!</button>
-
                             )}
 
                     </motion.div>
@@ -496,44 +512,68 @@ function AddItem({highlight,setHighlight}) {
 
 
 
-                        <input
-                        type="number"
+                     
+                    </div>
+   
+
+
+                </div>
+                <div className={styles.last}>
+                    <div className={styles.properties}>
+                         <p className={styles.propertiesTitle}>Properties</p>       
+                    </div>
+                    <div className={styles.measurements}>
+                       <p className={styles.measurementsTitle}>Measurements</p>
+                       <p className={styles.weightLabel}>Weight</p>
+                       <input
+                        type="text"
                         step="0.01"
                         name="weight"
                         className={styles.productWeight}
                         value={formData.weight}
                         onChange={handleChange}
                         placeholder="Weight"
+                        pattern="^\d*\.?\d*$|^$"
                         />
+
+                        <p className={styles.heightLabel}>Height</p>
                         <input
-                        type="number"
+                        type="text"
                         step="0.01"
                         name="height"
                         value={formData.height}
                         className={styles.productHeight}
                         onChange={handleChange}
                         placeholder="Height"
+                        pattern="^\d*\.?\d*$|^$"
+
                         />
+
+                        <p className={styles.widthLabel}>Width</p>
                         <input
-                        type="number"
+                        type="text"
                         step="0.01"
                         name="width"
                         value={formData.width}
                         className={styles.productWidth}
                         onChange={handleChange}
                         placeholder="Width"
+                        pattern="^\d*\.?\d*$|^$"
                         />
+
+                        <p className={styles.volumeLabel}>Volume</p>
                         <input
-                        type="number"
+                        type="text"
                         step="0.01"
                         name="volume"
                         value={formData.volume}
                         className={styles.productVolume}
                         onChange={handleChange}
                         placeholder="Volume"
+                        pattern="^\d*\.?\d*$|^$"
                         />
 
-
+                        <p className={styles.amountLabel}>Amount</p>
                         <input
                         type="number"
                         name="amount"
@@ -543,10 +583,10 @@ function AddItem({highlight,setHighlight}) {
                         placeholder="Amount"
                         required
                         />
-
-
                     </div>
-   
+                    <button className={styles.submit}>Submit</button>
+                    <button className={styles.cancel} onClick={cancelClick}>Cancel</button>
+
 
 
                 </div>
