@@ -287,8 +287,10 @@
     transition: all 0.3s ease;
 }  
 
+
+
 .middle .addItemContainer .back:hover,
-.middle .addItemContainer .next:hover {
+.middle .addItemContainer .next:hover{
     background-color: #9b59b6;
     color:white;
      transform: scale(1.03);
@@ -337,6 +339,7 @@
     height: 100%;
     background-color: rgb(248, 248, 248);
     transition: all 1s ease;
+    z-index: 1;
 }
 
 .productForm {
@@ -373,7 +376,7 @@
 
 
 .generalInfo .productName {
-    top: 27%;    
+    top: 28%;    
     left:50%;
     width: 86%; 
     padding: 0.4rem 1rem; 
@@ -958,3 +961,244 @@ select:focus {
 
 
 
+.last {
+    position: absolute;
+    width: 65%;
+    right: 0%;
+    height: 100%;
+    background-color: rgb(248, 248, 248);
+    transition: all 1s ease;
+    z-index: 0;
+}
+
+.last .properties {
+    background-color: rgb(255, 255, 255);
+    width: 29rem;
+    height: 38.9rem;
+    position:absolute;
+    top: 54.3%;    
+    left:25.5%; 
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
+    border-radius: 1rem;
+}
+
+.properties .propertiesTitle {
+    font-family: "PoppinsMedium";
+    position: absolute;
+    left:1.2rem;
+    top:0rem;
+    font-size: clamp(1rem,1.3rem,10rem);       
+}
+
+.last .measurements {
+    background-color: rgb(255, 255, 255);
+    width: 29rem;
+    height: 27rem;
+    position:absolute;
+    top: 41.6%;    
+    left:73.5%; 
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
+    border-radius: 1rem;
+}
+
+.measurements .measurementsTitle {
+    font-family: "PoppinsMedium";
+    position: absolute;
+    left:1.2rem;
+    top:0rem;
+    font-size: clamp(1rem,1.3rem,10rem);      
+}
+
+.measurements .weightLabel{
+     top: 16%;    
+    left:9%;
+    position: absolute;
+    padding: 0.4rem 1rem; 
+    border-radius: 0.5rem; 
+    font-size: clamp(0rem,0.9rem,10rem);
+    font-family: "PoppinsMedium";
+    transform: translate(-50%, -50%);
+    color:rgb(131, 131, 131);   
+}
+
+
+
+
+.measurements .productWeight{
+     top: 20%;    
+    left:23.5%;
+    width: 34%; 
+    padding: 0.4rem 1rem; 
+    border-radius: 0.5rem; 
+    font-size: clamp(0rem,0.8rem,10rem);
+    transform: translate(-50%, -50%);
+    background-color: rgb(240, 240, 240);
+    color:rgb(26, 26, 26);
+    font-family: "PoppinsMedium";   
+}
+
+.productWeight:invalid {
+  border: 2px solid red;
+}
+
+.measurements .heightLabel{
+     top: 16%;    
+    left:61%;
+    position: absolute;
+    padding: 0.4rem 1rem; 
+    border-radius: 0.5rem; 
+    font-size: clamp(0rem,0.9rem,10rem);
+    font-family: "PoppinsMedium";
+    transform: translate(-50%, -50%);
+    color:rgb(131, 131, 131);   
+}
+
+.measurements .productHeight{
+     top: 20%;    
+    left:76%;
+    width: 34%; 
+    padding: 0.4rem 1rem; 
+    border-radius: 0.5rem; 
+    font-size: clamp(0rem,0.8rem,10rem);
+    transform: translate(-50%, -50%);
+    background-color: rgb(240, 240, 240);
+    color:rgb(26, 26, 26);
+    font-family: "PoppinsMedium";   
+}
+
+.productHeight:invalid {
+  border: 2px solid red;
+}
+
+.measurements .widthLabel{
+     top: 35%;    
+    left:8%;
+    position: absolute;
+    padding: 0.4rem 1rem; 
+    border-radius: 0.5rem; 
+    font-size: clamp(0rem,0.9rem,10rem);
+    font-family: "PoppinsMedium";
+    transform: translate(-50%, -50%);
+    color:rgb(131, 131, 131);   
+}
+
+.measurements .productWidth{
+     top: 39%;    
+    left:50%;
+    width: 86.5%; 
+    padding: 0.4rem 1rem; 
+    border-radius: 0.5rem; 
+    font-size: clamp(0rem,0.8rem,10rem);
+    transform: translate(-50%, -50%);
+    background-color: rgb(240, 240, 240);
+    color:rgb(26, 26, 26);
+    font-family: "PoppinsMedium";   
+}
+
+
+.productWidth:invalid {
+  border: 2px solid red;
+}
+
+.measurements .volumeLabel{
+     top: 54%;    
+    left:9.5%;
+    position: absolute;
+    padding: 0.4rem 1rem; 
+    border-radius: 0.5rem; 
+    font-size: clamp(0rem,0.9rem,10rem);
+    font-family: "PoppinsMedium";
+    transform: translate(-50%, -50%);
+    color:rgb(131, 131, 131);   
+}
+
+.measurements .productVolume{
+     top: 58%;    
+    left:50%;
+    width: 86.5%; 
+    padding: 0.4rem 1rem; 
+    border-radius: 0.5rem; 
+    font-size: clamp(0rem,0.8rem,10rem);
+    transform: translate(-50%, -50%);
+    background-color: rgb(240, 240, 240);
+    color:rgb(26, 26, 26);
+    font-family: "PoppinsMedium";   
+}
+
+
+
+.measurements .amountLabel{
+     top: 73%;    
+    left:9.5%;
+    position: absolute;
+    padding: 0.4rem 1rem; 
+    border-radius: 0.5rem; 
+    font-size: clamp(0rem,0.9rem,10rem);
+    font-family: "PoppinsMedium";
+    transform: translate(-50%, -50%);
+    color:rgb(131, 131, 131);   
+}
+
+.measurements .productAmount{
+     top: 77%;    
+    left:50%;
+    width: 86.5%; 
+    padding: 0.4rem 1rem; 
+    border-radius: 0.5rem; 
+    font-size: clamp(0rem,0.8rem,10rem);
+    transform: translate(-50%, -50%);
+    background-color: rgb(240, 240, 240);
+    color:rgb(26, 26, 26);
+    font-family: "PoppinsMedium";   
+}
+
+
+.last .submit {
+    background-color: #9b59b6;
+    width: 29rem;
+    height: 5rem;
+    position:absolute;
+    top: 77.2%; 
+    border: none;   
+    left:73.5%; 
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
+    border-radius: 1rem;
+    color: white;
+    font-size: clamp(1rem,2rem,10rem);
+    font-family: "PoppinsRegular";
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.last .cancel {
+    background-color: #ffffff;
+    width: 29rem;
+    height: 5rem;
+    position:absolute;
+    top: 90%; 
+    border:3px solid #e42434;   
+    left:73.5%; 
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
+    border-radius: 1rem;
+    color: #e42434;
+    font-size: clamp(1rem,2rem,10rem);
+    font-family: "PoppinsRegular";
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.last .submit:hover {
+    border:3px solid #9b59b6;
+    background-color: white;
+    color: #9b59b6;
+}
+
+.last .cancel:hover {
+    background-color: #e42434;  
+    color: white;
+    border: none;
+}
