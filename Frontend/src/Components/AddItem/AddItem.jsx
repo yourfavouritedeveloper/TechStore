@@ -20,6 +20,8 @@ function AddItem({highlight,setHighlight}) {
     const [buttonActive, setButtonActive] = useState(false);
     const [isDiscount, setIsDiscount] = useState(false);
     const [zoomed, setZoomed] = useState(false);
+    const [newPage, setNewPage] = useState(false);
+    const [lastPage, setLastPage] = useState(false);
 
     const categories = [
         "computer",
@@ -158,12 +160,22 @@ function AddItem({highlight,setHighlight}) {
 
 
       const handleAddNow = () => {
-            setButtonActive(!buttonActive); 
-            setTimeout(() => {
-            setHighlight(!highlight);
-            }, 800);
+            if(lastPage) {
+                setLastPage(!lastPage);
+            }
+            else {
+                setButtonActive(!buttonActive); 
+                setTimeout(() => {
+                setHighlight(!highlight);
+                setNewPage(!newPage);
+                }, 800);
+            }
+
         };
 
+        const onRight = () => {
+            setLastPage(!lastPage);
+        }
 
 
 
@@ -238,29 +250,34 @@ function AddItem({highlight,setHighlight}) {
                             <img src={Iphone} alt="" />
                         </motion.div>
                     </div>
-                    {/*
-                    <video src={background}
-                    autoPlay
-                    loop
-                    muted
-                    style={{
-                        right: buttonActive ? "50%" : "0%" 
-                    }}
-                    ></video>
-                     */}
+
                     <motion.div className={styles.addItemContainer}
                             initial={{x: "-45%",y : "-50%"}}
                             animate={{x: "-50%",y : "-50%"}}
                             transition={{ duration: 1, ease: "easeOut" }}
                              style={{
                                 left: buttonActive ? "90%" : "83%"}}>
-                        <p className={styles.title}>Add a New Product</p>
-                            <p className={styles.subtitle}>Add your brand-new product here and make it shine. Pick a category, upload images or videos, and fill in all the details to showcase your product to the world. Once saved, it will be live and ready for customers to discover!</p>
+                            <p className={styles.title}>
+                            {newPage ?"General Overview" : "Add a New Product"}
+                            </p>
+                            <p className={styles.subtitle}>
+                                {newPage ?  "Provide a brief overview of the product, including its main features and general information." : 
+                                "Add your brand-new product here and make it shine. Pick a category, upload images or videos, and fill in all the details to showcase your product to the world. Once saved, it will be live and ready for customers to discover!"
+                                }</p>
+                            {newPage ? (
+                                <>
+                                <button className={styles.back} onClick={handleAddNow}>ᐸ</button>
+                                <button className={styles.next} onClick={onRight}>ᐳ</button>
+                                </>
+                            ) : (
                             <button className={styles.addButton} onClick={handleAddNow}>Add now!</button>
+
+                            )}
 
                     </motion.div>
                 </div>
-                <div className={styles.right}>
+                <div className={styles.right}
+                style={{right : lastPage ? "100%" : "0%"}}>
                     <div className={styles.productForm}>
 
                         <div className={styles.generalInfo}>
