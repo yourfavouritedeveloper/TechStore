@@ -19,6 +19,7 @@ function AddItem({highlight,setHighlight}) {
     const [category, setCategory] = useState(""); 
     const [buttonActive, setButtonActive] = useState(false);
     const [isDiscount, setIsDiscount] = useState(false);
+    const [zoomed, setZoomed] = useState(false);
 
     const categories = [
         "computer",
@@ -169,6 +170,28 @@ function AddItem({highlight,setHighlight}) {
 
     return (<>
     <div className={styles.container}>
+                {zoomed && <>
+                    <div className={styles.subContainer}>
+                        {imageUrl && <>
+                          <p className={styles.text}>Click on image to return</p>
+                          <img
+                                className={zoomed ? styles.zoomed : styles.normal}
+                                src={imageUrl}
+                                width="25%"
+                                style={{
+                                    marginTop: "1rem",
+                                    borderRadius: "1rem",
+                                    cursor: "pointer",
+                                    transition: "transform 0.3s ease-in-out",
+                                    transform: zoomed ? "scale(2)" : "scale(1)",
+                                }}
+                                onClick={() => setZoomed(!zoomed)}
+                            />
+                        </>}
+                    </div> 
+                </>}
+
+
                 <div   className={styles.middle}  style={{
                     width:"100%",
                     left: buttonActive ? "-65%" : "0%" }}>
@@ -375,11 +398,22 @@ function AddItem({highlight,setHighlight}) {
                                 </button>
 
                                 {imageUrl && (
+                                    <>
+                                    
                                         <img
+                                        className={zoomed ? styles.zoomed : styles.normal}
                                         src={imageUrl}
-                                        width="100%"
-                                        style={{ marginTop: "1rem", borderRadius: "1rem" }}
+                                        width="25%"
+                                        style={{
+                                            marginTop: "1rem",
+                                            borderRadius: "1rem",
+                                            cursor: "pointer",
+                                            transition: "transform 0.3s ease-in-out",
+                                        }}
+                                        onClick={() => setZoomed(!zoomed)}
                                         />
+                                    
+                                    </>
                                     )}
                             </div>
 
@@ -421,7 +455,27 @@ function AddItem({highlight,setHighlight}) {
 
                         </div>
 
+                        <div className={styles.categoryContainer}>
+                            <p className={styles.categoryContainerTitle}>Category</p>
+                                <select
+                                id="category"
+                                value={category}
+                                onChange={(e) => setCategory(e.target.value)}
+                                >
+                                <option value="">Select a category</option>
+                                {categories.map((cat) => (
+                                    <option key={cat} value={cat}>
+                                    {cat.charAt(0).toUpperCase() + cat.slice(1)}
+                                    </option>
+                                ))}
+                                </select>
 
+                                {category && (
+                                <p>
+                                    You selected: {category}
+                                </p>
+                                )}
+                            </div>
 
 
 
@@ -475,31 +529,10 @@ function AddItem({highlight,setHighlight}) {
 
 
                     </div>
-                    <div className={styles.categoryContainer}>
-                        <label htmlFor="category">Choose a category: </label>
-                        <select
-                        id="category"
-                        value={category}
-                        onChange={(e) => setCategory(e.target.value)}
-                        >
-                        <option value="">Select a category</option>
-                        {categories.map((cat) => (
-                            <option key={cat} value={cat}>
-                            {cat.charAt(0).toUpperCase() + cat.slice(1)}
-                            </option>
-                        ))}
-                        </select>
-
-                        {category && (
-                        <p>
-                            You selected: {category}
-                        </p>
-                        )}
-                    </div>
+   
 
 
                 </div>
-
     </div>
     </>);
 }
