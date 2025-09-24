@@ -256,7 +256,7 @@ const tickDatesSell = (() => {
 
 
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 8;
+    const itemsPerPage = 7;
 
     const totalItems = logAccount.products ? logAccount.products.length : 0;
     const totalPages = Math.ceil(totalItems / itemsPerPage);
