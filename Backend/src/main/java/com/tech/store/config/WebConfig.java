@@ -19,7 +19,9 @@ public class WebConfig implements WebMvcConfigurer {
 
         registry.addMapping("/images/**")
                 .allowedOrigins("http://localhost:5173")
-                .allowedMethods("GET");
+                .allowedMethods("GET")
+                .allowCredentials(false);
+
     }
 
     @Override

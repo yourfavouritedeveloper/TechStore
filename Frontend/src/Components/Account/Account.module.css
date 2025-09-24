@@ -1,6 +1,6 @@
 .container {
     height: auto;
-    min-height: 160rem;
+    min-height: 177rem;
     width: 100%;
     background-color: rgb(255, 255, 255);
 }
@@ -728,9 +728,9 @@
     height: 41.5rem;
     width: 42%;
     left:10%;
-    top: 113rem;
+    margin-top: 63rem;
     border-radius: 2rem;
-    position: absolute;
+    position: absolute; 
 
 }
 
@@ -777,11 +777,12 @@
 
 
 .itemsContainer {
-    position: absolute; 
+    position: relative;
     background-color: rgb(230, 230, 230);
     width: 80%;
-    height: 50rem;
-    right: 10%;
+    min-height: 50rem;
+    left: 10%;
+    padding-bottom: 9rem;
     top: 60rem;
     border-radius: 2rem;
     overflow: hidden;    
@@ -935,7 +936,7 @@
     height: auto;
     min-height:41.5rem;
     right: 10%;
-    top: 113rem;
+    margin-top: 63rem;
     border-radius: 2rem;
     overflow: hidden;      
 }
