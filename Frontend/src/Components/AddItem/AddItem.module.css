@@ -981,7 +981,8 @@ select:focus {
     transform: translate(-50%, -50%);
     box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
     border-radius: 1rem;
-    overflow-y: visible;
+    overflow-y: auto;
+
 }
 
 .properties .propertiesTitle {
@@ -1006,9 +1007,9 @@ select:focus {
 
 .properties .add {
     top: 19%;
-    left: 50%;
+    left: 25%;
     position: absolute;
-    width: 92%;
+    width: 42%;
     padding: 0.4rem 1rem;
     border-radius: 0.5rem;
     font-size: clamp(0rem, 0.8rem, 10rem);
@@ -1022,10 +1023,10 @@ select:focus {
 }
 
 .properties .remove {
-    top: 27%;
-    left: 50%;
+    top: 19%;
+    left: 75%;
     position: absolute;
-    width: 92%;
+    width: 42%;
     padding: 0.4rem 1rem;
     border-radius: 0.5rem;
     font-size: clamp(0rem, 0.8rem, 10rem);
@@ -1052,7 +1053,7 @@ select:focus {
 
 .properties ul {
     position: relative;
-    top: 11rem;
+    top: 8.5rem;
 }
 
 .properties .property {
@@ -1061,9 +1062,9 @@ select:focus {
 
 .properties .key {
     top: 29%;
-    left: 5.5%;
+    left: 14%;
     position: relative;
-    width: 33%;
+    width: 38.5%;
     list-style: none;
     padding: 0.4rem 1rem;
     border-radius: 0.5rem;
@@ -1078,9 +1079,9 @@ select:focus {
 
 .properties .value {
     top: 29%;
-    left: 25.5%;
+    left: 22.5%;
     position: relative;
-    width: 33%;
+    width: 38.5%;
     list-style: none;
     padding: 0.4rem 1rem;
     border-radius: 0.5rem;
