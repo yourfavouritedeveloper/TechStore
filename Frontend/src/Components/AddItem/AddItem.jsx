@@ -6,11 +6,18 @@ import Iphone from "../../assets/iphonePink.png"
 import Airpods from "../../assets/airpods.png"
 import Macbook from "../../assets/macbookPink.png"
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
-function AddItem({ highlight, setHighlight }) {
+
+    const USERNAME = import.meta.env.VITE_API_USERNAME;
+    const PASSWORD = import.meta.env.VITE_API_PASSWORD;
+
+
+function AddItem({ highlight, setHighlight, username}) {
 
     const fileInputRef = useRef(null);
     const imageInputRef = useRef(null);
+    const navigate = useNavigate();
 
     const [videoFile, setVideoFile] = useState(null);
     const [item, setItem] = useState({});
@@ -52,6 +59,9 @@ function AddItem({ highlight, setHighlight }) {
         guarantee: "",
         color: "",
         videoUrl: "",
+        bought: "",
+        rating: "",
+        searched: ""
     };
 
         const [formData, setFormData] = useState(initialFormData);
@@ -97,6 +107,61 @@ function AddItem({ highlight, setHighlight }) {
     };
 
 
+ const submitClick = async () => {
+    try {
+        const accountRes = await axios.get(
+            `https://techstore-3fvk.onrender.com/api/v1/accounts/username/${username}`,
+                    {
+                    auth: {
+                        username: USERNAME, 
+                        password: PASSWORD
+                    }
+                    }
+        );
+        const accountData = accountRes.data;
+        const accountSummary = {
+            id: accountData.id,
+            username: accountData.username,
+            customerName: accountData.customerName,
+            email: accountData.email,
+            profilePictureUrl: accountData.profilePictureUrl,
+            balance: accountData.balance
+        };
+
+        const payload = {
+            ...formData,
+            price: formData.price ? parseFloat(formData.price) : 0,
+            weight: formData.weight ? parseFloat(formData.weight) : 0,
+            height: formData.height ? parseFloat(formData.height) : 0,
+            width: formData.width ? parseFloat(formData.width) : 0,
+            volume: formData.volume ? parseFloat(formData.volume) : 0,
+            discount: formData.discount ? parseInt(formData.discount) : 0,
+            amount: formData.amount ? parseInt(formData.amount) : 0,
+            guarantee: formData.guarantee ? Number(formData.guarantee) : 0,
+            category: formData.category.toUpperCase().replace(/\s+/g, "_"),
+            properties: formData.properties || {},
+            productImageUrl: formData.productImageUrl || "",
+            videoUrl: formData.videoUrl || "",
+            account: accountSummary,
+            bought: formData.bought ? parseInt(formData.bought) : 0,  
+            rating: formData.rating ? parseFloat(formData.rating) : 0,
+            searched: formData.searched ? parseInt(formData.searched) : 0
+        };
+
+
+        const res = await axios.post(
+            "https://techstore-3fvk.onrender.com/api/v1/products/create",
+            payload
+        );
+        console.log("✅ Product created:", res.data);
+
+        navigate(`/account/${username}`);
+    } catch (err) {
+        console.error("❌ Error creating product:", err);
+    }
+};
+
+
 
 
 
@@ -130,15 +195,14 @@ function AddItem({ highlight, setHighlight }) {
         console.log("📂 File selected:", file.name);
         setVideoFile(file);
 
-        const formData = new FormData();
-        formData.append("file", file);
+        const form = new FormData();
+        form.append("file", file);
 
         try {
             console.log("⏳ Uploading file:", file.name);
             const res = await axios.post(
                 "https://techstore-3fvk.onrender.com/api/v1/products/uploadProductImage",
-                formData,
-                { headers: { "Content-Type": "multipart/form-data" } }
+                form,
             );
 
             const uploadedUrl = res.data.url;
@@ -146,7 +210,7 @@ function AddItem({ highlight, setHighlight }) {
 
             setFormData((prev) => ({
             ...prev,
-            productImage: uploadedUrl, 
+            productImageUrl: uploadedUrl,
             }));
 
             console.log("✅ Image uploaded. URL:", uploadedUrl);
@@ -175,15 +239,14 @@ function AddItem({ highlight, setHighlight }) {
         console.log("📂 File selected:", file.name);
         setVideoFile(file);
 
-        const formData = new FormData();
-        formData.append("file", file);
+        const form = new FormData();
+        form.append("file", file);
 
         try {
             console.log("⏳ Uploading file:", file.name);
             const res = await axios.post(
                 "https://techstore-3fvk.onrender.com/api/v1/products/uploadProductVideo",
-                formData,
-                { headers: { "Content-Type": "multipart/form-data" } }
+                form,
             );
 
             const uploadedUrl = res.data.url;
@@ -191,10 +254,11 @@ function AddItem({ highlight, setHighlight }) {
 
                 setFormData((prev) => ({
                 ...prev,
-                videoUrl: uploadedUrl, 
+                videoUrl: uploadedUrl,
                 }));
 
             console.log("✅ Video uploaded. URL:", uploadedUrl);
+            console.log(formData);
 
             try {
                 await axios.head(uploadedUrl);
@@ -558,7 +622,7 @@ function AddItem({ highlight, setHighlight }) {
                             onChange={
                                 (e) => {
                                     const normalized = e.target.value.toUpperCase().replace(/\s+/g, "_");
-                                    setCategor(normalized);
+                                    setCategor(e.target.value);
                                     setFormData((prev) => ({
                                     ...prev,
                                     category: normalized, 
@@ -677,7 +741,7 @@ function AddItem({ highlight, setHighlight }) {
                         />
                     </div>
                     <div className={styles.submittion}>
-                        <button className={styles.submit}>Submit</button>
+                        <button className={styles.submit} onClick={submitClick}>Submit</button>
                         <button className={styles.cancel} onClick={cancelClick}>Cancel</button>
                     </div>
 

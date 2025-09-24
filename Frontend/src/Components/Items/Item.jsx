@@ -93,11 +93,11 @@ const handleSortChange = (key, value) => {
                     <ul className={styles.itemsPopular}>
                       {itemsPopular.map((item) => (
                         <Link key={item.id} className={styles.item} to={"/product/" + item.id}>
-                          <p className={styles.searchRate}>Searched {item.searched} times</p>
+                          <p className={styles.searchRate}>Searched {item.searched ?? 0} times</p>
                           <img src={item.productImageUrl} alt={item.name} />
                           <p className={styles.name}>{item.name}</p>
-                          <p className={styles.guarantee}>{item.guarantee} month</p>
-                          <span>₼{item.price}</span>
+                          <p className={styles.guarantee}>{item.guarantee ?? 0} month</p>
+                          <span>₼{item.price ?? 0}</span>    
                         </Link>
                       ))}
                     </ul>
@@ -107,11 +107,11 @@ const handleSortChange = (key, value) => {
                     <ul className={styles.itemsBought}>
                       {itemsSeller.map((item) => (
                         <Link key={item.id} className={styles.item} to={"/product/" + item.id}>
-                          <p className={styles.boughtRate}>Bought {item.bought} times</p>
+                          <p className={styles.boughtRate}>Bought {item.bought ?? 0} times</p>
                           <img src={item.productImageUrl} alt={item.name} />
                           <p className={styles.name}>{item.name}</p>
-                          <p className={styles.guarantee}>{item.guarantee} month</p>
-                          <span>₼{item.price}</span>
+                          <p className={styles.guarantee}>{item.guarantee ?? 0} month</p>
+                          <span>₼{item.price ?? 0}</span>
                         </Link>
                       ))}
                     </ul>
