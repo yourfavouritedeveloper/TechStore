@@ -46,8 +46,9 @@ body {
 .image {
     width: 50rem;
     position: absolute;
-    left:-6rem;
-    top:5rem;
+    left:50%;
+    transform: translate(-50%,-50%);
+    top:50%;
 }
 
 .itemDescription {

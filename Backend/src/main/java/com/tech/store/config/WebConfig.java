@@ -19,7 +19,7 @@ public class WebConfig implements WebMvcConfigurer {
 
         registry.addMapping("/images/**")
                 .allowedOrigins("http://localhost:5173")
-                .allowedMethods("GET")
+                .allowedMethods("GET", "HEAD")
                 .allowCredentials(false);
 
     }
@@ -30,6 +30,7 @@ public class WebConfig implements WebMvcConfigurer {
                 .addResourceLocations("file:/app/product-videos/");
 
         registry.addResourceHandler("/images/**")
+                .addResourceLocations("file:images/")
                 .addResourceLocations("file:/app/uploads/");
     }
 }

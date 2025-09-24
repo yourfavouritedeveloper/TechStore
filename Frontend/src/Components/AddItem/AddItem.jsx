@@ -141,7 +141,7 @@ function AddItem({ highlight, setHighlight, username}) {
             category: formData.category.toUpperCase().replace(/\s+/g, "_"),
             properties: formData.properties || {},
             productImageUrl: formData.productImageUrl || "",
-            videoUrl: formData.videoUrl || "",
+            videoUrl: formData.videoUrl || null,
             account: accountSummary,
             bought: formData.bought ? parseInt(formData.bought) : 0,  
             rating: formData.rating ? parseFloat(formData.rating) : 0,
@@ -160,6 +160,8 @@ function AddItem({ highlight, setHighlight, username}) {
         console.error("❌ Error creating product:", err);
     }
 };
+
+
 
 
 
@@ -215,6 +217,19 @@ function AddItem({ highlight, setHighlight, username}) {
 
             console.log("✅ Image uploaded. URL:", uploadedUrl);
 
+              let accessible = false;
+                for (let i = 0; i < 5; i++) { 
+                    try {
+                        await axios.head(uploadedUrl);
+                        accessible = true;
+                        console.log("✅ Image is accessible on server:", uploadedUrl);
+                        break;
+                    } catch {
+                        console.warn(`⏳ Image not accessible yet, retrying... (${i + 1}/5)`);
+                        await new Promise(res => setTimeout(res, 500)); 
+                    }
+                }
+
             try {
                 await axios.head(uploadedUrl);
                 console.log("✅ Image is accessible on server:", uploadedUrl);
@@ -226,6 +241,8 @@ function AddItem({ highlight, setHighlight, username}) {
             console.error("❌ Error uploading image:", err);
         }
     };
+
+
 
 
 
