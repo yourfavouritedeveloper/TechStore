@@ -1,4 +1,4 @@
-import { useState,useEffect, useRef  } from "react";
+import { useState, useEffect, useRef } from "react";
 import styles from "./AddItem.module.css"
 import axios from "axios";
 import background from "../../assets/backgroundItem.mp4"
@@ -7,7 +7,7 @@ import Airpods from "../../assets/airpods.png"
 import Macbook from "../../assets/macbookPink.png"
 import { motion } from "framer-motion";
 
-function AddItem({highlight,setHighlight}) {
+function AddItem({ highlight, setHighlight }) {
 
     const fileInputRef = useRef(null);
     const imageInputRef = useRef(null);
@@ -16,12 +16,13 @@ function AddItem({highlight,setHighlight}) {
     const [item, setItem] = useState({});
     const [videoUrl, setVideoUrl] = useState("");
     const [imageUrl, setImageUrl] = useState("");
-    const [category, setCategory] = useState(""); 
+    const [category, setCategory] = useState("");
     const [buttonActive, setButtonActive] = useState(false);
     const [isDiscount, setIsDiscount] = useState(false);
     const [zoomed, setZoomed] = useState(false);
     const [newPage, setNewPage] = useState(false);
     const [lastPage, setLastPage] = useState(false);
+    const [rows, setRows] = useState([]);
 
     const categories = [
         "computer",
@@ -41,7 +42,7 @@ function AddItem({highlight,setHighlight}) {
         category: "",
         company: "",
         productImageUrl: "",
-        properties: {}, 
+        properties: {},
         weight: "",
         height: "",
         width: "",
@@ -51,9 +52,29 @@ function AddItem({highlight,setHighlight}) {
         guarantee: "",
         color: "",
         videoUrl: "",
-        };
+    };
 
-      const [formData, setFormData] = useState(initialFormData);
+
+    const addRow = () => {
+        setRows((prev) => [
+            ...prev,
+            { id: prev.length, key: "", value: "" }
+        ]);
+    };
+
+    const removeRow = () => {
+        setRows((prev) => prev.slice(0, -1));
+    };
+
+    const updateRow = (id, field, newValue) => {
+        setRows((prev) =>
+            prev.map((row) =>
+                row.id === id ? { ...row, [field]: newValue } : row
+            )
+        );
+    };
+
+    const [formData, setFormData] = useState(initialFormData);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -62,8 +83,8 @@ function AddItem({highlight,setHighlight}) {
 
     const handlePropertyChange = (key, value) => {
         setFormData((prev) => ({
-        ...prev,
-        properties: { ...prev.properties, [key]: value },
+            ...prev,
+            properties: { ...prev.properties, [key]: value },
         }));
     };
 
@@ -76,81 +97,81 @@ function AddItem({highlight,setHighlight}) {
 
 
     const handleImageChange = async (e) => {
-    const file = e.target.files[0];
-    if (!file) {
-        console.warn("⚠️ No file selected");
-        return;
-    }
-
-    console.log("📂 File selected:", file.name);
-    setVideoFile(file);
-
-    const formData = new FormData();
-    formData.append("file", file);
-
-    try {
-        console.log("⏳ Uploading file:", file.name);
-        const res = await axios.post(
-        "https://techstore-3fvk.onrender.com/api/v1/products/uploadProductImage",
-        formData,
-        { headers: { "Content-Type": "multipart/form-data" } }
-        );
-
-        const uploadedUrl = res.data.url;
-        setImageUrl(uploadedUrl);
-
-        console.log("✅ Image uploaded. URL:", uploadedUrl);
-
-        try {
-        await axios.head(uploadedUrl);
-        console.log("✅ Image is accessible on server:", uploadedUrl);
-        } catch {
-        console.warn("⚠️ Image uploaded, but not accessible yet:", uploadedUrl);
+        const file = e.target.files[0];
+        if (!file) {
+            console.warn("⚠️ No file selected");
+            return;
         }
 
-    } catch (err) {
-        console.error("❌ Error uploading image:", err);
-    }
+        console.log("📂 File selected:", file.name);
+        setVideoFile(file);
+
+        const formData = new FormData();
+        formData.append("file", file);
+
+        try {
+            console.log("⏳ Uploading file:", file.name);
+            const res = await axios.post(
+                "https://techstore-3fvk.onrender.com/api/v1/products/uploadProductImage",
+                formData,
+                { headers: { "Content-Type": "multipart/form-data" } }
+            );
+
+            const uploadedUrl = res.data.url;
+            setImageUrl(uploadedUrl);
+
+            console.log("✅ Image uploaded. URL:", uploadedUrl);
+
+            try {
+                await axios.head(uploadedUrl);
+                console.log("✅ Image is accessible on server:", uploadedUrl);
+            } catch {
+                console.warn("⚠️ Image uploaded, but not accessible yet:", uploadedUrl);
+            }
+
+        } catch (err) {
+            console.error("❌ Error uploading image:", err);
+        }
     };
 
 
 
     const handleVideoChange = async (e) => {
-    const file = e.target.files[0];
-    if (!file) {
-        console.warn("⚠️ No file selected");
-        return;
-    }
-
-    console.log("📂 File selected:", file.name);
-    setVideoFile(file);
-
-    const formData = new FormData();
-    formData.append("file", file);
-
-    try {
-        console.log("⏳ Uploading file:", file.name);
-        const res = await axios.post(
-        "https://techstore-3fvk.onrender.com/api/v1/products/uploadProductVideo",
-        formData,
-        { headers: { "Content-Type": "multipart/form-data" } }
-        );
-
-        const uploadedUrl = res.data.url;
-        setVideoUrl(uploadedUrl);
-
-        console.log("✅ Video uploaded. URL:", uploadedUrl);
-
-        try {
-        await axios.head(uploadedUrl);
-        console.log("✅ Video is accessible on server:", uploadedUrl);
-        } catch {
-        console.warn("⚠️ Video uploaded, but not accessible yet:", uploadedUrl);
+        const file = e.target.files[0];
+        if (!file) {
+            console.warn("⚠️ No file selected");
+            return;
         }
 
-    } catch (err) {
-        console.error("❌ Error uploading video:", err);
-    }
+        console.log("📂 File selected:", file.name);
+        setVideoFile(file);
+
+        const formData = new FormData();
+        formData.append("file", file);
+
+        try {
+            console.log("⏳ Uploading file:", file.name);
+            const res = await axios.post(
+                "https://techstore-3fvk.onrender.com/api/v1/products/uploadProductVideo",
+                formData,
+                { headers: { "Content-Type": "multipart/form-data" } }
+            );
+
+            const uploadedUrl = res.data.url;
+            setVideoUrl(uploadedUrl);
+
+            console.log("✅ Video uploaded. URL:", uploadedUrl);
+
+            try {
+                await axios.head(uploadedUrl);
+                console.log("✅ Video is accessible on server:", uploadedUrl);
+            } catch {
+                console.warn("⚠️ Video uploaded, but not accessible yet:", uploadedUrl);
+            }
+
+        } catch (err) {
+            console.error("❌ Error uploading video:", err);
+        }
     };
 
 
@@ -161,145 +182,148 @@ function AddItem({highlight,setHighlight}) {
 
 
 
-      const handleAddNow = () => {
-            if(lastPage) {
-                setLastPage(!lastPage);
-            }
-            else {
-                setButtonActive(!buttonActive); 
-                setTimeout(() => {
-                setHighlight(!highlight);
-                setNewPage(!newPage);
-                }, 800);
-            }
-
-        };
-
-        const onRight = () => {
+    const handleAddNow = () => {
+        if (lastPage) {
             setLastPage(!lastPage);
         }
-
-        const cancelClick = () => {
-                setButtonActive(!buttonActive); 
-                setTimeout(() => {
+        else {
+            setButtonActive(!buttonActive);
+            setTimeout(() => {
                 setHighlight(!highlight);
                 setNewPage(!newPage);
-                }, 800);   
-                setLastPage(!lastPage);   
-                setFormData(initialFormData);     
+            }, 800);
         }
+
+    };
+
+    const onRight = () => {
+        setLastPage(!lastPage);
+    }
+
+    const cancelClick = () => {
+        setButtonActive(!buttonActive);
+        setTimeout(() => {
+            setHighlight(!highlight);
+            setNewPage(!newPage);
+        }, 800);
+        setLastPage(!lastPage);
+        setFormData(initialFormData);
+    }
 
 
 
 
     return (<>
-    <div className={styles.container}>
-                {zoomed && <>
-                    <div className={styles.subContainer}>
-                        {imageUrl && <>
-                          <p className={styles.text}>Click on image to return</p>
-                          <img
-                                className={zoomed ? styles.zoomed : styles.normal}
-                                src={imageUrl}
-                                width="25%"
-                                style={{
-                                    marginTop: "1rem",
-                                    borderRadius: "1rem",
-                                    cursor: "pointer",
-                                    transition: "transform 0.3s ease-in-out",
-                                    transform: zoomed ? "scale(2)" : "scale(1)",
-                                }}
-                                onClick={() => setZoomed(!zoomed)}
-                            />
-                        </>}
-                    </div> 
-                </>}
+        <div className={styles.container}>
+            {zoomed && <>
+                <div className={styles.subContainer}>
+                    {imageUrl && <>
+                        <p className={styles.text}>Click on image to return</p>
+                        <img
+                            className={zoomed ? styles.zoomed : styles.normal}
+                            src={imageUrl}
+                            width="25%"
+                            style={{
+                                marginTop: "1rem",
+                                borderRadius: "1rem",
+                                cursor: "pointer",
+                                transition: "transform 0.3s ease-in-out",
+                                transform: zoomed ? "scale(2)" : "scale(1)",
+                            }}
+                            onClick={() => setZoomed(!zoomed)}
+                        />
+                    </>}
+                </div>
+            </>}
 
 
-                <div   className={styles.middle}  style={{
-                    width:"100%",
-                    left: buttonActive ? "-65%" : "0%" }}>
-                    <div className={styles.design}>
-                        <motion.div
-                                className={styles.box1}
-                                initial={{ rotate: -35, x: -200}}
-                                animate={{ rotate: -25, x: 0}}
-                                transition={{ duration: 1, ease: "easeOut" }}
-                            >
-                            <p className={styles.boxTitle}>Macbook Air</p>
-                            <p className={styles.priceTag}>Price:</p>
-                            <p className={styles.boxPrice}>2899₼/18 months</p>
-                            <p className={styles.guaranteeTag}>Guarantee:</p>
-                            <p className={styles.boxGuarantee}>24 months</p>                            
-                            <div className={styles.boxLine}></div>
-                            <div className={styles.boxLineGuarantee}></div>
-                            <img src={Macbook} alt="" />
-                        </motion.div>
-                        <motion.div className={styles.box2}
-                                initial={{ rotate: -22.5, x: -200}}
-                                animate={{ rotate: -12.5, x: 0}}
-                                transition={{ duration: 1, ease: "easeOut" }}>
-                            <p className={styles.boxTitle}>Airpods 3</p>
-                            <p className={styles.priceTag}>Price:</p>
-                            <p className={styles.boxPrice}>299₼/18 months</p>
-                            <p className={styles.guaranteeTag}>Guarantee:</p> 
-                            <p className={styles.boxGuarantee}>24 months</p>                            
-                            <div className={styles.boxLine}></div>   
-                            <div className={styles.boxLineGuarantee}></div>
-                            <img src={Airpods} alt="" />
-                        </motion.div>
-                        <motion.div className={styles.box3}
-                                initial={{ rotate: -10, x: -200}}
-                                animate={{ rotate: 0, x: 0}}
-                                transition={{ duration: 1, ease: "easeOut" }}>
-                            <p className={styles.boxTitle}>Iphone 16</p>
-                            <p className={styles.priceTag}>Price:</p>
-                            <p className={styles.boxPrice}>2399₼/12 months</p>
-                            <p className={styles.guaranteeTag}>Guarantee:</p>
-                            <p className={styles.boxGuarantee}>24 months</p>                            
-                            <div className={styles.boxLine}></div>
-                            <div className={styles.boxLineGuarantee}></div>                        
-                            <img src={Iphone} alt="" />
-                        </motion.div>
-                    </div>
-
-                    <motion.div className={styles.addItemContainer}
-                            initial={{x: "-45%",y : "-50%"}}
-                            animate={{x: "-50%",y : "-50%"}}
-                            transition={{ duration: 1, ease: "easeOut" }}
-                             style={{
-                                left: buttonActive ? "90%" : "83%"}}>
-                            <p className={styles.title}>
-                            {newPage ? ( lastPage ? "Property Overview" : "General Overview") : "Add a New Product"}
-                            </p>
-                            <p className={styles.subtitle}>
-                                {newPage ? ( lastPage ? "Add the essential product characteristics that describe its functionality and build." : "Provide a brief overview of the product, including its main features and general information." ) : 
-                                "Add your brand-new product here and make it shine. Pick a category, upload images or videos, and fill in all the details to showcase your product to the world. Once saved, it will be live and ready for customers to discover!"
-                                }</p>
-                            {newPage ? (
-                            <>
-                                <button className={styles.back} style={{right : lastPage ? "38%" : "46%"}} onClick={handleAddNow}>ᐸ</button>
-
-                                {lastPage ? (
-                                    <></>
-                                ) : (
-                                <button className={styles.next} onClick={onRight}>ᐳ</button>
-                                )}
-                            </>
-                            ) : (
-                            <button className={styles.addButton} onClick={handleAddNow}>Add now!</button>
-                            )}
-
+            <div className={styles.middle} style={{
+                width: "100%",
+                left: buttonActive ? "-65%" : "0%"
+            }}>
+                <div className={styles.design}>
+                    <motion.div
+                        className={styles.box1}
+                        initial={{ rotate: -35, x: -200 }}
+                        animate={{ rotate: -25, x: 0 }}
+                        transition={{ duration: 1, ease: "easeOut" }}
+                    >
+                        <p className={styles.boxTitle}>Macbook Air</p>
+                        <p className={styles.priceTag}>Price:</p>
+                        <p className={styles.boxPrice}>2899₼/18 months</p>
+                        <p className={styles.guaranteeTag}>Guarantee:</p>
+                        <p className={styles.boxGuarantee}>24 months</p>
+                        <div className={styles.boxLine}></div>
+                        <div className={styles.boxLineGuarantee}></div>
+                        <img src={Macbook} alt="" />
+                    </motion.div>
+                    <motion.div className={styles.box2}
+                        initial={{ rotate: -22.5, x: -200 }}
+                        animate={{ rotate: -12.5, x: 0 }}
+                        transition={{ duration: 1, ease: "easeOut" }}>
+                        <p className={styles.boxTitle}>Airpods 3</p>
+                        <p className={styles.priceTag}>Price:</p>
+                        <p className={styles.boxPrice}>299₼/18 months</p>
+                        <p className={styles.guaranteeTag}>Guarantee:</p>
+                        <p className={styles.boxGuarantee}>24 months</p>
+                        <div className={styles.boxLine}></div>
+                        <div className={styles.boxLineGuarantee}></div>
+                        <img src={Airpods} alt="" />
+                    </motion.div>
+                    <motion.div className={styles.box3}
+                        initial={{ rotate: -10, x: -200 }}
+                        animate={{ rotate: 0, x: 0 }}
+                        transition={{ duration: 1, ease: "easeOut" }}>
+                        <p className={styles.boxTitle}>Iphone 16</p>
+                        <p className={styles.priceTag}>Price:</p>
+                        <p className={styles.boxPrice}>2399₼/12 months</p>
+                        <p className={styles.guaranteeTag}>Guarantee:</p>
+                        <p className={styles.boxGuarantee}>24 months</p>
+                        <div className={styles.boxLine}></div>
+                        <div className={styles.boxLineGuarantee}></div>
+                        <img src={Iphone} alt="" />
                     </motion.div>
                 </div>
-                <div className={styles.right}
-                style={{right : lastPage ? "100%" : "0%"}}>
-                    <div className={styles.productForm}>
 
-                        <div className={styles.generalInfo}>
-                            <p className={styles.generalInfoTitle}>General Information</p>
-                            <p className={styles.productNameLabel}>Product Name</p>
-                            <input
+                <motion.div className={styles.addItemContainer}
+                    initial={{ x: "-45%", y: "-50%" }}
+                    animate={{ x: "-50%", y: "-50%" }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                    style={{
+                        left: buttonActive ? "90%" : "83%"
+                    }}>
+                    <p className={styles.title}>
+                        {newPage ? (lastPage ? "Property Overview" : "General Overview") : "Add a New Product"}
+                    </p>
+                    <p className={styles.subtitle}>
+                        {newPage ? (lastPage ? "Add the essential product characteristics that describe its functionality and build." : "Provide a brief overview of the product, including its main features and general information.") :
+                            "Add your brand-new product here and make it shine. Pick a category, upload images or videos, and fill in all the details to showcase your product to the world. Once saved, it will be live and ready for customers to discover!"
+                        }</p>
+                    {newPage ? (
+                        <>
+                            <button className={styles.back} style={{ right: lastPage ? "38%" : "46%" }} onClick={handleAddNow}>ᐸ</button>
+
+                            {lastPage ? (
+                                <></>
+                            ) : (
+                                <button className={styles.next} onClick={onRight}>ᐳ</button>
+                            )}
+                        </>
+                    ) : (
+                        <button className={styles.addButton} onClick={handleAddNow}>Add now!</button>
+                    )}
+
+                </motion.div>
+            </div>
+
+            <div className={styles.right}
+                style={{ right: lastPage ? "100%" : "0%" }}>
+                <div className={styles.productForm}>
+
+                    <div className={styles.generalInfo}>
+                        <p className={styles.generalInfoTitle}>General Information</p>
+                        <p className={styles.productNameLabel}>Product Name</p>
+                        <input
                             className={styles.productName}
                             type="text"
                             name="name"
@@ -307,24 +331,24 @@ function AddItem({highlight,setHighlight}) {
                             onChange={handleChange}
                             placeholder="Product Name"
                             required
-                            />
-                            <p className={styles.productDescriptionLabel}>Product Description</p>
-                            <textarea
+                        />
+                        <p className={styles.productDescriptionLabel}>Product Description</p>
+                        <textarea
                             name="description"
                             className={styles.productDescription}
                             value={formData.description}
                             onChange={handleChange}
                             placeholder="Description"
                             required
-                            />
-                        </div>
+                        />
+                    </div>
 
 
-                        <div className={styles.specifiedInfo}>
-                            <p className={styles.specifiedInfoTitle}>Specified Information</p>
-                            <p className={styles.productCompanyLabel}>Company</p>
+                    <div className={styles.specifiedInfo}>
+                        <p className={styles.specifiedInfoTitle}>Specified Information</p>
+                        <p className={styles.productCompanyLabel}>Company</p>
 
-                            <input
+                        <input
                             type="text"
                             name="company"
                             className={styles.productCompany}
@@ -332,10 +356,10 @@ function AddItem({highlight,setHighlight}) {
                             onChange={handleChange}
                             placeholder="Company"
                             required
-                            />
+                        />
 
-                            <p className={styles.productGuaranteeLabel}>Guarantee</p>
-                            <input
+                        <p className={styles.productGuaranteeLabel}>Guarantee</p>
+                        <input
                             type="text"
                             name="guarantee"
                             value={formData.guarantee}
@@ -343,34 +367,34 @@ function AddItem({highlight,setHighlight}) {
                             onChange={handleChange}
                             placeholder="Months"
                             pattern="^(100|[1-9][0-9]?)$|^$"
-                            />
+                        />
 
-                            <p className={styles.productColorLabel}>Color</p>
-                            <input
+                        <p className={styles.productColorLabel}>Color</p>
+                        <input
                             type="text"
                             name="color"
                             value={formData.color}
                             className={styles.productColor}
                             onChange={handleChange}
                             placeholder="Color"
-                            />
-                        </div>
+                        />
+                    </div>
 
 
 
 
-                        <div className={styles.priceInfo}>
+                    <div className={styles.priceInfo}>
                         <p className={styles.priceInfoTitle}>Pricing</p>
                         <p className={styles.productPriceLabel}>Price (₼)</p>
                         <input
-                        type="text"
-                        className={styles.productPrice}
-                        step="0.01"
-                        name="price"
-                        value={formData.price}
-                        onChange={handleChange}
-                        placeholder="Price"
-                        pattern="^\d*\.?\d*$|^$"
+                            type="text"
+                            className={styles.productPrice}
+                            step="0.01"
+                            name="price"
+                            value={formData.price}
+                            onChange={handleChange}
+                            placeholder="Price"
+                            pattern="^\d*\.?\d*$|^$"
                         />
 
                         <p className={styles.isDiscountLabel}>Discount?</p>
@@ -386,33 +410,33 @@ function AddItem({highlight,setHighlight}) {
                         </select>
                         {isDiscount && (
                             <>
-                        <p className={styles.discountLabel}>Discount Amount</p>
-                        <input
-                        type="text"
-                        name="discount"
-                        value={formData.discount}
-                        className={styles.productDiscount}
-                        onChange={handleChange}
-                        placeholder="Discount %"
-                        pattern="^(100|[1-9][0-9]?)$|^$"
-                        />
-                        </>
-                        )}
-                        </div>
-
-
-                        <div className={styles.videoSection}>
-                            <p className={styles.videoSectionTitle}>Product Media</p>
-                            <p className={styles.productImageLabel}>Product Image</p>
-                            <div className={styles.imageBox}>
-
-                                 {!imageUrl && (<>
-                                  <p className={styles.imageBoxTitle}>Upload a Image for Your Product</p>
-                                  <p className={styles.imageBoxSubtitle}>Broadly introduce your products with a detailed images</p>
-                                </>)
-                                }
-
+                                <p className={styles.discountLabel}>Discount Amount</p>
                                 <input
+                                    type="text"
+                                    name="discount"
+                                    value={formData.discount}
+                                    className={styles.productDiscount}
+                                    onChange={handleChange}
+                                    placeholder="Discount %"
+                                    pattern="^(100|[1-9][0-9]?)$|^$"
+                                />
+                            </>
+                        )}
+                    </div>
+
+
+                    <div className={styles.videoSection}>
+                        <p className={styles.videoSectionTitle}>Product Media</p>
+                        <p className={styles.productImageLabel}>Product Image</p>
+                        <div className={styles.imageBox}>
+
+                            {!imageUrl && (<>
+                                <p className={styles.imageBoxTitle}>Upload a Image for Your Product</p>
+                                <p className={styles.imageBoxSubtitle}>Broadly introduce your products with a detailed images</p>
+                            </>)
+                            }
+
+                            <input
                                 type="file"
                                 name="productImage"
                                 accept="image/*"
@@ -420,20 +444,20 @@ function AddItem({highlight,setHighlight}) {
                                 ref={imageInputRef}
                                 style={{ display: "none" }}
                                 className={styles.productImage}
-                                />
-                                <button
+                            />
+                            <button
                                 className={imageUrl ? styles.replaceButton : styles.uploadButton}
                                 onClick={() => {
                                     imageInputRef.current.click();
                                 }}
-                                >
+                            >
                                 {imageUrl ? "Replace Image" : "Upload Image"}
-                                </button>
+                            </button>
 
-                                {imageUrl && (
-                                    <>
-                                    
-                                        <img
+                            {imageUrl && (
+                                <>
+
+                                    <img
                                         className={zoomed ? styles.zoomed : styles.normal}
                                         src={imageUrl}
                                         width="25%"
@@ -444,153 +468,181 @@ function AddItem({highlight,setHighlight}) {
                                             transition: "transform 0.3s ease-in-out",
                                         }}
                                         onClick={() => setZoomed(!zoomed)}
-                                        />
-                                    
-                                    </>
-                                    )}
-                            </div>
+                                    />
 
-                            <p className={styles.productVideoLabel}>Product Video</p>
-                            <div className={styles.videoBox}>
-                                {!videoUrl && (<>
-                                  <p className={styles.videoBoxTitle}>Upload a Video for Your Product</p>
-                                  <p className={styles.videoBoxSubtitle}>Broadly introduce your products with a short, descriptive videos</p>
-                                </>)
-                                }
-                              
-                                <input
+                                </>
+                            )}
+                        </div>
+
+                        <p className={styles.productVideoLabel}>Product Video</p>
+                        <div className={styles.videoBox}>
+                            {!videoUrl && (<>
+                                <p className={styles.videoBoxTitle}>Upload a Video for Your Product</p>
+                                <p className={styles.videoBoxSubtitle}>Broadly introduce your products with a short, descriptive videos</p>
+                            </>)
+                            }
+
+                            <input
                                 type="file"
                                 accept="video/*"
                                 onChange={handleVideoChange}
                                 ref={fileInputRef}
                                 style={{ display: "none" }}
-                                />
-                        
-                                <button
+                            />
+
+                            <button
                                 className={videoUrl ? styles.replaceButton : styles.uploadButton}
                                 onClick={() => {
                                     fileInputRef.current.click();
                                 }}
-                                >
+                            >
                                 {videoUrl ? "Replace Video" : "Upload Video"}
-                                </button>
+                            </button>
 
-                                {videoUrl && (
-                                        <video
-                                        src={videoUrl}
-                                        controls
-                                        width="100%"
-                                        style={{ marginTop: "1rem", borderRadius: "1rem" }}
-                                        />
-                                    )}
-                            </div>
-
-
+                            {videoUrl && (
+                                <video
+                                    src={videoUrl}
+                                    controls
+                                    width="100%"
+                                    style={{ marginTop: "1rem", borderRadius: "1rem" }}
+                                />
+                            )}
                         </div>
 
-                        <div className={styles.categoryContainer}>
-                            <p className={styles.categoryContainerTitle}>Category</p>
-                                <select
-                                id="category"
-                                value={category}
-                                onChange={(e) => setCategory(e.target.value)}
-                                >
-                                <option value="">Select a category</option>
-                                {categories.map((cat) => (
-                                    <option key={cat} value={cat}>
-                                    {cat.charAt(0).toUpperCase() + cat.slice(1)}
-                                    </option>
-                                ))}
-                                </select>
 
-                                {category && (
-                                <p>
-                                    You selected: {category}
-                                </p>
-                                )}
-                            </div>
-
-
-
-                     
                     </div>
-   
+
+                    <div className={styles.categoryContainer}>
+                        <p className={styles.categoryContainerTitle}>Category</p>
+                        <select
+                            id="category"
+                            value={category}
+                            onChange={(e) => setCategory(e.target.value)}
+                        >
+                            <option value="">Select a category</option>
+                            {categories.map((cat) => (
+                                <option key={cat} value={cat}>
+                                    {cat.charAt(0).toUpperCase() + cat.slice(1)}
+                                </option>
+                            ))}
+                        </select>
+
+                        {category && (
+                            <p>
+                                You selected: {category}
+                            </p>
+                        )}
+                    </div>
+
+
 
 
                 </div>
-                <div className={styles.last}>
+
+
+
+            </div>
+            <div className={styles.last}>
+                <div className={styles.productForm}>
                     <div className={styles.properties}>
-                         <p className={styles.propertiesTitle}>Properties</p>       
+                        <p className={styles.propertiesTitle}>Properties</p>
+                        <p className={styles.propertyLabel}>Property</p>
+
+                        <ul>
+                            {rows.map((row) => (
+                                <li className={styles.property} key={row.id}>
+                                    <input
+                                        className={styles.key}
+                                        type="text"
+                                        placeholder="Key"
+                                        value={row.key}
+                                        onChange={(e) => updateRow(row.id, "key", e.target.value)}
+                                    />
+                                    <input
+                                        className={styles.value}
+                                        type="text"
+                                        placeholder="Value"
+                                        value={row.value}
+                                        onChange={(e) => updateRow(row.id, "value", e.target.value)}
+                                    />
+                                </li>
+                            ))}
+                        </ul>
+
+                        <button className={styles.add} onClick={addRow}>+</button>
+                        <button className={styles.remove} onClick={removeRow}>-</button>
+
                     </div>
                     <div className={styles.measurements}>
-                       <p className={styles.measurementsTitle}>Measurements</p>
-                       <p className={styles.weightLabel}>Weight</p>
-                       <input
-                        type="text"
-                        step="0.01"
-                        name="weight"
-                        className={styles.productWeight}
-                        value={formData.weight}
-                        onChange={handleChange}
-                        placeholder="Weight"
-                        pattern="^\d*\.?\d*$|^$"
+                        <p className={styles.measurementsTitle}>Measurements</p>
+                        <p className={styles.weightLabel}>Weight</p>
+                        <input
+                            type="text"
+                            step="0.01"
+                            name="weight"
+                            className={styles.productWeight}
+                            value={formData.weight}
+                            onChange={handleChange}
+                            placeholder="Weight"
+                            pattern="^\d*\.?\d*$|^$"
                         />
 
                         <p className={styles.heightLabel}>Height</p>
                         <input
-                        type="text"
-                        step="0.01"
-                        name="height"
-                        value={formData.height}
-                        className={styles.productHeight}
-                        onChange={handleChange}
-                        placeholder="Height"
-                        pattern="^\d*\.?\d*$|^$"
+                            type="text"
+                            step="0.01"
+                            name="height"
+                            value={formData.height}
+                            className={styles.productHeight}
+                            onChange={handleChange}
+                            placeholder="Height"
+                            pattern="^\d*\.?\d*$|^$"
 
                         />
 
                         <p className={styles.widthLabel}>Width</p>
                         <input
-                        type="text"
-                        step="0.01"
-                        name="width"
-                        value={formData.width}
-                        className={styles.productWidth}
-                        onChange={handleChange}
-                        placeholder="Width"
-                        pattern="^\d*\.?\d*$|^$"
+                            type="text"
+                            step="0.01"
+                            name="width"
+                            value={formData.width}
+                            className={styles.productWidth}
+                            onChange={handleChange}
+                            placeholder="Width"
+                            pattern="^\d*\.?\d*$|^$"
                         />
 
                         <p className={styles.volumeLabel}>Volume</p>
                         <input
-                        type="text"
-                        step="0.01"
-                        name="volume"
-                        value={formData.volume}
-                        className={styles.productVolume}
-                        onChange={handleChange}
-                        placeholder="Volume"
-                        pattern="^\d*\.?\d*$|^$"
+                            type="text"
+                            step="0.01"
+                            name="volume"
+                            value={formData.volume}
+                            className={styles.productVolume}
+                            onChange={handleChange}
+                            placeholder="Volume"
+                            pattern="^\d*\.?\d*$|^$"
                         />
 
                         <p className={styles.amountLabel}>Amount</p>
                         <input
-                        type="number"
-                        name="amount"
-                        value={formData.amount}
-                        className={styles.productAmount}
-                        onChange={handleChange}
-                        placeholder="Amount"
-                        required
+                            type="number"
+                            name="amount"
+                            value={formData.amount}
+                            className={styles.productAmount}
+                            onChange={handleChange}
+                            placeholder="Amount"
+                            required
                         />
                     </div>
-                    <button className={styles.submit}>Submit</button>
-                    <button className={styles.cancel} onClick={cancelClick}>Cancel</button>
-
-
+                    <div className={styles.submittion}>
+                        <button className={styles.submit}>Submit</button>
+                        <button className={styles.cancel} onClick={cancelClick}>Cancel</button>
+                    </div>
 
                 </div>
-    </div>
+            </div>
+        </div>
     </>);
 }
 

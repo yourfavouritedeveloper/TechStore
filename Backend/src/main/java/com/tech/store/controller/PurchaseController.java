@@ -68,5 +68,4 @@ public class PurchaseController {
     public String removePurchase(@PathVariable Long id) {
         return purchaseService.remove(id);
     }
-
 }
