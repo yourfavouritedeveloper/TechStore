@@ -16,7 +16,7 @@ function AddItem({ highlight, setHighlight }) {
     const [item, setItem] = useState({});
     const [videoUrl, setVideoUrl] = useState("");
     const [imageUrl, setImageUrl] = useState("");
-    const [category, setCategory] = useState("");
+    const [categor, setCategor] = useState("");
     const [buttonActive, setButtonActive] = useState(false);
     const [isDiscount, setIsDiscount] = useState(false);
     const [zoomed, setZoomed] = useState(false);
@@ -54,6 +54,8 @@ function AddItem({ highlight, setHighlight }) {
         videoUrl: "",
     };
 
+        const [formData, setFormData] = useState(initialFormData);
+
 
     const addRow = () => {
         setRows((prev) => [
@@ -66,15 +68,37 @@ function AddItem({ highlight, setHighlight }) {
         setRows((prev) => prev.slice(0, -1));
     };
 
+
+
     const updateRow = (id, field, newValue) => {
         setRows((prev) =>
             prev.map((row) =>
                 row.id === id ? { ...row, [field]: newValue } : row
             )
         );
+
+        setFormData((prev) => {
+        const updatedRows = rows.map((row) =>
+        row.id === id ? { ...row, [field]: newValue } : row
+        );
+
+        const newProperties = updatedRows.reduce((acc, row) => {
+        if (row.key.trim() !== "") {
+            acc[row.key] = row.value;
+        }
+        return acc;
+        }, {});
+
+        return {
+        ...prev,
+        properties: newProperties,
+        };
+    });
     };
 
-    const [formData, setFormData] = useState(initialFormData);
+
+
+
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -120,6 +144,11 @@ function AddItem({ highlight, setHighlight }) {
             const uploadedUrl = res.data.url;
             setImageUrl(uploadedUrl);
 
+            setFormData((prev) => ({
+            ...prev,
+            productImage: uploadedUrl, 
+            }));
+
             console.log("✅ Image uploaded. URL:", uploadedUrl);
 
             try {
@@ -160,6 +189,11 @@ function AddItem({ highlight, setHighlight }) {
             const uploadedUrl = res.data.url;
             setVideoUrl(uploadedUrl);
 
+                setFormData((prev) => ({
+                ...prev,
+                videoUrl: uploadedUrl, 
+                }));
+
             console.log("✅ Video uploaded. URL:", uploadedUrl);
 
             try {
@@ -174,6 +208,10 @@ function AddItem({ highlight, setHighlight }) {
         }
     };
 
+
+    useEffect(() => {
+    console.log("🔑 Current category:", formData.category);
+    }, [formData.category]);
 
 
 
@@ -516,8 +554,16 @@ function AddItem({ highlight, setHighlight }) {
                         <p className={styles.categoryContainerTitle}>Category</p>
                         <select
                             id="category"
-                            value={category}
-                            onChange={(e) => setCategory(e.target.value)}
+                            value={categor}
+                            onChange={
+                                (e) => {
+                                    const normalized = e.target.value.toUpperCase().replace(/\s+/g, "_");
+                                    setCategor(normalized);
+                                    setFormData((prev) => ({
+                                    ...prev,
+                                    category: normalized, 
+                                    }));
+                                }}
                         >
                             <option value="">Select a category</option>
                             {categories.map((cat) => (
@@ -527,11 +573,6 @@ function AddItem({ highlight, setHighlight }) {
                             ))}
                         </select>
 
-                        {category && (
-                            <p>
-                                You selected: {category}
-                            </p>
-                        )}
                     </div>
 
 
@@ -569,8 +610,8 @@ function AddItem({ highlight, setHighlight }) {
                             ))}
                         </ul>
 
-                        <button className={styles.add} onClick={addRow}>+</button>
-                        <button className={styles.remove} onClick={removeRow}>-</button>
+                        <button className={styles.add} onClick={addRow}>+ Add a new Property</button>
+                        <button className={styles.remove} onClick={removeRow}>- Remove the Property</button>
 
                     </div>
                     <div className={styles.measurements}>
