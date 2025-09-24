@@ -7,10 +7,10 @@
 
 .subContainer {
     position: absolute;
-    top: 0;          
+    top: 0;
     left: 0;
     right: 0;
-    bottom: 0;       
+    bottom: 0;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.349);
     z-index: 5;
@@ -20,7 +20,7 @@
 .subContainer .zoomed {
     width: 13rem;
     position: relative;
-    top:35%;
+    top: 35%;
     transform: translate(-50%, -50%);
     background-color: white;
     transition: all 0.3s ease;
@@ -28,12 +28,12 @@
 
 .subContainer .text {
     position: absolute;
-    top:90%;
+    top: 90%;
     background-color: white;
     padding: 0.5rem;
     border-radius: 1rem;
-    left:50%;
-    font-size: clamp(0rem,1.7rem,10rem);
+    left: 50%;
+    font-size: clamp(0rem, 1.7rem, 10rem);
     z-index: 10;
     transform: translate(-50%, -50%);
     transition: all 0.3s ease;
@@ -47,12 +47,12 @@
 
 .middle {
     position: absolute;
-    left:0%;
+    left: 0%;
     width: 40%;
     height: 100%;
-    background: linear-gradient(135deg,  #ae56f1, #380c5a,#150229);
-    overflow: hidden; 
-    transition: all 1s ease;  
+    background: linear-gradient(135deg, #ae56f1, #380c5a, #150229);
+    overflow: hidden;
+    transition: all 1s ease;
     z-index: 2;
 }
 
@@ -68,7 +68,7 @@
 .middle .design .box3 {
     background-color: white;
     width: 20rem;
-    height: 24rem; 
+    height: 24rem;
     position: absolute;
     border-radius: 3.2rem;
     overflow: hidden;
@@ -80,8 +80,8 @@
 
 
 .middle .design .box1 {
-    top: 34%;        
-    left: 12%; 
+    top: 34%;
+    left: 12%;
     transform: rotate(-25deg);
 
 
@@ -100,10 +100,10 @@
 
 }
 
-.middle .design  img{
+.middle .design img {
     position: relative;
-    top:8rem;
-    left:-10%;
+    top: 8rem;
+    left: -10%;
     width: 120%;
 }
 
@@ -199,11 +199,11 @@
 
 .middle .addItemContainer {
     position: absolute;
-    top: 50%;    
-    left:83%;   
+    top: 50%;
+    left: 83%;
     transform: translate(-50%, -50%);
-    text-align: center;   
-    width: 70%;  
+    text-align: center;
+    width: 70%;
 
 
 }
@@ -211,11 +211,11 @@
 .middle .addItemContainer .title {
     font-size: clamp(2rem, 6rem, 10rem);
     line-height: 0.85;
-    top:-0.5rem;
-    position:relative;
-    width: 60%; 
-    left: 2%; 
-    text-align: right;   
+    top: -0.5rem;
+    position: relative;
+    width: 60%;
+    left: 2%;
+    text-align: right;
     letter-spacing: -0.02em;
     font-family: "PoppinsSemiBold";
     color: white;
@@ -226,11 +226,11 @@
 .middle .addItemContainer .subtitle {
     font-size: clamp(1rem, 1.17rem, 2rem);
     line-height: 1.2;
-    top:0.3rem;
-    position:relative;
+    top: 0.3rem;
+    position: relative;
     width: 47%;
     left: 15%;
-    text-align: right;   
+    text-align: right;
     letter-spacing: -0.05em;
     font-family: "PoppinsLight";
     color: white;
@@ -239,97 +239,97 @@
 }
 
 .middle .addItemContainer .addButton {
-    border:none;
+    border: none;
     background-color: white;
     border-radius: 1.3rem;
     cursor: pointer;
-    position:absolute;
+    position: absolute;
     font-family: "PoppinsLight";
     padding: 0.9rem 3.3rem;
-    top:27rem;
+    top: 27rem;
     right: 38%;
     font-size: clamp(1rem, 1.6rem, 10rem);
     transition: all 0.3s ease;
-}     
+}
 
 .middle .addItemContainer .addButton:hover {
     background-color: #9b59b6;
-    color:white;
+    color: white;
     transform: scale(1.03);
 }
 
 
 .middle .addItemContainer .back {
-    border:none;
+    border: none;
     background-color: white;
     border-radius: 0.8rem;
     cursor: pointer;
-    position:absolute;
+    position: absolute;
     font-family: "PoppinsSemiBold";
     padding: 0.4rem 1.5rem;
-    top:32rem;
+    top: 32rem;
     right: 46%;
     font-size: clamp(1rem, 1.5rem, 10rem);
     transition: all 0.3s ease;
-}  
+}
 
 .middle .addItemContainer .next {
-    border:none;
+    border: none;
     background-color: white;
     border-radius: 0.8rem;
     cursor: pointer;
-    position:absolute;
+    position: absolute;
     font-family: "PoppinsSemiBold";
     padding: 0.4rem 1.5rem;
-    top:32rem;
+    top: 32rem;
     right: 38%;
     font-size: clamp(1rem, 1.5rem, 10rem);
     transition: all 0.3s ease;
-}  
+}
 
 
 
 .middle .addItemContainer .back:hover,
-.middle .addItemContainer .next:hover{
+.middle .addItemContainer .next:hover {
     background-color: #9b59b6;
-    color:white;
-     transform: scale(1.03);
-   
+    color: white;
+    transform: scale(1.03);
+
 }
 
 
 
 .addItemContainer {
     position: absolute;
-    top:10vw;
+    top: 10vw;
     height: 20rem;
     padding: 10rem 0rem;
     transition: all 1s ease;
 }
 
 .addItemContainer .title {
-    font-size: clamp(1rem,7rem,10rem);
+    font-size: clamp(1rem, 7rem, 10rem);
     text-align: left;
     line-height: 0.8;
     letter-spacing: -0.3rem;
     font-family: "PoppinsSemiBold";
     color: white;
     position: relative;
-    top:-13rem;
-    left:5%;
+    top: -13rem;
+    left: 5%;
     width: 90%;
 }
 
 .addItemContainer .subtitle {
-    font-size: clamp(1rem,1.5rem,10rem);
+    font-size: clamp(1rem, 1.5rem, 10rem);
     text-align: left;
     line-height: 0.9;
     font-family: "PoppinsLight";
     color: white;
     position: relative;
-    top:-10rem;
-    left:5%;
-    width: 80%;    
+    top: -10rem;
+    left: 5%;
+    width: 80%;
 }
 
 .right {
@@ -345,7 +345,7 @@
 .productForm {
     position: relative;
     width: 63rem;
-    top:50%;
+    top: 50%;
     transform: translate(0%, -50%);
     height: 47rem;
 
@@ -357,9 +357,9 @@
     background-color: rgb(255, 255, 255);
     width: 29rem;
     height: 17rem;
-    position:absolute;
-    top: 31%;    
-    left:25.5%; 
+    position: absolute;
+    top: 31%;
+    left: 25.5%;
     transform: translate(-50%, -50%);
     box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
     border-radius: 1rem;
@@ -368,23 +368,23 @@
 .generalInfo .generalInfoTitle {
     font-family: "PoppinsMedium";
     position: absolute;
-    left:1.2rem;
-    top:0rem;
-    font-size: clamp(1rem,1.3rem,10rem);
+    left: 1.2rem;
+    top: 0rem;
+    font-size: clamp(1rem, 1.3rem, 10rem);
 }
 
 
 
 .generalInfo .productName {
-    top: 28%;    
-    left:50%;
-    width: 86%; 
-    padding: 0.4rem 1rem; 
-    border-radius: 0.5rem; 
-    font-size: clamp(0rem,0.8rem,10rem);
+    top: 28%;
+    left: 50%;
+    width: 86%;
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: clamp(0rem, 0.8rem, 10rem);
     transform: translate(-50%, -50%);
     background-color: rgb(240, 240, 240);
-    color:rgb(26, 26, 26);
+    color: rgb(26, 26, 26);
     font-family: "PoppinsMedium";
 
 }
@@ -392,59 +392,59 @@
 
 
 .generalInfo .productNameLabel {
-    top: 21%;    
-    left:15%;
+    top: 21%;
+    left: 15%;
     position: absolute;
-    padding: 0.4rem 1rem; 
-    border-radius: 0.5rem; 
-    font-size: clamp(0rem,0.9rem,10rem);
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: clamp(0rem, 0.9rem, 10rem);
     font-family: "PoppinsMedium";
     transform: translate(-50%, -50%);
-    color:rgb(131, 131, 131);
+    color: rgb(131, 131, 131);
 }
 
 .generalInfo .productDescription {
-    position:absolute;
-    top: 74%;    
-    left:50%;
+    position: absolute;
+    top: 74%;
+    left: 50%;
     border: none;
-    width: 86%; 
-    padding: 0.4rem 1rem; 
+    width: 86%;
+    padding: 0.4rem 1rem;
     padding-bottom: 4rem;
-    border-radius: 0.5rem; 
-    font-size: clamp(0rem,0.8rem,10rem);
+    border-radius: 0.5rem;
+    font-size: clamp(0rem, 0.8rem, 10rem);
     transform: translate(-50%, -50%);
     background-color: rgb(240, 240, 240);
-    color:rgb(26, 26, 26);
-    resize: none;   
+    color: rgb(26, 26, 26);
+    resize: none;
     font-family: "PoppinsRegular";
 }
 
 .generalInfo .productDescriptionLabel {
-    top: 44%;    
-    left:18.8%;
+    top: 44%;
+    left: 18.8%;
     position: absolute;
-    padding: 0.4rem 1rem; 
-    border-radius: 0.5rem; 
-    font-size: clamp(0rem,0.9rem,10rem);
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: clamp(0rem, 0.9rem, 10rem);
     font-family: "PoppinsMedium";
     transform: translate(-50%, -50%);
-    color:rgb(131, 131, 131);
+    color: rgb(131, 131, 131);
 }
 
 input::placeholder {
-    color:rgb(105, 105, 105);
+    color: rgb(105, 105, 105);
     font-family: "PoppinsRegular";
 }
 
 textarea:focus {
-  outline: none;       
-  border: none;         
+    outline: none;
+    border: none;
 }
 
 select:focus {
-   outline: none;       
-  border: none;    
+    outline: none;
+    border: none;
 }
 
 
@@ -455,101 +455,101 @@ select:focus {
     background-color: rgb(255, 255, 255);
     width: 29rem;
     height: 8rem;
-    position:absolute;
-    top: 58.8%;    
-    left:25.5%; 
+    position: absolute;
+    top: 58.8%;
+    left: 25.5%;
     transform: translate(-50%, -50%);
     box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
     border-radius: 1rem;
 }
 
 .specifiedInfo .specifiedInfoTitle {
-     font-family: "PoppinsMedium";
+    font-family: "PoppinsMedium";
     position: absolute;
-    left:1.2rem;
-    top:-0.3rem;
-    font-size: clamp(1rem,1.3rem,10rem);   
+    left: 1.2rem;
+    top: -0.3rem;
+    font-size: clamp(1rem, 1.3rem, 10rem);
 }
 
 
 .specifiedInfo .productCompanyLabel {
-    top: 37%;    
-    left:11.5%;
+    top: 37%;
+    left: 11.5%;
     position: absolute;
-    padding: 0.4rem 1rem; 
-    border-radius: 0.5rem; 
-    font-size: clamp(0rem,0.9rem,10rem);
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: clamp(0rem, 0.9rem, 10rem);
     font-family: "PoppinsMedium";
     transform: translate(-50%, -50%);
-    color:rgb(131, 131, 131);
+    color: rgb(131, 131, 131);
 }
 
 .specifiedInfo .productCompany {
-    top: 52%;    
-    left:19.5%;
-    width: 25%; 
-    padding: 0.4rem 1rem; 
-    border-radius: 0.5rem; 
-    font-size: clamp(0rem,0.8rem,10rem);
+    top: 52%;
+    left: 19.5%;
+    width: 25%;
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: clamp(0rem, 0.8rem, 10rem);
     transform: translate(-50%, -50%);
     background-color: rgb(240, 240, 240);
-    color:rgb(26, 26, 26);
+    color: rgb(26, 26, 26);
     font-family: "PoppinsMedium";
 }
 
 .specifiedInfo .productGuaranteeLabel {
-    top: 37%;    
-    left:48.6%;
+    top: 37%;
+    left: 48.6%;
     position: absolute;
-    padding: 0.4rem 1rem; 
-    border-radius: 0.5rem; 
-    font-size: clamp(0rem,0.9rem,10rem);
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: clamp(0rem, 0.9rem, 10rem);
     font-family: "PoppinsMedium";
     transform: translate(-50%, -50%);
-    color:rgb(131, 131, 131);
+    color: rgb(131, 131, 131);
 }
 
 .specifiedInfo .productGuarantee {
-    top: 52%;    
-    left:51%;
-    width: 15%; 
-    padding: 0.4rem 1rem; 
-    border-radius: 0.5rem; 
-    font-size: clamp(0rem,0.8rem,10rem);
+    top: 52%;
+    left: 51%;
+    width: 15%;
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: clamp(0rem, 0.8rem, 10rem);
     transform: translate(-50%, -50%);
     background-color: rgb(240, 240, 240);
-    color:rgb(26, 26, 26);
+    color: rgb(26, 26, 26);
     font-family: "PoppinsMedium";
 }
 
 
 .productGuarantee:invalid {
-  border: 2px solid red;
+    border: 2px solid red;
 }
 
 
 .specifiedInfo .productColorLabel {
-    top: 37%;    
-    left:71%;
+    top: 37%;
+    left: 71%;
     position: absolute;
-    padding: 0.4rem 1rem; 
-    border-radius: 0.5rem; 
-    font-size: clamp(0rem,0.9rem,10rem);
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: clamp(0rem, 0.9rem, 10rem);
     font-family: "PoppinsMedium";
     transform: translate(-50%, -50%);
-    color:rgb(131, 131, 131);
+    color: rgb(131, 131, 131);
 }
 
 .specifiedInfo .productColor {
-    top: 52%;    
-    left:81.5%;
-    width: 23%; 
-    padding: 0.4rem 1rem; 
-    border-radius: 0.5rem; 
-    font-size: clamp(0rem,0.8rem,10rem);
+    top: 52%;
+    left: 81.5%;
+    width: 23%;
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: clamp(0rem, 0.8rem, 10rem);
     transform: translate(-50%, -50%);
     background-color: rgb(240, 240, 240);
-    color:rgb(26, 26, 26);
+    color: rgb(26, 26, 26);
     font-family: "PoppinsMedium";
 }
 
@@ -561,9 +561,9 @@ select:focus {
     background-color: rgb(255, 255, 255);
     width: 29rem;
     height: 13rem;
-    position:absolute;
-    top: 82.5%;    
-    left:25.5%; 
+    position: absolute;
+    top: 82.5%;
+    left: 25.5%;
     transform: translate(-50%, -50%);
     box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
     border-radius: 1rem;
@@ -573,21 +573,21 @@ select:focus {
 .priceInfo .priceInfoTitle {
     font-family: "PoppinsMedium";
     position: absolute;
-    left:1.2rem;
-    top:0rem;
-    font-size: clamp(1rem,1.3rem,10rem);
+    left: 1.2rem;
+    top: 0rem;
+    font-size: clamp(1rem, 1.3rem, 10rem);
 }
 
 .priceInfo .productPrice {
-    top: 35%;    
-    left:50%;
-    width: 86%; 
-    padding: 0.4rem 1rem; 
-    border-radius: 0.5rem; 
-    font-size: clamp(0rem,0.8rem,10rem);
+    top: 35%;
+    left: 50%;
+    width: 86%;
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: clamp(0rem, 0.8rem, 10rem);
     transform: translate(-50%, -50%);
     background-color: rgb(240, 240, 240);
-    color:rgb(26, 26, 26);
+    color: rgb(26, 26, 26);
     font-family: "PoppinsMedium";
 
 }
@@ -597,89 +597,89 @@ select:focus {
 
 
 .productPrice:invalid {
-  border: 2px solid red;
+    border: 2px solid red;
 }
 
 .priceInfo .productPriceLabel {
-    top: 26%;    
-    left:10.8%;
+    top: 26%;
+    left: 10.8%;
     position: absolute;
-    padding: 0.4rem 1rem; 
-    border-radius: 0.5rem; 
-    font-size: clamp(0rem,0.9rem,10rem);
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: clamp(0rem, 0.9rem, 10rem);
     font-family: "PoppinsMedium";
     transform: translate(-50%, -50%);
-    color:rgb(131, 131, 131);
+    color: rgb(131, 131, 131);
 }
 
 .priceInfo .isDiscountLabel {
-    top: 61%;    
-    left:11.4%;
+    top: 61%;
+    left: 11.4%;
     position: absolute;
-    padding: 0.4rem 1rem; 
-    border-radius: 0.5rem; 
-    font-size: clamp(0rem,0.9rem,10rem);
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: clamp(0rem, 0.9rem, 10rem);
     font-family: "PoppinsMedium";
     transform: translate(-50%, -50%);
-    color:rgb(131, 131, 131);
+    color: rgb(131, 131, 131);
 }
 
 .priceInfo select {
-    position:absolute;
+    position: absolute;
     cursor: pointer;
-    top: 81%;    
-    left:24%;
+    top: 81%;
+    left: 24%;
     border: none;
-    width: 39.5%; 
-    padding: 0.4rem 1rem; 
-    border-radius: 0.5rem; 
-    font-size: clamp(0rem,0.8rem,10rem);
+    width: 39.5%;
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: clamp(0rem, 0.8rem, 10rem);
     transform: translate(-50%, -50%);
     background-color: rgb(240, 240, 240);
-    color:rgb(26, 26, 26);
-    resize: none;   
-    font-family: "PoppinsRegular";   
+    color: rgb(26, 26, 26);
+    resize: none;
+    font-family: "PoppinsRegular";
 }
 
 .priceInfo .discountLabel {
-    top: 61%;    
-    left:61.5%;
+    top: 61%;
+    left: 61.5%;
     position: absolute;
-    padding: 0.4rem 1rem; 
-    border-radius: 0.5rem; 
-    font-size: clamp(0rem,0.9rem,10rem);
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: clamp(0rem, 0.9rem, 10rem);
     font-family: "PoppinsMedium";
     transform: translate(-50%, -50%);
-    color:rgb(131, 131, 131);
+    color: rgb(131, 131, 131);
 }
 
 
 .priceInfo .productDiscount {
-    position:absolute;
-    top: 69.8%;    
-    left:72.5%;
+    position: absolute;
+    top: 69.8%;
+    left: 72.5%;
     border: none;
-    width: 41%; 
-    padding: 0.4rem 1rem; 
-    border-radius: 0.5rem; 
-    font-size: clamp(0rem,0.8rem,10rem);
+    width: 41%;
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: clamp(0rem, 0.8rem, 10rem);
     transform: translate(-50%, -50%);
     background-color: rgb(240, 240, 240);
-    color:rgb(26, 26, 26);
-    font-family: "PoppinsRegular";   
+    color: rgb(26, 26, 26);
+    font-family: "PoppinsRegular";
 }
 
 .productDiscount:invalid {
-  border: 2px solid red;
+    border: 2px solid red;
 }
 
 
 .videoSection {
-    top: 44.8%;    
-    left:70.5%;
+    top: 44.7%;
+    left: 73.5%;
     transform: translate(-50%, -50%);
-    width: 22rem;
-    height: 26rem;    
+    width: 25.5rem;
+    height: 26rem;
     position: absolute;
     padding: 2rem;
     background-color: rgb(255, 255, 255);
@@ -694,33 +694,33 @@ select:focus {
 .videoSection .videoSectionTitle {
     font-family: "PoppinsMedium";
     position: absolute;
-    left:1.2rem;
-    top:0rem;
-    font-size: clamp(1rem,1.3rem,10rem);    
+    left: 1.2rem;
+    top: 0rem;
+    font-size: clamp(1rem, 1.3rem, 10rem);
 }
 
 .videoSection .productImageLabel {
-    top: 13.7%;    
-    left:17%;
+    top: 13.7%;
+    left: 16.3%;
     position: absolute;
-    padding: 0.4rem 1rem; 
-    border-radius: 0.5rem; 
-    font-size: clamp(0rem,0.9rem,10rem);
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: clamp(0rem, 0.9rem, 10rem);
     font-family: "PoppinsMedium";
     transform: translate(-50%, -50%);
-    color:rgb(131, 131, 131);
+    color: rgb(131, 131, 131);
 }
 
 .videoSection .productImage {
-    top: 35%;    
-    left:50%;
-    width: 86%; 
-    padding: 0.4rem 1rem; 
-    border-radius: 0.5rem; 
-    font-size: clamp(0rem,0.8rem,10rem);
+    top: 35%;
+    left: 50%;
+    width: 86%;
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: clamp(0rem, 0.8rem, 10rem);
     transform: translate(-50%, -50%);
     background-color: rgb(240, 240, 240);
-    color:rgb(26, 26, 26);
+    color: rgb(26, 26, 26);
     font-family: "PoppinsMedium";
 
 }
@@ -728,60 +728,60 @@ select:focus {
 
 
 .videoSection .productVideoLabel {
-    top: 57%;    
-    left:17%;
+    top: 57%;
+    left: 16.3%;
     position: absolute;
-    padding: 0.4rem 1rem; 
-    border-radius: 0.5rem; 
-    font-size: clamp(0rem,0.9rem,10rem);
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: clamp(0rem, 0.9rem, 10rem);
     font-family: "PoppinsMedium";
     transform: translate(-50%, -50%);
-    color:rgb(131, 131, 131);
+    color: rgb(131, 131, 131);
 }
 
 
 
 .videoSection .imageBox {
-   top:36%;
-   width: 91%;
-   border: 2px dashed #9b59b6;
-   border-radius: 1rem;
-   left:50%;
-   transform: translate(-50%, -50%);
-   height: 33.5%;
-   position: absolute;
-   background-color: rgb(240, 240, 240);
+    top: 36%;
+    width: 91%;
+    border: 2px dashed #9b59b6;
+    border-radius: 1rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 33.5%;
+    position: absolute;
+    background-color: rgb(240, 240, 240);
 }
 
 .imageBox .imageBoxTitle {
     font-family: "PoppinsMedium";
     position: absolute;
     width: 100%;
-    top:1rem;
-    left:50%;
+    top: 1rem;
+    left: 50%;
     transform: translate(-50%, -50%);
-    font-size: clamp(1rem,1.3rem,10rem);
+    font-size: clamp(1rem, 1.3rem, 10rem);
 }
 
 .imageBox .imageBoxSubtitle {
     font-family: "PoppinsLight";
     position: absolute;
     width: 70%;
-    top:4rem;
+    top: 4rem;
     line-height: 1;
-    left:50%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    font-size: clamp(0rem,0.8rem,10rem);
+    font-size: clamp(0rem, 0.8rem, 10rem);
 }
 
 
 .imageBox .uploadButton {
-    top:78%;
-    left:50%;
+    top: 78%;
+    left: 50%;
     transform: translate(-50%, -50%);
     position: absolute;
     border: none;
-    background-color: #9b59b6; 
+    background-color: #9b59b6;
     color: rgb(255, 255, 255);
     border-radius: 0.5rem;
     padding: 0.5rem 1rem;
@@ -791,12 +791,12 @@ select:focus {
 }
 
 .imageBox .replaceButton {
-    top:87%;
-    left:50%;
+    top: 87%;
+    left: 50%;
     transform: translate(-50%, -50%);
     position: absolute;
     border: none;
-    background-color: #9b59b6; 
+    background-color: #9b59b6;
     color: rgb(255, 255, 255);
     border-radius: 0.5rem;
     padding: 0.5rem 1rem;
@@ -820,46 +820,46 @@ select:focus {
 
 
 .videoSection .videoBox {
-   top:79.5%;
-   width: 91%;
-   border: 2px dashed #9b59b6;
-   border-radius: 1rem;
-   left:50%;
-   transform: translate(-50%, -50%);
-   height: 33.5%;
-   position: absolute;
-   background-color: rgb(240, 240, 240);
+    top: 79.5%;
+    width: 91%;
+    border: 2px dashed #9b59b6;
+    border-radius: 1rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 33.5%;
+    position: absolute;
+    background-color: rgb(240, 240, 240);
 }
 
 .videoBox .videoBoxTitle {
     font-family: "PoppinsMedium";
     position: absolute;
     width: 100%;
-    top:1rem;
-    left:50%;
+    top: 1rem;
+    left: 50%;
     transform: translate(-50%, -50%);
-    font-size: clamp(1rem,1.3rem,10rem);
+    font-size: clamp(1rem, 1.3rem, 10rem);
 }
 
 .videoBox .videoBoxSubtitle {
     font-family: "PoppinsLight";
     position: absolute;
     width: 70%;
-    top:4rem;
+    top: 4rem;
     line-height: 1;
-    left:50%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    font-size: clamp(0rem,0.8rem,10rem);
+    font-size: clamp(0rem, 0.8rem, 10rem);
 }
 
 
 .videoBox .uploadButton {
-    top:78%;
-    left:50%;
+    top: 78%;
+    left: 50%;
     transform: translate(-50%, -50%);
     position: absolute;
     border: none;
-    background-color: #9b59b6; 
+    background-color: #9b59b6;
     color: rgb(255, 255, 255);
     border-radius: 0.5rem;
     padding: 0.5rem 1rem;
@@ -869,12 +869,12 @@ select:focus {
 }
 
 .videoBox .replaceButton {
-    top:87%;
-    left:50%;
+    top: 87%;
+    left: 50%;
     transform: translate(-50%, -50%);
     position: absolute;
     border: none;
-    background-color: #9b59b6; 
+    background-color: #9b59b6;
     color: rgb(255, 255, 255);
     border-radius: 0.5rem;
     padding: 0.5rem 1rem;
@@ -895,9 +895,9 @@ select:focus {
 
 
 .videoSection video {
-    width: 70%; 
+    width: 70%;
     border-radius: 0.5rem;
-    top:3.2rem;
+    top: 3.2rem;
     transform: translate(-50%, -50%);
     position: absolute;
 }
@@ -907,11 +907,11 @@ select:focus {
 
 
 .categoryContainer {
-    top: 87%;    
-    left:70.5%;
+    top: 87%;
+    left: 73.5%;
     transform: translate(-50%, -50%);
-    width: 22rem;
-    height: 4.5rem;    
+    width: 25.5rem;
+    height: 4.5rem;
     position: absolute;
     padding: 2rem;
     background-color: rgb(255, 255, 255);
@@ -926,27 +926,27 @@ select:focus {
 .categoryContainer .categoryContainerTitle {
     font-family: "PoppinsMedium";
     position: absolute;
-    left:1.2rem;
-    top:0rem;
-    font-size: clamp(1rem,1.3rem,10rem);       
+    left: 1.2rem;
+    top: 0rem;
+    font-size: clamp(1rem, 1.3rem, 10rem);
 }
 
 
 .categoryContainer select {
     position: absolute;
     top: 5.3rem;
-    left:50%;
+    left: 50%;
     width: 91%;
     white-space: nowrap;
     transform: translate(-50%, -50%);
     font-family: "PoppinsRegular";
     font-size: clamp(0rem, 0.8rem, 10rem);
     color: rgb(0, 0, 0);
-    cursor: pointer;  
-    border-radius: 0.7rem; 
-    border:none;
+    cursor: pointer;
+    border-radius: 0.7rem;
+    border: none;
     background-color: rgb(240, 240, 240);
-    padding: 0.5rem 1rem; 
+    padding: 0.5rem 1rem;
 }
 
 .categoryContainer option {
@@ -955,7 +955,7 @@ select:focus {
     transform: translate(-50%, -50%);
     font-family: "PoppinsRegular";
     color: rgb(0, 0, 0);
-    cursor: pointer;    
+    cursor: pointer;
 }
 
 
@@ -975,29 +975,131 @@ select:focus {
     background-color: rgb(255, 255, 255);
     width: 29rem;
     height: 38.9rem;
-    position:absolute;
-    top: 54.3%;    
-    left:25.5%; 
+    position: absolute;
+    top: 54.3%;
+    left: 25.5%;
     transform: translate(-50%, -50%);
     box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
     border-radius: 1rem;
+    overflow-y: visible;
 }
 
 .properties .propertiesTitle {
     font-family: "PoppinsMedium";
     position: absolute;
-    left:1.2rem;
-    top:0rem;
-    font-size: clamp(1rem,1.3rem,10rem);       
+    left: 1.2rem;
+    top: 0rem;
+    font-size: clamp(1rem, 1.3rem, 10rem);
+}
+
+.properties .propertyLabel {
+    top: 11%;
+    left: 11%;
+    position: absolute;
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: clamp(0rem, 0.9rem, 10rem);
+    font-family: "PoppinsMedium";
+    transform: translate(-50%, -50%);
+    color: rgb(131, 131, 131);
+}
+
+.properties .add {
+    top: 19%;
+    left: 50%;
+    position: absolute;
+    width: 92%;
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: clamp(0rem, 0.8rem, 10rem);
+    transform: translate(-50%, -50%);
+    background-color: rgb(240, 240, 240);
+    color: rgb(26, 26, 26);
+    font-family: "PoppinsMedium";
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.properties .remove {
+    top: 27%;
+    left: 50%;
+    position: absolute;
+    width: 92%;
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: clamp(0rem, 0.8rem, 10rem);
+    transform: translate(-50%, -50%);
+    background-color: rgb(240, 240, 240);
+    color: rgb(26, 26, 26);
+    font-family: "PoppinsMedium";
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.properties .remove:hover {
+    background-color: #9b59b6;
+    color: white;
+    transform: translate(-50%, -50%) scale(1.02);
+}
+
+.properties .add:hover {
+    background-color: #9b59b6;
+    color: white;
+    transform: translate(-50%, -50%) scale(1.02);
+}
+
+.properties ul {
+    position: relative;
+    top: 11rem;
+}
+
+.properties .property {
+    list-style: none;
+}
+
+.properties .key {
+    top: 29%;
+    left: 5.5%;
+    position: relative;
+    width: 33%;
+    list-style: none;
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: clamp(0rem, 0.8rem, 10rem);
+    transform: translate(-50%, -50%);
+    background-color: rgb(240, 240, 240);
+    color: rgb(26, 26, 26);
+    font-family: "PoppinsMedium";
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.properties .value {
+    top: 29%;
+    left: 25.5%;
+    position: relative;
+    width: 33%;
+    list-style: none;
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: clamp(0rem, 0.8rem, 10rem);
+    transform: translate(-50%, -50%);
+    background-color: rgb(240, 240, 240);
+    color: rgb(26, 26, 26);
+    font-family: "PoppinsMedium";
+    border: none;
+    transition: all 0.3s ease;
 }
 
 .last .measurements {
     background-color: rgb(255, 255, 255);
     width: 29rem;
     height: 27rem;
-    position:absolute;
-    top: 41.6%;    
-    left:73.5%; 
+    position: absolute;
+    top: 41.6%;
+    left: 73.5%;
     transform: translate(-50%, -50%);
     box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
     border-radius: 1rem;
@@ -1006,168 +1108,180 @@ select:focus {
 .measurements .measurementsTitle {
     font-family: "PoppinsMedium";
     position: absolute;
-    left:1.2rem;
-    top:0rem;
-    font-size: clamp(1rem,1.3rem,10rem);      
+    left: 1.2rem;
+    top: 0rem;
+    font-size: clamp(1rem, 1.3rem, 10rem);
 }
 
-.measurements .weightLabel{
-     top: 16%;    
-    left:9%;
+.measurements .weightLabel {
+    top: 16%;
+    left: 9%;
     position: absolute;
-    padding: 0.4rem 1rem; 
-    border-radius: 0.5rem; 
-    font-size: clamp(0rem,0.9rem,10rem);
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: clamp(0rem, 0.9rem, 10rem);
     font-family: "PoppinsMedium";
     transform: translate(-50%, -50%);
-    color:rgb(131, 131, 131);   
+    color: rgb(131, 131, 131);
 }
 
 
 
 
-.measurements .productWeight{
-     top: 20%;    
-    left:23.5%;
-    width: 34%; 
-    padding: 0.4rem 1rem; 
-    border-radius: 0.5rem; 
-    font-size: clamp(0rem,0.8rem,10rem);
+.measurements .productWeight {
+    top: 20%;
+    left: 23.5%;
+    width: 34%;
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: clamp(0rem, 0.8rem, 10rem);
     transform: translate(-50%, -50%);
     background-color: rgb(240, 240, 240);
-    color:rgb(26, 26, 26);
-    font-family: "PoppinsMedium";   
+    color: rgb(26, 26, 26);
+    font-family: "PoppinsMedium";
 }
 
 .productWeight:invalid {
-  border: 2px solid red;
+    border: 2px solid red;
 }
 
-.measurements .heightLabel{
-     top: 16%;    
-    left:61%;
+.measurements .heightLabel {
+    top: 16%;
+    left: 61%;
     position: absolute;
-    padding: 0.4rem 1rem; 
-    border-radius: 0.5rem; 
-    font-size: clamp(0rem,0.9rem,10rem);
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: clamp(0rem, 0.9rem, 10rem);
     font-family: "PoppinsMedium";
     transform: translate(-50%, -50%);
-    color:rgb(131, 131, 131);   
+    color: rgb(131, 131, 131);
 }
 
-.measurements .productHeight{
-     top: 20%;    
-    left:76%;
-    width: 34%; 
-    padding: 0.4rem 1rem; 
-    border-radius: 0.5rem; 
-    font-size: clamp(0rem,0.8rem,10rem);
+.measurements .productHeight {
+    top: 20%;
+    left: 76%;
+    width: 34%;
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: clamp(0rem, 0.8rem, 10rem);
     transform: translate(-50%, -50%);
     background-color: rgb(240, 240, 240);
-    color:rgb(26, 26, 26);
-    font-family: "PoppinsMedium";   
+    color: rgb(26, 26, 26);
+    font-family: "PoppinsMedium";
 }
 
 .productHeight:invalid {
-  border: 2px solid red;
+    border: 2px solid red;
 }
 
-.measurements .widthLabel{
-     top: 35%;    
-    left:8%;
+.measurements .widthLabel {
+    top: 35%;
+    left: 8%;
     position: absolute;
-    padding: 0.4rem 1rem; 
-    border-radius: 0.5rem; 
-    font-size: clamp(0rem,0.9rem,10rem);
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: clamp(0rem, 0.9rem, 10rem);
     font-family: "PoppinsMedium";
     transform: translate(-50%, -50%);
-    color:rgb(131, 131, 131);   
+    color: rgb(131, 131, 131);
 }
 
-.measurements .productWidth{
-     top: 39%;    
-    left:50%;
-    width: 86.5%; 
-    padding: 0.4rem 1rem; 
-    border-radius: 0.5rem; 
-    font-size: clamp(0rem,0.8rem,10rem);
+.measurements .productWidth {
+    top: 39%;
+    left: 50%;
+    width: 86.5%;
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: clamp(0rem, 0.8rem, 10rem);
     transform: translate(-50%, -50%);
     background-color: rgb(240, 240, 240);
-    color:rgb(26, 26, 26);
-    font-family: "PoppinsMedium";   
+    color: rgb(26, 26, 26);
+    font-family: "PoppinsMedium";
 }
 
 
 .productWidth:invalid {
-  border: 2px solid red;
+    border: 2px solid red;
 }
 
-.measurements .volumeLabel{
-     top: 54%;    
-    left:9.5%;
+.measurements .volumeLabel {
+    top: 54%;
+    left: 9.5%;
     position: absolute;
-    padding: 0.4rem 1rem; 
-    border-radius: 0.5rem; 
-    font-size: clamp(0rem,0.9rem,10rem);
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: clamp(0rem, 0.9rem, 10rem);
     font-family: "PoppinsMedium";
     transform: translate(-50%, -50%);
-    color:rgb(131, 131, 131);   
+    color: rgb(131, 131, 131);
 }
 
-.measurements .productVolume{
-     top: 58%;    
-    left:50%;
-    width: 86.5%; 
-    padding: 0.4rem 1rem; 
-    border-radius: 0.5rem; 
-    font-size: clamp(0rem,0.8rem,10rem);
+.measurements .productVolume {
+    top: 58%;
+    left: 50%;
+    width: 86.5%;
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: clamp(0rem, 0.8rem, 10rem);
     transform: translate(-50%, -50%);
     background-color: rgb(240, 240, 240);
-    color:rgb(26, 26, 26);
-    font-family: "PoppinsMedium";   
+    color: rgb(26, 26, 26);
+    font-family: "PoppinsMedium";
 }
 
 
 
-.measurements .amountLabel{
-     top: 73%;    
-    left:9.5%;
+.measurements .amountLabel {
+    top: 73%;
+    left: 9.5%;
     position: absolute;
-    padding: 0.4rem 1rem; 
-    border-radius: 0.5rem; 
-    font-size: clamp(0rem,0.9rem,10rem);
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: clamp(0rem, 0.9rem, 10rem);
     font-family: "PoppinsMedium";
     transform: translate(-50%, -50%);
-    color:rgb(131, 131, 131);   
+    color: rgb(131, 131, 131);
 }
 
-.measurements .productAmount{
-     top: 77%;    
-    left:50%;
-    width: 86.5%; 
-    padding: 0.4rem 1rem; 
-    border-radius: 0.5rem; 
-    font-size: clamp(0rem,0.8rem,10rem);
+.measurements .productAmount {
+    top: 77%;
+    left: 50%;
+    width: 86.5%;
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: clamp(0rem, 0.8rem, 10rem);
     transform: translate(-50%, -50%);
     background-color: rgb(240, 240, 240);
-    color:rgb(26, 26, 26);
-    font-family: "PoppinsMedium";   
+    color: rgb(26, 26, 26);
+    font-family: "PoppinsMedium";
 }
 
+
+.last .submittion {
+    background-color: rgb(255, 255, 255);
+    width: 29rem;
+    height: 11rem;
+    position: absolute;
+    top: 84%;
+    left: 73.5%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
+    border-radius: 1rem;
+}
 
 .last .submit {
     background-color: #9b59b6;
-    width: 29rem;
-    height: 5rem;
-    position:absolute;
-    top: 77.2%; 
-    border: none;   
-    left:73.5%; 
+    width: 92%;
+    height: 4rem;
+    position: absolute;
+    top: 27.2%;
+    border: none;
+    left: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
     border-radius: 1rem;
     color: white;
-    font-size: clamp(1rem,2rem,10rem);
+    font-size: clamp(1rem, 1.5rem, 10rem);
     font-family: "PoppinsRegular";
     transition: all 0.3s ease;
     cursor: pointer;
@@ -1175,30 +1289,30 @@ select:focus {
 
 .last .cancel {
     background-color: #ffffff;
-    width: 29rem;
-    height: 5rem;
-    position:absolute;
-    top: 90%; 
-    border:3px solid #e42434;   
-    left:73.5%; 
+    width: 92%;
+    height: 4rem;
+    position: absolute;
+    top: 73%;
+    border: 3px solid #e42434;
+    left: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
     border-radius: 1rem;
     color: #e42434;
-    font-size: clamp(1rem,2rem,10rem);
+    font-size: clamp(1rem, 1.5rem, 10rem);
     font-family: "PoppinsRegular";
     transition: all 0.3s ease;
     cursor: pointer;
 }
 
 .last .submit:hover {
-    border:3px solid #9b59b6;
+    border: 3px solid #9b59b6;
     background-color: white;
     color: #9b59b6;
 }
 
 .last .cancel:hover {
-    background-color: #e42434;  
+    background-color: #e42434;
     color: white;
     border: none;
 }
