@@ -541,7 +541,7 @@ const tickDatesSell = (() => {
                        {currentItems && currentItems.length > 0 ? (  
                         currentItems.map((item) => (
                           <Link key={item.id} className={styles.item} 
-                          to= {"/product/edit/" + item.id}
+                          to={`product/edit/${item.id}`}
                           style={{ backgroundColor: "rgba(247, 247, 247, 1)" }}>
                             <img src={item.productImageUrl} alt={item.name}/>
                             <div className={styles.info}>

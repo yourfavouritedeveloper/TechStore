@@ -1,11 +1,11 @@
 import { useState,useContext,useEffect } from "react";
-import AddItem from "../Components/AddItem/AddItem";
+import EditItem from "../Components/EditItem/EditItem";
 import Nav from "../Components/Nav/Nav";
 import { useParams,useNavigate } from "react-router-dom"; 
 import { AuthContext  } from "../Components/AuthContext";
 
 
-function AddProduct() {
+function EditProduct() {
 
     const [highlight, setHighlight] = useState(false)
     const { username } = useParams();
@@ -29,11 +29,11 @@ function AddProduct() {
 
     return(<>
     <title>Add a new Product</title>
-        <Nav highlight={highlight} setHighlight={setHighlight}/>
-        <AddItem highlight={highlight} setHighlight={setHighlight}  username={username}/>
+        <Nav highlight={true} setHighlight={setHighlight}/>
+        <EditItem highlight={highlight} setHighlight={setHighlight}  username={username}/>
     
     </>);
 }
 
 
-export default AddProduct;
+export default EditProduct;

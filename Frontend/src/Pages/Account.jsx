@@ -1,9 +1,10 @@
 import Nav from "../Components/Nav/Nav";
 import Profile from "../Components/Account/Account";
-import { useNavigate, useParams, useLocation } from "react-router-dom";
-import {useEffect,useState} from "react";
+import { useNavigate, useParams, useLocation,Navigate  } from "react-router-dom";
+import {useEffect,useState,useContext } from "react";
 import axios from "axios";
 import { usePurchase } from "../Components/Utils/PurchaseContext";
+import { AuthContext  } from "../Components/AuthContext";
 
 function Account() {
 
@@ -22,6 +23,21 @@ function Account() {
     const location = useLocation();
     const [edit, setEdit] = useState(location.state?.edit || false);
     const [account, setAccount] = useState([]);
+    const { account: checkAccount, loading  } = useContext(AuthContext);
+    const [ready, setReady] = useState(false);
+
+    useEffect(() => {
+      if (!loading) {
+        if (!checkAccount || checkAccount.username !== username) {
+          navigate("/login", { replace: true });
+        } else {
+          setReady(true); 
+        }
+      }
+    }, [loading, checkAccount, username, navigate]);
+
+
+
 
     useEffect(() => {
       if (location.state?.edit) {
