@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
     const PASSWORD = import.meta.env.VITE_API_PASSWORD;
 
 
-function EditItem({ highlight, setHighlight, username}) {
+function EditItem({ highlight, setHighlight, username,product}) {
 
     const fileInputRef = useRef(null);
     const imageInputRef = useRef(null);
@@ -24,7 +24,6 @@ function EditItem({ highlight, setHighlight, username}) {
     const [imageUrl, setImageUrl] = useState("");
     const [categor, setCategor] = useState("");
     const [buttonActive, setButtonActive] = useState(false);
-    const [isDiscount, setIsDiscount] = useState(false);
     const [zoomed, setZoomed] = useState(false);
     const [newPage, setNewPage] = useState(false);
     const [lastPage, setLastPage] = useState(false);
@@ -40,6 +39,9 @@ function EditItem({ highlight, setHighlight, username}) {
         "smart watch",
         "tablet",
     ];
+
+    const [initialProduct,setInitialProduct] = useState(product)
+    
 
     const initialFormData = {
         name: "",
@@ -60,10 +62,35 @@ function EditItem({ highlight, setHighlight, username}) {
         videoUrl: "",
         bought: "",
         rating: "",
-        searched: ""
+        searched: "",
     };
 
         const [formData, setFormData] = useState(initialFormData);
+
+
+        const [isDiscount, setIsDiscount] = useState(false);
+
+        useEffect(() => {
+        if (product) {
+            setFormData({
+            ...product,
+            category: product.category.toLowerCase().replace(/_/g, " "),
+            
+            });
+
+            const initialRows = Object.entries(product.properties || {}).map(([key, value], index) => ({
+            id: index,
+            key,
+            value,
+        }));
+        setIsDiscount(product.discount>0)
+        setRows(initialRows);
+
+        }
+        setCategor(formData.category);
+        }, [product]);
+
+
 
 
     const addRow = () => {
@@ -80,52 +107,29 @@ function EditItem({ highlight, setHighlight, username}) {
 
 
     const updateRow = (id, field, newValue) => {
-        setRows((prev) =>
-            prev.map((row) =>
-                row.id === id ? { ...row, [field]: newValue } : row
-            )
-        );
-
-        setFormData((prev) => {
-        const updatedRows = rows.map((row) =>
+    const updatedRows = rows.map((row) =>
         row.id === id ? { ...row, [field]: newValue } : row
-        );
+    );
+    setRows(updatedRows);
 
-        const newProperties = updatedRows.reduce((acc, row) => {
+    const newProperties = updatedRows.reduce((acc, row) => {
         if (row.key.trim() !== "") {
-            acc[row.key] = row.value;
+        acc[row.key] = row.value;
         }
         return acc;
-        }, {});
+    }, {});
 
-        return {
+    setFormData((prev) => ({
         ...prev,
         properties: newProperties,
-        };
-    });
+    }));
     };
 
 
  const submitClick = async () => {
     try {
-        const accountRes = await axios.get(
-            `https://techstore-3fvk.onrender.com/api/v1/accounts/username/${username}`,
-                    {
-                    auth: {
-                        username: USERNAME, 
-                        password: PASSWORD
-                    }
-                    }
-        );
-        const accountData = accountRes.data;
-        const accountSummary = {
-            id: accountData.id,
-            username: accountData.username,
-            customerName: accountData.customerName,
-            email: accountData.email,
-            profilePictureUrl: accountData.profilePictureUrl,
-            balance: accountData.balance
-        };
+
+
 
         const payload = {
             ...formData,
@@ -141,22 +145,21 @@ function EditItem({ highlight, setHighlight, username}) {
             properties: formData.properties || {},
             productImageUrl: formData.productImageUrl || "",
             videoUrl: formData.videoUrl || null,
-            account: accountSummary,
             bought: formData.bought ? parseInt(formData.bought) : 0,  
             rating: formData.rating ? parseFloat(formData.rating) : 0,
             searched: formData.searched ? parseInt(formData.searched) : 0
         };
 
 
-        const res = await axios.post(
-            "https://techstore-3fvk.onrender.com/api/v1/products/create",
+        const res = await axios.put(
+            `https://techstore-3fvk.onrender.com/api/v1/products/update`,
             payload
         );
-        console.log("✅ Product created:", res.data);
+        console.log("✅ Product updated:", res.data);
 
         navigate(`/account/${username}`);
     } catch (err) {
-        console.error("❌ Error creating product:", err);
+        console.error("❌ Error updating product:", err);
     }
 };
 
@@ -319,13 +322,7 @@ function EditItem({ highlight, setHighlight, username}) {
     }
 
     const cancelClick = () => {
-        setButtonActive(!buttonActive);
-        setTimeout(() => {
-            setHighlight(!highlight);
-            setNewPage(!newPage);
-        }, 800);
-        setLastPage(!lastPage);
-        setFormData(initialFormData);
+        navigate(`/account/${username}`);
     }
 
 
@@ -471,7 +468,7 @@ function EditItem({ highlight, setHighlight, username}) {
                         <p className={styles.productImageLabel}>Product Image</p>
                         <div className={styles.imageBox}>
 
-                            {!imageUrl && (<>
+                            {!formData.productImageUrl && (<>
                                 <p className={styles.imageBoxTitle}>Upload a Image for Your Product</p>
                                 <p className={styles.imageBoxSubtitle}>Broadly introduce your products with a detailed images</p>
                             </>)
@@ -487,20 +484,20 @@ function EditItem({ highlight, setHighlight, username}) {
                                 className={styles.productImage}
                             />
                             <button
-                                className={imageUrl ? styles.replaceButton : styles.uploadButton}
+                                className={formData.productImageUrl ? styles.replaceButton : styles.uploadButton}
                                 onClick={() => {
                                     imageInputRef.current.click();
                                 }}
                             >
-                                {imageUrl ? "Replace Image" : "Upload Image"}
+                                {formData.productImageUrl ? "Replace Image" : "Upload Image"}
                             </button>
 
-                            {imageUrl && (
+                            {formData.productImageUrl && (
                                 <>
 
                                     <img
                                         className={zoomed ? styles.zoomed : styles.normal}
-                                        src={imageUrl}
+                                        src={formData.productImageUrl}
                                         width="25%"
                                         style={{
                                             marginTop: "1rem",
@@ -517,7 +514,7 @@ function EditItem({ highlight, setHighlight, username}) {
 
                         <p className={styles.productVideoLabel}>Product Video</p>
                         <div className={styles.videoBox}>
-                            {!videoUrl && (<>
+                            {!formData.videoUrl && (<>
                                 <p className={styles.videoBoxTitle}>Upload a Video for Your Product</p>
                                 <p className={styles.videoBoxSubtitle}>Broadly introduce your products with a short, descriptive videos</p>
                             </>)
@@ -532,17 +529,17 @@ function EditItem({ highlight, setHighlight, username}) {
                             />
 
                             <button
-                                className={videoUrl ? styles.replaceButton : styles.uploadButton}
+                                className={formData.videoUrl ? styles.replaceButton : styles.uploadButton}
                                 onClick={() => {
                                     fileInputRef.current.click();
                                 }}
                             >
-                                {videoUrl ? "Replace Video" : "Upload Video"}
+                                {formData.videoUrl ? "Replace Video" : "Upload Video"}
                             </button>
 
-                            {videoUrl && (
+                            {formData.videoUrl && (
                                 <video
-                                    src={videoUrl}
+                                    src={formData.videoUrl}
                                     controls
                                     width="100%"
                                     style={{ marginTop: "1rem", borderRadius: "1rem" }}
@@ -578,39 +575,29 @@ function EditItem({ highlight, setHighlight, username}) {
 
                     </div>
 
-
-
-
-                </div>
-
-
-
-            </div>
-            <div className={styles.last}>
-                <div className={styles.productForm}>
-                    <div className={styles.properties}>
+                     <div className={styles.properties}>
                         <p className={styles.propertiesTitle}>Properties</p>
                         <p className={styles.propertyLabel}>Property</p>
 
                         <ul>
-                            {rows.map((row) => (
-                                <li className={styles.property} key={row.id}>
-                                    <input
-                                        className={styles.key}
-                                        type="text"
-                                        placeholder="Key"
-                                        value={row.key}
-                                        onChange={(e) => updateRow(row.id, "key", e.target.value)}
-                                    />
-                                    <input
-                                        className={styles.value}
-                                        type="text"
-                                        placeholder="Value"
-                                        value={row.value}
-                                        onChange={(e) => updateRow(row.id, "value", e.target.value)}
-                                    />
-                                </li>
-                            ))}
+                        {rows.map((row) => (
+                            <li className={styles.property} key={row.id}>
+                            <input
+                                className={styles.key}
+                                type="text"
+                                placeholder="Key"
+                                value={row.key}
+                                onChange={(e) => updateRow(row.id, "key", e.target.value)}
+                            />
+                            <input
+                                className={styles.value}
+                                type="text"
+                                placeholder="Value"
+                                value={row.value}
+                                onChange={(e) => updateRow(row.id, "value", e.target.value)}
+                            />
+                            </li>
+                        ))}
                         </ul>
 
                         <button className={styles.add} onClick={addRow}>+ Add a new Property</button>
@@ -680,12 +667,18 @@ function EditItem({ highlight, setHighlight, username}) {
                         />
                     </div>
                     <div className={styles.submittion}>
-                        <button className={styles.submit} onClick={submitClick}>Submit</button>
+                        <button className={styles.submit} onClick={submitClick}>Save Product</button>
                         <button className={styles.cancel} onClick={cancelClick}>Cancel</button>
                     </div>
 
+
+
                 </div>
+
+
+
             </div>
+
         </div>
     </>);
 }
