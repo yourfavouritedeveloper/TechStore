@@ -44,7 +44,7 @@
 
 .right {
     position: absolute;
-    width: 65%;
+    width: 100%;
     left: 0%;
     height: 100%;
     background-color: rgb(248, 248, 248);
@@ -54,9 +54,10 @@
 
 .productForm {
     position: relative;
-    width: 63rem;
-    top: 50%;
-    transform: translate(0%, -50%);
+    width: 96rem;
+    top: 52%;
+    left:50%;
+    transform: translate(-50%, -50%);
     height: 47rem;
 
 }
@@ -66,10 +67,10 @@
 .productForm .generalInfo {
     background-color: rgb(255, 255, 255);
     width: 20rem;
-    height: 17rem;
+    height: 16rem;
     position: absolute;
-    top: 31%;
-    left: 18.5%;
+    top: 29%;
+    left: 12%;
     transform: translate(-50%, -50%);
     box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
     border-radius: 1rem;
@@ -120,7 +121,7 @@
     border: none;
     width: 79%;
     padding: 0.4rem 1rem;
-    padding-bottom: 4rem;
+    padding-bottom: 3.6rem;
     border-radius: 0.5rem;
     font-size: clamp(0rem, 0.8rem, 10rem);
     transform: translate(-50%, -50%);
@@ -166,8 +167,8 @@ select:focus {
     width: 20rem;
     height: 8rem;
     position: absolute;
-    top: 58.8%;
-    left: 18.5%;
+    top: 55.8%;
+    left: 12%;
     transform: translate(-50%, -50%);
     box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
     border-radius: 1rem;
@@ -272,8 +273,8 @@ select:focus {
     width: 20rem;
     height: 13rem;
     position: absolute;
-    top: 82.5%;
-    left: 18.5%;
+    top: 79.5%;
+    left: 12%;
     transform: translate(-50%, -50%);
     box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
     border-radius: 1rem;
@@ -323,7 +324,7 @@ select:focus {
 }
 
 .priceInfo .isDiscountLabel {
-    top: 61%;
+    top: 63%;
     left: 16.5%;
     position: absolute;
     padding: 0.4rem 1rem;
@@ -338,9 +339,9 @@ select:focus {
     position: absolute;
     cursor: pointer;
     top: 81%;
-    left: 24%;
+    left: 23.5%;
     border: none;
-    width: 39.5%;
+    width: 36%;
     padding: 0.4rem 1rem;
     border-radius: 0.5rem;
     font-size: clamp(0rem, 0.8rem, 10rem);
@@ -352,8 +353,8 @@ select:focus {
 }
 
 .priceInfo .discountLabel {
-    top: 61%;
-    left: 61.5%;
+    top: 63%;
+    left: 64%;
     position: absolute;
     padding: 0.4rem 1rem;
     white-space: nowrap;
@@ -368,9 +369,9 @@ select:focus {
 .priceInfo .productDiscount {
     position: absolute;
     top: 69.8%;
-    left: 72.5%;
+    left: 70%;
     border: none;
-    width: 41%;
+    width: 38%;
     padding: 0.4rem 1rem;
     border-radius: 0.5rem;
     font-size: clamp(0rem, 0.8rem, 10rem);
@@ -386,10 +387,10 @@ select:focus {
 
 
 .videoSection {
-    top: 44.7%;
-    left: 73.5%;
+    top: 43.9%;
+    left: 37.3%;
     transform: translate(-50%, -50%);
-    width: 25.5rem;
+    width: 23rem;
     height: 26rem;
     position: absolute;
     padding: 2rem;
@@ -412,7 +413,7 @@ select:focus {
 
 .videoSection .productImageLabel {
     top: 13.7%;
-    left: 16.3%;
+    left: 17.3%;
     position: absolute;
     padding: 0.4rem 1rem;
     border-radius: 0.5rem;
@@ -502,8 +503,10 @@ select:focus {
 }
 
 .imageBox .replaceButton {
-    top: 87%;
-    left: 50%;
+    top: 50%;
+    left: 75%;
+    width: 34%;
+    white-space: none;
     transform: translate(-50%, -50%);
     position: absolute;
     border: none;
@@ -519,6 +522,11 @@ select:focus {
 
 .imageBox img {
     background-color: white;
+    position: absolute;
+    left:0.8rem;
+    width: 45%;
+    top:40%;
+    transform: translate(0%,-50%);
     z-index: 12;
     opacity: 1;
 }
@@ -580,8 +588,9 @@ select:focus {
 }
 
 .videoBox .replaceButton {
-    top: 87%;
-    left: 50%;
+    top: 50%;
+    left: 80%;
+    width: 35%;
     transform: translate(-50%, -50%);
     position: absolute;
     border: none;
@@ -606,10 +615,10 @@ select:focus {
 
 
 .videoSection video {
-    width: 70%;
+    width: 55%;
     border-radius: 0.5rem;
-    top: 3.2rem;
-    transform: translate(-50%, -50%);
+    top: 4rem;
+    transform: translate(-85%, -50%);
     position: absolute;
 }
 
@@ -618,11 +627,11 @@ select:focus {
 
 
 .categoryContainer {
-    top: 87%;
-    left: 73.5%;
+    top: 85.4%;
+    left: 37.5%;
     transform: translate(-50%, -50%);
-    width: 25.5rem;
-    height: 4.5rem;
+    width: 23rem;
+    height: 3.5rem;
     position: absolute;
     padding: 2rem;
     background-color: rgb(255, 255, 255);
@@ -645,7 +654,7 @@ select:focus {
 
 .categoryContainer select {
     position: absolute;
-    top: 5.3rem;
+    top: 5rem;
     left: 50%;
     width: 91%;
     white-space: nowrap;
@@ -672,23 +681,15 @@ select:focus {
 
 
 
-.last {
-    position: absolute;
-    width: 65%;
-    right: 0%;
-    height: 100%;
-    background-color: rgb(248, 248, 248);
-    transition: all 1s ease;
-    z-index: 0;
-}
 
-.last .properties {
+
+.properties {
     background-color: rgb(255, 255, 255);
-    width: 29rem;
-    height: 38.9rem;
+    width: 22rem;
+    height: 38.3rem;
     position: absolute;
-    top: 54.3%;
-    left: 25.5%;
+    top: 52.7%;
+    left: 63.7%;
     transform: translate(-50%, -50%);
     box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
     border-radius: 1rem;
@@ -706,11 +707,11 @@ select:focus {
 
 .properties .propertyLabel {
     top: 11%;
-    left: 11%;
+    left: 13.5%;
     position: absolute;
     padding: 0.4rem 1rem;
     border-radius: 0.5rem;
-    font-size: clamp(0rem, 0.9rem, 10rem);
+    font-size: clamp(0rem, 0.8rem, 10rem);
     font-family: "PoppinsMedium";
     transform: translate(-50%, -50%);
     color: rgb(131, 131, 131);
@@ -720,10 +721,10 @@ select:focus {
     top: 19%;
     left: 25%;
     position: absolute;
-    width: 42%;
+    width: 40%;
     padding: 0.4rem 1rem;
     border-radius: 0.5rem;
-    font-size: clamp(0rem, 0.8rem, 10rem);
+    font-size: clamp(0rem, 0.7rem, 10rem);
     transform: translate(-50%, -50%);
     background-color: rgb(240, 240, 240);
     color: rgb(26, 26, 26);
@@ -737,10 +738,10 @@ select:focus {
     top: 19%;
     left: 75%;
     position: absolute;
-    width: 42%;
+    width: 40%;
     padding: 0.4rem 1rem;
     border-radius: 0.5rem;
-    font-size: clamp(0rem, 0.8rem, 10rem);
+    font-size: clamp(0rem, 0.7rem, 10rem);
     transform: translate(-50%, -50%);
     background-color: rgb(240, 240, 240);
     color: rgb(26, 26, 26);
@@ -773,9 +774,9 @@ select:focus {
 
 .properties .key {
     top: 29%;
-    left: 14%;
+    left: 11.5%;
     position: relative;
-    width: 38.5%;
+    width: 35.5%;
     list-style: none;
     padding: 0.4rem 1rem;
     border-radius: 0.5rem;
@@ -790,9 +791,9 @@ select:focus {
 
 .properties .value {
     top: 29%;
-    left: 22.5%;
+    left: 22.1%;
     position: relative;
-    width: 38.5%;
+    width: 35.5%;
     list-style: none;
     padding: 0.4rem 1rem;
     border-radius: 0.5rem;
@@ -805,14 +806,14 @@ select:focus {
     transition: all 0.3s ease;
 }
 
-.last .measurements {
+.measurements {
     background-color: rgb(255, 255, 255);
-    width: 29rem;
+    width: 21.5rem;
     height: 27rem;
     position: absolute;
-    top: 41.6%;
-    left: 73.5%;
-    transform: translate(-50%, -50%);
+    top: 40.6%;
+    right: 12.7%;
+    transform: translate(50%, -50%);
     box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
     border-radius: 1rem;
 }
@@ -826,12 +827,12 @@ select:focus {
 }
 
 .measurements .weightLabel {
-    top: 16%;
-    left: 9%;
+    top: 16.5%;
+    left: 12.5%;
     position: absolute;
     padding: 0.4rem 1rem;
     border-radius: 0.5rem;
-    font-size: clamp(0rem, 0.9rem, 10rem);
+    font-size: clamp(0rem, 0.8rem, 10rem);
     font-family: "PoppinsMedium";
     transform: translate(-50%, -50%);
     color: rgb(131, 131, 131);
@@ -842,8 +843,8 @@ select:focus {
 
 .measurements .productWeight {
     top: 20%;
-    left: 23.5%;
-    width: 34%;
+    left: 25%;
+    width: 31%;
     padding: 0.4rem 1rem;
     border-radius: 0.5rem;
     font-size: clamp(0rem, 0.8rem, 10rem);
@@ -858,12 +859,12 @@ select:focus {
 }
 
 .measurements .heightLabel {
-    top: 16%;
-    left: 61%;
+    top: 16.5%;
+    left: 61.5%;
     position: absolute;
     padding: 0.4rem 1rem;
     border-radius: 0.5rem;
-    font-size: clamp(0rem, 0.9rem, 10rem);
+    font-size: clamp(0rem, 0.8rem, 10rem);
     font-family: "PoppinsMedium";
     transform: translate(-50%, -50%);
     color: rgb(131, 131, 131);
@@ -871,8 +872,8 @@ select:focus {
 
 .measurements .productHeight {
     top: 20%;
-    left: 76%;
-    width: 34%;
+    left: 74.5%;
+    width: 31%;
     padding: 0.4rem 1rem;
     border-radius: 0.5rem;
     font-size: clamp(0rem, 0.8rem, 10rem);
@@ -888,11 +889,11 @@ select:focus {
 
 .measurements .widthLabel {
     top: 35%;
-    left: 8%;
+    left: 11.8%;
     position: absolute;
     padding: 0.4rem 1rem;
     border-radius: 0.5rem;
-    font-size: clamp(0rem, 0.9rem, 10rem);
+    font-size: clamp(0rem, 0.8rem, 10rem);
     font-family: "PoppinsMedium";
     transform: translate(-50%, -50%);
     color: rgb(131, 131, 131);
@@ -901,7 +902,7 @@ select:focus {
 .measurements .productWidth {
     top: 39%;
     left: 50%;
-    width: 86.5%;
+    width: 81%;
     padding: 0.4rem 1rem;
     border-radius: 0.5rem;
     font-size: clamp(0rem, 0.8rem, 10rem);
@@ -918,11 +919,11 @@ select:focus {
 
 .measurements .volumeLabel {
     top: 54%;
-    left: 9.5%;
+    left: 13.5%;
     position: absolute;
     padding: 0.4rem 1rem;
     border-radius: 0.5rem;
-    font-size: clamp(0rem, 0.9rem, 10rem);
+    font-size: clamp(0rem, 0.8rem, 10rem);
     font-family: "PoppinsMedium";
     transform: translate(-50%, -50%);
     color: rgb(131, 131, 131);
@@ -931,7 +932,7 @@ select:focus {
 .measurements .productVolume {
     top: 58%;
     left: 50%;
-    width: 86.5%;
+    width: 81%;
     padding: 0.4rem 1rem;
     border-radius: 0.5rem;
     font-size: clamp(0rem, 0.8rem, 10rem);
@@ -945,11 +946,11 @@ select:focus {
 
 .measurements .amountLabel {
     top: 73%;
-    left: 9.5%;
+    left: 13.5%;
     position: absolute;
     padding: 0.4rem 1rem;
     border-radius: 0.5rem;
-    font-size: clamp(0rem, 0.9rem, 10rem);
+    font-size: clamp(0rem, 0.8rem, 10rem);
     font-family: "PoppinsMedium";
     transform: translate(-50%, -50%);
     color: rgb(131, 131, 131);
@@ -958,7 +959,7 @@ select:focus {
 .measurements .productAmount {
     top: 77%;
     left: 50%;
-    width: 86.5%;
+    width: 81%;
     padding: 0.4rem 1rem;
     border-radius: 0.5rem;
     font-size: clamp(0rem, 0.8rem, 10rem);
@@ -969,61 +970,61 @@ select:focus {
 }
 
 
-.last .submittion {
+.submittion {
     background-color: rgb(255, 255, 255);
-    width: 29rem;
-    height: 11rem;
+    width: 21.5rem;
+    height: 10.5rem;
     position: absolute;
-    top: 84%;
-    left: 73.5%;
-    transform: translate(-50%, -50%);
+    top: 82.3%;
+    right: 12.7%;
+    transform: translate(50%, -50%);
     box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
     border-radius: 1rem;
 }
 
-.last .submit {
+.submit {
     background-color: #9b59b6;
-    width: 92%;
-    height: 4rem;
+    width: 88%;
+    height: 3rem;
     position: absolute;
-    top: 27.2%;
+    top: 27.7%;
     border: none;
     left: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
     border-radius: 1rem;
     color: white;
-    font-size: clamp(1rem, 1.5rem, 10rem);
+    font-size: clamp(1rem, 1.1rem, 10rem);
     font-family: "PoppinsRegular";
     transition: all 0.3s ease;
     cursor: pointer;
 }
 
-.last .cancel {
+.cancel {
     background-color: #ffffff;
-    width: 92%;
-    height: 4rem;
+    width: 88%;
+    height: 3rem;
     position: absolute;
-    top: 73%;
+    top: 72.2%;
     border: 3px solid #e42434;
     left: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
     border-radius: 1rem;
     color: #e42434;
-    font-size: clamp(1rem, 1.5rem, 10rem);
+    font-size: clamp(1rem, 1.1rem, 10rem);
     font-family: "PoppinsRegular";
     transition: all 0.3s ease;
     cursor: pointer;
 }
 
-.last .submit:hover {
+.submit:hover {
     border: 3px solid #9b59b6;
     background-color: white;
     color: #9b59b6;
 }
 
-.last .cancel:hover {
+.cancel:hover {
     background-color: #e42434;
     color: white;
     border: none;
