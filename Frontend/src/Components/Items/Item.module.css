@@ -19,7 +19,7 @@
     height: 15rem;
     position: relative;
     width: 100%;
-    top:-4rem;
+    top:30.8rem;
 }
 
 .container1 {
@@ -48,8 +48,8 @@
   left:15%;
   height: 30rem;
   background-color: rgb(205, 199, 238);
-  top:-10rem;
-  position: relative;
+  top:4.8rem;
+  position: absolute;
 
   
 }
@@ -58,7 +58,7 @@
     position: relative;
     left:0rem;
     text-align: left;
-    top: 7rem;
+    top: 2.2rem;
     padding-left: 6rem;
     color:rgb(0, 0, 0);    
     font-weight: bold;  
@@ -66,7 +66,7 @@
 }
 
 .discoverBox .subtitle {
-  top:2rem;
+  top:-2.8rem;
   color: rgb(0, 0, 0);
   font-family: "PoppinsLight";
   font-size: clamp(1rem, 1.3vw,10rem);
@@ -82,7 +82,7 @@
   width: 60%;
   position: relative;
   left:20%;
-  top:-10rem;
+  top:-14.8rem;
 }
 
 .popularExplanation {
@@ -221,7 +221,7 @@
     height: 25rem;
     position: relative;
     left:15%;
-    top:3rem;
+    top:37.8rem;
     
 }
 
@@ -339,7 +339,7 @@
     height: 25rem;
     position: relative;
     left:15%;
-    top:9rem;
+    top:43.8rem;
     
 }
 
@@ -474,6 +474,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top:20%;
   height: 100vh; 
 }
 

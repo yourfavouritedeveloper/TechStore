@@ -1,7 +1,7 @@
 import styles from "./Login.module.css";
 import { motion, useInView, useAnimation,AnimatePresence  } from "framer-motion";
 import React, { useEffect, useRef, useState,useContext  } from "react";
-import { Link,useNavigate,useLocation  } from "react-router-dom";
+import { Link,useNavigate,useLocation,Navigate  } from "react-router-dom";
 import { AuthContext } from "../AuthContext";
 import BrandLogo from "../../../public/brandlogowhite.png"
 import Mixed from "../../assets/mixed.png"
@@ -64,7 +64,7 @@ useEffect(() => {
   const [errorMsg, setErrorMsg] = useState("");
   const [errorMsgSign, setErrorMsgSign] = useState("");
   const [isError, setIsError] = useState(false);
-
+  const from = location.state?.from?.pathname || "/";
 
 
 
@@ -96,7 +96,7 @@ const handleSubmit =async  (e) => {
       setIsError(false);
 
         setTimeout(() => {
-            navigate("/");
+          navigate(-1); 
         }, 1500);
     } catch (error) {
       setErrorMsg("Network error. Please try again later.");
@@ -169,7 +169,7 @@ const handleSignUp =async  (e) => {
       setIsError(false);
 
         setTimeout(() => {
-            navigate("/");
+            navigate(-1);  
         }, 1500);
     } catch (error) {
       setErrorMsgSign("Network error. Please try again later.");

@@ -9,6 +9,7 @@ import { AuthProvider } from "./Components/AuthContext";
 import Register from "./Pages/Register";
 import Account from "./Pages/Account";
 import AddProduct from "./Pages/AddProduct";
+import EditProduct from "./Pages/EditProduct";
 import { PurchaseProvider } from "./Components/Utils/PurchaseContext";
 
 function App() {
@@ -26,7 +27,8 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/product/:id"   element={<Item shiftUp={shiftUp} setShiftUp={setShiftUp} />} />
           <Route path="/account/:username" element={<Account />} />
-          <Route path=":username/product/add" element={<AddProduct />} />
+          <Route path="/account/:username/product/add" element={<AddProduct />} />
+          <Route path="/account/:username/product/edit/:id" element={<EditProduct />} />
         </Routes>
       </HashRouter>
       </PurchaseProvider>

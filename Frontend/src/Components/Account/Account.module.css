@@ -912,7 +912,8 @@
 
 .items img {
     position: absolute;
-    left:5%;
+    left:50%;
+    transform: translateX(-50%);
     width: 90%;
     top:1.2rem;
 }
