@@ -44,8 +44,8 @@ body {
     width: 45rem;
     height: 35rem;
     position: absolute;
-    top: 58.5rem;
-    right: 15rem;
+    top: 38.5rem;
+    right: 5.4rem;
     z-index: 5;
     background-color: #0f0f0f;
     border: 0.12rem solid rgb(24, 24, 24);
@@ -213,8 +213,8 @@ body {
     position: absolute;
     display: inline-flex;
     justify-content: center;
-    top: 58.5rem;
-    left: 15rem;
+    top: 38.5rem;
+    left: 5.4rem;
     border: 0.12rem solid rgb(24, 24, 24);
     width: 30%;
     height: 35rem;
