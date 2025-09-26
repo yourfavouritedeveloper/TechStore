@@ -16,7 +16,7 @@ align-items: stretch;
     display: flex;
     justify-content: center;
     z-index: 10;
-    width: 95.3rem;
+    width: 94rem;
     margin-left: 10%;
     left:0%;
   right: 0;
@@ -35,7 +35,7 @@ align-items: stretch;
     display: flex;
     justify-content: center;
     background-color: #f3f0f0;
-    width: 95.3rem;
+    width: 94rem;
     height: 5.95rem;
     border-radius: 2rem;
     z-index: 3;
@@ -167,10 +167,10 @@ input {
     position: absolute;
     width: 28rem;
     padding:0.35rem 1.5rem;
-    padding-left:4rem;
+    padding-left:3.5rem;
     margin-top: 1.48rem;
     border-radius: 1.5rem;
-    left:53.5rem;
+    left:53.2rem;
     border:none;
     font-family: "PoppinsLight";
     font-size: clamp(1.5rem, 1rem, 2.5rem);
@@ -705,7 +705,7 @@ input:focus {
     font-family: "PoppinsLight";
     padding: 0.5rem 1.5rem;
     cursor: pointer;
-    left:88rem;
+    left:87rem;
     top:1.5rem;
     border: none;
     color:rgb(255, 255, 255);
@@ -725,7 +725,7 @@ input:focus {
     height: 400rem;
     width: 19rem;
     left:50%;
-    top:11.9rem;
+    top:11.5rem;
     z-index: 1;
     position: absolute;
     background-color: rgb(235, 235, 235);
@@ -737,7 +737,7 @@ input:focus {
     align-items: stretch;     
     gap: 1rem;               
     padding: 1rem; 
-    padding-top: 2rem;    
+    padding-top: 2.5rem;    
 }
 
 .categorySelector button {
