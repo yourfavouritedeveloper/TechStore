@@ -18,34 +18,36 @@
     align-items: center; 
     height: 15rem;
     position: relative;
-    width: 100%;
-    top:30.8rem;
+    width: 83.2rem;
+    margin: 25.8rem auto 0 auto;
 }
 
 .container1 {
 
-    width: 34.5%;
+    width: 41rem;
     position: relative;
     background-color: rgb(221, 229, 233);
-    left:7.2%;
-    top:-5rem;
+    left:-0.4%;
+    top:0rem;
     height: 15rem;
 }
 
 .container2 {
 
-    width: 34.5%;
+    width: 41rem;
     position: relative;
     background-color: rgb(221, 229, 233);
-    right:7.2%;
-    top:-5rem;
+    left:25.1%;
+    transform: translateX(-50%);
+    top:0rem;
     height: 15rem;
 }
 
 
 .discoverBox {
-  width: 70%;
-  left:15%;
+  width: 83.35rem;
+  left:50%;
+  transform: translateX(-50%);
   height: 30rem;
   background-color: rgb(205, 199, 238);
   top:4.8rem;
@@ -62,14 +64,14 @@
     padding-left: 6rem;
     color:rgb(0, 0, 0);    
     font-weight: bold;  
-    font-size: clamp(1rem, 4vw,10rem);
+    font-size: clamp(1rem, 4.8rem,10rem);
 }
 
 .discoverBox .subtitle {
   top:-2.8rem;
   color: rgb(0, 0, 0);
   font-family: "PoppinsLight";
-  font-size: clamp(1rem, 1.3vw,10rem);
+  font-size: clamp(1rem, 1.56rem,10rem);
   width: 40%;
   line-height: 1;
   left:0rem;
@@ -98,7 +100,7 @@
 }
 
 .popularExplanation .subtitle {
-      font-size: clamp(1rem, 2vw,10rem); 
+      font-size: clamp(1rem, 2.4rem,10rem); 
       text-align: left; 
       line-height: 0.9;
       position: relative;
@@ -108,7 +110,7 @@
 }
 
 .popularExplanation .subsubtitle {
-      font-size: clamp(1rem, 0.8vw,10rem); 
+      font-size: clamp(1rem, 1rem,10rem); 
       text-align: left; 
       line-height: 1.3;
       position: relative;
@@ -121,7 +123,7 @@
 .popularButton {
     background-color: #2c8f9c;
     color:white;
-      font-size: clamp(0rem, 0.7vw,10rem); 
+      font-size: clamp(0rem, 0.85rem,10rem); 
       text-align: left; 
       line-height: 1.3;
       left:0rem;
@@ -161,7 +163,7 @@
 }
 
 .sellerExplanation .subtitle {
-      font-size: clamp(1rem, 2vw,10rem); 
+      font-size: clamp(1rem, 2.4rem,10rem); 
       text-align: left; 
       line-height: 0.9;
       position: relative;
@@ -171,7 +173,7 @@
 }
 
 .sellerExplanation .subsubtitle {
-      font-size: clamp(1rem, 0.8vw,10rem); 
+      font-size: clamp(1rem, 1rem,10rem); 
       text-align: left; 
       line-height: 1.3;
       position: relative;
@@ -184,7 +186,7 @@
 .sellerButton {
     background-color: #2c8f9c;
     color:white;
-      font-size: clamp(0rem, 0.7vw,10rem); 
+      font-size: clamp(0rem, 0.85rem,10rem); 
       text-align: left; 
       line-height: 1.3;
       left:0rem;
@@ -214,14 +216,14 @@
 
 
 .populardiv {
-    padding:3rem 0rem;
-    padding-bottom: 5rem;
-    margin-top:-10rem;
-    width: 70%;
+    padding: 3rem 0 5rem 0;
+    width: 83.35rem;
     height: 25rem;
-    position: relative;
-    left:15%;
-    top:37.8rem;
+    margin: 2rem auto 0 auto; 
+    position: relative;         
+
+
+
     
 }
 
@@ -237,7 +239,7 @@
     color:white;    
     font-weight: bold;  
     font-style: italic;  
-    font-size: clamp(5rem, 1.5vw, 2.5rem);
+    font-size: clamp(5rem, 1.5rem, 2.5rem);
 }
 
 
@@ -245,7 +247,7 @@
     position: absolute;
     top: -3.5rem;
     left:0rem;
-    font-size: clamp(0.8rem, 1vw, 2rem);
+    font-size: clamp(0.8rem, 1.2rem, 2rem);
     color: rgb(255, 255, 255);
     padding: 0rem 1.24rem;
     border-radius: 0.5rem;
@@ -257,7 +259,7 @@
     position: absolute;
     top:19.7rem;   
     right: 0rem;  
-    font-size: clamp(0rem, 0.7vw, 2rem);
+    font-size: clamp(0rem, 0.84rem, 2rem);
     color: #1d3c94;
 }
 
@@ -301,7 +303,7 @@
     top:20.25rem;    
     font-family: "PoppinsSemiBold";
     left: 0rem;  
-    font-size: clamp(1rem, 0.9vw, 2rem);
+    font-size: clamp(1rem, 1.08rem, 2rem);
     color:rgb(0, 0, 0);
 }
 
@@ -315,7 +317,7 @@
     align-items: center;
     left: 0rem;
     padding: 0rem 0.4rem;
-    font-size: clamp(0.5rem, 0.8vw, 2rem);
+    font-size: clamp(0.5rem, 0.96rem, 2rem);
 
 
 }
@@ -323,23 +325,21 @@
 
 .itemsPopular img {
     position: absolute;
-    left:0rem;
+    left:50%;
     width: 100%;
-    top:1.5rem;
+    top:50%;
+    transform: translate(-50%,-50%);
 }
 
 
 
 
 .sellerdiv {
-    padding:3rem 0rem;
-    padding-bottom: 5rem;
-    margin-top:-10rem;
-    width: 70%;
+    padding: 3rem 0 5rem 0;
+    width: 83.35rem;
     height: 25rem;
-    position: relative;
-    left:15%;
-    top:43.8rem;
+    margin: -4rem auto 0 auto; 
+    position: relative;   
     
 }
 
@@ -355,7 +355,7 @@
     color:white;    
     font-weight: bold;  
     font-style: italic;  
-    font-size: clamp(5rem, 1.5vw, 2.5rem);
+    font-size: clamp(5rem, 1.5rem, 2.5rem);
 }
 
 
@@ -363,7 +363,7 @@
     position: absolute;
     top: -3.5rem;
     left:0rem;
-    font-size: clamp(0.8rem, 1vw, 2rem);
+    font-size: clamp(0.8rem, 1.2rem, 2rem);
     color: rgb(255, 255, 255);
     padding: 0rem 2rem;
     border-radius: 0.5rem;
@@ -375,7 +375,7 @@
     position: absolute;
     top:19.7rem;   
     right: 0rem;  
-    font-size: clamp(0rem, 0.7vw, 2rem);
+    font-size: clamp(0rem, 0.84rem, 2rem);
     color: #1d3c94;
 }
 
@@ -417,7 +417,7 @@
     top:20.25rem;    
     font-family: "PoppinsSemiBold";
     left: 0rem;  
-    font-size: clamp(1rem, 0.9vw, 2rem);
+    font-size: clamp(1rem, 1.08rem, 2rem);
     color:rgb(0, 0, 0);
 }
 
@@ -431,7 +431,7 @@
     align-items: center;
     left: 0rem;
     padding: 0rem 0.4rem;
-    font-size: clamp(0.5rem, 0.8vw, 2rem);
+    font-size: clamp(0.5rem, 0.96rem, 2rem);
 
 
 }
@@ -439,9 +439,10 @@
 
 .itemsBought img {
     position: absolute;
-    left:0rem;
+    left:50%;
     width: 100%;
-    top:1.5rem;
+    top:50%;
+    transform: translate(-50%,-50%);
 }
 
 
