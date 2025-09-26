@@ -47,6 +47,8 @@
     z-index: 3;
     background-color: #ffffff;
     width: 100%;
+    left:50%;
+    transform: translateX(-50%);
     height: 20rem;
     top:35rem;
 
@@ -57,7 +59,7 @@
 
     font-family: "PoppinsSemiBold";
     color: rgb(255, 255, 255);
-    width: 99%;
+    width: 90rem;
     top:1.5rem;
     height: 10rem;
     position: relative;
@@ -69,11 +71,12 @@
 }
 
 .subtitle p {
-    font-size: clamp(1.5rem, 3vw, 10rem);
-    top:-3.5rem;
+    font-size: clamp(1.5rem, 3.2rem, 10rem);
+    top:25%;
+    transform: translateY(-50%);
     width: 40%;
     left:30%;
-    position: relative;
+    position: absolute;
 }
 
 .circle1, .circle2 {
@@ -88,23 +91,23 @@ background-color: rgb(70, 130, 180);
 }
 
 .circle1 {
-    left:-12rem;
+    left:-24rem;
     top:-15rem;
 }
 
 .circle2 {
-    right:-12rem;
+    right:-22rem;
     bottom:-15rem;
 }
 
 .subtitle:hover .circle1 {
-    left:-16rem;
+    left:-20rem;
     top:-12rem;  
     transform: rotate(-15deg); 
 }
 
 .subtitle:hover .circle2 {
-    right:-16rem;
+    right:-18rem;
     bottom:-12rem;  
     transform: rotate(-15deg); 
 }
