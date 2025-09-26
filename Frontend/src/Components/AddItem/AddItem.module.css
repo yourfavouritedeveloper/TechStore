@@ -57,8 +57,12 @@
 }
 
 .middle .design {
-    width: 50%;
-    height: 100%;
+    width: 60rem;
+    position: absolute;
+    height: 50rem;
+    top:50%;
+    left:40%;
+    transform: translate(-65%,-50%);
 
 
 }
@@ -88,15 +92,15 @@
 }
 
 .middle .design .box2 {
-    top: 24%;
-    left: 19%;
+    top: 25%;
+    left: 23%;
     transform: rotate(-12.5deg);
 
 }
 
 .middle .design .box3 {
-    top: 19%;
-    left: 29%;
+    top: 20%;
+    left: 39%;
 
 }
 
@@ -196,22 +200,36 @@
     text-align: center;
 }
 
+.middle .containerDiv {
+    width: 70rem;
+    position: absolute;
+    height: 40rem;
+    top:50%;
+    left:60%;
+    transform: translate(-50%,-50%);
+
+}
+
+.middle .containerAddDiv {
+    width: 70rem;
+    position: absolute;
+    height: 40rem;
+    top:50%;
+    right:0%;
+    transform: translate(-5%,-45%);
+
+}
 
 .middle .addItemContainer {
+    width: 70rem;
     position: absolute;
-    top: 50%;
-    left: 83%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    width: 70%;
-
-
+    top:30%;
 }
 
 .middle .addItemContainer .title {
     font-size: clamp(2rem, 6rem, 10rem);
     line-height: 0.85;
-    top: -0.5rem;
+    top: 40%;
     position: relative;
     width: 50%;
     left: 12.5%;
@@ -226,7 +244,7 @@
 .middle .addItemContainer .subtitle {
     font-size: clamp(1rem, 1.17rem, 2rem);
     line-height: 1.2;
-    top: 0.3rem;
+    top: 43%;
     position: relative;
     width: 47%;
     left: 15%;
@@ -246,7 +264,7 @@
     position: absolute;
     font-family: "PoppinsLight";
     padding: 0.9rem 3.3rem;
-    top: 27rem;
+    top: 88%;
     right: 38%;
     font-size: clamp(1rem, 1.6rem, 10rem);
     transition: all 0.3s ease;

@@ -404,6 +404,7 @@ function AddItem({ highlight, setHighlight, username}) {
                     </motion.div>
                 </div>
 
+                <div className={(newPage || lastPage) ? styles.containerAddDiv : styles.containerDiv}>
                 <motion.div className={styles.addItemContainer}
                     initial={{ x: "-45%", y: "-50%" }}
                     animate={{ x: "-50%", y: "-50%" }}
@@ -433,6 +434,7 @@ function AddItem({ highlight, setHighlight, username}) {
                     )}
 
                 </motion.div>
+                </div>
             </div>
 
             <div className={styles.right}
