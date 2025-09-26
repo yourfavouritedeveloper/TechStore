@@ -9,16 +9,36 @@
 
 }
 
+.titleContainer {
+    width: 50rem;
+    position: absolute;
+    height: 35rem;
+    top:50%;
+    left:50%;
+    transform: translate(-90%,-50%);
+    z-index: auto;
+}
+
+.macbookContainer {
+     width: 50rem;
+    position: absolute;
+    height: 35rem;
+    top:50%;
+    right:50%;
+    transform: translate(90%,-50%);
+    z-index: auto;
+    pointer-events: none;
+}
+
 .title {
-    font-size: clamp(7rem, 7vw,20rem);
+    font-size: clamp(7rem, 8.38rem,20rem);
     font-family: "PoppinsSemiBold";
-    width: 60%;
+    width: 80%;
     text-align: left;
     line-height: 0.9;
     letter-spacing: -0.4rem;
     position: absolute;
     top:9rem;
-    left:10rem;
     color: white;
     z-index: 2;
    
@@ -27,7 +47,7 @@
 
 .macbookHoverContainer {
     position: absolute;
-    left:66.7rem;
+    left:11.7rem;
     top:11rem;
     width: 35rem;
     height: 30rem;
@@ -82,8 +102,8 @@
 .macbookBox {
     position: absolute;
     background: linear-gradient(135deg, #1e3a8a, #111827);
-    width: 31.45rem;
-    right: 19.1rem;
+    width: 31.65rem;
+    right: 5.05rem;
     top:13rem;
     height: 20rem;
     pointer-events: none;
@@ -99,7 +119,7 @@
     top:3rem;
     left:0.7rem;
     position: relative;
-    font-size: clamp(1rem, 1.7vw,20rem);
+    font-size: clamp(1rem, 2.05rem,20rem);
     font-family: "PoppinsMedium";
     line-height: 0.9;
     overflow-y: hidden;
@@ -113,9 +133,9 @@
     font-family: "PoppinsRegular";
     padding: 0.7rem 2rem;
     top:14rem;
-    right:10.7rem;
+    right:11rem;
     border-radius: 2rem;
-    font-size: clamp(1rem, 1.3vw,20rem);
+    font-size: clamp(1rem, 1.55rem,20rem);
     z-index: 7;
     cursor: pointer;
     pointer-events: auto;
@@ -131,8 +151,8 @@
 
 
 .macbook {
-    width: 40%;
-    right: 11rem;
+    width: 95.3%;
+    right:-3rem;
     top:0rem;
     z-index: 3;
     pointer-events: none;
