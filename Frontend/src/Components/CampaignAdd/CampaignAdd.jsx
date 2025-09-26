@@ -30,17 +30,16 @@ function CampaignAdd() {
   });
 
   const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1.4]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2], [0, 1]);
 
 
     return (
         <>
             <div className={styles.container}>
-                    <motion.div
+                    <div
                         ref={ref}
                         className={styles.box}
-                        style={{ scale}}
                     >
+                        <div className={styles.titleContainer}>
                         <p className={styles.title}
                         >
                             Don’t Miss Our Latest Campaigns!
@@ -51,7 +50,7 @@ function CampaignAdd() {
                         >
                             Exclusive deals, limited-time offers, and special discounts on your favorite products. Grab them before they’re gone!
                         </p>
-
+                        </div>
                         <motion.div 
                                     className={styles.circle}
                                     ref={circleRef}
@@ -64,14 +63,18 @@ function CampaignAdd() {
                                     viewport={{ margin: "10px" }}
                                     transition={{ duration: 1.25}}
                         ></motion.div>
+                        <div className={styles.imageContainer}>
                             <img
                                 className={styles.photo90}
                                 src={Phone}
                                 alt=""
                             />
-                        <p className={styles.subsubtitle}>Click here to check latest Campaigns!</p>
-                        <Link className={styles.button} to="/campaign">Shop Now</Link>
-                    </motion.div>
+                        </div>
+                        <div className={styles.subsubtitleContainer}>
+                            <p className={styles.subsubtitle}>Click here to check latest Campaigns!</p>
+                            <Link className={styles.button} to="/campaign">Shop Now</Link>
+                        </div>
+                    </div>
                     
 
             </div>

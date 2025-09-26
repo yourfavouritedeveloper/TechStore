@@ -6,6 +6,7 @@
     margin-bottom: 26rem;
     overflow-y: hidden;
     overflow-x: hidden;
+align-items: stretch;
 }
 
 
@@ -15,9 +16,11 @@
     display: flex;
     justify-content: center;
     z-index: 10;
-    background-color: #ffffff;
-    width: 80%;
+    width: 95.3rem;
     margin-left: 10%;
+    left:0%;
+  right: 0;
+    margin: 0 auto;    
     height: 17rem;
     top:51rem;
     border-radius: 2rem;
@@ -32,7 +35,7 @@
     display: flex;
     justify-content: center;
     background-color: #f3f0f0;
-    width: 100%;
+    width: 95.3rem;
     height: 5.95rem;
     border-radius: 2rem;
     z-index: 3;
@@ -44,7 +47,7 @@
     position: absolute;
     display: flex;
     justify-content: center;
-    z-index: 3;
+    z-index: 1;
     background-color: #ffffff;
     width: 100%;
     left:50%;
@@ -170,7 +173,7 @@ input {
     left:53.5rem;
     border:none;
     font-family: "PoppinsLight";
-    font-size: clamp(1.5rem, 1vw, 2.5rem);
+    font-size: clamp(1.5rem, 1rem, 2.5rem);
     transition: transform 0.3s ease;
     z-index: 4;
 }
@@ -719,15 +722,15 @@ input:focus {
 
 
 .categorySelector {
-    height: 53rem;
+    height: 400rem;
     width: 19rem;
-    left:13.4rem;
-    top:21.95rem;
+    left:50%;
+    top:11.9rem;
     z-index: 1;
-    position: relative;
+    position: absolute;
     background-color: rgb(235, 235, 235);
 
-
+    transform: translate(-220%,0%);
     display: flex;           
     flex-direction: column;   
     justify-content: flex-start; 
@@ -753,8 +756,8 @@ input:focus {
 }
 
 .categorySelector button svg {
-    width: 24px;
-    height: 24px;
+    width: 1.5rem;
+    height: 1.5rem;
     top: 2.6rem;
     right:3rem;
     position: absolute;
@@ -780,12 +783,12 @@ input:focus {
     padding: 5rem 0rem;
     padding-left:9rem;
     padding-top: 9rem;
-    width: 70%;
+    width: 83.3rem;
     min-height: 40rem;
     display: block;
     position: relative;
     margin: 0 auto;
-    margin-top: -46rem;
+    margin-top: 10rem;
     z-index: 0;
     opacity:1;
 
@@ -797,7 +800,7 @@ input:focus {
     position: absolute;
     top:2.7rem;   
     right: 1rem;  
-    font-size: clamp(0rem, 0.7vw, 2rem);
+    font-size: clamp(0rem, 0.84rem, 2rem);
     color: #1d3c94;
 }
 
@@ -861,7 +864,7 @@ input:focus {
     top:2.25rem;    
     font-family: "PoppinsSemiBold";
     left: 1rem;  
-    font-size: clamp(1rem, 0.9vw, 2rem);
+    font-size: clamp(1rem, 1.08rem, 2rem);
     color:rgb(0, 0, 0);
 }
 
@@ -876,7 +879,7 @@ input:focus {
     left: 0.5rem;
     padding: 0rem 0.4rem;
     z-index: 10;
-    font-size: clamp(0.5rem, 0.85vw, 2rem);
+    font-size: clamp(0.5rem, 1.02rem, 2rem);
 
 
 }
