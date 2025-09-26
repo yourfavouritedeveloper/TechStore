@@ -556,7 +556,7 @@ const tickDatesSell = (() => {
                             </li>)}
                               <li className={styles.addItem}>
                                 <Link
-                                to={"/" + logAccount.username + "/product/add"}
+                                to={"product/add"}
                                 className={styles.item}
                                 >
                                 +
