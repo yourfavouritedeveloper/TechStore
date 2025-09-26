@@ -318,6 +318,8 @@ const displayItems = currentItems.length ? currentItems : [];
                     
                    </div>
 
+                    <div className={styles.itemContainer}>
+                      
                     <div className={styles.categorySelector}>
                       <button className={styles.computer} onClick={() => navigate("/product", { state: { category: "COMPUTER" } })}>Computers
                         <svg xmlns="http://www.w3.org/2000/svg"
@@ -353,7 +355,6 @@ const displayItems = currentItems.length ? currentItems : [];
                         <svg style={{top:"29.6rem"}} xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-140q17 0 28.5-11.5T520-180q0-17-11.5-28.5T480-220q-17 0-28.5 11.5T440-180q0 17 11.5 28.5T480-140ZM200-40q-33 0-56.5-23.5T120-120v-720q0-33 23.5-56.5T200-920h560q33 0 56.5 23.5T840-840v720q0 33-23.5 56.5T760-40H200Zm0-200v120h560v-120H200Zm0-80h560v-400H200v400Zm0-480h560v-40H200v40Zm0 0v-40 40Zm0 560v120-120Z"/></svg>
                       </button>
                     </div>
-                    <div className={styles.itemContainer}>
                       <ul className={styles.items}>
                        {displayItems && displayItems.length > 0 ? (displayItems.map((item) => (
                           <Link key={item.id} className={styles.item} 
