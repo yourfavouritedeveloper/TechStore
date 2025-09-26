@@ -112,7 +112,7 @@ body {
     color: black;
     top: 2rem;
     font-family: "PoppinsLight";
-    font-size: clamp(1rem, 1vw, 10rem);
+    font-size: clamp(1rem, 1.2rem, 10rem);
     padding: 0.7rem 3rem;
     border-radius: 1.4rem;
     border: none;
@@ -216,7 +216,7 @@ body {
     top: 38.5rem;
     left: 5.4rem;
     border: 0.12rem solid rgb(24, 24, 24);
-    width: 30%;
+    width: 35.8rem;
     height: 35rem;
     z-index: 6;
     border-radius: 2rem;
@@ -334,7 +334,7 @@ body {
     position: absolute;
     top: 12.5rem;
     font-family: "PoppinsLight";
-    font-size: clamp(0rem, 1vw, 10rem);
+    font-size: clamp(0rem, 1.2rem, 10rem);
     padding: 0.8rem 3.5rem;
     border-radius: 1.5rem;
     left: 7.5rem;
@@ -359,12 +359,12 @@ body {
 .boxExplanation .title {
     color: rgba(255, 255, 255, 0.781);
     position: absolute;
-    font-size: clamp(1.6rem, 3.5vw, 10rem);
-    letter-spacing: -0.3rem;
+    font-size: clamp(1.6rem, 4.1rem, 10rem);
+    letter-spacing: -0.2rem;
     line-height: 1.2;
     text-align: center;
-    top: -5.5rem;
-    left: 57.5rem;
+    top: -0.5rem;
+    left: 45.5%;
     padding: 2.5rem 2rem;
 
 }
@@ -373,11 +373,11 @@ body {
     color: rgba(255, 255, 255, 0.781);
     position: absolute;
     width: 90%;
-    font-size: clamp(0rem, 0.8vw, 10rem);
+    font-size: clamp(0rem, 0.97rem, 10rem);
     line-height: 1;
     text-align: center;
-    top: 16rem;
-    left: 5%;
+    top: 19.3rem;
+    left: 50%;
     padding: 2.5rem 0rem;
     hyphens: auto;
     justify-content: center;
@@ -390,7 +390,7 @@ body {
     top: 22rem;
     left: 27%;
     font-family: "PoppinsLight";
-    font-size: clamp(1rem, 1vw, 10rem);
+    font-size: clamp(1rem, 1.2rem, 10rem);
     padding: 0.7rem 3rem;
     border-radius: 1.4rem;
     border: none;
