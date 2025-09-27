@@ -14,11 +14,13 @@ body {
 
 .item {
     
-    flex: 0 0 calc(20% - 1rem);
     box-sizing: border-box; 
-    padding:25rem 20rem;
-    left:13.5rem;
-    top:7rem;
+    padding:17rem 15rem;
+    padding-right: 28rem;
+    left:50%;
+    transform: translateX(-107.5%);
+    top:22rem;
+    z-index: 2;
     border-radius: 2rem;
     color: black;
     position: absolute;
@@ -27,24 +29,42 @@ body {
 }
 
 
+.itemVideo {
+    position: absolute;
+    width: 100%;
+    height: 40rem; 
+    background-color: black;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden; 
+}
+
+.itemVideo video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;    
+}
 
 
 .amount {
     position: absolute;
-    font-size: clamp(1rem, 1.5rem, 10rem);  
+    font-size: clamp(1rem, 1rem, 10rem);  
     font-family: "PoppinsSemiBold";
     background-color:#FF4136;
     color:white;
     padding: 0.5rem 2rem;
     border-radius: 1rem;
-    top:2rem;
-    right: 4rem;
+    top:1rem;
+    right: 2rem;
 
 }
 
 
 .image {
-    width: 50rem;
+    background-color: white;
+    border-radius: 2rem;
+    width: 35rem;
     position: absolute;
     left:50%;
     transform: translate(-50%,-50%);
@@ -53,11 +73,12 @@ body {
 
 .itemDescription {
     
-    flex: 0 0 calc(20% - 1rem);
     box-sizing: border-box; 
-    padding:25rem 25rem;
-    right:13.5rem;
-    top:7rem;
+    padding:17rem 23rem;
+    padding-left: 30rem;
+    right:50%;
+    transform: translateX(87%);
+    top:22rem;
     border-radius: 2rem;
     color: black;
     position: absolute;
@@ -70,7 +91,7 @@ body {
 .guarantee {
     position: absolute;
     top:24rem;   
-    left:3.5rem; 
+    left:10.5rem; 
     font-size: clamp(1rem, 1.5rem, 10rem);  
 }
 
@@ -80,7 +101,7 @@ body {
     top:4rem;
     line-height: 1.1;
     align-items: center;
-    left:3rem;
+    left:10rem;
     padding: 0rem 0.4rem;
     font-family: "PoppinsRegular";
     font-size: clamp(1rem, 1.5rem, 10rem);    
@@ -92,7 +113,7 @@ body {
     top:5rem;
     line-height: 0.85;
     align-items: center;
-    left:3rem;
+    left:10rem;
     padding: 0rem 0.4rem;
     font-family: "PoppinsSemiBold";
     font-size: clamp(1rem, 3rem, 10rem);
@@ -105,7 +126,7 @@ body {
     line-height: 1.1;
     width: 35rem;
     align-items: center;
-    left:3rem;
+    left:10rem;
     padding: 0rem 0.4rem;
     font-family: "PoppinsRegular";
     font-size: clamp(1rem, 1.5rem, 10rem);    
@@ -116,7 +137,7 @@ body {
     position: absolute;
     top:29.5rem;       
     font-size: clamp(1rem, 2.5rem, 10rem);
-    left:0rem; 
+    left:7rem; 
     color: #000000;  
     font-family: "PoppinsSemiBold";
     padding: 1rem 4rem;
@@ -127,7 +148,7 @@ body {
     position: absolute;
     top:26.8rem;    
     font-size: clamp(1rem, 2.2rem, 10rem);
-    left:8rem; 
+    left:15rem; 
     color:rgb(92, 92, 92);
     font-family: "PoppinsRegular";
     padding: 1rem 4rem;
@@ -137,7 +158,7 @@ body {
 .discounted::after {
   content: "";
   position: absolute;
-  left: 3rem;
+  left: 10rem;
   right: 0;
   height: 3px;          
   background: rgb(68, 67, 67);  
@@ -150,7 +171,7 @@ body {
     position: absolute;
     top:28rem;       
     font-size: clamp(1rem, 2rem, 10rem);
-    left:4rem; 
+    left:11rem; 
     color: white;  
     background-color: #FF4136;
     font-family: "PoppinsSemiBold";
@@ -163,7 +184,7 @@ body {
     position: absolute;
     top:29.5rem;       
     font-size: clamp(1rem, 2.5rem, 10rem);
-    left:0rem; 
+    left:7rem; 
     color: #FF4136;  
     font-family: "PoppinsSemiBold";
     padding: 1rem 4rem;
@@ -175,7 +196,7 @@ body {
     bottom: 6rem;
     padding: 1rem 4rem;
     font-size: clamp(1rem, 2rem, 10rem);
-    left:4rem;
+    left:11rem;
     cursor: pointer;
     border: 0.15rem solid rgb(68, 68, 68);
     color: rgb(68, 68, 68);
@@ -199,7 +220,7 @@ body {
     bottom: 6rem;
     padding: 0.3rem 3.5rem;
     font-size: clamp(1rem, 1rem, 10rem);
-    right:15rem;
+    right:8rem;
     cursor: pointer;
     border: 0.15rem solid rgb(68, 68, 68);
     color: rgb(68, 68, 68);
@@ -221,7 +242,7 @@ body {
     bottom: 8.9rem;
     padding: 0.3rem 2rem;
     font-size: clamp(1rem, 1rem, 10rem);
-    right:15rem;
+    right:8rem;
     cursor: pointer;
     border: 0.15rem solid rgb(68, 68, 68);
     color: rgb(68, 68, 68);
@@ -243,7 +264,7 @@ body {
     position: absolute;
     font-family: "PoppinsLight";    
     top:19rem;
-    left:3.5rem;
+    left:10.5rem;
 }
 
 
@@ -253,7 +274,7 @@ body {
     background-color: rgb(110, 160, 63);
     z-index: 1;
     top:22rem;
-    left:3.5rem;
+    left:10.5rem;
 }
 
 .overallRating {
@@ -262,7 +283,7 @@ body {
     width: 15rem;
     background-color: rgb(180, 180, 180);
     top:22rem;
-    left:3.5rem;
+    left:10.5rem;
 }
 
 
@@ -271,7 +292,7 @@ body {
     padding: 0.5rem 3rem;
     font-size: clamp(1rem, 1rem, 10rem);
     top:20rem;
-    left:22rem;
+    left:29rem;
     cursor: pointer;
     border: 0.15rem solid rgb(68, 68, 68);
     color: rgb(68, 68, 68);
@@ -294,7 +315,8 @@ body {
     font-size: clamp(1rem, 3rem, 10rem);
     font-family: "PoppinsSemiBold";
     top:59rem;
-    left:18.5rem;
+    left:50%;
+    transform: translateX(-264%);
 }
 
 
@@ -303,7 +325,8 @@ body {
   box-sizing: border-box; 
   padding: 5rem;
   padding-top: 10rem;
-  right: 13.5rem;
+  right:50%;
+  transform: translateX(50%);
   gap: 1rem;
   top: 59rem;
   border-radius: 2rem;
@@ -341,7 +364,8 @@ body {
   box-sizing: border-box; 
   padding: 5rem;
   padding-top: 10rem;
-  right: 13.5rem;
+  right:50%;
+  transform: translateX(50%);
   gap: 1rem;
   top: 120.5rem;
   border-radius: 2rem;
@@ -376,7 +400,8 @@ body {
   box-sizing: border-box; 
   padding: 5rem;
   padding-top: 10rem;
-  right: 13.5rem;
+  right:50%;
+  transform: translateX(50%);
   gap: 1rem;
   top: 137.5rem;
   border-radius: 2rem;
