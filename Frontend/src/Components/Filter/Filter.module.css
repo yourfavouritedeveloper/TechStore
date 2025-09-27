@@ -1,28 +1,25 @@
-
-
-
 .container {
     width: 100%;
     margin-bottom: 26rem;
     overflow-y: hidden;
     overflow-x: hidden;
-align-items: stretch;
+    align-items: stretch;
 }
 
 
 .bar {
-    
+
     position: absolute;
     display: flex;
     justify-content: center;
     z-index: 10;
     width: 94rem;
     margin-left: 10%;
-    left:0%;
-  right: 0;
-    margin: 0 auto;    
+    left: 0%;
+    right: 0;
+    margin: 0 auto;
     height: 17rem;
-    top:51rem;
+    top: 51rem;
     border-radius: 2rem;
     z-index: auto;
     overflow-x: hidden;
@@ -30,7 +27,7 @@ align-items: stretch;
 }
 
 .inBar {
-    
+
     position: absolute;
     display: flex;
     justify-content: center;
@@ -43,17 +40,17 @@ align-items: stretch;
 
 
 .cover {
-    
+
     position: absolute;
     display: flex;
     justify-content: center;
     z-index: 1;
     background-color: #ffffff;
     width: 100%;
-    left:50%;
+    left: 50%;
     transform: translateX(-50%);
     height: 20rem;
-    top:35rem;
+    top: 35rem;
 
 
 }
@@ -63,7 +60,7 @@ align-items: stretch;
     font-family: "PoppinsSemiBold";
     color: rgb(255, 255, 255);
     width: 90rem;
-    top:1.5rem;
+    top: 1.5rem;
     height: 10rem;
     position: relative;
     padding-top: 2.9rem;
@@ -75,18 +72,19 @@ align-items: stretch;
 
 .subtitle p {
     font-size: clamp(1.5rem, 3.2rem, 10rem);
-    top:25%;
+    top: 25%;
     transform: translateY(-50%);
     width: 40%;
-    left:30%;
+    left: 30%;
     position: absolute;
 }
 
-.circle1, .circle2 {
+.circle1,
+.circle2 {
     border-radius: 50%;
     width: 50rem;
     height: 30rem;
-background-color: rgb(70, 130, 180);
+    background-color: rgb(70, 130, 180);
     position: absolute;
     z-index: 20;
     transition: all 1s ease;
@@ -94,25 +92,25 @@ background-color: rgb(70, 130, 180);
 }
 
 .circle1 {
-    left:-24rem;
-    top:-15rem;
+    left: -24rem;
+    top: -15rem;
 }
 
 .circle2 {
-    right:-22rem;
-    bottom:-15rem;
+    right: -22rem;
+    bottom: -15rem;
 }
 
 .subtitle:hover .circle1 {
-    left:-20rem;
-    top:-12rem;  
-    transform: rotate(-15deg); 
+    left: -20rem;
+    top: -12rem;
+    transform: rotate(-15deg);
 }
 
 .subtitle:hover .circle2 {
-    right:-18rem;
-    bottom:-12rem;  
-    transform: rotate(-15deg); 
+    right: -18rem;
+    bottom: -12rem;
+    transform: rotate(-15deg);
 }
 
 
@@ -122,11 +120,11 @@ background-color: rgb(70, 130, 180);
     font-family: "PoppinsLight";
     padding: 0.5rem 1.5rem;
     cursor: pointer;
-    left:1rem;
-    top:1.5rem;
+    left: 1rem;
+    top: 1.5rem;
     border: none;
     background-color: #2962FF;
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     border-radius: 2rem;
     transition: all 0.3s ease;
     z-index: 3;
@@ -135,27 +133,27 @@ background-color: rgb(70, 130, 180);
 .filter:hover {
     transform: scale(1.02);
     background-color: #4375ff;
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
 }
 
 .filter:active {
     transform: scale(1.02);
     background-color: rgb(26, 65, 172);
-    color:rgb(255, 255, 255);   
+    color: rgb(255, 255, 255);
 }
 
 
 .filter svg {
     position: relative;
-    top:0.2rem;
-    fill:white;
+    top: 0.2rem;
+    fill: white;
     height: 21px;
     width: 21px;
-    
+
 }
 
 .filter:hover svg {
-    fill:white;
+    fill: white;
 }
 
 
@@ -166,12 +164,12 @@ background-color: rgb(70, 130, 180);
 input {
     position: absolute;
     width: 28rem;
-    padding:0.35rem 1.5rem;
-    padding-left:3.5rem;
+    padding: 0.35rem 1.5rem;
+    padding-left: 3.5rem;
     margin-top: 1.48rem;
     border-radius: 1.5rem;
-    left:53.2rem;
-    border:none;
+    left: 53.2rem;
+    border: none;
     font-family: "PoppinsLight";
     font-size: clamp(1.5rem, 1rem, 2.5rem);
     transition: transform 0.3s ease;
@@ -179,178 +177,183 @@ input {
 }
 
 input:focus {
-  outline: none;
-  border: none;
-  box-shadow: none;
+    outline: none;
+    border: none;
+    box-shadow: none;
 }
 
 .search {
     width: 34px;
     height: 34px;
     position: absolute;
-    margin-top:1.9rem;
-    left:54.5rem;
+    margin-top: 1.9rem;
+    left: 54.5rem;
     transform: rotateZ(0deg);
     transition: transform 0.3s ease;
     z-index: 4;
 }
 
-.inputBar:hover .search{
+.inputBar:hover .search {
     transform: rotateZ(90deg);
 }
 
 
 
 
-.low input, .high input, .newest input, .oldest input, .more input {
-  display: none;
-  
-  
+.low input,
+.high input,
+.newest input,
+.oldest input,
+.more input {
+    display: none;
+
+
 }
 
 .low span {
-  position: absolute;
-  padding: 0.5rem 1.5rem;
-  border-radius: 2rem;
-  left:9rem;
-  top:1.5rem;
-   font-size: 1.2rem;
+    position: absolute;
+    padding: 0.5rem 1.5rem;
+    border-radius: 2rem;
+    left: 9rem;
+    top: 1.5rem;
+    font-size: 1.2rem;
     background-color: white;
     color: black;
-  cursor: pointer;
-  background-size: 200% 100%;
-  background-position: 100% 0%;
-  transition: all 0.5s ease;
-  z-index: 8;
+    cursor: pointer;
+    background-size: 200% 100%;
+    background-position: 100% 0%;
+    transition: all 0.5s ease;
+    z-index: 8;
 
 }
 
 .low:hover span {
     background-color: #2962FF;
-    color:rgb(255, 255, 255);
-    transform: scale(1.02);    
+    color: rgb(255, 255, 255);
+    transform: scale(1.02);
 }
 
 
-.low input:checked + span{
+.low input:checked+span {
     background-color: #2962FF;
-    color:rgb(255, 255, 255);
-  
+    color: rgb(255, 255, 255);
+
 }
 
-.high span{
-     position: absolute;
+.high span {
+    position: absolute;
     font-size: 1.2rem;
     font-family: "PoppinsLight";
     padding: 0.5rem 1.5rem;
     cursor: pointer;
-    left:19.7rem;
-    top:1.5rem;
+    left: 19.7rem;
+    top: 1.5rem;
     border: none;
     background-color: white;
     color: black;
     border-radius: 2rem;
     background-size: 200% 100%;
     background-position: 100% 0%;
-    transition: all 0.5s ease;   
+    transition: all 0.5s ease;
     z-index: 8;
 }
 
 
-.high:hover span{
+.high:hover span {
     background-color: #2962FF;
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     transform: scale(1.02);
 }
 
-.high input:checked + span{
+.high input:checked+span {
     background-color: #2962FF;
-    color:rgb(255, 255, 255);
-  
+    color: rgb(255, 255, 255);
+
 }
 
 
-.newest span{
-     position: absolute;
+.newest span {
+    position: absolute;
     font-size: 1.2rem;
     font-family: "PoppinsLight";
     padding: 0.5rem 1.5rem;
     cursor: pointer;
-    left:30.4rem;
-    top:1.5rem;
+    left: 30.4rem;
+    top: 1.5rem;
     border: none;
     background-color: white;
     color: black;
     border-radius: 2rem;
-    transition: all 0.5s ease; 
-    z-index: 8;  
-}
-
-.newest:hover span {
-     transform: scale(1.02); 
-    background-color: #2962FF;
-    color:rgb(255, 255, 255);    
-}
-
-.newest input:checked + span{
-    background-color: #2962FF;
-    color:rgb(255, 255, 255);
-}
-
-
-
-.oldest span{
-     position: absolute;
-    font-size: 1.2rem;
-    font-family: "PoppinsLight";
-    padding: 0.5rem 1.5rem;
-    cursor: pointer;
-    left:38.8rem;
-    top:1.5rem;
-    border: none;
-    background-color: white;
-    color: black;
-    border-radius: 2rem;
-    transition: all 0.5s ease;   
+    transition: all 0.5s ease;
     z-index: 8;
 }
 
-.oldest:hover span{
-     transform: scale(1.02); 
+.newest:hover span {
+    transform: scale(1.02);
     background-color: #2962FF;
-    color:rgb(255, 255, 255);   
+    color: rgb(255, 255, 255);
 }
 
-.oldest input:checked + span{
+.newest input:checked+span {
     background-color: #2962FF;
-    color:rgb(255, 255, 255);   
+    color: rgb(255, 255, 255);
+}
+
+
+
+.oldest span {
+    position: absolute;
+    font-size: 1.2rem;
+    font-family: "PoppinsLight";
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    left: 38.8rem;
+    top: 1.5rem;
+    border: none;
+    background-color: white;
+    color: black;
+    border-radius: 2rem;
+    transition: all 0.5s ease;
+    z-index: 8;
+}
+
+.oldest:hover span {
+    transform: scale(1.02);
+    background-color: #2962FF;
+    color: rgb(255, 255, 255);
+}
+
+.oldest input:checked+span {
+    background-color: #2962FF;
+    color: rgb(255, 255, 255);
 }
 
 .more {
     cursor: pointer;
-    z-index: 10;  
+    z-index: 10;
     overflow: visible;
-    
+
 }
-.more span{
-     position: absolute;
+
+.more span {
+    position: absolute;
     font-size: 1.2rem;
     font-family: "PoppinsLight";
     padding: 0.5rem 1.5em;
     padding-right: 1rem;
-    left:46.5rem;
-    top:1.5rem;
+    left: 46.5rem;
+    top: 1.5rem;
     border: none;
-    color:white;
-    background-color:#7636be60 ;
+    color: white;
+    background-color: #7636be60;
     border-radius: 2rem;
-    transition: all 0.5s ease;   
+    transition: all 0.5s ease;
     z-index: 4;
 }
 
-.more:hover span{
-     transform: scale(1.02); 
-     background-color: #8e53d1;      
+.more:hover span {
+    transform: scale(1.02);
+    background-color: #8e53d1;
 }
 
 
@@ -359,7 +362,7 @@ input:focus {
 .more svg {
     position: absolute;
     top: 2rem;
-    margin-left:-0.7rem;
+    margin-left: -0.3rem;
     z-index: 8;
     width: 28px;
     height: 28px;
@@ -381,43 +384,43 @@ input:focus {
     transform: rotateZ(90deg);
 }
 
-.more input:checked + span {
-    background-color:#7536be ; 
+.more input:checked+span {
+    background-color: #7536be;
 }
 
-.more input:checked ~ .moreOption {
+.more input:checked~.moreOption {
     top: 1rem;
     height: 16rem;
     border-radius: 3.5rem;
     opacity: 1;
 }
 
-.more input:checked ~ svg {
-    transform: rotateZ(90deg);    
+.more input:checked~svg {
+    transform: rotateZ(90deg);
 }
 
 
 .moreOption {
-    width:96%;
+    width: 96%;
     left: 2%;
     top: -15rem;
-    cursor:auto;
+    cursor: auto;
     border-radius: 0rem;
-    position:absolute;
+    position: absolute;
     height: 20rem;
     background-color: rgb(207, 207, 207);
     z-index: 2;
     transition: all 0.5s ease;
     pointer-events: auto;
 
-    
+
 }
 
 .bestSelling label {
     background-color: white;
     color: black;
-    top:7rem;
-    left:2rem;
+    top: 7rem;
+    left: 2rem;
     cursor: pointer;
     position: absolute;
     z-index: 10;
@@ -431,22 +434,22 @@ input:focus {
 
 .bestSelling label:hover {
     background-color: #2962FF;
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     transform: scale(1.02);
 
 }
 
-.bestSelling input:checked + label {
+.bestSelling input:checked+label {
     background-color: #4476ff;
-    color:rgb(255, 255, 255);   
+    color: rgb(255, 255, 255);
 }
 
 
 .mostSearched label {
     background-color: white;
     color: black;
-    top:11rem;
-    left:2rem;
+    top: 11rem;
+    left: 2rem;
     cursor: pointer;
     position: absolute;
     z-index: 10;
@@ -460,22 +463,22 @@ input:focus {
 
 .mostSearched label:hover {
     background-color: #2962FF;
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     transform: scale(1.02);
 
 }
 
-.mostSearched input:checked + label {
+.mostSearched input:checked+label {
     background-color: #4476ff;
-    color:rgb(255, 255, 255);  
+    color: rgb(255, 255, 255);
 }
 
 
 .AZ label {
     background-color: white;
     color: black;
-    top:7rem;
-    left:12.5rem;
+    top: 7rem;
+    left: 12.5rem;
     cursor: pointer;
     position: absolute;
     z-index: 10;
@@ -489,14 +492,14 @@ input:focus {
 
 .AZ label:hover {
     background-color: #2962FF;
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     transform: scale(1.02);
 
 }
 
-.AZ input:checked + label {
+.AZ input:checked+label {
     background-color: #4476ff;
-    color:rgb(255, 255, 255);  
+    color: rgb(255, 255, 255);
 }
 
 
@@ -504,8 +507,8 @@ input:focus {
 .ZA label {
     background-color: white;
     color: black;
-    top:7rem;
-    left:27.5rem;
+    top: 7rem;
+    left: 27.5rem;
     cursor: pointer;
     position: absolute;
     z-index: 10;
@@ -519,22 +522,22 @@ input:focus {
 
 .ZA label:hover {
     background-color: #2962FF;
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     transform: scale(1.02);
 
 }
 
-.ZA input:checked + label {
+.ZA input:checked+label {
     background-color: #4476ff;
-    color:rgb(255, 255, 255);  
+    color: rgb(255, 255, 255);
 }
 
 
 .inStock label {
     background-color: white;
     color: black;
-    top:11rem;
-    left:14.8rem;
+    top: 11rem;
+    left: 14.8rem;
     cursor: pointer;
     position: absolute;
     z-index: 10;
@@ -548,14 +551,14 @@ input:focus {
 
 .inStock label:hover {
     background-color: #2962FF;
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     transform: scale(1.02);
 
 }
 
-.inStock input:checked + label {
+.inStock input:checked+label {
     background-color: #4476ff;
-    color:rgb(255, 255, 255);  
+    color: rgb(255, 255, 255);
 }
 
 
@@ -564,8 +567,8 @@ input:focus {
 .outOfStock label {
     background-color: white;
     color: black;
-    top:11rem;
-    left:24.2rem;
+    top: 11rem;
+    left: 24.2rem;
     cursor: pointer;
     position: absolute;
     z-index: 10;
@@ -579,14 +582,14 @@ input:focus {
 
 .outOfStock label:hover {
     background-color: #2962FF;
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     transform: scale(1.02);
 
 }
 
-.outOfStock input:checked + label {
+.outOfStock input:checked+label {
     background-color: #4476ff;
-    color:rgb(255, 255, 255);  
+    color: rgb(255, 255, 255);
 }
 
 
@@ -594,8 +597,8 @@ input:focus {
 .highestRating label {
     background-color: white;
     color: black;
-    top:11rem;
-    left:33.2rem;
+    top: 11rem;
+    left: 33.2rem;
     cursor: pointer;
     position: absolute;
     z-index: 10;
@@ -609,22 +612,22 @@ input:focus {
 
 .highestRating label:hover {
     background-color: #2962FF;
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     transform: scale(1.02);
 
 }
 
-.highestRating input:checked + label {
+.highestRating input:checked+label {
     background-color: #4476ff;
-    color:rgb(255, 255, 255);  
+    color: rgb(255, 255, 255);
 }
 
 
 .lowestRating label {
     background-color: white;
     color: black;
-    top:11rem;
-    left:45.7rem;
+    top: 11rem;
+    left: 45.7rem;
     cursor: pointer;
     position: absolute;
     z-index: 10;
@@ -638,21 +641,21 @@ input:focus {
 
 .lowestRating label:hover {
     background-color: #2962FF;
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     transform: scale(1.02);
 
 }
 
-.lowestRating input:checked + label {
+.lowestRating input:checked+label {
     background-color: #4476ff;
-    color:rgb(255, 255, 255);  
+    color: rgb(255, 255, 255);
 }
 
 .discount label {
     background-color: white;
     color: black;
-    top:7rem;
-    left:42.7rem;
+    top: 7rem;
+    left: 42.7rem;
     cursor: pointer;
     position: absolute;
     z-index: 10;
@@ -666,22 +669,22 @@ input:focus {
 
 .discount label:hover {
     background-color: #2962FF;
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     transform: scale(1.02);
 
 }
 
-.discount input:checked + label {
+.discount input:checked+label {
     background-color: #4476ff;
-    color:rgb(255, 255, 255);  
+    color: rgb(255, 255, 255);
 }
 
 
 .moreText {
     font-family: "PoppinsMedium";
     color: black;
-    top:5rem;
-    right:2.5rem;
+    top: 5rem;
+    right: 2.5rem;
     position: absolute;
     z-index: 10;
     width: 40%;
@@ -705,13 +708,13 @@ input:focus {
     font-family: "PoppinsLight";
     padding: 0.5rem 1.5rem;
     cursor: pointer;
-    left:87rem;
-    top:1.5rem;
+    left: 87rem;
+    top: 1.5rem;
     border: none;
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     background-color: #797979;
     border-radius: 2rem;
-    transition: all 0.3s ease;    
+    transition: all 0.3s ease;
     z-index: 8;
 }
 
@@ -724,33 +727,33 @@ input:focus {
 .categorySelector {
     height: 400rem;
     width: 19rem;
-    left:50%;
-    top:11.5rem;
+    left: 50%;
+    top: 11.5rem;
     z-index: 1;
     position: absolute;
     background-color: rgb(235, 235, 235);
 
-    transform: translate(-220%,0%);
-    display: flex;           
-    flex-direction: column;   
-    justify-content: flex-start; 
-    align-items: stretch;     
-    gap: 1rem;               
-    padding: 1rem; 
-    padding-top: 2.5rem;    
+    transform: translate(-220%, 0%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 1rem;
+    padding: 1rem;
+    padding-top: 2.5rem;
 }
 
 .categorySelector button {
-  width: 100%;
-  padding: 0.8rem 2rem;
-  border: none;
-  border-radius: 0.4rem;
-  background-color: #fff;
-  cursor: pointer;
-  text-align: left;
-  color: rgb(61, 61, 61);
-  font-family: "PoppinsMedium";
-  transition: all 0.3s ease;
+    width: 100%;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 0.4rem;
+    background-color: #fff;
+    cursor: pointer;
+    text-align: left;
+    color: rgb(61, 61, 61);
+    font-family: "PoppinsMedium";
+    transition: all 0.3s ease;
 
 
 }
@@ -759,7 +762,7 @@ input:focus {
     width: 1.5rem;
     height: 1.5rem;
     top: 2.6rem;
-    right:3rem;
+    right: 3rem;
     position: absolute;
     fill: rgb(78, 78, 78);
     transition: all 0.3s ease;
@@ -773,7 +776,7 @@ input:focus {
 }
 
 .categorySelector button:hover svg {
-    fill:white;
+    fill: white;
 }
 
 
@@ -781,7 +784,7 @@ input:focus {
     background-color: rgb(223, 223, 223);
     border-radius: 3rem;
     padding: 5rem 0rem;
-    padding-left:9rem;
+    padding-left: 9rem;
     padding-top: 9rem;
     width: 83.3rem;
     min-height: 40rem;
@@ -790,7 +793,8 @@ input:focus {
     margin: 0 auto;
     margin-top: 10rem;
     z-index: 0;
-    opacity:1;
+    opacity: 1;
+    overflow: hidden;
 
 }
 
@@ -798,8 +802,8 @@ input:focus {
 
 .items .guarantee {
     position: absolute;
-    top:2.7rem;   
-    right: 1rem;  
+    top: 2.7rem;
+    right: 1rem;
     font-size: clamp(0rem, 0.84rem, 2rem);
     color: #1d3c94;
 }
@@ -810,22 +814,22 @@ input:focus {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem; 
+    gap: 1rem;
     padding: 0rem 3rem;
     padding-bottom: 3rem;
-    left:12.5rem;
+    left: 12.5rem;
     position: relative;
-    
 
-    
+
+
 }
 
 .info {
     width: 100%;
     height: 5rem;
-    top:15rem;
+    top: 15rem;
     box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.116);
-    left:0rem;
+    left: 0rem;
     border-radius: 0.5rem;
     position: absolute;
     background-color: rgb(255, 255, 255);
@@ -842,8 +846,8 @@ input:focus {
 .items .item {
     margin-top: 4rem;
     flex: 0 0 calc(25% - 4rem);
-    box-sizing: border-box; 
-    padding:8rem 0rem;
+    box-sizing: border-box;
+    padding: 8rem 0rem;
     border-radius: 0.2rem;
     color: black;
     position: relative;
@@ -861,17 +865,17 @@ input:focus {
 
 .items .price {
     position: absolute;
-    top:2.25rem;    
+    top: 2.25rem;
     font-family: "PoppinsSemiBold";
-    left: 1rem;  
+    left: 1rem;
     font-size: clamp(1rem, 1.08rem, 2rem);
-    color:rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
 }
 
 .items .name {
     text-align: left;
     position: absolute;
-    top:-0.5rem;
+    top: -0.5rem;
     font-family: "PoppinsMedium";
     line-height: 1.1;
     color: rgb(51, 51, 51);
@@ -887,9 +891,9 @@ input:focus {
 
 .items img {
     position: absolute;
-    left:0%;
+    left: 0%;
     width: 100%;
-    top:1.2rem;
+    top: 1.2rem;
 }
 
 .noItem {
@@ -897,8 +901,8 @@ input:focus {
     background-color: white;
     padding: 0rem 5rem;
     border-radius: 2rem;
-    margin-top:5%;
-    left:30%;
+    margin-top: 5%;
+    left: 30%;
     color: rgb(58, 58, 58);
     z-index: 20;
     font-size: clamp(0.5rem, 1.5vw, 5rem);
@@ -907,31 +911,31 @@ input:focus {
 
 
 .pagination {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  bottom: 1rem;
-  left: 60%;
-  transform: translateX(-50%);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    bottom: 1rem;
+    left: 60%;
+    transform: translateX(-50%);
 }
 
 .pageButton {
-  padding: 0.5rem 1rem;
-  border: none;
-  background-color: #ffffff;
-  cursor: pointer;
-  border-radius: 0.3rem;
-  transition: background 0.2s ease;
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #ffffff;
+    cursor: pointer;
+    border-radius: 0.3rem;
+    transition: background 0.2s ease;
 }
 
 .pageButton:hover {
-  background-color: #ddd;
+    background-color: #ddd;
 }
 
 .pageButton.active {
-  background-color: #333;
-  color: white;
+    background-color: #333;
+    color: white;
 }
 
 
@@ -945,806 +949,808 @@ input:focus {
 
 @media (max-width: 576px) {}
 
-@media (max-width: 	480px) {
-
-.container {
-    width: 100%;
-    margin-bottom: 6rem;
-    overflow-y: hidden;
-    overflow-x: hidden;
-}
+@media (max-width: 480px) {
 
+    .container {
+        width: 100%;
+        margin-bottom: 6rem;
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
 
-.bar {
-    width: 90%;
-    margin-left: 5%;
-    height: 15rem;
-    top:41rem;
-    border-radius: 1rem;
 
-}
+    .bar {
+        width: 90%;
+        margin-left: 5%;
+        height: 15rem;
+        top: 41rem;
+        border-radius: 1rem;
 
-.inBar {
+    }
 
-    width: 100%;
-    height: 6.2rem;
-    border-radius: 1rem;
-}
+    .inBar {
 
+        width: 100%;
+        height: 6.2rem;
+        border-radius: 1rem;
+    }
 
-.cover {
 
-    height: 10rem;
-    top:35rem;
+    .cover {
 
+        height: 10rem;
+        top: 35rem;
 
-}
 
-.subtitle {
+    }
 
-    width: 90%;
-    top:-2rem;
-    height: 4rem;
+    .subtitle {
 
-}
+        width: 90%;
+        top: -2rem;
+        height: 4rem;
 
-.subtitle p {
-    font-size: clamp(0rem, 1.3rem, 10rem);
-    top:-2rem;
-    width: 60%;
-    left:20%;
-    position: relative;
-}
+    }
 
-.circle1, .circle2 {
-    border-radius: 50%;
-    width:20rem;
-    height: 20rem;
-background-color: rgb(70, 130, 180);
-    position: absolute;
-    z-index: 20;
-    transition: all 1s ease;
+    .subtitle p {
+        font-size: clamp(0rem, 1.3rem, 10rem);
+        top: -2rem;
+        width: 60%;
+        left: 20%;
+        position: relative;
+    }
 
-}
+    .circle1,
+    .circle2 {
+        border-radius: 50%;
+        width: 20rem;
+        height: 20rem;
+        background-color: rgb(70, 130, 180);
+        position: absolute;
+        z-index: 20;
+        transition: all 1s ease;
 
-.circle1 {
-    left:-14rem;
-    top:-12rem;
-}
+    }
 
-.circle2 {
-    right:-14rem;
-    bottom:-12rem;
-}
+    .circle1 {
+        left: -14rem;
+        top: -12rem;
+    }
 
-.subtitle:hover .circle1 {
-    left:-16rem;
-    top:-12rem;  
-    transform: rotate(-15deg); 
-}
+    .circle2 {
+        right: -14rem;
+        bottom: -12rem;
+    }
 
-.subtitle:hover .circle2 {
-    right:-16rem;
-    bottom:-12rem;  
-    transform: rotate(-15deg); 
-}
+    .subtitle:hover .circle1 {
+        left: -16rem;
+        top: -12rem;
+        transform: rotate(-15deg);
+    }
 
+    .subtitle:hover .circle2 {
+        right: -16rem;
+        bottom: -12rem;
+        transform: rotate(-15deg);
+    }
 
-.filter {
-    font-size: 0.7rem;
-    padding: 0.2rem 0.7rem;
-    left:0.8rem;
-    top:0.5rem;
 
-}
+    .filter {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.7rem;
+        left: 0.8rem;
+        top: 0.5rem;
 
+    }
 
 
 
-.filter svg {
-    top:0.1445rem;
-    height: 13px;
-    width: 13px;
-    
-}
 
+    .filter svg {
+        top: 0.1445rem;
+        height: 13px;
+        width: 13px;
 
+    }
 
-.input input {
-    width: 76vw;
-    padding:0.35rem 0rem;
-    padding-left:6.3vw;
-    margin-top: 4.1rem;
-    border-radius: 0.5rem;
-    left:0.8rem;
-    font-size: clamp(0rem, 0.6rem, 2.5rem);
 
-}
 
+    .input input {
+        width: 76vw;
+        padding: 0.35rem 0rem;
+        padding-left: 6.3vw;
+        margin-top: 4.1rem;
+        border-radius: 0.5rem;
+        left: 0.8rem;
+        font-size: clamp(0rem, 0.6rem, 2.5rem);
 
+    }
 
-.search {
-    margin-top:4.35rem;
-    left:1.05rem;
-    width: 16px;
-    height: 16px;
-}
 
 
+    .search {
+        margin-top: 4.35rem;
+        left: 1.05rem;
+        width: 16px;
+        height: 16px;
+    }
 
 
-.low span {
-    font-size: 0.7rem;
-    padding: 0.2rem 0.7rem;
-    left:90vw;
-    margin-left:-12.5rem;
-    top:0.55rem;
 
-}
 
+    .low span {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.7rem;
+        left: 90vw;
+        margin-left: -12.5rem;
+        top: 0.55rem;
 
+    }
 
-.high span{
-    font-size: 0.7rem;
-    padding: 0.2rem 0.7rem;
-    left:90vw;
-    margin-left:-6.3rem;
-    top:0.55rem;
-}
 
 
+    .high span {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.7rem;
+        left: 90vw;
+        margin-left: -6.3rem;
+        top: 0.55rem;
+    }
 
 
-.newest span{
-    font-size: 0.7rem;
-    padding: 0.2rem 0.7rem;
-    left:90vw;
-    margin-left:-9.5rem;
-    top:2.4rem;
-}
 
 
+    .newest span {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.7rem;
+        left: 90vw;
+        margin-left: -9.5rem;
+        top: 2.4rem;
+    }
 
-.oldest span{
-    font-size: 0.7rem;
-    padding: 0.2rem 0.7rem;
-    left:90vw;
-    margin-left:-4.6rem;
-    top:2.4rem;
-}
 
-.more span{
-    font-size: 0.7rem;
-    padding: 0.2rem 0.8rem;
-    padding-left: 1.3rem;
-    left:0.8rem;
-    top:2.4rem;
-}
 
+    .oldest span {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.7rem;
+        left: 90vw;
+        margin-left: -4.6rem;
+        top: 2.4rem;
+    }
 
+    .more span {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.8rem;
+        padding-left: 1.3rem;
+        left: 0.8rem;
+        top: 2.4rem;
+    }
 
 
-.more svg {
-    top: 2.55rem;
-    height: 18px;
-    width: 18px;
-    left:1.8rem;
 
 
-}
+    .more svg {
+        top: 2.55rem;
+        height: 18px;
+        width: 18px;
+        left: 1.8rem;
 
 
+    }
 
 
-.more:hover .moreOption {
-    top: 3rem;
-    height: 11rem;
-    border-radius: 1rem;
-}
 
 
-.more input:checked ~ .moreOption {
-    top: 3rem;
-    height: 11rem;
-    border-radius: 1rem;
+    .more:hover .moreOption {
+        top: 3rem;
+        height: 11rem;
+        border-radius: 1rem;
+    }
 
-}
 
+    .more input:checked~.moreOption {
+        top: 3rem;
+        height: 11rem;
+        border-radius: 1rem;
 
-.moreOption {
-    width:96%;
-    left: 2%;
-    top: -8rem;
-    border-radius: 0rem;
-    height: 11rem;
+    }
 
-    
-}
 
+    .moreOption {
+        width: 96%;
+        left: 2%;
+        top: -8rem;
+        border-radius: 0rem;
+        height: 11rem;
 
-.bestSelling label {
-    font-size: 0.6rem;
-    padding: 0.2rem 0.7rem;
-    left:0.8rem;
-    top:3.7rem;
 
-}
+    }
 
 
+    .bestSelling label {
+        font-size: 0.6rem;
+        padding: 0.2rem 0.7rem;
+        left: 0.8rem;
+        top: 3.7rem;
 
-.mostSearched label {
-    font-size: 0.6rem;
-    padding: 0.2rem 0.7rem;
-    left:5.9rem;
-    top:3.7rem;
-}
+    }
 
 
 
-.AZ label {
-    font-size: 0.6rem;
-    padding: 0.2rem 0.7rem;
-    left:12.2rem;
-    top:3.7rem;
+    .mostSearched label {
+        font-size: 0.6rem;
+        padding: 0.2rem 0.7rem;
+        left: 5.9rem;
+        top: 3.7rem;
+    }
 
-}
 
 
+    .AZ label {
+        font-size: 0.6rem;
+        padding: 0.2rem 0.7rem;
+        left: 12.2rem;
+        top: 3.7rem;
 
-.ZA label {
-    font-size: 0.6rem;
-    padding: 0.2rem 0.7rem;
-    left:0.8rem;
-    top:5.5rem;
+    }
 
-}
 
 
+    .ZA label {
+        font-size: 0.6rem;
+        padding: 0.2rem 0.7rem;
+        left: 0.8rem;
+        top: 5.5rem;
 
-.inStock label {
+    }
 
-    font-size: 0.6rem;
-    padding: 0.2rem 0.7rem;
-    left:8.3rem;
-    top:5.5rem;
 
-}
 
+    .inStock label {
 
+        font-size: 0.6rem;
+        padding: 0.2rem 0.7rem;
+        left: 8.3rem;
+        top: 5.5rem;
 
+    }
 
 
 
-.outOfStock label {
-    font-size: 0.6rem;
-    padding: 0.2rem 0.7rem;
-    left:12.8rem;
-    top:5.5rem;
 
-}
 
 
+    .outOfStock label {
+        font-size: 0.6rem;
+        padding: 0.2rem 0.7rem;
+        left: 12.8rem;
+        top: 5.5rem;
 
+    }
 
-.highestRating label {
-    font-size: 0.6rem;
-    padding: 0.2rem 0.7rem;
-    left:0.8rem;
-    top:7.2rem;
 
-}
 
 
+    .highestRating label {
+        font-size: 0.6rem;
+        padding: 0.2rem 0.7rem;
+        left: 0.8rem;
+        top: 7.2rem;
 
+    }
 
-.lowestRating label {
-    font-size: 0.6rem;
-    padding: 0.2rem 0.7rem;
-    left:7rem;
-    top:7.2rem;
-}
 
 
 
-.discount label {
-    font-size: 0.6rem;
-    padding: 0.2rem 0.7rem;
-    left:0.8rem;
-    top:9rem;
+    .lowestRating label {
+        font-size: 0.6rem;
+        padding: 0.2rem 0.7rem;
+        left: 7rem;
+        top: 7.2rem;
+    }
 
-}
 
 
+    .discount label {
+        font-size: 0.6rem;
+        padding: 0.2rem 0.7rem;
+        left: 0.8rem;
+        top: 9rem;
 
+    }
 
-.moreText {
 
-    top:6rem;
-    right:1.4rem;
-    width: 28%;
-    line-height: 1.1;
-    border-radius: 2rem;
-    font-size: 0.8rem;
 
 
-}
+    .moreText {
 
+        top: 6rem;
+        right: 1.4rem;
+        width: 28%;
+        line-height: 1.1;
+        border-radius: 2rem;
+        font-size: 0.8rem;
 
 
+    }
 
-.refresh {
-    font-size: 0.7rem;
-    padding: 0.2rem 0.8rem;
-    left:5.4rem;
-    top:2.4rem;
-}
 
 
 
-.itemContainer {
-    border-radius: 1.5rem;
-    padding: 0rem 0.5rem;
-    padding-top: 9rem;
-    width: 80%;
-    margin-top: 8rem;
+    .refresh {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.8rem;
+        left: 5.4rem;
+        top: 2.4rem;
+    }
 
-}
 
 
-.items {
-    gap: 0.5rem; 
-    margin-top:-19rem;
-    padding: 2rem 0.6vw;
-    padding-top: 18rem;
-    
-}
+    .itemContainer {
+        border-radius: 1.5rem;
+        padding: 0rem 0.5rem;
+        padding-top: 9rem;
+        width: 80%;
+        margin-top: 8rem;
 
+    }
 
 
+    .items {
+        gap: 0.5rem;
+        margin-top: -19rem;
+        padding: 2rem 0.6vw;
+        padding-top: 18rem;
 
-.items .guarantee {
-    top:9.4rem;   
-    left:0.6rem; 
-    font-size: 0.6rem;
-}
+    }
 
-.items .item {
-    
-    flex: 0 1 10%;
-    padding:5.5rem 19vw;
-    border-radius: 0.7rem;
-}
 
 
-.items span {
-    top:9.9rem;    
-    font-size: clamp(0rem, 0.7rem, 2rem);
-    left: 35vw;  
-    margin-left:-3rem;
-}
 
-.items .name {
-    top:4.85rem;
-    line-height: 1;
-    align-items: center;
-    left: 0.6rem;
-    padding: 0rem 0.4rem;
-    font-size: clamp(0rem, 0.6rem, 2rem);
-}
+    .items .guarantee {
+        top: 9.4rem;
+        left: 0.6rem;
+        font-size: 0.6rem;
+    }
 
+    .items .item {
 
+        flex: 0 1 10%;
+        padding: 5.5rem 19vw;
+        border-radius: 0.7rem;
+    }
 
 
+    .items span {
+        top: 9.9rem;
+        font-size: clamp(0rem, 0.7rem, 2rem);
+        left: 35vw;
+        margin-left: -3rem;
+    }
 
-.items img {
-    left:17vw;
-    margin-left: -4.7rem;
-    top:0.5rem;
-    width: 165px;
-}
+    .items .name {
+        top: 4.85rem;
+        line-height: 1;
+        align-items: center;
+        left: 0.6rem;
+        padding: 0rem 0.4rem;
+        font-size: clamp(0rem, 0.6rem, 2rem);
+    }
 
 
-}
 
 
 
+    .items img {
+        left: 17vw;
+        margin-left: -4.7rem;
+        top: 0.5rem;
+        width: 165px;
+    }
 
-@media (max-width: 	360px) {
 
-.container {
-    width: 100%;
-    margin-bottom: 6rem;
-    overflow-y: hidden;
-    overflow-x: hidden;
 }
 
 
-.bar {
-    width: 90%;
-    margin-left: 5%;
-    height: 15rem;
-    top:41rem;
-    border-radius: 1rem;
 
-}
 
-.inBar {
+@media (max-width: 360px) {
 
-    width: 100%;
-    height: 6.2rem;
-    border-radius: 1rem;
-}
+    .container {
+        width: 100%;
+        margin-bottom: 6rem;
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
 
 
-.cover {
+    .bar {
+        width: 90%;
+        margin-left: 5%;
+        height: 15rem;
+        top: 41rem;
+        border-radius: 1rem;
 
-    height: 10rem;
-    top:35rem;
+    }
 
+    .inBar {
 
-}
+        width: 100%;
+        height: 6.2rem;
+        border-radius: 1rem;
+    }
 
-.subtitle {
 
-    width: 90%;
-    top:-2rem;
-    height: 4rem;
+    .cover {
 
-}
+        height: 10rem;
+        top: 35rem;
 
-.subtitle p {
-    font-size: clamp(0rem, 0.9rem, 10rem);
-    top:-1.4rem;
-    width: 60%;
-    left:20%;
-    position: relative;
-}
 
-.circle1, .circle2 {
-    border-radius: 50%;
-    width:20rem;
-    height: 20rem;
-background-color: rgb(70, 130, 180);
-    position: absolute;
-    z-index: 20;
-    transition: all 1s ease;
+    }
 
-}
+    .subtitle {
 
-.circle1 {
-    left:-15rem;
-    top:-12rem;
-}
+        width: 90%;
+        top: -2rem;
+        height: 4rem;
 
-.circle2 {
-    right:-15rem;
-    bottom:-12rem;
-}
+    }
 
-.subtitle:hover .circle1 {
-    left:-16rem;
-    top:-12rem;  
-    transform: rotate(-15deg); 
-}
+    .subtitle p {
+        font-size: clamp(0rem, 0.9rem, 10rem);
+        top: -1.4rem;
+        width: 60%;
+        left: 20%;
+        position: relative;
+    }
 
-.subtitle:hover .circle2 {
-    right:-16rem;
-    bottom:-12rem;  
-    transform: rotate(-15deg); 
-}
+    .circle1,
+    .circle2 {
+        border-radius: 50%;
+        width: 20rem;
+        height: 20rem;
+        background-color: rgb(70, 130, 180);
+        position: absolute;
+        z-index: 20;
+        transition: all 1s ease;
 
+    }
 
-.filter {
-    font-size: 0.6rem;
-    padding: 0.2rem 0.7rem;
-    left:0.8rem;
-    top:0.5rem;
+    .circle1 {
+        left: -15rem;
+        top: -12rem;
+    }
 
-}
+    .circle2 {
+        right: -15rem;
+        bottom: -12rem;
+    }
 
+    .subtitle:hover .circle1 {
+        left: -16rem;
+        top: -12rem;
+        transform: rotate(-15deg);
+    }
 
+    .subtitle:hover .circle2 {
+        right: -16rem;
+        bottom: -12rem;
+        transform: rotate(-15deg);
+    }
 
 
-.filter svg {
-    top:0.15rem;
-    height: 12px;
-    width: 12px;
-    
-}
+    .filter {
+        font-size: 0.6rem;
+        padding: 0.2rem 0.7rem;
+        left: 0.8rem;
+        top: 0.5rem;
 
+    }
 
 
-.input input {
-    width: 74vw;
-    padding:0.35rem 0rem;
-    padding-left:1.3rem;
-    margin-top: 4.1rem;
-    border-radius: 0.5rem;
-    left:0.8rem;
-    font-size: clamp(0rem, 0.6rem, 2.5rem);
 
-}
 
+    .filter svg {
+        top: 0.15rem;
+        height: 12px;
+        width: 12px;
 
+    }
 
-.search {
-    margin-top:4.35rem;
-    left:1rem;
-    width: 16px;
-    height: 16px;
-}
 
 
+    .input input {
+        width: 74vw;
+        padding: 0.35rem 0rem;
+        padding-left: 1.3rem;
+        margin-top: 4.1rem;
+        border-radius: 0.5rem;
+        left: 0.8rem;
+        font-size: clamp(0rem, 0.6rem, 2.5rem);
 
+    }
 
-.low span {
-    font-size: 0.6rem;
-    padding: 0.2rem 0.7rem;
-    left:90vw;
-    margin-left:-11rem;
-    top:0.55rem;
 
-}
 
+    .search {
+        margin-top: 4.35rem;
+        left: 1rem;
+        width: 16px;
+        height: 16px;
+    }
 
 
-.high span{
-    font-size: 0.6rem;
-    padding: 0.2rem 0.7rem;
-    left:90vw;
-    margin-left:-5.8rem;
-    top:0.55rem;
-}
 
 
+    .low span {
+        font-size: 0.6rem;
+        padding: 0.2rem 0.7rem;
+        left: 90vw;
+        margin-left: -11rem;
+        top: 0.55rem;
 
+    }
 
-.newest span{
-    font-size: 0.6rem;
-    padding: 0.2rem 0.7rem;
-    left:90vw;
-    margin-left:-8.4rem;
-    top:2.4rem;
-}
 
 
+    .high span {
+        font-size: 0.6rem;
+        padding: 0.2rem 0.7rem;
+        left: 90vw;
+        margin-left: -5.8rem;
+        top: 0.55rem;
+    }
 
-.oldest span{
-    font-size: 0.6rem;
-    padding: 0.2rem 0.7rem;
-    left:90vw;
-    margin-left:-4.4rem;
-    top:2.4rem;
-}
 
-.more span{
-    font-size: 0.6rem;
-    padding: 0.2rem 0.8rem;
-    padding-left: 1.3rem;
-    left:0.8rem;
-    top:2.4rem;
-}
 
 
+    .newest span {
+        font-size: 0.6rem;
+        padding: 0.2rem 0.7rem;
+        left: 90vw;
+        margin-left: -8.4rem;
+        top: 2.4rem;
+    }
 
 
-.more svg {
-    top: 2.45rem;
-    height: 18px;
-    width: 18px;
-    left:1.8rem;
 
+    .oldest span {
+        font-size: 0.6rem;
+        padding: 0.2rem 0.7rem;
+        left: 90vw;
+        margin-left: -4.4rem;
+        top: 2.4rem;
+    }
 
-}
+    .more span {
+        font-size: 0.6rem;
+        padding: 0.2rem 0.8rem;
+        padding-left: 1.3rem;
+        left: 0.8rem;
+        top: 2.4rem;
+    }
 
 
 
 
-.more:hover .moreOption {
-    top: 3rem;
-    height: 11.5rem;
-    border-radius: 1rem;
-}
+    .more svg {
+        top: 2.45rem;
+        height: 18px;
+        width: 18px;
+        left: 1.8rem;
 
 
-.more input:checked ~ .moreOption {
-    top: 3rem;
-    height: 11.5rem;
-    border-radius: 1rem;
+    }
 
-}
 
 
-.moreOption {
-    width:96%;
-    left: 2%;
-    top: -8rem;
-    border-radius: 0rem;
-    height: 11rem;
 
-    
-}
+    .more:hover .moreOption {
+        top: 3rem;
+        height: 11.5rem;
+        border-radius: 1rem;
+    }
 
 
-.bestSelling label {
-    font-size: 0.5rem;
-    padding: 0.2rem 0.7rem;
-    left:0.8rem;
-    top:3.7rem;
+    .more input:checked~.moreOption {
+        top: 3rem;
+        height: 11.5rem;
+        border-radius: 1rem;
 
-}
+    }
 
 
+    .moreOption {
+        width: 96%;
+        left: 2%;
+        top: -8rem;
+        border-radius: 0rem;
+        height: 11rem;
 
-.mostSearched label {
-    font-size: 0.5rem;
-    padding: 0.2rem 0.7rem;
-    left:5.5rem;
-    top:3.7rem;
-}
 
+    }
 
 
-.AZ label {
-    font-size: 0.5rem;
-    padding: 0.2rem 0.7rem;
-    left:0.8rem;
-    top:5.2rem;
+    .bestSelling label {
+        font-size: 0.5rem;
+        padding: 0.2rem 0.7rem;
+        left: 0.8rem;
+        top: 3.7rem;
 
-}
+    }
 
 
 
-.ZA label {
-    font-size: 0.5rem;
-    padding: 0.2rem 0.7rem;
-    left:0.8rem;
-    top:6.7rem;
+    .mostSearched label {
+        font-size: 0.5rem;
+        padding: 0.2rem 0.7rem;
+        left: 5.5rem;
+        top: 3.7rem;
+    }
 
-}
 
 
+    .AZ label {
+        font-size: 0.5rem;
+        padding: 0.2rem 0.7rem;
+        left: 0.8rem;
+        top: 5.2rem;
 
-.inStock label {
+    }
 
-    font-size: 0.5rem;
-    padding: 0.2rem 0.7rem;
-    left:7.3rem;
-    top:5.2rem;
 
-}
 
+    .ZA label {
+        font-size: 0.5rem;
+        padding: 0.2rem 0.7rem;
+        left: 0.8rem;
+        top: 6.7rem;
 
+    }
 
 
 
+    .inStock label {
 
-.outOfStock label {
-    font-size: 0.5rem;
-    padding: 0.2rem 0.7rem;
-    left:7.3rem;
-    top:6.7rem;
+        font-size: 0.5rem;
+        padding: 0.2rem 0.7rem;
+        left: 7.3rem;
+        top: 5.2rem;
 
-}
+    }
 
 
 
 
-.highestRating label {
-    font-size: 0.5rem;
-    padding: 0.2rem 0.7rem;
-    left:0.8rem;
-    top:8.2rem;
 
-}
 
+    .outOfStock label {
+        font-size: 0.5rem;
+        padding: 0.2rem 0.7rem;
+        left: 7.3rem;
+        top: 6.7rem;
 
+    }
 
 
-.lowestRating label {
-    font-size: 0.5rem;
-    padding: 0.2rem 0.7rem;
-    left:6.2rem;
-    top:8.2rem;
-}
 
 
+    .highestRating label {
+        font-size: 0.5rem;
+        padding: 0.2rem 0.7rem;
+        left: 0.8rem;
+        top: 8.2rem;
 
-.discount label {
-    font-size: 0.5rem;
-    padding: 0.2rem 0.7rem;
-    left:0.8rem;
-    top:9.7rem;
+    }
 
-}
 
 
 
+    .lowestRating label {
+        font-size: 0.5rem;
+        padding: 0.2rem 0.7rem;
+        left: 6.2rem;
+        top: 8.2rem;
+    }
 
-.moreText {
 
-    top:4.5rem;
-    right:0.8rem;
-    width: 30%;
-    border-radius: 2rem;
-    font-size: 0.85rem;
 
+    .discount label {
+        font-size: 0.5rem;
+        padding: 0.2rem 0.7rem;
+        left: 0.8rem;
+        top: 9.7rem;
 
-}
+    }
 
 
 
 
-.refresh {
-    font-size: 0.6rem;
-    padding: 0.2rem 0.8rem;
-    left:4.8rem;
-    top:2.4rem;
-}
+    .moreText {
 
+        top: 4.5rem;
+        right: 0.8rem;
+        width: 30%;
+        border-radius: 2rem;
+        font-size: 0.85rem;
 
 
-.itemContainer {
-    border-radius: 1.5rem;
-    padding: 0rem 0.5rem;
-    padding-top: 9rem;
-    width: 80%;
-    margin-top: 8rem;
+    }
 
-}
 
 
-.items {
-    gap: 0.5rem; 
-    margin-top:-19rem;
-    padding: 2rem 0.6vw;
-    padding-top: 18rem;
-    
-}
 
+    .refresh {
+        font-size: 0.6rem;
+        padding: 0.2rem 0.8rem;
+        left: 4.8rem;
+        top: 2.4rem;
+    }
 
 
 
-.items .guarantee {
-    top:7.5rem;   
-    left:0.6rem; 
-    font-size: 0.5rem;
-}
+    .itemContainer {
+        border-radius: 1.5rem;
+        padding: 0rem 0.5rem;
+        padding-top: 9rem;
+        width: 80%;
+        margin-top: 8rem;
 
-.items .item {
-    
-    flex: 0 1 10%;
-    padding:4.5rem 19vw;
-    border-radius: 0.7rem;
-}
+    }
 
 
-.items span {
-    top:7.9rem;    
-    font-size: clamp(0rem, 0.6rem, 2rem);
-    left: 35vw;  
-    margin-left:-2.7rem;
-}
+    .items {
+        gap: 0.5rem;
+        margin-top: -19rem;
+        padding: 2rem 0.6vw;
+        padding-top: 18rem;
 
-.items .name {
-    top:3.45rem;
-    line-height: 1;
-    align-items: center;
-    left: 0.6rem;
-    padding: 0rem 0.4rem;
-    font-size: clamp(0rem, 0.5rem, 2rem);
-}
+    }
 
 
 
 
+    .items .guarantee {
+        top: 7.5rem;
+        left: 0.6rem;
+        font-size: 0.5rem;
+    }
 
-.items img {
-    left:17vw;
-    margin-left: -4.2rem;
-    top:0.3rem;
-    width: 145px;
-}
+    .items .item {
+
+        flex: 0 1 10%;
+        padding: 4.5rem 19vw;
+        border-radius: 0.7rem;
+    }
+
+
+    .items span {
+        top: 7.9rem;
+        font-size: clamp(0rem, 0.6rem, 2rem);
+        left: 35vw;
+        margin-left: -2.7rem;
+    }
+
+    .items .name {
+        top: 3.45rem;
+        line-height: 1;
+        align-items: center;
+        left: 0.6rem;
+        padding: 0rem 0.4rem;
+        font-size: clamp(0rem, 0.5rem, 2rem);
+    }
+
+
+
+
+
+    .items img {
+        left: 17vw;
+        margin-left: -4.2rem;
+        top: 0.3rem;
+        width: 145px;
+    }
 
 
 
