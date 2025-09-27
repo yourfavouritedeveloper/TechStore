@@ -12,8 +12,20 @@ function Item({name}) {
     const [item,setItem] = useState([]);
     const [similarItems,setSimilarItems] = useState([]);
     const [isChoice,setIsChoice] = useState(false);
+    const [showControls, setShowControls] = useState(false);
 
 
+      const handleClick = () => {
+        if (videoRef.current) {
+        if (videoRef.current.requestFullscreen) {
+            videoRef.current.requestFullscreen();
+        } else if (videoRef.current.webkitRequestFullscreen) {
+            videoRef.current.webkitRequestFullscreen(); // Safari
+        } else if (videoRef.current.msRequestFullscreen) {
+            videoRef.current.msRequestFullscreen(); // IE11
+        }
+        }
+    };
 
 
     useEffect(() => {
@@ -59,13 +71,25 @@ function Item({name}) {
     ? (item.price * (100 - item.discount) / 100).toFixed(2) 
     : null;
 
-    return item.productImageUrl ? (<>
+    return item.productImageUrl && item.videoUrl ? (<>
     { isChoice ? <Choice item={item} setIsChoice={setIsChoice} /> : null }
     <div className={styles.container}>
         <div className={styles.item} 
             style={{ backgroundColor: "rgb(245, 245, 245)" }}>
             <img className={styles.image} src={item.productImageUrl} alt={item.name} />
             <p className={styles.amount}>Only {item.amount} left!</p>
+        </div>
+        <div className={styles.itemVideo}>
+                <video
+                    src={item.videoUrl}
+                    muted
+                    controls={showControls}
+                    autoPlay
+                    loop
+                    onMouseEnter={() => setShowControls(true)}
+                    onMouseLeave={() => setShowControls(false)}
+                    onClick={handleClick}
+                />
         </div>
         <div className={styles.itemDescription}>
             <p className={styles.company}>{item.company}</p>
