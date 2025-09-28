@@ -85,6 +85,7 @@ function Item({ name }) {
                     onMouseLeave={() => setShowControls(false)}
                     onClick={handleClick}
                 />
+                <p className={styles.videoText}>Double Click to Watch the Video</p>
             </div>
             <div className={styles.itemMainContainer}>
                 <div className={styles.item}
@@ -115,6 +116,12 @@ function Item({ name }) {
                     <button className={styles.favourite}>Add to favourites</button>
                 </div>
             </div>
+
+            <Link className={styles.itemAccount}>
+                <img src={item.account.profilePictureUrl} alt="" />
+                <p className={styles.accountName}>{item.account.customerName}</p>
+                <p className={styles.accountUsername}>@{item.account.username}</p>
+            </Link>
 
             <div className={styles.whiteCover}></div>
             <p className={styles.propertiesTitle}>Properties</p>
@@ -160,15 +167,18 @@ function Item({ name }) {
                             <img src={i.productImageUrl} alt={i.name} />
                             <p className={styles.itemName}>{i.name}</p>
                             <p className={styles.guarantee}>{i.guarantee} month</p>
-                            {i.discount && (
+                            {i.discount ? (
                                 <>
+                                <div className={styles.priceContainer}>
                                     <p className={styles.itemDiscount}>{i.discount}%</p>
+                                    <span className={styles.itemNew}>{i.price}₼</span>
+                                </div>
                                     <div className={styles.itemLine} style={{ width: `${i.price.toString().length}rem`, right: `${(10 / i.price.toString().length) + 0.8}rem` }}></div>
                                     <p className={styles.itemDiscountedPrice}>{(i.price * (100 - i.discount) / 100).toFixed(2)}₼</p>
                                 </>
-                            )
+                            ) : (<span className={styles.itemOld}>{i.price}₼</span>)
                             }
-                            <span className={i.discount ? styles.itemNew : styles.itemOld}><b>{i.price}₼</b></span>
+                            
                         </Link>
                     ))}
                 </ul>

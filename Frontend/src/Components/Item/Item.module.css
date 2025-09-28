@@ -28,7 +28,7 @@ body {
 .whiteCover {
     background-color: rgb(255, 255, 255);
     width: 80rem;
-    height: 8rem;
+    height: 3rem;
     position: absolute;
     left: 50%;
     top: 39rem;
@@ -61,6 +61,8 @@ body {
     left: 50%;
     transform: translateX(-50%);
     overflow: hidden;
+    transition: all 0.7s ease;
+
 }
 
 .itemVideo video {
@@ -68,6 +70,22 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
+}
+
+.itemVideo .videoText {
+    opacity: 0;
+    position: absolute;
+    z-index: 20;
+    font-size: clamp(1rem,1.5rem,10rem);
+    left:50%;
+    color: white;
+    transform: translateX(-50%);
+    top:25%;
+    transition: all 0.3s ease;
+}
+
+.itemVideo:hover .videoText {
+    opacity: 1;
 }
 
 
@@ -155,10 +173,10 @@ body {
 
 .price {
     position: absolute;
-    top: 26.5rem;
-    font-size: clamp(1rem, 2rem, 10rem);
-    left: 7rem;
-    color: #000000;
+    top: 14.7rem;
+    font-size: clamp(1rem, 1.5rem, 10rem);
+    left: 6.5rem;
+    color: #ffffff;
     font-family: "PoppinsSemiBold";
     padding: 1rem 4rem;
     border-radius: 2rem;
@@ -168,24 +186,15 @@ body {
     position: absolute;
     top: 13.6rem;
     font-size: clamp(1rem, 1rem, 10rem);
-    left: 11rem;
+    left: 10.5rem;
     color: rgb(148, 148, 148);
     font-family: "PoppinsRegular";
     padding: 1rem 4rem;
     border-radius: 2rem;
+    text-decoration: line-through;
 }
 
-.discounted::after {
-    content: "";
-    position: absolute;
-    left: 3.2rem;
-    right: 0;
-    height: 1.5px;
-    background: rgb(148, 148, 148);
-    width: 50%;
-    top: 50%;
-    transform: translateY(-50%);
-}
+
 
 .discount {
     position: absolute;
@@ -326,12 +335,62 @@ body {
     transform: scale(1.05);
 }
 
+
+.itemAccount {
+    width: 80rem;
+    box-sizing: border-box;
+    padding: 2rem;
+    right: 50%;
+    transform: translateX(50%);
+    gap: 1rem;
+    top: 43rem;
+    border-radius: 2rem;
+    color: black;
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    overflow: hidden;
+    background-color: rgb(245, 245, 245);
+    transition: all 0.3s ease;
+}
+
+.itemAccount img {
+    width: 8rem;
+    border-radius: 50%;
+}
+
+.itemAccount .accountName {
+    position: absolute;
+    left:12rem;
+    top:2.8rem;
+    font-size: clamp(1rem,1.5rem,10rem);
+    font-family: "PoppinsMedium";
+}
+
+
+.itemAccount .accountUsername{
+    position: absolute;
+    left:12rem;
+    top:4.9rem;
+    font-size: clamp(1rem,1rem,10rem);
+}
+
+.itemAccount:hover {
+    transform: translateX(50%) scale(1.01);
+    background-color: #81b1ff;
+}
+
+.itemAccount:hover .accountName,
+.itemAccount:hover .accountUsername {
+    color:white;
+}
+
 .propertiesTitle {
     position: absolute;
     z-index: 5;
     font-size: clamp(1rem, 3rem, 10rem);
     font-family: "PoppinsSemiBold";
-    top: 45rem;
+    top: 57rem;
     left: 50%;
     transform: translateX(-226%);
 }
@@ -345,7 +404,7 @@ body {
     right: 50%;
     transform: translateX(50%);
     gap: 1rem;
-    top: 45rem;
+    top: 57rem;
     border-radius: 2rem;
     color: black;
     position: absolute;
@@ -384,7 +443,7 @@ body {
     right: 50%;
     transform: translateX(50%);
     gap: 1rem;
-    top: 106.5rem;
+    top: 118.5rem;
     border-radius: 2rem;
     color: black;
     position: absolute;
@@ -420,7 +479,7 @@ body {
     right: 50%;
     transform: translateX(50%);
     gap: 1rem;
-    top: 123.5rem;
+    top: 135.5rem;
     border-radius: 2rem;
     color: black;
     position: absolute;
@@ -478,8 +537,8 @@ body {
 
 .items .guarantee {
     position: absolute;
-    top: 18rem;
-    left: 2rem;
+    top: 20rem;
+    left: 1.4rem;
     font-size: clamp(0rem, 0.8rem, 2rem);
 
 }
@@ -488,8 +547,8 @@ body {
 
     flex: 0 0 calc(25% - 1rem);
     box-sizing: border-box;
-    padding: 10.5rem 1rem;
-    border-radius: 2rem;
+    padding: 11.5rem 1rem;
+    border-radius: 1rem;
     color: black;
     position: relative;
     overflow: hidden;
@@ -503,15 +562,15 @@ body {
 .items .itemName {
     text-align: left;
     position: absolute;
-    top: 1rem;
-    width: 30%;
-    font-family: "PoppinsRegular";
+    top: 12rem;
+    font-family: "PoppinsMedium";
     line-height: 1.1;
     margin-top: 3.5rem;
     align-items: center;
-    right: 1rem;
-    padding: 0rem 0.4rem;
-    font-size: clamp(1rem, 1.3rem, 2rem);
+    left:50%;
+    transform: translateX(-48%);
+    width: 90%;
+    font-size: clamp(1rem, 1.2rem, 2rem);
 }
 
 
@@ -528,64 +587,63 @@ body {
     position: absolute;
     left: -1.3rem;
     top: 2rem;
-    width: 270px;
+    left:50%;
+    transform: translateX(-50%);
+    width: 17rem;
 }
 
 
 
 .items .itemOld {
     position: absolute;
-    top: 17.7rem;
-    font-size: clamp(1rem, 1.5rem, 2rem);
-    right: 2rem;
+    top: 19.9rem;
+    font-size: clamp(1rem, 1.3rem, 2rem);
+    right: 1rem;
     color: rgb(0, 0, 0);
     padding: 0.3rem 1rem;
     border-radius: 1rem;
 }
 
+.priceContainer {
+  position: absolute;
+  top: 0rem;        
+  right: 1rem;       
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;       
+}   
+
 .items .itemNew {
-    position: absolute;
-    top: 16.3rem;
-    font-size: clamp(1rem, 1.2rem, 2rem);
-    right: 2rem;
-    color: rgb(68, 67, 67);
-    padding: 0.3rem 1rem;
-    border-radius: 1rem;
-    text-decoration: line-through;
+  font-size: clamp(1rem, 1.15rem, 2rem);
+  color: rgb(68, 67, 67);
+  text-decoration: line-through;
+  right:0.9rem;
+  top:18rem;
+  position: relative;
 
 }
 
 
 
-.itemNew::after {
-    content: "";
-    position: absolute;
-    left: 0.7rem;
-    right: 0;
-    height: 2px;
-    background: rgb(68, 67, 67);
-    width: 80%;
-    top: 50%;
-    transform: translateY(-50%);
-}
+
 
 .itemDiscount {
-    position: absolute;
-    top: 16.8rem;
-    font-size: clamp(1rem, 1.2rem, 10rem);
-    right: 9rem;
-    color: white;
-    background-color: #FF4136;
-    font-family: "PoppinsSemiBold";
-    padding: 0.1rem 0.7rem;
-    border-radius: 1rem;
+  font-size: clamp(0.8rem, 1rem, 1.5rem);
+  color: white;
+  top:18rem;
+  right:0.65rem;
+  position: relative;
+  background-color: #FF4136;
+  font-family: "PoppinsSemiBold";
+  padding: 0rem 0.5rem;
+  border-radius: 1rem;
 
 }
 
 .itemDiscountedPrice {
     position: absolute;
-    top: 16rem;
-    font-size: clamp(1rem, 1.5rem, 2rem);
+    top: 18.5rem;
+    font-size: clamp(1rem, 1.3rem, 2rem);
     right: 0.5rem;
     color: #FF4136;
     font-family: "PoppinsSemiBold";
