@@ -220,7 +220,8 @@ function Nav({ highlight, shiftUp, setShiftUp, onEditClick = () => { } }) {
 
   return (
     <>
-      <nav className={highlight ? styles.highcontainer : styles.container}>
+      <nav className={styles.container}>
+      <div className={highlight ? styles.highcontainer : styles.none}></div>
 
         <ul className={styles.navbar}>
           <Link id={styles.name} className={highlight ? styles.highlight : ""} to="/">TechStore</Link>
