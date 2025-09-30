@@ -105,6 +105,7 @@ function Nav({ highlight, shiftUp, setShiftUp, onEditClick = () => { } }) {
   const logged = (<>
     {logAccount ? (
       <>
+      <div className={styles.accountDiv}>
         <p className={styles.logName}>Account</p>
         <img
           className={styles.pp}
@@ -144,11 +145,13 @@ function Nav({ highlight, shiftUp, setShiftUp, onEditClick = () => { } }) {
         <Link className={styles.signout} to="/" onClick={handleSignOut}>
           Sign Out
         </Link>
+        </div>
       </>
     ) : (
       <div className={styles.loadingContainer}>
         <img src={spinner} alt="Loading..." className={styles.loadingImage} />
       </div>
+      
     )}
   </>);
 
@@ -203,7 +206,9 @@ function Nav({ highlight, shiftUp, setShiftUp, onEditClick = () => { } }) {
             exit={{ x: "80rem" }}
             transition={{ duration: 0.3 }}
           >
+            <div className={styles.accountDiv}>
             {account ? logged : guest}
+            </div>
           </motion.div>)}
       </AnimatePresence>
     </Link>

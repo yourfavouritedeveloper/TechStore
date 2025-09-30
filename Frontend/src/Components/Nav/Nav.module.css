@@ -123,23 +123,33 @@ html,body {
 .loginSection {
     transform: translateX(25rem);   
     z-index: 10;
-    position: absolute;
-    top: -55%; 
-    left:-1rem;
-    width: 45vw;
-    height: 105vh;
+    position: fixed;
+    top: -1.5%;              
+    right: 0; 
+    width: 19.8rem;
+    height: 103vh;
+
+    opacity: 1;
+    cursor:auto;    
+    transition: transform 0.3s ease;
+
+
+}
+
+.accountDiv {
+    position: fixed;  
     background: linear-gradient(
         135deg,
         #0d1b2a,
         #1b263b,
         #415a77,
         #0d1b2a
-    );
-    opacity: 1;
-    cursor:auto;    
-    transition: transform 0.3s ease;
-
-
+    );     
+    top: 50%;              
+    right: 0;              
+    transform: translate(0%,-50%); 
+    width: 19.8rem;
+    height: 100vh;
 }
 
 .loginSection.open {
@@ -212,7 +222,7 @@ html,body {
 .logName {
     cursor: pointer;
     position: absolute;
-    top:1vw;
+    top:0.5rem;
     background: linear-gradient(
         135deg,
         #0d1b2a,
@@ -220,18 +230,21 @@ html,body {
         #415a77,
         #0d1b2a
     );
-    width:19.5vw ;
-    padding: 0.7rem ; 
+    width:18.8rem;
+    left:50%;
+    transform: translate(-50%);
+    padding: 0.5rem; 
     z-index: 2;
     font-family: "PoppinsRegular";
-    font-size: clamp(1.5em, 1.5vw, 2rem);    
+    font-size: clamp(1rem, 1.75rem, 2rem);    
 }
 
 .pp {
     position: absolute;
-    width: 13.5rem;
-    top:8.7vw;
-    left:4.6vw;
+    width: 10.8rem;
+    top:7.95rem;
+    left:50%;
+    transform: translate(-50%,0%);
     background-color: white;
     border-radius: 50%;
     overflow: hidden;
@@ -239,33 +252,36 @@ html,body {
 
 .fullname {
     position: absolute;
-    top:19vw;
-    left:0.6vw;
-    width: 23.1rem;  
-    font-size: clamp(1.5em, 1.5vw, 2rem);
+    top:17.8rem;
+    left:50%;
+    transform: translate(-50%,0%);
+    width: 23.1rem;
+    white-space: nowrap;
+    font-size: clamp(1.5rem, 1.73rem, 10rem);
     
 }
 
 .username {
     position: absolute;
-    top:22vw;
-    width: 12.7rem;
-    font-size: clamp(0.8em, 1.1vw, 2rem);
-    left:4.5vw;    
+    top:20.7rem;
+    font-size: clamp(0.8rem, 1.05rem, 2rem);
+    left:50%;
+    transform: translate(-50%,0%);  
 }
 
 
 .balance {
     position: absolute;
-    top:24vw;
+    top:22.7rem;
     background-color: white;
     color: black;
-    width: 10.8vw;
-    padding:0.7rem 2rem;
+    width: 10.4rem;
+    padding:0.55rem 1.55rem;
     font-family: "PoppinsRegular";
     border-radius: 2rem;
-    font-size: clamp(0.8em, 1.2vw, 2rem);
-    left:3.2vw;      
+    font-size: clamp(0.8rem, 1.15rem, 2rem);
+    left:50%;
+    transform: translate(-50%,0%);       
 }
 
 .purchaseHistory {
@@ -276,20 +292,23 @@ html,body {
         #415a77,
         #0d1b2a
     );
-    height: 10rem;
+    height: 7.9rem;
     position: relative;
-    top:30vw;
-    width: 22rem;
-    left:1.4rem;
-    border-radius: 2rem;
+    top:28.5rem;
+    width: 17.7rem;
+    left:50%;
+    transform: translate(-50%,0%);    
+    border-radius: 1.7rem;
 
 }
 
 .purchaseText {
     position: absolute;
-    top:0.8vw;
-    font-size: clamp(0.3rem, 1vw, 2.5rem);
-    left:1.6vw; 
+    top:0.75rem;
+    font-size: clamp(0.3rem, 0.95rem, 2.5rem);
+    left:50%;
+    width: 17rem;
+    transform: translate(-42.5%,0%);   
     line-height: 1.1;
     text-align: left;   
 
@@ -297,14 +316,14 @@ html,body {
 
 .purchaseButton{
     position: absolute;
-    top:4.3vw;
-    left:1.5vw;
+    top:4rem;
+    left:1.5rem;
     width: 5 .8vw;
-    padding:0.5rem 1rem;
-    font-size: clamp(0.3rem, 1vw, 2.5rem);
+    padding:0.4rem 0.8rem;
+    font-size: clamp(0.3rem, 0.95rem, 2.5rem);
     background-color: #3B82F6;
     color: rgb(255, 255, 255);
-    border-radius: 2rem;
+    border-radius: 2.5rem;
     transition: all 0.3s ease;     
 }
 
@@ -315,11 +334,13 @@ html,body {
 
 .view {
     position: absolute;
-    top:40vw;
-    left:1.9vw;
-    width: 5.8vw;
-    padding: 0.5rem clamp(0.1rem, 5.4vw, 9.5rem);
-    font-size: clamp(0.3rem, 1vw, 2.5rem);
+    top:38rem;
+    left:50%;
+    transform: translate(-50%,0%); 
+    width: 5.7rem;
+    padding: 0.4rem clamp(0.1rem, 5.2rem, 9.5rem);
+    font-size: clamp(0.3rem, 1rem, 2.5rem);
+    white-space: nowrap;
     background-color: #3B82F6;
     color: rgb(255, 255, 255);
     border-radius: 2rem;
@@ -329,11 +350,13 @@ html,body {
 
 .edit {
     position: absolute;
-    top:43vw;
-    left:1.9vw;
-    width: 5.8vw;
-    padding: 0.5rem clamp(0.1rem, 5.4vw, 9.5rem);
-    font-size: clamp(0.3rem, 1vw, 2.5rem);
+    top:40.9rem;
+    left:50%;
+    transform: translate(-50%,0%); 
+    width: 5.7rem;
+    padding: 0.4rem clamp(0.1rem, 5.2rem, 9.5rem);
+    font-size: clamp(0.3rem, 1rem, 2.5rem);
+    white-space: nowrap;
     background-color: rgb(255, 255, 255);
     color: black;
     border-radius: 2rem;
@@ -343,11 +366,13 @@ html,body {
 
 .signout {
     position: absolute;
-    top:46vw;
-    left:1.9vw;
-    width: 5.8vw;
-    padding: 0.5rem clamp(0.1rem, 5.4vw, 9.5rem);
-    font-size: clamp(0.3rem, 1vw, 2.5rem);
+    top:43.8rem;
+    left:50%;
+    transform: translate(-50%,0%); 
+    width: 5.7rem;
+    padding: 0.4rem clamp(0.1rem, 5.2rem, 9.5rem);
+    font-size: clamp(0.3rem, 1rem, 2.5rem);
+    white-space: nowrap;
     background-color:  #EF4444;;
     color: rgb(255, 255, 255);
     border-radius: 2rem;
@@ -355,17 +380,17 @@ html,body {
 }
 
 .view:hover {
-    transform: scale(1.03);
+    transform: translate(-50%,0%) scale(1.03);
     background-color: #125fdb;    
 }
 
 .edit:hover {
-    transform: scale(1.03);
+    transform: translate(-50%,0%) scale(1.03);
     background-color: #E0F2FE;    
 }
 
 .signout:hover {
-    transform: scale(1.03);
+    transform: translate(-50%,0%) scale(1.03);
     background-color: #DC2626;
 }
 
@@ -1685,21 +1710,6 @@ a {
 
 
 
-.loginSection {
-    top: -8rem; 
-    left:9.5rem;
-    width: 55vw;
-    height: 145vh;
-    overflow: hidden;
-}
-
-.logName {
-    top:1vw;
-    margin-left:-2.3rem;
-    left:5vw;
-    width:57vw;
-    padding: 0.7rem;   
-}
 
 
 .title {
@@ -1736,88 +1746,6 @@ a {
 }
 
 
-.pp {
-    width: 70%;
-    top:8rem;
-    margin-left:-2.1rem;
-    left:16vw;
-}
-
-.fullname {
-    top:68vw;
-    margin-left:-7.75rem;
-    left:28vw;
-    width: 15.1rem;  
-    font-size: clamp(0rem, 5vw, 2rem);
-    
-}
-
-.username {
-    top:76vw;
-    font-size: clamp(0.8rem, 3.2vw, 5rem);
-    margin-left:-6.7rem;
-    left:28vw; 
-}
-
-
-.balance {
-    top:83vw;
-    width: 30.5vw;
-    white-space: nowrap;
-    padding:0.4rem 1rem;
-    border-radius: 2rem;
-    font-size: clamp(0.8rem, 3.5vw, 5rem);
-    margin-left:-2.2rem;
-    left:17vw;     
-}
-
-.purchaseHistory {
-    height: 7rem;
-    top:100vw;
-    width: 43vw;
-    margin-left:-1.6rem;
-    left:12vw;   
-    border-radius: 1rem;
-
-}
-
-.purchaseText {
-    top:0.8rem;
-    font-size: clamp(0.3rem, 3vw, 2.5rem);
-    left:3vw; 
- 
-
-}
-
-.purchaseButton{
-    top:4.5rem;
-    left:1.5vw;
-    padding:0.3rem 0.5rem;
-    font-size: clamp(0.3rem, 3vw, 2.5rem);
-    border-radius: 2rem;
-  
-}
-
-
-
-.edit {
-    top:138vw;
-    margin-left:-1.5rem;
-    left:10vw;
-    width: 20vw;
-    padding: 0.3rem clamp(0.1rem, 13vw, 9rem);
-    font-size: clamp(0.3rem, 0.9rem, 2.5rem);
-}
-
-
-.signout {
-    top:149vw;
-    margin-left:-1.5rem;
-    left:10vw;
-    width: 20vw;
-    padding: 0.3rem clamp(0.1rem, 13vw, 9rem);
-    font-size: clamp(0.3rem, 0.9rem, 2.5rem);
-}
 
 
 
@@ -2055,21 +1983,6 @@ a {
   margin-top:-1vw;      
 }
 
-.loginSection {
-    top: -8rem; 
-    left:9.5rem;
-    width: 55vw;
-    height: 125vh;
-    overflow: hidden;
-}
-
-.logName {
-    top:1vw;
-    margin-left:-2.3rem;
-    left:7vw;
-    width:47vw;
-    padding: 0.7rem ;   
-}
 
 
 .title {
@@ -2106,88 +2019,6 @@ a {
 }
 
 
-.pp {
-    width: 60%;
-    top:8.5rem;
-    margin-left:-2rem;
-    left:16vw;
-}
-
-.fullname {
-    top:75vw;
-    margin-left:-8.65rem;
-    left:28vw;
-    width: 15.1rem;  
-    font-size: clamp(0rem, 4vw, 2rem);
-    
-}
-
-.username {
-    top:82vw;
-    font-size: clamp(0.8em, 1.1vw, 2rem);
-    margin-left:-7.5rem;
-    left:28vw; 
-}
-
-
-.balance {
-    top:90vw;
-    width: 26vw;
-    white-space: nowrap;
-    padding:0.4rem 1rem;
-    border-radius: 2rem;
-    font-size: clamp(0.8em, 1.1vw, 2rem);
-    margin-left:-2.5rem;
-    left:17vw;     
-}
-
-.purchaseHistory {
-    height: 7rem;
-    top:105vw;
-    width: 37vw;
-    margin-left:-1.6rem;
-    left:12vw;   
-    border-radius: 1rem;
-
-}
-
-.purchaseText {
-    top:0.8rem;
-    font-size: clamp(0.3rem, 3vw, 2.5rem);
-    left:3vw; 
- 
-
-}
-
-.purchaseButton{
-    top:4rem;
-    left:1.5vw;
-    padding:0.3rem 0.5rem;
-    font-size: clamp(0.3rem, 3vw, 2.5rem);
-    border-radius: 2rem;
-  
-}
-
-
-
-.edit {
-    top:145vw;
-    margin-left:-1.5rem;
-    left:10vw;
-    width: 20vw;
-    padding: 0.3rem clamp(0.1rem, 10vw, 9rem);
-    font-size: clamp(0.3rem, 0.7rem, 2.5rem);
-}
-
-
-.signout {
-    top:156vw;
-    margin-left:-1.5rem;
-    left:10vw;
-    width: 20vw;
-    padding: 0.3rem clamp(0.1rem, 10vw, 9rem);
-    font-size: clamp(0.3rem, 0.7rem, 2.5rem);   
-}
 
 
 
