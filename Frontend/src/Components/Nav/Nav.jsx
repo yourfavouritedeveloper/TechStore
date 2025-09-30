@@ -106,7 +106,7 @@ function Nav({ highlight, shiftUp, setShiftUp, onEditClick = () => { } }) {
     {logAccount ? (
       <>
       <div className={styles.accountDiv}>
-        <p className={styles.logName}>Account</p>
+        <p className={styles.logName} onClick={() => setMenuOpen(prev => !prev)}>Account</p>
         <img
           className={styles.pp}
           src={logAccount.profilePictureUrl ? logAccount.profilePictureUrl : def}
@@ -197,21 +197,8 @@ function Nav({ highlight, shiftUp, setShiftUp, onEditClick = () => { } }) {
     <Link id={styles.login} className={highlight ? styles.highlight : ""} onClick={() => setMenuOpen(prev => !prev)}>
 
       Account
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            className={styles.loginSection}
-            initial={{ x: "30rem", opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: "80rem" }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className={styles.accountDiv}>
-            {account ? logged : guest}
-            </div>
-          </motion.div>)}
-      </AnimatePresence>
     </Link>
+
   </>)
 
 
@@ -249,6 +236,19 @@ function Nav({ highlight, shiftUp, setShiftUp, onEditClick = () => { } }) {
           </div>
         </ul>
       </nav>
+
+          <div
+            className={styles.loginSection}
+              style={{
+              transform: menuOpen ? "translateX(-50%)" : "translateX(20rem)",
+              pointerEvents: menuOpen ? "auto" : "none"
+            }}
+          >
+            <div className={styles.accountDiv}>
+              
+            {account ? logged : guest}
+            </div>
+          </div>
 
     </>
 
