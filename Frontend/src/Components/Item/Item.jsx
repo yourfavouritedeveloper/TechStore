@@ -35,7 +35,7 @@ function Item({ name }) {
 
     useEffect(() => {
         const handleScroll = () => {
-            const halfPage = document.body.scrollHeight / 5.15;
+            const halfPage = document.body.scrollHeight / 4.9;
 
             if (window.scrollY < halfPage) {
                 setIsFixed(true);
