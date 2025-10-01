@@ -35,7 +35,7 @@ body {
 .item {
     background-color: rgb(255, 255, 255);
     box-sizing: border-box;
-    padding: 22rem 9rem;
+    padding: 19.5rem 9rem;
     padding-right: 28rem;
     left: 50%;
     top: 0%;
@@ -104,7 +104,7 @@ body {
     width: 40rem;
     position: absolute;
     left: 50%;
-    transform: translate(-50%, -70%);
+    transform: translate(-50%, -62%);
     top: 50%;
 }
 
@@ -113,7 +113,7 @@ body {
 .itemAccount {
     width: 37rem;
     box-sizing: border-box;
-    padding: 2.785rem 6rem;
+    padding: 3.1rem 6rem;
     right: 50%;
     z-index: 5;
     top:28.45rem;
@@ -132,7 +132,7 @@ body {
 }
 
 .itemAccount img {
-    border:2.5px solid rgb(133, 133, 133);
+    border:1.5px solid rgb(133, 133, 133);
     width: 3rem;
     position: absolute;
     left:12%;
@@ -144,7 +144,7 @@ body {
 .itemAccount .accountName {
     position: absolute;
     left: 5.5rem;
-    top: 0.2rem;
+    top: 0.6rem;
     font-size: clamp(1rem, 1.7rem, 10rem);
     font-family: "PoppinsMedium";
 }
@@ -153,8 +153,88 @@ body {
 .itemAccount .accountPosted {
     position: absolute;
     left: 5.6rem;
-    top: 0.2rem;
+    top: 0.4rem;
     font-size: clamp(1rem, 1rem, 10rem);
+}
+
+.itemAccount .accountView{
+    position: absolute;
+    right: 12%;
+    top:50%;
+    background-color: rgb(194, 194, 194);
+    color: white;
+    padding: 0.5rem 2rem;
+    border-radius: 0.5rem;
+    transform: translate(25%,-51%);
+    cursor: pointer;
+    font-family: "PoppinsRegular";
+    border: none;
+    transition: all 0.3s ease;
+    font-size: clamp(1rem, 1rem, 10rem);
+}
+
+.itemAccount .accountView:hover {
+      transform: translate(25%,-50%) scale(1.01); 
+      background-color: rgb(112, 139, 255); 
+}
+
+
+.options {
+    height: 4rem;
+    width: 70%;
+    z-index: 10;
+    top:34.8rem;
+    left:50%;
+    transform: translateX(-50%);
+    position: absolute;
+}
+
+.options .propertiesButton {
+    position: absolute;
+    left: 0%;
+    top:50%;
+    background-color: rgb(194, 194, 194);
+    color: white;
+    padding: 0.3rem 2rem;
+    border-radius: 1rem;
+    transform: translate(0%,-50%);
+    cursor: pointer;
+    font-family: "PoppinsRegular";
+    border: none;
+    transition: all 0.3s ease;
+    font-size: clamp(0rem, 0.8rem, 10rem);    
+}
+
+.options .reviewsButton {
+    position: absolute;
+    left: 47.5%;
+    top:50%;
+    background-color: rgb(194, 194, 194);
+    color: white;
+    padding: 0.3rem 2rem;
+    border-radius: 1rem;
+    transform: translate(-50%,-50%);
+    cursor: pointer;
+    font-family: "PoppinsRegular";
+    border: none;
+    transition: all 0.3s ease;
+    font-size: clamp(0rem, 0.8rem, 10rem);    
+}
+
+.options .similarButton {
+    position: absolute;
+    right: 0%;
+    top:50%;
+    background-color: rgb(194, 194, 194);
+    color: white;
+    padding: 0.3rem 2rem;
+    border-radius: 1rem;
+    transform: translate(0%,-50%);
+    cursor: pointer;
+    font-family: "PoppinsRegular";
+    border: none;
+    transition: all 0.3s ease;
+    font-size: clamp(0rem, 0.8rem, 10rem);    
 }
 
 
@@ -435,7 +515,7 @@ body {
     z-index: 5;
     font-size: clamp(1rem, 2.5rem, 10rem);
     font-family: "PoppinsSemiBold";
-    top: 58rem;
+    top: 66rem;
     left: 50%;
     transform: translateX(-319%);
 }
@@ -449,7 +529,7 @@ body {
     right: 50%;
     transform: translateX(50%);
     gap: 1rem;
-    top: 57rem;
+    top: 65rem;
     border-radius: 1rem;
     color: black;
     position: absolute;

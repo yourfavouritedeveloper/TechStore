@@ -41,6 +41,9 @@ public class ProductEntity extends BaseEntity {
     @Column(name = "description",nullable = false)
     private String description;
 
+    @Column(name = "long_description",nullable = false)
+    private String longDescription;
+
     @Column(name = "price",nullable = false)
     private BigDecimal price;
 

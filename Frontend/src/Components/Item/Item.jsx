@@ -17,7 +17,7 @@ function Item({ name }) {
 
     useEffect(() => {
         const handleScroll = () => {
-            const halfPage = document.body.scrollHeight / 14.1;
+            const halfPage = document.body.scrollHeight / 10;
 
             if (window.scrollY < halfPage) {
                 setIsFixed(true);
@@ -35,9 +35,9 @@ function Item({ name }) {
             if (videoRef.current.requestFullscreen) {
                 videoRef.current.requestFullscreen();
             } else if (videoRef.current.webkitRequestFullscreen) {
-                videoRef.current.webkitRequestFullscreen(); // Safari
+                videoRef.current.webkitRequestFullscreen(); 
             } else if (videoRef.current.msRequestFullscreen) {
-                videoRef.current.msRequestFullscreen(); // IE11
+                videoRef.current.msRequestFullscreen(); 
             }
         }
     };
@@ -104,7 +104,7 @@ function Item({ name }) {
     </div> */}
             <div className={styles.item} style={{
                 position: isFixed ? "fixed" : "absolute",
-                transform: isFixed ? "translate(-120.5%, 12.6%)" : "translate(-120.5%, 62.77%)"
+                transform: isFixed ? "translate(-120.5%, 14.1%)" : "translate(-120.5%, 62.77%)"
             }}>
                 <img className={styles.image} src={item.productImageUrl} alt={item.name} />
                 <p className={styles.amount}>Only {item.amount} left!</p>
@@ -112,8 +112,13 @@ function Item({ name }) {
                     <img src={item.account.profilePictureUrl} alt="" />
                     <p className={styles.accountPosted}>Posted By</p>
                     <p className={styles.accountName}>{item.account.customerName}</p>
-
+                    <button className={styles.accountView}>View Profile</button>
                 </Link>
+                <div className={styles.options}>
+                    <button className={styles.propertiesButton}>Properties</button>
+                    <button className={styles.reviewsButton}>Reviews</button>
+                    <button className={styles.similarButton}>Similar Items</button>
+                </div>
             </div>
             
             <div className={styles.itemMainContainer}>
