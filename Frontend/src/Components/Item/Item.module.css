@@ -5,7 +5,8 @@ body {
 
 .container {
     overflow-x: hidden;
-    height: 205rem;
+    height: 185rem;
+    padding-bottom: 10rem;
     background-color: rgb(238, 238, 238);
 
 }
@@ -39,10 +40,9 @@ body {
     padding-right: 28rem;
     left: 50%;
     top: 0%;
-    z-index: 2;
+    z-index: 1;
     border-radius: 1rem;
     color: black;
-    overflow: hidden;
 
 }
 
@@ -87,7 +87,6 @@ body {
     color: black;
     position: absolute;
     display: grid;
-    overflow: hidden;   
     background-color: rgb(255, 255, 255);
     transition: all 0.3s ease;
     border-top: 1.9px solid rgb(219, 219, 219);  
@@ -143,11 +142,90 @@ body {
       background-color: rgb(112, 139, 255); 
 }
 
+.accountPreview {
+    position: absolute;
+    width: 101%;
+    left:-0.5%;
+    background-color: rgb(233, 233, 233);
+    top:-8.5rem;
+    z-index: 2;
+    opacity: 0;
+    height: 8.5rem;
+    border-radius: 0.5rem;
+    border-top: 1.5px solid gray;
+    border-left: 1.5px solid gray;
+    border-right: 1.5px solid gray;
+    transition: all 0.3s ease;
+    color: black;
+}
+
+.itemAccount:hover .accountPreview {
+    opacity: 1;
+}
+
+.accountNameDiv {
+    background-color: white;
+    width: 50%;
+    top:7.5%;
+    border-radius: 0.5rem;
+    left:2%;
+    position: absolute;
+    height: 85%;
+}
+
+.accountPreview .accountPreviewPicture {
+    border:1.5px solid rgb(133, 133, 133);
+    width: 5rem;
+    position: absolute;
+    left:25%;
+    top: 50%;
+    transform: translate(-80%,-50%);
+    border-radius: 50%;    
+}
+
+.accountPreview .accountPreviewName {
+    position: absolute;
+    left: 6rem;
+    top: 1.2rem;
+    white-space: nowrap;
+    font-size: clamp(1rem, 1.2rem, 10rem);
+    font-family: "PoppinsMedium";    
+}
+
+.accountPreview .accountPreviewUsername {
+    position: absolute;
+    left: 6rem;
+    top: 2.7rem;
+    font-size: clamp(0rem, 0.9rem, 10rem);
+    font-family: "PoppinsRegular";    
+}
+
+
+.accountDescriptionDiv {
+    background-color: white;
+    width: 44%;
+    top:7.5%;
+    border-radius: 0.5rem;
+    right:2%;
+    position: absolute;
+    height: 85%;
+}
+
+.accountPreviewDescription {
+    position: absolute;
+    text-align: left;
+    left: 1rem;
+    width: 90%;
+    top: 50%;
+    transform: translateY(-70%);
+    font-size: clamp(0rem, 0.7rem, 10rem);
+    font-family: "PoppinsRegular";   
+}
 
 .options {
     height: 4rem;
     width: 70%;
-    z-index: 10;
+    z-index: 4;
     top:34.8rem;
     left:50%;
     transform: translateX(-50%);
@@ -499,7 +577,7 @@ body {
     width: 86%;
     text-align: left;
     font-size: clamp(0rem, 0.95rem, 10rem);
-    font-family: "PoppinsLight";
+    font-family: "PoppinsRegular";
     top: 3rem;
     color: #313131;
     left:3.5rem;
@@ -553,7 +631,7 @@ body {
     width: 86%;
     text-align: left;
     font-size: clamp(1rem, 1rem, 10rem);
-    font-family: "PoppinsLight";
+    font-family: "PoppinsRegular";
     top: 5rem;
     color: #313131;
     left:3.5rem;
@@ -580,14 +658,14 @@ body {
     width: 89rem;
     box-sizing: border-box;
     padding: 2.5rem;
-    padding-top: 10rem;
-    right: 50%;
-    transform: translateX(50%);
-    gap: 1rem;
+    padding-top: 8rem;
+    padding-bottom: 4.5rem;
+    margin: 0 auto;
+    gap: 0rem;
     top: 88rem;
     border-radius: 1rem;
     color: black;
-    position: absolute;
+    position: relative;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     overflow: hidden;
@@ -598,7 +676,6 @@ body {
 .property {
     padding: 0rem 0rem;
     font-size: clamp(1rem, 1rem, 2rem);
-    cursor: pointer;
     color: rgb(68, 68, 68);
     font-family: "PoppinsRegular";
     transition: all 0.3s ease;
@@ -607,13 +684,28 @@ body {
     margin-right: 5%;
     position: relative;
     left:2.5%;
+    overflow: hidden;
     justify-content: space-between;
     align-items: center;
 }
 
-.property:hover {
-    transform: scale(1.02);
+.showMoreBtn {
+    position: absolute;
+    left: 50%;
+    bottom:0rem;
+    overflow: hidden;
+    background-color: rgb(194, 194, 194);
+    color: white;
+    padding: 0.3rem 4rem;
+    border-radius: 0.5rem;
+    transform: translate(-50%,-50%);
+    cursor: pointer;
+    font-family: "PoppinsRegular";
+    border: none;
+    transition: all 0.3s ease;
+    font-size: clamp(0rem, 1.2rem, 10rem);       
 }
+
 
 
 
@@ -622,13 +714,12 @@ body {
     box-sizing: border-box;
     padding: 5rem;
     padding-top: 10rem;
-    right: 50%;
-    transform: translateX(50%);
+    margin: 0 auto;
     gap: 1rem;
-    top: 147.3rem;
+    top: 89.7rem;
     border-radius: 1rem;
     color: black;
-    position: absolute;
+    position: relative;
     overflow: hidden;
     background-color: rgb(255, 255, 255);
 }
@@ -659,13 +750,12 @@ body {
     box-sizing: border-box;
     padding: 2.5rem;
     padding-top: 10rem;
-    right: 50%;
-    transform: translateX(50%);
+    margin: 0 auto;
     gap: 1rem;
-    top: 164rem;
+    top: 91.6rem;
     border-radius: 1rem;
     color: black;
-    position: absolute;
+    position: relative;
     display: grid;
 
     overflow: hidden;
@@ -720,9 +810,9 @@ body {
 
 .items .guarantee {
     position: absolute;
-    top: 20rem;
+    top: 20.5rem;
     left: 1.4rem;
-    font-size: clamp(0rem, 0.8rem, 2rem);
+    font-size: clamp(0rem, 0.9rem, 2rem);
 
 }
 
@@ -731,12 +821,14 @@ body {
     flex: 0 0 calc(25% - 1rem);
     box-sizing: border-box;
     padding: 11.5rem 1rem;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     color: black;
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    background-color: white;
+    border: 1.5px solid gray;
+    background-color: rgb(241,241,241);
+
 
 }
 
@@ -753,6 +845,10 @@ body {
     left: 50%;
     transform: translateX(-48%);
     width: 90%;
+    background-color: white;
+    padding: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 10rem;
     font-size: clamp(1rem, 1.2rem, 2rem);
 }
 
@@ -762,8 +858,8 @@ body {
 }
 
 .items .similarItem:hover {
-    transform: scale(1.03);
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.281);
+    transform: scale(1.005);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.144);
 }
 
 .items img {
@@ -800,8 +896,8 @@ body {
     font-size: clamp(1rem, 1.15rem, 2rem);
     color: rgb(68, 67, 67);
     text-decoration: line-through;
-    right: 0.9rem;
-    top: 18rem;
+    right: 0.93rem;
+    top: 18.65rem;
     position: relative;
 
 }
@@ -811,9 +907,9 @@ body {
 
 
 .itemDiscount {
-    font-size: clamp(0.8rem, 1rem, 1.5rem);
+    font-size: clamp(0.8rem, 0.95rem, 1.5rem);
     color: white;
-    top: 18rem;
+    top: 18.6rem;
     right: 0.65rem;
     position: relative;
     background-color: #FF4136;
@@ -825,7 +921,7 @@ body {
 
 .itemDiscountedPrice {
     position: absolute;
-    top: 18.5rem;
+    top: 19rem;
     font-size: clamp(1rem, 1.3rem, 2rem);
     right: 0.5rem;
     color: #FF4136;

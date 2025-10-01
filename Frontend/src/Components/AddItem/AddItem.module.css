@@ -374,13 +374,14 @@
 .productForm .generalInfo {
     background-color: rgb(255, 255, 255);
     width: 29rem;
-    height: 17rem;
+    height: 19rem;
     position: absolute;
-    top: 31%;
+    top: 33%;
     left: 25.5%;
     transform: translate(-50%, -50%);
     box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
     border-radius: 1rem;
+    z-index: 6;
 }
 
 .generalInfo .generalInfoTitle {
@@ -394,7 +395,7 @@
 
 
 .generalInfo .productName {
-    top: 28%;
+    top: 25%;
     left: 50%;
     width: 86%;
     padding: 0.4rem 1rem;
@@ -410,8 +411,8 @@
 
 
 .generalInfo .productNameLabel {
-    top: 21%;
-    left: 15%;
+    top: 19%;
+    left: 15.5%;
     position: absolute;
     padding: 0.4rem 1rem;
     border-radius: 0.5rem;
@@ -423,24 +424,25 @@
 
 .generalInfo .productDescription {
     position: absolute;
-    top: 74%;
+    top: 48%;
     left: 50%;
     border: none;
     width: 86%;
     padding: 0.4rem 1rem;
-    padding-bottom: 4rem;
     border-radius: 0.5rem;
     font-size: clamp(0rem, 0.8rem, 10rem);
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
+    border: 2px solid rgb(240, 240, 240);
     background-color: rgb(240, 240, 240);
     color: rgb(26, 26, 26);
-    resize: none;
+    resize: vertical;
+    z-index: 21;
     font-family: "PoppinsRegular";
 }
 
 .generalInfo .productDescriptionLabel {
-    top: 44%;
-    left: 18.8%;
+    top: 40%;
+    left: 17.4%;
     position: absolute;
     padding: 0.4rem 1rem;
     border-radius: 0.5rem;
@@ -449,6 +451,39 @@
     transform: translate(-50%, -50%);
     color: rgb(131, 131, 131);
 }
+
+.generalInfo .productLongDescription {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    border: none;
+    z-index: 20;
+    width: 86%;
+    padding: 0.4rem 1rem;
+    padding-bottom: 1rem;
+    border-radius: 0.5rem;
+    font-size: clamp(0rem, 0.8rem, 10rem);
+    transform: translateX(-50%);
+    background-color: rgb(240, 240, 240);
+    border: 2px solid rgb(240, 240, 240);
+    color: rgb(26, 26, 26);
+    resize: vertical;
+    font-family: "PoppinsRegular";
+}
+
+.generalInfo .productLongDescriptionLabel {
+    top: 67%;
+    left: 19.8%;
+    position: absolute;
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-size: clamp(0rem, 0.9rem, 10rem);
+    font-family: "PoppinsMedium";
+    transform: translate(-50%, -50%);
+    color: rgb(131, 131, 131);
+}
+
+
 
 input::placeholder {
     color: rgb(105, 105, 105);
@@ -465,6 +500,19 @@ select:focus {
     border: none;
 }
 
+input:focus{
+    outline: none;
+    border: 2px solid #9b59b6; 
+    box-shadow: 0 0 6px #512c5f54;     
+}
+
+.generalInfo .productDescription:focus,
+.generalInfo .productLongDescription:focus {
+    outline: none;
+    border: 2px solid #9b59b6; 
+    box-shadow: 0 0 6px #512c5f54; 
+}
+
 
 
 
@@ -472,9 +520,9 @@ select:focus {
 .productForm .specifiedInfo {
     background-color: rgb(255, 255, 255);
     width: 29rem;
-    height: 8rem;
+    height: 7rem;
     position: absolute;
-    top: 58.8%;
+    top: 61.8%;
     left: 25.5%;
     transform: translate(-50%, -50%);
     box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
@@ -486,13 +534,13 @@ select:focus {
     position: absolute;
     left: 1.2rem;
     top: -0.3rem;
-    font-size: clamp(1rem, 1.3rem, 10rem);
+    font-size: clamp(1rem, 1.2rem, 10rem);
 }
 
 
 .specifiedInfo .productCompanyLabel {
     top: 37%;
-    left: 11.5%;
+    left: 12%;
     position: absolute;
     padding: 0.4rem 1rem;
     border-radius: 0.5rem;
@@ -517,7 +565,7 @@ select:focus {
 
 .specifiedInfo .productGuaranteeLabel {
     top: 37%;
-    left: 48.6%;
+    left: 49%;
     position: absolute;
     padding: 0.4rem 1rem;
     border-radius: 0.5rem;
@@ -548,7 +596,7 @@ select:focus {
 
 .specifiedInfo .productColorLabel {
     top: 37%;
-    left: 71%;
+    left: 71.5%;
     position: absolute;
     padding: 0.4rem 1rem;
     border-radius: 0.5rem;
@@ -578,9 +626,9 @@ select:focus {
 .productForm .priceInfo {
     background-color: rgb(255, 255, 255);
     width: 29rem;
-    height: 13rem;
+    height: 12rem;
     position: absolute;
-    top: 82.5%;
+    top: 83.27%;
     left: 25.5%;
     transform: translate(-50%, -50%);
     box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
@@ -620,7 +668,7 @@ select:focus {
 
 .priceInfo .productPriceLabel {
     top: 26%;
-    left: 10.8%;
+    left: 11.3%;
     position: absolute;
     padding: 0.4rem 1rem;
     border-radius: 0.5rem;
@@ -632,7 +680,7 @@ select:focus {
 
 .priceInfo .isDiscountLabel {
     top: 61%;
-    left: 11.4%;
+    left: 12%;
     position: absolute;
     padding: 0.4rem 1rem;
     border-radius: 0.5rem;
@@ -645,10 +693,10 @@ select:focus {
 .priceInfo select {
     position: absolute;
     cursor: pointer;
-    top: 81%;
-    left: 24%;
+    top: 82%;
+    left: 23.5%;
     border: none;
-    width: 39.5%;
+    width: 40%;
     padding: 0.4rem 1rem;
     border-radius: 0.5rem;
     font-size: clamp(0rem, 0.8rem, 10rem);
@@ -661,7 +709,7 @@ select:focus {
 
 .priceInfo .discountLabel {
     top: 61%;
-    left: 61.5%;
+    left: 62.3%;
     position: absolute;
     padding: 0.4rem 1rem;
     border-radius: 0.5rem;
@@ -674,8 +722,8 @@ select:focus {
 
 .priceInfo .productDiscount {
     position: absolute;
-    top: 69.8%;
-    left: 72.5%;
+    top: 70%;
+    left: 72.3%;
     border: none;
     width: 41%;
     padding: 0.4rem 1rem;
