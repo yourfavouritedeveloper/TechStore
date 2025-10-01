@@ -370,11 +370,20 @@ function EditItem({ highlight, setHighlight, username,product}) {
                             placeholder="Product Name"
                             required
                         />
-                        <p className={styles.productDescriptionLabel}>Product Description</p>
+                        <p className={styles.productDescriptionLabel}>Product Sub Title</p>
                         <textarea
                             name="description"
                             className={styles.productDescription}
                             value={formData.description}
+                            onChange={handleChange}
+                            placeholder="Sub Title"
+                            required
+                        />
+                        <p className={styles.productLongDescriptionLabel}>Product Description</p>
+                        <textarea
+                            name="longDescription"
+                            className={styles.productLongDescription}
+                            value={formData.longDescription}
                             onChange={handleChange}
                             placeholder="Description"
                             required

@@ -16,6 +16,7 @@ function Item({ name }) {
     const [isFixed, setIsFixed] = useState(true);
     const [firstPart, setFirstPart] = useState("");
     const [secondPart, setSecondPart] = useState("");
+    const [showAllProps, setShowAllProps] = useState(false);
 
 
     useEffect(() => {
@@ -113,10 +114,21 @@ function Item({ name }) {
                 <img className={styles.image} src={item.productImageUrl} alt={item.name} />
                 <p className={styles.amount}>Only {item.amount} left!</p>
                 <Link className={styles.itemAccount}>
+                    <Link className={styles.accountPreview} to={`/account/${item.account.username}`}>
+                        <div className={styles.accountNameDiv}>
+                        <img className={styles.accountPreviewPicture} src={item.account.profilePictureUrl} alt="" />
+                       <p className={styles.accountPreviewName}>{item.account.customerName}</p> 
+                       <p className={styles.accountPreviewUsername}>@{item.account.username}</p> 
+                    </div>
+                    <div className={styles.accountDescriptionDiv}>
+                       <p className={styles.accountPreviewDescription}>{item.account.description}</p>
+                    </div>
+                    </Link>
                     <img src={item.account.profilePictureUrl} alt="" />
                     <p className={styles.accountPosted}>Posted By</p>
                     <p className={styles.accountName}>{item.account.customerName}</p>
-                    <button className={styles.accountView}>View Profile</button>
+                    <Link className={styles.accountView} to={`/account/${item.account.username}`}>View Profile</Link>
+
                 </Link>
                 <div className={styles.options}>
                     <button className={styles.propertiesButton}>Properties</button>
@@ -190,7 +202,6 @@ function Item({ name }) {
             <div className={styles.whiteCover}></div>
             <p className={styles.propertiesTitle}>Properties</p>
             <div className={styles.properties}>
-
                 {(() => {
                     const extraFields = {
                         Weight: item.weight,
@@ -201,21 +212,31 @@ function Item({ name }) {
                     };
 
                     const allProps = { ...item.properties, ...extraFields };
+                    const entries = Object.entries(allProps).filter(([_, value]) => value);
+
+                    const visibleProps = showAllProps ? entries : entries.slice(0, 12);
 
                     return (
-                        allProps &&
-                        Object.entries(allProps).map(([key, value]) => {
-                            if (!value) return null;
-                            const formattedKey = key.charAt(0).toUpperCase() + key.slice(1);
-                            return (
-                                <>
-                                <div key={key} className={styles.property}>
-                                    <p style={{ fontFamily: "PoppinsRegular",color: "Gray" }}>{formattedKey}</p>
-                                    <p style={{fontFamily: "PoppinsMedium"}}>{value}</p>
-                                </div>
-                                </>
-                            );
-                        })
+                        <>
+                            {visibleProps.map(([key, value]) => {
+                                const formattedKey = key.charAt(0).toUpperCase() + key.slice(1);
+                                return (
+                                    <div key={key} className={styles.property}>
+                                        <p style={{ fontFamily: "PoppinsRegular", color: "Gray" }}>{formattedKey}</p>
+                                        <p style={{ fontFamily: "PoppinsMedium" }}>{value}</p>
+                                    </div>
+                                );
+                            })}
+
+                            {entries.length > 12 && (
+                                <button
+                                    className={styles.showMoreBtn}
+                                    onClick={() => setShowAllProps(!showAllProps)}
+                                >
+                                    {showAllProps ? "Show Less" : "Show More"}
+                                </button>
+                            )}
+                        </>
                     );
                 })()}
             </div>
