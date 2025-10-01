@@ -104,44 +104,57 @@ function Item({ name }) {
     </div> */}
             <div className={styles.item} style={{
                 position: isFixed ? "fixed" : "absolute",
-                transform: isFixed ? "translate(-120.5%, 22%)" : "translate(-120.5%, 61.77%)"
+                transform: isFixed ? "translate(-120.5%, 12.6%)" : "translate(-120.5%, 62.77%)"
             }}>
                 <img className={styles.image} src={item.productImageUrl} alt={item.name} />
                 <p className={styles.amount}>Only {item.amount} left!</p>
+                <Link className={styles.itemAccount}>
+                    <img src={item.account.profilePictureUrl} alt="" />
+                    <p className={styles.accountPosted}>Posted By</p>
+                    <p className={styles.accountName}>{item.account.customerName}</p>
+
+                </Link>
             </div>
+            
             <div className={styles.itemMainContainer}>
 
 
                 <div className={styles.itemDescription}>
-                    <p className={styles.company}>{item.company}</p>
-                    <p className={styles.name}>{item.name}</p>
-                    <p className={styles.description}>{item.description}</p>
-                    <p className={discount ? styles.discounted : styles.price}>{item.price}₼</p>
-                    <p className={styles.rating}>Rating: {item.rating}/5.0</p>
-                    <div className={styles.ratingLine} style={{ width: `${item.rating * 3.8}rem` }}></div>
-                    <div className={styles.overallRating}></div>
-                    <button className={styles.check}>Check reviews</button>
+                    <div className={styles.itemGeneral}>
+                        <p className={styles.company}>{item.company}</p>
+                        <p className={styles.name}>{item.name}</p>
+                        <p className={styles.description}>{item.description}</p>
+                    </div>
+                    
+                    <div className={styles.ratingGeneral}>
+                        <p className={styles.rating}>Rating: {item.rating}/5.0</p>
+                        <div className={styles.ratingLine} style={{ width: `${item.rating * 3.8}rem` }}></div>
+                        <div className={styles.overallRating}></div>
+                        <button className={styles.check}>Check reviews</button>
+                    </div>
+
+                    <div className={styles.priceGeneral}>
+                        <p className={discount ? styles.discounted : styles.price}>{item.price}₼</p>
                     {discount && (
                         <>
                             <p className={styles.discount}>{item.discount}%</p>
-                            <div className={styles.line}></div>
                             <p className={styles.discountedPrice}>{discount}₼</p>
                         </>
                     )
                     }
+
                     <button className={styles.buy} onClick={buy}>Buy now</button>
                     <button className={styles.cart}>Add to cart</button>
                     <button className={styles.favourite}>
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ffffff"><path d="M440-501Zm0 381L313-234q-72-65-123.5-116t-85-96q-33.5-45-49-87T40-621q0-94 63-156.5T260-840q52 0 99 22t81 62q34-40 81-62t99-22q81 0 136 45.5T831-680h-85q-18-40-53-60t-73-20q-51 0-88 27.5T463-660h-46q-31-45-70.5-72.5T260-760q-57 0-98.5 39.5T120-621q0 33 14 67t50 78.5q36 44.5 98 104T440-228q26-23 61-53t56-50l9 9 19.5 19.5L605-283l9 9q-22 20-56 49.5T498-172l-58 52Zm280-160v-120H600v-80h120v-120h80v120h120v80H800v120h-80Z" /></svg>
                     </button>
+                    </div>
+
+
                 </div>
             </div>
 
-            <Link className={styles.itemAccount}>
-                <img src={item.account.profilePictureUrl} alt="" />
-                <p className={styles.accountName}>{item.account.customerName}</p>
-                <p className={styles.accountUsername}>@{item.account.username}</p>
-            </Link>
+
 
             <div className={styles.whiteCover}></div>
             <p className={styles.propertiesTitle}>Properties</p>
@@ -164,10 +177,12 @@ function Item({ name }) {
                             if (!value) return null;
                             const formattedKey = key.charAt(0).toUpperCase() + key.slice(1);
                             return (
+                                <>
                                 <div key={key} className={styles.property}>
-                                    <p style={{ fontFamily: "PoppinsSemiBold" }}>{formattedKey}</p>
-                                    <span>{value}</span>
+                                    <p style={{ fontFamily: "PoppinsRegular",color: "Gray" }}>{formattedKey}</p>
+                                    <p style={{fontFamily: "PoppinsMedium"}}>{value}</p>
                                 </div>
+                                </>
                             );
                         })
                     );
