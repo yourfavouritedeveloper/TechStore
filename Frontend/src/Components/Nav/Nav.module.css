@@ -22,7 +22,7 @@ html,body {
 
 .highcontainer {
     top:0rem;
-    background-color: rgb(240, 240, 240);
+    background-color: rgb(255, 255, 255);
     width: 550%;
     position: fixed;
     justify-content: center;
@@ -30,6 +30,8 @@ html,body {
     left:50%;
     height: 4.8rem;
     transform: translateX(-50%);
+    border-bottom: 1.9px solid rgb(180, 180, 180);
+
         
 }
 
