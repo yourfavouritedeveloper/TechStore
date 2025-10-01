@@ -5,7 +5,7 @@ body {
 
 .container {
     overflow-x: hidden;
-    height: 180rem;
+    height: 205rem;
     background-color: rgb(238, 238, 238);
 
 }
@@ -48,41 +48,6 @@ body {
 
 
 
-
-.itemVideo {
-    position: absolute;
-    width: 100%;
-    height: 39rem;
-    background-color: black;
-    left: 50%;
-    transform: translateX(-50%);
-    overflow: hidden;
-    transition: all 0.7s ease;
-
-}
-
-.itemVideo video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.itemVideo .videoText {
-    opacity: 0;
-    position: absolute;
-    z-index: 20;
-    font-size: clamp(1rem, 1.5rem, 10rem);
-    left: 50%;
-    color: white;
-    transform: translateX(-50%);
-    top: 25%;
-    transition: all 0.3s ease;
-}
-
-.itemVideo:hover .videoText {
-    opacity: 1;
-}
 
 
 .amount {
@@ -241,7 +206,7 @@ body {
 .itemDescription {
     background-color: rgb(255, 255, 255);
     box-sizing: border-box;
-    padding: 29rem 20rem;
+    padding: 40.5rem 20rem;
     padding-left: 30rem;
     right: 50%;
     top: -6.5rem;
@@ -508,6 +473,96 @@ body {
 }
 
 
+.longDescriptionGeneral {
+    width: 100%;
+    height: 34rem;
+    top:37rem;
+    left:0;
+    position: absolute;
+    z-index: 20;
+}
+
+.longDescriptionGeneral .about {
+     position: absolute;
+    z-index: 5;
+    font-size: clamp(1rem, 1.5rem, 10rem);
+    font-family: "PoppinsMedium";
+    top: 0rem;
+    color: #313131;
+    left:3.5rem;
+
+}
+
+.longDescriptionGeneral .productLongDescriptionFirst {
+     position: relative;
+    z-index: 5;
+    width: 86%;
+    text-align: left;
+    font-size: clamp(0rem, 0.95rem, 10rem);
+    font-family: "PoppinsLight";
+    top: 3rem;
+    color: #313131;
+    left:3.5rem;
+
+
+}
+
+
+
+.itemVideo {
+    position: relative;
+    width: 86%;
+    height: 15rem;
+    background-color: black;
+    left: 50%;
+    top:4rem;
+    transform: translateX(-50%);
+    overflow: hidden;
+    transition: all 0.7s ease;
+
+}
+
+.itemVideo video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.itemVideo .videoText {
+    opacity: 0;
+    position: absolute;
+    z-index: 20;
+    font-size: clamp(1rem, 1.2rem, 10rem);
+    left: 50%;
+    color: white;
+    transform: translateX(-50%);
+    top: 30%;
+    transition: all 0.3s ease;
+}
+
+.itemVideo:hover .videoText {
+    opacity: 1;
+}
+
+
+
+.longDescriptionGeneral .productLongDescriptionSecond {
+     position: relative;
+    z-index: 5;
+    width: 86%;
+    text-align: left;
+    font-size: clamp(1rem, 1rem, 10rem);
+    font-family: "PoppinsLight";
+    top: 5rem;
+    color: #313131;
+    left:3.5rem;
+
+}
+
+
+
+
 
 
 .propertiesTitle {
@@ -515,7 +570,7 @@ body {
     z-index: 5;
     font-size: clamp(1rem, 2.5rem, 10rem);
     font-family: "PoppinsSemiBold";
-    top: 66rem;
+    top: 89rem;
     left: 50%;
     transform: translateX(-319%);
 }
@@ -529,7 +584,7 @@ body {
     right: 50%;
     transform: translateX(50%);
     gap: 1rem;
-    top: 65rem;
+    top: 88rem;
     border-radius: 1rem;
     color: black;
     position: absolute;
@@ -570,7 +625,7 @@ body {
     right: 50%;
     transform: translateX(50%);
     gap: 1rem;
-    top: 116rem;
+    top: 147.3rem;
     border-radius: 1rem;
     color: black;
     position: absolute;
@@ -607,7 +662,7 @@ body {
     right: 50%;
     transform: translateX(50%);
     gap: 1rem;
-    top: 133rem;
+    top: 164rem;
     border-radius: 1rem;
     color: black;
     position: absolute;
