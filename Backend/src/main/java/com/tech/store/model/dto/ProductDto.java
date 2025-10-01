@@ -35,6 +35,9 @@ public class ProductDto {
     @NotBlank(message = "Description cannot be empty.", groups = {OnCreate.class, OnUpdate.class})
     private String description;
 
+    @NotBlank(message = "Long Description cannot be empty.", groups = {OnCreate.class, OnUpdate.class})
+    private String longDescription;
+
     @NotNull(message = "Price cannot be empty.", groups = {OnCreate.class, OnUpdate.class})
     private BigDecimal price;
 
