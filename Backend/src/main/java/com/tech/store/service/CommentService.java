@@ -127,6 +127,7 @@ public class CommentService {
         commentEntity.setComment(comment);
 
         fromAccount.getSentComments().add(commentEntity);
+        productEntity.getComments().add(commentEntity);
 
 
         commentRepository.save(commentEntity);
@@ -167,6 +168,7 @@ public class CommentService {
 
         fromAccount.getSentComments().add(commentEntity);
         toAccount.getReceivedComments().add(commentEntity);
+        productEntity.getComments().add(commentEntity);
 
         repliedComment.getReplies().add(commentEntity);
 

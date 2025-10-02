@@ -29,6 +29,8 @@ function EditItem({ highlight, setHighlight, username,product}) {
     const [lastPage, setLastPage] = useState(false);
     const [rows, setRows] = useState([]);
 
+    const [comments, setComments] = useState(product?.comments || []);
+
     const categories = [
         "computer",
         "monitor",
@@ -46,6 +48,7 @@ function EditItem({ highlight, setHighlight, username,product}) {
     const initialFormData = {
         name: "",
         description: "",
+        longDescription: "",
         price: "",
         category: "",
         company: "",
@@ -128,6 +131,25 @@ function EditItem({ highlight, setHighlight, username,product}) {
 
  const submitClick = async () => {
     try {
+        const accountRes = await axios.get(
+            `https://techstore-3fvk.onrender.com/api/v1/accounts/username/${username}`,
+                    {
+                    auth: {
+                        username: USERNAME, 
+                        password: PASSWORD
+                    }
+                    }
+        );
+
+        const accountData = accountRes.data;
+            const accountSummary = {
+                id: accountData.id,
+                username: accountData.username,
+                customerName: accountData.customerName,
+                email: accountData.email,
+                profilePictureUrl: accountData.profilePictureUrl,
+                balance: accountData.balance
+            };
 
 
 
@@ -140,14 +162,17 @@ function EditItem({ highlight, setHighlight, username,product}) {
             volume: formData.volume ? parseFloat(formData.volume) : 0,
             discount: formData.discount ? parseInt(formData.discount) : 0,
             amount: formData.amount ? parseInt(formData.amount) : 0,
-            guarantee: formData.guarantee ? Number(formData.guarantee) : 0,
-            category: formData.category.toUpperCase().replace(/\s+/g, "_"),
+            guarantee: formData.guarantee ? Number(formData.guarantee) : null,
+            category: formData.category ? formData.category.toUpperCase().replace(/\s+/g, "_") : null,
             properties: formData.properties || {},
+            account: accountSummary,
             productImageUrl: formData.productImageUrl || "",
             videoUrl: formData.videoUrl || null,
             bought: formData.bought ? parseInt(formData.bought) : 0,  
             rating: formData.rating ? parseFloat(formData.rating) : 0,
-            searched: formData.searched ? parseInt(formData.searched) : 0
+            searched: formData.searched ? parseInt(formData.searched) : 0,  
+            comments: formData.comments || [],
+            purchases: []      
         };
 
 
