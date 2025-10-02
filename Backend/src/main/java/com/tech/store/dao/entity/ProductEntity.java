@@ -41,7 +41,7 @@ public class ProductEntity extends BaseEntity {
     @Column(name = "description",nullable = false)
     private String description;
 
-    @Column(name = "long_description",nullable = false)
+    @Column(name = "long_description", length = 5000, nullable = false)
     private String longDescription;
 
     @Column(name = "price",nullable = false)

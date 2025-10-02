@@ -190,11 +190,7 @@ select:focus {
     border: none;
 }
 
-input:focus{
-    outline: none;
-    border: 2px solid #9b59b6; 
-    box-shadow: 0 0 6px #512c5f54;     
-}
+
 
 .generalInfo .productDescription:focus,
 .generalInfo .productLongDescription:focus {

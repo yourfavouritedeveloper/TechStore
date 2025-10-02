@@ -5,8 +5,7 @@ body {
 
 .container {
     overflow-x: hidden;
-    height: 185rem;
-    padding-bottom: 10rem;
+    padding-bottom: 100rem;
     background-color: rgb(238, 238, 238);
 
 }
@@ -108,6 +107,7 @@ body {
 .itemAccount .accountName {
     position: absolute;
     left: 5.5rem;
+    color: #313131;
     top: 0.6rem;
     font-size: clamp(1rem, 1.7rem, 10rem);
     font-family: "PoppinsMedium";
@@ -117,6 +117,7 @@ body {
 .itemAccount .accountPosted {
     position: absolute;
     left: 5.6rem;
+    color: #313131;
     top: 0.4rem;
     font-size: clamp(1rem, 1rem, 10rem);
 }
@@ -187,6 +188,7 @@ body {
     position: absolute;
     left: 6rem;
     top: 1.2rem;
+    color: #313131;
     white-space: nowrap;
     font-size: clamp(1rem, 1.2rem, 10rem);
     font-family: "PoppinsMedium";    
@@ -196,6 +198,7 @@ body {
     position: absolute;
     left: 6rem;
     top: 2.7rem;
+    color: #313131;
     font-size: clamp(0rem, 0.9rem, 10rem);
     font-family: "PoppinsRegular";    
 }
@@ -216,6 +219,7 @@ body {
     text-align: left;
     left: 1rem;
     width: 90%;
+    color: #313131;
     top: 50%;
     transform: translateY(-70%);
     font-size: clamp(0rem, 0.7rem, 10rem);
@@ -413,7 +417,7 @@ body {
 
 .buy {
     position: absolute;
-    bottom: 9.6rem;
+    bottom: 9.55rem;
     padding: 0.7rem 6rem;
     font-size: clamp(1rem, 1.6rem, 10rem);
     left: 3.4rem;
@@ -650,6 +654,7 @@ body {
     font-family: "PoppinsSemiBold";
     top: 89rem;
     left: 50%;
+    color: #313131;
     transform: translateX(-319%);
 }
 
@@ -730,68 +735,198 @@ body {
     font-size: clamp(1rem, 2.5rem, 10rem);
     font-family: "PoppinsSemiBold";
     top: 0.5rem;
+    color: #313131;
     left: 3.2rem;
 }
 
 .commentBox {
-  background-color: rgb(241,241,241);
   gap: 0.5rem;
-  padding-top: 6rem;
-  padding-bottom: 1.5rem;
+  padding-top: 3rem;
+  padding-bottom: 3.5rem;
   position: relative;
   align-items: center;
-  top:-3rem;
+  top:-2rem;
   height: auto;
-  left:-2%;
+  overflow: hidden;
+  left:-1.2%;
   width: 104%;
   border-radius: 0.5rem;
+}
+
+.comment {
+    background-color: rgb(241,241,241);
+    width: 85%;
+    position: relative;
+    left:52.9%;
+    padding: 0rem 2rem;
+    padding-right: 4rem;
+    border-radius: 1rem;
+    padding-bottom: 2rem;
+    transform: translateX(-50%);
+}
+
+.comment .accountInfo {
+    height: 0.5rem;
+    width: 112.2%;
+    left:-4%;
+    position: relative;
+}
+
+.accountInfo img {
+    width: 6%;
+    position: absolute;
+    left:-4.6rem;
+    top:-1.8rem;
+    border-radius: 50%;
+    border: 1.5px solid #838383;
+}
+
+.accountInfo .commentCustomerName {
+    position: absolute;  
+    font-family: "PoppinsMedium";
+    color: #313131;
+    left:1rem;
+    top:-3.6rem;
+    font-size: clamp(1rem,1.5rem,10rem);
+}
+
+.comment .commentText {
+    font-family: "Arial";
+    color: #313131;
+    left:5.7rem;
+    top:0rem;
+    text-align: left;
+    word-wrap: break-word; 
+    white-space: normal;      
+    overflow-wrap: break-word;
+    font-size: clamp(1rem,1.2rem,10rem);   
 }
 
 .commentBox .reviewSubTitle {
     position: absolute;
     z-index: 5;
     font-size: clamp(1rem, 1.6rem, 10rem);
-    font-family: "PoppinsRegular";
-    top: 3rem;
-    left: 3.2rem;
+    font-family: "PoppinsMedium";
+    color: #313131;
+    top: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.send {
+    position: relative;
+    bottom: -4.7rem;
+    width: 96.4%;
+    height: auto;
+    border-top: 1.5px solid #c0c0c0;
+    padding: 1rem;
+    padding-top: 1.5rem;
 }
 
 .commentBox .input {
   position: relative;
-  top:1rem;
-  padding: 0.5rem 0.75rem;
-  padding-bottom: 2rem;
+  top:0rem;
+  padding: 0.35rem 1.3rem;
+  padding-bottom: 0rem;
   border: 1px solid #ccc;
-  border-radius: 8px;
-  width: 70%;
-  left:35%;
+  border-radius: 1.5rem;
+  width: 81%;
+  left:40.4%;
+  min-height: 4.95rem;
   font-family: "PoppinsRegular";
   transform: translateX(-50%);
   font-size: 1rem;
-  resize: vertical;
+  resize: none;
+  overflow: hidden;
   transition: border-color 0.2s ease;
 }
 
 .commentBox .input:focus {
-  border-color: #007bff;
+  border-color: rgb(112, 139, 255);
 }
 
-.commentBox .post {
-  padding: 0.7rem 6rem;
-  background-color: #007bff;
+.commentBox .rate {
+  padding: 1.3rem 1.3rem;
+  background-color: rgb(255, 112, 112);
   color: white;
   font-family: "PoppinsLight";
   border: none;
-  top:-1.4rem;
-  position: relative;
-  border-radius: 8px;
+  bottom:4.2rem;
+  position: absolute;
+  border-radius: 50%;
+  left:73.6rem;
   font-size: 1.4rem;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: all 0.3s ease;
+}
+
+.rate .rateTitle {
+     position: absolute;
+    top:-0.83rem;
+    left:3.2rem;
+    font-family: "PoppinsMedium";
+    font-size: clamp(1rem,1.2rem,10rem);
+    color: rgb(255, 255, 255);   
+}
+
+.commentBox .rate svg {
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    transition: all 0.3s ease;
+}
+
+.commentBox .rate:hover svg {
+    left:30%;
+}
+
+.commentBox .rate:hover {
+  padding-right: 6.5rem;   
+  border-radius: 2rem; 
+  background-color: rgb(255, 56, 56);
+}
+
+.commentBox .post {
+  padding: 1.3rem 1.3rem;
+  background-color: rgb(112, 139, 255);
+  color: white;
+  font-family: "PoppinsLight";
+  border: none;
+  bottom:1.45rem;
+  position: absolute;
+  border-radius: 50%;
+  left:73.6rem;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.post .postTitle {
+    position: absolute;
+    top:-0.83rem;
+    left:3.2rem;
+    font-family: "PoppinsMedium";
+    font-size: clamp(1rem,1.2rem,10rem);
+    color: rgb(255, 255, 255);
+}
+
+.commentBox .post svg {
+    position: absolute;
+    top:50%;
+    left:52.5%;
+    transform: translate(-50%,-50%);
+    transition: all 0.3s ease;
 }
 
 .commentBox .post:hover {
-  background-color: #0056b3;
+  padding-right: 6.5rem;   
+  border-radius: 2rem; 
+  background-color: rgb(56, 92, 255);
+}
+
+.commentBox .post:hover svg {
+    left:30%;
 }
 
 
@@ -830,6 +965,7 @@ body {
     font-size: clamp(1rem, 2.5rem, 10rem);
     font-family: "PoppinsSemiBold";
     top: 1rem;
+    color: #313131;
     left: 3.1rem;
 }
 
@@ -888,7 +1024,7 @@ body {
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    border: 1.5px solid gray;
+    border: 1.5px solid rgb(199, 199, 199);
     background-color: rgb(241,241,241);
 
 

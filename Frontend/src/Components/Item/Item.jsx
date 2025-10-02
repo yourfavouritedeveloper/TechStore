@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import Choice from "../Choice/Choice"
 import spinner from "../../../public/brandlogo.png"
 
+    const USERNAME = import.meta.env.VITE_API_USERNAME;
+    const PASSWORD = import.meta.env.VITE_API_PASSWORD;
+
 function Item({ name }) {
 
     const fileInputRef = useRef(null);
@@ -17,6 +20,16 @@ function Item({ name }) {
     const [firstPart, setFirstPart] = useState("");
     const [secondPart, setSecondPart] = useState("");
     const [showAllProps, setShowAllProps] = useState(false);
+    const [newCommentText, setnewCommentText] = useState("");
+    const textareaRef = useRef(null);
+
+    const handleChange = (e) => {
+        setnewCommentText(e.target.value);
+
+        const textarea = textareaRef.current;
+        textarea.style.height = "auto"; 
+        textarea.style.height = textarea.scrollHeight + "px"; 
+    };
 
 
     useEffect(() => {
@@ -35,9 +48,10 @@ function Item({ name }) {
 
     useEffect(() => {
         const handleScroll = () => {
-            const halfPage = document.body.scrollHeight / 4.9;
+            const targetRem = 42; 
+            const targetPx = targetRem * parseFloat(getComputedStyle(document.documentElement).fontSize);
 
-            if (window.scrollY < halfPage) {
+            if (window.scrollY < targetPx) {
                 setIsFixed(true);
             } else {
                 setIsFixed(false);
@@ -67,7 +81,10 @@ function Item({ name }) {
 
     useEffect(() => {
         if (!name) return;
-        axios.get(`https://techstore-3fvk.onrender.com/api/v1/products/name/${name}`)
+        axios.get(`https://techstore-3fvk.onrender.com/api/v1/products/name/${name}`,
+
+            { auth: { username: USERNAME, password: PASSWORD } }
+            )
             .then(response => {
                 setItem(response.data);
             })
@@ -109,7 +126,7 @@ function Item({ name }) {
         <div className={styles.container}>
             <div className={styles.item} style={{
                 position: isFixed ? "fixed" : "absolute",
-                transform: isFixed ? "translate(-120.5%, 14.2%)" : "translate(-120.5%, 121.72%)"
+                transform: isFixed ? "translate(-120.5%, 14.2%)" : "translate(-120.5%, 47.5rem)"
             }}>
                 <img className={styles.image} src={item.productImageUrl} alt={item.name} />
                 <p className={styles.amount}>Only {item.amount} left!</p>
@@ -241,19 +258,59 @@ function Item({ name }) {
                 })()}
             </div>
             <div className={styles.review}>
-                <p className={styles.reviewTitle}>Reviews</p>
+                <p className={styles.reviewTitle}>Reviews({item.comments.length})</p>
+                <div className={styles.commentBox}>
                 {item.comments && item.comments.length > 0 ? (
                 <>
+                    {item.comments.map((comment) => (
+                    <div key={comment.id} className={styles.comment}>
+
+                        {comment.fromAccount && (
+                        <div className={styles.accountInfo}>
+                            <img src={comment.fromAccount.profilePictureUrl} alt="" />
+                            <p className={styles.commentCustomerName}>{comment.fromAccount.customerName}</p>
+                        </div>
+                        )}
+                         <p className={styles.commentText}>{comment.comment}</p>
+
+                    </div>
+                    ))}
                 </>
                 ) : (
                     <>
-                        <div className={styles.commentBox}>
+
                         <p className={styles.reviewSubTitle}>Be the first to leave a comment!</p>
-                        <textarea className={styles.input} type="text" placeholder="Write a comment..." />
-                        <button className={styles.post}>Post</button>
-                        </div>
                     </>
                 )}
+                <div className={styles.send}>
+                    <textarea className={styles.input}
+                            ref={textareaRef}
+                            value={newCommentText}
+                            onChange={handleChange}
+                            placeholder="Write a comment..." 
+                            rows={1}
+                            />
+                    <button className={styles.post}>
+                        <svg xmlns="http://www.w3.org/2000/svg" 
+                        height="27px" 
+                        viewBox="0 -960 960 960" 
+                        width="27px" 
+                        fill="#ffffffff">
+                            <path d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z"/></svg>
+                            <p className={styles.postTitle}>Send</p>
+                    </button>
+                    <button className={styles.rate}>
+                        <svg xmlns="http://www.w3.org/2000/svg" 
+                        height="27px" 
+                        viewBox="0 -960 960 960" 
+                        width="27px" 
+                        fill="#ffffffff">
+                            <path d="m305-704 112-145q12-16 28.5-23.5T480-880q18 0 34.5 7.5T543-849l112 145 170 57q26 8 41 29.5t15 47.5q0 12-3.5 24T866-523L756-367l4 164q1 35-23 59t-56 24q-2 0-22-3l-179-50-179 50q-5 2-11 2.5t-11 .5q-32 0-56-24t-23-59l4-165L95-523q-8-11-11.5-23T80-570q0-25 14.5-46.5T135-647l170-57Zm49 69-194 64 124 179-4 191 200-55 200 56-4-192 124-177-194-66-126-165-126 165Zm126 135Z"/>
+                        </svg>
+                        <p className={styles.rateTitle}>Rate</p>
+                    </button>
+                </div>
+                </div>
 
             </div>
             <div className={styles.similar}>
