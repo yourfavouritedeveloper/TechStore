@@ -242,6 +242,18 @@ function Item({ name }) {
             </div>
             <div className={styles.review}>
                 <p className={styles.reviewTitle}>Reviews</p>
+                {item.comments && item.comments.length > 0 ? (
+                <>
+                </>
+                ) : (
+                    <>
+                        <div className={styles.commentBox}>
+                        <p className={styles.reviewSubTitle}>Be the first to leave a comment!</p>
+                        <textarea className={styles.input} type="text" placeholder="Write a comment..." />
+                        <button className={styles.post}>Post</button>
+                        </div>
+                    </>
+                )}
 
             </div>
             <div className={styles.similar}>
