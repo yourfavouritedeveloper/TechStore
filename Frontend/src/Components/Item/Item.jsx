@@ -116,7 +116,8 @@ function Item({ name }) {
         { 
         params: {
             productId: item.id,    
-            comment: newCommentText   
+            comment: newCommentText,
+            rate: 5
             },
         auth: { 
             username: USERNAME, 
@@ -125,6 +126,12 @@ function Item({ name }) {
       );
 
       console.log("Comment created:", response.data);
+        const updatedItem = await axios.get(
+        `https://techstore-3fvk.onrender.com/api/v1/products/id/${item.id}`,
+        { auth: { username: USERNAME, password: PASSWORD } }
+        );
+
+        setItem(updatedItem.data);
       alert("Comment posted successfully!");
       setnewCommentText(""); 
     } catch (error) {
@@ -294,7 +301,10 @@ function Item({ name }) {
                 <div className={styles.commentBox}>
                     {item.comments && item.comments.length > 0 ? (
                         <>
-                            {item.comments.map((comment) => (
+                        
+                            {item.comments.slice(0, 1)
+                            .filter((comment) => !comment.toAccount)
+                            .map((comment) => (
                                 <div key={comment.id} className={styles.comment}>
 
                                     {comment.fromAccount && (
@@ -313,6 +323,27 @@ function Item({ name }) {
                                     </button>
                                     <button className={styles.reply}>Reply</button>
 
+
+                                        {console.log("Replies for comment", comment.id, comment.replies)}
+                                      {comment.replies && comment.replies.length > 0 && (
+                                        <div className={styles.replies}>
+                                            
+                                            {comment.replies.map((reply) => (
+                                            <div key={reply.id} className={styles.replyComment}>
+                                                {reply.fromAccount && (
+                                                <div className={styles.accountReplyInfo}>
+                                                    <img src={reply.fromAccount.replyProfilePictureUrl} alt="" />
+                                                    <p className={styles.commentCustomerName}>{reply.fromAccount.customerName}</p>
+                                                </div>
+                                                )}
+                                                <p className={styles.commentText}>{reply.comment}</p>
+                                            </div>
+                                            ))}
+                                        </div>
+                                        )}
+
+
+                                        
                                 </div>
                             ))}
                         </>
@@ -335,7 +366,14 @@ function Item({ name }) {
                                 height="27px"
                                 viewBox="0 -960 960 960"
                                 width="27px"
-                                fill="#ffffffff">
+                                fill="#ffffffff"
+                                onKeyDown={(e) => {
+                                    if (e.key === "Enter" && !e.shiftKey) {
+                                    e.preventDefault(); 
+                                    sendComment();    
+                                    }
+                                   
+                                }}>
                                 <path d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z" /></svg>
                             <p className={styles.postTitle}>Send</p>
                         </button>

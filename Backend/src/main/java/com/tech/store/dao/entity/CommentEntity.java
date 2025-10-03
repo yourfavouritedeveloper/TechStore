@@ -51,7 +51,7 @@ public class CommentEntity extends BaseEntity {
     @JsonManagedReference("comment-replies")
     private List<CommentEntity> replies = new ArrayList<>();
 
-    @Column(name="comment",nullable = false)
+    @Column(name="comment", length = 5000,nullable = false)
     private String comment;
 
     @Column(name="likes")

@@ -164,9 +164,10 @@ public class CommentService {
 
         commentEntity.setFromAccount(fromAccount);
         commentEntity.setToAccount(toAccount);
-        commentEntity.setProduct(productEntity);
         commentEntity.setComment(comment);
         commentEntity.setRepliedComment(repliedComment);
+        commentEntity.setProduct(productEntity);
+
 
         fromAccount.getSentComments().add(commentEntity);
         toAccount.getReceivedComments().add(commentEntity);
