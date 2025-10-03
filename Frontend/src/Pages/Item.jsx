@@ -46,7 +46,7 @@ function Item({ shiftUp, setShiftUp }) {
     return (<>
     <title>{"TechStore | " + item.name}</title>
     <Nav highlight={true}/>
-    <Product name = {item.name} />
+    <Product name = {item.name} productId={id}/>
     <Footer />
     
     </>);

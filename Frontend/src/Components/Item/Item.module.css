@@ -1004,24 +1004,151 @@ body {
     left: 30%;
 }
 
+.showReplies {
+     position: relative;
+    bottom: 4.5rem;
+    overflow: hidden;
+    background-color: rgb(194, 194, 194);
+    color: white;
+    padding: 0.3rem 4rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-family: "PoppinsRegular";
+    border: none;
+    transition: all 0.3s ease;
+    font-size: clamp(0rem, 1.2rem, 10rem);   
+}
+
+.showReplies:hover {
+     background-color: rgb(101, 129, 255);   
+}
+
 .replies {
      gap: 0.5rem;
     padding-top: 3rem;
-    padding-bottom: 3.5rem;
     position: relative;
     align-items: center;
-    top: 4.5rem;
+    top: -5rem;
     height: auto;
     overflow: hidden;
     left: -1.2%;
     width: 104%;
     border-radius: 0.5rem;
-    background-color: rgb(255, 0, 0);  
 }
 
 .replyComment {
-    
+    background-color: rgb(241, 241, 241);
+    width: 75%;
+    position: relative;
+    left: 55.4%;
+    padding: 0rem 2rem;
+    padding-right: 4rem;
+    border-radius: 1rem;
+    padding-bottom: 3rem;
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem; 
+    transform: translateX(-50%);    
 }
+
+.accountReplyInfo {
+     height: 0.5rem;
+    width: 112.2%;
+    left: -4%;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;   
+}
+
+.accountReplyInfo img {
+    width: 5%;
+    position: absolute;
+    left: -3.5rem;
+    top: -1.55rem;
+    border-radius: 50%;
+    border: 1.5px solid #838383;    
+}
+
+.replyCustomerName {
+     position: relative;
+    font-family: "PoppinsMedium";
+    color: #313131;
+    left: 0.7rem;
+    top: -1.1rem;
+    font-size: clamp(1rem, 1.3rem, 10rem);   
+}
+
+
+.repliedTo {
+     position: relative;
+    font-family: "PoppinsRegular";
+    color: #313131;
+    left: 0.8rem;
+    top: -0.9rem;
+    font-size: clamp(0rem, 0.8rem, 10rem);       
+}
+
+.replyText {
+    font-family: "Arial";
+    color: #313131;
+    left: 0.2rem;
+    top:-0rem;
+    position: relative;
+    text-align: left;
+    word-wrap: break-word;
+    white-space: normal;
+    overflow-wrap: break-word;
+    letter-spacing: 0.05rem;
+    font-size: clamp(1rem, 1.1rem, 10rem);    
+}
+
+.replyReply {
+    position: absolute;
+    color: rgb(82, 82, 82);
+    padding: 0.23rem 0.5rem;
+    font-size: clamp(0rem, 1rem, 10rem);
+    border-radius: 0.5rem;
+    left: 6.43%;
+    font-family: "PoppinsMedium";
+    top: 66%;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+
+
+.replyLike {
+    position: absolute;
+    padding: 1.2rem 1.2rem;
+    border-radius: 50%;
+    left: 2.43%;
+    top: 62%;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.replyLike:hover {
+    background-color: rgb(112, 139, 255);
+}
+
+.replyLike svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    fill: rgb(82, 82, 82);
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.replyLike:hover svg {
+    fill: white;
+}
+
 
 
 .items {
