@@ -32,7 +32,7 @@ public class CommentDto {
 
     private List<CommentSummaryDto> replies;
 
-    private Integer like;
+    private Integer likes;
 
     private BigDecimal rate;
 

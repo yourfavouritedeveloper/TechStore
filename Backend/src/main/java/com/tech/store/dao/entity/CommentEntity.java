@@ -54,8 +54,8 @@ public class CommentEntity extends BaseEntity {
     @Column(name="comment",nullable = false)
     private String comment;
 
-    @Column(name="like")
-    private Integer like;
+    @Column(name="likes")
+    private Integer likes;
 
     @Column(name="rate")
     private BigDecimal rate;

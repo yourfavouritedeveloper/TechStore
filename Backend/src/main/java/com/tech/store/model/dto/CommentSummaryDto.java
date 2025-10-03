@@ -17,7 +17,7 @@ public class CommentSummaryDto {
 
     private AccountSummaryDto fromAccount;
 
-    private Integer like;
+    private Integer likes;
 
     private BigDecimal rate;
 
