@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -18,7 +19,7 @@ public class CommentSummaryDto {
 
     private AccountSummaryDto fromAccount;
 
-    private List<Long> repliesId;
+    private List<Long> repliesId = new ArrayList<>();
 
     private Integer likes;
 
