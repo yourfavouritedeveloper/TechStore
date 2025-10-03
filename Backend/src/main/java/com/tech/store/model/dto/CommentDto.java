@@ -11,6 +11,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 
@@ -30,6 +31,10 @@ public class CommentDto {
     private CommentSummaryDto repliedComment;
 
     private List<CommentSummaryDto> replies;
+
+    private Integer like;
+
+    private BigDecimal rate;
 
     @NotEmpty(message = "The comment cannot be empty.",groups = {OnCreate.class, OnUpdate.class})
     private String comment;
