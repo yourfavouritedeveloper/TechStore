@@ -125,7 +125,7 @@ public class CommentService {
         commentEntity.setFromAccount(fromAccount);
         commentEntity.setProduct(productEntity);
         commentEntity.setComment(comment);
-        commentEntity.setLike(0);
+        commentEntity.setLikes(0);
         commentEntity.setRate(BigDecimal.valueOf(rate));
 
         fromAccount.getSentComments().add(commentEntity);
