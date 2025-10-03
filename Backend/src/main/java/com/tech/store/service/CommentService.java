@@ -11,6 +11,7 @@ import com.tech.store.mapper.CommentMapper;
 import com.tech.store.mapper.ProductMapper;
 import com.tech.store.model.dto.AccountDto;
 import com.tech.store.model.dto.CommentDto;
+import com.tech.store.model.dto.CommentSummaryDto;
 import com.tech.store.model.dto.PurchaseDto;
 import com.tech.store.model.enumeration.Status;
 import lombok.RequiredArgsConstructor;
@@ -76,7 +77,7 @@ public class CommentService {
                     AccountEntity accountEntity = accountRepository.findByUsername(username)
                             .orElseThrow(() -> new AccountNotFoundException("Account not found"));
 
-                    List<CommentEntity> commentEntities = accountEntity.getSentComments()
+                    List<CommentEntity> commentEntities = accountEntity.getReceivedComments()
                             .stream().toList();
 
                     commentEntities.forEach(commentRedisRepository::save);
@@ -108,6 +109,29 @@ public class CommentService {
                     return commentDtos;
                 });
     }
+
+    public List<CommentDto> findByProduct(Long productId) {
+        return commentRedisRepository.findByProduct(productId)
+                .orElseGet(() -> {
+                    ProductEntity productEntity = productRepository.findById(productId)
+                            .orElseThrow(() -> new ProductNotFoundException("Product not found"));
+
+
+                    List<CommentEntity> commentEntities = productEntity.getComments()
+                            .stream().toList();
+
+                    if (commentEntities.isEmpty()) {
+                        throw new CommentNotFoundException("Comment not found.");
+                    }
+
+                    commentEntities.forEach(commentRedisRepository::save);
+
+                    return commentEntities.stream().
+                            map(commentMapper::toCommentDto)
+                            .toList();
+                });
+    }
+
 
 
 
@@ -165,14 +189,13 @@ public class CommentService {
         commentEntity.setFromAccount(fromAccount);
         commentEntity.setToAccount(toAccount);
         commentEntity.setComment(comment);
-        commentEntity.setRepliedComment(repliedComment);
         commentEntity.setProduct(productEntity);
+        commentEntity.setRepliedComment(repliedComment);
 
 
         fromAccount.getSentComments().add(commentEntity);
         toAccount.getReceivedComments().add(commentEntity);
         productEntity.getComments().add(commentEntity);
-
         repliedComment.getReplies().add(commentEntity);
 
         commentRepository.save(commentEntity);
@@ -187,7 +210,10 @@ public class CommentService {
         accountRedisRepository.save(fromAccount);
         accountRedisRepository.save(toAccount);
 
-        return commentMapper.toCommentDto(commentEntity);
+        CommentDto commentDto = commentMapper.toCommentDto(commentEntity);
+
+
+        return commentDto;
     }
 
 

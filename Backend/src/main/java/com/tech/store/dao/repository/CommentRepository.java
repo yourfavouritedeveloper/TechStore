@@ -1,6 +1,7 @@
 package com.tech.store.dao.repository;
 
 import com.tech.store.dao.entity.CommentEntity;
+import com.tech.store.dao.entity.ProductEntity;
 import com.tech.store.model.dto.CommentDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -14,4 +15,6 @@ public interface CommentRepository extends JpaRepository<CommentEntity, Long> {
     Optional<List<CommentDto>> findByFromAccountUsername(String fromAccountUsername);
 
     Optional<List<CommentDto>> findByToAccountUsername(String toAccountUsername);
+
+    Optional<List<CommentEntity>> findByProduct(ProductEntity product);
 }

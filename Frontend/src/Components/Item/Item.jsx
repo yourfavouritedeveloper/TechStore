@@ -22,6 +22,35 @@ function Item({ name }) {
     const [showAllProps, setShowAllProps] = useState(false);
     const [newCommentText, setnewCommentText] = useState("");
     const textareaRef = useRef(null);
+    const [comments, setComments] = useState([]);
+
+
+    useEffect(() => {
+    if (!item.id) return;
+
+    const fetchComments = async () => {
+
+      try {
+        const response = await axios.get(
+          `https://techstore-3fvk.onrender.com/api/v1/comments/product/`,
+            { 
+                params: { productId: item.id },
+                auth: { username: USERNAME, password: PASSWORD }
+            
+            }
+        );
+        setComments(response.data);
+
+      } catch (err) {
+        console.error("Error fetching comments:", err);
+      } finally {
+        console.log(comments);
+      }
+    };
+
+    fetchComments();
+  }, [item.id]);
+
 
     const handleChange = (e) => {
         setnewCommentText(e.target.value);
@@ -302,7 +331,7 @@ function Item({ name }) {
                     {item.comments && item.comments.length > 0 ? (
                         <>
                         
-                            {item.comments.slice(0, 1)
+                            {item.comments
                             .filter((comment) => !comment.toAccount)
                             .map((comment) => (
                                 <div key={comment.id} className={styles.comment}>
@@ -324,7 +353,6 @@ function Item({ name }) {
                                     <button className={styles.reply}>Reply</button>
 
 
-                                        {console.log("Replies for comment", comment.id, comment.replies)}
                                       {comment.replies && comment.replies.length > 0 && (
                                         <div className={styles.replies}>
                                             

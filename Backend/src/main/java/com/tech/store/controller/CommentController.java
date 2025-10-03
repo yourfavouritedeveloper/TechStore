@@ -28,18 +28,25 @@ public class CommentController {
         return commentService.findById(id);
     }
 
-    @GetMapping("/fromAccount/{fromAccount}")
+    @GetMapping("/fromAccount")
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Get comment by sender account", description = "Gets the specified comment.")
-    public List<CommentDto> findBySender(@PathVariable String username) {
+    public List<CommentDto> findBySender(@RequestParam String username) {
         return commentService.findBySenderAccount(username);
     }
 
-    @GetMapping("/toAccount/{toAccount}")
+    @GetMapping("/toAccount")
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Get comment by receiver account", description = "Gets the specified comment.")
-    public List<CommentDto> findByReceiver(@PathVariable String username) {
+    public List<CommentDto> findByReceiver(@RequestParam String username) {
         return commentService.findByReceiverAccount(username);
+    }
+
+    @GetMapping("/product")
+    @ResponseStatus(HttpStatus.OK)
+    @Operation(summary = "Get comment by product Id", description = "Gets the specified comment.")
+    public List<CommentDto> findByReceiver(@RequestParam Long productId) {
+        return commentService.findByProduct(productId);
     }
 
     @PostMapping("/comment/{fromAccount}")

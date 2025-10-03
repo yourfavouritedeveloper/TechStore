@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.24.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1759520009510-1" author="f">
+        <modifyDataType columnName="balance" newDataType="DECIMAL" tableName="accounts"/>
+    </changeSet>
+    <changeSet id="1759520009510-2" author="f">
+        <modifyDataType columnName="height" newDataType="DECIMAL" tableName="products"/>
+    </changeSet>
+    <changeSet id="1759520009510-3" author="f">
+        <modifyDataType columnName="price" newDataType="DECIMAL" tableName="products"/>
+    </changeSet>
+    <changeSet id="1759520009510-4" author="f">
+        <modifyDataType columnName="rate" newDataType="DECIMAL" tableName="comments"/>
+    </changeSet>
+    <changeSet id="1759520009510-5" author="f">
+        <modifyDataType columnName="rating" newDataType="DECIMAL" tableName="products"/>
+    </changeSet>
+    <changeSet id="1759520009510-6" author="f">
+        <modifyDataType columnName="volume" newDataType="DECIMAL" tableName="products"/>
+    </changeSet>
+    <changeSet id="1759520009510-7" author="f">
+        <modifyDataType columnName="weight" newDataType="DECIMAL" tableName="products"/>
+    </changeSet>
+    <changeSet id="1759520009510-8" author="f">
+        <modifyDataType columnName="width" newDataType="DECIMAL" tableName="products"/>
+    </changeSet>
+
+</databaseChangeLog>
