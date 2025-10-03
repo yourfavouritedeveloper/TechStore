@@ -32,6 +32,7 @@ function Item({ name }) {
     };
 
 
+
     useEffect(() => {
         if (!item?.longDescription) return;
 
@@ -100,6 +101,37 @@ function Item({ name }) {
     const buy = function () {
         setIsChoice(!isChoice);
     }
+
+    
+  const sendComment = async () => {
+    if (!newCommentText.trim()) {
+      alert("Comment cannot be empty!");
+      return;
+    }
+
+    try {
+      const response = await axios.post(
+        `https://techstore-3fvk.onrender.com/api/v1/comments/comment/${item.account.username}`,
+        null, 
+        { 
+        params: {
+            productId: item.id,    
+            comment: newCommentText   
+            },
+        auth: { 
+            username: USERNAME, 
+            password: PASSWORD 
+        } }
+      );
+
+      console.log("Comment created:", response.data);
+      alert("Comment posted successfully!");
+      setnewCommentText(""); 
+    } catch (error) {
+      console.error("Error posting comment:", error);
+      alert("Failed to post comment.");
+    }
+  };
 
 
     useEffect(() => {
@@ -273,14 +305,12 @@ function Item({ name }) {
                                     )}
                                     <p className={styles.commentText}>{comment.comment}</p>
                                     <button className={styles.like}>
-
+                                        {comment.like ? comment.like : ""}
                                         <svg xmlns="http://www.w3.org/2000/svg"
                                             height="24px"
                                             viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z" />
                                         </svg>
                                     </button>
-                                    <p className={styles.replyTitle}>Replies</p>
-                                    <button className={styles.showReply}>Show all Replies</button>
                                     <button className={styles.reply}>Reply</button>
 
                                 </div>
@@ -300,7 +330,7 @@ function Item({ name }) {
                             placeholder="Write a comment..."
                             rows={1}
                         />
-                        <button className={styles.post}>
+                        <button className={styles.post} onClick={sendComment}>
                             <svg xmlns="http://www.w3.org/2000/svg"
                                 height="27px"
                                 viewBox="0 -960 960 960"

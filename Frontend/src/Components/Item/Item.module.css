@@ -761,7 +761,7 @@ body {
     padding: 0rem 2rem;
     padding-right: 4rem;
     border-radius: 1rem;
-    padding-bottom: 2rem;
+    padding-bottom: 3rem;
     transform: translateX(-50%);
 }
 
@@ -912,31 +912,27 @@ body {
 
 .commentBox .reply {
     position: absolute;
-    background-color: gray;
-    color: white;
-    padding: 0.85rem 1.7rem;
-    font-size: clamp(0rem, 1rem, 10rem);
-    border-radius: 1rem;
-    right: 2.43%;
-    top: 75%;
+    color: rgb(82, 82, 82);
+    padding: 0.23rem 0.5rem;
+    font-size: clamp(0rem, 1.1rem, 10rem);
+    border-radius: 0.5rem;
+    left: 6.43%;
+    font-family: "PoppinsMedium";
+    top: 64.5%;
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
-.commentBox .reply:hover {
-    background-color: rgb(112, 139, 255);
-}
 
 
 
 .commentBox .like {
     position: absolute;
-    background-color: gray;
-    padding: 1.4rem 1.7rem;
-    border-radius: 1rem;
+    padding: 1.2rem 1.2rem;
+    border-radius: 50%;
     left: 2.43%;
-    top: 75%;
+    top: 61%;
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -950,7 +946,13 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
+    fill: rgb(82, 82, 82);
     transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.commentBox .like:hover svg {
+    fill: white;
 }
 
 .commentBox .rate:hover {
@@ -1026,7 +1028,6 @@ body {
     color: black;
     position: relative;
     display: grid;
-
     overflow: hidden;
     background-color: rgb(255, 255, 255);
 }

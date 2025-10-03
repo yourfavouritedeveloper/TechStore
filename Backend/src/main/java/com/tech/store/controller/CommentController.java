@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -44,8 +45,8 @@ public class CommentController {
     @PostMapping("/comment/{fromAccount}")
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(summary = "Comment to a product", description = "Comments")
-    public CommentDto comment(@PathVariable String fromAccount,@RequestParam Long productId, @RequestParam String comment) {
-        return commentService.comment(fromAccount, productId, comment);
+    public CommentDto comment(@PathVariable String fromAccount,@RequestParam Long productId, @RequestParam String comment,@RequestParam Integer rate) {
+        return commentService.comment(fromAccount, productId, comment,rate);
     }
 
     @PostMapping("/reply/{commentId}/{fromAccount}/{toAccount}")
