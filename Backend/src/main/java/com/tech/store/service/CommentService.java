@@ -111,7 +111,7 @@ public class CommentService {
 
 
 
-    public CommentDto comment(String fromUsername, Long productId,String comment) {
+    public CommentDto comment(String fromUsername, Long productId,String comment,Integer rate) {
 
         AccountEntity fromAccount = accountRepository.findByUsername(fromUsername)
                 .orElseThrow(() -> new AccountNotFoundException("Account not found"));
@@ -125,6 +125,8 @@ public class CommentService {
         commentEntity.setFromAccount(fromAccount);
         commentEntity.setProduct(productEntity);
         commentEntity.setComment(comment);
+        commentEntity.setLike(0);
+        commentEntity.setRate(BigDecimal.valueOf(rate));
 
         fromAccount.getSentComments().add(commentEntity);
         productEntity.getComments().add(commentEntity);
@@ -161,7 +163,7 @@ public class CommentService {
 
 
         commentEntity.setFromAccount(fromAccount);
-        commentEntity.setFromAccount(toAccount);
+        commentEntity.setToAccount(toAccount);
         commentEntity.setProduct(productEntity);
         commentEntity.setComment(comment);
         commentEntity.setRepliedComment(repliedComment);
