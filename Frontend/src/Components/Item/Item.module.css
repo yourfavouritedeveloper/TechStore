@@ -881,9 +881,53 @@ body {
     left: 30%;
 }
 
-.commentBox .replies {
-    position: relative;
+.commentBox .replyTitle {
+    position: absolute;
+    color: gray;
+    font-size: clamp(0rem, 0.9rem, 10rem);
+    font-family: "PoppinsRegular";
+    left: 8.53%;
+    top: 56%;
 }
+
+.commentBox .showReply {
+    position: absolute;
+    background-color: gray;
+    font-family: "PoppinsRegular";
+    color: white;
+    padding: 0.35rem 1.4rem;
+    font-size: clamp(0rem, 0.8rem, 10rem);
+    border-radius: 0.8rem;
+    left: 8.03%;
+    top: 89.2%;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.commentBox .showReply:hover {
+    background-color: rgb(208, 76, 237);
+}
+
+
+.commentBox .reply {
+    position: absolute;
+    background-color: gray;
+    color: white;
+    padding: 0.85rem 1.7rem;
+    font-size: clamp(0rem, 1rem, 10rem);
+    border-radius: 1rem;
+    right: 2.43%;
+    top: 75%;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.commentBox .reply:hover {
+    background-color: rgb(112, 139, 255);
+}
+
 
 
 .commentBox .like {
