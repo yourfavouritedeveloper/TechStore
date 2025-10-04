@@ -68,6 +68,13 @@ public class CommentEntity extends BaseEntity {
     @JsonBackReference("product-comments")
     private ProductEntity product;
 
+    @ElementCollection
+    @CollectionTable(
+            name = "comment_likes",
+            joinColumns = @JoinColumn(name = "comment_id")
+    )
+    @Column(name = "liked_by")
+    private List<String> likedBy = new ArrayList<>();
 
 
 }

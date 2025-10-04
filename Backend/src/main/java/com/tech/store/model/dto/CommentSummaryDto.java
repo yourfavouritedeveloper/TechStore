@@ -31,5 +31,7 @@ public class CommentSummaryDto {
 
     private String repliedUsername;
 
+    private List<String> likedBy;
+
     private Long productId;
 }

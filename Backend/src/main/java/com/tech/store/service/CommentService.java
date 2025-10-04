@@ -133,6 +133,22 @@ public class CommentService {
     }
 
 
+    public CommentDto like(Long commentId, String username) {
+
+        CommentEntity commentEntity = commentRepository.findById(commentId)
+                .orElseThrow(() -> new CommentNotFoundException("Comment not found"));
+
+        if(!commentEntity.getLikedBy().contains(username)) {
+            commentEntity.getLikedBy().add(username);
+            commentEntity.setLikes(commentEntity.getLikes() + 1);
+        }
+        commentRepository.save(commentEntity);
+        commentRedisRepository.save(commentEntity);
+
+        return commentMapper.toCommentDto(commentEntity);
+    }
+
+
 
 
     public CommentDto comment(String fromUsername, Long productId,String comment,Integer rate) {

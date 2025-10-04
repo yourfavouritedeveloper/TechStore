@@ -111,4 +111,6 @@ public class ProductEntity extends BaseEntity {
     @JoinColumn(name = "account")
     @JsonBackReference("account-products")
     private AccountEntity account;
+
+
 }

@@ -31,7 +31,8 @@ function Item({ name, productId }) {
     const [comments, setComments] = useState([]);
     const [openReplies, setOpenReplies] = useState({});
     const [repliesByCommentId, setRepliesByCommentId] = useState({});
-
+    const [isSending, setIsSending] = useState(false);
+    const [successMessage, setSuccessMessage] = useState("");
 
     const fetchRepliesByIds = async (repliesId) => {
         if (!repliesId || repliesId.length === 0) return [];
@@ -51,22 +52,31 @@ function Item({ name, productId }) {
     };
 
 
-useEffect(() => {
-    const fetchCommentsWithReplies = async () => {
-        try {
-            const response = await axios.get(
-                `https://techstore-3fvk.onrender.com/api/v1/comments/product`,
-                { params: { productId }, auth: { username: USERNAME, password: PASSWORD } }
-            );
+    useEffect(() => {
+            if (!item) return;
 
-            setComments(response.data); 
-        } catch (err) {
-            console.error("Error fetching comments:", err);
-        }
-    };
+            const fetchComments = async () => {
 
-    fetchCommentsWithReplies();
-}, [productId]);
+                try {
+                    const response = await axios.get(
+                        `https://techstore-3fvk.onrender.com/api/v1/comments/product`,
+                        {
+                            params: { productId },
+                            auth: { username: USERNAME, password: PASSWORD }
+
+
+                        }
+                    );
+                    setComments(response.data);
+
+                } catch (err) {
+                    console.error("Error fetching comments:", err);
+                } finally {
+                }
+            };
+
+            fetchComments();
+        }, [item]);
 
 
     const handleChange = (e) => {
@@ -159,6 +169,8 @@ useEffect(() => {
 
 
     const sendComment = async () => {
+
+         setIsSending(true);
         if (repliedAccount) {
             if (!newCommentText.trim()) {
                 alert("Comment cannot be empty!");
@@ -166,6 +178,7 @@ useEffect(() => {
             }
 
             try {
+                
                 const response = await axios.post(
                     `https://techstore-3fvk.onrender.com/api/v1/comments/reply/${repliedComment}/${account.username}/${repliedAccount}`,
                     null,
@@ -189,7 +202,11 @@ useEffect(() => {
                 );
 
                 setItem(updatedItem.data);
-                alert("Comment posted successfully!");
+                setSuccessMessage("Comment sent successfully!");
+
+                setTimeout(() => {
+                    setSuccessMessage("");
+                }, 3000);
                 setnewCommentText("");
             } catch (error) {
                 console.error("Error posting comment:", error);
@@ -197,6 +214,7 @@ useEffect(() => {
             } finally {
                 setRepliedAccount("");
                 setRepliedComment();
+                setIsSending(false);
             }
 
         }
@@ -232,11 +250,17 @@ useEffect(() => {
                 );
 
                 setItem(updatedItem.data);
-                alert("Comment posted successfully!");
+                setSuccessMessage("Comment sent successfully!");
+
+                setTimeout(() => {
+                    setSuccessMessage("");
+                }, 3000);
                 setnewCommentText("");
             } catch (error) {
                 console.error("Error posting comment:", error);
                 alert("Failed to post comment.");
+            } finally {
+                setIsSending(false);
             }
         }
     };
@@ -422,8 +446,20 @@ useEffect(() => {
                                                 </div>
                                             )}
                                             <p className={styles.commentText}>{comment.comment}</p>
-                                            <button className={styles.like}>
-                                                {comment.like ? comment.like : ""}
+                                            <button className={styles.like}   onClick={() => {
+                                                setComments(prevComments =>
+                                                prevComments.map(c =>
+                                                    c.id === comment.id 
+                                                    ? { 
+                                                        ...c, 
+                                                        like: c.isLiked ? c.like - 1 : (c.like || 0) + 1, 
+                                                        isLiked: !c.isLiked 
+                                                        } 
+                                                    : c
+                                                )
+                                                );
+                                            }}>
+                                                                                            {comment.like ? comment.like : ""}
                                                 <svg xmlns="http://www.w3.org/2000/svg"
                                                     height="24px"
                                                     viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z" />
@@ -466,7 +502,26 @@ useEffect(() => {
                                                                     </div>
                                                                 )}
                                                                 <p className={styles.replyText}>{reply.comment}</p>
-                                                                <button className={styles.replyLike}>
+                                                                <button className={styles.replyLike}  onClick={() => {
+                                                                    setComments(prevComments =>
+                                                                        prevComments.map(c =>
+                                                                            c.id === comment.id 
+                                                                                ? {
+                                                                                    ...c,
+                                                                                    replies: c.replies.map(r =>
+                                                                                        r.id === reply.id 
+                                                                                            ? {
+                                                                                                ...r,
+                                                                                                like: r.isLiked ? r.like - 1 : (r.like || 0) + 1,
+                                                                                                isLiked: !r.isLiked
+                                                                                            }
+                                                                                            : r
+                                                                                    )
+                                                                                }
+                                                                                : c
+                                                                        )
+                                                                    );
+                                                                }}>
                                                                     {comment.like ? comment.like : ""}
                                                                     <svg xmlns="http://www.w3.org/2000/svg"
                                                                         height="20px"
@@ -475,7 +530,7 @@ useEffect(() => {
                                                                 </button>
                                                                 <button className={styles.replyReply} onClick={() => {
                                                                     setRepliedAccount(reply.fromAccount.username);
-                                                                    setRepliedComment(reply.id);
+                                                                    setRepliedComment(comment.id);
                                                                     setRepliedCommentText(reply.comment);
                                                                     if (sendRef.current) {
                                                                         const yOffset = -120;
@@ -503,6 +558,7 @@ useEffect(() => {
                         </>
                     )}
                     <div className={styles.send} ref={sendRef}>
+                        {successMessage &&  <p className={styles.successMessage}>{successMessage}</p>}
                         {repliedAccount && repliedComment && (<>
                             <p className={styles.replySend}>Replying to @{repliedAccount}</p>
                             <p className={styles.replyCommentSend}>{repliedCommentText}</p>
@@ -514,22 +570,24 @@ useEffect(() => {
                             placeholder="Write a comment..."
                             rows={1}
                         />
-                        <button className={styles.post} onClick={sendComment}>
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                height="27px"
-                                viewBox="0 -960 960 960"
-                                width="27px"
-                                fill="#ffffffff"
-                                onKeyDown={(e) => {
-                                    if (e.key === "Enter" && !e.shiftKey) {
-                                        e.preventDefault();
-                                        sendComment();
-                                    }
-
-                                }}>
-                                <path d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z" /></svg>
-                            <p className={styles.postTitle}>Send</p>
-                        </button>
+                        {isSending ? (
+                            <>
+                            <div className={styles.spinnerDiv}>
+                                <div className={styles.spinner}></div> 
+                            </div>
+                            </>
+                        ) : (
+                            
+                            <button className={styles.post} onClick={sendComment} disabled={isSending}>
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    height="27px" viewBox="0 -960 960 960" width="27px" fill="#ffffffff">
+                                    <path d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z" />
+                                </svg>
+                                <p className={styles.postTitle}>Send</p>
+                            </button>
+                            
+                        )}
+                        
                         <button className={styles.rate}>
                             <svg xmlns="http://www.w3.org/2000/svg"
                                 height="27px"
