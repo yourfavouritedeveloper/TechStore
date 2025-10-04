@@ -38,6 +38,8 @@ public class CommentDto {
 
     private BigDecimal rate;
 
+    private List<String> likedBy;
+
     @NotEmpty(message = "The comment cannot be empty.",groups = {OnCreate.class, OnUpdate.class})
     private String comment;
 

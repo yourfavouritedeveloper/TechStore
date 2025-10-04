@@ -49,6 +49,13 @@ public class CommentController {
         return commentService.findByProduct(productId);
     }
 
+    @PostMapping("/like")
+    @ResponseStatus(HttpStatus.CREATED)
+    @Operation(summary = "Like a comment", description = "Likes a comment")
+    public CommentDto comment(@RequestParam Long commentId, @RequestParam String username) {
+        return commentService.like(commentId, username);
+    }
+
     @PostMapping("/comment/{fromAccount}")
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(summary = "Comment to a product", description = "Comments")
