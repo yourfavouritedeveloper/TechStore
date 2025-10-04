@@ -822,7 +822,8 @@ body {
     height: auto;
     border-top: 1.5px solid #c0c0c0;
     padding: 1rem;
-    padding-top: 1.5rem;
+    margin-top: 4rem;
+    padding-top: 2.5rem;
 }
 
 .commentBox .input {
@@ -862,6 +863,12 @@ body {
     transition: all 0.3s ease;
 }
 
+.starsContainer {
+    position: absolute;
+    bottom: 6.65rem;
+    left: 74.3rem;
+}
+
 .rate .rateTitle {
     position: absolute;
     top: -0.83rem;
@@ -882,6 +889,8 @@ body {
 .commentBox .rate:hover svg {
     left: 30%;
 }
+
+
 
 .commentBox .replyTitle {
     position: absolute;
@@ -1028,6 +1037,23 @@ body {
 
 .showReplies:hover {
     background-color: rgb(101, 129, 255);
+}
+
+.showMoreComments {
+    position: absolute;
+    bottom: 14.5rem;
+    overflow: hidden;
+    background-color: rgb(101, 129, 255);
+    color: white;
+    padding: 0.3rem 4rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-family: "PoppinsRegular";
+    border: none;
+    left:50%;
+    transform: translateX(-50%);
+    transition: all 0.3s ease;
+    font-size: clamp(0rem, 1.2rem, 10rem);    
 }
 
 .replies {
