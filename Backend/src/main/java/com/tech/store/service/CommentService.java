@@ -188,7 +188,9 @@ public class CommentService {
 
         commentEntity.setFromAccount(fromAccount);
         commentEntity.setToAccount(toAccount);
+        commentEntity.setRepliedUsername(toUsername);
         commentEntity.setComment(comment);
+        commentEntity.setRepliedUsername(toUsername);
         commentEntity.setProduct(productEntity);
         commentEntity.setRepliedComment(repliedComment);
 

@@ -29,5 +29,7 @@ public class CommentSummaryDto {
 
     private Long repliedCommentId;
 
+    private String repliedUsername;
+
     private Long productId;
 }

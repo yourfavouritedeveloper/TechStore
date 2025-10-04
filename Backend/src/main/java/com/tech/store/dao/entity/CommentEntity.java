@@ -60,6 +60,9 @@ public class CommentEntity extends BaseEntity {
     @Column(name="rate")
     private BigDecimal rate;
 
+    @Column(name="replied_username")
+    private String repliedUsername;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product",nullable = false)
     @JsonBackReference("product-comments")
