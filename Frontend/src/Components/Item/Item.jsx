@@ -12,6 +12,7 @@ const PASSWORD = import.meta.env.VITE_API_PASSWORD;
 function Item({ name, productId }) {
 
     const fileInputRef = useRef(null);
+    const sendRef = useRef(null);
 
     const { account, logout } = useContext(AuthContext);
     const [item, setItem] = useState([]);
@@ -412,6 +413,13 @@ function Item({ name, productId }) {
                                                     setRepliedAccount(comment.fromAccount.username);
                                                     setRepliedComment(comment.id);
                                                     setRepliedCommentText(comment.comment);
+                                                    if (sendRef.current) {
+                                                        const yOffset = -120;
+                                                        const y =
+                                                            sendRef.current.getBoundingClientRect().top + window.scrollY + yOffset;
+
+                                                        window.scrollTo({ top: y, behavior: "smooth" });
+                                                    }
                                                 }}>Reply</button>
                                         </div>
                                         {comment.replies && comment.replies.length > 0 && (
@@ -444,7 +452,18 @@ function Item({ name, productId }) {
                                                                         viewBox="0 -960 960 960" width="20px" fill="#e3e3e3"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z" />
                                                                     </svg>
                                                                 </button>
-                                                                <button className={styles.replyReply}>Reply</button>
+                                                                <button className={styles.replyReply} onClick={() => {
+                                                                    setRepliedAccount(reply.fromAccount.customerName);
+                                                                    setRepliedComment(reply.id);
+                                                                    setRepliedCommentText(reply.comment);
+                                                                    if (sendRef.current) {
+                                                                        const yOffset = -120;
+                                                                        const y =
+                                                                            sendRef.current.getBoundingClientRect().top + window.scrollY + yOffset;
+
+                                                                        window.scrollTo({ top: y, behavior: "smooth" });
+                                                                    }
+                                                                }}>Reply</button>
                                                             </div>
                                                         ))}
                                                     </div>
@@ -460,7 +479,7 @@ function Item({ name, productId }) {
                             <p className={styles.reviewSubTitle}>Be the first to leave a comment!</p>
                         </>
                     )}
-                    <div className={styles.send}>
+                    <div className={styles.send} ref={sendRef}>
                         {repliedAccount && repliedComment && (<>
                             <p className={styles.replySend}>Replying to @{repliedAccount}</p>
                             <p className={styles.replyCommentSend}>{repliedCommentText}</p>
