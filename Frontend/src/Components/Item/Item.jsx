@@ -13,6 +13,9 @@ function Item({ name, productId }) {
 
     const fileInputRef = useRef(null);
     const sendRef = useRef(null);
+    const reviewRef = useRef(null);
+    const propertiesRef = useRef(null);
+    const similarRef = useRef(null);
 
     const { account, logout } = useContext(AuthContext);
     const [item, setItem] = useState([]);
@@ -33,6 +36,10 @@ function Item({ name, productId }) {
     const [repliesByCommentId, setRepliesByCommentId] = useState({});
     const [isSending, setIsSending] = useState(false);
     const [successMessage, setSuccessMessage] = useState("");
+    const [visibleCommentsCount, setVisibleCommentsCount] = useState(5);
+    const [showRatingStars, setShowRatingStars] = useState(false);
+    const [selectedRating, setSelectedRating] = useState(0); 
+    const [hoverRating, setHoverRating] = useState(0);
 
     const fetchRepliesByIds = async (repliesId) => {
         if (!repliesId || repliesId.length === 0) return [];
@@ -233,7 +240,7 @@ function Item({ name, productId }) {
                         params: {
                             productId: item.id,
                             comment: newCommentText,
-                            rate: 5
+                            rate: selectedRating
                         },
                         auth: {
                             username: USERNAME,
@@ -284,22 +291,19 @@ function Item({ name, productId }) {
                 }
             );
 
-            const updatedComment = response.data; // full CommentDto
+            const updatedComment = response.data; 
 
             setComments(prevComments => {
                 return prevComments.map(comment => {
-                    // Update main comment if it matches
                     if (comment.id === updatedComment.id) {
                         return updatedComment;
                     }
 
-                    // Update replies (CommentSummaryDto) if any match
                     if (comment.replies && comment.replies.length > 0) {
                         return {
                             ...comment,
                             replies: comment.replies.map(reply => {
                                 if (reply.id === updatedComment.id) {
-                                    // Convert CommentDto -> CommentSummaryDto
                                     return {
                                         id: updatedComment.id,
                                         comment: updatedComment.comment,
@@ -383,9 +387,33 @@ function Item({ name, productId }) {
 
                 </Link>
                 <div className={styles.options}>
-                    <button className={styles.propertiesButton}>Properties</button>
-                    <button className={styles.reviewsButton}>Reviews</button>
-                    <button className={styles.similarButton}>Similar Items</button>
+                    <button className={styles.propertiesButton}  onClick={() => {
+                            if (propertiesRef.current) {
+                            const yOffset = -120;
+                            const y =
+                                propertiesRef.current.getBoundingClientRect().top + window.scrollY + yOffset;
+
+                            window.scrollTo({ top: y, behavior: "smooth" });
+                            }
+                        }}>Properties</button>
+                    <button className={styles.reviewsButton} onClick={() => {
+                            if (reviewRef.current) {
+                            const yOffset = -120;
+                            const y =
+                                reviewRef.current.getBoundingClientRect().top + window.scrollY + yOffset;
+
+                            window.scrollTo({ top: y, behavior: "smooth" });
+                            }
+                        }}>Reviews</button>
+                    <button className={styles.similarButton} onClick={() => {
+                            if (similarRef.current) {
+                            const yOffset = -120;
+                            const y =
+                                similarRef.current.getBoundingClientRect().top + window.scrollY + yOffset;
+
+                            window.scrollTo({ top: y, behavior: "smooth" });
+                            }
+                        }}>Similar Items</button>
                 </div>
             </div>
 
@@ -403,7 +431,15 @@ function Item({ name, productId }) {
                         <p className={styles.rating}>Rating: {item.rating}/5.0</p>
                         <div className={styles.ratingLine} style={{ width: `${item.rating * 3.8}rem` }}></div>
                         <div className={styles.overallRating}></div>
-                        <button className={styles.check}>Check reviews</button>
+                        <button className={styles.check}   onClick={() => {
+                            if (reviewRef.current) {
+                            const yOffset = -120;
+                            const y =
+                                reviewRef.current.getBoundingClientRect().top + window.scrollY + yOffset;
+
+                            window.scrollTo({ top: y, behavior: "smooth" });
+                            }
+                        }}>Check reviews</button>
                     </div>
 
                     <div className={styles.priceGeneral}>
@@ -453,7 +489,7 @@ function Item({ name, productId }) {
 
             <div className={styles.whiteCover}></div>
             <p className={styles.propertiesTitle}>Properties</p>
-            <div className={styles.properties}>
+            <div className={styles.properties} ref={propertiesRef}>
                 {(() => {
                     const extraFields = {
                         Weight: item.weight,
@@ -492,7 +528,7 @@ function Item({ name, productId }) {
                     );
                 })()}
             </div>
-            <div className={styles.review}>
+            <div className={styles.review} ref={reviewRef}>
                 <p className={styles.reviewTitle}>Reviews({item.comments.length})</p>
                 <div className={styles.commentBox}>
                     {comments && comments.length > 0 ? (
@@ -500,6 +536,7 @@ function Item({ name, productId }) {
 
                             {comments
                                 .filter((comment) => !comment.toAccount)
+                                .slice(0, visibleCommentsCount)
                                 .map((comment) => (
                                     <>
                                         <div key={comment.id} className={styles.comment}>
@@ -588,6 +625,14 @@ function Item({ name, productId }) {
                                         )}
                                     </>
                                 ))}
+                            {visibleCommentsCount < comments.filter(comment => !comment.toAccount).length && (
+                            <button
+                                className={styles.showMoreComments}
+                                onClick={() => setVisibleCommentsCount(prev => prev + 10)} 
+                            >
+                                Show more comments
+                            </button>
+                            )}
                         </>
                     ) : (
                         <>
@@ -626,21 +671,45 @@ function Item({ name, productId }) {
                             
                         )}
                         
-                        <button className={styles.rate}>
+                        <button className={styles.rate} 
+                        style={{paddingRight: showRatingStars ? "6.5rem": "1.3rem",
+                            borderRadius: showRatingStars ? "2rem" : "1.3rem",
+                        }}
+                         onClick={() => setShowRatingStars(prev => !prev)}>
                             <svg xmlns="http://www.w3.org/2000/svg"
                                 height="27px"
                                 viewBox="0 -960 960 960"
                                 width="27px"
-                                fill="#ffffffff">
+                                fill="#ffffffff"
+                                style={{left: showRatingStars ? "30%" : "50%"}}>
                                 <path d="m305-704 112-145q12-16 28.5-23.5T480-880q18 0 34.5 7.5T543-849l112 145 170 57q26 8 41 29.5t15 47.5q0 12-3.5 24T866-523L756-367l4 164q1 35-23 59t-56 24q-2 0-22-3l-179-50-179 50q-5 2-11 2.5t-11 .5q-32 0-56-24t-23-59l4-165L95-523q-8-11-11.5-23T80-570q0-25 14.5-46.5T135-647l170-57Zm49 69-194 64 124 179-4 191 200-55 200 56-4-192 124-177-194-66-126-165-126 165Zm126 135Z" />
                             </svg>
                             <p className={styles.rateTitle}>Rate</p>
                         </button>
+                        {showRatingStars && (
+                        <div className={styles.starsContainer}>
+                            {[1, 2, 3, 4, 5].map((star) => (
+                            <span
+                                key={star}
+                                onClick={() => setSelectedRating(star)}     
+                                onMouseEnter={() => setHoverRating(star)}    
+                                onMouseLeave={() => setHoverRating(0)}       
+                                style={{
+                                cursor: "pointer",
+                                fontSize: "24px",
+                                color: star <= (hoverRating || selectedRating) ? "#f3615cff" : "#ccc"
+                                }}
+                            >
+                                ★
+                            </span>
+                            ))}
+                        </div>
+                        )}
                     </div>
                 </div>
 
             </div>
-            <div className={styles.similar}>
+            <div className={styles.similar} ref={similarRef}>
                 <p className={styles.similarTitle}>Check similar items</p>
                 <ul className={styles.items}>
                     {similarItems.map((i) => (
