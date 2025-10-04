@@ -273,42 +273,62 @@ function Item({ name, productId }) {
 
         try {
             const response = await axios.post(
-            "https://techstore-3fvk.onrender.com/api/v1/comments/like",
-            null,
-            {
-                params: {
-                commentId: commentId,
-                username: account.username
-                },
-                auth: { username: USERNAME, password: PASSWORD }
-            }
+                "https://techstore-3fvk.onrender.com/api/v1/comments/like",
+                null,
+                {
+                    params: {
+                        commentId: commentId,
+                        username: account.username
+                    },
+                    auth: { username: USERNAME, password: PASSWORD }
+                }
             );
 
-            const updatedComment = response.data;
+            const updatedComment = response.data; // full CommentDto
 
-            setComments((prevComments) =>
-            prevComments.map((comment) => {
-                if (comment.id === updatedComment.id) {
-                return updatedComment;
-                }
+            setComments(prevComments => {
+                return prevComments.map(comment => {
+                    // Update main comment if it matches
+                    if (comment.id === updatedComment.id) {
+                        return updatedComment;
+                    }
 
-                if (comment.replies && comment.replies.length > 0) {
-                return {
-                    ...comment,
-                    replies: comment.replies.map((reply) =>
-                    reply.id === updatedComment.id ? updatedComment : reply
-                    ),
-                };
-                }
+                    // Update replies (CommentSummaryDto) if any match
+                    if (comment.replies && comment.replies.length > 0) {
+                        return {
+                            ...comment,
+                            replies: comment.replies.map(reply => {
+                                if (reply.id === updatedComment.id) {
+                                    // Convert CommentDto -> CommentSummaryDto
+                                    return {
+                                        id: updatedComment.id,
+                                        comment: updatedComment.comment,
+                                        fromAccount: updatedComment.fromAccount,
+                                        likes: updatedComment.likes,
+                                        likedBy: updatedComment.likedBy,
+                                        toAccount: updatedComment.toAccount,
+                                        repliedCommentId: updatedComment.repliedComment?.id,
+                                        repliedUsername: updatedComment.repliedUsername,
+                                        rate: updatedComment.rate,
+                                        productId: updatedComment.product.id,
+                                        repliesId: updatedComment.replies?.map(r => r.id) || []
+                                    };
+                                }
+                                return reply;
+                            })
+                        };
+                    }
 
-                return comment;
-            })
-            );
+                    return comment;
+                });
+            });
+
         } catch (error) {
             console.error("Error liking comment:", error);
             alert("Failed to like comment.");
         }
     };
+
 
 
 
@@ -491,9 +511,9 @@ function Item({ name, productId }) {
                                                 </div>
                                             )}
                                             <p className={styles.commentText}>{comment.comment}</p>
+                                            <p className={styles.likeCount}>{comment.likes ? comment.likes : ""}</p>
                                             <button className={styles.like} onClick={() => handleLike(comment.id)}
                                                 style={{backgroundColor : (comment.likedBy || []).includes(account.username) ? "rgb(112, 139, 255)" : "",color: (comment.likedBy || []).includes(account.username) ? "white" : "rgb(82, 82, 82)" }}>
-                                                {comment.like ? comment.like : ""}
                                                 <svg xmlns="http://www.w3.org/2000/svg"
                                                     height="24px"
                                                     viewBox="0 -960 960 960" width="24px" fill= {(comment.likedBy || []).includes(account.username) ? "white" : "rgb(82, 82, 82)"}><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z" />
@@ -536,10 +556,11 @@ function Item({ name, productId }) {
                                                                     </div>
                                                                 )}
                                                                 <p className={styles.replyText}>{reply.comment}</p>
+                                                                <p className={styles.replyLikeCount}>{reply.likes ? reply.likes : ""}</p>
                                                                 <button className={styles.replyLike} onClick={() => handleLike(reply.id)}
                                                                 style={{backgroundColor : (reply.likedBy || []).includes(account.username) ? "rgb(112, 139, 255)" : "",color: (reply.likedBy || []).includes(account.username) ? "white" : "rgb(82, 82, 82)" }}
                                                                     >
-                                                                    {comment.like ? comment.like : ""}
+                                                                    
                                                                     <svg xmlns="http://www.w3.org/2000/svg"
                                                                         height="20px"
                                                                         viewBox="0 -960 960 960" width="20px" fill= {(reply.likedBy || []).includes(account.username) ? "white" : "rgb(82, 82, 82)"}><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z" />
