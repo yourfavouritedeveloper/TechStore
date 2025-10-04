@@ -138,6 +138,14 @@ public class CommentService {
         CommentEntity commentEntity = commentRepository.findById(commentId)
                 .orElseThrow(() -> new CommentNotFoundException("Comment not found"));
 
+        if (commentEntity.getLikes() == null) {
+            commentEntity.setLikes(0);
+        }
+
+        if (commentEntity.getLikedBy() == null) {
+            commentEntity.setLikedBy(new ArrayList<>());
+        }
+
         if(!commentEntity.getLikedBy().contains(username)) {
             commentEntity.getLikedBy().add(username);
             commentEntity.setLikes(commentEntity.getLikes() + 1);
