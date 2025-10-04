@@ -948,7 +948,6 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    fill: rgb(82, 82, 82);
     transform: translate(-50%, -50%);
     transition: all 0.3s ease;
 }
@@ -1141,7 +1140,6 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    fill: rgb(82, 82, 82);
     transform: translate(-50%, -50%);
     transition: all 0.3s ease;
 }
