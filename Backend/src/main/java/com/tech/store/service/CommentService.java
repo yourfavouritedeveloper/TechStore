@@ -142,6 +142,10 @@ public class CommentService {
             commentEntity.getLikedBy().add(username);
             commentEntity.setLikes(commentEntity.getLikes() + 1);
         }
+        else {
+            commentEntity.getLikedBy().remove(username);
+            commentEntity.setLikes(commentEntity.getLikes() - 1);
+        }
         commentRepository.save(commentEntity);
         commentRedisRepository.save(commentEntity);
 

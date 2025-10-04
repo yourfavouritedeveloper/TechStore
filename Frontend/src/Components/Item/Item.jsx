@@ -265,6 +265,51 @@ function Item({ name, productId }) {
         }
     };
 
+    const handleLike = async (commentId) => {
+        if (!account?.username) {
+            alert("You must be logged in to like a comment.");
+            return;
+        }
+
+        try {
+            const response = await axios.post(
+            "https://techstore-3fvk.onrender.com/api/v1/comments/like",
+            null,
+            {
+                params: {
+                commentId: commentId,
+                username: account.username
+                },
+                auth: { username: USERNAME, password: PASSWORD }
+            }
+            );
+
+            const updatedComment = response.data;
+
+            setComments((prevComments) =>
+            prevComments.map((comment) => {
+                if (comment.id === updatedComment.id) {
+                return updatedComment;
+                }
+
+                if (comment.replies && comment.replies.length > 0) {
+                return {
+                    ...comment,
+                    replies: comment.replies.map((reply) =>
+                    reply.id === updatedComment.id ? updatedComment : reply
+                    ),
+                };
+                }
+
+                return comment;
+            })
+            );
+        } catch (error) {
+            console.error("Error liking comment:", error);
+            alert("Failed to like comment.");
+        }
+    };
+
 
 
 
@@ -446,23 +491,12 @@ function Item({ name, productId }) {
                                                 </div>
                                             )}
                                             <p className={styles.commentText}>{comment.comment}</p>
-                                            <button className={styles.like}   onClick={() => {
-                                                setComments(prevComments =>
-                                                prevComments.map(c =>
-                                                    c.id === comment.id 
-                                                    ? { 
-                                                        ...c, 
-                                                        like: c.isLiked ? c.like - 1 : (c.like || 0) + 1, 
-                                                        isLiked: !c.isLiked 
-                                                        } 
-                                                    : c
-                                                )
-                                                );
-                                            }}>
-                                                                                            {comment.like ? comment.like : ""}
+                                            <button className={styles.like} onClick={() => handleLike(comment.id)}
+                                                style={{backgroundColor : (comment.likedBy || []).includes(account.username) ? "rgb(112, 139, 255)" : "",color: (comment.likedBy || []).includes(account.username) ? "white" : "rgb(82, 82, 82)" }}>
+                                                {comment.like ? comment.like : ""}
                                                 <svg xmlns="http://www.w3.org/2000/svg"
                                                     height="24px"
-                                                    viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z" />
+                                                    viewBox="0 -960 960 960" width="24px" fill= {(comment.likedBy || []).includes(account.username) ? "white" : "rgb(82, 82, 82)"}><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z" />
                                                 </svg>
                                             </button>
                                             <button className={styles.reply}
@@ -502,30 +536,13 @@ function Item({ name, productId }) {
                                                                     </div>
                                                                 )}
                                                                 <p className={styles.replyText}>{reply.comment}</p>
-                                                                <button className={styles.replyLike}  onClick={() => {
-                                                                    setComments(prevComments =>
-                                                                        prevComments.map(c =>
-                                                                            c.id === comment.id 
-                                                                                ? {
-                                                                                    ...c,
-                                                                                    replies: c.replies.map(r =>
-                                                                                        r.id === reply.id 
-                                                                                            ? {
-                                                                                                ...r,
-                                                                                                like: r.isLiked ? r.like - 1 : (r.like || 0) + 1,
-                                                                                                isLiked: !r.isLiked
-                                                                                            }
-                                                                                            : r
-                                                                                    )
-                                                                                }
-                                                                                : c
-                                                                        )
-                                                                    );
-                                                                }}>
+                                                                <button className={styles.replyLike} onClick={() => handleLike(reply.id)}
+                                                                style={{backgroundColor : (reply.likedBy || []).includes(account.username) ? "rgb(112, 139, 255)" : "",color: (reply.likedBy || []).includes(account.username) ? "white" : "rgb(82, 82, 82)" }}
+                                                                    >
                                                                     {comment.like ? comment.like : ""}
                                                                     <svg xmlns="http://www.w3.org/2000/svg"
                                                                         height="20px"
-                                                                        viewBox="0 -960 960 960" width="20px" fill="#e3e3e3"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z" />
+                                                                        viewBox="0 -960 960 960" width="20px" fill= {(reply.likedBy || []).includes(account.username) ? "white" : "rgb(82, 82, 82)"}><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z" />
                                                                     </svg>
                                                                 </button>
                                                                 <button className={styles.replyReply} onClick={() => {
