@@ -1,6 +1,6 @@
 import styles from "./Item.module.css"
 import axios from "axios";
-import { useState, useEffect, useRef,useContext } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 import { Link } from "react-router-dom";
 import Choice from "../Choice/Choice"
 import spinner from "../../../public/brandlogo.png"
@@ -9,14 +9,16 @@ import { AuthContext } from "../AuthContext";
 const USERNAME = import.meta.env.VITE_API_USERNAME;
 const PASSWORD = import.meta.env.VITE_API_PASSWORD;
 
-function Item({ name,productId }) {
+function Item({ name, productId }) {
 
     const fileInputRef = useRef(null);
+    const sendRef = useRef(null);
 
     const { account, logout } = useContext(AuthContext);
     const [item, setItem] = useState([]);
     const [repliedAccount, setRepliedAccount] = useState("")
     const [repliedComment, setRepliedComment] = useState();
+    const [repliedCommentText, setRepliedCommentText] = useState("");
     const [similarItems, setSimilarItems] = useState([]);
     const [isChoice, setIsChoice] = useState(false);
     const [showControls, setShowControls] = useState(false);
@@ -27,32 +29,32 @@ function Item({ name,productId }) {
     const [newCommentText, setnewCommentText] = useState("");
     const textareaRef = useRef(null);
     const [comments, setComments] = useState([]);
-    const [isReply,setIsReply] = useState(false);
+    const [openReplies, setOpenReplies] = useState({});
 
     useEffect(() => {
-    if (!item) return;
+        if (!item) return;
 
-    const fetchComments = async () => {
+        const fetchComments = async () => {
 
-      try {
-        const response = await axios.get(
-          `https://techstore-3fvk.onrender.com/api/v1/comments/product`,
-            { 
-                params: { productId },
-                auth: { username: USERNAME, password: PASSWORD }
-            
+            try {
+                const response = await axios.get(
+                    `https://techstore-3fvk.onrender.com/api/v1/comments/product`,
+                    {
+                        params: { productId },
+                        auth: { username: USERNAME, password: PASSWORD }
+
+                    }
+                );
+                setComments(response.data);
+
+            } catch (err) {
+                console.error("Error fetching comments:", err);
+            } finally {
             }
-        );
-        setComments(response.data);
+        };
 
-      } catch (err) {
-        console.error("Error fetching comments:", err);
-      } finally {
-      }
-    };
-
-    fetchComments();
-  }, [item]);
+        fetchComments();
+    }, [item]);
 
 
     const handleChange = (e) => {
@@ -134,84 +136,89 @@ function Item({ name,productId }) {
         setIsChoice(!isChoice);
     }
 
-    
-  const sendComment = async () => {
-    if (repliedAccount) {
-        if (!newCommentText.trim()) {
-            alert("Comment cannot be empty!");
-            return;
+
+    const sendComment = async () => {
+        if (repliedAccount) {
+            if (!newCommentText.trim()) {
+                alert("Comment cannot be empty!");
+                return;
             }
 
             try {
-            const response = await axios.post(
-                `https://techstore-3fvk.onrender.com/api/v1/comments/reply/${repliedComment}/${account.username}/${repliedAccount}`,
-                null, 
-                { 
-                params: {
-                    productId: item.id,    
-                    comment: newCommentText,
-                    },
-                auth: { 
-                    username: USERNAME, 
-                    password: PASSWORD 
-                } }
-            );
+                const response = await axios.post(
+                    `https://techstore-3fvk.onrender.com/api/v1/comments/reply/${repliedComment}/${account.username}/${repliedAccount}`,
+                    null,
+                    {
+                        params: {
+                            productId: item.id,
+                            comment: newCommentText,
+                        },
+                        auth: {
+                            username: USERNAME,
+                            password: PASSWORD
+                        }
+                    }
+                );
 
-            
+
 
                 const updatedItem = await axios.get(
-                `https://techstore-3fvk.onrender.com/api/v1/products/id/${item.id}`,
-                { auth: { username: USERNAME, password: PASSWORD } }
+                    `https://techstore-3fvk.onrender.com/api/v1/products/id/${item.id}`,
+                    { auth: { username: USERNAME, password: PASSWORD } }
                 );
 
                 setItem(updatedItem.data);
-            alert("Comment posted successfully!");
-            setnewCommentText(""); 
+                alert("Comment posted successfully!");
+                setnewCommentText("");
             } catch (error) {
-            console.error("Error posting comment:", error);
-            alert("Failed to post comment.");
+                console.error("Error posting comment:", error);
+                alert("Failed to post comment.");
+            } finally {
+                setRepliedAccount("");
+                setRepliedComment();
             }
 
-    }
+        }
 
-    else {
-    if (!newCommentText.trim()) {
-      alert("Comment cannot be empty!");
-      return;
-    }
+        else {
+            if (!newCommentText.trim()) {
+                alert("Comment cannot be empty!");
+                return;
+            }
 
-    try {
-      const response = await axios.post(
-        `https://techstore-3fvk.onrender.com/api/v1/comments/comment/${item.account.username}`,
-        null, 
-        { 
-        params: {
-            productId: item.id,    
-            comment: newCommentText,
-            rate: 5
-            },
-        auth: { 
-            username: USERNAME, 
-            password: PASSWORD 
-        } }
-      );
+            try {
+                const response = await axios.post(
+                    `https://techstore-3fvk.onrender.com/api/v1/comments/comment/${item.account.username}`,
+                    null,
+                    {
+                        params: {
+                            productId: item.id,
+                            comment: newCommentText,
+                            rate: 5
+                        },
+                        auth: {
+                            username: USERNAME,
+                            password: PASSWORD
+                        }
+                    }
+                );
 
-      
 
-        const updatedItem = await axios.get(
-        `https://techstore-3fvk.onrender.com/api/v1/products/id/${item.id}`,
-        { auth: { username: USERNAME, password: PASSWORD } }
-        );
 
-        setItem(updatedItem.data);
-      alert("Comment posted successfully!");
-      setnewCommentText(""); 
-    } catch (error) {
-      console.error("Error posting comment:", error);
-      alert("Failed to post comment.");
-    }
-    }
-  };
+                const updatedItem = await axios.get(
+                    `https://techstore-3fvk.onrender.com/api/v1/products/id/${item.id}`,
+                    { auth: { username: USERNAME, password: PASSWORD } }
+                );
+
+                setItem(updatedItem.data);
+                alert("Comment posted successfully!");
+                setnewCommentText("");
+            } catch (error) {
+                console.error("Error posting comment:", error);
+                alert("Failed to post comment.");
+            }
+        }
+    };
 
 
 
@@ -380,67 +387,91 @@ function Item({ name,productId }) {
                 <div className={styles.commentBox}>
                     {comments && comments.length > 0 ? (
                         <>
-                        
+
                             {comments
-                            .filter((comment) => !comment.toAccount)
-                            .map((comment) => (
-                                <>
-                                <div key={comment.id} className={styles.comment}>
+                                .filter((comment) => !comment.toAccount)
+                                .map((comment) => (
+                                    <>
+                                        <div key={comment.id} className={styles.comment}>
 
-                                    {comment.fromAccount && (
-                                        <div className={styles.accountInfo}>
-                                            <img src={comment.fromAccount.profilePictureUrl} alt="" />
-                                            <p className={styles.commentCustomerName}>{comment.fromAccount.customerName}</p>
-                                        </div>
-                                    )}
-                                    <p className={styles.commentText}>{comment.comment}</p>
-                                    <button className={styles.like}>
-                                        {comment.like ? comment.like : ""}
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            height="24px"
-                                            viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z" />
-                                        </svg>
-                                    </button>
-                                    <button className={styles.reply}
-                                    onClick={() => {
-                                        setRepliedAccount(comment.fromAccount.username);
-                                        setRepliedComment(comment.id);
-                                    }}>Reply</button>   
-                                </div>
-                                      {comment.replies && comment.replies.length > 0 && (
-                                        <>
-                                        <button className={styles.showReplies} onClick={() => setIsReply(!isReply)}>
-                                            {isReply ? "Close" : "Show"} {comment.replies.length} Replies</button>
-
-                                        {isReply && (
-                                        <div className={styles.replies}>
-                                            
-                                            {comment.replies.map((reply) => (
-                                            <div key={reply.id} className={styles.replyComment}>
-                                                {reply.fromAccount && (
-                                                <div className={styles.accountReplyInfo}>
-                                                    <img src={reply.fromAccount.profilePictureUrl} alt="" />
-                                                    <p className={styles.replyCustomerName}>{reply.fromAccount.customerName}</p>
-                                                    <p className={styles.repliedTo}> Replied to {reply.toAccount.customerName}</p>
+                                            {comment.fromAccount && (
+                                                <div className={styles.accountInfo}>
+                                                    <img src={comment.fromAccount.profilePictureUrl} alt="" />
+                                                    <p className={styles.commentCustomerName}>{comment.fromAccount.customerName}</p>
                                                 </div>
-                                                )}
-                                                <p className={styles.replyText}>{reply.comment}</p>
-                                                <button className={styles.replyLike}>
-                                                    {comment.like ? comment.like : ""}
-                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                        height="20px"
-                                                        viewBox="0 -960 960 960" width="20px" fill="#e3e3e3"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z" />
-                                                    </svg>
-                                                </button>
-                                                <button className={styles.replyReply}>Reply</button>   
-                                            </div>
-                                            ))}
+                                            )}
+                                            <p className={styles.commentText}>{comment.comment}</p>
+                                            <button className={styles.like}>
+                                                {comment.like ? comment.like : ""}
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    height="24px"
+                                                    viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z" />
+                                                </svg>
+                                            </button>
+                                            <button className={styles.reply}
+                                                onClick={() => {
+                                                    setRepliedAccount(comment.fromAccount.username);
+                                                    setRepliedComment(comment.id);
+                                                    setRepliedCommentText(comment.comment);
+                                                    if (sendRef.current) {
+                                                        const yOffset = -120;
+                                                        const y =
+                                                            sendRef.current.getBoundingClientRect().top + window.scrollY + yOffset;
+
+                                                        window.scrollTo({ top: y, behavior: "smooth" });
+                                                    }
+                                                }}>Reply</button>
                                         </div>
+                                        {comment.replies && comment.replies.length > 0 && (
+                                            <>
+                                                <button className={styles.showReplies} onClick={() =>
+                                                    setOpenReplies((prev) => ({
+                                                        ...prev,
+                                                        [comment.id]: !prev[comment.id]
+                                                    }))
+                                                }>
+                                                    {openReplies[comment.id] ? "Close" : "Show"} {comment.replies.length} Replies</button>
+
+                                                {openReplies[comment.id] && (
+                                                    <div className={styles.replies}>
+
+                                                        {comment.replies.map((reply) => (
+                                                            <div key={reply.id} className={styles.replyComment}>
+                                                                {reply.fromAccount && (
+                                                                    <div className={styles.accountReplyInfo}>
+                                                                        <img src={reply.fromAccount.profilePictureUrl} alt="" />
+                                                                        <p className={styles.replyCustomerName}>{reply.fromAccount.customerName}</p>
+                                                                        <p className={styles.repliedTo}> Replied to {reply.toAccount.customerName}</p>
+                                                                    </div>
+                                                                )}
+                                                                <p className={styles.replyText}>{reply.comment}</p>
+                                                                <button className={styles.replyLike}>
+                                                                    {comment.like ? comment.like : ""}
+                                                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                                                        height="20px"
+                                                                        viewBox="0 -960 960 960" width="20px" fill="#e3e3e3"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z" />
+                                                                    </svg>
+                                                                </button>
+                                                                <button className={styles.replyReply} onClick={() => {
+                                                                    setRepliedAccount(reply.fromAccount.customerName);
+                                                                    setRepliedComment(reply.id);
+                                                                    setRepliedCommentText(reply.comment);
+                                                                    if (sendRef.current) {
+                                                                        const yOffset = -120;
+                                                                        const y =
+                                                                            sendRef.current.getBoundingClientRect().top + window.scrollY + yOffset;
+
+                                                                        window.scrollTo({ top: y, behavior: "smooth" });
+                                                                    }
+                                                                }}>Reply</button>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                )}
+                                            </>
                                         )}
-                                        </>
-                                        )}
-                                </>
-                            ))}
+                                    </>
+                                ))}
                         </>
                     ) : (
                         <>
@@ -448,7 +479,11 @@ function Item({ name,productId }) {
                             <p className={styles.reviewSubTitle}>Be the first to leave a comment!</p>
                         </>
                     )}
-                    <div className={styles.send}>
+                    <div className={styles.send} ref={sendRef}>
+                        {repliedAccount && repliedComment && (<>
+                            <p className={styles.replySend}>Replying to @{repliedAccount}</p>
+                            <p className={styles.replyCommentSend}>{repliedCommentText}</p>
+                        </>)}
                         <textarea className={styles.input}
                             ref={textareaRef}
                             value={newCommentText}
@@ -464,10 +499,10 @@ function Item({ name,productId }) {
                                 fill="#ffffffff"
                                 onKeyDown={(e) => {
                                     if (e.key === "Enter" && !e.shiftKey) {
-                                    e.preventDefault(); 
-                                    sendComment();    
+                                        e.preventDefault();
+                                        sendComment();
                                     }
-                                   
+
                                 }}>
                                 <path d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z" /></svg>
                             <p className={styles.postTitle}>Send</p>
