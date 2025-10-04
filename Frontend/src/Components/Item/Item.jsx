@@ -30,31 +30,43 @@ function Item({ name, productId }) {
     const textareaRef = useRef(null);
     const [comments, setComments] = useState([]);
     const [openReplies, setOpenReplies] = useState({});
+    const [repliesByCommentId, setRepliesByCommentId] = useState({});
 
-    useEffect(() => {
-        if (!item) return;
 
-        const fetchComments = async () => {
+    const fetchRepliesByIds = async (repliesId) => {
+        if (!repliesId || repliesId.length === 0) return [];
+        try {
+            const responses = await Promise.all(
+                repliesId.map((id) =>
+                    axios.get(`https://techstore-3fvk.onrender.com/api/v1/comments/${id}`, {
+                        auth: { username: USERNAME, password: PASSWORD },
+                    })
+                )
+            );
+            return responses.map((res) => res.data);
+        } catch (err) {
+            console.error("Error fetching replies:", err);
+            return [];
+        }
+    };
 
-            try {
-                const response = await axios.get(
-                    `https://techstore-3fvk.onrender.com/api/v1/comments/product`,
-                    {
-                        params: { productId },
-                        auth: { username: USERNAME, password: PASSWORD }
 
-                    }
-                );
-                setComments(response.data);
+useEffect(() => {
+    const fetchCommentsWithReplies = async () => {
+        try {
+            const response = await axios.get(
+                `https://techstore-3fvk.onrender.com/api/v1/comments/product`,
+                { params: { productId }, auth: { username: USERNAME, password: PASSWORD } }
+            );
 
-            } catch (err) {
-                console.error("Error fetching comments:", err);
-            } finally {
-            }
-        };
+            setComments(response.data); 
+        } catch (err) {
+            console.error("Error fetching comments:", err);
+        }
+    };
 
-        fetchComments();
-    }, [item]);
+    fetchCommentsWithReplies();
+}, [productId]);
 
 
     const handleChange = (e) => {
@@ -110,6 +122,9 @@ function Item({ name, productId }) {
     };
 
 
+    
+
+
     useEffect(() => {
         setIsChoice(false);
     }, [name]);
@@ -135,6 +150,12 @@ function Item({ name, productId }) {
     const buy = function () {
         setIsChoice(!isChoice);
     }
+
+
+
+
+
+    
 
 
     const sendComment = async () => {
@@ -453,7 +474,7 @@ function Item({ name, productId }) {
                                                                     </svg>
                                                                 </button>
                                                                 <button className={styles.replyReply} onClick={() => {
-                                                                    setRepliedAccount(reply.fromAccount.customerName);
+                                                                    setRepliedAccount(reply.fromAccount.username);
                                                                     setRepliedComment(reply.id);
                                                                     setRepliedCommentText(reply.comment);
                                                                     if (sendRef.current) {
@@ -465,7 +486,9 @@ function Item({ name, productId }) {
                                                                     }
                                                                 }}>Reply</button>
                                                             </div>
+                                                            
                                                         ))}
+                                                        
                                                     </div>
                                                 )}
                                             </>

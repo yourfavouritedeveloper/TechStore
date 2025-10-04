@@ -804,13 +804,14 @@ body {
 }
 
 .commentBox .reviewSubTitle {
-    position: absolute;
+    position: relative;
     z-index: 5;
     font-size: clamp(1rem, 1.6rem, 10rem);
     font-family: "PoppinsMedium";
     color: #313131;
-    top: 0.5rem;
+    top: -2.5rem;
     left: 50%;
+    margin-bottom: 1rem;
     transform: translateX(-50%);
 }
 

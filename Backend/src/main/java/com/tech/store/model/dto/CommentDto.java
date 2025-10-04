@@ -32,6 +32,8 @@ public class CommentDto {
 
     private List<CommentSummaryDto> replies;
 
+    private String repliedUsername;
+
     private Integer likes;
 
     private BigDecimal rate;
