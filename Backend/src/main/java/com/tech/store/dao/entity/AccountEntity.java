@@ -71,4 +71,7 @@ public class AccountEntity extends BaseEntity {
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference("account-products")
     private List<ProductEntity> products;
+
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    private CartEntity cart;
 }

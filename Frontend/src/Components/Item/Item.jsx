@@ -545,30 +545,42 @@ function Item({ name, productId }) {
                                                 <div className={styles.accountInfo}>
                                                     <img src={comment.fromAccount.profilePictureUrl} alt="" />
                                                     <p className={styles.commentCustomerName}>{comment.fromAccount.customerName}</p>
+                                                    <div className={styles.commentRate}>
+                                                    {[1, 2, 3, 4, 5].map((star) => (
+                                                        <span
+                                                        key={star}
+                                                        className={`${styles.star} ${star <= Number(comment.rate) ? styles.filled : ""}`}
+                                                        >
+                                                        ★
+                                                        </span>
+                                                    ))}
+                                                    </div>
                                                 </div>
                                             )}
                                             <p className={styles.commentText}>{comment.comment}</p>
-                                            <p className={styles.likeCount}>{comment.likes ? comment.likes : ""}</p>
-                                            <button className={styles.like} onClick={() => handleLike(comment.id)}
-                                                style={{backgroundColor : (comment.likedBy || []).includes(account.username) ? "rgb(112, 139, 255)" : "",color: (comment.likedBy || []).includes(account.username) ? "white" : "rgb(82, 82, 82)" }}>
-                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                    height="24px"
-                                                    viewBox="0 -960 960 960" width="24px" fill= {(comment.likedBy || []).includes(account.username) ? "white" : "rgb(82, 82, 82)"}><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z" />
-                                                </svg>
-                                            </button>
-                                            <button className={styles.reply}
-                                                onClick={() => {
-                                                    setRepliedAccount(comment.fromAccount.username);
-                                                    setRepliedComment(comment.id);
-                                                    setRepliedCommentText(comment.comment);
-                                                    if (sendRef.current) {
-                                                        const yOffset = -120;
-                                                        const y =
-                                                            sendRef.current.getBoundingClientRect().top + window.scrollY + yOffset;
+                                            <div className={styles.likeDiv}>
+                                                <p className={styles.likeCount}>{comment.likes ? comment.likes : 0}</p>
+                                                <button className={styles.like} onClick={() => handleLike(comment.id)}
+                                                    style={{backgroundColor : (comment.likedBy || []).includes(account.username) ? "rgb(112, 139, 255)" : "",color: (comment.likedBy || []).includes(account.username) ? "white" : "rgb(82, 82, 82)" }}>
+                                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                                        height="24px"
+                                                        viewBox="0 -960 960 960" width="24px" fill= {(comment.likedBy || []).includes(account.username) ? "white" : "rgb(82, 82, 82)"}><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z" />
+                                                    </svg>
+                                                </button>
+                                                <button className={styles.reply}
+                                                    onClick={() => {
+                                                        setRepliedAccount(comment.fromAccount.username);
+                                                        setRepliedComment(comment.id);
+                                                        setRepliedCommentText(comment.comment);
+                                                        if (sendRef.current) {
+                                                            const yOffset = -120;
+                                                            const y =
+                                                                sendRef.current.getBoundingClientRect().top + window.scrollY + yOffset;
 
-                                                        window.scrollTo({ top: y, behavior: "smooth" });
-                                                    }
-                                                }}>Reply</button>
+                                                            window.scrollTo({ top: y, behavior: "smooth" });
+                                                        }
+                                                    }}>Reply</button>
+                                            </div>
                                         </div>
                                         {comment.replies && comment.replies.length > 0 && (
                                             <>
@@ -593,28 +605,30 @@ function Item({ name, productId }) {
                                                                     </div>
                                                                 )}
                                                                 <p className={styles.replyText}>{reply.comment}</p>
-                                                                <p className={styles.replyLikeCount}>{reply.likes ? reply.likes : ""}</p>
-                                                                <button className={styles.replyLike} onClick={() => handleLike(reply.id)}
-                                                                style={{backgroundColor : (reply.likedBy || []).includes(account.username) ? "rgb(112, 139, 255)" : "",color: (reply.likedBy || []).includes(account.username) ? "white" : "rgb(82, 82, 82)" }}
-                                                                    >
-                                                                    
-                                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                                        height="20px"
-                                                                        viewBox="0 -960 960 960" width="20px" fill= {(reply.likedBy || []).includes(account.username) ? "white" : "rgb(82, 82, 82)"}><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z" />
-                                                                    </svg>
-                                                                </button>
-                                                                <button className={styles.replyReply} onClick={() => {
-                                                                    setRepliedAccount(reply.fromAccount.username);
-                                                                    setRepliedComment(comment.id);
-                                                                    setRepliedCommentText(reply.comment);
-                                                                    if (sendRef.current) {
-                                                                        const yOffset = -120;
-                                                                        const y =
-                                                                            sendRef.current.getBoundingClientRect().top + window.scrollY + yOffset;
+                                                                <div className={styles.likeReplyDiv}>
+                                                                    <p className={styles.replyLikeCount}>{reply.likes ? reply.likes : 0}</p>
+                                                                    <button className={styles.replyLike} onClick={() => handleLike(reply.id)}
+                                                                    style={{backgroundColor : (reply.likedBy || []).includes(account.username) ? "rgb(112, 139, 255)" : "",color: (reply.likedBy || []).includes(account.username) ? "white" : "rgb(82, 82, 82)" }}
+                                                                        >
+                                                                        
+                                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                                            height="20px"
+                                                                            viewBox="0 -960 960 960" width="20px" fill= {(reply.likedBy || []).includes(account.username) ? "white" : "rgb(82, 82, 82)"}><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z" />
+                                                                        </svg>
+                                                                    </button>
+                                                                    <button className={styles.replyReply} onClick={() => {
+                                                                        setRepliedAccount(reply.fromAccount.username);
+                                                                        setRepliedComment(comment.id);
+                                                                        setRepliedCommentText(reply.comment);
+                                                                        if (sendRef.current) {
+                                                                            const yOffset = -120;
+                                                                            const y =
+                                                                                sendRef.current.getBoundingClientRect().top + window.scrollY + yOffset;
 
-                                                                        window.scrollTo({ top: y, behavior: "smooth" });
-                                                                    }
-                                                                }}>Reply</button>
+                                                                            window.scrollTo({ top: y, behavior: "smooth" });
+                                                                        }
+                                                                    }}>Reply</button>
+                                                                </div>
                                                             </div>
                                                             
                                                         ))}

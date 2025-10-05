@@ -50,6 +50,8 @@ public class AccountDto {
 
     private List<ProductSummaryDto> products;
 
+    private CartDto cart;
+
 
 
 
