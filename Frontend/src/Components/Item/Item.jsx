@@ -36,6 +36,7 @@ function Item({ name, productId }) {
     const [repliesByCommentId, setRepliesByCommentId] = useState({});
     const [isSending, setIsSending] = useState(false);
     const [successMessage, setSuccessMessage] = useState("");
+    const [warningMessage, setWarningMessage] = useState("");
     const [visibleCommentsCount, setVisibleCommentsCount] = useState(5);
     const [showRatingStars, setShowRatingStars] = useState(false);
     const [selectedRating, setSelectedRating] = useState(0); 
@@ -176,101 +177,68 @@ function Item({ name, productId }) {
 
 
     const sendComment = async () => {
+        if (!newCommentText.trim()) {
+            setWarningMessage("Comment cannot be empty!");
+            return;
+        }
 
-         setIsSending(true);
-        if (repliedAccount) {
-            if (!newCommentText.trim()) {
-                alert("Comment cannot be empty!");
-                return;
-            }
+        if (!repliedAccount && !selectedRating) {
+            setWarningMessage("Please select a rating before sending a comment.");
+            return;
+        }
 
-            try {
-                
-                const response = await axios.post(
+        setWarningMessage("");
+        setIsSending(true);
+
+        try {
+            if (repliedAccount) {
+                await axios.post(
                     `https://techstore-3fvk.onrender.com/api/v1/comments/reply/${repliedComment}/${account.username}/${repliedAccount}`,
                     null,
                     {
-                        params: {
-                            productId: item.id,
-                            comment: newCommentText,
-                        },
-                        auth: {
-                            username: USERNAME,
-                            password: PASSWORD
-                        }
+                        params: { productId: item.id, comment: newCommentText },
+                        auth: { username: USERNAME, password: PASSWORD },
                     }
                 );
-
-
-
-                const updatedItem = await axios.get(
-                    `https://techstore-3fvk.onrender.com/api/v1/products/id/${item.id}`,
-                    { auth: { username: USERNAME, password: PASSWORD } }
-                );
-
-                setItem(updatedItem.data);
-                setSuccessMessage("Comment sent successfully!");
-
-                setTimeout(() => {
-                    setSuccessMessage("");
-                }, 3000);
-                setnewCommentText("");
-            } catch (error) {
-                console.error("Error posting comment:", error);
-                alert("Failed to post comment.");
-            } finally {
-                setRepliedAccount("");
-                setRepliedComment();
-                setIsSending(false);
-            }
-
-        }
-
-        else {
-            if (!newCommentText.trim()) {
-                alert("Comment cannot be empty!");
-                return;
-            }
-
-            try {
-                const response = await axios.post(
+            } else {
+                await axios.post(
                     `https://techstore-3fvk.onrender.com/api/v1/comments/comment/${item.account.username}`,
                     null,
                     {
-                        params: {
-                            productId: item.id,
-                            comment: newCommentText,
-                            rate: selectedRating
-                        },
-                        auth: {
-                            username: USERNAME,
-                            password: PASSWORD
-                        }
+                        params: { productId: item.id, comment: newCommentText, rate: selectedRating },
+                        auth: { username: USERNAME, password: PASSWORD },
                     }
                 );
 
-
-
-                const updatedItem = await axios.get(
-                    `https://techstore-3fvk.onrender.com/api/v1/products/id/${item.id}`,
-                    { auth: { username: USERNAME, password: PASSWORD } }
+                await axios.put(
+                    `https://techstore-3fvk.onrender.com/api/v1/products/update/rating/${item.id}`,
+                    null,
+                    { params: { rating: selectedRating }, auth: { username: USERNAME, password: PASSWORD } }
                 );
-
-                setItem(updatedItem.data);
-                setSuccessMessage("Comment sent successfully!");
-
-                setTimeout(() => {
-                    setSuccessMessage("");
-                }, 3000);
-                setnewCommentText("");
-            } catch (error) {
-                console.error("Error posting comment:", error);
-                alert("Failed to post comment.");
-            } finally {
-                setIsSending(false);
             }
+
+            const updatedItem = await axios.get(
+                `https://techstore-3fvk.onrender.com/api/v1/products/id/${item.id}`,
+                { auth: { username: USERNAME, password: PASSWORD } }
+            );
+
+            setItem(updatedItem.data);
+            setSuccessMessage("Comment sent successfully!");
+            setTimeout(() => setSuccessMessage(""), 3000);
+            setnewCommentText("");
+            setRepliedAccount("");
+            setRepliedComment();
+            setSelectedRating(0);
+            setShowRatingStars(false);
+
+        } catch (error) {
+            console.error(error);
+            setWarningMessage("Failed to post comment.");
+        } finally {
+            setIsSending(false);
         }
     };
+
 
     const handleLike = async (commentId) => {
         if (!account?.username) {
@@ -656,6 +624,7 @@ function Item({ name, productId }) {
                     )}
                     <div className={styles.send} ref={sendRef}>
                         {successMessage &&  <p className={styles.successMessage}>{successMessage}</p>}
+                        {warningMessage && <p className={styles.warningMessage}>{warningMessage}</p>}
                         {repliedAccount && repliedComment && (<>
                             <p className={styles.replySend}>Replying to @{repliedAccount}</p>
                             <p className={styles.replyCommentSend}>{repliedCommentText}</p>

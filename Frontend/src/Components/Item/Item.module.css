@@ -1065,7 +1065,7 @@ body {
 
 .showMoreComments {
     position: absolute;
-    bottom: 14.5rem;
+    bottom: 17.5rem;
     overflow: hidden;
     background-color: rgb(101, 129, 255);
     color: white;
@@ -1253,7 +1253,20 @@ body {
 .successMessage {
     background-color: rgb(11, 150, 11);
     width: 30%;
-    top:-55%;
+    top:-11%;
+    left:50%;
+    transform: translateX(-50%);
+    color:white;
+    font-size: clamp(1rem,1.3rem,10rem);
+    position: absolute; 
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+}
+
+.warningMessage {
+    background-color: rgb(238, 55, 55);
+    width: 45%;
+    top:-11%;
     left:50%;
     transform: translateX(-50%);
     color:white;
@@ -1265,7 +1278,7 @@ body {
 
 
 .spinnerDiv {
-    padding: 1.3rem 1.3rem;
+    padding: 0.72rem 0.72rem;
     background-color: rgb(112, 139, 255);
     color: white;
     font-family: "PoppinsLight";
@@ -1287,9 +1300,8 @@ body {
   height: 0.8rem;
 
   animation: spin 0.8s linear infinite;
-  left: 30%;
-  top: 30%;
-  position: absolute;
+  display: block;      
+  margin: 0 auto; 
 }
 
 @keyframes spin {
