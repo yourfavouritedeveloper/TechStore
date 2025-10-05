@@ -82,13 +82,16 @@ public class ProductEntity extends BaseEntity {
     private BigDecimal volume;
 
     @Column(name = "rating")
-    private BigDecimal rating;
+    private BigDecimal rating = BigDecimal.ZERO;
+
+    @Column(name = "rating_count")
+    private Integer ratingCount = 0;
 
     @Column(name = "discount")
     private Integer discount;
 
     @Column(name = "amount")
-    private Long amount;
+    private Long amount = 0L;
 
     @Column(name = "guarantee",nullable = false)
     private Byte guarantee;

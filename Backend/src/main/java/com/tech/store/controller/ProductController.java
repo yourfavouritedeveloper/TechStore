@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -147,6 +148,13 @@ public class ProductController {
     @Operation(summary = "Update product", description = "Updates the specified product.")
     public ProductDto updateProduct(@RequestBody ProductDto productDto) throws Exception {
         return productService.updateProduct(productDto);
+    }
+
+    @PutMapping("/update/rating/{productId}")
+    @ResponseStatus(HttpStatus.OK)
+    @Operation(summary = "Update product rating", description = "Updates the specified product's rating.")
+    public ProductDto updateProductRating(@PathVariable Long productId, BigDecimal rating) throws Exception {
+        return productService.updateRating(productId, rating);
     }
 
     @PutMapping("/delete/{id}")

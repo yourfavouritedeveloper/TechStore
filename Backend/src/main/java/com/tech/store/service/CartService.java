@@ -81,15 +81,15 @@ public class CartService {
     @Transactional
     public CartDto create(CartDto cartDto) {
         CartEntity cartEntity = cartMapper.toCartEntity(cartDto);
-        cartRedisRepository.save(cartEntity);
-        return cartMapper.toCartDto(cartEntity);
+        cartRepository.save(cartEntity);
+        return cartRedisRepository.save(cartEntity);
     }
 
     @Transactional
     public CartDto update(CartDto cartDto) {
-        CartEntity carteEntity = cartMapper.toCartEntity(cartDto);
-        cartRedisRepository.save(carteEntity);
-        return cartMapper.toCartDto(carteEntity);
+        CartEntity cartEntity = cartMapper.toCartEntity(cartDto);
+        cartRepository.save(cartEntity);
+        return cartRedisRepository.save(cartEntity);
     }
 
     @Transactional
@@ -109,6 +109,7 @@ public class CartService {
         }
 
         CartDto cartDto = cartMapper.toCartDto(cartEntity);
+        cartRepository.save(cartEntity);
         cartRedisRepository.save(cartEntity);
         return cartDto;
     }
