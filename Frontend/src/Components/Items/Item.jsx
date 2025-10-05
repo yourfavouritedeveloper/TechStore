@@ -62,7 +62,7 @@ const handleSortChange = (key, value) => {
             <div className={styles.container}>
               <Link className={styles.discoverBox} to="/product">
                   <p className={styles.title}>Discover</p>
-                  <p className={styles.subtitle}>the newest, most valued products and stay ahead of trends.</p>
+                  <p className={styles.subtitle}>The newest, most valued products and stay ahead of trends.</p>
                   <img src={Apple} alt="" />
               </Link>
               <div className={styles.containers}>
