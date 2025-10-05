@@ -8,9 +8,10 @@
 .account {
     position: absolute; 
     background-color: rgb(230, 230, 230);
-    width: 35%;
+    width: 41.5rem;
     height: 25rem;
-    left: 10%;
+    left: 50%;
+    transform: translateX(-110%);
     top: 7rem;
     z-index: 2;
     border-radius: 2rem;
@@ -433,9 +434,10 @@
 
 .balanceContainer {
     position: absolute; 
-    width: 35%;
+    width: 41.5rem;
     height: 5rem;
-    left: 10%;
+    left: 50%;
+    transform: translateX(-110%);
     top: 33rem;
     z-index: 0;
     background-color: rgb(230, 230, 230);
@@ -478,12 +480,12 @@
 
 .balanceContainer .add {
     background-color: #3B82F6;
-    right:14.5rem;
+    right:11.5rem;
 }
 
 .balanceContainer .transaction {
     background-color: #797979;
-    right:0.5rem;
+    right:3rem;
 }
 
 .balanceContainer button:hover {
@@ -505,7 +507,8 @@
     font-size: clamp(0.8rem, 2.3rem, 10rem);
     top: 36rem; 
     position: absolute;
-    left: 11%;
+    left: 50%;
+    transform: translateX(-345%);
     color: rgb(49, 49, 49);
 }
 
@@ -516,8 +519,9 @@
 .accountDescription {
     position: absolute;
     top:42rem;
-    width: 35%;
-    left: 10%;
+    width: 41.5rem;
+    left: 50%;
+    transform: translateX(-110%);
     height: 15rem;
     background-color: rgb(230, 230, 230);
     border-radius: 2rem;
@@ -572,8 +576,9 @@
 .editContainer {
     background-color: rgb(230, 230, 230);
     height: 6.5rem;
-    width: 42%;
-    right:10%;
+    width: 48rem;
+    right:50%;
+    transform: translateX(95%);
     top:7rem;
     border-radius: 2rem;
     position: absolute;
@@ -651,12 +656,12 @@
 
 .editContainer .edit {
     background-color: #3B82F6;
-    right:15rem;
+    right:13rem;
 }
 
 .editContainer .save {
     background-color: #797979;
-    right:5rem;
+    right:3rem;
 }
 
 .editContainer .cancel {
@@ -714,8 +719,9 @@
 .activityContainer {
     background-color: rgb(230, 230, 230);
     height: 41.5rem;
-    width: 42%;
-    right:10%;
+    width: 48rem;
+    right:50%;
+    transform: translateX(95%);
     top:15.5rem;
     border-radius: 2rem;
     position: absolute;
@@ -726,8 +732,9 @@
 .spentContainer {
     background-color: rgb(230, 230, 230);
     height: 41.5rem;
-    width: 42%;
-    left:10%;
+    width: 48rem;
+    left: 50%;
+    transform: translateX(-95%);
     margin-top: 63rem;
     border-radius: 2rem;
     position: absolute; 
@@ -779,9 +786,10 @@
 .itemsContainer {
     position: relative;
     background-color: rgb(230, 230, 230);
-    width: 80%;
+    width: 91.5rem;
     min-height: 50rem;
-    left: 10%;
+    left: 50%;
+    transform: translateX(-50%);
     padding-bottom: 9rem;
     top: 60rem;
     border-radius: 2rem;
@@ -815,7 +823,7 @@
     position: absolute;
     top:2.7rem;   
     right: 1rem;  
-    font-size: clamp(0rem, 0.7vw, 2rem);
+    font-size: clamp(0rem, 0.87rem, 2rem);
     color: #1d3c94;
 }
 
@@ -889,7 +897,7 @@
     top:2.25rem;    
     font-family: "PoppinsSemiBold";
     left: 1rem;  
-    font-size: clamp(1rem, 0.9vw, 2rem);
+    font-size: clamp(1rem, 1.1rem, 2rem);
     color:rgb(0, 0, 0);
 }
 
@@ -904,7 +912,7 @@
     left: 0.5rem;
     padding: 0rem 0.4rem;
     z-index: 5;
-    font-size: clamp(0.5rem, 0.85vw, 2rem);
+    font-size: clamp(0.5rem, 1rem, 2rem);
 
 
 }
@@ -924,19 +932,21 @@
     padding: 0rem 5rem;
     border-radius: 2rem;
     margin-top:30%;
-    left:30%;
+    left:50%;
+    transform: translateX(-50%);
     color: rgb(58, 58, 58);
     z-index: 20;
-    font-size: clamp(0.5rem, 1.5vw, 5rem);
+    font-size: clamp(0.5rem, 1.5rem, 5rem);
 }
 
 .purchaseContainer {
     position: absolute; 
     background-color: rgb(230, 230, 230);
-    width: 35%;
+    width: 41.5rem;
     height: auto;
     min-height:41.5rem;
-    right: 10%;
+    right: 50%;
+    transform: translateX(110%);
     margin-top: 63rem;
     border-radius: 2rem;
     overflow: hidden;      

@@ -442,7 +442,7 @@ const tickDatesSell = (() => {
             <div className={`${styles.balanceContainer} ${edit ? styles.hidden : ""}`}>
                 <p className={styles.balance}>Balance: ₼{logAccount.balance}</p>
                 <button className={styles.add}>Add Balance</button>
-                <button className={styles.transaction}>Transaction History</button>
+                <button className={styles.transaction}>History</button>
             </div>
             <p className={`${styles.descriptionTitle} ${edit ? styles.active : ""}`}>Description</p>
             <div className={`${styles.accountDescription} ${edit ? styles.active : ""}`}>
