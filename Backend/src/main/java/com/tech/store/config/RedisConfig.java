@@ -1,10 +1,7 @@
 package com.tech.store.config;
 
 import com.tech.store.dao.entity.ProductEntity;
-import com.tech.store.model.dto.AccountDto;
-import com.tech.store.model.dto.CommentDto;
-import com.tech.store.model.dto.ProductDto;
-import com.tech.store.model.dto.PurchaseDto;
+import com.tech.store.model.dto.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -116,6 +113,21 @@ public class RedisConfig {
     }
 
     @Bean
+    public RedisTemplate<String, CartDto> cartRedisTemplate() {
+        RedisTemplate<String, CartDto> template = new RedisTemplate<>();
+        template.setConnectionFactory(connectionFactory());
+
+        template.setKeySerializer(new StringRedisSerializer());
+        template.setHashKeySerializer(new StringRedisSerializer());
+
+        template.setValueSerializer(new GenericJackson2JsonRedisSerializer());
+        template.setHashValueSerializer(new GenericJackson2JsonRedisSerializer());
+
+        template.afterPropertiesSet();
+        return template;
+    }
+
+    @Bean
     public RedisTemplate<String, String> productKeysRedisTemplate() {
         RedisTemplate<String, String> template = new RedisTemplate<>();
         template.setConnectionFactory(connectionFactory());
@@ -153,6 +165,18 @@ public class RedisConfig {
 
     @Bean
     public RedisTemplate<String, String> commentKeysRedisTemplate() {
+        RedisTemplate<String, String> template = new RedisTemplate<>();
+        template.setConnectionFactory(connectionFactory());
+        template.setKeySerializer(new StringRedisSerializer());
+        template.setValueSerializer(new StringRedisSerializer());
+        template.setHashKeySerializer(new StringRedisSerializer());
+        template.setHashValueSerializer(new StringRedisSerializer());
+        template.afterPropertiesSet();
+        return template;
+    }
+
+    @Bean
+    public RedisTemplate<String, String> cartKeysRedisTemplate() {
         RedisTemplate<String, String> template = new RedisTemplate<>();
         template.setConnectionFactory(connectionFactory());
         template.setKeySerializer(new StringRedisSerializer());
