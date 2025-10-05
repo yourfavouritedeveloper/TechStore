@@ -21,6 +21,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -128,6 +130,25 @@ public class ProductService {
     @Transactional
     public ProductDto updateProduct(ProductDto productDto) throws Exception {
         ProductEntity productEntity = productMapper.toProductEntity(productDto);
+        productRepository.save(productEntity);
+        return productRedisRepository.save(productEntity);
+    }
+
+    @Transactional
+    public ProductDto updateRating(Long productId, BigDecimal rating) throws Exception {
+        ProductEntity productEntity = productRepository.findById(productId)
+                .orElseThrow(() -> new ProductNotFoundException("Product not found."));
+
+        BigDecimal totalRating = productEntity.getRating().multiply(
+                BigDecimal.valueOf(productEntity.getRatingCount())
+        );
+
+        productEntity.setRatingCount(productEntity.getRatingCount() + 1);
+
+        BigDecimal newRating = totalRating.add(rating)
+                .divide(BigDecimal.valueOf(productEntity.getRatingCount()), 2, RoundingMode.HALF_UP);
+
+        productEntity.setRating(newRating);
         productRepository.save(productEntity);
         return productRedisRepository.save(productEntity);
     }

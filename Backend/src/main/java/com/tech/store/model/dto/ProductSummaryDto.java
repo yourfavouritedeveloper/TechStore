@@ -53,6 +53,8 @@ public class ProductSummaryDto {
 
     private BigDecimal rating;
 
+    private Integer ratingCount;
+
     private Integer discount;
 
     private Long amount;

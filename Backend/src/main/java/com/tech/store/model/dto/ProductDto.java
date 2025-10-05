@@ -67,6 +67,8 @@ public class ProductDto {
 
     private BigDecimal rating;
 
+    private Integer ratingCount;
+
     private Integer discount;
 
     @NotNull(message = "Product amount cannot be null.", groups = {OnCreate.class, OnUpdate.class})
