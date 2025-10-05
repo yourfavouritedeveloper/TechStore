@@ -541,6 +541,8 @@ a {
 .search {
   z-index: 1;
   top:0.6rem;
+  width: 28px;
+  height: 28px;
   position:absolute;
   left:30rem;
   fill:#757575ff;
@@ -570,3 +572,101 @@ a {
 }
 
 
+@media (max-width: 1540px) {
+
+.container {
+    width: 79rem;
+
+}
+
+#name {
+    left:2.7%;
+    top:0.1rem;
+    font-size: clamp(1rem, 1.25rem, 2.5rem);
+
+}
+
+
+#campaign{
+    left:42.8%;
+    top:0.1rem;
+    font-size: clamp(1rem, 1.25rem, 2.5rem);
+    padding: 3.5px 26px;
+
+}
+
+#campaign:hover{
+    padding: 3.5px 26px;
+}
+
+
+
+
+#about{
+    padding: 3.5px 26px;
+    left:59%;
+    top:0.1rem;
+    font-size: clamp(1rem, 1.25rem, 2.5rem);
+
+}
+
+#about:hover{
+    padding: 3.5px 26px;
+
+
+}
+
+
+#contact{
+    left:72.8%;
+    padding: 3.5px 26px;
+    top:0.1rem;
+    font-size: clamp(1rem, 1.25rem, 2.5rem);
+
+}
+
+#contact:hover{
+    padding: 3.5px 26px;
+
+}
+
+
+
+
+
+#login{
+
+    padding: 3.5px 26px;
+    left:88%;
+    top:0.1rem;
+    font-size: clamp(1rem, 1.25rem, 2.5rem);
+
+}
+
+#login:hover{   
+    padding: 3.5px 26px;
+
+}
+
+
+
+.inputBar input {
+  font-size: 0.95rem;
+  top:-1.2rem;
+  margin-left: -39rem;
+  width: 12rem;
+  padding: 0.25rem 1.7rem;
+  padding-right: 2.1rem;
+}
+
+
+
+.search {
+  top:0.6rem;
+  left:28rem;
+  width: 24px;
+  height: 24px;
+}
+
+
+}

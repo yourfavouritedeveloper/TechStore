@@ -290,3 +290,251 @@
         transform: translateX(0%);
     }
 }
+
+
+
+
+
+@media (max-width: 1540px) {
+
+.container {
+    height: 33%;
+    width: 75rem;
+    top: 20%;
+
+}
+
+
+
+.campaign1 .title {
+    font-size: clamp(5rem, 6.4rem, 10rem);
+    top: -4rem;
+    left: 1rem;
+}
+
+
+.campaign1 .subtitle {
+    font-size: clamp(1rem, 1.67rem, 10rem);
+    top: -11.2rem;
+    left: -13.2rem;
+}
+
+.campaign1 .subsubtitle {
+    font-size: clamp(0rem, 1.39rem, 10rem);
+    top: -13.6rem;
+    left: -22.5rem;
+}
+
+
+.campaign2 .title {
+    font-size: clamp(7rem, 7.1rem, 10rem);
+    top: -7rem;
+    left: -21.5rem;
+}
+
+
+.campaign2 .subtitle {
+    font-size: clamp(1rem, 1.71rem, 10rem);
+    top: -17.3rem;
+    left: -14.6rem;
+}
+
+.campaign2 .subsubtitle {
+    font-size: clamp(0rem, 1.245rem, 10rem);
+    top: -19.8rem;
+    left: -21.7rem;
+}
+
+.campaign2 button {
+    top: 11.3rem;
+    left: 2.7rem;
+    font-size: clamp(1rem, 1.2rem, 10rem);
+    border-radius: 2rem;
+    padding: 0.5rem 2rem;
+
+}
+
+
+
+.campaign2 img {
+    right: 1rem;
+    width: 40%;
+    top: -3rem;
+
+
+}
+
+.campaign3 .title {
+    font-size: clamp(4rem, 4.4rem, 10rem);
+    width: 90%;
+    letter-spacing: -0.3rem;
+    line-height: 0.88;
+    top: -2rem;
+    left: 2rem;
+}
+
+
+.campaign3 .subtitle {
+    font-size: clamp(1rem, 1.4rem, 10rem);
+    width: 50%;
+    line-height: 1;
+    top: 5.2rem;
+    left: 2.3rem;
+}
+
+
+
+.campaign3 button {
+    top: 10rem;
+    left: 2.2rem;
+    font-size: clamp(1rem, 1.2rem, 10rem);
+    border-radius: 2rem;
+    padding: 0.5rem 2rem;
+}
+
+
+
+
+.campaign3 img {
+    position: absolute;
+    right: 4rem;
+    width: 25%;
+    z-index: -1;
+    top: -4rem;
+    transform: rotate(25deg);
+}
+
+
+
+.controls button {
+    padding: 0.4rem 0.8rem;
+    top: 0rem;
+    border-radius: 0.9rem;
+    font-size: 1.4rem;
+
+}
+
+
+
+
+
+
+}
+
+
+
+
+@media (max-width: 360px) { 
+.container {
+    height: 25%;
+    width: 20rem;
+    top: 47%;
+}
+
+
+.campaign1 .title {
+    font-size: clamp(1rem, 1.8rem, 10rem);
+    letter-spacing: -0.15rem;
+    top: -3rem;
+    left: 1rem;
+}
+
+
+.campaign1 .subtitle {
+    font-size: clamp(0rem, 1rem, 10rem);
+    width: 65%;
+    text-align: left;
+    top: -7rem;
+    left: 1.1rem;
+    line-height: 1;
+}
+
+.campaign1 .subsubtitle {
+    font-size: clamp(0rem, 0.7rem, 10rem);
+    top: -8.1rem;
+    left: -5.45rem;
+}
+
+
+
+.campaign2 {
+    background: linear-gradient(135deg,
+            rgb(40, 100, 150),
+            rgb(108, 189, 255));
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+    overflow: hidden;
+
+}
+
+
+
+.campaign2 .title {
+    font-size: clamp(7rem, 8.3rem, 10rem);
+    color: rgb(255, 255, 255);
+    font-family: "PoppinsSemiBold";
+    letter-spacing: -0.4rem;
+    position: relative;
+    top: -8.5rem;
+    left: -26rem;
+}
+
+
+.campaign2 .subtitle {
+    font-size: clamp(1rem, 2.01rem, 10rem);
+    color: rgb(255, 255, 255);
+    font-family: "PoppinsRegular";
+    position: relative;
+    top: -20.5rem;
+    left: -18rem;
+}
+
+.campaign2 .subsubtitle {
+    font-size: clamp(0rem, 1.445rem, 10rem);
+    color: rgb(255, 255, 255);
+    font-family: "PoppinsRegular";
+    position: relative;
+    top: -23.5rem;
+    left: -26.5rem;
+}
+
+.campaign2 button {
+    top: 12.8rem;
+    left: 3rem;
+    font-size: clamp(1rem, 1.3rem, 10rem);
+    position: absolute;
+    border: none;
+    z-index: 6;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-family: "PoppinsLight";
+    border-radius: 2rem;
+    padding: 0.6rem 2rem;
+    transition: all 0.3s ease;
+}
+
+.campaign2 button:hover {
+    background-color: rgb(14, 63, 92);
+    color: rgb(255, 255, 255);
+    transform: scale(1.03);
+}
+
+
+.campaign2 img {
+    position: absolute;
+    right: 3rem;
+    width: 40%;
+    z-index: -1;
+    top: -5rem;
+    transform: rotate(-30deg);
+
+}
+
+
+
+
+}
