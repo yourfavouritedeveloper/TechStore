@@ -5,8 +5,8 @@ import { motion, useInView, useAnimation,AnimatePresence  } from "framer-motion"
 import { applyFilters } from '../Utils/filterUtil';
 import { Link,useNavigate,useLocation  } from "react-router-dom";
 import Filter from "../Filter/Filter";
-import BrandLogo from "../../../public/brandblack.png"
-
+import BrandLogo from "../../../public/brandblack.png";
+import ParticleSphere from "../Model/ParticleSphere"
 
 
 function Main() {
@@ -44,6 +44,9 @@ const circleRef1 = useRef(null);
 
 
     return ( <>
+                  <div className={styles.particleWrapper}>
+                    <ParticleSphere />
+                  </div>
                   <div className={styles.type}>
                   <div className={styles.typebox}>
                     <div className={styles.line}

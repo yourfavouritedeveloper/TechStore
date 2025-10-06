@@ -1,3 +1,16 @@
+.particleWrapper {
+  position: absolute; 
+  left: 30%;         
+  transform: translateX(-50%);
+  width: 100px;      
+  height: 100px;     
+  pointer-events: none; 
+  z-index: 2;        
+}
+
+
+
+
 .type {
     background-color: black;
     width: 100%;
@@ -5,7 +18,7 @@
     top:0rem;
     height: 70rem;   
     overflow: hidden; 
-    z-index: 1;    
+    z-index: auto;    
 }
 
 
@@ -18,34 +31,13 @@
     height: 35rem;   
     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.096);
     backdrop-filter: blur(12px);
-      z-index: 2;
+      z-index: 3;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .storePicks:hover {
     background-color: #008080;
-    z-index: 20;
-
-
-}
-
-.communityMarket {
-    background-color: rgb(255, 255, 255);
-    width: 34.9%;
-    position: absolute;
-    right:15%;
-    top:18rem;
-    height: 35rem;   
-    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.096);
-    backdrop-filter: blur(12px); 
-    z-index: 2;     
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.communityMarket:hover {
-    background-color: #fc7f4e;
     z-index: 20;
 
 
@@ -188,76 +180,6 @@ filter: blur(20px);
 
 
 
-
-.titleCommunity {
-      font-size: clamp(1rem, 3.5vw,10rem); 
-      text-align: center; 
-      line-height: 0.8;
-      position: absolute;
-      top:-2rem;  
-      text-align: left;  
-      left:5rem;
-      padding: 1rem;
-      z-index: 2;
-      width: 73%;
-    background-color: #fc7f4e;
-      color: rgb(255, 255, 255);
-      font-family: "PoppinsMedium";
-      transition: all 0.3s ease;   
-}
-
-
-
-
-.titleCommunitySUB {
-      font-size: clamp(0rem, 0.9vw,10rem); 
-      text-align: center; 
-      line-height: 1;
-      position: relative;
-      top:13rem;  
-      text-align: left;  
-      left:5rem;
-      z-index: 2;
-      width: 80%;
-      color: rgb(0, 0, 0);
-      font-family: "PoppinsRegular";  
-      transition: all 0.3s ease;   
-}
-
-.communityShop {
-    background-color: #000000;
-    font-size: clamp(1rem,1.5vw,10rem); 
-    padding: 1rem 3rem ;
-    position: relative;
-    top:17rem;
-    z-index: 30;
-    transition: all 0.3s ease;
-
-}
-
-
-.communityMarket:hover .titleCommunity{
-    background-color: rgb(255, 255, 255);
-    color:black;
-
-
-}
-
-
-.communityMarket:hover .titleCommunitySUB{
-    color: rgb(255, 255, 255);
-    background-color: rgb(0, 0, 0);
-    padding: 0.5rem 0rem;
-    top:12rem;
-
-}
-
-.communityMarket:hover .communityShop {
-    background-color: rgb(255, 255, 255);
-    color:rgb(0, 0, 0);
-    top:14rem;
-
-}
 
 
 
