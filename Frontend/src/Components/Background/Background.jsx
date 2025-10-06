@@ -202,17 +202,8 @@ function Background({ shopRef, scrollTo, onShopClick, onItemClick, onCategorySel
                     </motion.div>
                 </div>
                 <div className={styles.coverBox}>
-                    <motion.div
-                        className={styles.circleBack1}
-                    >
-
-                    </motion.div>
-                    <motion.div
-                        className={styles.circleBack2}
-                    ></motion.div>
-
-
                 </div>
+ 
                 <motion.div
                     ref={boxRef}
                     className={styles.boxCampaign}

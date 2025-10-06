@@ -30,12 +30,80 @@ body {
 
 }
 
+
+.titleBox {
+    width: 100rem;
+    left: 50%;
+    position: absolute;
+    z-index: 4;
+    transform: translate(-50%, 0%);
+}
+
+
+.title {
+    text-align: right;
+    position: absolute;
+    color: rgb(255, 255, 255);
+    z-index: 11;
+    top: 15.5rem;
+    font-size: clamp(2rem, 9rem, 15rem);
+    width: 55%;
+    font-family: "PoppinsRegular";
+    left: -1.2%;
+    padding: 0;
+    line-height: 0.8;
+    letter-spacing: -0.5rem;
+    transform: translate(-50%, -50%);
+
+
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.781);
+    width: 70%;
+    position: relative;
+    font-size: clamp(0rem, 1.6rem, 10rem);
+    line-height: 1.2;
+    padding: 2.5rem 2rem;
+    left: 40%;
+    top: 13.35rem;
+    text-align: left;
+    hyphens: auto;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+
+}
+
+.shop {
+    position: absolute;
+    top: 12.5rem;
+    font-family: "PoppinsLight";
+    font-size: clamp(0rem, 1.2rem, 10rem);
+    padding: 0.8rem 3.5rem;
+    border-radius: 1.5rem;
+    left: 7.5rem;
+    border: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.shop:hover {
+    transform: scale(1.05);
+    background-color: #2962FF;
+    color: white;
+}
+
+.shop:active {
+    transform: scale(1.05);
+    background-color: #9cb6fc;
+    color: white;
+}
+
 .secondBox {
     position: absolute;
     top: 20rem;
     left: 50%;
     transform: translateX(-50%);
-    background-color: red;
     width: 100rem;
     z-index: 20;
 }
@@ -156,30 +224,7 @@ body {
 
 }
 
-.circleBack1,
-.circleBack2 {
-    position: absolute;
-    height: 90rem;
-    width: 90rem;
-    background: radial-gradient(circle,
-            #000000 0%,
-            #000000 60%,
-            rgba(121, 121, 121, 0.856) 85%,
-            rgba(255, 255, 255, 0.671) 90%);
-    filter: blur(30px);
-    z-index: -1;
-    border-radius: 50%;
-}
 
-.circleBack1 {
-    right: -30rem;
-    top: -15rem;
-}
-
-.circleBack2 {
-    left: -30rem;
-    top: 35rem;
-}
 
 .line {
     overflow-y: hidden;
@@ -287,73 +332,6 @@ body {
     backdrop-filter: blur(12px);
 }
 
-.titleBox {
-    width: 100rem;
-    left: 50%;
-    position: absolute;
-    z-index: 4;
-    transform: translate(-50%, 0%);
-}
-
-
-.title {
-    text-align: right;
-    position: absolute;
-    color: rgb(255, 255, 255);
-    z-index: 11;
-    top: 15.5rem;
-    font-size: clamp(2rem, 9rem, 15rem);
-    width: 55%;
-    font-family: "PoppinsRegular";
-    left: -1.2%;
-    padding: 0;
-    line-height: 0.8;
-    letter-spacing: -0.5rem;
-    transform: translate(-50%, -50%);
-
-
-}
-
-.subtitle {
-    color: rgba(255, 255, 255, 0.781);
-    width: 70%;
-    position: relative;
-    font-size: clamp(0rem, 1.6rem, 10rem);
-    line-height: 1.2;
-    padding: 2.5rem 2rem;
-    left: 40%;
-    top: 45%;
-    text-align: left;
-    hyphens: auto;
-    justify-content: center;
-    transform: translate(-50%, -50%);
-
-}
-
-.shop {
-    position: absolute;
-    top: 12.5rem;
-    font-family: "PoppinsLight";
-    font-size: clamp(0rem, 1.2rem, 10rem);
-    padding: 0.8rem 3.5rem;
-    border-radius: 1.5rem;
-    left: 7.5rem;
-    border: none;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.shop:hover {
-    transform: scale(1.05);
-    background-color: #2962FF;
-    color: white;
-}
-
-.shop:active {
-    transform: scale(1.05);
-    background-color: #9cb6fc;
-    color: white;
-}
 
 
 .boxExplanation .title {
@@ -421,7 +399,7 @@ body {
     top: 1rem;
     position: relative;
     object-fit: cover;
-    border-radius: 1.5rem;
+    border-radius: 0.8rem;
     display: block;
 
 }
@@ -455,6 +433,7 @@ body {
     top: 38.5rem;
     right: 5.4rem;
     border-radius: 1.5rem;
+    border: 0.09rem solid rgb(24, 24, 24);
 
 
 
@@ -507,23 +486,6 @@ body {
 
 
 
-.circleBack1,
-.circleBack2 {
-    height: 87rem;
-    width: 87rem;
-    border-radius: 50%;
-}
-
-.circleBack1 {
-    right: -40rem;
-    top: -15rem;
-}
-
-.circleBack2 {
-    left: -40rem;
-    top: 35rem;
-}
-
 .line {
     top: 11.5rem;
     left: 29.7rem;
@@ -543,6 +505,8 @@ body {
     width: 29.5rem;
     height: 29.5rem;
     border-radius: 1.5rem;
+    border: 0.09rem solid rgb(24, 24, 24);
+
 }
 
 
@@ -562,7 +526,7 @@ body {
     left: 2.5%;
     width: 95%;
     height: 22.75rem;
-    border-radius: 1.3rem;
+    border-radius: 1rem;
 
 }
 
@@ -585,6 +549,14 @@ body {
     padding: 0.6rem 2.4rem;
     border-radius: 1.2rem;
 
+
+}
+
+.boxCampaignExplanation .campaignPhoto {
+    height: 65%;
+    width: 95%;
+    top: 0.7rem;
+    border-radius: 0.7rem;
 
 }
 
@@ -626,7 +598,190 @@ body {
 
 
 
-@media (max-width: 1200px) {}
+
+@media (max-width: 1240px) {
+
+
+.container {
+    height: 60rem;
+}
+
+
+.secondBox {
+    top: -4rem;
+    width: 85.9rem;
+}
+
+.commercial {
+    width: 27.5rem;
+    height: 21.5rem;
+    top: 38.5rem;
+    right: 15.5rem;
+    border-radius: 1.3rem;
+    border: 0.07rem solid rgb(24, 24, 24);
+
+
+
+}
+
+.overflow {
+    height: 16rem;
+
+}
+
+.overflow .phoneCommercial {
+    border-radius: 0.9rem;
+}
+
+
+
+.commercial .commercialTitle {
+    right: 2rem;
+    top: 6.4rem;
+    font-size: clamp(2rem, 2.95rem, 15rem);
+    width: 80%;
+    line-height: 0.9;
+    letter-spacing: -0.1rem;
+}
+
+.commercial .commercialSubtitle {
+    top: 15.2rem;
+    right: 5%;
+    font-size: clamp(0rem, 0.8rem, 15rem);
+    width: 90%;
+    line-height: 0.9;
+    letter-spacing: -0rem;
+}
+
+.commercial button {
+    top: 1.7rem;
+    font-size: clamp(0rem, 0.7rem, 10rem);
+    padding: 0.4rem 1.75rem;
+    border-radius: 0.82rem;
+
+}
+
+
+
+.coverBox {
+    height: 100%;
+    top: 20.5rem;
+
+}
+
+
+
+.line {
+    top: 8.5rem;
+    left: 27.7rem;
+    width: 0.3rem;
+    height: 11rem;
+
+
+}
+
+.boxCampaign {
+    top: 28.5rem;
+    width: 100%;
+    height: 47.2rem;
+}
+
+.boxExplanation {
+    width: 21.5rem;
+    height: 21.5rem;
+    left: 15.4rem;
+    border-radius: 1.3rem;
+    border: 0.07rem solid rgb(24, 24, 24);
+
+}
+
+
+
+.boxExplanation .title {
+    font-size: clamp(1.6rem, 2.45rem, 10rem);
+    letter-spacing: -0.1rem;
+    line-height: 1.2;
+    top: -0.1rem;
+    left: 35%;
+
+
+}
+
+
+.boxCampaignExplanation {
+    top: 4.5rem;
+    left: 2.5%;
+    width: 95%;
+    height: 16.45rem;
+    border-radius: 0.8rem;
+
+}
+
+
+.boxCampaignExplanation .subtitle {
+    width: 90%;
+    font-size: clamp(0rem, 0.57rem, 10rem);
+    line-height: 1;
+    top: 11.7rem;
+    left: 50%;
+
+}
+
+.boxCampaignExplanation .button {
+    top: 13.45rem;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: clamp(0rem, 0.7rem, 10rem);
+    padding: 0.4rem 1.75rem;
+    border-radius: 0.82rem;
+
+
+}
+
+.boxCampaignExplanation .campaignPhoto {
+    height: 65%;
+    width: 95%;
+    top: 0.55rem;
+    border-radius: 0.55rem;
+
+}
+
+
+
+
+.title {
+    top: 9.5rem;
+    font-size: clamp(2rem, 5.5rem, 15rem);
+    width: 35%;
+    left: 15.5%;
+    letter-spacing: -0.4rem;
+
+
+}
+
+.subtitle {
+    width: 47%;
+    font-size: clamp(0rem, 1.07rem, 10rem);
+    left: 5.8%;
+    top: 13.8rem;
+
+}
+
+.shop {
+    top: 9rem;
+    font-size: clamp(0rem, 0.7rem, 10rem);
+    padding: 0.45rem 1.95rem;
+    border-radius: 0.9rem;
+    left: 2.3rem;
+}
+
+
+
+
+
+}
+
 
 
 

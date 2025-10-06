@@ -422,6 +422,141 @@
 }
 
 
+@media (max-width: 1240px) {
+
+.container {
+    height: 22%;
+    width: 55rem;
+    top: -3%;
+
+}
+
+
+
+.campaign1 .title {
+    font-size: clamp(3rem, 4.5rem, 10rem);
+    top: -4rem;
+    letter-spacing: -0.3rem;
+    left: 1rem;
+}
+
+
+.campaign1 .subtitle {
+    font-size: clamp(1rem, 1.2rem, 10rem);
+    top: -10.1rem;
+    left: -9.8rem;
+}
+
+.campaign1 .subsubtitle {
+    font-size: clamp(0rem, 1.015rem, 10rem);
+    top: -11.8rem;
+    left: -16.29rem;
+}
+
+
+.campaign2 .title {
+    font-size: clamp(3rem, 5rem, 10rem);
+    top: -5.5rem;
+    left: -17rem;
+    letter-spacing: -0.3rem;
+
+}
+
+
+.campaign2 .subtitle {
+    font-size: clamp(1rem, 1.2rem, 10rem);
+    top: -12.5rem;
+    left: -12rem;
+}
+
+.campaign2 .subsubtitle {
+    font-size: clamp(0rem, 0.85rem, 10rem);
+    top: -14.2rem;
+    left: -17.2rem;
+}
+
+.campaign2 button {
+    top: 7.7rem;
+    left: 1.35rem;
+    font-size: clamp(0rem, 0.8rem, 10rem);
+    border-radius: 1.5rem;
+    padding: 0.35rem 1.3rem;
+
+}
+
+
+
+.campaign2 img {
+    right: 1rem;
+    width: 35%;
+    top: -2.5rem;
+
+
+}
+
+.campaign3 .title {
+    font-size: clamp(2rem, 3.1rem, 10rem);
+    width: 90%;
+    letter-spacing: -0.2rem;
+    line-height: 0.88;
+    top: -1.5rem;
+    left: 2rem;
+}
+
+
+.campaign3 .subtitle {
+    font-size: clamp(1rem, 1rem, 10rem);
+    width: 50%;
+    line-height: 1;
+    top: 3.5rem;
+    left: 2.3rem;
+}
+
+
+
+.campaign3 button {
+    top: 6.9rem;
+    left: 2.25rem;
+    font-size: clamp(0rem, 0.8rem, 10rem);
+    border-radius: 1.5rem;
+    padding: 0.35rem 1.3rem;
+}
+
+
+
+
+.campaign3 img {
+    position: absolute;
+    right: 4rem;
+    width: 22%;
+    top: -2.5rem;
+    transform: rotate(25deg);
+}
+
+
+.controls {
+    gap: 0.7rem;
+}
+
+
+
+.controls button {
+    padding: 0.25rem 0.6rem;
+    top: 0.3rem;
+    border-radius: 0.6rem;
+    font-size: 1.2rem;
+
+}
+
+
+
+
+
+
+}
+
+
+
 
 
 @media (max-width: 360px) { 
