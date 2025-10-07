@@ -12,6 +12,7 @@ function Home({ shiftUp, setShiftUp }) {
   const shopRef = useRef(null);
   const itemRef = useRef(null);
   const highRef = useRef(null);
+  const brandRef = useRef(null);
   const backgroundRef = useRef(null);
   const [navHighlight, setNavHighlight] = useState(false);
 
@@ -29,6 +30,7 @@ useEffect(() => {
     const backgroundRect = backgroundRef.current?.getBoundingClientRect();
     const itemRect = itemRef.current?.getBoundingClientRect();
     const highRect = highRef.current?.getBoundingClientRect();
+    const brandRect = brandRef.current?.getBoundingClientRect();
 
     if (backgroundRect && backgroundRect.bottom > 0) {
       setNavHighlight(false);
@@ -36,7 +38,9 @@ useEffect(() => {
       setNavHighlight(true);
     } else if (highRect && highRect.top < window.innerHeight && highRect.bottom > 0) {
       setNavHighlight(false);
-    } else {
+    } else if (brandRect && brandRect.top < window.innerHeight && brandRect.bottom > 0) {
+      setNavHighlight(true);
+     } else {
       setNavHighlight(true);
     }
   }
@@ -102,7 +106,7 @@ function scrollToShop() {
       <Background backgroundRef={backgroundRef} shopRef={shopRef} scrollTo={scrollToShop} onCategorySelect={handleCategoryFilter} />
       <Item items={filteredItems} bodyItems={bodyItems} itemRef={itemRef}   onResetFilters={handleResetFilters}  />
       <Body shopRef={shopRef} itemRef={itemRef} scrollTo={scrollToItems} onCategorySelect={handleCategoryFilter} />
-      <Main highRef={highRef} />
+      <Main highRef={highRef} brandRef={brandRef} />
       <Footer />
     </>
   );
