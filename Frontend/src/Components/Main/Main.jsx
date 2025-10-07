@@ -9,7 +9,7 @@ import BrandLogo from "../../../public/brandblack.png";
 import ParticleSphere from "../Model/ParticleSphere"
 import Background from "../../assets/black.jpg"
 
-function Main({highRef}) {
+function Main({highRef,brandRef}) {
 const circleRef1 = useRef(null);
   const circleRef2 = useRef(null);
   const boxRef = useRef(null);
@@ -73,14 +73,25 @@ const circleRef1 = useRef(null);
                   <div className={styles.storePicks}
                    
                   >
-                    <p className={styles.titleStore}>The Best Picks of Store </p>
+                    <p className={styles.titleStore}>The Best Picks of Store</p>
                     <p className={styles.titleStoreSUB}>Curated recommendations from your favorite stores, so you can shop smarter and discover top-rated items.</p>
-                    <Link className={styles.storeShop} to="/product">Shop now</Link> 
+                    <button className={styles.storeShop} to="/product">Shop now</button> 
                   </div>
 
                   </div>  
+
+                  <div className={styles.explanationDiv} >
+                    <p className={styles.leftText}>Suggests the best local store for a product, considering price, availability, and promotions</p>
+                    <p className={styles.middleText}>Offers products based on user-preferred features, such as battery life, camera, brand, or price</p>
+                    <p className={styles.rightText}>Creates and adjusts personalized bundles from user preferences and browsing history</p>
+                  </div>
+                    <p className={styles.explanationTitle}>Get smart suggestions, explore items that match what you want, and receive tailored recommendations</p>
+                    <p className={styles.explanationSubtitle}>TechStore provides everything from store comparisons to personalized product suggestions — all made for your convenience.</p>
+                    <Link className={styles.launch}>Launch App</Link>
+
+
               </div>
-                    <div className={styles.brandnewdiv}>
+                    <div className={styles.brandnewdiv} ref={brandRef}>
                         <p className={styles.title}>Looking for something specific?</p>
                         <p className={styles.subtitle}>Our smart search helps you find exactly what you need in seconds.</p>
                       <form

@@ -1,12 +1,11 @@
 
 .aiDiv {
-  background-color: red;
-  height: 70rem;
+  height: 90rem;
 }
 
 .background {
   width: 100%;
-  height: 110rem;
+  height: 130rem;
   left:0%;
   object-fit: cover; 
   position: absolute;
@@ -154,17 +153,185 @@
     padding: 1rem 15.6rem ;
     white-space: nowrap;
     position: relative;
-    top:18rem;
+    top:17rem;
+    font-family: "PoppinsRegular";
     border-radius: 1rem;
     left:3rem;
     z-index: 2;
+    cursor: pointer;
+    border: none;
     background-color: white;
-    color: black;
+    color: rgb(61, 61, 61);
     transition: all 0.3s ease;
 
 }
 
+.storeShop:hover {
+  transform: scale(1.005);
+}
 
+
+
+.explanationDiv {
+      top:-9rem;  
+      left:50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      width: 75rem;
+      height: 22rem;
+      padding: 1rem 2rem;
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 0 5px 5px rgba(255, 255, 255, 0.041);
+      position: relative;
+      overflow: hidden;  
+      transition: all 0.3s ease;  
+
+}
+
+
+.leftText {
+  font-size: clamp(1rem, 2rem, 5rem);
+  width: 23rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 2;
+  left: 2%;
+  top:40%;
+  transform: translateY(-50%);
+  line-height: 1;
+  color: rgb(255, 255, 255);
+  font-family: "PoppinsExtraLight";
+  transition: all 0.3s ease;
+  border-right: 3px solid rgba(255, 255, 255, 0.3);
+  position: absolute;
+  overflow: hidden;
+  padding: 1rem;         
+  box-sizing: border-box; 
+}
+
+.middleText {
+  font-size: clamp(1rem, 2rem, 5rem);
+  width: 25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 2;
+  left:50%;
+  top:40%;
+  transform: translate(-50%,-50%);
+  line-height: 1;
+  color: rgb(255, 255, 255);
+  font-family: "PoppinsExtraLight";
+  transition: all 0.3s ease;
+  position: absolute;
+  overflow: hidden;
+  padding: 1rem;         
+  box-sizing: border-box;   
+}
+
+
+.rightText {
+  font-size: clamp(1rem, 2rem, 5rem);
+  width: 23rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 2;
+  line-height: 1;
+  right: 2%;
+  top:40%;
+  transform: translateY(-50%);
+  color: rgb(255, 255, 255);
+  font-family: "PoppinsExtraLight";
+  transition: all 0.3s ease;
+  border-left: 3px solid rgba(255, 255, 255, 0.3);
+  position: absolute;
+  overflow: hidden;
+  padding: 1rem;         
+  box-sizing: border-box; 
+}
+
+
+.explanationTitle {
+  font-size: clamp(1rem, 3.2rem, 5rem);
+  width: 90rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 2;
+  left:50%;
+  transform: translate(-50%,-70%);
+  line-height: 1;
+  color: rgb(255, 255, 255);
+  font-family: "PoppinsRegular";
+  transition: all 0.3s ease;
+  position: absolute;
+  overflow: hidden;
+  padding: 1rem;         
+  box-sizing: border-box;   
+}
+
+
+.explanationSubtitle {
+  font-size: clamp(1rem, 1.8rem, 5rem);
+  width: 70rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 2;
+  left:50%;
+  transform: translate(-50%,50%);
+  line-height: 1;
+  color: rgb(85, 85, 85);
+  font-family: "PoppinsRegular";
+  transition: all 0.3s ease;
+  position: absolute;
+  overflow: hidden;
+  padding: 1rem;         
+  box-sizing: border-box;   
+}
+
+
+.launch {
+       font-size: clamp(0rem, 1.8rem,10rem); 
+      line-height: 1;
+      top:13rem;  
+      text-align: left;  
+      left:3rem;
+      z-index: 2;
+      color: rgb(255, 255, 255);
+      font-family: "PoppinsLight";  
+      transition: all 0.3s ease;  
+      width: 37rem;
+      left:0%;
+      padding: 1.2rem 4rem;
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 3rem;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 0 5px 5px rgba(255, 255, 255, 0.041);
+      position: relative;
+      overflow: hidden; 
+}
 
 
 
@@ -192,7 +359,7 @@
 }
 
 .brandnewdiv .title {
-    font-size: clamp(1rem, 3vw, 10rem);
+    font-size: clamp(1rem, 3.6rem, 10rem);
     width: 50%;
     margin:0;
     top:-24rem;
@@ -206,7 +373,7 @@
 
 
 .brandnewdiv .subtitle {
-    font-size: clamp(1rem, 1.3vw, 2rem);
+    font-size: clamp(1rem, 1.56rem, 2rem);
     width: 70%;
     margin:0;
     top:-23rem;
@@ -220,15 +387,16 @@
 
 .brandnewdiv input {
     position: absolute;
-    width: 30%;
+    width: 35.7rem;
     padding:1rem 0rem;
     padding-left:2rem;
     top:22rem;
     border-radius: 1.5rem;
-    left:28%;
+    left:50%;
+    transform: translateX(-69.5%);
     border:none;
     font-family: "PoppinsLight";
-    font-size: clamp(1rem, 1vw, 2.5rem);
+    font-size: clamp(1rem, 1.2rem, 2.5rem);
     transition: transform 0.3s ease;
     z-index: 10;
 
@@ -236,14 +404,15 @@
 
 .search {
     position: absolute;
-    font-size: clamp(1rem, 1vw, 2.5rem);
+    font-size: clamp(1rem, 1.2rem, 2.5rem);
     border:none;
     color:white;
     background: linear-gradient(135deg, #0f0f0f, #1a1a1a, #333333);
     cursor: pointer;
     padding:1rem 2rem;
-    top:23.3rem;
-    right:28%;
+    top:23.455rem;
+    right:50%;
+    transform: translateX(200%);
     font-family: "PoppinsLight";
     border-radius: 1.4rem;
       z-index: 10;

@@ -80,9 +80,10 @@ body {
   top:0.25rem;
   z-index: 0;
   margin-left:-6.5rem;
-  left:21rem;
+  left:50%;
+  transform: translateX(-107.7%);
   position: absolute;  
-  width:30%;
+  width:35.8rem;
 }
 
 
