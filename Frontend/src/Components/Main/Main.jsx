@@ -7,9 +7,9 @@ import { Link,useNavigate,useLocation  } from "react-router-dom";
 import Filter from "../Filter/Filter";
 import BrandLogo from "../../../public/brandblack.png";
 import ParticleSphere from "../Model/ParticleSphere"
+import Background from "../../assets/black.jpg"
 
-
-function Main() {
+function Main({highRef}) {
 const circleRef1 = useRef(null);
   const circleRef2 = useRef(null);
   const boxRef = useRef(null);
@@ -29,6 +29,8 @@ const circleRef1 = useRef(null);
  const [searchTerm, setSearchTerm] = useState("");
   
 
+
+
   useEffect(() => {
    if (circleInView1) controls1.start("visible");
   }, [circleInView1]);
@@ -44,64 +46,40 @@ const circleRef1 = useRef(null);
 
 
     return ( <>
+            <div ref={highRef} className={styles.aiDiv}>
+                  <img className={styles.background} src={Background} alt="" />
                   <div className={styles.particleWrapper}>
                     <ParticleSphere />
                   </div>
                   <div className={styles.type}>
                   <div className={styles.typebox}>
-                    <div className={styles.line}
-                    ></div>  
+                    
                   </div>
+
                   
-                <motion.div 
+                  
+                  
+                <div 
                   className={styles.circle1}
                    ref={circleRef1}
-                    animate={controls1}
-                   variants={{
-                    hidden: {x: "-800px"},
-                    visible: {x: "0px"}
-                    }}
-                    initial="hidden"
-                    viewport={{ margin: "0px" }}
-                    transition={{ duration: 1.25,delay:0.5}}
                     >
                       
-                    </motion.div>
+                    </div>
 
-                    <motion.div 
+                    <div 
                     className={styles.circle2}
-                    ref={circleRef2}
-                    animate={controls2}
-                    variants={{
-                    hidden: {x: "800px"},
-                    visible: {x: "0px"}
-                    }}
-                    initial="hidden"
-                    viewport={{ margin: "0px" }}
-                    transition={{ duration: 1.25,delay:0.5}}
                     >
-                    </motion.div>
-                  <p className={styles.choose}>Choose Your Way to Shop</p>
+                    </div>
                   <div className={styles.storePicks}
                    
                   >
-                    <p className={styles.titleStore}>Best Store Picks</p>
-                    <p className={styles.titleStoreSUB}>• Curated Quality – Handpicked items vetted for performance, durability, and value.</p>
-                    <p className={styles.titleStoreSUB}>• Saves Time – Skip the research and go straight to the best options.</p>
-                    <p className={styles.titleStoreSUB}>• Trusted by Users – Backed by ratings, reviews, and real purchase data.</p>
+                    <p className={styles.titleStore}>The Best Picks of Store </p>
+                    <p className={styles.titleStoreSUB}>Curated recommendations from your favorite stores, so you can shop smarter and discover top-rated items.</p>
                     <Link className={styles.storeShop} to="/product">Shop now</Link> 
                   </div>
-                  <div className={styles.communityMarket}
-              
-                    >
-                      <p className={styles.titleCommunity}>Community Market</p>
-                       <p className={styles.titleCommunitySUB}>• Diverse Listings – A wide range of products from different sellers in one place.</p>
-                          <p className={styles.titleCommunitySUB}>• Competitive Pricing – Sellers compete, giving you better deals and discounts.</p>
-                          <p className={styles.titleCommunitySUB}>• Direct Seller Connection – Communicate directly with sellers for personalized offers and support.</p>
-                          <Link className={styles.communityShop} to="/product">Shop now</Link> 
 
-                  </div>
                   </div>  
+              </div>
                     <div className={styles.brandnewdiv}>
                         <p className={styles.title}>Looking for something specific?</p>
                         <p className={styles.subtitle}>Our smart search helps you find exactly what you need in seconds.</p>

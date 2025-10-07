@@ -13,7 +13,7 @@ html,body {
     width: 92rem;
     position: fixed;
     justify-content: center;
-    z-index: 10;
+    z-index:20;
     left:50%;
     transform: translateX(-50%);
     
@@ -26,7 +26,7 @@ html,body {
     width: 550%;
     position: fixed;
     justify-content: center;
-    z-index: 0;
+    z-index: 10;
     left:50%;
     height: 4.8rem;
     transform: translateX(-50%);
@@ -39,64 +39,105 @@ html,body {
 #campaign{
     border-radius: 2rem;
     position: absolute;
-    left:41.2%;
-    padding: 4.5px 30px;
+    left:43.2%;
+    z-index: 21;
+    padding: 4.5px 0px;
     font-size: clamp(1rem, 1.45rem, 2.5rem);
     transition: all 0.3s ease;
 
 }
 
-#campaign:hover{
-    display: block;
-    justify-content: center;
+#campaign::before{
+    content: "";
+    position: absolute;
+    bottom: 1px;
+    height: 2px;
+    width: 125.5px;
     background-color: rgb(255, 140, 0);
-    border-radius: 2rem;
-    padding: 4.5px 30px;
-    cursor: pointer;
+    border-radius: 50px;
+    z-index: 10;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.1s linear;
+
+}
+
+
+
+#campaign:hover::before{
+    transform: scaleX(1);
+
 }
 
 
 
 
 #about{
-    padding: 4.5px 30px;
+    padding: 4.5px 0px;
     position: absolute;
-    left:59%;
+    left:61.1%;
     border-radius: 2rem;
     font-size: clamp(1rem, 1.45rem, 2.5rem);
     transition: all 0.3s ease;
 
 }
 
-#about:hover{
-    display: inline-flex;
-    justify-content: center;
+
+#about::before{
+    content: "";
+    position: absolute;
+    bottom: 1px;
+    height: 2px;
+    width: 100%;
     background-color: #9b59b6;
-    border-radius: 2rem;
-    padding: 4.5px 30px;
-    cursor: pointer;
+    border-radius: 50px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.1s linear;
 
 }
+
+
+
+#about:hover::before{
+    transform: scaleX(1);
+
+}
+
 
 
 #contact{
     position: absolute;
-    left:73.2%;
+    left:75.2%;
     border-radius: 2rem;
-    padding: 4.5px 30px;
+    padding: 4.5px 0px;
     font-size: clamp(1rem, 1.45rem, 2.5rem);
     transition: all 0.3s ease;
 
 }
 
-#contact:hover{
-    display: inline-flex;
-    justify-content: center;
+
+#contact::before{
+    content: "";
+    position: absolute;
+    bottom: 1px;
+    height: 2px;
+    width: 100%;
     background-color: rgb(62, 187, 62);
-    border-radius: 2rem;
-    padding: 4.5px 30px;
-    cursor: pointer;
+    border-radius: 50px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.1s linear;
+
 }
+
+
+
+#contact:hover::before{
+    transform: scaleX(1);
+
+}
+
 
 
 
@@ -107,8 +148,8 @@ html,body {
 #login{
     position: absolute;
     border-radius: 2rem;
-    padding: 5px 30px;
-    left:89%;
+    padding: 5px 0px;
+    left:91.1%;
     font-size: clamp(1rem, 1.45rem, 2.5rem);
     transition: all 0.3s ease;
     z-index: 10;
@@ -116,14 +157,28 @@ html,body {
 
 }
 
-#login:hover{   
-    display: inline-flex;
-    justify-content: center;
+
+#login::before{
+    content: "";
+    position: absolute;
+    bottom: 1px;
+    height: 2px;
+    width: 100%;
     background-color: rgb(54, 90, 250);
-    border-radius: 2rem;
-    padding: 5px 30px;
-    cursor: pointer;
+    border-radius: 50px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.1s linear;
+
 }
+
+
+
+#login:hover::before{
+    transform: scaleX(1);
+
+}
+
 
 
 
@@ -497,14 +552,6 @@ a {
 
 
 
-
-.highlight:hover {
-    color:white;
-}
-
-.highlight a:hover {
-    color:white;
-}
 
 .highlight .log:hover {
     color: black;

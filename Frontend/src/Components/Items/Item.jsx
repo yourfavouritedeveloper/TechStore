@@ -59,7 +59,7 @@ const handleSortChange = (key, value) => {
 
     return(
         <>
-            <div className={styles.container}>
+            <div className={styles.container} ref={itemRef}>
               <Link className={styles.discoverBox} to="/product">
                   <p className={styles.title}>Discover</p>
                   <p className={styles.subtitle}>The newest, most valued products and stay ahead of trends.</p>

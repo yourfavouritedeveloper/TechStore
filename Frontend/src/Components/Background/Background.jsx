@@ -10,7 +10,7 @@ import axios from "axios";
 import Iphone from "../../assets/iphoneCommercial.png"
 import Phone from "../../assets/iphone.png"
 
-function Background({ shopRef, scrollTo, onShopClick, onItemClick, onCategorySelect }) {
+function Background({ backgroundRef, shopRef, scrollTo, onShopClick, onItemClick, onCategorySelect }) {
     const videoRef = useRef(null);
     const [items, setItems] = useState([]);
 
@@ -130,7 +130,7 @@ function Background({ shopRef, scrollTo, onShopClick, onItemClick, onCategorySel
 
     return (
         <>
-            <div className={styles.container}>
+            <div className={styles.container} ref={backgroundRef}>
                 <div className={styles.titleBox}>
                     <motion.div
                         className={styles.title}

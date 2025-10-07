@@ -11,6 +11,8 @@ import axios from 'axios';
 function Home({ shiftUp, setShiftUp }) {
   const shopRef = useRef(null);
   const itemRef = useRef(null);
+  const highRef = useRef(null);
+  const backgroundRef = useRef(null);
   const [navHighlight, setNavHighlight] = useState(false);
 
   const [allItems, setAllItems] = useState([]);
@@ -22,25 +24,30 @@ function Home({ shiftUp, setShiftUp }) {
     window.onbeforeunload = () => window.scrollTo(0, 0);
   }, []);
 
-  useEffect(() => {
-    function onScroll() {
-      if (!shopRef.current) return;
+useEffect(() => {
+  function handleScroll() {
+    const backgroundRect = backgroundRef.current?.getBoundingClientRect();
+    const itemRect = itemRef.current?.getBoundingClientRect();
+    const highRect = highRef.current?.getBoundingClientRect();
 
-      const shopTop = shopRef.current.getBoundingClientRect().top + 1140;
-    
-      if (shopTop <= 20) {
-        setNavHighlight(true);
-      } else {
-        setNavHighlight(false);
-      }
+    if (backgroundRect && backgroundRect.bottom > 0) {
+      setNavHighlight(false);
+    } else if (itemRect && itemRect.top < window.innerHeight && itemRect.bottom > 0) {
+      setNavHighlight(true);
+    } else if (highRect && highRect.top < window.innerHeight && highRect.bottom > 0) {
+      setNavHighlight(false);
+    } else {
+      setNavHighlight(true);
     }
+  }
 
-    window.addEventListener("scroll", onScroll);
+  window.addEventListener("scroll", handleScroll);
+  handleScroll(); 
 
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-    };
-  }, []);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, [backgroundRef, itemRef, highRef]);
+
+
 
 function scrollToShop() {
   if (shopRef.current) {
@@ -92,10 +99,10 @@ function scrollToShop() {
   return (
     <> <title>TechStore</title>
       <Nav highlight={navHighlight} shiftUp={shiftUp} setShiftUp={setShiftUp}/>
-      <Background shopRef={shopRef} scrollTo={scrollToShop} onCategorySelect={handleCategoryFilter} />
+      <Background backgroundRef={backgroundRef} shopRef={shopRef} scrollTo={scrollToShop} onCategorySelect={handleCategoryFilter} />
       <Item items={filteredItems} bodyItems={bodyItems} itemRef={itemRef}   onResetFilters={handleResetFilters}  />
       <Body shopRef={shopRef} itemRef={itemRef} scrollTo={scrollToItems} onCategorySelect={handleCategoryFilter} />
-      <Main />
+      <Main highRef={highRef} />
       <Footer />
     </>
   );
