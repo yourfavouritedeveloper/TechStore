@@ -192,7 +192,7 @@ function Nav({ highlight, shiftUp, setShiftUp, onEditClick = () => { } }) {
     <Link id={styles.campaign} className={highlight ? styles.highlight : ""} to="/campaign">Campaign</Link>
     <Link id={styles.about} className={highlight ? styles.highlight : ""} to="/about">About</Link>
     <Link id={styles.contact} className={highlight ? styles.highlight : ""} to="/contact">Contact</Link>
-    <Link id={styles.login} className={highlight ? styles.highlight : ""} onClick={() => setMenuOpen(prev => !prev)}>
+    <Link id={styles.login} style={{opacity: menuOpen ? "0" : "1"}} className={highlight ? styles.highlight : ""} onClick={() => setMenuOpen(prev => !prev)}>
 
       Account
     </Link>
@@ -205,8 +205,9 @@ function Nav({ highlight, shiftUp, setShiftUp, onEditClick = () => { } }) {
 
   return (
     <>
+    <div className={highlight ? styles.highcontainer : styles.none}></div>
       <nav className={styles.container}>
-      <div className={highlight ? styles.highcontainer : styles.none}></div>
+      
 
         <ul className={styles.navbar}>
           <Link id={styles.name} className={highlight ? styles.highlight : ""} to="/">TechStore</Link>

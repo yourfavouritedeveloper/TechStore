@@ -1,138 +1,72 @@
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { useRef, useMemo, useState } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { useRef, useMemo } from "react";
 import * as THREE from "three";
+import { SimplexNoise } from "three/examples/jsm/math/SimplexNoise.js";
 
-function SlimeNeuronCloud({ count = 4000, radius = 1.5, color = "lightblue" }) {
-  const pointsRef = useRef();
-  const groupRef = useRef();
-  const { mouse, viewport } = useThree();
-  const [hovered, setHovered] = useState(false);
-  const [dragging, setDragging] = useState(false);
-  const [prevMouse, setPrevMouse] = useState([0, 0]);
+function WaterBubble({ radius = 1.5 }) {
+  const meshRef = useRef();
 
-  const particles = useMemo(() => {
-    const temp = [];
-    for (let i = 0; i < count; i++) {
-      const angle = Math.random() * 2 * Math.PI;
-      const r = radius * Math.sqrt(Math.random());
-      const x = r * Math.cos(angle);
-      const y = r * Math.sin(angle);
-      const z = 0;
+  const geometry = useMemo(() => {
+    const geom = new THREE.IcosahedronGeometry(radius, 50);
+    geom.attributes.position.originalPosition = geom.attributes.position.array.slice();
 
-      const original = new THREE.Vector3(x, y, z);
-      const velocity = new THREE.Vector3(
-        (Math.random() - 0.5) * 0.002,
-        (Math.random() - 0.5) * 0.002,
-        0
-      );
-
-      const wigglePhase = Math.random() * Math.PI * 2;
-      temp.push({ position: new THREE.Vector3(x, y, z), original, velocity, wigglePhase });
+    const colors = [];
+    for (let i = 0; i < geom.attributes.position.count; i++) {
+      colors.push(1, 1, 1); 
     }
-    return temp;
-  }, [count, radius]);
+    geom.setAttribute("color", new THREE.Float32BufferAttribute(colors, 3));
 
-  useFrame(() => {
-    if (!pointsRef.current || !groupRef.current) return;
-    const positions = pointsRef.current.geometry.attributes.position.array;
+    return geom;
+  }, [radius]);
 
-    if (!dragging) groupRef.current.rotation.z += 0.003;
+  const noise = useMemo(() => new SimplexNoise(), []);
 
-    if (dragging) {
-      const deltaX = mouse.x - prevMouse[0];
-      const deltaY = mouse.y - prevMouse[1];
-      groupRef.current.rotation.z += (deltaX + deltaY) * Math.PI;
-      setPrevMouse([mouse.x, mouse.y]);
+  useFrame(({ clock }) => {
+    const positions = geometry.attributes.position.array;
+    const colors = geometry.attributes.color.array;
+    const time = clock.getElapsedTime();
+
+    for (let i = 0; i < positions.length; i += 3) {
+      const ox = geometry.attributes.position.originalPosition[i];
+      const oy = geometry.attributes.position.originalPosition[i + 1];
+      const oz = geometry.attributes.position.originalPosition[i + 2];
+
+      const offset = noise.noise3d(ox * 0.5, oy * 0.5, time * 0.5) * 0.2;
+      positions[i] = ox + offset;
+      positions[i + 1] = oy + offset;
+      positions[i + 2] = oz + offset;
+
+      const gray = 1 + 0.3 * noise.noise3d(ox, oy, time);
+      colors[i] = gray;
+      colors[i + 1] = gray;
+      colors[i + 2] = gray;
     }
 
-    const mouse2D = new THREE.Vector3(
-      mouse.x * viewport.width / 2,
-      mouse.y * viewport.height / 2,
-      0
-    );
-
-    for (let i = 0; i < particles.length; i++) {
-      const p = particles[i];
-
-      p.wigglePhase += 0.02 + Math.random() * 0.01;
-      const wiggleRadius = 0.25 * Math.sin(p.wigglePhase);
-      const angle = Math.atan2(p.original.y, p.original.x);
-      const targetX = (p.original.length() + wiggleRadius) * Math.cos(angle);
-      const targetY = (p.original.length() + wiggleRadius) * Math.sin(angle);
-
-      if (!hovered) {
-        const restore = new THREE.Vector3(targetX, targetY, 1.18).sub(p.position).multiplyScalar(0.02);
-        p.velocity.add(restore);
-      }
-
-      if (hovered) {
-        const dir = new THREE.Vector3().subVectors(p.position, mouse2D);
-        const dist = dir.length();
-        if (dist < 1.5) {
-          dir.normalize().multiplyScalar(0.03 / (dist + 0.1));
-          p.velocity.add(dir);
-        }
-      }
-
-      p.velocity.x += (Math.random() - 0.5) * 0.0055;
-      p.velocity.y += (Math.random() - 0.5) * 0.0015;
-
-      p.velocity.multiplyScalar(0.9);
-
-      p.position.add(p.velocity);
-
-      positions[i * 3] = p.position.x;
-      positions[i * 3 + 1] = p.position.y;
-      positions[i * 3 + 2] = 0;
-    }
-
-    pointsRef.current.geometry.attributes.position.needsUpdate = true;
+    geometry.attributes.position.needsUpdate = true;
+    geometry.attributes.color.needsUpdate = true;
+    geometry.computeVertexNormals();
   });
 
   return (
-    <group ref={groupRef}>
-      <points
-        ref={pointsRef}
-        onPointerOver={() => setHovered(true)}
-        onPointerOut={() => setHovered(false)}
-        onPointerDown={(e) => {
-          if (e.button === 0) {
-            setDragging(true);
-            setPrevMouse([mouse.x, mouse.y]);
-          }
-        }}
-        onPointerUp={(e) => {
-          if (e.button === 0) setDragging(false);
-        }}
-      >
-        <bufferGeometry>
-          <bufferAttribute
-            attach="attributes-position"
-            array={new Float32Array(particles.flatMap(p => [p.position.x, p.position.y, 0]))}
-            count={particles.length}
-            itemSize={3}
-          />
-        </bufferGeometry>
-        <pointsMaterial
-          color={color}
-          size={0.015}
-          sizeAttenuation
-          transparent
-          opacity={1}
-        />
-      </points>
-    </group>
+    <mesh ref={meshRef} geometry={geometry}>
+      <meshStandardMaterial
+        vertexColors
+        transparent
+        opacity={0.9}
+        roughness={0.1}
+        metalness={0.6}
+        side={THREE.DoubleSide}
+      />
+    </mesh>
   );
 }
 
 export default function App() {
   return (
-    <Canvas
-      camera={{ position: [0, 0, 5], fov: 75 }}
-      style={{ width: "100vw", height: "100vh" }}
-    >
-      <ambientLight intensity={0.5} />
-      <SlimeNeuronCloud />
+    <Canvas camera={{ position: [0, 0, 5], fov: 75 }} style={{width: "70rem", height: "70rem" }}>
+      <ambientLight intensity={0.1} />
+      <directionalLight position={[5, 5, 5]} intensity={1} />
+      <WaterBubble />
     </Canvas>
   );
 }
