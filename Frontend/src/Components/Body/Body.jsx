@@ -38,7 +38,7 @@ function Body({itemRef,scrollTo, onItemClick,onCategorySelect}) {
 
     return(
         <>
-            <div className={styles.container}>
+            <div className={styles.container}  ref={itemRef}>
                 <p className={styles.title}>Categories</p>
                 <ul className={styles.categories}>
 

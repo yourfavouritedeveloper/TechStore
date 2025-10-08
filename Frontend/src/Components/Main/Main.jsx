@@ -46,8 +46,8 @@ const circleRef1 = useRef(null);
 
 
     return ( <>
-            <div ref={highRef} className={styles.aiDiv}>
-                  <img className={styles.background} src={Background} alt="" />
+            <div className={styles.aiDiv}  ref={highRef}>
+                  <img className={styles.background} ref={highRef} src={Background} alt="" />
                   <div className={styles.particleWrapper}>
                     <ParticleSphere />
                   </div>
@@ -56,24 +56,12 @@ const circleRef1 = useRef(null);
                     
                   </div>
 
-                  
-                  
-                  
-                <div 
-                  className={styles.circle1}
-                   ref={circleRef1}
-                    >
-                      
-                    </div>
 
-                    <div 
-                    className={styles.circle2}
-                    >
-                    </div>
                   <div className={styles.storePicks}
                    
                   >
-                    <p className={styles.titleStore}>The Best Picks of Store</p>
+                    <p className={styles.titleStore1}>The Best Picks</p>
+                    <p className={styles.titleStore2}>of Store</p>
                     <p className={styles.titleStoreSUB}>Curated recommendations from your favorite stores, so you can shop smarter and discover top-rated items.</p>
                     <button className={styles.storeShop} to="/product">Shop now</button> 
                   </div>
