@@ -1,52 +1,52 @@
 .container {
   display: flex;
-    position: relative;
-    justify-content: center;
-    width: 100%;
-    height: 45rem;
-    padding-bottom: 5rem;
-    background-color: white;
-    overflow-y: hidden;
-    overflow-x: hidden;
-    z-index: 7;
+  position: relative;
+  justify-content: center;
+  width: 100%;
+  height: 45rem;
+  padding-bottom: 5rem;
+  background-color: white;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  z-index: 7;
 }
 
 .title {
-    margin-bottom: 2rem;
-    font-size: clamp(5rem, 1vw, 14rem);
-    font-family: "PoppinsRegular";
-    display: flex;
-    position: absolute;
-    justify-content: center;
+  margin-bottom: 2rem;
+  font-size: clamp(5rem, 5rem, 14rem);
+  font-family: "PoppinsRegular";
+  display: flex;
+  position: absolute;
+  justify-content: center;
 }
 
 .categories {
-    list-style: none;
-    flex-wrap: wrap;
-    display: grid;
-    gap:1rem;
-    position: absolute;
-    top:15rem;
-    grid-template-columns: repeat(4, 1fr); 
-    padding: 0rem 4.15vw;
+  list-style: none;
+  flex-wrap: wrap;
+  display: grid;
+  gap: 1rem;
+  position: absolute;
+  top: 15rem;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 0rem 4.15vw;
 }
 
 .categories li {
-    flex: 1 0 20%; 
-    box-sizing: border-box; 
-    padding:5.5rem;
-    border-radius: 1rem;
-    color: white;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
+  flex: 1 0 20%;
+  box-sizing: border-box;
+  padding: 5.5rem;
+  border-radius: 1rem;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
 }
 
 .computers {
   background-color: #5e7dd4;
   position: relative;
   width: 21rem;
-  height: 11rem; 
+  height: 11rem;
   padding: 2rem;
   border-radius: 1rem;
   overflow: hidden;
@@ -54,7 +54,7 @@
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
   color: white;
   text-align: center;
@@ -62,49 +62,52 @@
 }
 
 .computers img {
-    position: absolute;
-    width: 80%;
-    margin-left:0rem;
-    margin-top:-8rem;
-    object-fit: contain;
-    transform: rotateZ(20deg);
-    transition: all 1s ease;
-    z-index: 5;
+  position: absolute;
+  width: 80%;
+  margin-left: 0rem;
+  margin-top: -8rem;
+  object-fit: contain;
+  transform: rotateZ(20deg);
+  transition: all 1s ease;
+  z-index: 5;
 }
 
 .computers:hover {
-    background-color:#6a8df0 ;
+  background-color: #6a8df0;
 }
 
 .computers:hover img {
-    transform: rotateZ(0deg) scale(1.1);
-    
+  transform: rotateZ(0deg) scale(1.1);
+
 }
 
 .computers:hover p {
-    transform : scale(1.05);
-    background-color: rgba(0, 0, 0, 0.075); 
+  transform: scale(1.05);
+  background-color: rgba(0, 0, 0, 0.075);
 }
 
 .computers p {
-    color: rgb(255, 255, 255);
-    padding:5.5rem;
-    margin-top: -6.6rem;
-    font-size: clamp(1.8rem, 1vw, 14rem);
-    font-family: "PoppinsRegular";
-    z-index: 6;
-    background-color: rgba(0, 0, 0, 0.363); 
-    transition: all 0.3s ease;
+  color: rgb(255, 255, 255);
+  padding: 5.5rem;
+  margin-top: -6.6rem;
+  font-size: clamp(1.8rem, 1.8rem, 14rem);
+  font-family: "PoppinsRegular";
+  z-index: 6;
+  background-color: rgba(0, 0, 0, 0.363);
+  transition: all 0.3s ease;
 
 }
 
 
-.computers .circle1, .circle2, .circle3, .circle4 {
+.computers .circle1,
+.circle2,
+.circle3,
+.circle4 {
   position: absolute;
   border-radius: 50%;
   z-index: 1;
-  background-color: #ff9a8b; 
-  pointer-events: none; 
+  background-color: #ff9a8b;
+  pointer-events: none;
   box-shadow: 0px -20px 20px #664c4869;
   transition: all 1s ease;
   transform: rotateZ(20deg);
@@ -114,50 +117,50 @@
 .computers .circle1 {
   width: 11rem;
   height: 11rem;
-  top: 4vh;
+  top: 4rem;
   box-shadow: 0px -20px 20px #291f1d69;
-  left: -3vw;
+  left: -3rem;
   z-index: 1;
 
 }
 
 .computers .circle2 {
-  background-color: #ff9a8b; 
+  background-color: #ff9a8b;
   box-shadow: 15px 10px 20px #664c4869;
   width: 11rem;
   height: 8rem;
-  top: -3vh;
-  left: -5vw;
-  z-index: 2;  
+  top: -3rem;
+  left: -5rem;
+  z-index: 2;
 }
 
 .computers .circle3 {
-  background-color: #ff9a8b;     
+  background-color: #ff9a8b;
   width: 9rem;
   height: 10rem;
-  bottom: -0vh;
+  bottom: -0rem;
   box-shadow: 0px -20px 20px #664c4869;
-  right: -2vw;
+  right: -2rem;
   z-index: 4;
   transform: rotateZ(10deg);
 
 }
 
 .computers .circle4 {
-  background-color: #ff9a8b; 
+  background-color: #ff9a8b;
   width: 12rem;
   height: 10rem;
-  bottom: 6vh;
-  right: -4vw;
+  bottom: 6rem;
+  right: -4rem;
   z-index: 3;
 
 }
 
 .computers:hover .circle1,
-.computers:hover .circle2, 
+.computers:hover .circle2,
 .computers:hover .circle3,
 .computers:hover .circle4 {
-    transform: rotateZ(90deg);
+  transform: rotateZ(90deg);
 
 
 }
@@ -169,73 +172,76 @@
 
 
 .mobilePhones {
-    background-color: #33d6a0;
-    position: relative;
+  background-color: #33d6a0;
+  position: relative;
   width: 21rem;
-  height: 11rem; 
-    padding: 2rem;
-    border-radius: 1rem;
-    overflow: hidden;
+  height: 11rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  overflow: hidden;
 
 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; 
-    align-items: center;
-    color: white;
-    text-align: center;
-    box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  text-align: center;
+  box-sizing: border-box;
 }
 
 
 .mobilePhones img {
-    position: absolute;
-    width: 70%;
-    margin-left:3rem;
-    margin-top:-6rem;
-    object-fit: contain;
-    transform: rotateZ(-30deg);
-    transition: all 1s ease;
-    z-index: 5;
+  position: absolute;
+  width: 70%;
+  margin-left: 3rem;
+  margin-top: -6rem;
+  object-fit: contain;
+  transform: rotateZ(-30deg);
+  transition: all 1s ease;
+  z-index: 5;
 }
 
 
 .mobilePhones:hover {
-    background-color:#3be7ae ;
+  background-color: #3be7ae;
 }
 
 .mobilePhones:hover img {
-    transform: rotateZ(-10deg) scale(1.1);
-    margin-left:0rem;
-    
+  transform: rotateZ(-10deg) scale(1.1);
+  margin-left: 0rem;
+
 }
 
 
 .mobilePhones:hover p {
-    transform : scale(1.05);
-    background-color: rgba(0, 0, 0, 0.075); 
+  transform: scale(1.05);
+  background-color: rgba(0, 0, 0, 0.075);
 }
 
 .mobilePhones p {
-    color: rgb(255, 255, 255);
-    padding:5.5rem 8.5rem;
-    margin-top: -6.6rem;
-    font-size: clamp(1.8rem, 1vw, 14rem);
-    font-family: "PoppinsRegular";
+  color: rgb(255, 255, 255);
+  padding: 5.5rem 8.5rem;
+  margin-top: -6.6rem;
+  font-size: clamp(1.8rem, 1.8rem, 14rem);
+  font-family: "PoppinsRegular";
 
-    z-index: 6;
-    background-color: rgba(0, 0, 0, 0.363); 
-    transition: all 0.3s ease;
+  z-index: 6;
+  background-color: rgba(0, 0, 0, 0.363);
+  transition: all 0.3s ease;
 
 }
 
 
-.mobilePhones .circle1, .circle2, .circle3, .circle4 {
+.mobilePhones .circle1,
+.circle2,
+.circle3,
+.circle4 {
   position: absolute;
   border-radius: 50%;
   z-index: 1;
-  background-color: #2f4e9b; 
-  pointer-events: none; 
+  background-color: #2f4e9b;
+  pointer-events: none;
   box-shadow: 0px 20px 20px #07102975;
   transition: all 1s ease;
   transform: rotateZ(20deg);
@@ -246,9 +252,9 @@
 .mobilePhones .circle1 {
   width: 11rem;
   height: 10rem;
-  top: 4vh;
+  top: 4rem;
   box-shadow: 0px -20px 20px #07102975;
-  left: -4vw;
+  left: -4rem;
   z-index: 2;
 
 }
@@ -256,16 +262,16 @@
 .mobilePhones .circle2 {
   width: 11rem;
   height: 8rem;
-  top: -4vh;
-  left: -4vw;
-  z-index: 1;  
+  top: -4rem;
+  left: -4rem;
+  z-index: 1;
 }
 
 .mobilePhones .circle3 {
   width: 13rem;
   height: 10rem;
-  bottom: -4vh;
-  right: -4vw;
+  bottom: -4rem;
+  right: -4rem;
   z-index: 3;
 
 }
@@ -273,19 +279,19 @@
 .mobilePhones .circle4 {
   width: 13rem;
   height: 10rem;
-  bottom: 4vh;
-  right: -6vw;
+  bottom: 4rem;
+  right: -6rem;
   z-index: 4;
 
 }
 
 .mobilePhones:hover .circle1,
-.mobilePhones:hover .circle2, 
+.mobilePhones:hover .circle2,
 .mobilePhones:hover .circle3,
 .mobilePhones:hover .circle4 {
-    transform: rotateZ(90deg);
-    width: 12rem;
-    height: 14rem;
+  transform: rotateZ(90deg);
+  width: 12rem;
+  height: 14rem;
 
 }
 
@@ -303,7 +309,7 @@
   background-color: #f8832f;
   position: relative;
   width: 21rem;
-  height: 11rem; 
+  height: 11rem;
   padding: 2rem;
   border-radius: 1rem;
   overflow: hidden;
@@ -311,7 +317,7 @@
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
   color: white;
   text-align: center;
@@ -319,14 +325,14 @@
 }
 
 .tvs img {
-    position: absolute;
-    width: 70%;
-    margin-left:0rem;
-    margin-top:-5rem;
-    object-fit: contain;
-    transform: rotateZ(-10deg);
-    transition: all 1s ease;
-    z-index: 5;
+  position: absolute;
+  width: 70%;
+  margin-left: 0rem;
+  margin-top: -5rem;
+  object-fit: contain;
+  transform: rotateZ(-10deg);
+  transition: all 1s ease;
+  z-index: 5;
 }
 
 .tvs:hover {
@@ -334,34 +340,37 @@
 }
 
 .tvs:hover img {
-    transform: rotateZ(0deg) scale(1.1);
-    
+  transform: rotateZ(0deg) scale(1.1);
+
 }
 
 .tvs:hover p {
-    transform : scale(1.05);
-    background-color: rgba(0, 0, 0, 0.075); 
+  transform: scale(1.05);
+  background-color: rgba(0, 0, 0, 0.075);
 }
 
 .tvs p {
-    color: rgb(255, 255, 255);
-    padding:5.5rem  11rem;
-    margin-top: -6.6rem;
-    font-size: clamp(1.8rem, 1vw, 14rem);
-    font-family: "PoppinsRegular";
-    z-index: 6;
-    background-color: rgba(0, 0, 0, 0.363); 
-    transition: all 0.3s ease;
+  color: rgb(255, 255, 255);
+  padding: 5.5rem 11rem;
+  margin-top: -6.6rem;
+  font-size: clamp(1.8rem, 1.8rem, 14rem);
+  font-family: "PoppinsRegular";
+  z-index: 6;
+  background-color: rgba(0, 0, 0, 0.363);
+  transition: all 0.3s ease;
 
 }
 
 
-.tvs .circle1, .tvs .circle2, .tvs  .circle3, .tvs  .circle4 {
+.tvs .circle1,
+.tvs .circle2,
+.tvs .circle3,
+.tvs .circle4 {
   position: absolute;
   border-radius: 50%;
   z-index: 1;
-  background-color: #556B2F; 
-  pointer-events: none; 
+  background-color: #556B2F;
+  pointer-events: none;
   box-shadow: 0px 20px 20px #07102975;
   transition: all 1s ease;
   transform: rotateZ(20deg);
@@ -372,9 +381,9 @@
 .tvs .circle1 {
   width: 10rem;
   height: 9rem;
-  top: 6vh;
+  top: 6rem;
   box-shadow: 0px -20px 20px #07102975;
-  left: -5vw;
+  left: -5rem;
   z-index: 1;
 
 }
@@ -382,16 +391,16 @@
 .tvs .circle2 {
   width: 11rem;
   height: 8rem;
-  top: -2vh;
-  left: -5vw;
-  z-index: 2;  
+  top: -2rem;
+  left: -5rem;
+  z-index: 2;
 }
 
 .tvs .circle3 {
   width: 11rem;
   height: 8rem;
-  bottom: -4vh;
-  right: -4vw;
+  bottom: -4rem;
+  right: -4rem;
   z-index: 3;
 
 }
@@ -399,19 +408,19 @@
 .tvs .circle4 {
   width: 11rem;
   height: 9rem;
-  bottom: 4vh;
-  right: -5vw;
+  bottom: 4rem;
+  right: -5rem;
   z-index: 4;
 
 }
 
 .tvs:hover .circle1,
-.tvs:hover .circle2, 
+.tvs:hover .circle2,
 .tvs:hover .circle3,
 .tvs:hover .circle4 {
-    transform: rotateZ(90deg);
-    width: 10rem;
-    height: 12rem;
+  transform: rotateZ(90deg);
+  width: 10rem;
+  height: 12rem;
 
 }
 
@@ -430,7 +439,7 @@
   background-color: #7779fc;
   position: relative;
   width: 21rem;
-  height: 11rem; 
+  height: 11rem;
   padding: 2rem;
   border-radius: 1rem;
   overflow: hidden;
@@ -438,7 +447,7 @@
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
   color: white;
   text-align: center;
@@ -446,14 +455,14 @@
 }
 
 .smartWatches img {
-    position: absolute;
-    width: 60%;
-    margin-left:0rem;
-    margin-top:-5rem;
-    object-fit: contain;
-    transform: rotateZ(20deg);
-    transition: all 1s ease;
-    z-index: 5;
+  position: absolute;
+  width: 60%;
+  margin-left: 0rem;
+  margin-top: -5rem;
+  object-fit: contain;
+  transform: rotateZ(20deg);
+  transition: all 1s ease;
+  z-index: 5;
 }
 
 .smartWatches:hover {
@@ -461,39 +470,39 @@
 }
 
 .smartWatches:hover img {
-    transform: rotateZ(0deg) scale(1.1);
-    
+  transform: rotateZ(0deg) scale(1.1);
+
 }
 
 .smartWatches:hover p {
-    transform : scale(1.05);
-    background-color: rgba(0, 0, 0, 0.226); 
+  transform: scale(1.05);
+  background-color: rgba(0, 0, 0, 0.226);
 }
 
 .smartWatches p {
-    line-height: 0.9;
-    color: rgb(255, 255, 255);
-    padding:6.5rem  11rem;
-    margin-top: -6.6rem;
-    font-size: clamp(1.8rem, 1vw, 14rem);
-    font-family: "PoppinsRegular";
+  line-height: 0.9;
+  color: rgb(255, 255, 255);
+  padding: 6.5rem 11rem;
+  margin-top: -6.6rem;
+  font-size: clamp(1.8rem, 1.8rem, 14rem);
+  font-family: "PoppinsRegular";
 
-    z-index: 6;
-    background-color: rgba(0, 0, 0, 0.534); 
-    transition: all 0.3s ease;
+  z-index: 6;
+  background-color: rgba(0, 0, 0, 0.534);
+  transition: all 0.3s ease;
 
 }
 
 
 .smartWatches .circle1,
 .smartWatches .circle2,
-.smartWatches  .circle3,
-.smartWatches  .circle4 {
+.smartWatches .circle3,
+.smartWatches .circle4 {
   position: absolute;
   border-radius: 50%;
   z-index: 1;
-  background-color: #3be7ae; 
-  pointer-events: none; 
+  background-color: #3be7ae;
+  pointer-events: none;
   box-shadow: 0px 20px 20px #07102938;
   transition: all 1s ease;
   transform: rotateZ(20deg);
@@ -504,9 +513,9 @@
 .smartWatches .circle1 {
   width: 12rem;
   height: 11rem;
-  top: 2vh;
+  top: 2rem;
   box-shadow: 0px -20px 20px #07102938;
-  left: -5vw;
+  left: -5rem;
   z-index: 1;
 
 }
@@ -514,16 +523,16 @@
 .smartWatches .circle2 {
   width: 12rem;
   height: 10rem;
-  top: -5vh;
-  left: -3vw;
-  z-index: 2;  
+  top: -5rem;
+  left: -3rem;
+  z-index: 2;
 }
 
 .smartWatches .circle3 {
   width: 12rem;
   height: 10rem;
-  bottom: -4vh;
-  right: -4.5vw;
+  bottom: -4rem;
+  right: -4.5rem;
   box-shadow: 0px -20px 20px #07102938;
   z-index: 4;
 
@@ -532,19 +541,19 @@
 .smartWatches .circle4 {
   width: 12rem;
   height: 10rem;
-  bottom: 4vh;
-  right: -5.5vw;
+  bottom: 4rem;
+  right: -5.5rem;
   z-index: 3;
 
 }
 
 .smartWatches:hover .circle1,
-.smartWatches:hover .circle2, 
+.smartWatches:hover .circle2,
 .smartWatches:hover .circle3,
 .smartWatches:hover .circle4 {
-    transform: rotateZ(90deg);
-    width: 12rem;
-    height: 12rem;
+  transform: rotateZ(90deg);
+  width: 12rem;
+  height: 12rem;
 
 }
 
@@ -562,7 +571,7 @@
   background-color: #e25252;
   position: relative;
   width: 21rem;
-  height: 11rem; 
+  height: 11rem;
   padding: 2rem;
   border-radius: 1rem;
   overflow: hidden;
@@ -570,7 +579,7 @@
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
   color: white;
   text-align: center;
@@ -578,14 +587,14 @@
 }
 
 .keyboards img {
-    position: absolute;
-    width: 80%;
-    margin-left:0rem;
-    margin-top:-8rem;
-    object-fit: contain;
-    transform: rotateZ(-20deg);
-    transition: all 1s ease;
-    z-index: 5;
+  position: absolute;
+  width: 80%;
+  margin-left: 0rem;
+  margin-top: -8rem;
+  object-fit: contain;
+  transform: rotateZ(-20deg);
+  transition: all 1s ease;
+  z-index: 5;
 }
 
 .keyboards:hover {
@@ -593,38 +602,38 @@
 }
 
 .keyboards:hover img {
-    transform: rotateZ(0deg) scale(1.1);
+  transform: rotateZ(0deg) scale(1.1);
 }
 
 .keyboards:hover p {
-    transform : scale(1.05);
-    background-color: rgba(0, 0, 0, 0.116); 
+  transform: scale(1.05);
+  background-color: rgba(0, 0, 0, 0.116);
 }
 
 .keyboards p {
-    line-height: 0.9;
-    color: rgb(255, 255, 255);
-    padding:6.5rem  11rem;
-    margin-top: -7.2rem;
-    font-size: clamp(1.8rem, 1vw, 14rem);
-    font-family: "PoppinsRegular";
+  line-height: 0.9;
+  color: rgb(255, 255, 255);
+  padding: 6.5rem 11rem;
+  margin-top: -7.2rem;
+  font-size: clamp(1.8rem, 1.8rem, 14rem);
+  font-family: "PoppinsRegular";
 
-    z-index: 6;
-    background-color: rgba(0, 0, 0, 0.295); 
-    transition: all 0.3s ease;
+  z-index: 6;
+  background-color: rgba(0, 0, 0, 0.295);
+  transition: all 0.3s ease;
 
 }
 
 
 .keyboards .circle1,
 .keyboards .circle2,
-.keyboards  .circle3,
-.keyboards  .circle4 {
+.keyboards .circle3,
+.keyboards .circle4 {
   position: absolute;
   border-radius: 50%;
   z-index: 1;
-  background-color: #FFF0E0; 
-  pointer-events: none; 
+  background-color: #FFF0E0;
+  pointer-events: none;
   box-shadow: 0px 20px 20px #07102938;
   transition: all 1s ease;
   transform: rotateZ(20deg);
@@ -635,9 +644,9 @@
 .keyboards .circle1 {
   width: 12rem;
   height: 11rem;
-  top: 2vh;
+  top: 2rem;
   box-shadow: 0px -20px 20px #07102938;
-  left: -5vw;
+  left: -5rem;
   z-index: 1;
 
 }
@@ -645,16 +654,16 @@
 .keyboards .circle2 {
   width: 12rem;
   height: 10rem;
-  top: -5vh;
-  left: -3vw;
-  z-index: 2;  
+  top: -5rem;
+  left: -3rem;
+  z-index: 2;
 }
 
 .keyboards .circle3 {
   width: 12rem;
   height: 10rem;
-  bottom: -4vh;
-  right: -4.5vw;
+  bottom: -4rem;
+  right: -4.5rem;
   box-shadow: 0px -20px 20px #07102938;
   z-index: 4;
 
@@ -663,19 +672,19 @@
 .keyboards .circle4 {
   width: 12rem;
   height: 10rem;
-  bottom: 4vh;
-  right: -5.5vw;
+  bottom: 4rem;
+  right: -5.5rem;
   z-index: 3;
 
 }
 
 .keyboards:hover .circle1,
-.keyboards:hover .circle2, 
+.keyboards:hover .circle2,
 .keyboards:hover .circle3,
 .keyboards:hover .circle4 {
-    transform: rotateZ(90deg);
-    width: 12rem;
-    height: 12rem;
+  transform: rotateZ(90deg);
+  width: 12rem;
+  height: 12rem;
 
 }
 
@@ -686,7 +695,7 @@
   background-color: #9f4dec;
   position: relative;
   width: 21rem;
-  height: 11rem; 
+  height: 11rem;
   padding: 2rem;
   border-radius: 1rem;
   overflow: hidden;
@@ -694,7 +703,7 @@
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
   color: white;
   text-align: center;
@@ -702,14 +711,14 @@
 }
 
 .headphones img {
-    position: absolute;
-    width: 45%;
-    margin-left:0rem;
-    margin-top:-5rem;
-    object-fit: contain;
-    transform: rotateZ(-20deg);
-    transition: all 1s ease;
-    z-index: 5;
+  position: absolute;
+  width: 45%;
+  margin-left: 0rem;
+  margin-top: -5rem;
+  object-fit: contain;
+  transform: rotateZ(-20deg);
+  transition: all 1s ease;
+  z-index: 5;
 }
 
 .headphones:hover {
@@ -717,39 +726,39 @@
 }
 
 .headphones:hover img {
-    transform: rotateZ(0deg) scale(1.1);
-    margin-top:-6rem;
+  transform: rotateZ(0deg) scale(1.1);
+  margin-top: -6rem;
 }
 
 .headphones:hover p {
-    transform : scale(1.05);
-    background-color: rgba(0, 0, 0, 0.116); 
+  transform: scale(1.05);
+  background-color: rgba(0, 0, 0, 0.116);
 }
 
 .headphones p {
-    line-height: 0.9;
-    color: rgb(255, 255, 255);
-    padding:6.5rem  11rem;
-    margin-top: -7.2rem;
-    font-size: clamp(1.8rem, 1vw, 14rem);
-    font-family: "PoppinsRegular";
+  line-height: 0.9;
+  color: rgb(255, 255, 255);
+  padding: 6.5rem 11rem;
+  margin-top: -7.2rem;
+  font-size: clamp(1.8rem, 1.8rem, 14rem);
+  font-family: "PoppinsRegular";
 
-    z-index: 6;
-    background-color: rgba(0, 0, 0, 0.295); 
-    transition: all 0.3s ease;
+  z-index: 6;
+  background-color: rgba(0, 0, 0, 0.295);
+  transition: all 0.3s ease;
 
 }
 
 
 .headphones .circle1,
 .headphones .circle2,
-.headphones  .circle3,
-.headphones  .circle4 {
+.headphones .circle3,
+.headphones .circle4 {
   position: absolute;
   border-radius: 50%;
   z-index: 1;
-  background-color: #8ca6ee; 
-  pointer-events: none; 
+  background-color: #8ca6ee;
+  pointer-events: none;
   box-shadow: 0px 20px 20px #0710294d;
   transition: all 1s ease;
   transform: rotateZ(20deg);
@@ -760,9 +769,9 @@
 .headphones .circle1 {
   width: 12rem;
   height: 11rem;
-  top: 6vh;
+  top: 6rem;
   box-shadow: 0px -20px 20px #07102938;
-  left: -3vw;
+  left: -3rem;
   z-index: 1;
 
 }
@@ -770,16 +779,16 @@
 .headphones .circle2 {
   width: 12rem;
   height: 11rem;
-  top: 0vh;
-  left: -4vw;
-  z-index: 2;  
+  top: 0rem;
+  left: -4rem;
+  z-index: 2;
 }
 
 .headphones .circle3 {
   width: 12rem;
   height: 10rem;
-  bottom: -1vh;
-  right: -4.5vw;
+  bottom: -1rem;
+  right: -4.5rem;
   box-shadow: 0px -20px 20px #07102938;
   z-index: 3;
 
@@ -788,19 +797,19 @@
 .headphones .circle4 {
   width: 12rem;
   height: 10rem;
-  bottom: 4vh;
-  right: -4vw;
+  bottom: 4rem;
+  right: -4rem;
   z-index: 4;
 
 }
 
 .headphones:hover .circle1,
-.headphones:hover .circle2, 
+.headphones:hover .circle2,
 .headphones:hover .circle3,
 .headphones:hover .circle4 {
-    transform: rotateZ(90deg);
-    width: 12rem;
-    height: 12rem;
+  transform: rotateZ(90deg);
+  width: 12rem;
+  height: 12rem;
 
 }
 
@@ -814,7 +823,7 @@
   background-color: #42b3e7;
   position: relative;
   width: 21rem;
-  height: 11rem; 
+  height: 11rem;
   padding: 2rem;
   border-radius: 1rem;
   overflow: hidden;
@@ -822,7 +831,7 @@
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
   color: white;
   text-align: center;
@@ -830,14 +839,14 @@
 }
 
 .monitors img {
-    position: absolute;
-    width: 70%;
-    margin-left:0rem;
-    margin-top:-5rem;
-    object-fit: contain;
-    transform: rotateZ(-20deg);
-    transition: all 1s ease;
-    z-index: 5;
+  position: absolute;
+  width: 70%;
+  margin-left: 0rem;
+  margin-top: -5rem;
+  object-fit: contain;
+  transform: rotateZ(-20deg);
+  transition: all 1s ease;
+  z-index: 5;
 }
 
 .monitors:hover {
@@ -845,38 +854,38 @@
 }
 
 .monitors:hover img {
-    transform: rotateZ(0deg) scale(1.1);
-    margin-top:-6rem;
+  transform: rotateZ(0deg) scale(1.1);
+  margin-top: -6rem;
 }
 
 .monitors:hover p {
-    transform : scale(1.05);
-    background-color: rgba(0, 0, 0, 0.11); 
+  transform: scale(1.05);
+  background-color: rgba(0, 0, 0, 0.11);
 }
 
 .monitors p {
-    line-height: 0.9;
-    color: rgb(255, 255, 255);
-    padding:6.5rem  11rem;
-    margin-top: -7.1rem;
-    font-size: clamp(1.8rem, 1vw, 14rem);
-    font-family: "PoppinsRegular";
+  line-height: 0.9;
+  color: rgb(255, 255, 255);
+  padding: 6.5rem 11rem;
+  margin-top: -7.1rem;
+  font-size: clamp(1.8rem, 1.8rem, 14rem);
+  font-family: "PoppinsRegular";
 
-    z-index: 6;
-    background-color: rgba(0, 0, 0, 0.212); 
-    transition: all 0.3s ease;
+  z-index: 6;
+  background-color: rgba(0, 0, 0, 0.212);
+  transition: all 0.3s ease;
 
 }
 
 .monitors .circle1,
 .monitors .circle2,
-.monitors  .circle3,
-.monitors  .circle4 {
+.monitors .circle3,
+.monitors .circle4 {
   position: absolute;
   border-radius: 50%;
   z-index: 1;
-  background-color:#ff6f61; 
-  pointer-events: none; 
+  background-color: #ff6f61;
+  pointer-events: none;
   box-shadow: 0px 20px 20px #0710294d;
   transition: all 1s ease;
   transform: rotateZ(20deg);
@@ -887,9 +896,9 @@
 .monitors .circle1 {
   width: 12rem;
   height: 11rem;
-  top: 6vh;
+  top: 6rem;
   box-shadow: 0px -20px 20px #07102938;
-  left: -5vw;
+  left: -5rem;
   z-index: 2;
 
 }
@@ -897,16 +906,16 @@
 .monitors .circle2 {
   width: 13rem;
   height: 11rem;
-  top: 0vh;
-  left: -5vw;
-  z-index: 1;  
+  top: 0rem;
+  left: -5rem;
+  z-index: 1;
 }
 
 .monitors .circle3 {
   width: 13rem;
   height: 10rem;
-  bottom: -4vh;
-  right: -5vw;
+  bottom: -4rem;
+  right: -5rem;
   box-shadow: 0px -20px 20px #07102938;
   z-index: 4;
 
@@ -915,19 +924,19 @@
 .monitors .circle4 {
   width: 12rem;
   height: 11rem;
-  bottom: 2vh;
-  right: -4vw;
+  bottom: 2rem;
+  right: -4rem;
   z-index: 3;
 
 }
 
 .monitors:hover .circle1,
-.monitors:hover .circle2, 
+.monitors:hover .circle2,
 .monitors:hover .circle3,
 .monitors:hover .circle4 {
-    transform: rotateZ(90deg);
-    width: 12rem;
-    height: 12rem;
+  transform: rotateZ(90deg);
+  width: 12rem;
+  height: 12rem;
 
 }
 
@@ -940,7 +949,7 @@
   background-color: #f7d656;
   position: relative;
   width: 21rem;
-  height: 11rem; 
+  height: 11rem;
   padding: 2rem;
   border-radius: 1rem;
   overflow: hidden;
@@ -948,7 +957,7 @@
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
   color: white;
   text-align: center;
@@ -956,14 +965,14 @@
 }
 
 .tablets img {
-    position: absolute;
-    width: 65%;
-    margin-left:0rem;
-    margin-top:-5rem;
-    object-fit: contain;
-    transform: rotateZ(-20deg);
-    transition: all 1s ease;
-    z-index: 5;
+  position: absolute;
+  width: 65%;
+  margin-left: 0rem;
+  margin-top: -5rem;
+  object-fit: contain;
+  transform: rotateZ(-20deg);
+  transition: all 1s ease;
+  z-index: 5;
 }
 
 .tablets:hover {
@@ -971,37 +980,37 @@
 }
 
 .tablets:hover img {
-    transform: rotateZ(0deg) scale(1.1);
+  transform: rotateZ(0deg) scale(1.1);
 }
 
 .tablets:hover p {
-    transform : scale(1.05);
-    background-color: rgba(0, 0, 0, 0.11); 
+  transform: scale(1.05);
+  background-color: rgba(0, 0, 0, 0.11);
 }
 
 .tablets p {
-    line-height: 0.9;
-    color: rgb(255, 255, 255);
-    padding:6.5rem  11rem;
-    margin-top: -7rem;
-    font-size: clamp(1.8rem, 1vw, 14rem);
-    font-family: "PoppinsRegular";
+  line-height: 0.9;
+  color: rgb(255, 255, 255);
+  padding: 6.5rem 11rem;
+  margin-top: -7rem;
+  font-size: clamp(1.8rem, 1.8rem, 14rem);
+  font-family: "PoppinsRegular";
 
-    z-index: 6;
-    background-color: rgba(0, 0, 0, 0.212); 
-    transition: all 0.3s ease;
+  z-index: 6;
+  background-color: rgba(0, 0, 0, 0.212);
+  transition: all 0.3s ease;
 
 }
 
 .tablets .circle1,
 .tablets .circle2,
-.tablets  .circle3,
-.tablets  .circle4 {
+.tablets .circle3,
+.tablets .circle4 {
   position: absolute;
   border-radius: 50%;
   z-index: 1;
-  background-color:#e8b4b8; 
-  pointer-events: none; 
+  background-color: #e8b4b8;
+  pointer-events: none;
   box-shadow: 0px 20px 20px #07102921;
   transition: all 1s ease;
   transform: rotateZ(20deg);
@@ -1012,9 +1021,9 @@
 .tablets .circle1 {
   width: 11rem;
   height: 10rem;
-  top: 4vh;
+  top: 4rem;
   box-shadow: 0px -20px 20px #060e2436;
-  left: -4vw;
+  left: -4rem;
   z-index: 2;
 
 }
@@ -1022,17 +1031,17 @@
 .tablets .circle2 {
   width: 11rem;
   height: 8rem;
-  top: -4vh;
-  left: -4vw;
-  z-index: 1;  
+  top: -4rem;
+  left: -4rem;
+  z-index: 1;
 }
 
 
 .tablets .circle3 {
   width: 11rem;
   height: 8rem;
-  bottom: -4vh;
-  right: -3vw;
+  bottom: -4rem;
+  right: -3rem;
   z-index: 3;
 
 }
@@ -1040,2370 +1049,18 @@
 .tablets .circle4 {
   width: 11rem;
   height: 10rem;
-  bottom: 4vh;
-  right: -3vw;
+  bottom: 4rem;
+  right: -3rem;
   z-index: 4;
 
 }
 
 .tablets:hover .circle1,
-.tablets:hover .circle2, 
+.tablets:hover .circle2,
 .tablets:hover .circle3,
 .tablets:hover .circle4 {
-    transform: rotateZ(90deg);
-    width: 12rem;
-    height: 12rem;
-
-}
-
-
-@media (max-width: 1560px) {
-
-.container {
-    height: 40rem;
-}
-
-.title {
-    margin-top:4rem;
-    margin-bottom: 2rem;
-    font-size: clamp(5rem, 1vw, 14rem);
-
-
-}
-
-
-.categories {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    padding: 0rem 4rem;
-} 
-
-.categories li {
-    padding:3rem;
-}
-
-.computers {
-  width: 100%;
-  height: 10rem; 
-}
-
-.computers img {
-    width: 80%;
-    margin-top:-6vw;
-}
-
-
-.computers p {
-
-    margin-top: -5.3rem;
-    font-size: clamp(2.3rem, 1vw, 14rem);
-
-
-}
-
-
-
-
-.computers .circle1 {
-  width: 7rem;
-  height: 6rem;
-  top: 3rem;
-  left: -3.5rem;
-
-
-}
-
-.computers .circle2 {
-  width: 7rem;
-  height: 6rem;
-  top: -1rem;
-  left: -3rem;
-  z-index: 2;  
-}
-
-.computers .circle3 {   
-  width: 7rem;
-  height: 6rem;
-  bottom: -0rem;
-  right: -2rem;
-
-
-}
-
-.computers .circle4 {
-
-  width: 7rem;
-  height: 6rem;
-  bottom: 3rem;
-  right: -3rem;
-
-
-}
-
-.mobilePhones {
-  width: 100%;
-  height: 10rem; 
-}
-
-
-.mobilePhones img {
-    width: 80%;
-    margin-left:3.5rem;
-    margin-top:-4vw;
-
-}
-
-
-.mobilePhones p {
-    margin-top: -5.3rem;
-    font-size: clamp(2.3rem, 1vw, 14rem);
-
-}
-
-
-
-
-.mobilePhones .circle1 {
-  width: 7rem;
-  height: 6rem;
-  top: 3rem;
-  left: -3rem;
-
-}
-
-.mobilePhones .circle2 {
-  width: 7rem;
-  height: 6rem;
-  top: -1rem;
-  left: -2rem;
-
-}
-
-.mobilePhones .circle3 {
-  width: 7rem;
-  height: 6rem;
-  bottom: -2rem;
-  right: -2rem;
-
-
-}
-
-.mobilePhones .circle4 {
-  width: 7rem;
-  height: 6rem;
-  bottom: 2rem;
-  right: -3rem;
-
-
-}
-
-.mobilePhones:hover .circle1,
-.mobilePhones:hover .circle2, 
-.mobilePhones:hover .circle3,
-.mobilePhones:hover .circle4 {
-
-    width: 7rem;
-    height: 6rem;
-
-}
-
-
-
-
-
-
-
-
-
-
-
-.tvs {
-
-  width: 100%;
-  height: 10rem; 
-}
-
-.tvs img {
-    width: 70%;
-    margin-top:-2vw;
-}
-
-
-.tvs p {
-    margin-top: -5.2rem;
-    font-size: clamp(2.3rem, 1vw, 14rem);
-
-}
-
-
-
-.tvs .circle1 {
-  width: 7rem;
-  height: 6rem;
-  top: 3rem;
-  left: -2rem;
-
-}
-
-.tvs .circle2 {
-  width: 7rem;
-  height: 6rem;
-  top: -1rem;
-  left: -1rem;
-}
-
-.tvs .circle3 {
-  width: 7rem;
-  height: 6rem;
-  bottom: -1rem;
-  right: -2rem;
-
-}
-
-.tvs .circle4 {
-  width: 7rem;
-  height: 6rem;
-  bottom: 2rem;
-
-
-}
-
-.tvs:hover .circle1,
-.tvs:hover .circle2, 
-.tvs:hover .circle3,
-.tvs:hover .circle4 {
-  width: 7rem;
-  height: 6rem;
-
-}
-
-
-
-
-.smartWatches {
-  width: 100%;
-  height: 10rem; 
-}
-
-.smartWatches img {
-    width: 65%;
-    margin-top:-4vw;
-}
-
-
-
-.smartWatches p {
-    margin-top: -5.4rem;
-    font-size: clamp(2.3rem, 1vw, 14rem);
-
-}
-
-
-
-
-.smartWatches .circle1 {
-  width: 7rem;
-  height: 6rem;
-  top: 2rem;
-  left: -2rem;
-
-
-}
-
-.smartWatches .circle2 {
-  width: 7rem;
-  height: 6rem;
-  top: -1rem;
-  left: -1rem;
-
-}
-
-.smartWatches .circle3 {
-  width: 7rem;
-  height: 6rem;
-  bottom: -1rem;
-  right: -2rem;
-
-
-}
-
-.smartWatches .circle4 {
-  width: 7rem;
-  height: 6rem;
-  bottom: 3rem;
-  right: -3rem;
-
-
-}
-
-.smartWatches:hover .circle1,
-.smartWatches:hover .circle2, 
-.smartWatches:hover .circle3,
-.smartWatches:hover .circle4 {
-  width: 7rem;
-  height: 6rem;
-
-}
-
-
-
-
-
-
-
-
-
-
-
-.keyboards {
-  width: 100%;
-  height: 10rem;
-}
-
-.keyboards img {
-    width: 80%;
-    margin-top:-5.6vw;
-}
-
-
-
-.keyboards:hover img {
-    margin-top:-5.6vw;
-  }
-
-
-.keyboards p {
-    margin-top: -5.6rem;
-    font-size: clamp(2.3rem, 1vw, 14rem);
-
-}
-
-
-
-
-
-.keyboards .circle1 {
-  width: 7rem;
-  height: 6rem;
-  top: 2rem;
-  left: -2rem;
-
-
-}
-
-.keyboards .circle2 {
-  width: 7rem;
-  height: 6rem;
-  top: -1rem;
-  left: -2rem;
-
-}
-
-.keyboards .circle3 {
-  width: 7rem;
-  height: 6rem;
-  bottom: -2rem;
-  right: -1rem;
-
-
-}
-
-.keyboards .circle4 {
-  width: 7rem;
-  height: 6rem;
-  bottom: 1rem;
-  right: -2rem;
-
-
-}
-
-.keyboards:hover .circle1,
-.keyboards:hover .circle2, 
-.keyboards:hover .circle3,
-.keyboards:hover .circle4 {
-  width: 7rem;
-  height: 6rem;
-
-}
-
-
-
-
-.headphones {
-  width: 100%;
-  height: 10rem;
-}
-
-.headphones img {
-    width: 45%;
-    margin-top:-3.5vw;
-}
-
-
-.headphones:hover img {
-    margin-top:-3.5vw;
-}
-
-
-
-.headphones p {
-    margin-top: -5.3rem;
-    font-size: clamp(2rem, 1vw, 14rem);
-
-}
-
-
-
-
-
-.headphones .circle1 {
-  width: 7rem;
-  height: 6rem;
-  top: 4rem;
-  left: -1rem;
-
-
-}
-
-.headphones .circle2 {
-  width: 7rem;
-  height: 6rem;
-  top: 1rem;
-  left: -2rem;
-}
-
-.headphones .circle3 {
-  width: 7rem;
-  height: 6rem;
-  bottom: 1rem;
-  right: -2rem;
-
-
-}
-
-.headphones .circle4 {
-  width: 7rem;
-  height: 6rem;
-  bottom: 4rem;
-  right: -1rem;
-
-}
-
-.headphones:hover .circle1,
-.headphones:hover .circle2, 
-.headphones:hover .circle3,
-.headphones:hover .circle4 {
-  width: 7rem;
-  height: 6rem;
-
-}
-
-
-
-
-
-
-
-.monitors {
-  width: 100%;
-  height: 10rem;
-}
-
-.monitors img {
-    width: 65%;
-    margin-top:-3.5vw;
-}
-
-
-.monitors:hover img {
-    margin-top:-3.5vw;
-}
-
-
-
-.monitors p {
-    margin-top: -5.5rem;
-    font-size: clamp(2.3rem, 1vw, 14rem);
-
-}
-
-
-
-
-.monitors .circle1 {
-  width: 7rem;
-  height: 6rem;
-  top: 3rem;
-  left: -2rem;
-}
-
-.monitors .circle2 {
-  width: 7rem;
-  height: 6rem;
-  top: 0rem;
-  left: -1rem;
-  
-}
-
-.monitors .circle3 {
-  width: 7rem;
-  height: 6rem;
-  bottom: -1rem;
-  right: -1rem;
-
-
-}
-
-.monitors .circle4 {
-  width: 7rem;
-  height: 6rem;
-  bottom: 2rem;
-  right: -2rem;
-
-
-}
-
-.monitors:hover .circle1,
-.monitors:hover .circle2, 
-.monitors:hover .circle3,
-.monitors:hover .circle4 {
-  width: 7rem;
-  height: 6rem;
-
-}
-
-
-
-
-
-
-.tablets {
-  width: 100%;
-  height: 10rem;
-}
-
-.tablets img {
-    width: 65%;
-    margin-top:-2vw;
-}
-
-
-
-.tablets p {
-    margin-top: -5.5rem;
-    font-size: clamp(2.3rem, 1vw, 14rem);
-
-}
-
-
-
-
-.tablets .circle1 {
-  width: 7rem;
-  height: 6rem;
-  top: 3rem;
-  left: -1.5rem;
-
-}
-
-.tablets .circle2 {
-  width: 7rem;
-  height: 6rem;
-  top: -1rem;
-  left: -2rem;
-}
-
-
-.tablets .circle3 {
-  width: 7rem;
-  height: 6rem;
-  bottom: 2rem;
-  right: -2rem;
-
-}
-
-.tablets .circle4 {
-  width: 7rem;
-  height: 6rem;
-  bottom: 4rem;
-  right: -1rem;
-
-}
-
-.tablets:hover .circle1,
-.tablets:hover .circle2, 
-.tablets:hover .circle3,
-.tablets:hover .circle4 {
-  width: 7rem;
-  height: 6rem;
-
-}
-
-
-}
-
-@media (max-width: 1200px) {
-
-
-
-.categories {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    padding: 0rem 2rem;
-} 
-
-
-
-
-
-.computers img {
-    width: 100%;
-    margin-top:-8vw;
-}
-
-
-
-
-
-
-.computers .circle1 {
-  width: 7rem;
-  height: 6rem;
-  top: 3rem;
-  left: -3.5rem;
-
-
-}
-
-.computers .circle2 {
-  width: 7rem;
-  height: 6rem;
-  top: -1rem;
-  left: -3rem;
-  z-index: 2;  
-}
-
-.computers .circle3 {   
-  width: 7rem;
-  height: 6rem;
-  bottom: -0rem;
-  right: -2rem;
-
-
-}
-
-.computers .circle4 {
-
-  width: 7rem;
-  height: 6rem;
-  bottom: 3rem;
-  right: -3rem;
-
-
-}
-
-
-
-.mobilePhones img {
-    width: 100%;
-    margin-left:3.5rem;
-    margin-top:-5vw;
-
-}
-
-
-
-
-
-
-
-.mobilePhones .circle1 {
-  width: 7rem;
-  height: 6rem;
-  top: 2rem;
-  left: -4rem;
-
-}
-
-.mobilePhones .circle2 {
-  width: 7rem;
-  height: 6rem;
-  top: -2.5rem;
-  left: -2.5rem;
-
-}
-
-.mobilePhones .circle3 {
-  width: 7rem;
-  height: 6rem;
-  bottom: -2rem;
-  right: -4rem;
-
-
-}
-
-.mobilePhones .circle4 {
-  width: 7rem;
-  height: 6rem;
-  bottom: 2rem;
-  right: -5rem;
-
-
-}
-
-.mobilePhones:hover .circle1,
-.mobilePhones:hover .circle2, 
-.mobilePhones:hover .circle3,
-.mobilePhones:hover .circle4 {
-
-    width: 7rem;
-    height: 6rem;
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-.tvs img {
-    width: 85%;
-    margin-top:-3vw;
-}
-
-
-
-
-
-.tvs .circle1 {
-  width: 7rem;
-  height: 6rem;
-  top: 2rem;
-  left: -3rem;
-
-}
-
-.tvs .circle2 {
-  width: 7rem;
-  height: 6rem;
-  top: -1rem;
-  left: -2.5rem;
-}
-
-.tvs .circle3 {
-  width: 7rem;
-  height: 6rem;
-  bottom: -1rem;
-  right: -3rem;
-
-}
-
-.tvs .circle4 {
-  width: 7rem;
-  height: 6rem;
-  bottom: 2rem;
-
-
-}
-
-.tvs:hover .circle1,
-.tvs:hover .circle2, 
-.tvs:hover .circle3,
-.tvs:hover .circle4 {
-  width: 7rem;
-  height: 6rem;
-
-}
-
-
-
-
-
-
-.smartWatches img {
-    width: 75%;
-    margin-top:-4.8vw;
-}
-
-
-
-
-.smartWatches .circle1 {
-  width: 7rem;
-  height: 6rem;
-  top: 1rem;
-  left: -4rem;
-
-
-}
-
-.smartWatches .circle2 {
-  width: 7rem;
-  height: 6rem;
-  top: -2rem;
-  left: -3rem;
-
-}
-
-.smartWatches .circle3 {
-  width: 7rem;
-  height: 6rem;
-  bottom: -2rem;
-  right: -3rem;
-
-
-}
-
-.smartWatches .circle4 {
-  width: 7rem;
-  height: 6rem;
-  bottom: 2rem;
-  right: -4rem;
-
-
-}
-
-.smartWatches:hover .circle1,
-.smartWatches:hover .circle2, 
-.smartWatches:hover .circle3,
-.smartWatches:hover .circle4 {
-  width: 7rem;
-  height: 6rem;
-
-}
-
-
-
-
-.keyboards img {
-    width: 90%;
-    margin-top:-6.6vw;
-}
-
-
-
-.keyboards:hover img {
-    margin-top:-6.6vw;
-  }
-
-
-
-
-
-.keyboards .circle1 {
-  width: 7rem;
-  height: 6rem;
-  top: 1rem;
-  left: -3rem;
-
-
-}
-
-.keyboards .circle2 {
-  width: 7rem;
-  height: 6rem;
-  top: -2rem;
-  left: -3rem;
-
-}
-
-.keyboards .circle3 {
-  width: 7rem;
-  height: 6rem;
-  bottom: -2rem;
-  right: -3rem;
-
-
-}
-
-.keyboards .circle4 {
-  width: 7rem;
-  height: 6rem;
-  bottom: 1rem;
-  right: -3.5rem;
-
-
-}
-
-.keyboards:hover .circle1,
-.keyboards:hover .circle2, 
-.keyboards:hover .circle3,
-.keyboards:hover .circle4 {
-  width: 7rem;
-  height: 6rem;
-
-}
-
-
-
-.headphones img {
-    width: 55%;
-    margin-top:-5vw;
-}
-
-
-.headphones:hover img {
-    margin-top:-5vw;
-}
-
-
-
-
-
-.headphones .circle1 {
-  width: 7rem;
-  height: 6rem;
-  top: 4rem;
-  left: -3rem;
-
-
-}
-
-.headphones .circle2 {
-  width: 7rem;
-  height: 6rem;
-  top: 1rem;
-  left: -4rem;
-}
-
-.headphones .circle3 {
-  width: 7rem;
-  height: 6rem;
-  bottom: -1rem;
-  right: -4rem;
-
-
-}
-
-.headphones .circle4 {
-  width: 7rem;
-  height: 6rem;
-  bottom: 2rem;
-  right: -3rem;
-
-}
-
-.headphones:hover .circle1,
-.headphones:hover .circle2, 
-.headphones:hover .circle3,
-.headphones:hover .circle4 {
-  width: 7rem;
-  height: 6rem;
-
-}
-
-
-.monitors img {
-    width: 80%;
-    margin-top:-5vw;
-}
-
-
-.monitors:hover img {
-    margin-top:-5vw;
-}
-
-
-
-
-.monitors .circle1 {
-  width: 7rem;
-  height: 6rem;
-  top: 3rem;
-  left: -4.5rem;
-}
-
-.monitors .circle2 {
-  width: 7rem;
-  height: 6rem;
-  top: 0rem;
-  left: -3.5rem;
-  
-}
-
-.monitors .circle3 {
-  width: 7rem;
-  height: 6rem;
-  bottom: -1rem;
-  right: -3rem;
-
-
-}
-
-.monitors .circle4 {
-  width: 7rem;
-  height: 6rem;
-  bottom: 2rem;
-  right: -4rem;
-
-
-}
-
-.monitors:hover .circle1,
-.monitors:hover .circle2, 
-.monitors:hover .circle3,
-.monitors:hover .circle4 {
-  width: 7rem;
-  height: 6rem;
-
-}
-
-
-
-.tablets img {
-    width: 65%;
-    margin-top:-5vw;
-}
-
-
-
-.tablets .circle1 {
-  width: 7rem;
-  height: 6rem;
-  top: 3rem;
-  left: -3.5rem;
-
-}
-
-.tablets .circle2 {
-  width: 7rem;
-  height: 6rem;
-  top: -1rem;
-  left: -4rem;
-}
-
-
-.tablets .circle3 {
-  width: 7rem;
-  height: 6rem;
-  bottom: -0rem;
-  right: -3.5rem;
-
-}
-
-.tablets .circle4 {
-  width: 7rem;
-  height: 6rem;
-  bottom: 2rem;
-  right: -3rem;
-
-}
-
-.tablets:hover .circle1,
-.tablets:hover .circle2, 
-.tablets:hover .circle3,
-.tablets:hover .circle4 {
-  width: 7rem;
-  height: 6rem;
-
-}
-
-
-}
-
-@media (max-width: 992px) {
-
-.title {
-    margin-top:4rem;
-    margin-bottom: 2rem;
-    font-size: clamp(4rem, 1vw, 14rem);
-
-
-}
-
-
-.categories {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.7rem;
-    top:14rem;
-    padding: 0rem 1rem;
-} 
-
-
-
-
-.computers img {
-    width: 110%;
-    margin-top:-8vw;
-}
-
-
-.computers p {
-
-    margin-top: -5rem;
-    font-size: clamp(1.7rem, 1vw, 14rem);
-
-
-}
-
-
-
-
-
-
-
-.mobilePhones img {
-    width: 115%;
-    margin-left:2rem;
-    margin-top:-7vw;
-
-}
-
-
-.mobilePhones p {
-    margin-top: -5rem;
-    font-size: clamp(1.7rem, 1vw, 14rem);
-
-}
-
-
-
-
-
-
-
-.tvs img {
-    width: 90%;
-    margin-top:-3vw;
-}
-
-
-.tvs p {
-    margin-top: -5rem;
-    font-size: clamp(1.7rem, 1vw, 14rem);
-
-}
-
-
-
-
-
-
-
-.smartWatches img {
-    width: 90%;
-    margin-top:-5.8vw;
-}
-
-
-
-.smartWatches p {
-    margin-top: -5.2rem;
-    font-size: clamp(1.7rem, 1vw, 14rem);
-
-}
-
-
-
-
-
-.keyboards img {
-    width: 100%;
-    margin-top:-6.6vw;
-}
-
-
-
-.keyboards:hover img {
-    margin-top:-6.6vw;
-  }
-
-
-.keyboards p {
-    margin-top: -5.5rem;
-    font-size: clamp(1.7rem, 1vw, 14rem);
-
-}
-
-
-
-
-.headphones img {
-    width: 65%;
-    margin-top:-6vw;
-}
-
-
-.headphones:hover img {
-    margin-top:-6vw;
-}
-
-
-
-.headphones p {
-    margin-top: -5.4rem;
-    font-size: clamp(1.6rem, 1vw, 14rem);
-
-}
-
-
-
-.monitors img {
-    width: 90%;
-    margin-top:-5vw;
-}
-
-
-.monitors:hover img {
-    margin-top:-5vw;
-}
-
-
-
-.monitors p {
-    margin-top: -5.4rem;
-    font-size: clamp(1.7rem, 1vw, 14rem);
-
-}
-
-
-
-.tablets img {
-    width: 75%;
-    margin-top:-5.5vw;
-}
-
-
-
-.tablets p {
-    margin-top: -5.4rem;
-    font-size: clamp(1.7rem, 1vw, 14rem);
-
-}
-
-
-
-
-}
-
-
-
-
-
-
-
-@media (max-width: 768px) {
-
-.container {
-    height: 50rem;
-}
-
- .title {
-    margin-top:4rem;
-    margin-bottom: 2rem;
-    font-size: clamp(4rem, 1vw, 14rem);
-}
-
-.categories {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    padding: 0rem 5rem;
-} 
-
-.categories li {
-    padding:3rem;
-}
-
-.computers {
-  width: 100%;
-  height: 8.4rem; 
-}
-
-.computers img {
-    width: 90%;
-    margin-top:-12.5vw;
-}
-
-
-.computers p {
-
-    margin-top: -5.8rem;
-    font-size: clamp(2rem, 1vw, 14rem);
-
-
-}
-
-
-
-
-
-
-
-.mobilePhones {
-  width: 100%;
-  height: 8.4rem; 
-}
-
-
-.mobilePhones img {
-    width: 95%;
-    margin-left:3rem;
-    margin-top:-9vw;
-
-}
-
-
-.mobilePhones p {
-    margin-top: -5.8rem;
-    font-size: clamp(2rem, 1vw, 14rem);
-
-}
-
-
-
-
-.tvs {
-
-  width: 100%;
-  height: 8.4rem; 
-}
-
-.tvs img {
-    width: 80%;
-    margin-top:-6vw;
-}
-
-
-.tvs p {
-    margin-top: -5.8rem;
-    font-size: clamp(2rem, 1vw, 14rem);
-
-}
-
-
-
-
-
-.smartWatches {
-  width: 100%;
-  height: 8.4rem; 
-}
-
-.smartWatches img {
-    width: 70%;
-    margin-top:-8.8vw;
-}
-
-
-
-.smartWatches p {
-    margin-top: -6.1rem;
-    font-size: clamp(2rem, 1vw, 14rem);
-
-}
-
-
-
-
-
-
-
-
-.keyboards {
-  width: 100%;
-  height: 8.4rem;
-}
-
-.keyboards img {
-    width: 90%;
-    margin-top:-12.6vw;
-}
-
-
-
-.keyboards:hover img {
-    margin-top:-12.6vw;
-  }
-
-
-.keyboards p {
-    margin-top: -6.2rem;
-    font-size: clamp(2rem, 1vw, 14rem);
-
-}
-
-
-
-
-
-.headphones {
-  width: 100%;
-  height: 8.4rem;
-}
-
-.headphones img {
-    width: 50%;
-    margin-top:-9vw;
-}
-
-
-.headphones:hover img {
-    margin-top:-9vw;
-}
-
-
-
-.headphones p {
-    margin-top: -6.1rem;
-    font-size: clamp(1.9rem, 1vw, 14rem);
-
-}
-
-
-
-
-
-
-.monitors {
-  width: 100%;
-  height: 8.4rem;
-}
-
-.monitors img {
-    width: 70%;
-    margin-top:-8vw;
-}
-
-
-.monitors:hover img {
-    margin-top:-8vw;
-}
-
-
-
-.monitors p {
-    margin-top: -6.2rem;
-    font-size: clamp(2rem, 1vw, 14rem);
-
-}
-
-
-
-
-
-
-
-.tablets {
-  width: 100%;
-  height: 8.4rem;
-}
-
-.tablets img {
-    width: 55%;
-    margin-top:-7.5vw;
-}
-
-
-
-.tablets p {
-    margin-top: -6.1rem;
-    font-size: clamp(2rem, 1vw, 14rem);
-
-}
-
-
-
-
-}
-
-
-
-
-
-
-
-@media (max-width: 599px) {
-
-.container {
-    height: 32rem;
-}
-
- .title {
-    margin-top:1rem;
-    margin-bottom: 2rem;
-    font-size: clamp(3rem, 1vw, 14rem);
-
-
-}
-
-
-
-
-
-.categories {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    top:6rem;
-    padding: 0rem 1rem;
-} 
-
-.categories li {
-    padding:3rem;
-    border-radius: 0.5rem;
-}
-
-.computers {
-  width: 100%;
-  height: 6rem; 
-}
-
-.computers img {
-    width: 100%;
-    margin-top:-18.5vw;
-}
-
-
-.computers p {
-
-    margin-top: -5.8rem;
-    font-size: clamp(2rem, 1vw, 14rem);
-
-
-}
-
-
-
-
-.computers .circle1 {
-  width: 5rem;
-  height: 6rem;
-  top: 3rem;
-  left: -2.5rem;
-
-
-}
-
-.computers .circle2 {
-  width: 5rem;
-  height: 6rem;
-  top: -1rem;
-  left: -3rem;
-  z-index: 2;  
-}
-
-.computers .circle3 {   
-  width: 5rem;
-  height: 6rem;
-  bottom: -0rem;
-  right: -2rem;
-
-
-}
-
-.computers .circle4 {
-
-  width: 5rem;
-  height: 6rem;
-  bottom: 3rem;
-  right: -3rem;
-
-
-}
-
-
-.mobilePhones {
-  width: 100%;
-  height: 6rem; 
-}
-
-
-.mobilePhones img {
-    width: 100%;
-    margin-left:3rem;
-    margin-top:-11vw;
-
-}
-
-
-.mobilePhones p {
-    margin-top: -5.8rem;
-    font-size: clamp(2rem, 1vw, 14rem);
-
-}
-
-
-
-
-.mobilePhones .circle1 {
-  width: 5rem;
-  height: 6rem;
-  top: 2rem;
-  left: -3rem;
-
-}
-
-.mobilePhones .circle2 {
-  width: 5rem;
-  height: 6rem;
-  top: -2.5rem;
-  left: -1.5rem;
-
-}
-
-.mobilePhones .circle3 {
-  width: 5rem;
-  height: 6rem;
-  bottom: -2rem;
-  right: -4vw;
-
-
-}
-
-.mobilePhones .circle4 {
-  width: 5rem;
-  height: 6rem;
-  bottom: 2rem;
-  right: -2rem;
-
-
-}
-
-.mobilePhones:hover .circle1,
-.mobilePhones:hover .circle2, 
-.mobilePhones:hover .circle3,
-.mobilePhones:hover .circle4 {
-
-    width: 5rem;
-    height: 6rem;
-
-}
-
-
-
-
-
-
-
-
-
-
-
-.tvs {
-
-  width: 100%;
-  height: 6rem; 
-}
-
-.tvs img {
-    width: 80%;
-    margin-top:-8vw;
-}
-
-
-.tvs p {
-    margin-top: -5.8rem;
-    font-size: clamp(2rem, 1vw, 14rem);
-
-}
-
-
-
-.tvs .circle1 {
-  width: 5rem;
-  height: 6rem;
-  top: 3rem;
-  left: -2.5rem;
-
-}
-
-.tvs .circle2 {
-  width: 5rem;
-  height: 6rem;
-  top: -1rem;
-  left: -2rem;
-}
-
-.tvs .circle3 {
-  width: 5rem;
-  height: 6rem;
-  bottom: -1rem;
-  right: -2rem;
-
-}
-
-.tvs .circle4 {
-  width: 5rem;
-  height: 6rem;
-  bottom: 2rem;
-
-
-}
-
-.tvs:hover .circle1,
-.tvs:hover .circle2, 
-.tvs:hover .circle3,
-.tvs:hover .circle4 {
-  width: 5rem;
-  height: 6rem;
-
-}
-
-
-
-
-.smartWatches {
-  width: 100%;
-  height: 6rem; 
-}
-
-.smartWatches img {
-    width: 70%;
-    margin-top:-10.8vw;
-}
-
-
-
-.smartWatches p {
-    margin-top: -6.1rem;
-    font-size: clamp(2rem, 1vw, 14rem);
-
-}
-
-
-
-
-.smartWatches .circle1 {
-  width: 5rem;
-  height: 6rem;
-  top: 2rem;
-  left: -3rem;
-
-
-}
-
-.smartWatches .circle2 {
-  width: 5rem;
-  height: 6rem;
-  top: -2rem;
-  left: -2rem;
-
-}
-
-.smartWatches .circle3 {
-  width: 5rem;
-  height: 6rem;
-  bottom: -2rem;
-  right: -2.5rem;
-
-
-}
-
-.smartWatches .circle4 {
-  width: 5rem;
-  height: 6rem;
-  bottom: 2rem;
-  right: -3.5rem;
-
-
-}
-
-.smartWatches:hover .circle1,
-.smartWatches:hover .circle2, 
-.smartWatches:hover .circle3,
-.smartWatches:hover .circle4 {
-  width: 5rem;
-  height: 6rem;
-
-}
-
-
-
-
-
-
-
-
-
-
-
-.keyboards {
-  width: 100%;
-  height: 6rem; 
-}
-
-.keyboards img {
-    width: 90%;
-    margin-top:-15.6vw;
-}
-
-
-
-.keyboards:hover img {
-    margin-top:-15.6vw;
-  }
-
-
-.keyboards p {
-    margin-top: -6.2rem;
-    font-size: clamp(2rem, 1vw, 14rem);
-
-}
-
-
-
-
-
-.keyboards .circle1 {
-  width: 5rem;
-  height: 6rem;
-  top: 2rem;
-  left: -2rem;
-
-
-}
-
-.keyboards .circle2 {
-  width: 5rem;
-  height: 6rem;
-  top: -2rem;
-  left: -2.5rem;
-
-}
-
-.keyboards .circle3 {
-  width: 5rem;
-  height: 6rem;
-  bottom: -2rem;
-  right: -2.5rem;
-
-
-}
-
-.keyboards .circle4 {
-  width: 5rem;
-  height: 6rem;
-  bottom: 2rem;
-  right: -2.5rem;
-
-
-}
-
-.keyboards:hover .circle1,
-.keyboards:hover .circle2, 
-.keyboards:hover .circle3,
-.keyboards:hover .circle4 {
-  width: 5rem;
-  height: 6rem;
-
-}
-
-
-
-
-.headphones {
-  width: 100%;
-  height: 6rem; 
-}
-
-.headphones img {
-    width: 50%;
-    margin-top:-11vw;
-}
-
-
-.headphones:hover img {
-    margin-top:-11vw;
-}
-
-
-
-.headphones p {
-    margin-top: -6.1rem;
-    font-size: clamp(1.9rem, 1vw, 14rem);
-
-}
-
-
-
-
-
-.headphones .circle1 {
-  width: 5rem;
-  height: 6rem;
-  top: 4rem;
-  left: -3rem;
-
-
-}
-
-.headphones .circle2 {
-  width: 5rem;
-  height: 6rem;
-  top: 0rem;
-  left: -3.5rem;
-}
-
-.headphones .circle3 {
-  width: 5rem;
-  height: 6rem;
-  bottom: -1rem;
-  right: -3rem;
-
-
-}
-
-.headphones .circle4 {
-  width: 5rem;
-  height: 6rem;
-  bottom: 3rem;
-  right: -1.5rem;
-
-}
-
-.headphones:hover .circle1,
-.headphones:hover .circle2, 
-.headphones:hover .circle3,
-.headphones:hover .circle4 {
-  width: 5rem;
-  height: 6rem;
-
-}
-
-
-
-
-
-
-
-.monitors {
-  width: 100%;
-  height: 6rem; 
-}
-
-.monitors img {
-    width: 70%;
-    margin-top:-10vw;
-}
-
-
-.monitors:hover img {
-    margin-top:-10vw;
-}
-
-
-
-.monitors p {
-    margin-top: -6.2rem;
-    font-size: clamp(2rem, 1vw, 14rem);
-
-}
-
-
-
-
-.monitors .circle1 {
-  width: 5rem;
-  height: 6rem;
-  top: 3rem;
-  left: -3rem;
-}
-
-.monitors .circle2 {
-  width: 5rem;
-  height: 6rem;
-  top: 0rem;
-  left: -2.5rem;
-  
-}
-
-.monitors .circle3 {
-  width: 5rem;
-  height: 6rem;
-  bottom: -2rem;
-  right: -2rem;
-
-
-}
-
-.monitors .circle4 {
-  width: 5rem;
-  height: 6rem;
-  bottom: 2rem;
-  right: -3rem;
-
-
-}
-
-.monitors:hover .circle1,
-.monitors:hover .circle2, 
-.monitors:hover .circle3,
-.monitors:hover .circle4 {
-  width: 5rem;
-  height: 6rem;
-
-}
-
-
-
-
-
-
-.tablets {
-  width: 100%;
-  height: 6rem; 
-}
-
-.tablets img {
-    width: 60%;
-    margin-top:-11vw;
-}
-
-
-
-.tablets p {
-    margin-top: -6.1rem;
-    font-size: clamp(2rem, 1vw, 14rem);
-
-}
-
-
-
-
-.tablets .circle1 {
-  width: 5rem;
-  height: 6rem;
-  top: 3rem;
-  left: -3rem;
-
-}
-
-.tablets .circle2 {
-  width: 5rem;
-  height: 6rem;
-  top: -1rem;
-  left: -3rem;
-}
-
-
-.tablets .circle3 {
-  width: 5rem;
-  height: 6rem;
-  bottom: -0rem;
-  right: -2rem;
-
-}
-
-.tablets .circle4 {
-  width: 5rem;
-  height: 6rem;
-  bottom: 2rem;
-  right: -2rem;
-
-}
-
-.tablets:hover .circle1,
-.tablets:hover .circle2, 
-.tablets:hover .circle3,
-.tablets:hover .circle4 {
-  width: 5rem;
-  height: 6rem;
-
-}
-
-
-}
-
-
-
-
-
-
-
-@media (max-width: 	480px) {
-
- .title {
-    margin-top:2rem;
-    font-family: "PoppinsRegular";
-    margin-bottom: 0rem;
-    font-size: clamp(2rem, 2.5rem, 14rem);
-
-
-}
-
-
-.computers img {
-    width: 90%;
-    margin-top:-18.5vw;
-}
-
-
-.computers p {
-
-    margin-top: -6.4rem;
-    font-size: clamp(1.5rem, 1vw, 14rem);
-
-
-}
-
-
-.mobilePhones img {
-    width: 90%;
-    margin-left:2rem;
-    margin-top:-12vw;
-
-}
-
-
-.mobilePhones p {
-    margin-top: -6.4rem;
-    font-size: clamp(1.5rem, 1vw, 14rem);
-
-}
-
-
-.tvs img {
-    width: 80%;
-    margin-top:-11.5vw;
-}
-
-
-.tvs p {
-    margin-top: -6.4rem;
-    font-size: clamp(1.5rem, 1vw, 14rem);
-
-}
-
-.smartWatches img {
-    width: 70%;
-    margin-top:-11.8vw;
-}
-
-
-
-.smartWatches p {
-    margin-top: -7rem;
-    font-size: clamp(1.5rem, 1vw, 14rem);
-
-}
-
-
-.keyboards img {
-    width: 90%;
-    margin-top:-16.6vw;
-}
-
-
-
-.keyboards:hover img {
-    margin-top:-18.6vw;
-  }
-
-
-.keyboards p {
-    margin-top: -7rem;
-    font-size: clamp(1.5rem, 1vw, 14rem);
-
-}
-
-
-.headphones img {
-    width: 60%;
-    margin-top:-12vw;
-}
-
-
-.headphones:hover img {
-    margin-top:-13vw;
-}
-
-
-
-.headphones p {
-    margin-top: -6.8rem;
-    font-size: clamp(1.3rem, 1vw, 14rem);
-
-}
-
-
-.monitors img {
-    width: 70%;
-    margin-top:-10vw;
-}
-
-
-.monitors:hover img {
-    margin-top:-11vw;
-}
-
-
-
-.monitors p {
-    margin-top: -6.9rem;
-    font-size: clamp(1.5rem, 1vw, 14rem);
-
-}
-
-
-.tablets img {
-    width: 60%;
-    margin-top:-12vw;
-}
-
-
-
-.tablets p {
-    margin-top: -6.9rem;
-    font-size: clamp(1.5rem, 1vw, 14rem);
-
-}
-
-
-}
-
-
-
-
-
-@media (max-width: 	360px) {
-
-.computers img {
-    width: 110%;
-    margin-top:-3rem;
-}
-
-
-.computers p {
-
-    margin-top: -6.2rem;
-    font-size: clamp(1.2rem, 1vw, 14rem);
-
-
-}
-
-
-.mobilePhones img {
-    width: 110%;
-    margin-left:1rem;
-    margin-top:-3rem;
-
-}
-
-
-.mobilePhones p {
-    margin-top: -6.2rem;
-    font-size: clamp(1.2rem, 1vw, 14rem);
-
-}
-
-
-
-.tvs img {
-    width: 100%;
-    margin-top:-1.5rem;
-}
-
-
-.tvs p {
-    margin-top: -6.2rem;
-    font-size: clamp(1.2rem, 1vw, 14rem);
-
-}
-
-
-
-.smartWatches img {
-    width: 100%;
-    margin-top:-2.5rem;
-}
-
-
-
-.smartWatches p {
-    margin-top: -6.7rem;
-    font-size: clamp(1.2rem, 1vw, 14rem);
-
-}
-
-
-
-
-.keyboards img {
-    width: 100%;
-    margin-top:-2.5rem;
-}
-
-
-
-.keyboards:hover img {
-    margin-top:-2.7rem;
-}
-
-
-.keyboards p {
-    margin-top: -6.8rem;
-    font-size: clamp(1.2rem, 1vw, 14rem);
-
-}
-
-
-.headphones img {
-    width: 70%;
-    margin-top:-2.5rem;
-}
-
-
-.headphones:hover img {
-    margin-top:-2.5rem;
-}
-
-
-
-.headphones p {
-    margin-top: -6.7rem;
-    font-size: clamp(1.1rem, 1vw, 14rem);
-
-}
-
-
-.monitors img {
-    width: 100%;
-    margin-top:-2.2rem;
-}
-
-
-.monitors:hover img {
-    margin-top:-2.2rem;
-}
-
-
-
-.monitors p {
-    margin-top: -6.7rem;
-    font-size: clamp(1.2rem, 1vw, 14rem);
-
-}
-
-
-.tablets img {
-    width: 90%;
-    margin-top:-2.7rem;
-}
-
-
-
-.tablets p {
-    margin-top: -6.7rem;
-    font-size: clamp(1.2rem, 1vw, 14rem);
-
-}
-
-
-
+  transform: rotateZ(90deg);
+  width: 12rem;
+  height: 12rem;
 
 }
