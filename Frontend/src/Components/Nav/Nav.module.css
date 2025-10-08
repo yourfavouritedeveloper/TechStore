@@ -758,7 +758,7 @@ a {
 
     .inputBar input {
         font-size: 0.75rem;
-        top: -1.35rem;
+        top: -1.25rem;
         margin-left: -43rem;
         width: 9rem;
         padding: 0.15rem 1.3rem;
@@ -768,9 +768,85 @@ a {
 
 
     .search {
-        top: 0.3rem;
+        top: 0.4rem;
         left: 21rem;
         width: 20px;
         height: 20px;
     }
+}
+
+@media (max-width: 950px) {
+    .container {
+        width: 49rem;
+
+    }
+
+    #name {
+        left: 4.5%;
+        top: -0.5rem;
+        font-size: clamp(0rem, 0.9rem, 2.5rem);
+
+    }
+
+
+    #campaign {
+        left: 43.5%;
+        top: -0.5rem;
+        font-size: clamp(0rem, 0.9rem, 2.5rem);
+
+    }
+
+
+
+
+
+    #about {
+        left: 60.3%;
+        top: -0.5rem;
+        font-size: clamp(0rem, 0.9rem, 2.5rem);
+
+    }
+
+
+
+    #contact {
+        left: 72%;
+        top: -0.5rem;
+        font-size: clamp(0rem, 0.9rem, 2.5rem);
+
+    }
+
+
+
+
+
+
+    #login {
+
+        left: 86%;
+        top: -0.5rem;
+        font-size: clamp(0rem, 0.9rem, 2.5rem);
+
+    }
+
+
+
+
+    .inputBar input {
+        font-size: 0.6rem;
+        top: -1.6rem;
+        margin-left: -44rem;
+        width: 9rem;
+        padding: 0.15rem 0.8rem;
+        padding-right: 0.2rem;
+    }
+
+
+
+    .search {
+        top: 0rem;
+        left: 17.9rem;
+        width: 16px;
+        height: 16px;
+    }    
 }
