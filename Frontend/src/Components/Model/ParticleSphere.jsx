@@ -49,14 +49,14 @@ function WaterBubble({ radius = 1.5 }) {
 
   return (
     <mesh ref={meshRef} geometry={geometry}>
-      <meshStandardMaterial
-        vertexColors
-        transparent
-        opacity={0.9}
-        roughness={0.1}
-        metalness={0.6}
-        side={THREE.DoubleSide}
-      />
+<meshStandardMaterial
+  vertexColors
+  transparent
+  opacity={0.9}
+  roughness={0.1}
+  metalness={0}
+  side={THREE.DoubleSide}
+/>
     </mesh>
   );
 }

@@ -24,7 +24,7 @@ body {
 .highcontainer {
     top: 0rem;
     background-color: rgb(255, 255, 255);
-    width: 550%;
+    width: 100%;
     position: fixed;
     justify-content: center;
     z-index: 10;
@@ -150,7 +150,7 @@ body {
     position: absolute;
     border-radius: 2rem;
     padding: 5px 0px;
-    left: 91.1%;
+    left: 90.9%;
     font-size: clamp(1rem, 1.45rem, 2.5rem);
     transition: all 0.3s ease;
     z-index: 10;
@@ -571,14 +571,14 @@ a {
     outline: none;
     font-size: 1rem;
     top: -1.2rem;
-    border: 0.13rem solid rgb(211, 211, 211);
+    border: 0.13px solid rgb(175, 175, 175);
     margin-left: -38rem;
     width: 13rem;
     padding: 0.3rem 2rem;
 }
 
 .inputBar input:focus {
-    border: 0.13rem solid rgb(211, 211, 211);
+    border: 0.13px solid rgb(175, 175, 175);
 }
 
 .search {
@@ -628,7 +628,7 @@ a {
     }
 
     #name {
-        left: 2.5%;
+        left: 2.2%;
         top: 0.1rem;
         font-size: clamp(1rem, 1.25rem, 2.5rem);
 
@@ -636,7 +636,7 @@ a {
 
 
     #campaign {
-        left: 45.5%;
+        left: 45.2%;
         top: 0.1rem;
         font-size: clamp(1rem, 1.25rem, 2.5rem);
 
@@ -647,7 +647,7 @@ a {
 
 
     #about {
-        left: 62.3%;
+        left: 62%;
         top: 0.1rem;
         font-size: clamp(1rem, 1.25rem, 2.5rem);
 
@@ -656,7 +656,7 @@ a {
 
 
     #contact {
-        left: 76%;
+        left: 75.7%;
         top: 0.1rem;
         font-size: clamp(1rem, 1.25rem, 2.5rem);
 
@@ -669,7 +669,7 @@ a {
 
     #login {
 
-        left: 91%;
+        left: 90.7%;
         top: 0.1rem;
         font-size: clamp(1rem, 1.25rem, 2.5rem);
 
@@ -706,7 +706,7 @@ a {
     }
 
     #name {
-        left: 2.5%;
+        left: 1.5%;
         top: -0.1rem;
         font-size: clamp(0rem, 1.05rem, 2.5rem);
 
@@ -768,7 +768,7 @@ a {
 
 
     .search {
-        top: 0.4rem;
+        top: 0.3rem;
         left: 21rem;
         width: 20px;
         height: 20px;
