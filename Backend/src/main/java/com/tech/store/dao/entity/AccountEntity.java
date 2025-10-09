@@ -72,6 +72,7 @@ public class AccountEntity extends BaseEntity {
     @JsonManagedReference("account-products")
     private List<ProductEntity> products;
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne
+    @JoinColumn(name = "cart_id")
     private CartEntity cart;
 }

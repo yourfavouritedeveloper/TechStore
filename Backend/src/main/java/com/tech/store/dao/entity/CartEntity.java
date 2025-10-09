@@ -13,6 +13,7 @@ import lombok.Setter;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Getter
 @Setter
@@ -43,7 +44,7 @@ public class CartEntity extends BaseEntity{
     @CollectionTable(name = "cart_product_amounts", joinColumns = @JoinColumn(name = "cart_id"))
     @MapKeyColumn(name = "product_id")
     @Column(name = "amount")
-    private HashMap<Long,Long> amounts = new HashMap<>();
+    private Map<Long,Long> amounts;
 
     public void calculateTotalPrice() {
         if (products != null && !products.isEmpty()) {
@@ -61,6 +62,7 @@ public class CartEntity extends BaseEntity{
         calculateTotalPrice();
     }
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne
+    @JoinColumn(name = "account_id")
     private AccountEntity account;
 }
