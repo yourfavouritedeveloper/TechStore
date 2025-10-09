@@ -41,6 +41,17 @@ function Item({ name, productId }) {
     const [showRatingStars, setShowRatingStars] = useState(false);
     const [selectedRating, setSelectedRating] = useState(0); 
     const [hoverRating, setHoverRating] = useState(0);
+    const changeCart = {
+    id: null,               
+    account: {},           
+    products: [],           
+    totalPrice: 0,          
+    amounts: {}             
+    };
+
+        const [cart,setCart] = useState(changeCart);
+
+    const isInCart = cart?.products?.some(product => product.id === item.id);
 
     const fetchRepliesByIds = async (repliesId) => {
         if (!repliesId || repliesId.length === 0) return [];
@@ -85,6 +96,33 @@ function Item({ name, productId }) {
 
             fetchComments();
         }, [item]);
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const accountResponse = await axios.get(
+          `https://techstore-3fvk.onrender.com/api/v1/accounts/username/${account.username}`,
+          { auth: { username: USERNAME, password: PASSWORD } }
+        );
+
+        const logAccount = accountResponse.data;
+
+        const cartResponse = await axios.get(
+          `https://techstore-3fvk.onrender.com/api/v1/carts/account/${logAccount.id}`,
+          { auth: { username: USERNAME, password: PASSWORD } }
+        );
+
+        setCart(cartResponse.data);
+      } catch (err) {
+        console.error("Error fetching account or cart:", err);
+      }
+    };
+
+    if (account?.username) {
+      fetchData();
+    }
+  }, [account]);
 
 
     const handleChange = (e) => {
@@ -307,7 +345,32 @@ function Item({ name, productId }) {
 
 
 
+  const [count, setCount] = useState(0);
 
+    const increase = () => {
+    setCart(prevCart => ({
+        ...prevCart,
+        amounts: {
+        ...prevCart.amounts,
+        [item.id]: (prevCart.amounts[item.id] || 0) + 1
+        }
+    }));
+    }; 
+    
+    const decrease = () => {
+    setCart(prevCart => {
+        const currentAmount = prevCart.amounts[item.id] || 0;
+        if (currentAmount <= 0) return prevCart; 
+
+        return {
+        ...prevCart,
+        amounts: {
+            ...prevCart.amounts,
+            [item.id]: currentAmount - 1
+        }
+        };
+    });
+    };
 
 
 
@@ -425,7 +488,10 @@ function Item({ name, productId }) {
                         }
 
                         <button className={styles.buy} onClick={buy}>Buy now</button>
-                        <button className={styles.cart} onClick={addCart}>Add to cart</button>
+                        <button className={styles.decrease} onClick={decrease} style={styles.button}>-</button>
+                        <p className={styles.number}>{cart.amounts[item.id] ? cart.amounts[item.id] : 0 }</p>
+                        <button className={styles.increase} onClick={increase} style={styles.button}>+</button>
+                        <button className={styles.cart} onClick={addCart}>{isInCart ? "Added" : "Add to cart"}</button>
                         <button className={styles.favourite}>
                             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ffffff"><path d="M440-501Zm0 381L313-234q-72-65-123.5-116t-85-96q-33.5-45-49-87T40-621q0-94 63-156.5T260-840q52 0 99 22t81 62q34-40 81-62t99-22q81 0 136 45.5T831-680h-85q-18-40-53-60t-73-20q-51 0-88 27.5T463-660h-46q-31-45-70.5-72.5T260-760q-57 0-98.5 39.5T120-621q0 33 14 67t50 78.5q36 44.5 98 104T440-228q26-23 61-53t56-50l9 9 19.5 19.5L605-283l9 9q-22 20-56 49.5T498-172l-58 52Zm280-160v-120H600v-80h120v-120h80v120h120v80H800v120h-80Z" /></svg>
                         </button>

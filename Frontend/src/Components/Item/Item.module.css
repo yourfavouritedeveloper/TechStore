@@ -436,6 +436,57 @@ body {
     transform: scale(1.01);
 }
 
+.decrease {
+    font-size: 1.5rem;
+    padding: 0rem 1rem;
+    border-radius: 8px;
+    border: none;
+    left:23.3rem;
+    top:-9rem;
+    font-family: "PoppinsSemiBold";
+    background: #FF4136;
+    color: white;
+    position: absolute;
+    z-index: 50;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.increase {
+    font-size: 1.5rem;
+    padding: 0rem 1rem;
+    border-radius: 8px;
+    border: none;
+    top:-9rem;
+    font-family: "PoppinsSemiBold";
+    right:17rem;
+    background: #FF4136;
+    color: white;
+    position: absolute;
+    z-index: 50;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    
+}
+
+.increase:hover,
+.decrease:hover {
+    background-color: #ff5c53;
+}
+
+.number {
+    font-size: 2rem;
+    min-width: 2rem;
+    font-family: "PoppinsSemiBold";
+    color: #313131;
+    text-align: center;
+    right:21rem;
+    top:-11.4rem;
+    position: absolute;
+
+  }
+
 
 .cart {
     position: absolute;
