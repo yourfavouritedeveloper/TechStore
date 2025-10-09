@@ -52,11 +52,18 @@ public class CartController {
         return cartService.update(cartDto);
     }
 
-    @PutMapping("/add/{cartId}")
+    @PutMapping("/add/product/{cartId}")
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Add a product to a cart", description = "Adds a product to a cart.")
     public CartDto addProduct(@PathVariable Long cartId, @RequestParam Long productId) throws Exception {
         return cartService.addProduct(cartId, productId);
+    }
+
+    @PutMapping("/remove/product/{cartId}")
+    @ResponseStatus(HttpStatus.OK)
+    @Operation(summary = "Remove a product from the cart", description = "Removes a product from the cart.")
+    public CartDto removeProduct(@PathVariable Long cartId, @RequestParam Long productId) throws Exception {
+        return cartService.removeProduct(cartId, productId);
     }
 
     @PutMapping("/delete/{id}")

@@ -1,37 +1,78 @@
 .container {
-    height: 100rem;
-    background-color: rgb(255, 255, 255);
+  height: 100vw;
+background: linear-gradient(270deg, #ff9a8b, #ffb685, #ffd18b);
 
+  background-size: 600% 600%;
+  animation: gradientMove 12s ease-in-out infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  padding-top: 3rem;
+}
+  
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+.div {
+    position: absolute;
+    height: 90rem;
+    width: 90rem;
+    top:0%;
+    left:50%;
+    transform: translate(-50%,10%);
+    background-color: rgb(255, 255, 255);
+}
+
+.circle1, .circle2 {
+    border-radius: 50%;
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: rgb(219, 219, 219);
+}
+
+.circle1 {
+    top:2rem;
+    left:2rem;
+}
+
+.circle2 {
+    top:2rem;
+    right:2rem;
 }
 
 .titleDiv {
-    background-color: rgb(238, 238, 238);
     width: 80rem;
-    height: 8rem;
-    position: absolute;
-    top: 21.8%;
+    height: 6rem;
+    position: relative;
+    top: -2%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 1rem;
+    transform: translate(-50%,80%);
+    border-bottom: 1.9px solid rgb(219, 219, 219);
 }
 
 .title {
-    position: absolute;
+    position: relative;
     z-index: 5;
     font-size: clamp(1rem, 2.3rem, 10rem);
     font-family: "PoppinsSemiBold";
-    top: -0.2rem;
+    top:1rem;
     color: #313131;
-    left: 3.2rem;
+    left: -39.7%;
 }
 
 .cartDiv {
     background-color: rgb(238, 238, 238);
     width: 80rem;
-    height: 70rem;
-    position: absolute;
-    top: 121.8%;
+    height: 50rem;
+    position: relative;
+    top: 0%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 15%);
     border-radius: 1rem;
 }
