@@ -105,53 +105,49 @@ function Nav({ highlight, shiftUp, setShiftUp, onEditClick = () => { } }) {
   const logged = (<>
     {logAccount ? (
       <>
-      <div className={styles.accountDiv}>
-        <p className={styles.logName} onClick={() => setMenuOpen(prev => !prev)}>Account</p>
-        <img
-          className={styles.pp}
-          src={logAccount.profilePictureUrl ? logAccount.profilePictureUrl : def}
-          alt="Profile"
-        />
-        <p className={styles.fullname}>{logAccount.customerName}</p>
-        <p className={styles.username}>@{logAccount.username}</p>
-        <p className={styles.balance}>Balance: ${logAccount.balance}</p>
+        <div className={styles.accountDiv}>
+          <p className={styles.logName} onClick={() => setMenuOpen(prev => !prev)}>Account</p>
+          <img
+            className={styles.pp}
+            src={logAccount.profilePictureUrl ? logAccount.profilePictureUrl : def}
+            alt="Profile"
+          />
+          <p className={styles.fullname}>{logAccount.customerName}</p>
+          <p className={styles.username}>@{logAccount.username}</p>
+          <p className={styles.balance}>Balance: ${logAccount.balance}</p>
 
-        <div className={styles.purchaseHistory}>
-          <p className={styles.purchaseText}>
-            Easily track your spending and review past transactions.
-          </p>
-          <Link className={styles.purchaseButton}
-            onClick={(e) => {
-              e.preventDefault();
-              setIsPurchase(true);
-              navigate(`/account/${logAccount?.username}`);
-            }}>
-            Purchase History
+          <div className={styles.purchaseHistory}>
+            <p className={styles.purchaseText}>
+              Easily track your spending and review past transactions.
+            </p>
+            <Link className={styles.purchaseButton}
+              onClick={(e) => {
+                e.preventDefault();
+                setIsPurchase(true);
+                navigate(`/account/${logAccount?.username}`);
+              }}>
+              Purchase History
+            </Link>
+          </div>
+
+          <Link className={styles.view} to={`/account/${logAccount.username}`}>
+            View Profile
           </Link>
-        </div>
 
-        <Link className={styles.view} to={`/account/${logAccount.username}`}>
-          View Profile
-        </Link>
+          <Link className={styles.edit} to={`/account/${logAccount.username}/cart`}>
+            View Cart
+          </Link>
 
-        <Link className={styles.edit} to="#"
-          onClick={(e) => {
-            e.preventDefault();
-            navigate(`/account/${logAccount?.username}`, { state: { edit: true } });
-          }}>
-          Edit Profile
-        </Link>
-
-        <Link className={styles.signout} to="/" onClick={handleSignOut}>
-          Sign Out
-        </Link>
+          <Link className={styles.signout} to="/" onClick={handleSignOut}>
+            Sign Out
+          </Link>
         </div>
       </>
     ) : (
       <div className={styles.loadingContainer}>
         <img src={spinner} alt="Loading..." className={styles.loadingImage} />
       </div>
-      
+
     )}
   </>);
 
@@ -192,7 +188,7 @@ function Nav({ highlight, shiftUp, setShiftUp, onEditClick = () => { } }) {
     <Link id={styles.campaign} className={highlight ? styles.highlight : ""} to="/campaign">Campaign</Link>
     <Link id={styles.about} className={highlight ? styles.highlight : ""} to="/about">About</Link>
     <Link id={styles.contact} className={highlight ? styles.highlight : ""} to="/contact">Contact</Link>
-    <Link id={styles.login} style={{opacity: menuOpen ? "0" : "1"}} className={highlight ? styles.highlight : ""} onClick={() => setMenuOpen(prev => !prev)}>
+    <Link id={styles.login} style={{ opacity: menuOpen ? "0" : "1" }} className={highlight ? styles.highlight : ""} onClick={() => setMenuOpen(prev => !prev)}>
 
       Account
     </Link>
@@ -205,9 +201,9 @@ function Nav({ highlight, shiftUp, setShiftUp, onEditClick = () => { } }) {
 
   return (
     <>
-    <div className={highlight ? styles.highcontainer : styles.none}></div>
+      <div className={highlight ? styles.highcontainer : styles.none}></div>
       <nav className={styles.container}>
-      
+
 
         <ul className={styles.navbar}>
           <Link id={styles.name} className={highlight ? styles.highlight : ""} to="/">TechStore</Link>
@@ -234,18 +230,18 @@ function Nav({ highlight, shiftUp, setShiftUp, onEditClick = () => { } }) {
         </ul>
       </nav>
 
-          <div
-            className={styles.loginSection}
-              style={{
-              transform: menuOpen ? "translateX(-50%)" : "translateX(20rem)",
-              pointerEvents: menuOpen ? "auto" : "none"
-            }}
-          >
-            <div className={styles.accountDiv}>
-              
-            {account ? logged : guest}
-            </div>
-          </div>
+      <div
+        className={styles.loginSection}
+        style={{
+          transform: menuOpen ? "translateX(-50%)" : "translateX(20rem)",
+          pointerEvents: menuOpen ? "auto" : "none"
+        }}
+      >
+        <div className={styles.accountDiv}>
+
+          {account ? logged : guest}
+        </div>
+      </div>
 
     </>
 
