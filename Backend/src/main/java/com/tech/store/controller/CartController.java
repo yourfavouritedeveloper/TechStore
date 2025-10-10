@@ -31,6 +31,7 @@ public class CartController {
     public List<CartDto> findAll() {
         return cartService.findAll();
     }
+
     @GetMapping("/account/{accountId}")
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Get cart by account", description = "Gets the specified cart.")

@@ -441,8 +441,8 @@ body {
     padding: 0rem 1rem;
     border-radius: 8px;
     border: none;
-    left:23.3rem;
-    top:-9rem;
+    left: 23.3rem;
+    top: -9rem;
     font-family: "PoppinsSemiBold";
     background: #FF4136;
     color: white;
@@ -457,9 +457,9 @@ body {
     padding: 0rem 1rem;
     border-radius: 8px;
     border: none;
-    top:-9rem;
+    top: -9rem;
     font-family: "PoppinsSemiBold";
-    right:17rem;
+    right: 17rem;
     background: #FF4136;
     color: white;
     position: absolute;
@@ -467,7 +467,7 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
 
-    
+
 }
 
 .increase:hover,
@@ -481,18 +481,65 @@ body {
     font-family: "PoppinsSemiBold";
     color: #313131;
     text-align: center;
-    right:21rem;
-    top:-11.4rem;
+    right: 21rem;
+    top: -11.4rem;
     position: absolute;
 
-  }
+}
+
+.added {
+    font-size: 1.8rem;
+    min-width: 2rem;
+    font-family: "PoppinsLight";
+    color: #ffffff;
+    padding: 0.4rem 1.3rem;
+    text-align: center;
+    right: 3.5rem;
+    top: -12rem;
+    border-radius: 0.7rem;
+    position: absolute;
+    background-color: #FF4136;
+
+
+}
+
+.added svg {
+    position: relative;
+    right: 0.3rem;
+    top: 0.7rem;
+    height: 30px;
+    width: 30px;
+    fill: rgb(255, 255, 255);
+}
+
+.addedNumber {
+    font-size: 0.8rem;
+    font-family: "PoppinsSemiBold";
+    color: #FF4136;
+    text-align: center;
+    height: 22px;
+    width: 22px;
+    right: 4.3rem;
+    top: -9.7rem;
+    border-radius: 50%;
+    position: absolute;
+    background-color: white;
+
+
+}
+
+.addedNumber p {
+    position: relative;
+    top: -0.68rem;
+    left: -0.02rem;
+}
 
 
 .cart {
     position: absolute;
     padding: 0.65rem 4.5rem;
     font-size: clamp(1rem, 1.5rem, 10rem);
-    bottom: 9.65rem;
+    bottom: 9.60rem;
     white-space: nowrap;
     left: 23.3rem;
     cursor: pointer;
@@ -838,13 +885,13 @@ body {
     font-family: "PoppinsMedium";
     right: 2rem;
     top: -2rem;
-    font-size: clamp(1rem, 1.5rem, 10rem);    
+    font-size: clamp(1rem, 1.5rem, 10rem);
 }
 
 .star {
-  color: #ccc; 
-  margin-right: 2px;
-  transition: color 0.3s ease;
+    color: #ccc;
+    margin-right: 2px;
+    transition: color 0.3s ease;
 }
 
 .star.filled {
@@ -1016,7 +1063,7 @@ body {
     color: rgb(51, 51, 51);
     right: 47.23%;
     top: -15.6%;
-    font-size: clamp(1rem,1.3rem,10rem);
+    font-size: clamp(1rem, 1.3rem, 10rem);
 }
 
 
@@ -1125,10 +1172,10 @@ body {
     cursor: pointer;
     font-family: "PoppinsRegular";
     border: none;
-    left:50%;
+    left: 50%;
     transform: translateX(-50%);
     transition: all 0.3s ease;
-    font-size: clamp(0rem, 1.2rem, 10rem);    
+    font-size: clamp(0rem, 1.2rem, 10rem);
 }
 
 .replies {
@@ -1215,7 +1262,7 @@ body {
 .commentBox .likeReplyDiv {
     position: absolute;
     height: 5rem;
-    top:5rem;
+    top: 5rem;
     min-width: 15rem;
 }
 
@@ -1228,19 +1275,19 @@ body {
     border-radius: 0.5rem;
     left: 31.23%;
     font-family: "PoppinsMedium";
-    top:-6%;
+    top: -6%;
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .replyLikeCount {
-     position: absolute;
+    position: absolute;
     font-family: "PoppinsSemiBold";
     color: rgb(51, 51, 51);
-    top:-28%;
+    top: -28%;
     right: 93%;
-    font-size: clamp(1rem,1.2rem,10rem);   
+    font-size: clamp(1rem, 1.2rem, 10rem);
 }
 
 
@@ -1304,12 +1351,12 @@ body {
 .successMessage {
     background-color: rgb(11, 150, 11);
     width: 30%;
-    top:-11%;
-    left:50%;
+    top: -11%;
+    left: 50%;
     transform: translateX(-50%);
-    color:white;
-    font-size: clamp(1rem,1.3rem,10rem);
-    position: absolute; 
+    color: white;
+    font-size: clamp(1rem, 1.3rem, 10rem);
+    position: absolute;
     border-radius: 1rem;
     transition: all 0.3s ease;
 }
@@ -1317,12 +1364,12 @@ body {
 .warningMessage {
     background-color: rgb(238, 55, 55);
     width: 45%;
-    top:-11%;
-    left:50%;
+    top: -11%;
+    left: 50%;
     transform: translateX(-50%);
-    color:white;
-    font-size: clamp(1rem,1.3rem,10rem);
-    position: absolute; 
+    color: white;
+    font-size: clamp(1rem, 1.3rem, 10rem);
+    position: absolute;
     border-radius: 1rem;
     transition: all 0.3s ease;
 }
@@ -1340,24 +1387,29 @@ body {
     left: 73.6rem;
     font-size: 1.4rem;
     cursor: pointer;
-    transition: all 0.3s ease;    
+    transition: all 0.3s ease;
 }
 
 .spinner {
-  border: 3px solid #f3f3f3; 
-  border-top: 3px solid #555; 
-  border-radius: 50%;
-  width: 0.8rem;
-  height: 0.8rem;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #555;
+    border-radius: 50%;
+    width: 0.8rem;
+    height: 0.8rem;
 
-  animation: spin 0.8s linear infinite;
-  display: block;      
-  margin: 0 auto; 
+    animation: spin 0.8s linear infinite;
+    display: block;
+    margin: 0 auto;
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 
