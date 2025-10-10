@@ -558,6 +558,38 @@ body {
     transform: scale(1.01);
 }
 
+.cartSpinnerDiv {
+    padding: 0.52rem 0.52rem;
+    background-color: rgb(189, 189, 189);
+    color: white;
+    font-family: "PoppinsLight";
+    border: none;
+    bottom: 10.3rem;
+    position: absolute;
+    border-radius: 50%;
+    left: 76%;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+.success {
+     font-size: clamp(1rem, 1.7rem, 10rem); 
+     color:#ffffff;
+     font-family: "PoppinsRegular"; 
+     position: fixed; 
+     white-space: nowrap;
+     padding: 0.5rem 4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 1rem;
+    z-index: 5;
+    background: linear-gradient(90deg, #00b33c, #99e600);
+    transition: all 0.4s ease;
+}
+
+
 .favourite {
     position: absolute;
     padding: 1.85rem 2.3rem;
@@ -938,7 +970,7 @@ body {
     height: auto;
     border-top: 1.5px solid #c0c0c0;
     padding: 1rem;
-    margin-top: 4rem;
+    margin-top: 0rem;
     padding-top: 2.5rem;
 }
 
@@ -1049,19 +1081,19 @@ body {
     padding: 0.23rem 0.5rem;
     font-size: clamp(0rem, 1.1rem, 10rem);
     border-radius: 0.5rem;
-    left: -13.63%;
+    left: 0.63%;
     font-family: "PoppinsMedium";
-    top: -82.2%;
+    top: 9.4%;
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .commentBox .likeCount {
-    position: relative;
+    position: absolute;
     font-family: "PoppinsSemiBold";
     color: rgb(51, 51, 51);
-    right: 47.23%;
+    left: 17%;
     top: -15.6%;
     font-size: clamp(1rem, 1.3rem, 10rem);
 }
@@ -1071,8 +1103,8 @@ body {
     position: relative;
     padding: 1.2rem 1.2rem;
     border-radius: 50%;
-    left: -17.23%;
-    top: -91.2%;
+    left: -30%;
+    top: 0%;
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -1146,36 +1178,34 @@ body {
     position: relative;
     bottom: 4.5rem;
     overflow: hidden;
-    background-color: rgb(194, 194, 194);
-    color: white;
-    padding: 0.3rem 4rem;
-    border-radius: 0.5rem;
+    background-color: rgb(255, 255, 255);
+    color: rgb(156, 156, 156);
+    padding: 0.3rem 2rem;
     cursor: pointer;
     font-family: "PoppinsRegular";
     border: none;
     transition: all 0.3s ease;
+    top:-5rem;
     font-size: clamp(0rem, 1.2rem, 10rem);
 }
 
-.showReplies:hover {
-    background-color: rgb(101, 129, 255);
-}
+
 
 .showMoreComments {
     position: absolute;
-    bottom: 17.5rem;
+    bottom: 13.5rem;
     overflow: hidden;
-    background-color: rgb(101, 129, 255);
-    color: white;
-    padding: 0.3rem 4rem;
-    border-radius: 2rem;
+    background-color: rgba(101, 129, 255, 0);
+    color: rgb(56, 92, 255);
+    padding: 1rem 21rem;
     cursor: pointer;
     font-family: "PoppinsRegular";
     border: none;
-    left: 50%;
+    left: 49.5%;
+    white-space: nowrap;
     transform: translateX(-50%);
     transition: all 0.3s ease;
-    font-size: clamp(0rem, 1.2rem, 10rem);
+    font-size: clamp(0rem, 1.7rem, 10rem);
 }
 
 .replies {
@@ -1205,6 +1235,26 @@ body {
     flex-direction: column;
     gap: 0.2rem;
     transform: translateX(-50%);
+}
+
+.cancelReply {
+    position: absolute;
+    top:35%;
+    right: 7.5%;
+    cursor: pointer;
+    border: none;
+    background-color: #00000000;
+}
+
+.cancelReply svg {
+    height: 28px;
+    width: 28px;
+    fill:#313131;
+    transition: all 0.3s ease;
+}
+
+.cancelReply svg:hover {
+    fill:#ff4036
 }
 
 .accountReplyInfo {
@@ -1273,7 +1323,7 @@ body {
     padding: 0.23rem 0.5rem;
     font-size: clamp(0rem, 1rem, 10rem);
     border-radius: 0.5rem;
-    left: 31.23%;
+    left: 40%;
     font-family: "PoppinsMedium";
     top: -6%;
     border: none;
@@ -1286,7 +1336,7 @@ body {
     font-family: "PoppinsSemiBold";
     color: rgb(51, 51, 51);
     top: -28%;
-    right: 93%;
+    left: 17%;
     font-size: clamp(1rem, 1.2rem, 10rem);
 }
 
@@ -1295,7 +1345,7 @@ body {
     position: absolute;
     padding: 1.2rem 1.2rem;
     border-radius: 50%;
-    left: 12.73%;
+    left:0%;
     top: -11.1%;
     border: none;
     cursor: pointer;
@@ -1322,6 +1372,7 @@ body {
     position: relative;
     display: block;
     width: 87.5%;
+    color: #313131;
     font-family: "PoppinsRegular";
     border-radius: 1rem;
     left: 50.5%;

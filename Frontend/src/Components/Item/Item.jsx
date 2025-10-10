@@ -41,6 +41,7 @@ function Item({ name, productId }) {
     const [showRatingStars, setShowRatingStars] = useState(false);
     const [selectedRating, setSelectedRating] = useState(0);
     const [hoverRating, setHoverRating] = useState(0);
+    const [isAdding, setIsAdding] = useState(false);
     const changeCart = {
         id: null,
         account: {},
@@ -335,11 +336,19 @@ function Item({ name, productId }) {
 
         } catch (error) {
             console.error("Error liking comment:", error);
-            alert("Failed to like comment.");
         }
     };
 
     const [count, setCount] = useState(0);
+
+    useEffect(() => {
+    if (cart && cart.amounts && item?.id in cart.amounts) {
+        setCount(cart.amounts[item.id]);
+    } else {
+        setCount(0);
+    }
+    }, [cart, item]);
+
 
 
     const increase = () => { setCount(count + 1) };
@@ -347,8 +356,8 @@ function Item({ name, productId }) {
     const decrease = () => { setCount(count == 0 ? 0 : count - 1) };
 
     const addCart = async () => {
-
-        if (cart.amounts[item.id] < count) {
+        setIsAdding(true);
+        if (cart.amounts[item.id] < count  || !cart.amounts[item.id]) {
             try {
                 const response = await axios.put(
                     `https://techstore-3fvk.onrender.com/api/v1/carts/add/product/${cart?.id}`,
@@ -356,7 +365,7 @@ function Item({ name, productId }) {
                     {
                         params: {
                             productId: item.id,
-                            productAmount: cart.amounts[item.id],
+                            productAmount: count,
                         },
                         auth: {
                             username: USERNAME,
@@ -366,10 +375,8 @@ function Item({ name, productId }) {
                 );
 
                 setCart(response.data);
-                alert("Cart fetched");
             } catch (err) {
                 console.error(err);
-                alert("Error fetching carts");
             }
         }
 
@@ -381,7 +388,7 @@ function Item({ name, productId }) {
                     {
                         params: {
                             productId: item.id,
-                            productAmount: cart.amounts[item.id],
+                            productAmount: (cart.amounts[item.id]-count),
                         },
                         auth: {
                             username: USERNAME,
@@ -391,12 +398,17 @@ function Item({ name, productId }) {
                 );
 
                 setCart(response.data);
-                alert("Cart fetched");
+            
             } catch (err) {
                 console.error(err);
-                alert("Error fetching carts");
             }
         }
+        setIsAdding(false);
+        setSuccessMessage("Your cart has been updated!");
+
+        setTimeout(() => {
+        setSuccessMessage("");
+        }, 3000);
     };
 
 
@@ -412,7 +424,11 @@ function Item({ name, productId }) {
     useEffect(() => {
         if (!item?.category) return;
 
-        axios.get("https://techstore-3fvk.onrender.com/api/v1/products/all")
+        axios.get("https://techstore-3fvk.onrender.com/api/v1/products/all",
+            {
+              auth: { username: USERNAME, password: PASSWORD }
+            }
+        )
             .then(response => {
                 const filtered = response.data.filter(i => i.category === item.category && i.name !== item.name)
                     .slice(0, 4);
@@ -428,7 +444,11 @@ function Item({ name, productId }) {
         ? (item.price * (100 - item.discount) / 100).toFixed(2)
         : null;
 
-    return item.productImageUrl ? (<>
+    return (item.productImageUrl && cart.id) ? (<>
+        
+        <p className={styles.success} style={{top: successMessage ? "5.15rem" : "-1rem"}}>{successMessage}</p>
+        
+        
         {isChoice ? <Choice item={item} setIsChoice={setIsChoice} /> : null}
         <div className={styles.container}>
             <div className={styles.item} style={{
@@ -538,7 +558,16 @@ function Item({ name, productId }) {
                             <p>{cart.amounts[item.id]}</p>
                         </div>
                         <button className={styles.increase} onClick={increase} style={styles.button}>+</button>
-                        <button className={styles.cart} onClick={addCart}>{cart.amounts[item.id] != 0 && cart.amounts[item.id] ? "Update Cart" : "Add to cart"}</button>
+                        <button className={styles.cart} onClick={addCart}
+                        style={{left: cart.amounts[item.id] != 0 && cart.amounts[item.id] ? "22.93rem" : "23.3rem"}}>{cart.amounts[item.id] != 0 && cart.amounts[item.id] ? "Update Cart" : "Add to cart"}</button>
+                        {isAdding ? (
+                            <>
+                                <div className={styles.cartSpinnerDiv}>
+                                    <div className={styles.spinner}></div>
+                                </div>
+                            </>
+                        ) : ( <></>
+                        )}
                         <button className={styles.favourite}>
                             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ffffff"><path d="M440-501Zm0 381L313-234q-72-65-123.5-116t-85-96q-33.5-45-49-87T40-621q0-94 63-156.5T260-840q52 0 99 22t81 62q34-40 81-62t99-22q81 0 136 45.5T831-680h-85q-18-40-53-60t-73-20q-51 0-88 27.5T463-660h-46q-31-45-70.5-72.5T260-760q-57 0-98.5 39.5T120-621q0 33 14 67t50 78.5q36 44.5 98 104T440-228q26-23 61-53t56-50l9 9 19.5 19.5L605-283l9 9q-22 20-56 49.5T498-172l-58 52Zm280-160v-120H600v-80h120v-120h80v120h120v80H800v120h-80Z" /></svg>
                         </button>
@@ -675,7 +704,7 @@ function Item({ name, productId }) {
                                                         [comment.id]: !prev[comment.id]
                                                     }))
                                                 }>
-                                                    {openReplies[comment.id] ? "Close" : "Show"} {comment.replies.length} Replies</button>
+                                                   ──────── {openReplies[comment.id] ? "Close" : "Show"} {comment.replies.length} Replies ────────</button>
 
                                                 {openReplies[comment.id] && (
                                                     <div className={styles.replies}>
@@ -729,7 +758,7 @@ function Item({ name, productId }) {
                                     className={styles.showMoreComments}
                                     onClick={() => setVisibleCommentsCount(prev => prev + 10)}
                                 >
-                                    Show more comments
+                                    ──────── Show more comments ────────
                                 </button>
                             )}
                         </>
@@ -740,12 +769,18 @@ function Item({ name, productId }) {
                         </>
                     )}
                     <div className={styles.send} ref={sendRef}>
-                        {successMessage && <p className={styles.successMessage}>{successMessage}</p>}
                         {warningMessage && <p className={styles.warningMessage}>{warningMessage}</p>}
                         {repliedAccount && repliedComment && (<>
                             <p className={styles.replySend}>Replying to @{repliedAccount}</p>
                             <p className={styles.replyCommentSend}>{repliedCommentText}</p>
+                            <button className={styles.cancelReply} onClick={() => {
+                                setRepliedAccount(null);
+                                setRepliedComment(null);
+                            }}><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                            </svg>
+                            </button>
                         </>)}
+
                         <textarea className={styles.input}
                             ref={textareaRef}
                             value={newCommentText}

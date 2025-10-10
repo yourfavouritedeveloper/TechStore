@@ -5,6 +5,11 @@ import Product from "../Components/Item/Item"
 import Nav from "../Components/Nav/Nav"
 import Footer from "../Components/Footer/Footer"
 
+const USERNAME = import.meta.env.VITE_API_USERNAME;
+const PASSWORD = import.meta.env.VITE_API_PASSWORD;
+
+
+
 function Item({ shiftUp, setShiftUp }) {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -16,7 +21,10 @@ function Item({ shiftUp, setShiftUp }) {
     const fetchAndUpdateItem = async () => {
       try {
         const response = await axios.get(
-          `https://techstore-3fvk.onrender.com/api/v1/products/id/${id}`
+          `https://techstore-3fvk.onrender.com/api/v1/products/id/${id}`,
+           {
+              auth: { username: USERNAME, password: PASSWORD }
+            }
         );
         const currentItem = response.data;
         setItem(currentItem);
@@ -28,7 +36,10 @@ function Item({ shiftUp, setShiftUp }) {
 
         await axios.put(
           "https://techstore-3fvk.onrender.com/api/v1/products/update",
-          updatedItem
+          updatedItem,
+            {
+              auth: { username: USERNAME, password: PASSWORD }
+            }
         );
 
         console.log(`✅ Item searched count updated to ${updatedItem.searched}`);
