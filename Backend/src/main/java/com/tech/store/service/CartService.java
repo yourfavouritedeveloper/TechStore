@@ -20,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 
 @Service
@@ -123,22 +124,27 @@ public class CartService {
 
         BigDecimal newTotal = BigDecimal.ZERO;
         for (ProductEntity product : cartEntity.getProducts()) {
-            BigDecimal basePrice = product.getPrice();
-            if (product.getDiscount() > 0) {
-                BigDecimal discountMultiplier = BigDecimal.valueOf(100 - product.getDiscount())
-                        .divide(BigDecimal.valueOf(100));
-                basePrice = basePrice.multiply(discountMultiplier);
+            BigDecimal price = product.getPrice();
+            int discount = product.getDiscount() != null ? product.getDiscount() : 0;
+
+            if (discount > 0) {
+                BigDecimal multiplier = BigDecimal.valueOf(100 - discount)
+                        .divide(BigDecimal.valueOf(100), 4, RoundingMode.HALF_UP);
+                price = price.multiply(multiplier);
             }
-            Long qty = cartEntity.getAmounts().get(product.getId());
-            newTotal = newTotal.add(basePrice.multiply(BigDecimal.valueOf(qty)));
+
+            Long qty = cartEntity.getAmounts().getOrDefault(product.getId(), 0L);
+            newTotal = newTotal.add(price.multiply(BigDecimal.valueOf(qty)));
         }
 
         cartEntity.setTotalPrice(newTotal);
 
         cartRepository.save(cartEntity);
         cartRedisRepository.save(cartEntity);
+
         return cartMapper.toCartDto(cartEntity);
     }
+
 
 
     @Transactional

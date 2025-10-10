@@ -356,59 +356,44 @@ function Item({ name, productId }) {
     const decrease = () => { setCount(count == 0 ? 0 : count - 1) };
 
     const addCart = async () => {
-        setIsAdding(true);
-        if (cart.amounts[item.id] < count  || !cart.amounts[item.id]) {
-            try {
-                const response = await axios.put(
-                    `https://techstore-3fvk.onrender.com/api/v1/carts/add/product/${cart?.id}`,
-                    {},
-                    {
-                        params: {
-                            productId: item.id,
-                            productAmount: count,
-                        },
-                        auth: {
-                            username: USERNAME,
-                            password: PASSWORD,
-                        },
-                    }
-                );
+    if (!cart || !item) return;
 
-                setCart(response.data);
-            } catch (err) {
-                console.error(err);
-            }
+    const currentAmount = cart.amounts[item.id] || 0;
+    const difference = count - currentAmount; 
+
+    if (difference === 0) return; 
+
+    setIsAdding(true);
+
+    const endpoint =
+        difference > 0
+        ? `https://techstore-3fvk.onrender.com/api/v1/carts/add/product/${cart.id}`
+        : `https://techstore-3fvk.onrender.com/api/v1/carts/remove/product/${cart.id}`;
+
+    try {
+        const response = await axios.put(
+        endpoint,
+        {},
+        {
+            params: {
+            productId: item.id,
+            productAmount: Math.abs(difference),
+            },
+            auth: {
+            username: USERNAME,
+            password: PASSWORD,
+            },
         }
+        );
 
-        else if (cart.amounts[item.id] > count) {
-            try {
-                const response = await axios.put(
-                    `https://techstore-3fvk.onrender.com/api/v1/carts/remove/product/${cart?.id}`,
-                    {},
-                    {
-                        params: {
-                            productId: item.id,
-                            productAmount: (cart.amounts[item.id]-count),
-                        },
-                        auth: {
-                            username: USERNAME,
-                            password: PASSWORD,
-                        },
-                    }
-                );
-
-                setCart(response.data);
-            
-            } catch (err) {
-                console.error(err);
-            }
-        }
-        setIsAdding(false);
+        setCart(response.data);
         setSuccessMessage("Your cart has been updated!");
-
-        setTimeout(() => {
-        setSuccessMessage("");
-        }, 3000);
+        setTimeout(() => setSuccessMessage(""), 3000);
+    } catch (err) {
+        console.error("Cart update failed:", err);
+    } finally {
+        setIsAdding(false);
+    }
     };
 
 

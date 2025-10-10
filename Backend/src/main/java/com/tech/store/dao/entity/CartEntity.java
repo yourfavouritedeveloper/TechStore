@@ -46,21 +46,7 @@ public class CartEntity extends BaseEntity{
     @Column(name = "amount")
     private Map<Long,Long> amounts;
 
-    public void calculateTotalPrice() {
-        if (products != null && !products.isEmpty()) {
-            this.totalPrice = products.stream()
-                    .map(ProductEntity::getPrice)
-                    .reduce(BigDecimal.ZERO, BigDecimal::add);
-        } else {
-            this.totalPrice = BigDecimal.ZERO;
-        }
-    }
 
-    @PrePersist
-    @PreUpdate
-    private void updateTotalPrice() {
-        calculateTotalPrice();
-    }
 
     @OneToOne
     @JoinColumn(name = "account_id")
