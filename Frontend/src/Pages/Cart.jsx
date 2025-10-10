@@ -11,29 +11,40 @@ import axios from "axios";
 function Cart() {
     const { account, logout } = useContext(AuthContext);
     const [logAccount,setLogAccount] = useState({})
+    const [cart, setCart] = useState({});
 
 
 
     useEffect(() => {
-    axios.get(`https://techstore-3fvk.onrender.com/api/v1/accounts/username/${account?.username}`,
-    {
-        auth: {
-        username: USERNAME, 
-        password: PASSWORD
+      const fetchData = async () => {
+        try {
+          const accountResponse = await axios.get(
+            `https://techstore-3fvk.onrender.com/api/v1/accounts/username/${account.username}`,
+            { auth: { username: USERNAME, password: PASSWORD } }
+          );
+
+          setLogAccount(accountResponse.data);
+
+          const cartResponse = await axios.get(
+            `https://techstore-3fvk.onrender.com/api/v1/carts/account/${accountResponse.data.id}`,
+            { auth: { username: USERNAME, password: PASSWORD } }
+          );
+
+          setCart(cartResponse.data);
+        } catch (err) {
+          console.error("Error fetching account or cart:", err);
         }
-    }) 
-      .then(response => {
-        setLogAccount(response.data);
-      })
-      .catch(error => {
-        console.error("Error fetching data:", error);
-      });
-  }, [account]);
+      };
+
+      if (account?.username) {
+        fetchData();
+      }
+    }, [account]);
 
     return (<>
         <title>{logAccount?.customerName  + " | Shopping Cart"}</title>
         <Nav highlight={true} />
-        <AccountCart />
+        <AccountCart cart={cart} setCart={setCart} />
     </>)
 }
 
