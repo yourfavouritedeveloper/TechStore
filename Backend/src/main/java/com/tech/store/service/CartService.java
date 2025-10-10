@@ -13,8 +13,6 @@ import com.tech.store.exception.CartNotFoundException;
 import com.tech.store.exception.ProductNotFoundException;
 import com.tech.store.mapper.CartMapper;
 import com.tech.store.model.dto.CartDto;
-import com.tech.store.model.dto.ProductDto;
-import com.tech.store.model.dto.ProductSummaryDto;
 import com.tech.store.model.enumeration.Status;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -109,7 +107,7 @@ public class CartService {
     }
 
     @Transactional
-    public CartDto addProduct(Long cartId,Long productId) {
+    public CartDto addProduct(Long cartId,Long productId,Long productAmount) {
         CartEntity cartEntity = cartRepository.findById(cartId)
                 .orElseThrow(() -> new CartNotFoundException("Cart not found"));
 
@@ -129,12 +127,15 @@ public class CartService {
             BigDecimal discountMultiplier = BigDecimal.valueOf(100 - productEntity.getDiscount())
                     .divide(BigDecimal.valueOf(100));
             cartEntity.setTotalPrice(
-                    cartEntity.getTotalPrice().add(productEntity.getPrice().multiply(discountMultiplier))
+                    cartEntity.getTotalPrice().add(productEntity.getPrice()
+                            .multiply(discountMultiplier)
+                            .multiply(BigDecimal.valueOf(productAmount)
+                    ))
             );
 
         }
         else {
-            cartEntity.setTotalPrice(cartEntity.getTotalPrice().add(productEntity.getPrice()));
+            cartEntity.setTotalPrice(cartEntity.getTotalPrice().add(productEntity.getPrice().multiply(BigDecimal.valueOf(productAmount))));
         }
 
         CartDto cartDto = cartMapper.toCartDto(cartEntity);
@@ -144,7 +145,7 @@ public class CartService {
     }
 
     @Transactional
-    public CartDto removeProduct(Long cartId,Long productId) {
+    public CartDto removeProduct(Long cartId,Long productId,Long productAmount) {
 
         CartEntity cartEntity = cartRepository.findById(cartId)
                 .orElseThrow(() -> new CartNotFoundException("Cart not found"));
@@ -162,16 +163,19 @@ public class CartService {
             cartEntity.getAmounts().put(productEntity.getId(), quantity - 1);
         }
 
-        if(productEntity.getDiscount()>0)
+        if(productEntity.getDiscount()>=productAmount)
         {
             BigDecimal discountMultiplier = BigDecimal.valueOf(100 - productEntity.getDiscount())
                     .divide(BigDecimal.valueOf(100));
             cartEntity.setTotalPrice(
-                    cartEntity.getTotalPrice().subtract(productEntity.getPrice().multiply(discountMultiplier))
+                    cartEntity.getTotalPrice().subtract(productEntity.getPrice()
+                            .multiply(discountMultiplier)
+                            .multiply(BigDecimal.valueOf(productAmount)
+                    ))
             );
         }
         else {
-            cartEntity.setTotalPrice(cartEntity.getTotalPrice().subtract(productEntity.getPrice()));
+            cartEntity.setTotalPrice(cartEntity.getTotalPrice().subtract(productEntity.getPrice().multiply(BigDecimal.valueOf(productAmount))));
         }
 
         CartDto cartDto = cartMapper.toCartDto(cartEntity);
