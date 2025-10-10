@@ -22,7 +22,7 @@
 .div {
     position: relative;    
     min-height: 5rem;
-    padding-bottom: 25rem;
+    padding-bottom: 20rem;
     width: 90rem;
     top:0rem;
     transform: translate(0%,10%);
@@ -264,8 +264,8 @@
 
 .samsungs {
     position: absolute;
-    width: 45%;
-    top: 6.75rem;
+    width: 50%;
+    top: 9.5rem;
     left:50%;
     transform: translateX(-50%);
 }
@@ -273,7 +273,7 @@
 .emptyTitle {
     position: absolute;
     z-index: 5;
-    font-size: clamp(1rem, 2.3rem, 10rem);
+    font-size: clamp(1rem, 2.5rem, 10rem);
     font-family: "PoppinsRegular";
     top:-2rem;
     white-space: nowrap;
@@ -285,7 +285,7 @@
 .emptyButton {
    font-size: clamp(0rem, 1.3rem, 10rem);
   line-height: 1;
-  top: 5rem;
+  top: 6rem;
   text-align: left;
   z-index: 2;
   color: rgb(255, 255, 255);
