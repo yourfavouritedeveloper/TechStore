@@ -25,6 +25,7 @@ function Cart({cart,setCart}) {
                 <div className={styles.circle2}></div>
                 <div className={styles.titleDiv}>
                     <p className={styles.title}>Shopping Cart</p>
+                    <p className={styles.count}>{cart.products.length + (cart.products.length<=1 ? " Item" : " Items") }</p>
                 </div>
                 <div className={styles.cartDiv}>
                 {cart.products.map(product => {
