@@ -39,17 +39,17 @@ function Item({ name, productId }) {
     const [warningMessage, setWarningMessage] = useState("");
     const [visibleCommentsCount, setVisibleCommentsCount] = useState(5);
     const [showRatingStars, setShowRatingStars] = useState(false);
-    const [selectedRating, setSelectedRating] = useState(0); 
+    const [selectedRating, setSelectedRating] = useState(0);
     const [hoverRating, setHoverRating] = useState(0);
     const changeCart = {
-    id: null,               
-    account: {},           
-    products: [],           
-    totalPrice: 0,          
-    amounts: {}             
+        id: null,
+        account: {},
+        products: [],
+        totalPrice: 0,
+        amounts: {}
     };
 
-        const [cart,setCart] = useState(changeCart);
+    const [cart, setCart] = useState(changeCart);
 
     const isInCart = cart?.products?.some(product => product.id === item.id);
 
@@ -72,57 +72,57 @@ function Item({ name, productId }) {
 
 
     useEffect(() => {
-            if (!item) return;
+        if (!item) return;
 
-            const fetchComments = async () => {
+        const fetchComments = async () => {
 
-                try {
-                    const response = await axios.get(
-                        `https://techstore-3fvk.onrender.com/api/v1/comments/product`,
-                        {
-                            params: { productId },
-                            auth: { username: USERNAME, password: PASSWORD }
-
-
-                        }
-                    );
-                    setComments(response.data);
-
-                } catch (err) {
-                    console.error("Error fetching comments:", err);
-                } finally {
-                }
-            };
-
-            fetchComments();
-        }, [item]);
+            try {
+                const response = await axios.get(
+                    `https://techstore-3fvk.onrender.com/api/v1/comments/product`,
+                    {
+                        params: { productId },
+                        auth: { username: USERNAME, password: PASSWORD }
 
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const accountResponse = await axios.get(
-          `https://techstore-3fvk.onrender.com/api/v1/accounts/username/${account.username}`,
-          { auth: { username: USERNAME, password: PASSWORD } }
-        );
+                    }
+                );
+                setComments(response.data);
 
-        const logAccount = accountResponse.data;
+            } catch (err) {
+                console.error("Error fetching comments:", err);
+            } finally {
+            }
+        };
 
-        const cartResponse = await axios.get(
-          `https://techstore-3fvk.onrender.com/api/v1/carts/account/${logAccount.id}`,
-          { auth: { username: USERNAME, password: PASSWORD } }
-        );
+        fetchComments();
+    }, [item]);
 
-        setCart(cartResponse.data);
-      } catch (err) {
-        console.error("Error fetching account or cart:", err);
-      }
-    };
 
-    if (account?.username) {
-      fetchData();
-    }
-  }, [account]);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const accountResponse = await axios.get(
+                    `https://techstore-3fvk.onrender.com/api/v1/accounts/username/${account.username}`,
+                    { auth: { username: USERNAME, password: PASSWORD } }
+                );
+
+                const logAccount = accountResponse.data;
+
+                const cartResponse = await axios.get(
+                    `https://techstore-3fvk.onrender.com/api/v1/carts/account/${logAccount.id}`,
+                    { auth: { username: USERNAME, password: PASSWORD } }
+                );
+
+                setCart(cartResponse.data);
+            } catch (err) {
+                console.error("Error fetching account or cart:", err);
+            }
+        };
+
+        if (account?.username) {
+            fetchData();
+        }
+    }, [account]);
 
 
     const handleChange = (e) => {
@@ -178,7 +178,7 @@ function Item({ name, productId }) {
     };
 
 
-    
+
 
 
     useEffect(() => {
@@ -211,7 +211,7 @@ function Item({ name, productId }) {
 
 
 
-    
+
 
 
     const sendComment = async () => {
@@ -297,7 +297,7 @@ function Item({ name, productId }) {
                 }
             );
 
-            const updatedComment = response.data; 
+            const updatedComment = response.data;
 
             setComments(prevComments => {
                 return prevComments.map(comment => {
@@ -339,38 +339,71 @@ function Item({ name, productId }) {
         }
     };
 
+    const [count, setCount] = useState(0);
+
+
+    const increase = () => { setCount(count + 1) };
+
+    const decrease = () => { setCount(count == 0 ? 0 : count - 1) };
+
     const addCart = async () => {
-        
-    }
 
+        if (cart.amounts[item.id] < count) {
+            try {
+                const response = await axios.put(
+                    `https://techstore-3fvk.onrender.com/api/v1/carts/add/product/${cart?.id}`,
+                    {},
+                    {
+                        params: {
+                            productId: item.id,
+                            productAmount: cart.amounts[item.id],
+                        },
+                        auth: {
+                            username: USERNAME,
+                            password: PASSWORD,
+                        },
+                    }
+                );
 
-
-  const [count, setCount] = useState(0);
-
-    const increase = () => {
-    setCart(prevCart => ({
-        ...prevCart,
-        amounts: {
-        ...prevCart.amounts,
-        [item.id]: (prevCart.amounts[item.id] || 0) + 1
+                setCart(response.data);
+                alert("Cart fetched");
+            } catch (err) {
+                console.error(err);
+                alert("Error fetching carts");
+            }
         }
-    }));
-    }; 
-    
-    const decrease = () => {
-    setCart(prevCart => {
-        const currentAmount = prevCart.amounts[item.id] || 0;
-        if (currentAmount <= 0) return prevCart; 
 
-        return {
-        ...prevCart,
-        amounts: {
-            ...prevCart.amounts,
-            [item.id]: currentAmount - 1
+        else if (cart.amounts[item.id] > count) {
+            try {
+                const response = await axios.put(
+                    `https://techstore-3fvk.onrender.com/api/v1/carts/remove/product/${cart?.id}`,
+                    {},
+                    {
+                        params: {
+                            productId: item.id,
+                            productAmount: cart.amounts[item.id],
+                        },
+                        auth: {
+                            username: USERNAME,
+                            password: PASSWORD,
+                        },
+                    }
+                );
+
+                setCart(response.data);
+                alert("Cart fetched");
+            } catch (err) {
+                console.error(err);
+                alert("Error fetching carts");
+            }
         }
-        };
-    });
     };
+
+
+
+
+
+
 
 
 
@@ -422,33 +455,33 @@ function Item({ name, productId }) {
 
                 </Link>
                 <div className={styles.options}>
-                    <button className={styles.propertiesButton}  onClick={() => {
-                            if (propertiesRef.current) {
+                    <button className={styles.propertiesButton} onClick={() => {
+                        if (propertiesRef.current) {
                             const yOffset = -120;
                             const y =
                                 propertiesRef.current.getBoundingClientRect().top + window.scrollY + yOffset;
 
                             window.scrollTo({ top: y, behavior: "smooth" });
-                            }
-                        }}>Properties</button>
+                        }
+                    }}>Properties</button>
                     <button className={styles.reviewsButton} onClick={() => {
-                            if (reviewRef.current) {
+                        if (reviewRef.current) {
                             const yOffset = -120;
                             const y =
                                 reviewRef.current.getBoundingClientRect().top + window.scrollY + yOffset;
 
                             window.scrollTo({ top: y, behavior: "smooth" });
-                            }
-                        }}>Reviews</button>
+                        }
+                    }}>Reviews</button>
                     <button className={styles.similarButton} onClick={() => {
-                            if (similarRef.current) {
+                        if (similarRef.current) {
                             const yOffset = -120;
                             const y =
                                 similarRef.current.getBoundingClientRect().top + window.scrollY + yOffset;
 
                             window.scrollTo({ top: y, behavior: "smooth" });
-                            }
-                        }}>Similar Items</button>
+                        }
+                    }}>Similar Items</button>
                 </div>
             </div>
 
@@ -466,13 +499,13 @@ function Item({ name, productId }) {
                         <p className={styles.rating}>Rating: {item.rating}/5.0</p>
                         <div className={styles.ratingLine} style={{ width: `${item.rating * 3.8}rem` }}></div>
                         <div className={styles.overallRating}></div>
-                        <button className={styles.check}   onClick={() => {
+                        <button className={styles.check} onClick={() => {
                             if (reviewRef.current) {
-                            const yOffset = -120;
-                            const y =
-                                reviewRef.current.getBoundingClientRect().top + window.scrollY + yOffset;
+                                const yOffset = -120;
+                                const y =
+                                    reviewRef.current.getBoundingClientRect().top + window.scrollY + yOffset;
 
-                            window.scrollTo({ top: y, behavior: "smooth" });
+                                window.scrollTo({ top: y, behavior: "smooth" });
                             }
                         }}>Check reviews</button>
                     </div>
@@ -489,9 +522,23 @@ function Item({ name, productId }) {
 
                         <button className={styles.buy} onClick={buy}>Buy now</button>
                         <button className={styles.decrease} onClick={decrease} style={styles.button}>-</button>
-                        <p className={styles.number}>{cart.amounts[item.id] ? cart.amounts[item.id] : 0 }</p>
+                        <p className={styles.number}>{count}</p>
+                        {cart.amounts[item.id] != 0 && cart.amounts[item.id] ? (<>
+                            <p className={styles.added}>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                    <path d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
+                                </svg>
+                            </p>
+                        </>) : (<>
+
+                        </>)
+
+                        }
+                        <div className={styles.addedNumber}>
+                            <p>{cart.amounts[item.id]}</p>
+                        </div>
                         <button className={styles.increase} onClick={increase} style={styles.button}>+</button>
-                        <button className={styles.cart} onClick={addCart}>{isInCart ? "Added" : "Add to cart"}</button>
+                        <button className={styles.cart} onClick={addCart}>{cart.amounts[item.id] != 0 && cart.amounts[item.id] ? "Update Cart" : "Add to cart"}</button>
                         <button className={styles.favourite}>
                             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ffffff"><path d="M440-501Zm0 381L313-234q-72-65-123.5-116t-85-96q-33.5-45-49-87T40-621q0-94 63-156.5T260-840q52 0 99 22t81 62q34-40 81-62t99-22q81 0 136 45.5T831-680h-85q-18-40-53-60t-73-20q-51 0-88 27.5T463-660h-46q-31-45-70.5-72.5T260-760q-57 0-98.5 39.5T120-621q0 33 14 67t50 78.5q36 44.5 98 104T440-228q26-23 61-53t56-50l9 9 19.5 19.5L605-283l9 9q-22 20-56 49.5T498-172l-58 52Zm280-160v-120H600v-80h120v-120h80v120h120v80H800v120h-80Z" /></svg>
                         </button>
@@ -584,14 +631,14 @@ function Item({ name, productId }) {
                                                     <img src={comment.fromAccount.profilePictureUrl} alt="" />
                                                     <p className={styles.commentCustomerName}>{comment.fromAccount.customerName}</p>
                                                     <div className={styles.commentRate}>
-                                                    {[1, 2, 3, 4, 5].map((star) => (
-                                                        <span
-                                                        key={star}
-                                                        className={`${styles.star} ${star <= Number(comment.rate) ? styles.filled : ""}`}
-                                                        >
-                                                        ★
-                                                        </span>
-                                                    ))}
+                                                        {[1, 2, 3, 4, 5].map((star) => (
+                                                            <span
+                                                                key={star}
+                                                                className={`${styles.star} ${star <= Number(comment.rate) ? styles.filled : ""}`}
+                                                            >
+                                                                ★
+                                                            </span>
+                                                        ))}
                                                     </div>
                                                 </div>
                                             )}
@@ -599,10 +646,10 @@ function Item({ name, productId }) {
                                             <div className={styles.likeDiv}>
                                                 <p className={styles.likeCount}>{comment.likes ? comment.likes : 0}</p>
                                                 <button className={styles.like} onClick={() => handleLike(comment.id)}
-                                                    style={{backgroundColor : (comment.likedBy || []).includes(account.username) ? "rgb(112, 139, 255)" : "",color: (comment.likedBy || []).includes(account.username) ? "white" : "rgb(82, 82, 82)" }}>
+                                                    style={{ backgroundColor: (comment.likedBy || []).includes(account.username) ? "rgb(112, 139, 255)" : "", color: (comment.likedBy || []).includes(account.username) ? "white" : "rgb(82, 82, 82)" }}>
                                                     <svg xmlns="http://www.w3.org/2000/svg"
                                                         height="24px"
-                                                        viewBox="0 -960 960 960" width="24px" fill= {(comment.likedBy || []).includes(account.username) ? "white" : "rgb(82, 82, 82)"}><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z" />
+                                                        viewBox="0 -960 960 960" width="24px" fill={(comment.likedBy || []).includes(account.username) ? "white" : "rgb(82, 82, 82)"}><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z" />
                                                     </svg>
                                                 </button>
                                                 <button className={styles.reply}
@@ -646,12 +693,12 @@ function Item({ name, productId }) {
                                                                 <div className={styles.likeReplyDiv}>
                                                                     <p className={styles.replyLikeCount}>{reply.likes ? reply.likes : 0}</p>
                                                                     <button className={styles.replyLike} onClick={() => handleLike(reply.id)}
-                                                                    style={{backgroundColor : (reply.likedBy || []).includes(account.username) ? "rgb(112, 139, 255)" : "",color: (reply.likedBy || []).includes(account.username) ? "white" : "rgb(82, 82, 82)" }}
-                                                                        >
-                                                                        
+                                                                        style={{ backgroundColor: (reply.likedBy || []).includes(account.username) ? "rgb(112, 139, 255)" : "", color: (reply.likedBy || []).includes(account.username) ? "white" : "rgb(82, 82, 82)" }}
+                                                                    >
+
                                                                         <svg xmlns="http://www.w3.org/2000/svg"
                                                                             height="20px"
-                                                                            viewBox="0 -960 960 960" width="20px" fill= {(reply.likedBy || []).includes(account.username) ? "white" : "rgb(82, 82, 82)"}><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z" />
+                                                                            viewBox="0 -960 960 960" width="20px" fill={(reply.likedBy || []).includes(account.username) ? "white" : "rgb(82, 82, 82)"}><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z" />
                                                                         </svg>
                                                                     </button>
                                                                     <button className={styles.replyReply} onClick={() => {
@@ -668,9 +715,9 @@ function Item({ name, productId }) {
                                                                     }}>Reply</button>
                                                                 </div>
                                                             </div>
-                                                            
+
                                                         ))}
-                                                        
+
                                                     </div>
                                                 )}
                                             </>
@@ -678,12 +725,12 @@ function Item({ name, productId }) {
                                     </>
                                 ))}
                             {visibleCommentsCount < comments.filter(comment => !comment.toAccount).length && (
-                            <button
-                                className={styles.showMoreComments}
-                                onClick={() => setVisibleCommentsCount(prev => prev + 10)} 
-                            >
-                                Show more comments
-                            </button>
+                                <button
+                                    className={styles.showMoreComments}
+                                    onClick={() => setVisibleCommentsCount(prev => prev + 10)}
+                                >
+                                    Show more comments
+                                </button>
                             )}
                         </>
                     ) : (
@@ -693,7 +740,7 @@ function Item({ name, productId }) {
                         </>
                     )}
                     <div className={styles.send} ref={sendRef}>
-                        {successMessage &&  <p className={styles.successMessage}>{successMessage}</p>}
+                        {successMessage && <p className={styles.successMessage}>{successMessage}</p>}
                         {warningMessage && <p className={styles.warningMessage}>{warningMessage}</p>}
                         {repliedAccount && repliedComment && (<>
                             <p className={styles.replySend}>Replying to @{repliedAccount}</p>
@@ -708,12 +755,12 @@ function Item({ name, productId }) {
                         />
                         {isSending ? (
                             <>
-                            <div className={styles.spinnerDiv}>
-                                <div className={styles.spinner}></div> 
-                            </div>
+                                <div className={styles.spinnerDiv}>
+                                    <div className={styles.spinner}></div>
+                                </div>
                             </>
                         ) : (
-                            
+
                             <button className={styles.post} onClick={sendComment} disabled={isSending}>
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                     height="27px" viewBox="0 -960 960 960" width="27px" fill="#ffffffff">
@@ -721,42 +768,43 @@ function Item({ name, productId }) {
                                 </svg>
                                 <p className={styles.postTitle}>Send</p>
                             </button>
-                            
+
                         )}
-                        
-                        <button className={styles.rate} 
-                        style={{paddingRight: showRatingStars ? "6.5rem": "1.3rem",
-                            borderRadius: showRatingStars ? "2rem" : "1.3rem",
-                        }}
-                         onClick={() => setShowRatingStars(prev => !prev)}>
+
+                        <button className={styles.rate}
+                            style={{
+                                paddingRight: showRatingStars ? "6.5rem" : "1.3rem",
+                                borderRadius: showRatingStars ? "2rem" : "1.3rem",
+                            }}
+                            onClick={() => setShowRatingStars(prev => !prev)}>
                             <svg xmlns="http://www.w3.org/2000/svg"
                                 height="27px"
                                 viewBox="0 -960 960 960"
                                 width="27px"
                                 fill="#ffffffff"
-                                style={{left: showRatingStars ? "30%" : "50%"}}>
+                                style={{ left: showRatingStars ? "30%" : "50%" }}>
                                 <path d="m305-704 112-145q12-16 28.5-23.5T480-880q18 0 34.5 7.5T543-849l112 145 170 57q26 8 41 29.5t15 47.5q0 12-3.5 24T866-523L756-367l4 164q1 35-23 59t-56 24q-2 0-22-3l-179-50-179 50q-5 2-11 2.5t-11 .5q-32 0-56-24t-23-59l4-165L95-523q-8-11-11.5-23T80-570q0-25 14.5-46.5T135-647l170-57Zm49 69-194 64 124 179-4 191 200-55 200 56-4-192 124-177-194-66-126-165-126 165Zm126 135Z" />
                             </svg>
                             <p className={styles.rateTitle}>Rate</p>
                         </button>
                         {showRatingStars && (
-                        <div className={styles.starsContainer}>
-                            {[1, 2, 3, 4, 5].map((star) => (
-                            <span
-                                key={star}
-                                onClick={() => setSelectedRating(star)}     
-                                onMouseEnter={() => setHoverRating(star)}    
-                                onMouseLeave={() => setHoverRating(0)}       
-                                style={{
-                                cursor: "pointer",
-                                fontSize: "24px",
-                                color: star <= (hoverRating || selectedRating) ? "#f3615cff" : "#ccc"
-                                }}
-                            >
-                                ★
-                            </span>
-                            ))}
-                        </div>
+                            <div className={styles.starsContainer}>
+                                {[1, 2, 3, 4, 5].map((star) => (
+                                    <span
+                                        key={star}
+                                        onClick={() => setSelectedRating(star)}
+                                        onMouseEnter={() => setHoverRating(star)}
+                                        onMouseLeave={() => setHoverRating(0)}
+                                        style={{
+                                            cursor: "pointer",
+                                            fontSize: "24px",
+                                            color: star <= (hoverRating || selectedRating) ? "#f3615cff" : "#ccc"
+                                        }}
+                                    >
+                                        ★
+                                    </span>
+                                ))}
+                            </div>
                         )}
                     </div>
                 </div>

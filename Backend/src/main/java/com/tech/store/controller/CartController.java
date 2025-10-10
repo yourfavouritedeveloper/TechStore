@@ -31,6 +31,7 @@ public class CartController {
     public List<CartDto> findAll() {
         return cartService.findAll();
     }
+
     @GetMapping("/account/{accountId}")
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Get cart by account", description = "Gets the specified cart.")
@@ -55,15 +56,15 @@ public class CartController {
     @PutMapping("/add/product/{cartId}")
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Add a product to a cart", description = "Adds a product to a cart.")
-    public CartDto addProduct(@PathVariable Long cartId, @RequestParam Long productId) throws Exception {
-        return cartService.addProduct(cartId, productId);
+    public CartDto addProduct(@PathVariable Long cartId, @RequestParam Long productId, @RequestParam Long productAmount) throws Exception {
+        return cartService.addProduct(cartId, productId, productAmount);
     }
 
     @PutMapping("/remove/product/{cartId}")
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Remove a product from the cart", description = "Removes a product from the cart.")
-    public CartDto removeProduct(@PathVariable Long cartId, @RequestParam Long productId) throws Exception {
-        return cartService.removeProduct(cartId, productId);
+    public CartDto removeProduct(@PathVariable Long cartId, @RequestParam Long productId, @RequestParam Long productAmount) throws Exception {
+        return cartService.removeProduct(cartId, productId, productAmount);
     }
 
     @PutMapping("/delete/{id}")
