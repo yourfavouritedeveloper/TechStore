@@ -66,6 +66,16 @@ background: linear-gradient(270deg, #ff9a8b, #ffb685, #ffd18b);
     left: -39.7%;
 }
 
+.count {
+    position: relative;
+    z-index: 5;
+    font-size: clamp(1rem, 2.3rem, 10rem);
+    font-family: "PoppinsSemiBold";
+    top:-4.76rem;
+    color: #313131;
+    right: -44.9%;    
+}
+
 .cartDiv {
     width: 80rem;
     min-height: 20rem;
