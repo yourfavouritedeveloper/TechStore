@@ -1,6 +1,7 @@
 .container {
-  height: 100vw;
-background: linear-gradient(270deg, #ff9a8b, #ffb685, #ffd18b);
+  min-height: 38.6vw;
+  padding-bottom: 10vw;
+  background: linear-gradient(270deg, #ff9a8b, #ffb685, #ffd18b);
 
   background-size: 600% 600%;
   animation: gradientMove 12s ease-in-out infinite;
@@ -19,12 +20,12 @@ background: linear-gradient(270deg, #ff9a8b, #ffb685, #ffd18b);
 
 
 .div {
-    position: absolute;
-    height: 90rem;
+    position: relative;    
+    min-height: 5rem;
+    padding-bottom: 25rem;
     width: 90rem;
-    top:0%;
-    left:50%;
-    transform: translate(-50%,10%);
+    top:0rem;
+    transform: translate(0%,10%);
     background-color: rgb(255, 255, 255);
 }
 
@@ -80,10 +81,47 @@ background: linear-gradient(270deg, #ff9a8b, #ffb685, #ffd18b);
     width: 80rem;
     min-height: 20rem;
     position: relative;
-    top: 2%;
+    top: 5rem;
     left: 50%;
-    transform: translate(-50%, 15%);
+    transform: translate(-50%, 3rem);
     border-radius: 1rem;
+
+    
+}
+
+.productDetailsTitle {
+    position: absolute;
+    top:-3.5rem;
+    font-family: "PoppinsMedium";
+    font-size: clamp(1rem,1.3rem,5rem);
+    color:#a7a7a7
+}
+
+.productQuantityTitle {
+    position: absolute;
+    top:-3.5rem;
+    left:38.6rem;
+    font-family: "PoppinsMedium";
+    font-size: clamp(1rem,1.3rem,5rem);
+    color:#a7a7a7
+}
+
+.productPriceTitle {
+    position: absolute;
+    top:-3.5rem;
+    left:57rem;
+    font-family: "PoppinsMedium";
+    font-size: clamp(1rem,1.3rem,5rem);
+    color:#a7a7a7
+}
+
+.productTotalTitle {
+    position: absolute;
+    top:-3.5rem;
+    left:71rem;
+    font-family: "PoppinsMedium";
+    font-size: clamp(1rem,1.3rem,5rem);
+    color:#a7a7a7
 }
 
 .productDiv {
@@ -96,6 +134,8 @@ background: linear-gradient(270deg, #ff9a8b, #ffb685, #ffd18b);
     transform: translate(-50%, 15%);
     border-radius: 0.5rem;   
     margin-bottom: 2rem; 
+
+    
 }
 
 .productImage {
@@ -138,6 +178,30 @@ background: linear-gradient(270deg, #ff9a8b, #ffb685, #ffd18b);
     text-align: left;
     left:17%;
     top:8%;    
+}
+
+.productPrice {
+     color: #313131;
+    font-family: "PoppinsMedium";
+    font-size: clamp(1rem,1.4rem,5rem);
+    width: 25%;
+    line-height: 0.95;
+    position: relative;
+    text-align: left;
+    left:69.5%;
+    top:30%;   
+}
+
+.productTotal {
+     color: #313131;
+    font-family: "PoppinsMedium";
+    font-size: clamp(1rem,1.4rem,5rem);
+    width: 25%;
+    line-height: 0.95;
+    position: relative;
+    text-align: left;
+    right:-87.5%;
+    top:2.5%;   
 }
 
 .decrease {
@@ -198,6 +262,47 @@ background: linear-gradient(270deg, #ff9a8b, #ffb685, #ffd18b);
 }
 
 
+.samsungs {
+    position: absolute;
+    width: 45%;
+    top: 6.75rem;
+    left:50%;
+    transform: translateX(-50%);
+}
+
+.emptyTitle {
+    position: absolute;
+    z-index: 5;
+    font-size: clamp(1rem, 2.3rem, 10rem);
+    font-family: "PoppinsRegular";
+    top:-2rem;
+    white-space: nowrap;
+    color: #313131;
+    left: 50%;   
+    transform: translateX(-50%);
+}
+
+.emptyButton {
+   font-size: clamp(0rem, 1.3rem, 10rem);
+  line-height: 1;
+  top: 5rem;
+  text-align: left;
+  z-index: 2;
+  color: rgb(255, 255, 255);
+  font-family: "PoppinsLight";
+  width: 37rem;
+  left: 0%;
+  padding: 0.7rem 3.3rem;
+  background-color: #5784ff;
+  border-radius: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;   
+}
+
+.emptyButton:hover {
+    background-color: #225dff;
+}
 
 .loadingContainer {
     display: flex;

@@ -107,82 +107,78 @@ public class CartService {
     }
 
     @Transactional
-    public CartDto addProduct(Long cartId,Long productId,Long productAmount) {
+    public CartDto addProduct(Long cartId, Long productId, Long productAmount) {
         CartEntity cartEntity = cartRepository.findById(cartId)
                 .orElseThrow(() -> new CartNotFoundException("Cart not found"));
-
         ProductEntity productEntity = productRepository.findById(productId)
                 .orElseThrow(() -> new ProductNotFoundException("Product not found"));
 
-        if(cartEntity.getProducts().contains(productEntity)) {
-            cartEntity.getAmounts().replace(productEntity.getId(),cartEntity.getAmounts().get(productEntity.getId())+1);
-        }
-        else {
+        Long currentAmount = cartEntity.getAmounts().getOrDefault(productId, 0L);
+        Long newAmount = currentAmount + productAmount;
+        cartEntity.getAmounts().put(productId, newAmount);
+
+        if (!cartEntity.getProducts().contains(productEntity)) {
             cartEntity.getProducts().add(productEntity);
-            cartEntity.getAmounts().put(productId, 1L);
         }
 
-        if(productEntity.getDiscount()>0)
-        {
-            BigDecimal discountMultiplier = BigDecimal.valueOf(100 - productEntity.getDiscount())
-                    .divide(BigDecimal.valueOf(100));
-            cartEntity.setTotalPrice(
-                    cartEntity.getTotalPrice().add(productEntity.getPrice()
-                            .multiply(discountMultiplier)
-                            .multiply(BigDecimal.valueOf(productAmount)
-                    ))
-            );
-
-        }
-        else {
-            cartEntity.setTotalPrice(cartEntity.getTotalPrice().add(productEntity.getPrice().multiply(BigDecimal.valueOf(productAmount))));
+        BigDecimal newTotal = BigDecimal.ZERO;
+        for (ProductEntity product : cartEntity.getProducts()) {
+            BigDecimal basePrice = product.getPrice();
+            if (product.getDiscount() > 0) {
+                BigDecimal discountMultiplier = BigDecimal.valueOf(100 - product.getDiscount())
+                        .divide(BigDecimal.valueOf(100));
+                basePrice = basePrice.multiply(discountMultiplier);
+            }
+            Long qty = cartEntity.getAmounts().get(product.getId());
+            newTotal = newTotal.add(basePrice.multiply(BigDecimal.valueOf(qty)));
         }
 
-        CartDto cartDto = cartMapper.toCartDto(cartEntity);
+        cartEntity.setTotalPrice(newTotal);
+
         cartRepository.save(cartEntity);
         cartRedisRepository.save(cartEntity);
-        return cartDto;
+        return cartMapper.toCartDto(cartEntity);
     }
+
 
     @Transactional
-    public CartDto removeProduct(Long cartId,Long productId,Long productAmount) {
-
+    public CartDto removeProduct(Long cartId, Long productId, Long productAmount) {
         CartEntity cartEntity = cartRepository.findById(cartId)
                 .orElseThrow(() -> new CartNotFoundException("Cart not found"));
 
         ProductEntity productEntity = productRepository.findById(productId)
                 .orElseThrow(() -> new ProductNotFoundException("Product not found"));
 
-        Long quantity = cartEntity.getAmounts().get(productEntity.getId());
-        if (quantity == null) {
-            throw new ProductNotFoundException("Product not found");
-        } else if (quantity == 1) {
-            cartEntity.getAmounts().remove(productEntity.getId());
+        Long currentAmount = cartEntity.getAmounts().get(productId);
+        if (currentAmount == null) throw new ProductNotFoundException("Product not found in cart");
+
+        if (currentAmount <= productAmount) {
+            cartEntity.getAmounts().remove(productId);
             cartEntity.getProducts().remove(productEntity);
         } else {
-            cartEntity.getAmounts().put(productEntity.getId(), quantity - 1);
+            cartEntity.getAmounts().put(productId, currentAmount - productAmount);
         }
 
-        if(productEntity.getDiscount()>=productAmount)
-        {
-            BigDecimal discountMultiplier = BigDecimal.valueOf(100 - productEntity.getDiscount())
-                    .divide(BigDecimal.valueOf(100));
-            cartEntity.setTotalPrice(
-                    cartEntity.getTotalPrice().subtract(productEntity.getPrice()
-                            .multiply(discountMultiplier)
-                            .multiply(BigDecimal.valueOf(productAmount)
-                    ))
-            );
-        }
-        else {
-            cartEntity.setTotalPrice(cartEntity.getTotalPrice().subtract(productEntity.getPrice().multiply(BigDecimal.valueOf(productAmount))));
+        BigDecimal newTotal = BigDecimal.ZERO;
+        for (ProductEntity product : cartEntity.getProducts()) {
+            BigDecimal basePrice = product.getPrice();
+            if (product.getDiscount() > 0) {
+                BigDecimal discountMultiplier = BigDecimal.valueOf(100 - product.getDiscount())
+                        .divide(BigDecimal.valueOf(100));
+                basePrice = basePrice.multiply(discountMultiplier);
+            }
+            Long qty = cartEntity.getAmounts().get(product.getId());
+            newTotal = newTotal.add(basePrice.multiply(BigDecimal.valueOf(qty)));
         }
 
-        CartDto cartDto = cartMapper.toCartDto(cartEntity);
+        cartEntity.setTotalPrice(newTotal);
+
         cartRepository.save(cartEntity);
         cartRedisRepository.save(cartEntity);
-        return cartDto;
+        return cartMapper.toCartDto(cartEntity);
     }
+
+
 
     @Transactional
     public CartDto delete(Long id) {
