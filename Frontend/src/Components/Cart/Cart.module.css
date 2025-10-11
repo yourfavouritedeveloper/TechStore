@@ -1,15 +1,10 @@
 .container {
-    min-height: 38.6vw;
-    padding-bottom: 10vw;
-    background: linear-gradient(270deg, #ff9a8b, #ffb685, #ffd18b);
-
-    background-size: 600% 600%;
-    animation: gradientMove 12s ease-in-out infinite;
+    
+    background: linear-gradient(0deg,rgb(255, 233, 233),white);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: start;
-    padding-top: 3rem;
 }
 
 @keyframes gradientMove {
@@ -29,40 +24,22 @@
 
 .div {
     position: relative;
-    min-height: 33.5rem;
-    padding-bottom: 10rem;
-    width: 90rem;
-    top: 0rem;
+    width: 110rem;
+    min-height: 49.6vw;
+
+    top: -0.9rem;
     transform: translate(0%, 10%);
-    background-color: rgb(255, 255, 255);
 }
 
-.circle1,
-.circle2 {
-    border-radius: 50%;
-    position: absolute;
-    width: 1.5rem;
-    height: 1.5rem;
-    background-color: rgb(219, 219, 219);
-}
 
-.circle1 {
-    top: 2rem;
-    left: 2rem;
-}
-
-.circle2 {
-    top: 2rem;
-    right: 2rem;
-}
 
 .titleDiv {
-    width: 80rem;
+    width: 65rem;
     height: 6rem;
     position: relative;
     top: -2%;
     left: 50%;
-    transform: translate(-50%, 80%);
+    transform: translate(-77.6%, 80%);
     border-bottom: 1.9px solid rgb(219, 219, 219);
 }
 
@@ -73,7 +50,7 @@
     font-family: "PoppinsSemiBold";
     top: 1rem;
     color: #313131;
-    left: -39.7%;
+    left: -37.3%;
 }
 
 .count {
@@ -83,16 +60,15 @@
     font-family: "PoppinsSemiBold";
     top: -4.76rem;
     color: #313131;
-    right: -44.9%;
+    right: -43.6%;
 }
 
 .cartDiv {
     width: 80rem;
-    min-height: 20rem;
     position: relative;
     top: 5rem;
     left: 50%;
-    transform: translate(-50%, 3rem);
+    transform: translate(-63%, 3rem);
     border-radius: 1rem;
 
 
@@ -100,7 +76,7 @@
 
 .productDetailsTitle {
     position: absolute;
-    top: -3.5rem;
+    top: -2.5rem;
     font-family: "PoppinsMedium";
     font-size: clamp(1rem, 1.3rem, 5rem);
     color: #a7a7a7
@@ -108,8 +84,8 @@
 
 .productQuantityTitle {
     position: absolute;
-    top: -3.5rem;
-    left: 38.6rem;
+    top: -2.5rem;
+    left: 32.15rem;
     font-family: "PoppinsMedium";
     font-size: clamp(1rem, 1.3rem, 5rem);
     color: #a7a7a7
@@ -117,8 +93,8 @@
 
 .productPriceTitle {
     position: absolute;
-    top: -3.5rem;
-    left: 57rem;
+    top: -2.5rem;
+    left: 46.15rem;
     font-family: "PoppinsMedium";
     font-size: clamp(1rem, 1.3rem, 5rem);
     color: #a7a7a7
@@ -126,21 +102,21 @@
 
 .productTotalTitle {
     position: absolute;
-    top: -3.5rem;
-    left: 71rem;
+    top: -2.5rem;
+    left: 57.8rem;
     font-family: "PoppinsMedium";
     font-size: clamp(1rem, 1.3rem, 5rem);
     color: #a7a7a7
 }
 
 .productDiv {
-    border: 1px solid rgb(219, 219, 219);
-    width: 80rem;
+    width: 65rem;
     height: 10rem;
     position: relative;
     top: 0%;
     left: 50%;
-    transform: translate(-50%, 15%);
+    background-color: white;
+    transform: translate(-61.8%, 15%);
     border-radius: 0.5rem;
     margin-bottom: 2rem;
 
@@ -148,10 +124,10 @@
 }
 
 .productImage {
-    width: 13%;
+    width: 14%;
     position: absolute;
     top: 50%;
-    left: 1.3%;
+    left: 2.3%;
     background-color: #e7e7e7;
     transform: translateY(-50%);
     z-index: 2;
@@ -168,12 +144,12 @@
 .productName {
     color: #313131;
     font-family: "PoppinsMedium";
-    font-size: clamp(1rem, 1.4rem, 5rem);
-    width: 25%;
+    font-size: clamp(1rem, 1.2rem, 5rem);
+    width: 28%;
     line-height: 0.95;
     position: relative;
     text-align: left;
-    left: 17%;
+    left: 18%;
     top: 14%;
 }
 
@@ -185,40 +161,40 @@
     line-height: 0.95;
     position: relative;
     text-align: left;
-    left: 17%;
+    left: 18%;
     top: 8%;
 }
 
 .productPrice {
     color: #313131;
     font-family: "PoppinsMedium";
-    font-size: clamp(1rem, 1.4rem, 5rem);
+    font-size: clamp(1rem, 1.3rem, 5rem);
     width: 25%;
     line-height: 0.95;
     position: relative;
     text-align: left;
     left: 69.5%;
-    top: 30%;
+    top: 43%;
 }
 
 .productTotal {
     color: #313131;
     font-family: "PoppinsMedium";
-    font-size: clamp(1rem, 1.4rem, 5rem);
+    font-size: clamp(1rem, 1.3rem, 5rem);
     width: 25%;
     line-height: 0.95;
     position: relative;
     text-align: left;
     right: -87.5%;
-    top: 2.5%;
+    top: 17.8%;
 }
 
 .decrease {
-    font-size: 2rem;
+    font-size: 1.7rem;
     padding: 0rem 1rem;
     border-radius: 8px;
     border: 1px solid rgba(219, 219, 219, 0);
-    left: 36rem;
+    left: 30rem;
     top: 50%;
     transform: translateY(-50%);
     font-family: "PoppinsLight";
@@ -231,14 +207,14 @@
 }
 
 .increase {
-    font-size: 2rem;
+    font-size: 1.7rem;
     padding: 0rem 1rem;
     border-radius: 8px;
     border: 1px solid rgba(219, 219, 219, 0);
     top: 50%;
     transform: translateY(-50%);
     font-family: "PoppinsLight";
-    right: 33rem;
+    right: 25rem;
     background: #ff403600;
     color: rgb(82, 82, 82);
     position: absolute;
@@ -256,13 +232,13 @@
 }
 
 .number {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     min-width: 2rem;
     font-family: "PoppinsRegular";
     color: #313131;
     text-align: center;
-    right: 37.1rem;
-    top: 50%;
+    right: 28.54rem;
+    top: 49%;
     transform: translateY(-102.5%);
     padding: 0.2rem 0.5rem;
     border: 1px solid rgb(160, 160, 160);
@@ -271,10 +247,13 @@
 }
 
 .totalDiv {
-    position: relative;
-    bottom: -3.5rem;
-    height: 3;
-    border-top: 1px solid rgb(160, 160, 160);
+    position: fixed;
+    top: -8.5rem;
+    min-height: 35rem;
+    left:70rem;
+    width: 33rem;
+    border-radius: 0.5rem;
+    background-color: white;
 
 }
 
@@ -291,9 +270,9 @@
 .samsungs {
     position: absolute;
     width: 48%;
-    top: 5.45rem;
+    top: 5.53rem;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-69.5%);
 }
 
 .emptyTitle {
@@ -305,7 +284,7 @@
     white-space: nowrap;
     color: #313131;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-65%);
 }
 
 .emptyButton {
@@ -317,7 +296,7 @@
     color: rgb(255, 255, 255);
     font-family: "PoppinsLight";
     width: 37rem;
-    left: 0%;
+    left: -9.35%;
     padding: 0.7rem 3.3rem;
     background-color: #5784ff;
     border-radius: 2rem;
