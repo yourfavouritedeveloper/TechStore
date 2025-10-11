@@ -84,7 +84,10 @@ function Cart({ cart, setCart }) {
 
   return (
     <div className={styles.container}>
-      <div className={styles.div} style={{ minHeight: cart.products.length > 0 ? "28rem" : "33.5rem" }}>
+      <div className={styles.div} style={{ minHeight: cart.products.length > 0 ? "49.2vw" : "33.5rem",
+            paddingBottom: cart.products.length > 0 ? "0rem" : "10rem"
+
+       }}>
         <div className={styles.circle1}></div>
         <div className={styles.circle2}></div>
         <div className={styles.titleDiv}>
@@ -143,15 +146,17 @@ function Cart({ cart, setCart }) {
                   </div>
                 );
               })}
-              <div className={styles.totalDiv}>
+            <div className={styles.totalDiv}>
                 <p className={styles.totalPrice}>Total: {(cart.totalPrice).toFixed(2)}₼</p>
-              </div>
+            </div>
+
             </>) : (<>
               <img className={styles.samsungs} src={Samsungs} alt="" />
               <p className={styles.emptyTitle}>Your cart’s feeling a bit lonely — Let’s fix that!</p>
               <Link className={styles.emptyButton} to="/product">Shop Now</Link></>)}
 
         </div>
+
 
       </div>
     </div>
