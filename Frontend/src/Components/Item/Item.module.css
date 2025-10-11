@@ -575,12 +575,12 @@ body {
 
 
 .success {
-     font-size: clamp(1rem, 1.7rem, 10rem); 
-     color:#ffffff;
-     font-family: "PoppinsRegular"; 
-     position: fixed; 
-     white-space: nowrap;
-     padding: 0.5rem 4rem;
+    font-size: clamp(1rem, 1.7rem, 10rem);
+    color: #ffffff;
+    font-family: "PoppinsRegular";
+    position: fixed;
+    white-space: nowrap;
+    padding: 0.5rem 4rem;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 1rem;
@@ -1185,15 +1185,15 @@ body {
     font-family: "PoppinsRegular";
     border: none;
     transition: all 0.3s ease;
-    top:-5rem;
+    top: -5rem;
     font-size: clamp(0rem, 1.2rem, 10rem);
 }
 
 
 
 .showMoreComments {
-    position: absolute;
-    bottom: 13.5rem;
+    position: relative;
+    bottom: 2.5rem;
     overflow: hidden;
     background-color: rgba(101, 129, 255, 0);
     color: rgb(56, 92, 255);
@@ -1239,7 +1239,7 @@ body {
 
 .cancelReply {
     position: absolute;
-    top:35%;
+    top: 35%;
     right: 7.5%;
     cursor: pointer;
     border: none;
@@ -1249,12 +1249,12 @@ body {
 .cancelReply svg {
     height: 28px;
     width: 28px;
-    fill:#313131;
+    fill: #313131;
     transition: all 0.3s ease;
 }
 
 .cancelReply svg:hover {
-    fill:#ff4036
+    fill: #ff4036
 }
 
 .accountReplyInfo {
@@ -1345,7 +1345,7 @@ body {
     position: absolute;
     padding: 1.2rem 1.2rem;
     border-radius: 50%;
-    left:0%;
+    left: 0%;
     top: -11.1%;
     border: none;
     cursor: pointer;
@@ -1415,7 +1415,7 @@ body {
 .warningMessage {
     background-color: rgb(238, 55, 55);
     width: 45%;
-    top: -11%;
+    top: -1rem;
     left: 50%;
     transform: translateX(-50%);
     color: white;

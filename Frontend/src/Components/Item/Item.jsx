@@ -342,11 +342,11 @@ function Item({ name, productId }) {
     const [count, setCount] = useState(0);
 
     useEffect(() => {
-    if (cart && cart.amounts && item?.id in cart.amounts) {
-        setCount(cart.amounts[item.id]);
-    } else {
-        setCount(0);
-    }
+        if (cart && cart.amounts && item?.id in cart.amounts) {
+            setCount(cart.amounts[item.id]);
+        } else {
+            setCount(0);
+        }
     }, [cart, item]);
 
 
@@ -356,44 +356,44 @@ function Item({ name, productId }) {
     const decrease = () => { setCount(count == 0 ? 0 : count - 1) };
 
     const addCart = async () => {
-    if (!cart || !item) return;
+        if (!cart || !item) return;
 
-    const currentAmount = cart.amounts[item.id] || 0;
-    const difference = count - currentAmount; 
+        const currentAmount = cart.amounts[item.id] || 0;
+        const difference = count - currentAmount;
 
-    if (difference === 0) return; 
+        if (difference === 0) return;
 
-    setIsAdding(true);
+        setIsAdding(true);
 
-    const endpoint =
-        difference > 0
-        ? `https://techstore-3fvk.onrender.com/api/v1/carts/add/product/${cart.id}`
-        : `https://techstore-3fvk.onrender.com/api/v1/carts/remove/product/${cart.id}`;
+        const endpoint =
+            difference > 0
+                ? `https://techstore-3fvk.onrender.com/api/v1/carts/add/product/${cart.id}`
+                : `https://techstore-3fvk.onrender.com/api/v1/carts/remove/product/${cart.id}`;
 
-    try {
-        const response = await axios.put(
-        endpoint,
-        {},
-        {
-            params: {
-            productId: item.id,
-            productAmount: Math.abs(difference),
-            },
-            auth: {
-            username: USERNAME,
-            password: PASSWORD,
-            },
+        try {
+            const response = await axios.put(
+                endpoint,
+                {},
+                {
+                    params: {
+                        productId: item.id,
+                        productAmount: Math.abs(difference),
+                    },
+                    auth: {
+                        username: USERNAME,
+                        password: PASSWORD,
+                    },
+                }
+            );
+
+            setCart(response.data);
+            setSuccessMessage("Your cart has been updated!");
+            setTimeout(() => setSuccessMessage(""), 3000);
+        } catch (err) {
+            console.error("Cart update failed:", err);
+        } finally {
+            setIsAdding(false);
         }
-        );
-
-        setCart(response.data);
-        setSuccessMessage("Your cart has been updated!");
-        setTimeout(() => setSuccessMessage(""), 3000);
-    } catch (err) {
-        console.error("Cart update failed:", err);
-    } finally {
-        setIsAdding(false);
-    }
     };
 
 
@@ -411,7 +411,7 @@ function Item({ name, productId }) {
 
         axios.get("https://techstore-3fvk.onrender.com/api/v1/products/all",
             {
-              auth: { username: USERNAME, password: PASSWORD }
+                auth: { username: USERNAME, password: PASSWORD }
             }
         )
             .then(response => {
@@ -430,10 +430,10 @@ function Item({ name, productId }) {
         : null;
 
     return (item.productImageUrl && cart.id) ? (<>
-        
-        <p className={styles.success} style={{top: successMessage ? "5.15rem" : "-1rem"}}>{successMessage}</p>
-        
-        
+
+        <p className={styles.success} style={{ top: successMessage ? "5.15rem" : "-1rem" }}>{successMessage}</p>
+
+
         {isChoice ? <Choice item={item} setIsChoice={setIsChoice} /> : null}
         <div className={styles.container}>
             <div className={styles.item} style={{
@@ -528,7 +528,7 @@ function Item({ name, productId }) {
                         <button className={styles.buy} onClick={buy}>Buy now</button>
                         <p className={styles.number}>{count}</p>
                         {cart.amounts[item.id] != 0 && cart.amounts[item.id] ? (<>
-                            <Link className={styles.added}to={`/account/${account.username}/cart`}>
+                            <Link className={styles.added} to={`/account/${account.username}/cart`}>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
                                     <path d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
                                 </svg>
@@ -544,14 +544,14 @@ function Item({ name, productId }) {
                         </div>
                         <button className={styles.increase} onClick={increase} style={styles.button}>+</button>
                         <button className={styles.cart} onClick={addCart}
-                        style={{left: cart.amounts[item.id] != 0 && cart.amounts[item.id] ? "22.93rem" : "23.3rem"}}>{cart.amounts[item.id] != 0 && cart.amounts[item.id] ? "Update Cart" : "Add to cart"}</button>
+                            style={{ left: cart.amounts[item.id] != 0 && cart.amounts[item.id] ? "22.93rem" : "23.3rem" }}>{cart.amounts[item.id] != 0 && cart.amounts[item.id] ? "Update Cart" : "Add to cart"}</button>
                         {isAdding ? (
                             <>
                                 <div className={styles.cartSpinnerDiv}>
                                     <div className={styles.spinner}></div>
                                 </div>
                             </>
-                        ) : ( <></>
+                        ) : (<></>
                         )}
                         <button className={styles.favourite}>
                             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ffffff"><path d="M440-501Zm0 381L313-234q-72-65-123.5-116t-85-96q-33.5-45-49-87T40-621q0-94 63-156.5T260-840q52 0 99 22t81 62q34-40 81-62t99-22q81 0 136 45.5T831-680h-85q-18-40-53-60t-73-20q-51 0-88 27.5T463-660h-46q-31-45-70.5-72.5T260-760q-57 0-98.5 39.5T120-621q0 33 14 67t50 78.5q36 44.5 98 104T440-228q26-23 61-53t56-50l9 9 19.5 19.5L605-283l9 9q-22 20-56 49.5T498-172l-58 52Zm280-160v-120H600v-80h120v-120h80v120h120v80H800v120h-80Z" /></svg>
@@ -689,7 +689,7 @@ function Item({ name, productId }) {
                                                         [comment.id]: !prev[comment.id]
                                                     }))
                                                 }>
-                                                   ──────── {openReplies[comment.id] ? "Close" : "Show"} {comment.replies.length} Replies ────────</button>
+                                                    ──────── {openReplies[comment.id] ? "Close" : "Show"} {comment.replies.length} Replies ────────</button>
 
                                                 {openReplies[comment.id] && (
                                                     <div className={styles.replies}>
@@ -754,15 +754,14 @@ function Item({ name, productId }) {
                         </>
                     )}
                     <div className={styles.send} ref={sendRef}>
-                        {warningMessage && <p className={styles.warningMessage}>{warningMessage}</p>}
                         {repliedAccount && repliedComment && (<>
                             <p className={styles.replySend}>Replying to @{repliedAccount}</p>
                             <p className={styles.replyCommentSend}>{repliedCommentText}</p>
                             <button className={styles.cancelReply} onClick={() => {
                                 setRepliedAccount(null);
                                 setRepliedComment(null);
-                            }}><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
-                            </svg>
+                            }}><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                                </svg>
                             </button>
                         </>)}
 
@@ -826,7 +825,9 @@ function Item({ name, productId }) {
                                 ))}
                             </div>
                         )}
+                        {warningMessage && <p className={styles.warningMessage}>{warningMessage}</p>}
                     </div>
+
                 </div>
 
             </div>
