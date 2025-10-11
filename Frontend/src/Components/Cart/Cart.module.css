@@ -39,7 +39,7 @@
     position: relative;
     top: -2%;
     left: 50%;
-    transform: translate(-77.6%, 80%);
+    transform: translate(-80.1%, 80%);
     border-bottom: 1.9px solid rgb(219, 219, 219);
 }
 
@@ -68,7 +68,7 @@
     position: relative;
     top: 5rem;
     left: 50%;
-    transform: translate(-63%, 3rem);
+    transform: translate(-65%, 3rem);
     border-radius: 1rem;
 
 
@@ -250,7 +250,7 @@
     position: fixed;
     top: -8.5rem;
     min-height: 35rem;
-    left:70rem;
+    left:69rem;
     width: 33rem;
     border-radius: 0.5rem;
     background-color: white;
@@ -261,9 +261,20 @@
     position: fixed;
     top: -8.5rem;
     min-height: 10rem;
-    left:70rem;
+    padding-bottom: 4rem;
+    left:69rem;
     width: 33rem;
     border-bottom: 1px solid rgb(204, 204, 204);
+
+
+
+}
+
+.orderProductDiv{
+    position: relative;
+    height: 5rem;
+    margin-bottom: -3.5rem;
+    width: 33rem;
 
 
 
@@ -313,7 +324,7 @@
     text-align: left;
     font-size: clamp(1rem, 1.2rem, 10rem);
     font-family: "PoppinsRegular";
-    top: -4.29rem;
+    top: -3.05rem;
     line-height: 1;
     color: #383838;
     left: 25.5rem;   
@@ -323,7 +334,7 @@
     position: fixed;
     top: 2rem;
     min-height: 10rem;
-    left:70rem;
+    left:69rem;
     width: 33rem;
     border-bottom: 1px solid rgb(204, 204, 204);    
 }
@@ -335,7 +346,7 @@
     text-align: left;
     font-size: clamp(1rem, 1.2rem, 10rem);
     font-family: "PoppinsLight";
-    top: 4.06rem;
+    top: 4.46rem;
     color: #808080;
     left: 2.3rem;     
 }
@@ -347,7 +358,7 @@
     text-align: left;
     font-size: clamp(1rem, 1.2rem, 10rem);
     font-family: "PoppinsRegular";
-    top: 1.4rem;
+    top: 1.8rem;
     line-height: 1;
     color: #383838;
     left:25.5rem;   
@@ -361,7 +372,7 @@
     text-align: left;
     font-size: clamp(1rem, 1.2rem, 10rem);
     font-family: "PoppinsLight";
-    top: 0.5rem;
+    top: 1.2rem;
     color: #808080;
     left: 2.3rem;     
 }
@@ -373,7 +384,7 @@
     text-align: left;
     font-size: clamp(1rem, 1.2rem, 10rem);
     font-family: "PoppinsRegular";
-    top: -2.2rem;
+    top: -1.5rem;
     line-height: 1;
     color: #383838;
     left: 25.7rem;   
@@ -384,7 +395,7 @@
     position: fixed;
     top: 10.5rem;
     min-height: 10rem;
-    left:70rem;
+    left:69rem;
     width: 33rem;
     border-bottom: 1px solid rgb(204, 204, 204);     
 }
