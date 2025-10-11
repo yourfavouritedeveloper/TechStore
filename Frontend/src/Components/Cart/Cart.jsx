@@ -13,6 +13,9 @@ function Cart({ cart, setCart }) {
   const { account, logout } = useContext(AuthContext);
   const [isAdding, setIsAdding] = useState(false);
   const [pendingUpdate, setPendingUpdate] = useState(null);
+  const [discount, setDiscount] = useState(0);
+  const [total, setTotal] = useState(0);
+
 
   useEffect(() => {
     if (!pendingUpdate) return;
@@ -46,6 +49,9 @@ function Cart({ cart, setCart }) {
       }
     };
 
+
+
+
     const timer = setTimeout(updateCartBackend, 200);
     return () => clearTimeout(timer);
   }, [pendingUpdate]);
@@ -61,6 +67,28 @@ function Cart({ cart, setCart }) {
 
     setPendingUpdate({ productId, oldAmount, newAmount });
   };
+
+
+  useEffect(() => {
+    if (!cart || !Array.isArray(cart.products)) return;
+
+    let totalDiscount = 0;
+    let tot = 0;
+
+    cart.products.forEach((product) => {
+      tot += (product.price * cart.amounts[product.id]);
+      if (product.discount) {
+        const dis = product.discount / 100;
+        const discountAmount = product.price * dis * cart.amounts[product.id];
+        totalDiscount += discountAmount;
+      }
+    });
+
+    setDiscount(totalDiscount.toFixed(2));
+    setTotal(tot.toFixed(2));
+  }, [cart]);
+
+
 
   const handleDecrease = (productId) => {
     const oldAmount = cart.amounts?.[productId] || 0;
@@ -81,6 +109,7 @@ function Cart({ cart, setCart }) {
       </div>
     );
   }
+  
 
   return (
     <div className={styles.container}>
@@ -147,7 +176,28 @@ function Cart({ cart, setCart }) {
                 );
               })}
             <div className={styles.totalDiv}>
-                <p className={styles.totalPrice}>Total: {(cart.totalPrice).toFixed(2)}₼</p>
+                <div className={styles.summaryDiv}>
+                  <p className={styles.summaryTitle}>Order Summary</p>
+                  {cart.products.map((product) => (
+                    <>
+                      <p className={styles.orderAmount}>{"x" + cart.amounts?.[product.id]}</p>
+                      <p key={product.id} className={styles.orderName}>
+                        {product.name}
+                      </p>
+                      <p className={styles.orderTotal}>{product.discount ? (product.price * ((100 - product.discount) / 100) * cart.amounts[product.id]).toFixed(2) : (product.price * cart.amounts[product.id]).toFixed(2)}₼</p>
+                    </>
+                  ))}
+                </div>
+                <div className={styles.discountDiv}>
+                  <p className={styles.amountTitle}>Amount</p>
+                  <p className={styles.amount}>{total}₼</p>
+                  <p className={styles.discountTitle}>Discount</p>
+                  <p className={styles.discount}>{discount}₼</p>
+                </div>
+                <div className={styles.orderTotalDiv}>
+                  <p className={styles.totalPriceTitle}>Order Total </p>
+                  <p className={styles.totalPrice}>{(cart.totalPrice).toFixed(2)}₼</p>
+                </div>
             </div>
 
             </>) : (<>
