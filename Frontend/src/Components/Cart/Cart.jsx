@@ -50,29 +50,29 @@ function Cart({ cart, setCart }) {
     return () => clearTimeout(timer);
   }, [pendingUpdate]);
 
-    const handleIncrease = (productId) => {
+  const handleIncrease = (productId) => {
     const oldAmount = cart.amounts?.[productId] || 0;
     const newAmount = oldAmount + 1;
 
     setCart({
-        ...cart,
-        amounts: { ...cart.amounts, [productId]: newAmount },
+      ...cart,
+      amounts: { ...cart.amounts, [productId]: newAmount },
     });
 
     setPendingUpdate({ productId, oldAmount, newAmount });
-    };
+  };
 
-    const handleDecrease = (productId) => {
+  const handleDecrease = (productId) => {
     const oldAmount = cart.amounts?.[productId] || 0;
     const newAmount = Math.max(oldAmount - 1, 0);
 
     setCart({
-        ...cart,
-        amounts: { ...cart.amounts, [productId]: newAmount },
+      ...cart,
+      amounts: { ...cart.amounts, [productId]: newAmount },
     });
 
     setPendingUpdate({ productId, oldAmount, newAmount });
-    };
+  };
 
   if (!cart || !cart.id) {
     return (
@@ -84,7 +84,7 @@ function Cart({ cart, setCart }) {
 
   return (
     <div className={styles.container}>
-      <div className={styles.div}>
+      <div className={styles.div} style={{ minHeight: cart.products.length > 0 ? "28rem" : "33.5rem" }}>
         <div className={styles.circle1}></div>
         <div className={styles.circle2}></div>
         <div className={styles.titleDiv}>
@@ -97,59 +97,59 @@ function Cart({ cart, setCart }) {
         </div>
 
         <div className={styles.cartDiv}>
-        {cart.products.length>0 ? (
+          {cart.products.length > 0 ? (
             <>
-                <p className={styles.productDetailsTitle}>Product Details</p>
-                <p className={styles.productQuantityTitle}>Quantity</p>
-                <p className={styles.productPriceTitle}>Price</p>
-                <p className={styles.productTotalTitle}>Total</p>
-                {cart.products.map((product) => {
-                    const count = cart.amounts?.[product.id] || 0;
-                    return (
-                    <div key={product.id} className={styles.productDiv}>
-                        <Link to={`/product/${product.id}`}>
-                        <img
-                            className={styles.productImage}
-                            src={product.productImageUrl}
-                            alt=""
-                        />
-                        <div className={styles.generalInfo}>
-                            <p className={styles.productName}>{product.name}</p>
-                            <p className={styles.productSeller}>
-                            Seller: {product.account.customerName}
-                            </p>
-                        </div>
-                        <p className={styles.productPrice}>{product.discount ? (product.price * ((100 - product.discount) / 100)).toFixed(2) : product.price.toFixed(2)}₼</p>
-                        <p className={styles.productTotal}>{product.discount ? (product.price * ((100 - product.discount) / 100)*cart.amounts[product.id]).toFixed(2) : (product.price*cart.amounts[product.id]).toFixed(2)}₼</p>
-                        </Link>
+              <p className={styles.productDetailsTitle}>Product Details</p>
+              <p className={styles.productQuantityTitle}>Quantity</p>
+              <p className={styles.productPriceTitle}>Price</p>
+              <p className={styles.productTotalTitle}>Total</p>
+              {cart.products.map((product) => {
+                const count = cart.amounts?.[product.id] || 0;
+                return (
+                  <div key={product.id} className={styles.productDiv}>
+                    <Link to={`/product/${product.id}`}>
+                      <img
+                        className={styles.productImage}
+                        src={product.productImageUrl}
+                        alt=""
+                      />
+                      <div className={styles.generalInfo}>
+                        <p className={styles.productName}>{product.name}</p>
+                        <p className={styles.productSeller}>
+                          Seller: {product.account.customerName}
+                        </p>
+                      </div>
+                      <p className={styles.productPrice}>{product.discount ? (product.price * ((100 - product.discount) / 100)).toFixed(2) : product.price.toFixed(2)}₼</p>
+                      <p className={styles.productTotal}>{product.discount ? (product.price * ((100 - product.discount) / 100) * cart.amounts[product.id]).toFixed(2) : (product.price * cart.amounts[product.id]).toFixed(2)}₼</p>
+                    </Link>
 
-                        <div className={styles.controls}>
-                        <button
-                            onClick={() => handleDecrease(product.id)}
-                            className={styles.decrease}
-                            disabled={pendingUpdate}
-                        >
-                            -
-                        </button>
-                        <p className={styles.number}>{count}</p>
-                        <button
-                            onClick={() => handleIncrease(product.id)}
-                            className={styles.increase}
-                            disabled={pendingUpdate}
-                        >
-                            +
-                        </button>
-                        </div>
+                    <div className={styles.controls}>
+                      <button
+                        onClick={() => handleDecrease(product.id)}
+                        className={styles.decrease}
+                        disabled={pendingUpdate}
+                      >
+                        -
+                      </button>
+                      <p className={styles.number}>{count}</p>
+                      <button
+                        onClick={() => handleIncrease(product.id)}
+                        className={styles.increase}
+                        disabled={pendingUpdate}
+                      >
+                        +
+                      </button>
                     </div>
-                    );
-                })} 
-                <div className={styles.totalDiv}>
-                    <p className={styles.totalPrice}>{(cart.totalPrice).toFixed(2)}</p>
-                </div>
-          </>) : (<>
-                <img className={styles.samsungs} src={Samsungs} alt="" />
-                <p className={styles.emptyTitle}>Your cart’s feeling a bit lonely — Let’s fix that!</p>
-                <Link className={styles.emptyButton} to="/product">Shop Now</Link></>) }
+                  </div>
+                );
+              })}
+              <div className={styles.totalDiv}>
+                <p className={styles.totalPrice}>Total: {(cart.totalPrice).toFixed(2)}₼</p>
+              </div>
+            </>) : (<>
+              <img className={styles.samsungs} src={Samsungs} alt="" />
+              <p className={styles.emptyTitle}>Your cart’s feeling a bit lonely — Let’s fix that!</p>
+              <Link className={styles.emptyButton} to="/product">Shop Now</Link></>)}
 
         </div>
 
