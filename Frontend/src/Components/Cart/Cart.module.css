@@ -47,7 +47,7 @@
     position: relative;
     z-index: 5;
     font-size: clamp(1rem, 2.3rem, 10rem);
-    font-family: "PoppinsSemiBold";
+    font-family: "PoppinsMedium";
     top: 1rem;
     color: #313131;
     left: -37.3%;
@@ -57,7 +57,7 @@
     position: relative;
     z-index: 5;
     font-size: clamp(1rem, 2.3rem, 10rem);
-    font-family: "PoppinsSemiBold";
+    font-family: "PoppinsMedium";
     top: -4.76rem;
     color: #313131;
     right: -43.6%;
@@ -77,36 +77,36 @@
 .productDetailsTitle {
     position: absolute;
     top: -2.5rem;
-    font-family: "PoppinsMedium";
+    font-family: "PoppinsLight";
     font-size: clamp(1rem, 1.3rem, 5rem);
-    color: #a7a7a7
+    color: #424242
 }
 
 .productQuantityTitle {
     position: absolute;
     top: -2.5rem;
     left: 32.15rem;
-    font-family: "PoppinsMedium";
+    font-family: "PoppinsLight";
     font-size: clamp(1rem, 1.3rem, 5rem);
-    color: #a7a7a7
+    color: #424242
 }
 
 .productPriceTitle {
     position: absolute;
     top: -2.5rem;
     left: 46.15rem;
-    font-family: "PoppinsMedium";
+    font-family: "PoppinsLight";
     font-size: clamp(1rem, 1.3rem, 5rem);
-    color: #a7a7a7
+    color: #424242
 }
 
 .productTotalTitle {
     position: absolute;
     top: -2.5rem;
     left: 57.8rem;
-    font-family: "PoppinsMedium";
+    font-family: "PoppinsLight";
     font-size: clamp(1rem, 1.3rem, 5rem);
-    color: #a7a7a7
+    color: #424242
 }
 
 .productDiv {
@@ -257,14 +257,161 @@
 
 }
 
+.summaryDiv {
+    position: fixed;
+    top: -8.5rem;
+    min-height: 10rem;
+    left:70rem;
+    width: 33rem;
+    border-bottom: 1px solid rgb(204, 204, 204);
+
+
+
+}
+
+.summaryTitle {
+      position: relative;
+    z-index: 5;
+    width: 50%;
+    text-align: left;
+    font-size: clamp(1rem, 1.4rem, 10rem);
+    font-family: "PoppinsSemiBold";
+    top: 1.3rem;
+    line-height: 1;
+    color: #383838;
+    left: 2.3rem;  }
+
+.orderAmount {
+     position: relative;
+    z-index: 5;
+    width: 60%;
+    text-align: left;
+    font-size: clamp(1rem, 1.2rem, 10rem);
+    font-family: "PoppinsLight";
+    top: 1.96rem;
+    color: #808080;
+    left: 2.3rem;   
+}
+
+.orderName {
+     position: relative;
+    z-index: 5;
+    width: 50%;
+    text-align: left;
+    font-size: clamp(1rem, 1.2rem, 10rem);
+    font-family: "PoppinsLight";
+    top: -0.69rem;
+    line-height: 1;
+    color: #808080;
+    left: 4rem;   
+}
+
+.orderTotal {
+     position: relative;
+    z-index: 5;
+    width: 50%;
+    text-align: left;
+    font-size: clamp(1rem, 1.2rem, 10rem);
+    font-family: "PoppinsRegular";
+    top: -4.29rem;
+    line-height: 1;
+    color: #383838;
+    left: 25.5rem;   
+}
+
+.discountDiv {
+    position: fixed;
+    top: 2rem;
+    min-height: 10rem;
+    left:70rem;
+    width: 33rem;
+    border-bottom: 1px solid rgb(204, 204, 204);    
+}
+
+.amountTitle {
+    position: relative;
+    z-index: 5;
+    width: 60%;
+    text-align: left;
+    font-size: clamp(1rem, 1.2rem, 10rem);
+    font-family: "PoppinsLight";
+    top: 4.06rem;
+    color: #808080;
+    left: 2.3rem;     
+}
+
+.amount {
+     position: relative;
+    z-index: 5;
+    width: 50%;
+    text-align: left;
+    font-size: clamp(1rem, 1.2rem, 10rem);
+    font-family: "PoppinsRegular";
+    top: 1.4rem;
+    line-height: 1;
+    color: #383838;
+    left:25.5rem;   
+}
+
+
+.discountTitle {
+    position: relative;
+    z-index: 5;
+    width: 60%;
+    text-align: left;
+    font-size: clamp(1rem, 1.2rem, 10rem);
+    font-family: "PoppinsLight";
+    top: 0.5rem;
+    color: #808080;
+    left: 2.3rem;     
+}
+
+.discount {
+     position: relative;
+    z-index: 5;
+    width: 50%;
+    text-align: left;
+    font-size: clamp(1rem, 1.2rem, 10rem);
+    font-family: "PoppinsRegular";
+    top: -2.2rem;
+    line-height: 1;
+    color: #383838;
+    left: 25.7rem;   
+}
+
+
+.orderTotalDiv {
+    position: fixed;
+    top: 10.5rem;
+    min-height: 10rem;
+    left:70rem;
+    width: 33rem;
+    border-bottom: 1px solid rgb(204, 204, 204);     
+}
+
+.totalPriceTitle {
+    position: relative;
+    z-index: 5;
+    width: 60%;
+    text-align: left;
+    font-size: clamp(1rem, 1.4rem, 10rem);
+    color: #383838;
+    font-family: "PoppinsSemiBold";
+    top: 4.3rem;
+    left: 2.3rem;     
+
+}
+
 .totalPrice {
     position: relative;
     z-index: 5;
-    font-size: clamp(1rem, 2.3rem, 10rem);
+    width: 60%;
+    text-align: left;
+    font-size: clamp(1rem, 1.4rem, 10rem);
+    color: #383838;
     font-family: "PoppinsSemiBold";
-    top: -1rem;
-    color: #313131;
-    right: -39.1%;
+    top: 0.8rem;
+    right: -75%;
 }
 
 .samsungs {
