@@ -180,11 +180,13 @@ function Cart({ cart, setCart }) {
                   <p className={styles.summaryTitle}>Order Summary</p>
                   {cart.products.map((product) => (
                     <>
+                    <div className={styles.orderProductDiv}>
                       <p className={styles.orderAmount}>{"x" + cart.amounts?.[product.id]}</p>
                       <p key={product.id} className={styles.orderName}>
                         {product.name}
                       </p>
                       <p className={styles.orderTotal}>{product.discount ? (product.price * ((100 - product.discount) / 100) * cart.amounts[product.id]).toFixed(2) : (product.price * cart.amounts[product.id]).toFixed(2)}₼</p>
+                    </div>
                     </>
                   ))}
                 </div>
