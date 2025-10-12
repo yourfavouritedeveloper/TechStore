@@ -17,6 +17,8 @@ function Item({ name, productId }) {
     const propertiesRef = useRef(null);
     const similarRef = useRef(null);
 
+    const [isHovered, setIsHovered] = useState(false);
+    const [hoverId, setHoverId] = useState(0);
     const { account, logout } = useContext(AuthContext);
     const [item, setItem] = useState([]);
     const [repliedAccount, setRepliedAccount] = useState("")
@@ -416,7 +418,7 @@ function Item({ name, productId }) {
         )
             .then(response => {
                 const filtered = response.data.filter(i => i.category === item.category && i.name !== item.name)
-                    .slice(0, 4);
+                    .slice(0, 5);
                 setSimilarItems(filtered);
             })
             .catch(error => {
@@ -833,26 +835,27 @@ function Item({ name, productId }) {
             </div>
             <div className={styles.similar} ref={similarRef}>
                 <p className={styles.similarTitle}>Check similar items</p>
-                <ul className={styles.items}>
+                <ul className={styles.similarItems}>
                     {similarItems.map((i) => (
-                        <Link key={i.id} className={styles.similarItem}
-                            to={"/product/" + i.id}
-                        >
+                        <Link className={styles.similarItem} to={"/product/" + i.id}>
+                          <div className={styles.info}>
                             <img src={i.productImageUrl} alt={i.name} />
-                            <p className={styles.itemName}>{i.name}</p>
-                            <p className={styles.guarantee}>{i.guarantee} month</p>
-                            {i.discount ? (
-                                <>
-                                    <div className={styles.priceContainer}>
-                                        <p className={styles.itemDiscount}>{i.discount}%</p>
-                                        <span className={styles.itemNew}>{i.price}₼</span>
-                                    </div>
-                                    <div className={styles.itemLine} style={{ width: `${i.price.toString().length}rem`, right: `${(10 / i.price.toString().length) + 0.8}rem` }}></div>
-                                    <p className={styles.itemDiscountedPrice}>{(i.price * (100 - i.discount) / 100).toFixed(2)}₼</p>
-                                </>
-                            ) : (<span className={styles.itemOld}>{i.price}₼</span>)
-                            }
-
+                          </div>
+                            <p className={styles.nameOf}>{i.name}</p>
+                            <p className={styles.guaranteeTitle}>Guarantee</p>
+                            <p className={styles.guarantee}>{i.guarantee ?? 0} month</p>
+                            <p className={styles.availTitle}>Available</p>
+                            <p className={styles.avail}>{i.amount}</p>
+                            <p className={styles.priceTitle}>Price</p>
+                            <p className={styles.priceOf}>{i.price ?? 0}₼</p>
+                            <button className={styles.cartOf}
+                                onMouseEnter={() => {setIsHovered(true);setHoverId(i.id)}}
+                                onMouseLeave={() => {setIsHovered(false);setHoverId(0)}}>
+                              <p className={styles.cartText} style={{opacity: isHovered && hoverId == i.id ? "1" : "0"}}>Add to Cart</p>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                    <path d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
+                                </svg>
+                            </button>
                         </Link>
                     ))}
                 </ul>
