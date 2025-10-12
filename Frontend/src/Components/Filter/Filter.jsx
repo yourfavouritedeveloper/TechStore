@@ -6,6 +6,8 @@ import { useLocation, Link,useNavigate } from "react-router-dom";
 
 function Filter({ items, itemRef,bodyItems,  onResetFilters  }) {
 
+  const [isHovered, setIsHovered] = useState(false);
+  const [hoverId, setHoverId] = useState(0);
   const scrollRef = useRef(null);
   const location = useLocation();
   const category = location.state?.category;
@@ -357,16 +359,28 @@ const displayItems = currentItems.length ? currentItems : [];
                     </div>
                       <ul className={styles.items}>
                        {displayItems && displayItems.length > 0 ? (displayItems.map((item) => (
-                          <Link key={item.id} className={styles.item} 
-                          to= {"/product/" + item.id}
-                          style={{ backgroundColor: "rgba(247, 247, 247, 1)" }}>
-                            <img src={item.productImageUrl} alt={item.name}/>
-                            <div className={styles.info}>
+                        <Link key={item.id} className={styles.item} to={"/product/" + item.id}>
+                          <div className={styles.info}>
+                            <img src={item.productImageUrl} alt={item.name} />
+                          </div>
                             <p className={styles.name}>{item.name}</p>
-                            <p className={styles.guarantee}>{item.guarantee} month</p>
-                            <p className={styles.price}>₼{item.price}</p>
-                            </div>
-                          </Link>
+                            <p className={styles.guaranteeTitle}>Guarantee</p>
+                            <p className={styles.guarantee}>{item.guarantee ?? 0} month</p>
+                            <p className={styles.availTitle}>Available</p>
+                            <p className={styles.avail}>{item.amount}</p>
+                            <p className={styles.priceTitle}>Price</p>
+                            <p className={styles.price}>{item.price ?? 0}₼</p>
+                            <button className={styles.cart}
+                            onMouseEnter={() => {setIsHovered(true);setHoverId(item.id)}}
+                            onMouseLeave={() => {setIsHovered(false);setHoverId(0)}}>
+                              <p className={styles.cartText} style={{opacity: isHovered && hoverId == item.id ? "1" : "0"}}>Add to Cart</p>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                    <path d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
+                                </svg>
+                            </button>
+                        </Link>
+                      
+                    
                         ))) : (
                             <li className={styles.noItem}>
                               <p>No item found</p>
