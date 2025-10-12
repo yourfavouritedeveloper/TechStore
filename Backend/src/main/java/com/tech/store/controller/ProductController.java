@@ -45,7 +45,7 @@ public class ProductController {
             File uploadDir = new File(PRODUCT_VIDEO_UPLOAD_DIR);
             if (!uploadDir.exists()) uploadDir.mkdirs();
 
-            String filename = System.currentTimeMillis() + "_" + file.getOriginalFilename();
+            String filename =  file.getOriginalFilename();
 
             String lowerName = filename.toLowerCase();
             if (!(lowerName.endsWith(".mp4") || lowerName.endsWith(".mov") || lowerName.endsWith(".avi") || lowerName.endsWith(".mkv"))) {
@@ -77,7 +77,7 @@ public class ProductController {
             File uploadDir = new File(UPLOAD_DIR);
             if (!uploadDir.exists()) uploadDir.mkdirs();
 
-            String filename = System.currentTimeMillis() + "_" + file.getOriginalFilename();
+            String filename = file.getOriginalFilename();
             Path filePath = Paths.get(UPLOAD_DIR, filename);
             Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
 

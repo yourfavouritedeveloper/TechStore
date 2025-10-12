@@ -1,7 +1,11 @@
 .container {
-    
     background: linear-gradient(0deg,rgb(255, 233, 233),white);
     display: flex;
+    width: 100%;
+    position: relative;
+    min-height: 55vh;
+    height: auto;
+    padding-bottom: 25vh;
     flex-direction: column;
     align-items: center;
     justify-content: start;
@@ -26,9 +30,9 @@
     position: relative;
     width: 110rem;
     min-height: 49.6vw;
-
-    top: -0.9rem;
+    top: -4.9rem;
     transform: translate(0%, 10%);
+
 }
 
 
@@ -258,11 +262,10 @@
 }
 
 .summaryDiv {
-    position: fixed;
-    top: -8.5rem;
-    min-height: 10rem;
-    padding-bottom: 4rem;
-    left:69rem;
+    position: relative;
+    top: 0rem;
+    min-height: 8rem;
+    padding-bottom: 2rem;
     width: 33rem;
     border-bottom: 1px solid rgb(204, 204, 204);
 
@@ -272,8 +275,8 @@
 
 .orderProductDiv{
     position: relative;
-    height: 5rem;
-    margin-bottom: -3.5rem;
+    min-height: 5rem;
+    margin-bottom: -4.5rem;
     width: 33rem;
 
 
@@ -281,7 +284,7 @@
 }
 
 .summaryTitle {
-      position: relative;
+    position: relative;
     z-index: 5;
     width: 50%;
     text-align: left;
@@ -290,7 +293,8 @@
     top: 1.3rem;
     line-height: 1;
     color: #383838;
-    left: 2.3rem;  }
+    left: 2.3rem;  
+}
 
 .orderAmount {
      position: relative;
@@ -331,10 +335,9 @@
 }
 
 .discountDiv {
-    position: fixed;
-    top: 2rem;
+    position: relative;
+    top: -3.5rem;
     min-height: 10rem;
-    left:69rem;
     width: 33rem;
     border-bottom: 1px solid rgb(204, 204, 204);    
 }
@@ -392,10 +395,9 @@
 
 
 .orderTotalDiv {
-    position: fixed;
-    top: 10.5rem;
-    min-height: 10rem;
-    left:69rem;
+    position: relative;
+    top: -5.5rem;
+    min-height: 5rem;
     width: 33rem;
     border-bottom: 1px solid rgb(204, 204, 204);     
 }
@@ -408,7 +410,7 @@
     font-size: clamp(1rem, 1.4rem, 10rem);
     color: #383838;
     font-family: "PoppinsSemiBold";
-    top: 4.3rem;
+    top: 2.7rem;
     left: 2.3rem;     
 
 }
@@ -421,8 +423,18 @@
     font-size: clamp(1rem, 1.4rem, 10rem);
     color: #383838;
     font-family: "PoppinsSemiBold";
-    top: 0.8rem;
-    right: -75%;
+    top: -0.85rem;
+    right: -75.5%;
+}
+
+.checkout {
+    color:white;
+    background-color: rgb(255, 148, 148);
+    font-size: clamp(1rem,1.7rem,5rem);
+    font-family: "PoppinsRegular";
+    padding: 1rem 9rem;
+    position: relative;
+    top:-2.8rem;
 }
 
 .samsungs {

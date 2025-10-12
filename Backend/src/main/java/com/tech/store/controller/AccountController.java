@@ -45,7 +45,7 @@ public class AccountController {
             File uploadDir = new File(UPLOAD_DIR);
             if (!uploadDir.exists()) uploadDir.mkdirs();
 
-            String filename = System.currentTimeMillis() + "_" + file.getOriginalFilename();
+            String filename = file.getOriginalFilename();
             Path filePath = Paths.get(UPLOAD_DIR, filename);
             Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
 
