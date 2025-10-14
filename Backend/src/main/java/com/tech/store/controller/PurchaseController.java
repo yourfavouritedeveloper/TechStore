@@ -1,7 +1,10 @@
 package com.tech.store.controller;
 
 
+import com.stripe.exception.StripeException;
 import com.tech.store.model.dto.PurchaseDto;
+import com.tech.store.model.dto.PurchaseRequest;
+import com.tech.store.model.dto.PurchaseResponse;
 import com.tech.store.service.PurchaseService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -18,6 +21,13 @@ import java.util.List;
 public class PurchaseController {
 
     private final PurchaseService purchaseService;
+
+    @PostMapping("/checkout")
+    @ResponseStatus(HttpStatus.OK)
+    @Operation(summary = "Make a Checkout", description = "Makes a Checkout.")
+    public PurchaseResponse createPurchase(@RequestBody PurchaseDto purchaseDto) throws StripeException {
+        return purchaseService.checkoutProduct(purchaseDto);
+    }
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
@@ -48,11 +58,11 @@ public class PurchaseController {
         return purchaseService.findAll();
     }
 
-    @PostMapping("/purchase/{buyerUsername}/{sellerUsername}")
+    @PostMapping("/purchase")
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(summary = "Purchase an item", description = "Makes a purchase")
-    public PurchaseDto create(@PathVariable String buyerUsername,@PathVariable String sellerUsername, @RequestParam Long productId, @RequestParam Long amount) {
-        return purchaseService.purchase(buyerUsername,sellerUsername, productId, amount);
+    public PurchaseDto create(@RequestBody PurchaseDto purchaseDto){
+        return purchaseService.purchase(purchaseDto);
     }
 
     @PutMapping("/delete/{id}")

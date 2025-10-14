@@ -1,5 +1,9 @@
 package com.tech.store.controller;
 
+import com.stripe.Stripe;
+import com.stripe.exception.StripeException;
+import com.stripe.model.Customer;
+import com.stripe.param.CustomerCreateParams;
 import com.tech.store.model.dto.Account;
 import com.tech.store.model.dto.AccountDto;
 import com.tech.store.model.dto.LoginRequestDto;
@@ -9,6 +13,7 @@ import com.tech.store.util.OnCreate;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -32,6 +37,8 @@ public class AccountController {
 
     private final AccountService accountService;
     private final String UPLOAD_DIR = "/app/uploads/";
+    @Value("${stripe.apikey}")
+    String stripeKey;
 
     @PostMapping("/uploadProfilePicture")
     public ResponseEntity<Map<String, String>> uploadProfilePicture(
@@ -84,8 +91,15 @@ public class AccountController {
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(summary = "Register a new account", description = "Creates an account with provided information.")
-    public AccountDto register(@Validated(OnCreate.class) @RequestBody RegisterRequestDto registerRequestDto) {
-        return accountService.register(registerRequestDto);
+    public AccountDto register(@Validated(OnCreate.class) @RequestBody RegisterRequestDto registerRequestDto) throws StripeException {
+        Stripe.apiKey = stripeKey;
+        CustomerCreateParams params =
+                CustomerCreateParams.builder()
+                        .setName(registerRequestDto.getCustomerName())
+                        .setEmail(registerRequestDto.getEmail())
+                        .build();
+        Customer customer = Customer.create(params);
+        return accountService.register(registerRequestDto,customer.getId());
     }
 
     @PostMapping("/login")

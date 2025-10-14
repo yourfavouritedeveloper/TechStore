@@ -27,8 +27,11 @@ import java.util.List;
 public class AccountEntity extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "role", nullable = false)
+    @Column(name = "role")
     private Role role;
+
+    @Column(name="customer_id")
+    private String customerId;
 
     @Column(name = "username",nullable = false,unique = true)
     private String username;
@@ -45,7 +48,7 @@ public class AccountEntity extends BaseEntity {
     @Column(name = "email",nullable = false)
     private String email;
 
-    @Column(name = "balance",nullable = false)
+    @Column(name = "balance")
     private BigDecimal balance;
 
     @Column(name = "profile_picture_url")

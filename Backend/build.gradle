@@ -39,6 +39,8 @@ dependencies {
     implementation 'org.javamoney:moneta:1.4.2'
     implementation 'org.liquibase:liquibase-core'
     implementation 'io.jsonwebtoken:jjwt-api:0.12.5'
+    implementation 'com.stripe:stripe-java:30.1.0-beta.1'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'org.postgresql:postgresql'
     runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.5'
