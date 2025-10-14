@@ -50,6 +50,8 @@ spring:
       password: ${SECURITY_PASSWORD}
 
 
+stripe:
+  apikey: ${STRIPE_APIKEY}
 
 
 
