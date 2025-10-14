@@ -8,7 +8,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Map;
 
 @Data
 @NoArgsConstructor
@@ -17,13 +21,22 @@ public class PurchaseSummaryDto {
 
     private Long id;
 
-    private AccountSummaryDto buyer;
+    private Long buyerId;
 
-    private AccountSummaryDto seller;
+    private Long sellerId;
 
-    private Long productId;
+    private List<Long> productIds;
 
-    private LocalDateTime purchaseDate;
+    private Timestamp purchaseDate;
 
     private Long amount;
+
+    private BigDecimal price;
+
+    private String currency;
+
+    private Map<Long,Long> quantity;
+
+
+
 }

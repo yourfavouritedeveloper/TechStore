@@ -13,6 +13,7 @@ import java.util.List;
 @Data
 public class RegisterRequestDto {
 
+
     private String username;
 
     private String customerName;

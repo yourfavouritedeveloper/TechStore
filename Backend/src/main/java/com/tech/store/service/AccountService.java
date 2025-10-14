@@ -88,10 +88,11 @@ public class  AccountService {
     }
 
     @Transactional
-    public AccountDto register(RegisterRequestDto registerRequestDto) {
+    public AccountDto register(RegisterRequestDto registerRequestDto, String customerId) {
         AccountDto accountDto = accountMapper.toAccountDto(registerRequestDto);
         AccountEntity accountEntity = accountMapper.toAccountEntity(accountDto);
         accountEntity.setPassword(bCryptPasswordEncoder.encode(registerRequestDto.getPassword()));
+        accountEntity.setCustomerId(customerId);
         accountRepository.save(accountEntity);
         return accountRedisRepository.save(accountEntity);
     }

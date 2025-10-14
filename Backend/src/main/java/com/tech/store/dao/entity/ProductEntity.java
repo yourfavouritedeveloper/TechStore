@@ -20,6 +20,7 @@ import org.springframework.data.redis.core.RedisHash;
 
 import java.awt.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -106,9 +107,9 @@ public class ProductEntity extends BaseEntity {
     @JsonManagedReference("product-comments")
     private List<CommentEntity> comments;
 
-    @OneToMany(mappedBy = "productEntity", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference("product-purchases")
-    private List<PurchaseEntity> purchases;
+    @ManyToMany(mappedBy = "products")
+    @JsonBackReference("purchase-products")
+    private List<PurchaseEntity> purchases = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "account")

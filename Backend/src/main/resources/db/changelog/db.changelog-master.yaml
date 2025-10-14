@@ -49,3 +49,17 @@ databaseChangeLog:
       file: db/changelog/logs/05-02-changelog.xml
   - include:
       file: db/changelog/logs/05-03-changelog.xml
+  - include:
+      file: db/changelog/logs/13-02-changelog.xml
+  - include:
+      file: db/changelog/logs/13-03-changelog.xml
+  - include:
+      file: db/changelog/logs/13-04-changelog.xml
+  - include:
+      file: db/changelog/logs/14-01-changelog.xml
+  - include:
+      file: db/changelog/logs/14-02-changelog.xml
+  - include:
+      file: db/changelog/logs/14-03-changelog.xml
+  - include:
+      file: db/changelog/logs/14-04-changelog.xml

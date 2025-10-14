@@ -883,7 +883,7 @@ input:focus {
 .items .avail {
     position: absolute;
     top:16.7rem;   
-    left: 12.45rem;  
+    left: 11.35rem;  
     font-family: "PoppinsMedium";
     font-size: clamp(0rem, 0.84rem, 2rem);
     color: #1d3c94;
