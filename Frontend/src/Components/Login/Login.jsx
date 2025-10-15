@@ -51,7 +51,7 @@ useEffect(() => {
 }, [submitInView]);
 
 
-  const { login } = useContext(AuthContext);
+  const { login, logout, token } = useContext(AuthContext);
 
 
   const [username, setUsername] = useState("");
@@ -68,115 +68,121 @@ useEffect(() => {
 
 
 
-const handleSubmit =async  (e) => {
-  e.preventDefault();
-  setErrorMsg("");
-  try {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setErrorMsg("");
+
+    try {
       const response = await fetch("https://techstore-3fvk.onrender.com/api/v1/accounts/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          username: username,
-          password: password,
-        }),
+        body: JSON.stringify({ username, password }),
       });
 
-      if (!response.ok) {
-        setErrorMsg("Login failed. Check your credentials.");
-        setIsError(true);
-        setTimeout(() => {
-          setErrorMsg("");
-        }, 3000);
-        return;
-      }
+      if (!response.ok) throw new Error("Invalid username or password");
+
       const data = await response.json();
-      login(data);
-      localStorage.setItem("authToken", data.token);
+
+      const token = data.token || data.jwt || data.accessToken;
+      const account = data.account || data.user || { username };
+
+      if (!token) throw new Error("No token received from server");
+
+      login(account, token);
+      localStorage.setItem("authToken", token);
+
       setErrorMsg("Login Successful!");
       setIsError(false);
 
-        setTimeout(() => {
-          navigate(-1); 
-        }, 1500);
+      setTimeout(() => navigate("/"), 1000);
+
     } catch (error) {
-      setErrorMsg("Network error. Please try again later.");
+      setErrorMsg(error.message || "Network error. Please try again.");
       setIsError(true);
     }
+  };
 
-};
 
 
-const handleSignUp =async  (e) => {
-  e.preventDefault();
-  setErrorMsgSign("");
-  try {
 
-      if(password!=passwordAgain) {
-        setErrorMsgSign("Passwords do not match.");
-        setIsError(true);
-        setTimeout(() => {
-          setErrorMsgSign("");
-        }, 3000);
-        return;        
+ useEffect(() => {
+    if (!token) return;
+
+    try {
+      const { exp } = JSON.parse(atob(token.split(".")[1]));
+      const expiryTime = exp * 1000 - Date.now();
+
+      if (expiryTime <= 0) {
+        logout();
+        alert("Session expired. Please log in again.");
+        return;
       }
 
+      const timer = setTimeout(() => {
+        logout();
+        alert("Session expired. Please log in again.");
+      }, expiryTime);
 
-    const signup = await fetch("https://techstore-3fvk.onrender.com/api/v1/accounts/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          customerName: firstName + " " + lastName,
-          username: username,
-          password: password,
-          email: email,
-          balance: 0 ,
-          role: "USER" 
-        }),
-      });
-    
+      return () => clearTimeout(timer);
+    } catch (err) {
+      console.error("Invalid token:", err);
+    }
+  }, [token, logout]);
 
 
-      if (signup.status !== 201) {
-        let errorMessage = "Sign up failed.";
-        try {
-          const contentType = signup.headers.get("content-type");
-          if (contentType && contentType.includes("application/json")) {
-            const errorData = await signup.json();
-            errorMessage = errorData.message || errorMessage;
-          }
-        } catch (err) {
-          console.log("Failed to parse error JSON:", err);
-        }
-        setErrorMsgSign(errorMessage); 
+
+ const handleSignUp = async (e) => {
+    e.preventDefault();
+    setErrorMsgSign("");
+
+    try {
+      if (password !== passwordAgain) {
+        setErrorMsgSign("Passwords do not match.");
         setIsError(true);
         setTimeout(() => setErrorMsgSign(""), 3000);
         return;
       }
 
-      const response = await fetch("https://techstore-3fvk.onrender.com/api/v1/accounts/login", {
+      const signup = await fetch("https://techstore-3fvk.onrender.com/api/v1/accounts/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          username: username,
-          password: password,
+          customerName: `${firstName} ${lastName}`,
+          username,
+          password,
+          email,
+          balance: 0,
+          role: "USER",
         }),
       });
 
+      if (signup.status !== 201) {
+        const errMsg = (await signup.json()).message || "Sign up failed.";
+        throw new Error(errMsg);
+      }
+
+      const response = await fetch("https://techstore-3fvk.onrender.com/api/v1/accounts/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password }),
+      });
+
       const data = await response.json();
-      login(data);
-      localStorage.setItem("authToken", data.token);
+      const token = data.token;
+      const account = data.account || { username };
+
+      login(account, token);
+      localStorage.setItem("authToken", token);
+
       setErrorMsgSign("Signed Up Successfully!");
       setIsError(false);
 
-        setTimeout(() => {
-            navigate(-1);  
-        }, 1500);
+      setTimeout(() => navigate("/"), 1000);
     } catch (error) {
-      setErrorMsgSign("Network error. Please try again later.");
+      setErrorMsgSign(error.message || "Network error. Please try again later.");
       setIsError(true);
     }
-
-};
+  };
 
 
 const [showPassword, setShowPassword] = useState(false);

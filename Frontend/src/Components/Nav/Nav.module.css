@@ -230,31 +230,32 @@ body {
     position: absolute;
     font-family: "PoppinsMedium";
     font-weight: normal;
-    width: 20vw;
-    left: 1vw;
+    width: 20rem;
+    left: 1rem;
     line-height: 1;
-    font-size: clamp(0.9rem, 1.5vw, 2rem);
+    font-size: clamp(0.9rem, 1.5rem, 2rem);
     text-align: left;
-    top: 17.7vw;
+    top: 18rem;
     margin-top: -2rem;
 }
 
 .subtitle {
     position: absolute;
-    top: 20vw;
-    width: 40%;
-    font-size: clamp(0.3rem, 0.8vw, 2.5rem);
-    left: 1vw;
+    top: 20rem;
+    width: 18rem;
+    font-size: clamp(0.3rem, 0.8rem, 2.5rem);
+    left: 1rem;
     line-height: 1.1;
     text-align: left;
 }
 
 .signup {
     position: absolute;
-    top: 25vw;
-    left: 1vw;
-    padding: 0.5rem clamp(0.1rem, 8vw, 9rem);
-    font-size: clamp(0.3rem, 1vw, 2.5rem);
+    top: 25rem;
+    left: 1rem;
+    padding: 0.5rem clamp(0.1rem, 7.2rem, 9rem);
+    white-space: nowrap;
+    font-size: clamp(0.3rem, 1rem, 2.5rem);
     background-color: rgb(54, 90, 250);
     color: white;
     border-radius: 2rem;
@@ -267,10 +268,11 @@ body {
 
 .log {
     position: absolute;
-    top: 28vw;
-    left: 1vw;
-    padding: 0.5rem clamp(0.1rem, 8.4vw, 9.5rem);
-    font-size: clamp(0.3rem, 1vw, 2.5rem);
+    top: 28rem;
+    left: 1rem;    
+    padding: 0.5rem clamp(0.1rem, 7.6rem, 9.5rem);
+    white-space: nowrap;
+    font-size: clamp(0.3rem, 1rem, 2.5rem);
     background-color: rgb(255, 255, 255);
     color: black;
     border-radius: 2rem;
@@ -348,6 +350,7 @@ body {
     border-radius: 2rem;
     font-size: clamp(0.8rem, 1.15rem, 2rem);
     left: 50%;
+    white-space: nowrap;
     transform: translate(-50%, 0%);
 }
 

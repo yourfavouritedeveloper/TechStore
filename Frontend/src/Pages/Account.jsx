@@ -19,53 +19,72 @@ function Account() {
     const USERNAME = import.meta.env.VITE_API_USERNAME;
     const PASSWORD = import.meta.env.VITE_API_PASSWORD;
 
-    const { username } = useParams();
-    const location = useLocation();
-    const [edit, setEdit] = useState(location.state?.edit || false);
-    const [account, setAccount] = useState([]);
-    const { account: checkAccount, loading  } = useContext(AuthContext);
-    const [ready, setReady] = useState(false);
+  const location = useLocation();
+  const { username } = useParams();
+  const { account: checkAccount, loading, token } = useContext(AuthContext);
 
+  const [edit, setEdit] = useState(location.state?.edit || false);
+  const [account, setAccount] = useState([]);
+  const [ready, setReady] = useState(false);
+
+  
     useEffect(() => {
       if (!loading) {
         if (!checkAccount || checkAccount.username !== username) {
           navigate("/login", { replace: true });
         } else {
-          setReady(true); 
+          setReady(true);
         }
       }
     }, [loading, checkAccount, username, navigate]);
 
 
+      useEffect(() => {
+        window.scrollTo({ top: 0, behavior: "auto" });
+        window.onbeforeunload = () => window.scrollTo(0, 0);
+      }, []);
+
 
 
     useEffect(() => {
-      if (location.state?.edit) {
-        setEdit(true);
-      }
+      if (location.state?.edit) setEdit(true);
     }, [location.state]);
 
-    useEffect(() => {
-    axios.get(`https://techstore-3fvk.onrender.com/api/v1/accounts/username/${username}`,
-    {
-        auth: {
-        username: USERNAME, 
-        password: PASSWORD
-        }
-    }) 
-      .then(response => {
-        setAccount(response.data);
-      })
-      .catch(error => {
-        console.error("Error fetching data:", error);
-      });
-  }, [username]);
+ useEffect(() => {
+    if (!ready || !token) return;
 
-  
+    const fetchAccount = async () => {
+      try {
+        const response = await axios.get(
+          `https://techstore-3fvk.onrender.com/api/v1/accounts/username/${username}`,
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
+        setAccount(response.data);
+      } catch (err) {
+        console.error("Error fetching account:", err);
+      }
+    };
+
+    fetchAccount();
+  }, [username, ready, token]);
+
+    
   const handleEditClick = () => {
-    setEdit(true);  
-    navigate(`/account/${username}`); 
-  };
+      setEdit(true);
+      navigate(`/account/${username}`);
+    };
+
+      useEffect(() => {
+    if (account?.customerName) {
+      document.title = `Account | ${account.customerName}`;
+    } else {
+      document.title = "Account";
+    }
+  }, [account]);
+
+  if (!ready || !account) return null;
 
     return (
         <>

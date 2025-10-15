@@ -15,7 +15,7 @@ function Nav({ highlight, shiftUp, setShiftUp, onEditClick = () => { } }) {
   const [is599, setIs599] = useState(window.innerWidth === 599);
   const [menuOpen, setMenuOpen] = useState(false);
   const [accountMenu, setAccountMenu] = useState(false)
-  const { account, logout } = useContext(AuthContext);
+  const { account, logout,token } = useContext(AuthContext);
   const [logAccount, setLogAccount] = useState();
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredItems, setFilteredItems] = useState([]);
@@ -23,22 +23,20 @@ function Nav({ highlight, shiftUp, setShiftUp, onEditClick = () => { } }) {
   const navigate = useNavigate();
 
 
-  useEffect(() => {
-    if (!account?.username || !account?.password) return;
-    axios.get("https://techstore-3fvk.onrender.com/api/v1/accounts/username/" + account.username, {
-      auth: {
-        username: USERNAME,
-        password: PASSWORD
-      }
-    })
-      .then(response => {
-        setLogAccount(response.data);
-      })
-      .catch(error => {
-        console.error("Error fetching data:", error);
-      });
-  }, [account]);
+useEffect(() => {
+  if (!account?.username || !token) return;
 
+  axios.get(`https://techstore-3fvk.onrender.com/api/v1/accounts/username/${account.username}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  })
+  .then(response => setLogAccount(response.data))
+  .catch(error => console.error("Error fetching data:", error));
+}, [account, token]);
+
+
+  
 
   useEffect(() => {
     const handleResize = () => {
@@ -56,8 +54,10 @@ function Nav({ highlight, shiftUp, setShiftUp, onEditClick = () => { } }) {
 
   const handleSignOut = () => {
     logout();
+    navigate("/"); 
     window.location.reload();
   };
+
 
 
   useEffect(() => {
@@ -92,13 +92,14 @@ function Nav({ highlight, shiftUp, setShiftUp, onEditClick = () => { } }) {
 
 
   const guest = (<>
-    <p className={styles.logName}>Account</p>
+  <div className={styles.accountDiv}>
+    <p className={styles.logName} onClick={() => setMenuOpen(prev => !prev)}>Account</p>
     <p className={styles.title}>Oops! It looks like you’re currently browsing in Guest mode. </p>
     <p className={styles.subtitle}>To access your account features like order history, saved preferences, and personalized settings, please log in or create an account. We’d love to have you on board!"</p>
     <Link className={styles.signup} to="/login" onClick={() => setShiftUp?.(true)}>
       Sign Up</Link>
     <Link className={styles.log} to="/login" onClick={() => setShiftUp?.(false)}>Log In</Link>
-
+  </div>
 
   </>);
 
