@@ -53,6 +53,8 @@ spring:
 stripe:
   apikey: ${STRIPE_APIKEY}
 
+jwt:
+  secret: ${JWT_SECRET}
 
 
 
