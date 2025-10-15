@@ -5,16 +5,15 @@ import com.tech.store.dao.repository.AccountRedisRepository;
 import com.tech.store.dao.repository.AccountRepository;
 import com.tech.store.exception.AccountNotFoundException;
 import com.tech.store.mapper.AccountMapper;
-import com.tech.store.model.dto.Account;
-import com.tech.store.model.dto.AccountDto;
-import com.tech.store.model.dto.LoginRequestDto;
-import com.tech.store.model.dto.RegisterRequestDto;
+import com.tech.store.model.dto.*;
 import com.tech.store.model.enumeration.Status;
 import com.tech.store.util.UpdateUtils;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -31,9 +30,7 @@ import java.util.*;
 public class  AccountService {
 
 
-    @Autowired
-    private AuthenticationManager authenticationManager;
-
+    private final AuthenticationManager authenticationManager;
     private final JWTService jwtService;
     private final AccountRepository accountRepository;
     private final AccountRedisRepository accountRedisRepository;
@@ -88,7 +85,11 @@ public class  AccountService {
     }
 
     @Transactional
-    public AccountDto register(RegisterRequestDto registerRequestDto, String customerId) {
+    public AccountDto register(@Valid RegisterRequestDto registerRequestDto, String customerId) {
+        if(accountRepository.findByUsername(registerRequestDto.getUsername()).isPresent()) {
+            throw new IllegalArgumentException("Username already exists");
+        }
+
         AccountDto accountDto = accountMapper.toAccountDto(registerRequestDto);
         AccountEntity accountEntity = accountMapper.toAccountEntity(accountDto);
         accountEntity.setPassword(bCryptPasswordEncoder.encode(registerRequestDto.getPassword()));
@@ -98,16 +99,34 @@ public class  AccountService {
     }
 
     @Transactional
-    public LoginRequestDto login(LoginRequestDto loginRequest) {
-        return verify(loginRequest);
+    public LoginResponseDto login(@Valid LoginRequestDto loginRequest) {
+        try {
+            Authentication auth = authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword())
+            );
+
+            if (!auth.isAuthenticated()) throw new BadCredentialsException("Invalid credentials");
+
+            AccountEntity user = accountRepository.findByUsername(loginRequest.getUsername())
+                    .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+
+            // JWT with roles as claim
+            String token = jwtService.generateToken(user.getUsername());
+
+
+            return new LoginResponseDto(token, loginRequest.getUsername());
+        } catch (Exception e) {
+            throw new BadCredentialsException("Authentication failed: " + e.getMessage());
+        }
     }
 
-    public LoginRequestDto verify(LoginRequestDto loginRequest) {
+    public LoginResponseDto verify(LoginRequestDto loginRequest) {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(),loginRequest.getPassword()));
 
         if(authentication.isAuthenticated()) {
 
-            return loginRequest;
+            String token = jwtService.generateToken(loginRequest.getUsername());
+            return new LoginResponseDto(token, loginRequest.getUsername());
         }
         throw new AccountNotFoundException("User not found");
     }
@@ -115,7 +134,7 @@ public class  AccountService {
 
 
     @Transactional
-    public AccountDto updateAccount(AccountDto accountDto) throws Exception {
+    public AccountDto updateAccount(@Valid AccountDto accountDto) throws Exception {
         AccountEntity accountEntity = accountRepository.findById(accountDto.getId())
                 .orElseThrow(() -> new AccountNotFoundException("Account not found"));
 

@@ -5,6 +5,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -21,18 +22,23 @@ import java.util.function.Function;
 @Service
 public class JWTService {
 
+    /*This is a JWT Documentary written by Nihad Mammadov.
+    Will be used for the future projects
+     */
 
-    private String secretKey = "";
 
-    public JWTService() {
-        try {
-            KeyGenerator keyGenerator = KeyGenerator.getInstance("HmacSHA256");
-            SecretKey key = keyGenerator.generateKey();
-            secretKey = Base64.getEncoder().encodeToString(key.getEncoded());
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        }
-    }
+    /*
+    WHATS THE POINT OF USING SECRET KEY:
+    it is a randomly generated string (which is being generated ONCE ONLY) to verify and and sign jwt tokens
+     */
+    @Value("${jwt.secret}")
+    private String secretKey;
+
+    /*
+    good practice to put expiration time for 1 hour (personal preference and experience)
+     */
+    private static final long EXPIRATION_TIME = 1000 * 60 * 60;
+
 
 
     public String generateToken(String username) {
@@ -40,28 +46,40 @@ public class JWTService {
         Map<String,Object> claims = new HashMap<>();
 
 
-
+        /*
+        The method where tokens are generated.
+        Realize that USERNAME is being used here as subject, it can vary to other unique elements, like id for example.
+        it is signed with getKey method
+         */
         return Jwts.builder()
-                .claims()
-                .add(claims)
+                .claims(claims)
                 .subject(username)
                 .issuedAt(new Date(System.currentTimeMillis()))
-                .expiration(new Date(System.currentTimeMillis() + 60 * 60 * 30))
-                .and()
+                .expiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
                 .signWith(getKey())
                 .compact();
 
     }
 
+    /*
+    this is where our secret key is turned into a real key
+    it is being seperated into byte keys
+     */
     private SecretKey getKey() {
         byte[] keyBytes = Decoders.BASE64.decode(secretKey);
         return Keys.hmacShaKeyFor(keyBytes);
     }
 
+
+
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
     }
 
+    /*
+    claim means DATA
+    here, we can extract our datas from token
+     */
     private <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
         final Claims claims = extractAllClaims(token);
         return claimsResolver.apply(claims);
@@ -85,6 +103,7 @@ public class JWTService {
     }
 
     private Date extractExpiration(String token) {
+
         return extractClaim(token, Claims::getExpiration);
     }
 }

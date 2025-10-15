@@ -11,6 +11,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
+/*
+This implementation of UserDetailsService is being used to load the user by username
+ */
 public class AccountDetailsService implements UserDetailsService {
 
     private final AccountRepository accountRepository;

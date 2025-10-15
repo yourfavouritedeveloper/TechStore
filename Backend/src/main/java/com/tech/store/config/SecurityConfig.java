@@ -28,10 +28,11 @@ public class SecurityConfig {
 
 
     private final AccountDetailsService accountDetailsService;
+    private final JwtFilter jwtFilter;
 
-    @Autowired
-    private JwtFilter jwtFilter;
-
+    /*
+    Encoder for passwords
+     */
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder(12);
@@ -39,6 +40,9 @@ public class SecurityConfig {
 
 
 
+    /*
+    this is the filter chain where at the end it sends request to auth manager
+     */
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
@@ -47,7 +51,6 @@ public class SecurityConfig {
                 .authorizeHttpRequests(requests -> requests
                         .requestMatchers("/api/v1/accounts/register", "/api/v1/accounts/login","/api/v1/products/**","/images/**").permitAll()
                         .anyRequest().authenticated())
-                .httpBasic(Customizer.withDefaults())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
