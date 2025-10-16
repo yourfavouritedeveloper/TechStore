@@ -26,7 +26,5 @@ public class AccountSummaryDto {
 
     private String email;
 
-    private BigDecimal balance;
-
     private String profilePictureUrl;
 }
