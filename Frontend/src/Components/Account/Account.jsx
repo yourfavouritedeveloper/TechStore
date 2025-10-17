@@ -21,7 +21,7 @@ import getCroppedImg from "../Utils/cropImage";
 
     
 
-function Account({ account, edit, setEdit , isPurchase, setIsPurchase}) {
+function Account({ account, edit, setEdit ,token, isPurchase, setIsPurchase}) {
 
       const [cropModalOpen, setCropModalOpen] = useState(false);
       const [cropImageSrc, setCropImageSrc] = useState(null);
@@ -125,13 +125,17 @@ function Account({ account, edit, setEdit , isPurchase, setIsPurchase}) {
           const res = await axios.post(
             "https://techstore-3fvk.onrender.com/api/v1/accounts/uploadProfilePicture",
             formData,
-            { auth: { username: USERNAME, password: PASSWORD } }
+            { 
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+              }
           );
 
           let fileUrl = res.data.url.startsWith('/') 
             ? `https://techstore-3fvk.onrender.com${res.data.url}` 
             : res.data.url;
-          fileUrl += `?t=${Date.now()}`;
+
 
           setLogAccount(prev => ({ ...prev, profilePictureUrl: fileUrl }));
           setDraftAccount(prev => ({ ...prev, profilePictureUrl: fileUrl }));
@@ -332,6 +336,9 @@ const tickDatesSell = (() => {
                         `https://techstore-3fvk.onrender.com/api/v1/accounts/username/${newUsername}`,
                           
                         {
+                          headers: {
+                            Authorization: `Bearer ${token}`,
+                          },
                           auth: { username: USERNAME, password: PASSWORD },
                         }
                       )
@@ -473,7 +480,10 @@ const tickDatesSell = (() => {
                         const accountResponse = await axios.put(
                           `https://techstore-3fvk.onrender.com/api/v1/accounts/update`,
                           draftAccount, 
-                          { auth: { username: USERNAME, password: PASSWORD } }
+                          { 
+                            headers: {
+                              Authorization: `Bearer ${token}`,
+                            }}
                         );
                         setLogAccount(accountResponse.data);
 
@@ -482,8 +492,10 @@ const tickDatesSell = (() => {
                             `https://techstore-3fvk.onrender.com/api/v1/accounts/password`,
                             {}, 
                             {
+                              headers: {
+                                Authorization: `Bearer ${token}`,
+                              },
                               params: { id: draftAccount.id, password },
-                              auth: { username: USERNAME, password: PASSWORD }
                             }
                           );
                           setLogAccount(passwordResponse.data);

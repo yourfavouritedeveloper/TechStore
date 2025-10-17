@@ -90,7 +90,7 @@ function Account() {
         <>
         <title>{"Account | " + account.customerName}</title>
         <Nav highlight={true}  onEditClick={handleEditClick} ></Nav>
-        <Profile account={account}  edit={edit} setEdit={setEdit}  isPurchase={isPurchase}/>
+        <Profile account={account}  edit={edit} setEdit={setEdit} token={token} isPurchase={isPurchase}/>
         </>
     );
 }

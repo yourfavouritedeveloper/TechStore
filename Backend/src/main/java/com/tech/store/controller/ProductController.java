@@ -114,13 +114,14 @@ public class ProductController {
         return productService.findAll();
     }
 
-    @GetMapping("/account")
+    @GetMapping("/account/{accountId}")
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Get all products being sold by an account", description = "Gets products of an account.")
-    public List<ProductDto> getByAccount(AccountDto accountDto) {
+    public List<ProductDto> findByAccount(@PathVariable Long accountId) {
+        AccountDto accountDto = new AccountDto();
+        accountDto.setId(accountId);
         return productService.findByAccount(accountDto);
     }
-
     @GetMapping("/popular")
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Get the most popular products", description = "Gets the most popular 5 products.")

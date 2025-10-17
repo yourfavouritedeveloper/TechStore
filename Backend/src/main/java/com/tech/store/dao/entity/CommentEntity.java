@@ -63,7 +63,7 @@ public class CommentEntity extends BaseEntity {
     @Column(name="replied_username")
     private String repliedUsername;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "product",nullable = false)
     @JsonBackReference("product-comments")
     private ProductEntity product;

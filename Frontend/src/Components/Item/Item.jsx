@@ -19,7 +19,7 @@ function Item({ name, productId }) {
 
     const [isHovered, setIsHovered] = useState(false);
     const [hoverId, setHoverId] = useState(0);
-    const { account, logout } = useContext(AuthContext);
+    const { account, logout, token } = useContext(AuthContext);
     const [item, setItem] = useState([]);
     const [repliedAccount, setRepliedAccount] = useState("")
     const [repliedComment, setRepliedComment] = useState();
@@ -106,14 +106,16 @@ function Item({ name, productId }) {
             try {
                 const accountResponse = await axios.get(
                     `https://techstore-3fvk.onrender.com/api/v1/accounts/username/${account.username}`,
-                    { auth: { username: USERNAME, password: PASSWORD } }
+                    { 
+                        headers: { Authorization: `Bearer ${token}` }}
                 );
 
                 const logAccount = accountResponse.data;
 
                 const cartResponse = await axios.get(
                     `https://techstore-3fvk.onrender.com/api/v1/carts/account/${logAccount.id}`,
-                    { auth: { username: USERNAME, password: PASSWORD } }
+                    { 
+                        headers: { Authorization: `Bearer ${token}` }, }
                 );
 
                 setCart(cartResponse.data);
@@ -192,7 +194,6 @@ function Item({ name, productId }) {
         if (!name) return;
         axios.get(`https://techstore-3fvk.onrender.com/api/v1/products/name/${name}`,
 
-            { auth: { username: USERNAME, password: PASSWORD } }
         )
             .then(response => {
                 setItem(response.data);
@@ -238,7 +239,6 @@ function Item({ name, productId }) {
                     null,
                     {
                         params: { productId: item.id, comment: newCommentText },
-                        auth: { username: USERNAME, password: PASSWORD },
                     }
                 );
             } else {
@@ -247,20 +247,18 @@ function Item({ name, productId }) {
                     null,
                     {
                         params: { productId: item.id, comment: newCommentText, rate: selectedRating },
-                        auth: { username: USERNAME, password: PASSWORD },
                     }
                 );
 
                 await axios.put(
                     `https://techstore-3fvk.onrender.com/api/v1/products/update/rating/${item.id}`,
                     null,
-                    { params: { rating: selectedRating }, auth: { username: USERNAME, password: PASSWORD } }
+                    { params: { rating: selectedRating }}
                 );
             }
 
             const updatedItem = await axios.get(
                 `https://techstore-3fvk.onrender.com/api/v1/products/id/${item.id}`,
-                { auth: { username: USERNAME, password: PASSWORD } }
             );
 
             setItem(updatedItem.data);
@@ -295,8 +293,7 @@ function Item({ name, productId }) {
                     params: {
                         commentId: commentId,
                         username: account.username
-                    },
-                    auth: { username: USERNAME, password: PASSWORD }
+                    }
                 }
             );
 
@@ -381,10 +378,7 @@ function Item({ name, productId }) {
                         productId: item.id,
                         productAmount: Math.abs(difference),
                     },
-                    auth: {
-                        username: USERNAME,
-                        password: PASSWORD,
-                    },
+
                 }
             );
 
@@ -412,9 +406,7 @@ function Item({ name, productId }) {
         if (!item?.category) return;
 
         axios.get("https://techstore-3fvk.onrender.com/api/v1/products/all",
-            {
-                auth: { username: USERNAME, password: PASSWORD }
-            }
+
         )
             .then(response => {
                 const filtered = response.data.filter(i => i.category === item.category && i.name !== item.name)
@@ -632,20 +624,20 @@ function Item({ name, productId }) {
             <div className={styles.review} ref={reviewRef}>
                 <p className={styles.reviewTitle}>Reviews({item.comments.length})</p>
                 <div className={styles.commentBox}>
-                    {comments && comments.length > 0 ? (
+                    {comments?.length > 0 ?  (
                         <>
 
                             {comments
-                                .filter((comment) => !comment.toAccount)
+                                .filter((comment) => !comment?.toAccount)
                                 .slice(0, visibleCommentsCount)
                                 .map((comment) => (
                                     <>
-                                        <div key={comment.id} className={styles.comment}>
+                                        <div key={comment?.id} className={styles.comment}>
 
-                                            {comment.fromAccount && (
+                                            {comment?.fromAccount && (
                                                 <div className={styles.accountInfo}>
-                                                    <img src={comment.fromAccount.profilePictureUrl} alt="" />
-                                                    <p className={styles.commentCustomerName}>{comment.fromAccount.customerName}</p>
+                                                    <img src={comment?.fromAccount.profilePictureUrl} alt="" />
+                                                    <p className={styles.commentCustomerName}>{comment?.fromAccount.customerName}</p>
                                                     <div className={styles.commentRate}>
                                                         {[1, 2, 3, 4, 5].map((star) => (
                                                             <span
@@ -658,21 +650,21 @@ function Item({ name, productId }) {
                                                     </div>
                                                 </div>
                                             )}
-                                            <p className={styles.commentText}>{comment.comment}</p>
+                                            <p className={styles.commentText}>{comment?.comment}</p>
                                             <div className={styles.likeDiv}>
-                                                <p className={styles.likeCount}>{comment.likes ? comment.likes : 0}</p>
-                                                <button className={styles.like} onClick={() => handleLike(comment.id)}
-                                                    style={{ backgroundColor: (comment.likedBy || []).includes(account.username) ? "rgb(112, 139, 255)" : "", color: (comment.likedBy || []).includes(account.username) ? "white" : "rgb(82, 82, 82)" }}>
+                                                <p className={styles.likeCount}>{comment?.likes ? comment?.likes : 0}</p>
+                                                <button className={styles.like} onClick={() => handleLike(comment?.id)}
+                                                    style={{ backgroundColor: (comment?.likedBy || []).includes(account.username) ? "rgb(112, 139, 255)" : "", color: (comment?.likedBy || []).includes(account.username) ? "white" : "rgb(82, 82, 82)" }}>
                                                     <svg xmlns="http://www.w3.org/2000/svg"
                                                         height="24px"
-                                                        viewBox="0 -960 960 960" width="24px" fill={(comment.likedBy || []).includes(account.username) ? "white" : "rgb(82, 82, 82)"}><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z" />
+                                                        viewBox="0 -960 960 960" width="24px" fill={(comment?.likedBy || []).includes(account.username) ? "white" : "rgb(82, 82, 82)"}><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z" />
                                                     </svg>
                                                 </button>
                                                 <button className={styles.reply}
                                                     onClick={() => {
-                                                        setRepliedAccount(comment.fromAccount.username);
-                                                        setRepliedComment(comment.id);
-                                                        setRepliedCommentText(comment.comment);
+                                                        setRepliedAccount(comment?.fromAccount.username);
+                                                        setRepliedComment(comment?.id);
+                                                        setRepliedCommentText(comment?.comment);
                                                         if (sendRef.current) {
                                                             const yOffset = -120;
                                                             const y =
@@ -683,7 +675,7 @@ function Item({ name, productId }) {
                                                     }}>Reply</button>
                                             </div>
                                         </div>
-                                        {comment.replies && comment.replies.length > 0 && (
+                                        {comment?.replies?.length > 0 && (
                                             <>
                                                 <button className={styles.showReplies} onClick={() =>
                                                     setOpenReplies((prev) => ({
@@ -740,7 +732,7 @@ function Item({ name, productId }) {
                                         )}
                                     </>
                                 ))}
-                            {visibleCommentsCount < comments.filter(comment => !comment.toAccount).length && (
+                            {visibleCommentsCount < comments?.filter(comment => !comment?.toAccount).length && (
                                 <button
                                     className={styles.showMoreComments}
                                     onClick={() => setVisibleCommentsCount(prev => prev + 10)}
