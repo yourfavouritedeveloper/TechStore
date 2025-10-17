@@ -9,17 +9,7 @@ function Login({ shiftUp, setShiftUp }) {
 
     return  (<>
         <title>Log in / Sign up</title>
-        <div
-      style={{
-        overflowY: "hidden",
-        height: "89.2vh",
-        width: "100%",
-        position: "relative"
-      }}
-    >
         <Log shiftUp={shiftUp} setShiftUp={setShiftUp} />
-    </div>
-    <Footer />
     </>);
 }
 

@@ -1,18 +1,18 @@
 import styles from "./Login.module.css";
 import { motion, useInView, useAnimation,AnimatePresence  } from "framer-motion";
 import React, { useEffect, useRef, useState,useContext  } from "react";
-import { Link,useNavigate,useLocation,Navigate  } from "react-router-dom";
+import { Link,useNavigate, useLocation ,Navigate  } from "react-router-dom";
 import { AuthContext } from "../AuthContext";
 import BrandLogo from "../../../public/brandlogowhite.png"
 import Mixed from "../../assets/mixed.png"
 
-function Login({ shiftUp, setShiftUp }) {
+function Login() {
 
 
 
 
 
-
+const [isLoading, setIsLoading] = useState(false);
 const circleRef1 = useRef(null);
 const circleRef2 = useRef(null);
 const boxRef = useRef(null);
@@ -53,6 +53,8 @@ useEffect(() => {
 
   const { login, logout, token } = useContext(AuthContext);
 
+  const location = useLocation();
+   const sign = location.state?.sign || false;
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -62,15 +64,17 @@ useEffect(() => {
   const [email,setEmail] = useState("");
   const navigate = useNavigate();
   const [errorMsg, setErrorMsg] = useState("");
-  const [errorMsgSign, setErrorMsgSign] = useState("");
+  const [successMsg, setSuccessMsg] = useState("");
   const [isError, setIsError] = useState(false);
   const from = location.state?.from?.pathname || "/";
+  const [isSign, setIsSign] = useState(sign);
 
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMsg("");
+    setIsLoading(true);
 
     try {
       const response = await fetch("https://techstore-3fvk.onrender.com/api/v1/accounts/login", {
@@ -91,7 +95,7 @@ useEffect(() => {
       login(account, token);
       localStorage.setItem("authToken", token);
 
-      setErrorMsg("Login Successful!");
+      setSuccessMsg("Login Successful!");
       setIsError(false);
 
       setTimeout(() => navigate("/"), 1000);
@@ -99,7 +103,9 @@ useEffect(() => {
     } catch (error) {
       setErrorMsg(error.message || "Network error. Please try again.");
       setIsError(true);
-    }
+    } finally {
+    setIsLoading(false);
+  }
   };
 
 
@@ -133,13 +139,25 @@ useEffect(() => {
 
  const handleSignUp = async (e) => {
     e.preventDefault();
-    setErrorMsgSign("");
+    setErrorMsg("");
+    setIsLoading(true);
+
+
+    const allGood = Object.values(errors).every(Boolean);
+      if (!allGood) {
+        setErrorMsg("Password does not meet requirements.");
+        setIsError(true);
+        setTimeout(() => setErrorMsg(""), 3500);
+        setIsLoading(false);
+        return;
+      }
 
     try {
       if (password !== passwordAgain) {
-        setErrorMsgSign("Passwords do not match.");
+        setErrorMsg("Passwords do not match.");
         setIsError(true);
-        setTimeout(() => setErrorMsgSign(""), 3000);
+        setTimeout(() => setErrorMsg(""), 3000);
+        setIsLoading(false);
         return;
       }
 
@@ -174,13 +192,15 @@ useEffect(() => {
       login(account, token);
       localStorage.setItem("authToken", token);
 
-      setErrorMsgSign("Signed Up Successfully!");
+      setSuccessMsg("Signed Up Successfully!");
       setIsError(false);
 
       setTimeout(() => navigate("/"), 1000);
     } catch (error) {
-      setErrorMsgSign(error.message || "Network error. Please try again later.");
+      setErrorMsg(error.message || "Network error. Please try again later.");
       setIsError(true);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -188,14 +208,42 @@ useEffect(() => {
 const [showPassword, setShowPassword] = useState(false);
 const [showPassword1, setShowPassword1] = useState(false);
 
+const [errors, setErrors] = useState({
+  length: false,
+  lowercase: false,
+  uppercase: false,
+  number: false,
+  special: false,
+});
+
+useEffect(() => {
+  if (!password) {
+    setErrors({
+      length: false,
+      lowercase: false,
+      uppercase: false,
+      number: false,
+      special: false,
+    });
+    return;
+  }
+
+  setErrors({
+    length: password.length >= 8,
+    lowercase: /[a-z]/.test(password),
+    uppercase: /[A-Z]/.test(password),
+    number: /[0-9]/.test(password),
+    special: /[!@#$%^&*(),.?":{}|<>_\-\\\/\[\];'`~+=]/.test(password),
+  });
+}, [password]);
+
+
+
+
 
 const signUpFirst = (<>
-
+          <div className={styles.signDiv}>
             <p className={styles.title}>Create Your Account</p>
-                <p className={styles.subsubtitle}>
-                  Join our community and unlock personalized features like saved preferences, order history, and exclusive offers. 
-                  It only takes a minute to get started!
-                </p>
                 <label htmlFor="signupusername" className={styles.labelUsername}>Enter Username</label>
                 <input id="signupusername" 
                 type="text" 
@@ -232,11 +280,32 @@ const signUpFirst = (<>
                 onChange={(e) => setLastName(e.target.value)}  
                 />
 
+                <div className={styles.pwCriteria}>
+                <p className={styles.criteriaTitle}>Password must contain:</p>
+                <ul>
+                  <li className={errors.length ? styles.ok : styles.bad}>
+                    {errors.length ? "✔" : "✖"} At least 8 characters
+                  </li>
+                  <li className={errors.lowercase ? styles.ok : styles.bad}>
+                    {errors.lowercase ? "✔" : "✖"} Lowercase letter
+                  </li>
+                  <li className={errors.uppercase ? styles.ok : styles.bad}>
+                    {errors.uppercase ? "✔" : "✖"} Uppercase letter
+                  </li>
+                  <li className={errors.number ? styles.ok : styles.bad}>
+                    {errors.number ? "✔" : "✖"} Number (0-9)
+                  </li>
+                  <li className={errors.special ? styles.ok : styles.bad}>
+                    {errors.special ? "✔" : "✖"} Special character (!@#$%)
+                  </li>
+                </ul>
+              </div>
+
                 <label htmlFor="signuppassword" className={styles.labelPassword}>Enter Password</label>
                 <input id="signuppassword" 
                 type={showPassword ? "text" : "password"}
                 className={styles.password}  
-                 placeholder="Enter Your Password"
+                 placeholder="Enter Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                  />
@@ -245,7 +314,7 @@ const signUpFirst = (<>
                 <input id="signuppasswordagain" 
                 type={showPassword1 ? "text" : "password"}
                 className={styles.passwordAgain}  
-                 placeholder="Enter Your Password Again"
+                 placeholder="Enter Password Again"
                 value={passwordAgain}
                 onChange={(e) => setPasswordAgain(e.target.value)}
                  />
@@ -292,40 +361,19 @@ const signUpFirst = (<>
 
                 <button
                     className={styles.submit}
-                    type="button" onClick={handleSignUp}  >Sign Up</button>
+                    type="button" onClick={handleSignUp}  >                      {isLoading ? (
+                        <span className={styles.loader}></span>
+                      ) : (
+                        "Sign Up"
+                      )}</button>
+
                 <p className={styles.subtitle}>Already have an account?</p>
-                <Link className={styles.signnow}  onClick={() => toggleShiftUp(false)}>Log in now!</Link> 
-                <AnimatePresence>
-                  {errorMsgSign && (
-                  isError ? (
-                  <motion.p
-        
-                    className={styles.errorMsg}
-                    initial={{ y: -100}}
-                    animate={{ y: 100, }}
-                    exit={{ y: -100}}
-                    transition={{ duration: 1 }}
-                    >
-                  {errorMsgSign}
-                  </motion.p>
-                  ) : (
-                  <motion.p
-        
-                  className={styles.safeMsg}
-                    initial={{ y: -100}}
-                    animate={{ y: 100, }}
-                    exit={{ y: -100}}
-                    transition={{ duration: 1 }}
-                >
-                  {errorMsgSign}
-                </motion.p>
-              )
-            )}
-            </AnimatePresence>
-                <div className={styles.logo}>
-                  <div className={styles.layer}></div>
-                <img src={Mixed} alt="" />
-                </div>
+                <Link className={styles.signnow}  onClick={() => {
+                  setIsSign(false);
+                  }}>Log in now!</Link> 
+
+            </div>
+
 </>);
 
 
@@ -349,169 +397,96 @@ const signUpSecond = (<>
 </>);
 
 
-const toggleShiftUp = (value) => {
-  setShiftUp(value);
-  setUsername("");
-  setPassword("");
-  setPasswordAgain("");
-  setFirstName("");
-  setLastName("");
-  setEmail("");
-  setErrorMsg("");
-  setIsError(false);
-};
-    
+
     return(<>
       <form onSubmit={handleSubmit}>
-        <motion.div 
+        <div 
         className={styles.container}
-        animate={{ marginTop: shiftUp ? "-89.2vh" : "0vh" }}
-        transition={{ duration: 0.8 }}
         >
-            <motion.div 
-            className={styles.circle1}
-            ref={circleRef1}
-            animate={controls1}
-            variants={{
-            hidden: {x: "-800px"},
-            visible: {x: "0px"}
-            }}
-            initial="hidden"
-            viewport={{ margin: "10px" }}
-            transition={{ duration: 1.25}}
-            >
+                      <p
+                        className={styles.errorMsg}
+                        style={{top: errorMsg? "2.4rem" : "-7rem"}}
+                        >
+                      {errorMsg}
+                      </p>
 
-            </motion.div>
+                      <p
+                      className={styles.safeMsg}
+                      style={{top: successMsg? "2.4rem" : "-7rem"}}
 
-            <motion.div 
-            className={styles.circle2}
-            ref={circleRef2}
-            animate={controls2}
-            variants={{
-            hidden: {x: "800px"},
-            visible: {x: "0px"}
-            }}
-            initial="hidden"
-            viewport={{ margin: "10px" }}
-            transition={{ duration: 1.25}}
-            >
-            </motion.div>
-            <motion.div
+                    >
+                      {successMsg}
+                    </p>
+
+          <div className={styles.backgroundDiv}>
+              <p className={styles.backgroundTitle}>Access Your Account</p>
+              <p className={styles.backgroundSubtitle}>Sign in to continue exploring our amazing products.</p>
+            <p></p>
+          </div>
+            <div
              className={styles.box}
             ref={boxRef}
-            animate={boxControls}
-            variants={{
-            hidden: { 
-                y: 300
-            },
-            visible: { 
-                y:0
-            }
-            }}
-            initial="hidden"
-
-            viewport={{ margin: "10px" }}
-            transition={{
-                duration: 1
-            }}
              >
-                <p className={styles.title}>Log In to Your Account</p>
-                <label htmlFor="loginusername" className={styles.labelUsername}>Username</label>
-                <input id="loginusername" 
-                type="text" 
-                className={styles.username}  
-                placeholder="Enter Your Username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}  
-                />
+              {!isSign ? (<>
 
-                <label htmlFor="loginpassword" className={styles.labelPassword}>Password</label>
-                <input id="loginpassword" 
-                type={showPassword ? "text" : "password"}
-                className={styles.password}  
-                 placeholder="Enter Your Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                 />
+                  <div className={styles.logDiv}>
+                    <p className={styles.title}>Log In to Your Account</p>
+                    <label htmlFor="loginusername" className={styles.labelUsername}>Username</label>
+                    <input id="loginusername" 
+                    type="text" 
+                    className={styles.username}  
+                    placeholder="Enter Your Username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}  
+                    />
 
-                <button
-                type="button"
-                onClick={() => setShowPassword(!showPassword)}
-                className={styles.toggleBtn}
-                >
-                {showPassword ? (
+                    <label htmlFor="loginpassword" className={styles.labelPassword}>Password</label>
+                    <input id="loginpassword" 
+                    type={showPassword ? "text" : "password"}
+                    className={styles.password}  
+                    placeholder="Enter Your Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    />
 
-                    <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960"  fill="#333333ff">
-                    <path d="M480-320q75 0 127.5-52.5T660-500q0-75-52.5-127.5T480-680q-75 0-127.5 52.5T300-500q0 75 52.5 127.5T480-320Zm0-72q-45 0-76.5-31.5T372-500q0-45 31.5-76.5T480-608q45 0 76.5 31.5T588-500q0 45-31.5 76.5T480-392Zm0 192q-146 0-266-81.5T40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200Zm0-300Zm0 220q113 0 207.5-59.5T832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280Z"/>
-                    </svg>
-                ) : (
-
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#333333ff">
-                    <path d="m644-428-58-58q9-47-27-88t-93-32l-58-58q17-8 34.5-12t37.5-4q75 0 127.5 52.5T660-500q0 20-4 37.5T644-428Zm128 126-58-56q38-29 67.5-63.5T832-500q-50-101-143.5-160.5T480-720q-29 0-57 4t-55 12l-62-62q41-17 84-25.5t90-8.5q151 0 269 83.5T920-500q-23 59-60.5 109.5T772-302Zm20 246L624-222q-35 11-70.5 16.5T480-200q-151 0-269-83.5T40-500q21-53 53-98.5t73-81.5L56-792l56-56 736 736-56 56ZM222-624q-29 26-53 57t-41 67q50 101 143.5 160.5T480-280q20 0 39-2.5t39-5.5l-36-38q-11 3-21 4.5t-21 1.5q-75 0-127.5-52.5T300-500q0-11 1.5-21t4.5-21l-84-82Zm319 93Zm-151 75Z"/>
-                    </svg>
-                    )}
-                </button>
-
-
-                <Link className={styles.forgot} to="/forgot-password">Forgot Password?</Link>
-                <button
-                    className={styles.submit}
-                    type="submit">Log In</button>
-                <p className={styles.subtitle}>Don't have an account yet?</p>
-                <Link className={styles.signnow}  onClick={() => toggleShiftUp(true)}>Sign Up now!</Link> 
-                <AnimatePresence>
-                  {errorMsg && (
-                  isError ? (
-                  <motion.p
-                    key="error-login"  
-                    className={styles.errorMsg}
-                    initial={{ y: -100}}
-                    animate={{ y: 100, }}
-                    exit={{ y: -100}}
-                    transition={{ duration: 1 }}
+                    <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className={styles.toggleBtn}
                     >
-                  {errorMsg}
-                  </motion.p>
-                  ) : (
-                  <motion.p
-                  key="success-login" 
-                  className={styles.safeMsg}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  {errorMsg}
-                </motion.p>
-              )
-            )}
-            </AnimatePresence>
-                <div className={styles.logo}>
-                <div className={styles.layer}></div>
-                <img className={styles.background} src={Mixed} alt="" />
+                    {showPassword ? (
+
+                        <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960"  fill="#333333ff">
+                        <path d="M480-320q75 0 127.5-52.5T660-500q0-75-52.5-127.5T480-680q-75 0-127.5 52.5T300-500q0 75 52.5 127.5T480-320Zm0-72q-45 0-76.5-31.5T372-500q0-45 31.5-76.5T480-608q45 0 76.5 31.5T588-500q0 45-31.5 76.5T480-392Zm0 192q-146 0-266-81.5T40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200Zm0-300Zm0 220q113 0 207.5-59.5T832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280Z"/>
+                        </svg>
+                    ) : (
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#333333ff">
+                        <path d="m644-428-58-58q9-47-27-88t-93-32l-58-58q17-8 34.5-12t37.5-4q75 0 127.5 52.5T660-500q0 20-4 37.5T644-428Zm128 126-58-56q38-29 67.5-63.5T832-500q-50-101-143.5-160.5T480-720q-29 0-57 4t-55 12l-62-62q41-17 84-25.5t90-8.5q151 0 269 83.5T920-500q-23 59-60.5 109.5T772-302Zm20 246L624-222q-35 11-70.5 16.5T480-200q-151 0-269-83.5T40-500q21-53 53-98.5t73-81.5L56-792l56-56 736 736-56 56ZM222-624q-29 26-53 57t-41 67q50 101 143.5 160.5T480-280q20 0 39-2.5t39-5.5l-36-38q-11 3-21 4.5t-21 1.5q-75 0-127.5-52.5T300-500q0-11 1.5-21t4.5-21l-84-82Zm319 93Zm-151 75Z"/>
+                        </svg>
+                        )}
+                    </button>
+
+
+                    <Link className={styles.forgot} to="/forgot-password">Forgot Password?</Link>
+                    <button
+                        className={styles.submit}
+                        type="submit">                      
+                        {isLoading ? (
+                          <span className={styles.loader}></span>
+                        ) : (
+                          "Login"
+                        )}</button>
+                    <p className={styles.subtitle}>Don't have an account yet?</p>
+                    <Link className={styles.signnow}  onClick={() => {
+                      setIsSign(true);
+                      }}>Sign Up now!</Link> 
                 </div>
-                
-
-            </motion.div>
-  
-
-
-
-
-
-
-            <motion.div
-             className={styles.box2}
-
-             >
-               {signUpFirst}
-            </motion.div>
-            
-
-
-
-
-        </motion.div>
+                </>) : (<>
+                {signUpFirst}</>)}
+          </div>
+          
+        </div>
 
         </form>
     </>)

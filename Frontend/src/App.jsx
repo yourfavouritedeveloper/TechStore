@@ -24,7 +24,7 @@ function App() {
               <Route path="/" element={<Home shiftUp={shiftUp} setShiftUp={setShiftUp} />} />
               <Route path="/product" element={<Items shiftUp={shiftUp} setShiftUp={setShiftUp} />} />
               <Route path="/about" element={<About />} />
-              <Route path="/login" element={<Login shiftUp={shiftUp} setShiftUp={setShiftUp} />} />
+              <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/product/:id" element={<Item shiftUp={shiftUp} setShiftUp={setShiftUp} />} />
               <Route path="/account/:username" element={<Account />} />

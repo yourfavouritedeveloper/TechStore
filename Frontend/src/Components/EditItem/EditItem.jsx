@@ -145,8 +145,7 @@ function EditItem({ highlight, setHighlight, username,product}) {
                 username: accountData.username,
                 customerName: accountData.customerName,
                 email: accountData.email,
-                profilePictureUrl: accountData.profilePictureUrl,
-                balance: accountData.balance
+                profilePictureUrl: accountData.profilePictureUrl
             };
 
 
@@ -174,16 +173,24 @@ function EditItem({ highlight, setHighlight, username,product}) {
         };
 
 
+
         const res = await axios.put(
         `https://techstore-3fvk.onrender.com/api/v1/products/update`,
         payload,
         { headers: { Authorization: `Bearer ${token}` } }
         );
-        console.log("✅ Product updated:", res.data);
 
         navigate(`/account/${username}`);
     } catch (err) {
-        console.error("❌ Error updating product:", err);
+        if (err.response) {
+            console.error("❌ Backend responded with error:", err.response.status);
+            console.error("❌ Response data:", err.response.data);
+        } else if (err.request) {
+            console.error("❌ No response received:", err.request);
+        } else {
+            console.error("❌ Axios error:", err.message);
+        }
+        console.error("❌ Full error object:", err);
     }
 };
 
