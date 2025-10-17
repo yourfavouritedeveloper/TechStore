@@ -23,18 +23,26 @@ function Nav({ highlight, shiftUp, setShiftUp, onEditClick = () => { } }) {
   const navigate = useNavigate();
 
 
-useEffect(() => {
+const fetchAccount = async () => {
   if (!account?.username || !token) return;
 
-  axios.get(`https://techstore-3fvk.onrender.com/api/v1/accounts/username/${account.username}`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  })
-  .then(response => setLogAccount(response.data))
-  .catch(error => console.error("Error fetching data:", error));
-}, [account, token]);
+  try {
+    const res = await axios.get(
+      `https://techstore-3fvk.onrender.com/api/v1/accounts/username/${account.username}`,
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
+    setLogAccount(res.data);
+  } catch (err) {
+    console.error("Error fetching account:", err.response?.status, err.response?.data);
+    if (err.response?.status === 403) {
+      logout();
+    }
+  }
+};
 
+useEffect(() => {
+  fetchAccount();
+}, [account, token]);
 
   
 

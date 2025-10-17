@@ -90,13 +90,10 @@ public class ProductService {
 
     @Transactional(readOnly = true)
     public List<ProductDto> findByAccount(AccountDto accountDto) {
-        List<ProductEntity> productEntities = productRepository.findAll();
-        return productEntities.stream()
-                .filter(productEntity -> {
-                    ProductDto productDto = productMapper.toProductDto(productEntity);
-                   return productDto.getAccount().equals(accountDto);
-                }
-                ).map(productMapper::toProductDto).toList();
+        return productRepository.findByAccountId(accountDto.getId())
+                .stream()
+                .map(productMapper::toProductDto)
+                .toList();
     }
 
     @Transactional(readOnly = true)

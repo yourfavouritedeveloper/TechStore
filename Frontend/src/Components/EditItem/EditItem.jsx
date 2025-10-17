@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef,useContext  } from "react";
 import styles from "./EditItem.module.css"
 import axios from "axios";
 import Iphone from "../../assets/iphonePink.png"
@@ -6,6 +6,8 @@ import Airpods from "../../assets/airpods.png"
 import Macbook from "../../assets/macbookPink.png"
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../AuthContext";
+
 
 
     const USERNAME = import.meta.env.VITE_API_USERNAME;
@@ -14,6 +16,7 @@ import { useNavigate } from "react-router-dom";
 
 function EditItem({ highlight, setHighlight, username,product}) {
 
+    const { token } = useContext(AuthContext);
     const fileInputRef = useRef(null);
     const imageInputRef = useRef(null);
     const navigate = useNavigate();
@@ -132,13 +135,8 @@ function EditItem({ highlight, setHighlight, username,product}) {
  const submitClick = async () => {
     try {
         const accountRes = await axios.get(
-            `https://techstore-3fvk.onrender.com/api/v1/accounts/username/${username}`,
-                    {
-                    auth: {
-                        username: USERNAME, 
-                        password: PASSWORD
-                    }
-                    }
+        `https://techstore-3fvk.onrender.com/api/v1/accounts/username/${username}`,
+        { headers: { Authorization: `Bearer ${token}` } }
         );
 
         const accountData = accountRes.data;
@@ -162,12 +160,12 @@ function EditItem({ highlight, setHighlight, username,product}) {
             volume: formData.volume ? parseFloat(formData.volume) : 0,
             discount: formData.discount ? parseInt(formData.discount) : 0,
             amount: formData.amount ? parseInt(formData.amount) : 0,
-            guarantee: formData.guarantee ? Number(formData.guarantee) : null,
-            category: formData.category ? formData.category.toUpperCase().replace(/\s+/g, "_") : null,
+            guarantee: formData.guarantee ? Number(formData.guarantee) : undefined,
+            category: formData.category ? formData.category.toUpperCase().replace(/\s+/g, "_") : undefined,
             properties: formData.properties || {},
             account: accountSummary,
             productImageUrl: formData.productImageUrl || "",
-            videoUrl: formData.videoUrl || null,
+            videoUrl: formData.videoUrl || undefined,
             bought: formData.bought ? parseInt(formData.bought) : 0,  
             rating: formData.rating ? parseFloat(formData.rating) : 0,
             searched: formData.searched ? parseInt(formData.searched) : 0,  
@@ -177,8 +175,9 @@ function EditItem({ highlight, setHighlight, username,product}) {
 
 
         const res = await axios.put(
-            `https://techstore-3fvk.onrender.com/api/v1/products/update`,
-            payload
+        `https://techstore-3fvk.onrender.com/api/v1/products/update`,
+        payload,
+        { headers: { Authorization: `Bearer ${token}` } }
         );
         console.log("✅ Product updated:", res.data);
 

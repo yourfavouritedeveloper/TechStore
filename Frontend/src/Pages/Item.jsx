@@ -22,9 +22,7 @@ function Item({ shiftUp, setShiftUp }) {
       try {
         const response = await axios.get(
           `https://techstore-3fvk.onrender.com/api/v1/products/id/${id}`,
-           {
-              auth: { username: USERNAME, password: PASSWORD }
-            }
+
         );
         const currentItem = response.data;
         setItem(currentItem);
