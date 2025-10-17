@@ -104,9 +104,9 @@ useEffect(() => {
     <p className={styles.logName} onClick={() => setMenuOpen(prev => !prev)}>Account</p>
     <p className={styles.title}>Oops! It looks like you’re currently browsing in Guest mode. </p>
     <p className={styles.subtitle}>To access your account features like order history, saved preferences, and personalized settings, please log in or create an account. We’d love to have you on board!"</p>
-    <Link className={styles.signup} to="/login" onClick={() => setShiftUp?.(true)}>
+    <Link className={styles.signup} to="/login" state={{ sign: true }}>
       Sign Up</Link>
-    <Link className={styles.log} to="/login" onClick={() => setShiftUp?.(false)}>Log In</Link>
+    <Link className={styles.log} to="/login" state={{ sign: false }}>Log In</Link>
   </div>
 
   </>);

@@ -25,7 +25,6 @@ body {
 .whiteCover {
     background-color: rgb(255, 255, 255);
     width: 90rem;
-    /*height: 8rem;*/
     position: absolute;
     left: 50%;
     top: 39rem;
