@@ -1,9 +1,10 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import Product from "../Components/Item/Item"
 import Nav from "../Components/Nav/Nav"
 import Footer from "../Components/Footer/Footer"
+import { AuthContext } from "../Components/AuthContext";
 
 const USERNAME = import.meta.env.VITE_API_USERNAME;
 const PASSWORD = import.meta.env.VITE_API_PASSWORD;
@@ -16,6 +17,7 @@ function Item({ shiftUp, setShiftUp }) {
   }, []);
   const { id } = useParams();
   const [item, setItem] = useState([]);
+  const {token} = useContext(AuthContext);
 
   useEffect(() => {
     const fetchAndUpdateItem = async () => {
@@ -36,9 +38,7 @@ function Item({ shiftUp, setShiftUp }) {
           "https://techstore-3fvk.onrender.com/api/v1/products/update",
           updatedItem,
           {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
+
           }
         );
 

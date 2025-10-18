@@ -49,7 +49,7 @@ public class SecurityConfig {
         return http.csrf(AbstractHttpConfigurer::disable)
                 .authenticationProvider(authenticationProvider())
                 .authorizeHttpRequests(requests -> requests
-                        .requestMatchers("/api/v1/accounts/register", "/api/v1/accounts/login","/api/v1/products/**","/api/v1/comments/**","/images/**").permitAll()
+                        .requestMatchers("/api/v1/accounts/register", "/api/v1/accounts/login","/api/v1/products/**","/api/v1/comments/**","/images/**","/videos/**").permitAll()
                         .anyRequest().authenticated())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
