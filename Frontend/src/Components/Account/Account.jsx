@@ -1,5 +1,5 @@
 import styles from "./Account.module.css"
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState,useEffect,useRef,useLayoutEffect  } from "react";
 import {
   LineChart,
@@ -30,6 +30,11 @@ function Account({ account, edit, setEdit ,token, isPurchase, setIsPurchase}) {
       const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
 
       const purchaseRef = useRef(null);
+
+        const navigate = useNavigate();
+        const location = useLocation();
+
+
 
 
     useLayoutEffect(() => {
@@ -147,6 +152,11 @@ function Account({ account, edit, setEdit ,token, isPurchase, setIsPurchase}) {
         }
       };
 
+      useEffect(() => {
+        if (!token) {
+          navigate("/login", { state: { from: location } });
+        }
+      }, [token, navigate, location]);
 
   useEffect(() => {
     if (!account?.id) return;

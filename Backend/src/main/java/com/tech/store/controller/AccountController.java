@@ -80,18 +80,14 @@ public class AccountController {
     @Operation(summary = "Get account by id", description = "Gets the specified account.")
     public AccountDto findById(@PathVariable Long id) {
 
-        // Get currently logged-in username from JWT
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
 
-        // Fetch the account of the logged-in user
         AccountDto myAccount = accountService.findByName(username);
 
-        // Check if requested ID matches the logged-in user's ID
         if (!myAccount.getId().equals(id)) {
             throw new AccessDeniedException("You are not allowed to access this account");
         }
 
-        // Return the account (you could also just return `myAccount`)
         return myAccount;
     }
 

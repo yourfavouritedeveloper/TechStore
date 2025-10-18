@@ -98,7 +98,7 @@ useEffect(() => {
       setSuccessMsg("Login Successful!");
       setIsError(false);
 
-      setTimeout(() =>  navigate(-1), 1000);
+      setTimeout(() => navigate(from, { replace: true }), 1000);
 
     } catch (error) {
       setErrorMsg(error.message || "Network error. Please try again.");
