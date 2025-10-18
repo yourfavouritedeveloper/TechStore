@@ -90,6 +90,51 @@ function Cart({ cart, setCart }) {
     setTotal(tot.toFixed(2));
   }, [cart]);
 
+const handleCheckout = async () => {
+  if (!cart || cart.products.length === 0) return;
+
+  setIsAdding(true);
+
+  try {
+    const payload = {
+      buyerId: account.id,
+      sellerIds: Array.from(new Set(cart.products.map(p => p.account.id))),
+      productIds: cart.products.map(p => p.id),
+      quantity: {},
+      currency: "AZN"
+    };
+
+    cart.products.forEach(product => {
+      payload.quantity[product.id] = cart.amounts[product.id];
+    });
+
+        const successUrl = `${window.location.origin}/TechStore/#/success`;
+        const username = account.username; 
+
+        const cancelUrl = `${window.location.origin}/TechStore/#/account/${username}/cart`;
+
+    const response = await axios.post(
+      "https://techstore-3fvk.onrender.com/api/v1/purchases/checkout",
+      payload,
+      { headers: { Authorization: `Bearer ${token}` },
+        params: { successUrl, cancelUrl } }
+    );
+
+    const sessionUrl = response.data.sessionUrl;
+
+    if (sessionUrl) {
+      window.location.href = sessionUrl;
+    } else {
+      console.error("No session URL returned from backend");
+    }
+
+  } catch (err) {
+    console.error("Checkout failed:", err);
+  } finally {
+    setIsAdding(false);
+  }
+};
+
 
 
   const handleDecrease = (productId) => {
@@ -210,7 +255,9 @@ function Cart({ cart, setCart }) {
                   <p className={styles.totalPriceTitle}>Order Total </p>
                   <p className={styles.totalPrice}>{(cart.totalPrice).toFixed(2)}₼</p>
                 </div>
-                <Link className={styles.checkout}>Go Checkout</Link>
+                <Link className={styles.checkout} onClick={handleCheckout} 
+                disabled={isAdding} style={{padding : isAdding ? "1rem 13.5rem" : "1rem 9rem"}}>  {isAdding && <span className={styles.spinner}></span>}
+                                  {isAdding ? "" : "Go Checkout"}</Link>
               </div>
 
             </>) : (<>

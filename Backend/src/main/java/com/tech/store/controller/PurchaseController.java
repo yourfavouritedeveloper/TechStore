@@ -25,8 +25,9 @@ public class PurchaseController {
     @PostMapping("/checkout")
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Make a Checkout", description = "Makes a Checkout.")
-    public PurchaseResponse createPurchase(@RequestBody PurchaseDto purchaseDto) throws StripeException {
-        return purchaseService.checkoutProduct(purchaseDto);
+    public PurchaseResponse createPurchase(@RequestBody PurchaseDto purchaseDto,
+    @RequestParam String successUrl, @RequestParam String failUrl) throws StripeException {
+        return purchaseService.checkoutProduct(purchaseDto,successUrl,failUrl);
     }
 
     @GetMapping("/{id}")
