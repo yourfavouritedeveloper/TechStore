@@ -11,6 +11,7 @@ import Account from "./Pages/Account";
 import AddProduct from "./Pages/AddProduct";
 import EditProduct from "./Pages/EditProduct";
 import Cart from "./Pages/Cart"
+import Success from "./Pages/Success";
 import { PurchaseProvider } from "./Components/Utils/PurchaseContext";
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
               <Route path="/account/:username/product/add" element={<AddProduct />} />
               <Route path="/account/:username/product/edit/:id" element={<EditProduct />} />
               <Route path="/account/:username/cart" element={<Cart />} />
+              <Route path="/success" element={<Success />} />
             </Routes>
           </HashRouter>
         </PurchaseProvider>
