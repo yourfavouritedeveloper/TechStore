@@ -96,6 +96,7 @@ const handleCheckout = async () => {
   setIsAdding(true);
 
   try {
+    // Build payload
     const payload = {
       buyerId: account.id,
       sellerIds: Array.from(new Set(cart.products.map(p => p.account.id))),
@@ -105,28 +106,34 @@ const handleCheckout = async () => {
     };
 
     cart.products.forEach(product => {
-      payload.quantity[product.id] = cart.amounts[product.id];
+      const amount = cart.amounts[product.id];
+      payload.quantity[product.id] = amount;
     });
 
-      sessionStorage.setItem("checkoutPayload", JSON.stringify(payload));
+    console.log("Checkout payload:", payload);
 
-        const successUrl = `${window.location.origin}/TechStore/#/success`;
-        const username = account.username; 
-        console.log(successUrl);
+    sessionStorage.setItem("checkoutPayload", JSON.stringify(payload));
 
-        const cancelUrl = `${window.location.origin}/TechStore/#/account/${username}/cart`;
-        console.log(cancelUrl);
+    const successUrl = `${window.location.origin}/TechStore/#/success`;
+    const cancelUrl = `${window.location.origin}/TechStore/#/account/${account.username}/cart`;
+
+    console.log("Success URL:", successUrl);
+    console.log("Cancel URL:", cancelUrl);
+
     const response = await axios.post(
       "https://techstore-3fvk.onrender.com/api/v1/purchases/checkout",
       payload,
-      { headers: { Authorization: `Bearer ${token}` },
+      { 
+        headers: { Authorization: `Bearer ${token}` },
         params: { successUrl, failUrl: cancelUrl }
-       }
+      }
     );
 
-    const sessionUrl = response.data.sessionUrl;
+    console.log("Response from backend:", response.data);
 
+    const sessionUrl = response.data.sessionUrl;
     if (sessionUrl) {
+      console.log("Redirecting to session URL:", sessionUrl);
       window.location.href = sessionUrl;
     } else {
       console.error("No session URL returned from backend");
@@ -134,6 +141,10 @@ const handleCheckout = async () => {
 
   } catch (err) {
     console.error("Checkout failed:", err);
+    if (err.response) {
+      console.error("Backend response:", err.response.data);
+      console.error("Status code:", err.response.status);
+    }
   } finally {
     setIsAdding(false);
   }

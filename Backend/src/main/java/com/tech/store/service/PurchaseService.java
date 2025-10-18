@@ -141,13 +141,15 @@ public class PurchaseService {
                             .addImage(product.getProductImageUrl())
                             .build();
 
+            BigDecimal price = product.getPrice();
             BigDecimal discountMultiplier = BigDecimal.valueOf(100 - product.getDiscount())
-                    .divide(BigDecimal.valueOf(100), 2, RoundingMode.HALF_UP);
+                    .divide(BigDecimal.valueOf(100), 4, RoundingMode.HALF_UP);
 
-            long unitAmount = product.getPrice()
-                    .multiply(discountMultiplier)
-                    .multiply(BigDecimal.valueOf(100))
-                    .longValueExact();
+            BigDecimal discountedPrice = price.multiply(discountMultiplier)
+                    .setScale(2, RoundingMode.HALF_UP);
+
+            long unitAmount = discountedPrice.multiply(BigDecimal.valueOf(100))
+                    .longValue();
 
             SessionCreateParams.LineItem.PriceData priceData =
                     SessionCreateParams.LineItem.PriceData.builder()
