@@ -1,7 +1,7 @@
 import styles from "./Item.module.css"
 import axios from "axios";
 import { useState, useEffect, useRef, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import Choice from "../Choice/Choice"
 import spinner from "../../../public/brandlogo.png"
 import { AuthContext } from "../AuthContext";
@@ -16,7 +16,7 @@ function Item({ name, productId }) {
     const reviewRef = useRef(null);
     const propertiesRef = useRef(null);
     const similarRef = useRef(null);
-
+    const navigate = useNavigate();
     const [isHovered, setIsHovered] = useState(false);
     const [hoverId, setHoverId] = useState(0);
     const { account, logout, token } = useContext(AuthContext);
@@ -366,6 +366,7 @@ function Item({ name, productId }) {
     const decrease = () => { setCount(count == 0 ? 0 : count - 1) };
 
     const addCart = async () => {
+        if (!ensureAuthenticated()) return;
         if (!cart || !item) return;
 
         const currentAmount = cart.amounts[item.id] || 0;
@@ -538,7 +539,9 @@ function Item({ name, productId }) {
                         }
 
                         <button className={styles.buy} onClick={buy}>Buy now</button>
-                        {cart ? (<>
+                        <button className={styles.cart} onClick={addCart}
+                                style={{ left: cart.amounts[item.id] != 0 && cart.amounts[item.id] ? "22.93rem" : "23.3rem" }}>{cart.amounts[item.id] != 0 && cart.amounts[item.id] ? "Update Cart" : "Add to cart"}</button>
+                        {cart.id ? (<>
                             <p className={styles.number}>{count}</p>
                             {cart.amounts[item.id] != 0 && cart.amounts[item.id] ? (<>
                                 <Link className={styles.added} to={`/account/${account.username}/cart`}>
@@ -556,8 +559,7 @@ function Item({ name, productId }) {
                                 <p>{cart.amounts[item.id]}</p>
                             </div>
                             <button className={styles.increase} onClick={increase} style={styles.button}>+</button>
-                            <button className={styles.cart} onClick={addCart}
-                                style={{ left: cart.amounts[item.id] != 0 && cart.amounts[item.id] ? "22.93rem" : "23.3rem" }}>{cart.amounts[item.id] != 0 && cart.amounts[item.id] ? "Update Cart" : "Add to cart"}</button>
+
                             {isAdding ? (
                                 <>
                                     <div className={styles.cartSpinnerDiv}>

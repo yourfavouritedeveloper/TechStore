@@ -39,10 +39,14 @@ public class PurchaseEntity extends BaseEntity {
     @JsonBackReference("buyer-purchases")
     private AccountEntity buyer;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "seller",nullable = false)
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "purchase_sellers",
+            joinColumns = @JoinColumn(name = "purchase_id"),
+            inverseJoinColumns = @JoinColumn(name = "seller_id")
+    )
     @JsonBackReference("seller-purchases")
-    private AccountEntity seller;
+    private List<AccountEntity> sellers = new ArrayList<>();
 
 
     @ManyToMany

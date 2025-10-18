@@ -28,8 +28,8 @@
      rgb(255, 100, 100) 100%  
     );
     color:white;
-    font-size: clamp(0.2rem, 1.3rem, 2.5rem);  
-    padding: 0.7rem 1rem;
+    font-size: clamp(0.2rem, 1.7rem, 2.5rem);  
+    padding: 0.3rem 1rem;
     border:none;
     font-family: "PoppinsLight";
     border-radius: 1.1rem;
@@ -51,12 +51,13 @@
      rgb(41, 105, 41) 100%       
     );
     color:white;
-    font-size: clamp(0.2rem, 1.3rem, 2.5rem);  
-    padding: 0.7rem 1rem;
+    font-size: clamp(0.2rem, 1.7rem, 2.5rem);  
+    padding: 0.3rem 1rem;
     border:none;
-    font-family: "PoppinsLight";
+    font-family: "PoppinsRegular";
     border-radius: 1.1rem;
     transition: all 0.3s ease;
+
 
 }
 

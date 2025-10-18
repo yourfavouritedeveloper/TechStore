@@ -59,8 +59,8 @@ public class AccountEntity extends BaseEntity {
     @JsonManagedReference("buyer-purchases")
     private List<PurchaseEntity> purchases;
 
-    @OneToMany(mappedBy = "seller", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference("seller-purchases")
+    @ManyToMany(mappedBy = "sellers")
+    @JsonBackReference("seller-purchases")
     private List<PurchaseEntity> sells;
 
     @OneToMany(mappedBy = "fromAccount", cascade = CascadeType.ALL, orphanRemoval = true)

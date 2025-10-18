@@ -60,11 +60,10 @@ useEffect(() => {
     };
   }, []);
 
-  const handleSignOut = () => {
-    logout();
-    navigate("/"); 
-    window.location.reload();
-  };
+const handleSignOut = () => {
+  logout(); 
+  window.location.reload();
+};
 
 
 

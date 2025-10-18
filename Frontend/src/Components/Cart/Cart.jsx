@@ -114,10 +114,15 @@ function Cart({ cart, setCart }) {
 
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container}
+    style={{minHeight: cart.products.length > 0 ? "55vh" : "36.9vw",}}>
       <div className={styles.div} style={{
-        minHeight: cart.products.length > 0 ? "49.2vw" : "33.5rem",
-        paddingBottom: cart.products.length > 0 ? "0rem" : "10rem"
+        top: cart.products.length > 0 ? "-4.9rem" : "-2rem",
+        position: cart.products.length > 0 ? "relative" : "fixed",
+        minHeight: cart.products.length > 0 ? "49.2vw" : "36.9vw",
+        paddingBottom: cart.products.length > 0 ? "0rem" : "0rem",
+        left: cart.products.length > 0 ? "0rem" : "50%",
+        transform : cart.products.length > 0 ? "translate(1%, 10%)" : "translate(-32.3%,10%)"
 
       }}>
         <div className={styles.circle1}></div>
@@ -209,10 +214,12 @@ function Cart({ cart, setCart }) {
               </div>
 
             </>) : (<>
-              <img className={styles.samsungs} src={Samsungs} alt="" />
-              <p className={styles.emptyTitle}>Your cart’s feeling a bit lonely — Let’s fix that!</p>
-              <Link className={styles.emptyButton} to="/product">Shop Now</Link></>)}
-
+            <div className={styles.empty}>
+                <img className={styles.samsungs} src={Samsungs} alt="" />
+                <p className={styles.emptyTitle}>Your cart’s feeling a bit lonely — Let’s fix that!</p>
+                <Link className={styles.emptyButton} to="/product">Shop Now</Link>
+            </div>
+            </>)}
         </div>
 
 
