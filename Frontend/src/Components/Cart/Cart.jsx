@@ -10,7 +10,7 @@ const USERNAME = import.meta.env.VITE_API_USERNAME;
 const PASSWORD = import.meta.env.VITE_API_PASSWORD;
 
 function Cart({ cart, setCart }) {
-  const { account, logout } = useContext(AuthContext);
+  const { account, logout, token } = useContext(AuthContext);
   const [isAdding, setIsAdding] = useState(false);
   const [pendingUpdate, setPendingUpdate] = useState(null);
   const [discount, setDiscount] = useState(0);
@@ -37,7 +37,9 @@ function Cart({ cart, setCart }) {
               productId,
               productAmount: Math.abs(newAmount - oldAmount),
             },
-            auth: { username: USERNAME, password: PASSWORD },
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
           }
         );
 
@@ -109,14 +111,15 @@ function Cart({ cart, setCart }) {
       </div>
     );
   }
-  
+
 
   return (
     <div className={styles.container}>
-      <div className={styles.div} style={{ minHeight: cart.products.length > 0 ? "49.2vw" : "33.5rem",
-            paddingBottom: cart.products.length > 0 ? "0rem" : "10rem"
+      <div className={styles.div} style={{
+        minHeight: cart.products.length > 0 ? "49.2vw" : "33.5rem",
+        paddingBottom: cart.products.length > 0 ? "0rem" : "10rem"
 
-       }}>
+      }}>
         <div className={styles.circle1}></div>
         <div className={styles.circle2}></div>
         <div className={styles.titleDiv}>
@@ -175,21 +178,21 @@ function Cart({ cart, setCart }) {
                   </div>
                 );
               })}
-            <div className={styles.totalDiv}>
+              <div className={styles.totalDiv}>
                 <div className={styles.summaryDiv}>
                   <p className={styles.summaryTitle}>Order Summary</p>
                   {cart.products.map((product) => (
                     <>
-                    <div className={styles.orderProductDiv}>
-                      <p className={styles.orderAmount}>{"x" + cart.amounts?.[product.id]}</p>
-                      <p key={product.id} className={styles.orderName}>
-                        {product.name}
-                      </p>
-                      <p className={styles.orderTotal}>{product.discount ? (product.price * ((100 - product.discount) / 100) * cart.amounts[product.id]).toFixed(2) : (product.price * cart.amounts[product.id]).toFixed(2)}₼</p>
-                    </div>
-                    
+                      <div className={styles.orderProductDiv}>
+                        <p className={styles.orderAmount}>{"x" + cart.amounts?.[product.id]}</p>
+                        <p key={product.id} className={styles.orderName}>
+                          {product.name}
+                        </p>
+                        <p className={styles.orderTotal}>{product.discount ? (product.price * ((100 - product.discount) / 100) * cart.amounts[product.id]).toFixed(2) : (product.price * cart.amounts[product.id]).toFixed(2)}₼</p>
+                      </div>
+
                     </>
-                    
+
                   ))}
                 </div>
                 <div className={styles.discountDiv}>
@@ -203,7 +206,7 @@ function Cart({ cart, setCart }) {
                   <p className={styles.totalPrice}>{(cart.totalPrice).toFixed(2)}₼</p>
                 </div>
                 <Link className={styles.checkout}>Go Checkout</Link>
-            </div>
+              </div>
 
             </>) : (<>
               <img className={styles.samsungs} src={Samsungs} alt="" />

@@ -62,7 +62,7 @@ function Item({ name, productId }) {
             const responses = await Promise.all(
                 repliesId.map((id) =>
                     axios.get(`https://techstore-3fvk.onrender.com/api/v1/comments/${id}`, {
-                        auth: { username: USERNAME, password: PASSWORD },
+
                     })
                 )
             );
@@ -84,7 +84,7 @@ function Item({ name, productId }) {
                     `https://techstore-3fvk.onrender.com/api/v1/comments/product`,
                     {
                         params: { productId },
-                        auth: { username: USERNAME, password: PASSWORD }
+
 
 
                     }
@@ -106,16 +106,18 @@ function Item({ name, productId }) {
             try {
                 const accountResponse = await axios.get(
                     `https://techstore-3fvk.onrender.com/api/v1/accounts/username/${account.username}`,
-                    { 
-                        headers: { Authorization: `Bearer ${token}` }}
+                    {
+                        headers: { Authorization: `Bearer ${token}` }
+                    }
                 );
 
                 const logAccount = accountResponse.data;
 
                 const cartResponse = await axios.get(
                     `https://techstore-3fvk.onrender.com/api/v1/carts/account/${logAccount.id}`,
-                    { 
-                        headers: { Authorization: `Bearer ${token}` }, }
+                    {
+                        headers: { Authorization: `Bearer ${token}` },
+                    }
                 );
 
                 setCart(cartResponse.data);
@@ -253,7 +255,7 @@ function Item({ name, productId }) {
                 await axios.put(
                     `https://techstore-3fvk.onrender.com/api/v1/products/update/rating/${item.id}`,
                     null,
-                    { params: { rating: selectedRating }}
+                    { params: { rating: selectedRating } }
                 );
             }
 
@@ -378,6 +380,11 @@ function Item({ name, productId }) {
                         productId: item.id,
                         productAmount: Math.abs(difference),
                     },
+
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+
 
                 }
             );
@@ -624,7 +631,7 @@ function Item({ name, productId }) {
             <div className={styles.review} ref={reviewRef}>
                 <p className={styles.reviewTitle}>Reviews({item.comments.length})</p>
                 <div className={styles.commentBox}>
-                    {comments?.length > 0 ?  (
+                    {comments?.length > 0 ? (
                         <>
 
                             {comments
@@ -830,9 +837,9 @@ function Item({ name, productId }) {
                 <ul className={styles.similarItems}>
                     {similarItems.map((i) => (
                         <Link className={styles.similarItem} to={"/product/" + i.id}>
-                          <div className={styles.info}>
-                            <img src={i.productImageUrl} alt={i.name} />
-                          </div>
+                            <div className={styles.info}>
+                                <img src={i.productImageUrl} alt={i.name} />
+                            </div>
                             <p className={styles.nameOf}>{i.name}</p>
                             <p className={styles.guaranteeTitle}>Guarantee</p>
                             <p className={styles.guarantee}>{i.guarantee ?? 0} month</p>
@@ -841,9 +848,9 @@ function Item({ name, productId }) {
                             <p className={styles.priceTitle}>Price</p>
                             <p className={styles.priceOf}>{i.price ?? 0}₼</p>
                             <button className={styles.cartOf}
-                                onMouseEnter={() => {setIsHovered(true);setHoverId(i.id)}}
-                                onMouseLeave={() => {setIsHovered(false);setHoverId(0)}}>
-                              <p className={styles.cartText} style={{opacity: isHovered && hoverId == i.id ? "1" : "0"}}>Add to Cart</p>
+                                onMouseEnter={() => { setIsHovered(true); setHoverId(i.id) }}
+                                onMouseLeave={() => { setIsHovered(false); setHoverId(0) }}>
+                                <p className={styles.cartText} style={{ opacity: isHovered && hoverId == i.id ? "1" : "0" }}>Add to Cart</p>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
                                     <path d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
                                 </svg>
