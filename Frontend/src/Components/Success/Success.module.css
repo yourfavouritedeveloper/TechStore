@@ -1,0 +1,98 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  animation: fadeIn 0.5s ease-in;
+background: linear-gradient(180deg, #7effe5, #a8ffeb, #ecfffa);
+
+}
+
+.div {
+    position: relative;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
+    padding: 6rem;
+    border-radius: 1rem;
+
+
+}
+
+.title {
+  font-size: 3.5rem;
+  font-family: "PoppinsSemiBold";
+  color: #00b894;
+}
+
+.message {
+  font-size: 1.3rem;
+  font-family: "PoppinsRegular";
+  margin-top: -3.5rem;
+}
+
+.subMessage {
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.button {
+  padding: 0.8rem 1.6rem;
+  left:50%;
+  transform: translateX(-137%);
+  position: relative;
+  background-color: #00b894;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.button:hover {
+  background-color: #019875;
+}
+
+.secondary {
+  background-color: #0984e3;
+  left:50%;
+  transform: translateX(-85%);
+  position: relative;
+}
+
+.secondary:hover {
+  background-color: #065bb7;
+}
+
+.errorTitle {
+  color: #d63031;
+  font-size: 1.8rem;
+}
+
+.errorMessage {
+  color: #b2bec3;
+  margin-top: 0.5rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.notTitle {
+    font-family: "PoppinsSemiBold";
+    color: #00b894;
+    font-size: clamp(1rem,7rem,10rem);
+}
+.notsubTitle {
+     font-family: "PoppinsRegular";
+    color: #00b894;
+    top:-9rem;
+    position: relative;
+    font-size: clamp(1rem,1.5rem,10rem);   
+}

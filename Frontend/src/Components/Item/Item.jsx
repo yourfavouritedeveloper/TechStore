@@ -1,7 +1,7 @@
 import styles from "./Item.module.css"
 import axios from "axios";
 import { useState, useEffect, useRef, useContext } from "react";
-import { Link,useNavigate } from "react-router-dom";
+import { Link,useLocation,useNavigate } from "react-router-dom";
 import Choice from "../Choice/Choice"
 import spinner from "../../../public/brandlogo.png"
 import { AuthContext } from "../AuthContext";
@@ -44,6 +44,7 @@ function Item({ name, productId }) {
     const [selectedRating, setSelectedRating] = useState(0);
     const [hoverRating, setHoverRating] = useState(0);
     const [isAdding, setIsAdding] = useState(false);
+    const location = useLocation();
     const changeCart = {
         id: null,
         account: {},
@@ -218,7 +219,7 @@ function Item({ name, productId }) {
 
     const ensureAuthenticated = () => {
     if (!token) {
-        navigate("/login");
+        navigate("/login", { state: { from: location } });
         return false;
     }
     return true;

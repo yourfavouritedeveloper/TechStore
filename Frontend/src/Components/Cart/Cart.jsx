@@ -3,8 +3,9 @@ import styles from "./Cart.module.css";
 import { AuthContext } from "../AuthContext";
 import { useContext, useEffect, useState } from "react";
 import spinner from "../../../public/brandlogo.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Samsungs from "../../assets/samsungs.png"
+
 
 const USERNAME = import.meta.env.VITE_API_USERNAME;
 const PASSWORD = import.meta.env.VITE_API_PASSWORD;
@@ -15,7 +16,35 @@ function Cart({ cart, setCart }) {
   const [pendingUpdate, setPendingUpdate] = useState(null);
   const [discount, setDiscount] = useState(0);
   const [total, setTotal] = useState(0);
+  const [logAccount, setLogAccount] = useState({});
+  const navigate = useNavigate();
+  const location = useLocation();
 
+useEffect(() => {
+  if (!token) {
+    navigate("/login", { state: { from: location } });
+  }
+}, [token, navigate, location]);
+
+
+  useEffect(() => {
+  const fetchAccount = async () => {
+    if (!account?.username) return;
+
+    try {
+      const res = await axios.get(
+        `https://techstore-3fvk.onrender.com/api/v1/accounts/username/${account.username}`,
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+
+      setLogAccount(res.data); 
+    } catch (err) {
+      console.error("Failed to fetch account:", err);
+    }
+  };
+
+  fetchAccount();
+}, [account?.username, token]);
 
   useEffect(() => {
     if (!pendingUpdate) return;
@@ -93,58 +122,50 @@ function Cart({ cart, setCart }) {
 const handleCheckout = async () => {
   if (!cart || cart.products.length === 0) return;
 
+  if (!logAccount || !logAccount.id) {
+    console.error("Account not loaded yet — cannot start checkout.");
+    return;
+  }
+
   setIsAdding(true);
 
   try {
-    // Build payload
     const payload = {
-      buyerId: account.id,
+      buyerId: logAccount.id,
       sellerIds: Array.from(new Set(cart.products.map(p => p.account.id))),
       productIds: cart.products.map(p => p.id),
       quantity: {},
-      currency: "AZN"
+      currency: "AZN",
     };
 
-    cart.products.forEach(product => {
+    cart.products.forEach((product) => {
       const amount = cart.amounts[product.id];
       payload.quantity[product.id] = amount;
     });
 
-    console.log("Checkout payload:", payload);
 
     sessionStorage.setItem("checkoutPayload", JSON.stringify(payload));
 
     const successUrl = `${window.location.origin}/TechStore/#/success`;
     const cancelUrl = `${window.location.origin}/TechStore/#/account/${account.username}/cart`;
 
-    console.log("Success URL:", successUrl);
-    console.log("Cancel URL:", cancelUrl);
-
     const response = await axios.post(
       "https://techstore-3fvk.onrender.com/api/v1/purchases/checkout",
       payload,
-      { 
+      {
         headers: { Authorization: `Bearer ${token}` },
-        params: { successUrl, failUrl: cancelUrl }
+        params: { successUrl, failUrl: cancelUrl },
       }
     );
 
-    console.log("Response from backend:", response.data);
-
     const sessionUrl = response.data.sessionUrl;
     if (sessionUrl) {
-      console.log("Redirecting to session URL:", sessionUrl);
       window.location.href = sessionUrl;
     } else {
       console.error("No session URL returned from backend");
     }
-
   } catch (err) {
     console.error("Checkout failed:", err);
-    if (err.response) {
-      console.error("Backend response:", err.response.data);
-      console.error("Status code:", err.response.status);
-    }
   } finally {
     setIsAdding(false);
   }
@@ -164,7 +185,7 @@ const handleCheckout = async () => {
     setPendingUpdate({ productId, oldAmount, newAmount });
   };
 
-  if (!cart || !cart.id) {
+  if (!cart || !cart.id || !logAccount) {
     return (
       <div className={styles.loadingContainer}>
         <img src={spinner} alt="Loading..." className={styles.loadingImage} />
