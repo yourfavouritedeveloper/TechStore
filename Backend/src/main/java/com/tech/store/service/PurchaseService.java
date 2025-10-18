@@ -119,13 +119,13 @@ public class PurchaseService {
                 });
     }
 
-    public PurchaseResponse checkoutProduct(PurchaseDto purchaseDto) throws StripeException {
+    public PurchaseResponse checkoutProduct(PurchaseDto purchaseDto, String successUrl, String failUrl) throws StripeException {
         Stripe.apiKey = stripeApikey;
 
         SessionCreateParams.Builder paramsBuilder = SessionCreateParams.builder()
                 .setMode(SessionCreateParams.Mode.PAYMENT)
-                .setSuccessUrl("https://yourfavouritedeveloper.github.io/TechStore/#/")
-                .setCancelUrl("https://yourfavouritedeveloper.github.io/TechStore/#/product/1");
+                .setSuccessUrl(successUrl!= null ? successUrl : "https://yourfavouritedeveloper.github.io/TechStore/#/success")
+                .setCancelUrl(successUrl != null ? successUrl : "https://yourfavouritedeveloper.github.io/TechStore/#");
 
         for (Long productId : purchaseDto.getProductIds()) {
             ProductEntity product = productRepository.findById(productId)
@@ -141,7 +141,11 @@ public class PurchaseService {
                             .addImage(product.getProductImageUrl())
                             .build();
 
+            BigDecimal discountMultiplier = BigDecimal.valueOf(100 - product.getDiscount())
+                    .divide(BigDecimal.valueOf(100), 2, RoundingMode.HALF_UP);
+
             long unitAmount = product.getPrice()
+                    .multiply(discountMultiplier)
                     .multiply(BigDecimal.valueOf(100))
                     .longValueExact();
 
