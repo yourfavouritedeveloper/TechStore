@@ -108,16 +108,20 @@ const handleCheckout = async () => {
       payload.quantity[product.id] = cart.amounts[product.id];
     });
 
+      sessionStorage.setItem("checkoutPayload", JSON.stringify(payload));
+
         const successUrl = `${window.location.origin}/TechStore/#/success`;
         const username = account.username; 
+        console.log(successUrl);
 
         const cancelUrl = `${window.location.origin}/TechStore/#/account/${username}/cart`;
-
+        console.log(cancelUrl);
     const response = await axios.post(
       "https://techstore-3fvk.onrender.com/api/v1/purchases/checkout",
       payload,
       { headers: { Authorization: `Bearer ${token}` },
-        params: { successUrl, cancelUrl } }
+        params: { successUrl, failUrl: cancelUrl }
+       }
     );
 
     const sessionUrl = response.data.sessionUrl;

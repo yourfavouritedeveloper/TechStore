@@ -125,7 +125,7 @@ public class PurchaseService {
         SessionCreateParams.Builder paramsBuilder = SessionCreateParams.builder()
                 .setMode(SessionCreateParams.Mode.PAYMENT)
                 .setSuccessUrl(successUrl!= null ? successUrl : "https://yourfavouritedeveloper.github.io/TechStore/#/success")
-                .setCancelUrl(successUrl != null ? successUrl : "https://yourfavouritedeveloper.github.io/TechStore/#");
+                .setCancelUrl(failUrl  != null ? failUrl  : "https://yourfavouritedeveloper.github.io/TechStore/#");
 
         for (Long productId : purchaseDto.getProductIds()) {
             ProductEntity product = productRepository.findById(productId)
