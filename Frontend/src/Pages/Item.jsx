@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import {useEffect,useState} from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import Product from "../Components/Item/Item"
 import Nav from "../Components/Nav/Nav"
@@ -14,10 +14,10 @@ function Item({ shiftUp, setShiftUp }) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-    const { id } = useParams();
-    const [item, setItem] = useState([]);
+  const { id } = useParams();
+  const [item, setItem] = useState([]);
 
- useEffect(() => {
+  useEffect(() => {
     const fetchAndUpdateItem = async () => {
       try {
         const response = await axios.get(
@@ -35,9 +35,11 @@ function Item({ shiftUp, setShiftUp }) {
         await axios.put(
           "https://techstore-3fvk.onrender.com/api/v1/products/update",
           updatedItem,
-            {
-              auth: { username: USERNAME, password: PASSWORD }
-            }
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
         );
 
         console.log(`✅ Item searched count updated to ${updatedItem.searched}`);
@@ -52,13 +54,13 @@ function Item({ shiftUp, setShiftUp }) {
 
 
 
-    return (<>
+  return (<>
     <title>{"TechStore | " + item.name}</title>
-    <Nav highlight={true}/>
-    <Product name = {item.name} productId={id}/>
+    <Nav highlight={true} />
+    <Product name={item.name} productId={id} />
     <Footer />
-    
-    </>);
+
+  </>);
 }
 
 
