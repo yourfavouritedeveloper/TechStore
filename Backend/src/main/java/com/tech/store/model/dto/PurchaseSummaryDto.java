@@ -23,7 +23,7 @@ public class PurchaseSummaryDto {
 
     private Long buyerId;
 
-    private Long sellerId;
+    private List<Long> sellerIds;
 
     private List<Long> productIds;
 

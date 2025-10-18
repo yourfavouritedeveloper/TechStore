@@ -30,14 +30,12 @@ public class PurchaseDto {
 
     private Long buyerId;
 
-    private Long sellerId;
+    private List<Long> sellerIds;
 
     private List<Long> productIds;
 
-    @NotNull(message = "Purchase date must be provided", groups = {OnCreate.class, OnUpdate.class})
     private Timestamp purchaseDate;
 
-    @NotNull(message = "Purchased item's price Amount cannot be null.", groups = {OnCreate.class, OnUpdate.class})
     private Long amount;
 
     private Map<Long,Long> quantity;

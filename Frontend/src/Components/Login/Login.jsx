@@ -98,7 +98,7 @@ useEffect(() => {
       setSuccessMsg("Login Successful!");
       setIsError(false);
 
-      setTimeout(() => navigate("/"), 1000);
+      setTimeout(() =>  navigate(-1), 1000);
 
     } catch (error) {
       setErrorMsg(error.message || "Network error. Please try again.");
@@ -195,7 +195,7 @@ useEffect(() => {
       setSuccessMsg("Signed Up Successfully!");
       setIsError(false);
 
-      setTimeout(() => navigate("/"), 1000);
+      setTimeout(() =>   window.location.reload(), 1000);
     } catch (error) {
       setErrorMsg(error.message || "Network error. Please try again later.");
       setIsError(true);

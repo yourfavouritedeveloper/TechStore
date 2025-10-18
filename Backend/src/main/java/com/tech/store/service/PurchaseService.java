@@ -22,9 +22,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 @Service
 @RequiredArgsConstructor
@@ -173,10 +173,18 @@ public class PurchaseService {
     }
 
 
-
+    @Transactional
     public PurchaseDto purchase(PurchaseDto purchaseDto){
-            AccountEntity sellerAccount = accountRepository.findById(purchaseDto.getSellerId())
-                    .orElseThrow(() -> new AccountNotFoundException("Account not found"));
+
+            List<AccountEntity> sellerAccounts = new ArrayList<>();
+            for(Long sellerId : purchaseDto.getSellerIds()) {
+                    AccountEntity sellerAccount = accountRepository.findById(sellerId)
+                            .orElseThrow(() -> new AccountNotFoundException("Account not found"));
+
+                sellerAccounts.add(sellerAccount);
+
+                }
+
 
             AccountEntity buyerAccount = accountRepository.findById(purchaseDto.getBuyerId())
                     .orElseThrow(() -> new AccountNotFoundException("Account not found"));
@@ -191,8 +199,10 @@ public class PurchaseService {
                     throw new IllegalArgumentException("Missing quantity for product ID " + productId);
                 }
 
+
                 ProductEntity productEntity = productRepository.findById(productId)
                         .orElseThrow(() -> new ProductNotFoundException("Product not found"));
+
 
                 BigDecimal discountMultiplier = BigDecimal.valueOf(100 - productEntity.getDiscount())
                         .divide(BigDecimal.valueOf(100), 2, RoundingMode.HALF_UP);
@@ -200,6 +210,7 @@ public class PurchaseService {
                 BigDecimal totalPrice = productEntity.getPrice()
                         .multiply(discountMultiplier)
                         .multiply(BigDecimal.valueOf(purchaseDto.getQuantity().get(productId)));
+
 
                 totalCost = totalCost.add(totalPrice);
 
@@ -224,7 +235,7 @@ public class PurchaseService {
 
 
             purchaseEntity.setBuyer(buyerAccount);
-            purchaseEntity.setSeller(sellerAccount);
+            purchaseEntity.setSellers(sellerAccounts);
             purchaseEntity.setProducts(productEntities);
             purchaseEntity.setPurchaseDate(new Timestamp(System.currentTimeMillis()));
             purchaseEntity.setAmount(purchaseDto.getAmount());
@@ -232,22 +243,50 @@ public class PurchaseService {
             purchaseEntity.setQuantity(purchaseDto.getQuantity());
 
         productEntities.forEach(productEntity -> {
+
                 productEntity.setAmount(productEntity.getAmount() - purchaseDto.getQuantity().get(productEntity.getId()));
             });
 
-            buyerAccount.setBalance(buyerAccount.getBalance().subtract(totalCost));
-            sellerAccount.setBalance(sellerAccount.getBalance().add(totalCost));
-            sellerAccount.getPurchases().add(purchaseEntity);
+
+        buyerAccount.setBalance(buyerAccount.getBalance().subtract(totalCost));
+
+
+
+        sellerAccounts.forEach(accountEntity -> {
+
+            AtomicReference<BigDecimal> cost = new AtomicReference<>(BigDecimal.ZERO);
+                    productEntities.forEach(productEntity -> {
+                        if(productEntity.getAccount().getId().equals(accountEntity.getId())) {
+                            BigDecimal discountMultiplier = BigDecimal.valueOf(100 - productEntity.getDiscount())
+                                    .divide(BigDecimal.valueOf(100), 2, RoundingMode.HALF_UP);
+
+                            BigDecimal totalPrice = productEntity.getPrice()
+                                    .multiply(discountMultiplier)
+                                    .multiply(BigDecimal.valueOf(purchaseDto.getQuantity().get(productEntity.getId())));
+
+                            cost.set(cost.get().add(totalPrice));
+                        }
+                    });
+                    BigDecimal finalCost = cost.get();
+                    accountEntity.setBalance(accountEntity.getBalance().add(finalCost));
+                    accountEntity.getPurchases().add(purchaseEntity);
+
+        });
 
             purchaseRepository.save(purchaseEntity);
             productRepository.saveAll(productEntities);
             accountRepository.save(buyerAccount);
-            accountRepository.save(sellerAccount);
+            accountRepository.saveAll(sellerAccounts);
 
             purchaseRedisRepository.save(purchaseEntity);
             productEntities.forEach(productRedisRepository::save);
             accountRedisRepository.save(buyerAccount);
-            accountRedisRepository.save(sellerAccount);
+            sellerAccounts.forEach(accountRedisRepository::save);
+
+            purchaseEntity.getSellers().size();
+            purchaseEntity.getProducts().size();
+            purchaseEntity.getQuantity().size();
+            purchaseEntity.getBuyer().getId();
 
             return purchaseMapper.toPurchaseDto(purchaseEntity);
 

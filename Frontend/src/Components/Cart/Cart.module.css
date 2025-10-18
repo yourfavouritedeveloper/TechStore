@@ -2,6 +2,8 @@
     background: linear-gradient(0deg,rgb(255, 233, 233),white);
     display: flex;
     width: 100%;
+    left:50%;
+    transform: translateX(-50%);
     position: relative;
     min-height: 55vh;
     height: auto;
@@ -364,7 +366,7 @@
     top: 1.8rem;
     line-height: 1;
     color: #383838;
-    left:25.5rem;   
+    left:25.65rem;   
 }
 
 
@@ -437,12 +439,21 @@
     top:-2.8rem;
 }
 
+.empty {
+    background-color: white;
+    border: 1.9px solid rgb(170, 170, 170);
+    border-radius: 1rem;
+    width: 64.7rem;
+    height: 30rem;
+    position: relative;
+}
+
 .samsungs {
     position: absolute;
-    width: 48%;
-    top: 5.53rem;
+    width: 54%;
+    bottom: 0rem;
     left: 50%;
-    transform: translateX(-69.5%);
+    transform: translateX(-50%);
 }
 
 .emptyTitle {
@@ -450,23 +461,23 @@
     z-index: 5;
     font-size: clamp(1rem, 2.5rem, 10rem);
     font-family: "PoppinsRegular";
-    top: -4rem;
+    top: 1rem;
     white-space: nowrap;
-    color: #313131;
+    color: #000000;
     left: 50%;
-    transform: translateX(-65%);
+    transform: translateX(-50%);
 }
 
 .emptyButton {
     font-size: clamp(0rem, 1.3rem, 10rem);
     line-height: 1;
-    top: 4rem;
+    top: 9rem;
     text-align: left;
     z-index: 2;
     color: rgb(255, 255, 255);
     font-family: "PoppinsLight";
     width: 37rem;
-    left: -9.35%;
+    left: 0%;
     padding: 0.7rem 3.3rem;
     background-color: #5784ff;
     border-radius: 2rem;
