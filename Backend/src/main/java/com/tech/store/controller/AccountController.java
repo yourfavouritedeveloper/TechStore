@@ -55,6 +55,7 @@ public class AccountController {
         return accountService.verifyOtp(email,requestOtp);
     }
 
+
     @PostMapping("/uploadProfilePicture")
     public ResponseEntity<Map<String, String>> uploadProfilePicture(
             @RequestParam("file") MultipartFile file,
@@ -88,6 +89,22 @@ public class AccountController {
                     .body(Map.of("error", e.getMessage()));
         }
     }
+
+    @GetMapping("/available/username")
+    @ResponseStatus(HttpStatus.OK)
+    @Operation(summary = "Check if the username is not being used", description = "Checks the validity of username")
+    public boolean isAvailableUsername(@RequestParam String username) {
+        return accountService.isAvailableUsername(username);
+    }
+
+    @GetMapping("/available/email")
+    @ResponseStatus(HttpStatus.OK)
+    @Operation(summary = "Check if the email is not being used", description = "Checks the validity of email")
+    public boolean isAvailableEmail(@RequestParam String email) {
+        return accountService.isAvailableEmail(email);
+    }
+
+
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)

@@ -42,6 +42,26 @@ public class  AccountService {
     private final BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(12);
     private final Map<String, String> otpStore = new ConcurrentHashMap<>();
 
+    public boolean isAvailableUsername(String username) {
+        List<AccountEntity> accountEntities = accountRepository.findAll();
+        for (AccountEntity accountEntity : accountEntities) {
+            if (accountEntity.getUsername().equals(username)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean isAvailableEmail(String email) {
+        List<AccountEntity> accountEntities = accountRepository.findAll();
+        for (AccountEntity accountEntity : accountEntities) {
+            if (accountEntity.getEmail().equals(email)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     @Transactional(readOnly = true)
     public AccountDto findById(Long id) {
         return accountRedisRepository.findById(id)
