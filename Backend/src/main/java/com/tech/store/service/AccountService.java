@@ -8,6 +8,7 @@ import com.tech.store.mapper.AccountMapper;
 import com.tech.store.model.dto.*;
 import com.tech.store.model.enumeration.Status;
 import com.tech.store.util.UpdateUtils;
+import jakarta.mail.MessagingException;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
@@ -23,6 +24,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 
 @Service
@@ -30,6 +32,7 @@ import java.util.*;
 public class  AccountService {
 
 
+    private final EmailService emailService;
     private final AuthenticationManager authenticationManager;
     private final JWTService jwtService;
     private final AccountRepository accountRepository;
@@ -37,7 +40,7 @@ public class  AccountService {
     private final AccountMapper accountMapper;
     private final UpdateUtils updateUtils;
     private final BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(12);
-
+    private final Map<String, String> otpStore = new ConcurrentHashMap<>();
 
     @Transactional(readOnly = true)
     public AccountDto findById(Long id) {
@@ -66,6 +69,19 @@ public class  AccountService {
     }
 
     @Transactional(readOnly = true)
+    public AccountDto findByEmail(String email) {
+        return accountRedisRepository.findByEmail(email)
+                .orElseGet( () -> {
+                            AccountEntity accountEntity = accountRepository.findByEmail(email)
+                                    .orElseThrow(() -> new AccountNotFoundException("Account not found"));
+
+                            AccountDto accountDto = accountMapper.toAccountDto(accountEntity);
+                            accountRedisRepository.save(accountEntity);
+                            return accountDto;
+                });
+    }
+
+    @Transactional(readOnly = true)
     public List<AccountDto> findAll() {
         return accountRedisRepository.findAll()
                 .orElseGet(() -> {
@@ -82,6 +98,26 @@ public class  AccountService {
 
                     return accountDtos;
                 });
+    }
+
+    public void sendOtp(String email) throws MessagingException {
+
+        String otp = emailService.generateOtp();
+        otpStore.put(email, otp);
+        emailService.sendOtp(email, otp);
+
+    }
+
+    @Transactional
+    public boolean verifyOtp(String email, String requestOtp) {
+        String storedOtp = otpStore.get(email);
+        if (storedOtp == null || !storedOtp.equals(requestOtp)) {
+            return false;
+        }
+        otpStore.remove(email);
+        return true;
+
+
     }
 
     @Transactional
