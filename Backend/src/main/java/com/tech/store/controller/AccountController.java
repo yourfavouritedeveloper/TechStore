@@ -9,6 +9,7 @@ import com.tech.store.service.AccountService;
 import com.tech.store.util.OnCreate;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -40,6 +41,19 @@ public class AccountController {
     private final String UPLOAD_DIR = "/app/uploads/";
     @Value("${stripe.apikey}")
     String stripeKey;
+
+    @PutMapping("/otp/send")
+    @ResponseStatus(HttpStatus.OK)
+    public String sendOtp(@RequestParam String email) throws MessagingException {
+        accountService.sendOtp(email);
+        return "OTP has been sent to your email";
+    }
+
+    @PutMapping("/otp/verify")
+    @ResponseStatus(HttpStatus.OK)
+    public boolean verifyOtp(@RequestParam String email, @RequestParam String requestOtp) {
+        return accountService.verifyOtp(email,requestOtp);
+    }
 
     @PostMapping("/uploadProfilePicture")
     public ResponseEntity<Map<String, String>> uploadProfilePicture(
@@ -102,6 +116,21 @@ public class AccountController {
         }
 
         return accountService.findByName(username);
+    }
+
+    @GetMapping("/email/{email}")
+    @ResponseStatus(HttpStatus.OK)
+    @Operation(summary = "Get account by email", description = "Gets the specified account.")
+    public AccountDto findByEmail(@PathVariable String email) {
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+
+        AccountDto myAccount = accountService.findByName(username);
+
+        if (!myAccount.getUsername().equals(username)) {
+            throw new AccessDeniedException("You are not allowed to access this account");
+        }
+
+        return accountService.findByEmail(email);
     }
 
 

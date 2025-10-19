@@ -35,6 +35,13 @@ public class AccountRedisRepository {
         return Optional.ofNullable(accountDto);
     }
 
+    public Optional<AccountDto> findByEmail(String email) {
+        String key = KEY_PREFIX + email;
+        AccountDto accountDto = accountRedisTemplate.opsForValue().get(key);
+        return Optional.ofNullable(accountDto);
+    }
+
+
     public Optional<List<AccountDto>> findAll() {
         Set<String> keys = accountKeysRedisTemplate.opsForSet().members(ALL_KEYS_SET);
         if (keys == null || keys.isEmpty()) {

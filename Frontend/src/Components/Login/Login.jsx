@@ -13,6 +13,7 @@ function Login() {
 
 
 const [isLoading, setIsLoading] = useState(false);
+const [isSecond, setIsSecond] = useState(false);
 const circleRef1 = useRef(null);
 const circleRef2 = useRef(null);
 const boxRef = useRef(null);
@@ -79,7 +80,6 @@ useEffect(() => {
     try {
       const response = await fetch("https://techstore-3fvk.onrender.com/api/v1/accounts/login", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
       });
 
@@ -163,14 +163,11 @@ useEffect(() => {
 
       const signup = await fetch("https://techstore-3fvk.onrender.com/api/v1/accounts/register", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           customerName: `${firstName} ${lastName}`,
           username,
           password,
-          email,
-          balance: 0,
-          role: "USER",
+          email
         }),
       });
 
@@ -361,10 +358,32 @@ const signUpFirst = (<>
 
                 <button
                     className={styles.submit}
-                    type="button" onClick={handleSignUp}  >                      {isLoading ? (
+                    type="button"     onClick={() => {
+                    if (!username || !email || !firstName || !lastName || !password || !passwordAgain) {
+                      setErrorMsg("Please fill in all fields before continuing.");
+                      setIsError(true);
+                      setTimeout(() => setErrorMsg(""), 3000);
+                      return;
+                    }
+
+                    const allGood = Object.values(errors).every(Boolean);
+                    if (!allGood) {
+                      setErrorMsg("Password does not meet requirements.");
+                      setIsError(true);
+                      setTimeout(() => setErrorMsg(""), 3500);
+                      return;
+                    }
+
+                    setIsLoading(true);
+                    setTimeout(() => {
+                      setIsSecond(true);
+                      setIsLoading(false);
+                    }, 1000);
+                  }}>
+                    {isLoading ? (
                         <span className={styles.loader}></span>
                       ) : (
-                        "Sign Up"
+                        "Next"
                       )}</button>
 
                 <p className={styles.subtitle}>Already have an account?</p>
@@ -380,18 +399,38 @@ const signUpFirst = (<>
 
 const signUpSecond = (<>
 
-                <label htmlFor="emailconfirm" className={styles.labelPassword}>Enter Password</label>
-                <input id="emailconfirm" 
-                type="text"
-                className={styles.password}  
-                 placeholder="Enter the code"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                 />
-                <div className={styles.logo}>
-                  <div className={styles.layer}></div>
-                <img src={Mixed} alt="" />
-                </div>
+         <div className={styles.signDiv}>
+            <p className={styles.title}>Create Your Account</p>
+
+
+                <label htmlFor="signupfirstName" className={styles.labelFirstName}>First Name</label>
+                <input id="signupfirstName" 
+                type="text" 
+                className={styles.firstName}  
+                placeholder="Enter Your First Name"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}  
+                />
+
+              
+
+
+                <button
+                    className={styles.submit}
+                    type="button" onClick={handleSignUp}
+  >                      {isLoading ? (
+                        <span className={styles.loader}></span>
+                      ) : (
+                        "Sign Up"
+                      )}</button>
+
+                <p className={styles.subtitle}>Already have an account?</p>
+                <Link className={styles.signnow}  onClick={() => {
+                  setIsSign(false);
+                  }}>Log in now!</Link> 
+
+            </div>
+
 
 
 </>);
@@ -483,7 +522,8 @@ const signUpSecond = (<>
                       }}>Sign Up now!</Link> 
                 </div>
                 </>) : (<>
-                {signUpFirst}</>)}
+                {isSecond ? signUpSecond : signUpFirst}
+                </>)}
           </div>
           
         </div>

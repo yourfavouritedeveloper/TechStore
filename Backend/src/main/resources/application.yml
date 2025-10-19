@@ -4,6 +4,17 @@ server:
     max-connections: 1000
 
 spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: info.tech.store.ts@gmail.com
+    password: ${MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
   profiles:
     active: local
   datasource:
@@ -17,6 +28,7 @@ spring:
     multipart:
       max-file-size: 1GB
       max-request-size: 1GB
+
     
 
 
