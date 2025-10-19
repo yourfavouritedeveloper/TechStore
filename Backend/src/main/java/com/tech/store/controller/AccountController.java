@@ -118,6 +118,21 @@ public class AccountController {
         return accountService.findByName(username);
     }
 
+    @GetMapping("/email/{email}")
+    @ResponseStatus(HttpStatus.OK)
+    @Operation(summary = "Get account by email", description = "Gets the specified account.")
+    public AccountDto findByEmail(@PathVariable String email) {
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+
+        AccountDto myAccount = accountService.findByName(username);
+
+        if (!myAccount.getUsername().equals(username)) {
+            throw new AccessDeniedException("You are not allowed to access this account");
+        }
+
+        return accountService.findByEmail(email);
+    }
+
 
     @GetMapping("/all")
     @PreAuthorize("hasRole('ADMIN')")
