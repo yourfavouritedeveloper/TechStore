@@ -254,7 +254,7 @@ function Item({ name, productId }) {
                 );
             } else {
                 await axios.post(
-                    `https://techstore-3fvk.onrender.com/api/v1/comments/comment/${item.account.username}`,
+                    `https://techstore-3fvk.onrender.com/api/v1/comments/comment/${account.username}`,
                     null,
                     {
                         params: { productId: item.id, comment: newCommentText, rate: selectedRating },
