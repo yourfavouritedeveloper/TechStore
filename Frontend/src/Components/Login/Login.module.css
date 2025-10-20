@@ -301,6 +301,8 @@
 }
 
 
+
+
 .signDiv .email {
       position:absolute;
     left:4.9rem;
@@ -526,6 +528,103 @@
 
 }
 
+.signDiv .secondTitle {
+    position: relative;
+    border-radius: 1.7rem;
+    padding: 0.4rem;
+    left:4.5rem;
+    top:-0rem;
+    width: 34rem;
+    text-align: left;
+    line-height: 0.9;
+    color: #313131;
+    font-size: clamp(1rem, 4.5rem, 8rem);
+    letter-spacing: -0.05rem;
+    font-family: "PoppinsSemiBold";
+}
+
+.signDiv .secondSubtitle {
+    position: relative;
+    border-radius: 1.7rem;
+    padding: 0.4rem;
+    left:4.5rem;
+    top:-4rem;
+    width: 34rem;
+    text-align: left;
+    line-height: 0.9;
+    color: #5c5c5c;
+    font-size: clamp(1rem, 1.25rem, 8rem);
+    letter-spacing: -0.05rem;
+    font-family: "PoppinsRegular";
+}
+
+.signDiv .otp {
+      position:absolute;
+    left:4.9rem;
+    width: 12.5rem;
+    top:25rem;
+    padding: 0.8rem 0rem;
+    border-radius: 0.6rem;
+    box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
+    font-family: "PoppinsRegular";
+    font-size: clamp(0.2rem, 1rem, 2.5rem);
+    padding-left: 1rem;
+    color: #313131;
+
+    
+}
+
+.signDiv .labelOtp {
+    font-family: "PoppinsRegular";
+    position:absolute;
+    left:5rem;
+    color: #afafaf;
+    top:24.5rem;
+    font-size: clamp(0.2rem, 1rem, 2.5rem);  
+}
+
+.signDiv .submitSignUp {
+    position: absolute;
+    top:31.5rem;
+    left:4.95rem;
+    width: 31.7rem;
+    background: linear-gradient(145deg, 
+        #1a52ac 0%,
+        #3b82f6 45%,    
+        #60a5fa 100%
+    );  
+    color:white;
+    font-size: clamp(0.2rem, 1.5rem, 2.5rem);  
+    padding: 0.6rem 1rem;
+    border:none;
+    font-family: "PoppinsLight";
+    border-radius: 0.6rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+}
+
+.signDiv .submitResend {
+    position: absolute;
+    top:26.5rem;
+    left:19.65rem;
+    white-space: nowrap;
+    width: 17rem;
+    background: linear-gradient(145deg, 
+        #8fbaff 0%,
+        #6b84ac 45%,    
+        #5f6d7e 100%
+    );  
+    color:white;
+    font-size: clamp(0.2rem, 1.2rem, 2.5rem);  
+    padding: 0.6rem 1rem;
+    border:none;
+    font-family: "PoppinsLight";
+    border-radius: 0.6rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+}
 
 .loader {
   width: 18px;
@@ -559,408 +658,3 @@
 @media (max-width: 768px) {}
 
 @media (max-width: 576px) {}
-
-@media (max-width: 	480px) {
-.container {
-    height: 178.4vh;
-    background: linear-gradient(
-     13deg,
-     rgb(0, 0, 0), 
-    rgb(29, 29, 29), 
-     rgb(19, 19, 19), 
-     rgb(15, 15, 15), 
-     rgb(34, 34, 34), 
-    rgb(0, 0, 0)
-   );
-    
-
-}
-
-
-.circle1, .circle2 {
-    height: 40rem;
-    width: 40rem;
-}
-
-.circle1 {
-    left:-7.5rem;
-    top:-28rem;
-}
-
-.circle2 {
-    top:-10rem;
-    left: -20rem;
-}
-
-.box {
-    height: 20rem;
-    width: 90%;
-    top:9rem;
-    border-radius: 3rem;
-    left:5%;
-}
-
-
-
-
-.box .title {
-
-    left:1rem;
-    top:0.5rem;
-    width: 15rem;
-    line-height: 1;
-    font-size: clamp(1rem, 1.7rem, 8rem);
-
-}
-
-
-
-
-.box .labelUsername {
-    left:1.5rem;
-    top:7rem;
-    font-size: clamp(0.2rem, 0.5rem, 2.5rem);    
-}
-
-.box .labelPassword {
-    left:1.5rem;
-    top:10rem;
-    font-size: clamp(0.2rem, 0.5rem, 2.5rem);     
-}
-
-.box .username {
-    left:1.3rem;
-    width: 69.5vw;
-    top:6.4rem;
-    padding: 0.3rem 0rem;
-    border-radius: 0.6rem;
-    font-size: clamp(0.2rem, 0.6rem, 2.5rem);     
-    padding-left: 1rem;
-
-}
-
-.box .password {
-    left:1.3rem;
-    width: 69.5vw;
-    top:9.4rem;
-    padding: 0.3rem 0rem;
-    border-radius: 0.6rem;
-    font-size: clamp(0.2rem, 0.6rem, 2.5rem);     
-    padding-left: 1rem; 
-}
-
-.box .submit {
-    bottom:4rem;
-    left:1.3rem;
-    width: 74.5vw;
-    font-size: clamp(0.2rem, 0.8rem, 2.5rem);  
-    padding: 0.3rem 1rem;
-    border-radius: 0.6rem;
-
-
-}
-
-
-
-.forgot {
-    top:12.7rem;
-    left:1.5rem;
-    font-size: clamp(0.2rem, 0.5rem, 2.5rem);    
-}
-
-
-.toggleBtn {
-    top:11.2rem;
-    left:71vw;
-
-}
-
-.toggleBtn svg {
-    height: 14px;
-    width: 14px;
-}
-
-.subtitle {
-    bottom:1.7rem;
-    left:1.7rem;  
-    font-size: clamp(0.2rem, 0.5rem, 2.5rem);    
-
-}
-
-.signnow {
-    position: absolute;
-    bottom:2.2rem;
-    font-size: clamp(0.2rem, 0.5rem, 2.5rem);    
-    left:8.7rem;  
-}
-
-
-
-.box .errorMsg {
-
-    top:-6rem;
-    left:14%;
-    width: 60%;
-    font-size: clamp(0.2rem, 0.6rem, 2.5rem);  
-    padding: 0.4rem 1rem;
-    white-space: nowrap;
-    border-radius: 0.7rem;
-
-
-}
-
-.box .safeMsg {
-    bottom:3.2rem;
-    left:1.28rem;
-    width: 74.5vw;
-    font-size: clamp(0.2rem, 0.8rem, 2.5rem);  
-    padding: 0.3rem 0rem;
-    border-radius: 0.6rem;
-
-}
-
-.box .logo {
-    display: none;
-
-
-} 
-
-
-.box2 {
-    height: 30rem;
-    width: 90%;
-    top:40rem;
-    border-radius: 3rem;
-    left:5%;
-}
-
-.box2 .title {
-    left:1rem;
-    top:0.5rem;
-    width: 15rem;
-    line-height: 1;
-    font-size: clamp(1rem, 1.7rem, 8rem);
-}
-
-
-.box2 .username {
-    left:1.3rem;
-    width: 32.5vw;
-    top:9.4rem;
-    padding: 0.3rem 0rem;
-    border-radius: 0.6rem;
-    font-size: clamp(0.2rem, 0.5rem, 2.5rem);     
-    padding-left: 1rem;
-    
-}
-
-
-.box2 .email {
-    left:47.5vw;
-    width: 32.5vw;
-    top:9.4rem;
-    padding: 0.3rem 0rem;
-    border-radius: 0.6rem;
-    font-size: clamp(0.2rem, 0.5rem, 2.5rem);     
-    padding-left: 1rem;
-    
-}
-
-
-
-.box2 .password {
-    left:1.3rem;
-    width: 74.7vw;
-    top:12.4rem;
-    padding: 0.3rem 0rem;
-    border-radius: 0.6rem;
-    font-size: clamp(0.2rem, 0.5rem, 2.5rem);     
-    padding-left: 1rem;   
-}
-
-
-.box2 .passwordAgain {
-    left:1.3rem;
-    width: 74.7vw;
-    top:15.4rem;
-    padding: 0.3rem 0rem;
-    border-radius: 0.6rem;
-    font-size: clamp(0.2rem, 0.5rem, 2.5rem);     
-    padding-left: 1rem;
-}
-
-.box2 .firstName {
-    left:1.3rem;
-    width: 32.5vw;
-    top:6.4rem;
-    padding: 0.3rem 0rem;
-    border-radius: 0.6rem;
-    font-size: clamp(0.2rem, 0.5rem, 2.5rem);     
-    padding-left: 1rem;
-}
-
-.box2 .lastName {
-    left:47.5vw;
-    width: 32.5vw;
-    top:6.4rem;
-    padding: 0.3rem 0rem;
-    border-radius: 0.6rem;
-    font-size: clamp(0.2rem, 0.5rem, 2.5rem);     
-    padding-left: 1rem;
-}
-
-.box2 .labelFirstName {
-    left:1.5rem;
-    top:7rem;
-    font-size: clamp(0.2rem, 0.5rem, 2.5rem);     
-}
-
-.box2 .labelLastName {
-    left:48.5vw;
-    top:7rem;
-    font-size: clamp(0.2rem, 0.5rem, 2.5rem);     
-}
-
-
-
-.box2 .labelUsername {
-    left:1.5rem;
-    top:10rem;
-    font-size: clamp(0.2rem, 0.5rem, 2.5rem);    
-}
-
-.box2 .labelEmail{
-    left:48.5vw;
-    top:10rem;
-    font-size: clamp(0.2rem, 0.5rem, 2.5rem);     
-}
-
-.box2 .labelPassword {
-    left:1.5rem;
-    top:13rem;
-    font-size: clamp(0.2rem, 0.5rem, 2.5rem);       
-}
-
-
-.box2 .labelPasswordAgain{
-    left:1.5rem;
-    top:16rem;
-    font-size: clamp(0.2rem, 0.5rem, 2.5rem);      
-}
-
-.toggleBtn1 {
-    top:14.1rem;
-    left:76vw;
-}
-
-.toggleBtn1 svg {
-    fill: black;
-    height: 14px;
-    width: 14px;
-}
-
-
-
-.toggleBtn2 {
-    top:17.1rem;
-    left:76vw;
-}
-
-.toggleBtn2 svg {
-    fill: black;
-    height: 14px;
-    width: 14px;
-}
-
-
-
-.box2 .subtitle {
-    bottom:9rem;
-    margin-left:-6.6rem;
-    left:50vw;
-
-}
-
-.box2 .subsubtitle {
-    top:21.5rem;
-    left:1.5rem; 
-    width: 90%; 
-    font-size: clamp(0.2rem, 0.8rem, 2.5rem);     
-}
-
-.box2 .signnow {
-    bottom:9.5rem;
-    margin-left:0.2rem;
-    left:50vw;
-}
-
-
-.box2 .logo {
-    width: 21.5rem; 
-    height: 100%; 
-    left:2rem;
-    bottom: -9.5rem;
-
-
-
-}  
-
-.layer {
-    width: 100%; 
-    height: 100%;
-    left:0rem;
-    top:0rem;
-
-}
-
-.box2 .logo img {
-
-    z-index: -1;
-    width: 150%;
-    height: 120%; 
-    left:-19rem;
-
-}
-
-
-.box2 .submit {
-    bottom:2rem;
-    margin-left: 1rem;
-    left:20vw;
-    width: 38vw;
-    font-size: clamp(0.2rem, 0.8rem, 2.5rem);  
-    padding: 0.3rem 1rem;
-    border-radius: 0.6rem;
-
-}
-
-.box2 .submit:hover {
-    transform:scale(1.03);
-    background-color: #2962FF;
-    color:white;
-}
-
-.box2 .errorMsg {
-    top:-6rem;
-    left:15%;
-    width: 60%;
-    font-size: clamp(0.2rem, 0.6rem, 2.5rem);  
-    padding: 0.4rem 1rem;
-    white-space: nowrap;
-    border-radius: 0.7rem;
-
-}
-
-.box2 .safeMsg {
-    top:-6rem;
-    left:15%;
-    width: 60%;
-    font-size: clamp(0.2rem, 0.6rem, 2.5rem);  
-    padding: 0.4rem 1rem;
-    white-space: nowrap;
-    border-radius: 0.7rem;
-
-}
-
-
-}

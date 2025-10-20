@@ -21,7 +21,9 @@ const circleRef2 = useRef(null);
 const boxRef = useRef(null);
 const techStoreRef = useRef(null);
 const submitRef = useRef(null);
-
+const [requestOtp, setRequestOtp] = useState();
+const [isResendDisabled, setIsResendDisabled] = useState(false);
+const [countdown, setCountdown] = useState(60);
 
 const circleInView1 = useInView(circleRef1, { once: true });
 const circleInView2 = useInView(circleRef2, { once: true });
@@ -36,6 +38,44 @@ const boxControls = useAnimation();
 const techStoreControls = useAnimation();
 const submitControls = useAnimation();
 
+
+  useEffect(() => {
+    let timer;
+    if (isResendDisabled) {
+      timer = setInterval(() => {
+        setCountdown((prev) => {
+          if (prev <= 1) {
+            clearInterval(timer);
+            setIsResendDisabled(false);
+            return 60; 
+          }
+          return prev - 1;
+        });
+      }, 1000);
+    }
+    return () => clearInterval(timer);
+  }, [isResendDisabled]);
+
+  const handleResendOtp = async () => {
+    setIsLoading(true);
+    setIsResendDisabled(true);
+    try {
+      const otpResponse = await axios.put(
+        `https://techstore-3fvk.onrender.com/api/v1/accounts/otp/send`,
+        null,
+        { params: { email } }
+      );
+      setSuccessMsg(otpResponse.data);
+      setTimeout(() => setSuccessMsg(""), 3500);
+    } catch (err) {
+      console.error("OTP error:", err);
+      setErrorMsg(err.response?.data?.message || err.message || "Failed to send OTP");
+      setIsError(true);
+      setIsResendDisabled(false); 
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
 useEffect(() => {
   if (circleInView1) controls1.start("visible");
@@ -154,53 +194,48 @@ useEffect(() => {
         return;
       }
 
-    try {
-      if (password !== passwordAgain) {
-        setErrorMsg("Passwords do not match.");
-        setIsError(true);
-        setTimeout(() => setErrorMsg(""), 3000);
-        setIsLoading(false);
-        return;
-      }
+try {
+  const verifyResp = await axios.put(
+    "https://techstore-3fvk.onrender.com/api/v1/accounts/otp/verify",
+    null,
+    { params: { email, requestOtp } }
+  );
+  if (!verifyResp.data) throw new Error("Invalid OTP. Please check the code sent to your email.");
 
-      const signup = await fetch("https://techstore-3fvk.onrender.com/api/v1/accounts/register", {
-        method: "POST",
-        body: JSON.stringify({
-          customerName: `${firstName} ${lastName}`,
-          username,
-          password,
-          email
-        }),
-      });
-
-      if (signup.status !== 201) {
-        const errMsg = (await signup.json()).message || "Sign up failed.";
-        throw new Error(errMsg);
-      }
-
-      const response = await fetch("https://techstore-3fvk.onrender.com/api/v1/accounts/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password }),
-      });
-
-      const data = await response.json();
-      const token = data.token;
-      const account = data.account || { username };
-
-      login(account, token);
-      localStorage.setItem("authToken", token);
-
-      setSuccessMsg("Signed Up Successfully!");
-      setIsError(false);
-
-      setTimeout(() =>   window.location.reload(), 1000);
-    } catch (error) {
-      setErrorMsg(error.message || "Network error. Please try again later.");
-      setIsError(true);
-    } finally {
-      setIsLoading(false);
+  const signupResp = await axios.post(
+    "https://techstore-3fvk.onrender.com/api/v1/accounts/register",
+    {
+      customerName: `${firstName} ${lastName}`,
+      username,
+      password,
+      email
     }
+  );
+
+  const loginResp = await axios.post(
+    "https://techstore-3fvk.onrender.com/api/v1/accounts/login",
+    { username, password }
+  );
+
+  const { token, account } = loginResp.data;
+  login(account, token);
+  localStorage.setItem("authToken", token);
+
+  setSuccessMsg("Signed Up Successfully!");
+  setIsError(false);
+  setTimeout(() => window.location.reload(), 1000);
+
+} catch (error) {
+  const errMsg =
+    error.response?.data?.message ||
+    (typeof error.response?.data === "string" && error.response.data) ||
+    error.message ||
+    "Network error. Please try again later.";
+  setErrorMsg(errMsg);
+  setIsError(true);
+} finally {
+  setIsLoading(false);
+}
   };
 
 
@@ -417,7 +452,6 @@ const signUpFirst = (<>
 
 
                       try {
-                      console.log("Sending OTP request with Axios...");
                       const otpResponse = await axios.put(
                         `https://techstore-3fvk.onrender.com/api/v1/accounts/otp/send`,
                         null, 
@@ -426,16 +460,18 @@ const signUpFirst = (<>
                         }
                       );
 
-                      console.log("OTP response status:", otpResponse.status);
-                      console.log("OTP data:", otpResponse.data);
-
+                      setSuccessMsg(otpResponse.data);
+                      setTimeout(() => setSuccessMsg(""), 3500);
                       setIsSecond(true);
+                      setIsResendDisabled(true);
+                      
                     } catch (err) {
                       console.error("OTP error:", err);
                       setErrorMsg(err.response?.data?.message || err.message || "Failed to send OTP");
                       setIsError(true);
                     } finally {
                       setIsLoading(false);
+                      
                     }
                     }}>
                     {isLoading ? (
@@ -458,29 +494,49 @@ const signUpFirst = (<>
 const signUpSecond = (<>
 
          <div className={styles.signDiv}>
-            <p className={styles.title}>Create Your Account</p>
+            <p className={styles.secondTitle}>Email Verification</p>
+            <p className={styles.secondSubtitle}>We’ve sent a 6-digit verification code to your email address. Please enter it below to verify your account.</p>
 
 
-                <label htmlFor="signupfirstName" className={styles.labelFirstName}>First Name</label>
-                <input id="signupfirstName" 
-                type="text" 
-                className={styles.firstName}  
-                placeholder="Enter Your First Name"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}  
+                <label htmlFor="otpCode" className={styles.labelOtp}>Verification Code</label>
+                <input
+                  id="otpCode"
+                  type="text"
+                  className={styles.otp}
+                  placeholder="Enter 6-digit code"
+                  value={requestOtp}
+                    onChange={(e) => {
+                    const value = e.target.value;
+                    if (/^\d{0,6}$/.test(value)) {
+                      setRequestOtp(value);
+                    }
+                  }}
+                  pattern="^\d{6}$"
+                  title="Please enter exactly 6 digits"
+                  
                 />
 
               
 
 
                 <button
-                    className={styles.submit}
+                    className={styles.submitSignUp}
                     type="button" onClick={handleSignUp}
   >                      {isLoading ? (
                         <span className={styles.loader}></span>
                       ) : (
-                        "Sign Up"
+                        "Verify and Sign Up"
                       )}</button>
+
+                      <button
+                        className={styles.submitResend}
+                        type="button"
+                        onClick={handleResendOtp}
+                        disabled={isResendDisabled || isLoading}
+                      >
+                        {isResendDisabled ? `Resend in ${countdown}s` :
+                          (isLoading ? <span className={styles.loader}></span> : "Resend Verification Code")}
+                      </button>
 
                 <p className={styles.subtitle}>Already have an account?</p>
                 <Link className={styles.signnow}  onClick={() => {
