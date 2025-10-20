@@ -12,7 +12,6 @@ import jakarta.mail.MessagingException;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -23,6 +22,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
+import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -120,7 +120,7 @@ public class  AccountService {
                 });
     }
 
-    public void sendOtp(String email) throws MessagingException {
+    public void sendOtp(String email) throws MessagingException, IOException {
 
         String otp = emailService.generateOtp();
         otpStore.put(email, otp);

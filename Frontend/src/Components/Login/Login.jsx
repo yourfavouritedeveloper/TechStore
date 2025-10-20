@@ -5,6 +5,8 @@ import { Link,useNavigate, useLocation ,Navigate  } from "react-router-dom";
 import { AuthContext } from "../AuthContext";
 import BrandLogo from "../../../public/brandlogowhite.png"
 import Mixed from "../../assets/mixed.png"
+import axios from "axios";
+
 
 function Login() {
 
@@ -235,7 +237,32 @@ useEffect(() => {
 }, [password]);
 
 
+const checkAvailability = async (username, email) => {
+  try {
+    const usernameRes = await fetch(
+      `https://techstore-3fvk.onrender.com/api/v1/accounts/available/username?username=${encodeURIComponent(username)}`
+    );
+    const usernameAvailable = await usernameRes.json();
+    if (!usernameAvailable) {
+        setErrorMsg("");
+        return { ok: false,
+        message: "Username is already taken." };
+      };
 
+    const emailRes = await fetch(
+      `https://techstore-3fvk.onrender.com/api/v1/accounts/available/email?email=${encodeURIComponent(email)}`
+    );
+    const emailAvailable = await emailRes.json();
+    if (!emailAvailable){
+        return { ok: false,
+        message: "Email is already registered." }
+      };
+
+    return { ok: true };
+  } catch (err) {
+    return { ok: false, message: "Error checking username/email. Please try again." };
+  }
+};
 
 
 const signUpFirst = (<>
@@ -358,28 +385,59 @@ const signUpFirst = (<>
 
                 <button
                     className={styles.submit}
-                    type="button"     onClick={() => {
-                    if (!username || !email || !firstName || !lastName || !password || !passwordAgain) {
-                      setErrorMsg("Please fill in all fields before continuing.");
-                      setIsError(true);
-                      setTimeout(() => setErrorMsg(""), 3000);
-                      return;
-                    }
+                    type="button"      onClick={async () => {
+                        console.log("Next button clicked");
 
-                    const allGood = Object.values(errors).every(Boolean);
-                    if (!allGood) {
-                      setErrorMsg("Password does not meet requirements.");
-                      setIsError(true);
-                      setTimeout(() => setErrorMsg(""), 3500);
-                      return;
-                    }
+                      if (!username || !email || !firstName || !lastName || !password || !passwordAgain) {
+                        setErrorMsg("Please fill in all fields before continuing.");
+                        setIsError(true);
+                        setTimeout(() => setErrorMsg(""), 3000);
+                        return;
+                      }
 
-                    setIsLoading(true);
-                    setTimeout(() => {
+                      const allGood = Object.values(errors).every(Boolean);
+                      if (!allGood) {
+                        setErrorMsg("Password does not meet requirements.");
+                        setIsError(true);
+                        setTimeout(() => setErrorMsg(""), 3500);
+                        return;
+                      }
+
+                      setIsLoading(true);
+
+                      const availability = await checkAvailability(username, email);
+                      if (!availability.ok) {
+                        setErrorMsg(availability.message);
+                        setIsError(true);
+                        setIsLoading(false);
+                        setTimeout(() => setErrorMsg(""), 3500);
+                        return;
+                      }
+
+
+
+                      try {
+                      console.log("Sending OTP request with Axios...");
+                      const otpResponse = await axios.put(
+                        `https://techstore-3fvk.onrender.com/api/v1/accounts/otp/send`,
+                        null, 
+                        {
+                          params: { email: email }
+                        }
+                      );
+
+                      console.log("OTP response status:", otpResponse.status);
+                      console.log("OTP data:", otpResponse.data);
+
                       setIsSecond(true);
+                    } catch (err) {
+                      console.error("OTP error:", err);
+                      setErrorMsg(err.response?.data?.message || err.message || "Failed to send OTP");
+                      setIsError(true);
+                    } finally {
                       setIsLoading(false);
-                    }, 1000);
-                  }}>
+                    }
+                    }}>
                     {isLoading ? (
                         <span className={styles.loader}></span>
                       ) : (
