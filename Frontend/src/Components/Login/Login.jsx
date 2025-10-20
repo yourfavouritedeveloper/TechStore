@@ -194,48 +194,56 @@ useEffect(() => {
         return;
       }
 
-try {
-  const verifyResp = await axios.put(
-    "https://techstore-3fvk.onrender.com/api/v1/accounts/otp/verify",
-    null,
-    { params: { email, requestOtp } }
-  );
-  if (!verifyResp.data) throw new Error("Invalid OTP. Please check the code sent to your email.");
+      try {
+        const verifyResp = await axios.put(
+          "https://techstore-3fvk.onrender.com/api/v1/accounts/otp/verify",
+          null,
+          { params: { email, requestOtp } }
+        );
+        if (!verifyResp.data) throw new Error("Invalid OTP. Please check the code sent to your email.");
 
-  const signupResp = await axios.post(
-    "https://techstore-3fvk.onrender.com/api/v1/accounts/register",
-    {
-      customerName: `${firstName} ${lastName}`,
-      username,
-      password,
-      email
-    }
-  );
+        const signupResp = await axios.post(
+          "https://techstore-3fvk.onrender.com/api/v1/accounts/register",
+          {
+            customerName: `${firstName} ${lastName}`,
+            username,
+            password,
+            email
+          }
+        );
 
-  const loginResp = await axios.post(
-    "https://techstore-3fvk.onrender.com/api/v1/accounts/login",
-    { username, password }
-  );
+        if (signupResp.status !== 201) {
+          throw new Error(signupResp.data?.message || "Sign up failed.");
+        }
 
-  const { token, account } = loginResp.data;
-  login(account, token);
-  localStorage.setItem("authToken", token);
+        const loginResp = await axios.post(
+          "https://techstore-3fvk.onrender.com/api/v1/accounts/login",
+          { username, password }
+        );
 
-  setSuccessMsg("Signed Up Successfully!");
-  setIsError(false);
-  setTimeout(() => window.location.reload(), 1000);
+        const tokenSign = loginResp.data.token || loginResp.data.jwt || loginResp.data.accessToken;
+        const accountSign = loginResp.data.account || loginResp.data.user || { username };
 
-} catch (error) {
-  const errMsg =
-    error.response?.data?.message ||
-    (typeof error.response?.data === "string" && error.response.data) ||
-    error.message ||
-    "Network error. Please try again later.";
-  setErrorMsg(errMsg);
-  setIsError(true);
-} finally {
-  setIsLoading(false);
-}
+        if (!tokenSign) throw new Error("No token received from server");
+
+        login(accountSign, tokenSign);
+        localStorage.setItem("authToken", tokenSign);
+
+        setSuccessMsg("Signed Up Successfully!");
+        setIsError(false);
+        setTimeout(() => navigate(from, { replace: true }), 1000);
+
+      } catch (error) {
+        const errMsg =
+          error.response?.data?.message ||
+          (typeof error.response?.data === "string" && error.response.data) ||
+          error.message ||
+          "Network error. Please try again later.";
+        setErrorMsg(errMsg);
+        setIsError(true);
+      } finally {
+        setIsLoading(false);
+      }
   };
 
 

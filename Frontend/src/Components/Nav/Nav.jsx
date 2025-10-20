@@ -22,6 +22,7 @@ function Nav({ highlight, shiftUp, setShiftUp, onEditClick = () => { } }) {
   const { setIsPurchase } = usePurchase();
   const navigate = useNavigate();
 
+  
 
 const fetchAccount = async () => {
   if (!account?.username || !token) return;

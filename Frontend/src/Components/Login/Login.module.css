@@ -533,7 +533,7 @@
     border-radius: 1.7rem;
     padding: 0.4rem;
     left:4.5rem;
-    top:-0rem;
+    top:7rem;
     width: 34rem;
     text-align: left;
     line-height: 0.9;
@@ -548,7 +548,7 @@
     border-radius: 1.7rem;
     padding: 0.4rem;
     left:4.5rem;
-    top:-4rem;
+    top:3rem;
     width: 34rem;
     text-align: left;
     line-height: 0.9;
@@ -562,7 +562,7 @@
       position:absolute;
     left:4.9rem;
     width: 12.5rem;
-    top:25rem;
+    top:25.5rem;
     padding: 0.8rem 0rem;
     border-radius: 0.6rem;
     box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
@@ -579,13 +579,13 @@
     position:absolute;
     left:5rem;
     color: #afafaf;
-    top:24.5rem;
+    top:25rem;
     font-size: clamp(0.2rem, 1rem, 2.5rem);  
 }
 
 .signDiv .submitSignUp {
     position: absolute;
-    top:31.5rem;
+    top:32rem;
     left:4.95rem;
     width: 31.7rem;
     background: linear-gradient(145deg, 
@@ -606,7 +606,7 @@
 
 .signDiv .submitResend {
     position: absolute;
-    top:26.5rem;
+    top:27rem;
     left:19.65rem;
     white-space: nowrap;
     width: 17rem;
