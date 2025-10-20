@@ -6,6 +6,7 @@ import com.tech.store.dao.repository.AccountRepository;
 import com.tech.store.exception.AccountNotFoundException;
 import com.tech.store.mapper.AccountMapper;
 import com.tech.store.model.dto.*;
+import com.tech.store.model.enumeration.Role;
 import com.tech.store.model.enumeration.Status;
 import com.tech.store.util.UpdateUtils;
 import jakarta.mail.MessagingException;
@@ -148,6 +149,7 @@ public class  AccountService {
 
         AccountDto accountDto = accountMapper.toAccountDto(registerRequestDto);
         AccountEntity accountEntity = accountMapper.toAccountEntity(accountDto);
+        accountEntity.setRole(Role.USER);
         accountEntity.setPassword(bCryptPasswordEncoder.encode(registerRequestDto.getPassword()));
         accountEntity.setCustomerId(customerId);
         accountRepository.save(accountEntity);
