@@ -44,7 +44,7 @@ public class AccountController {
 
     @PutMapping("/otp/send")
     @ResponseStatus(HttpStatus.OK)
-    public String sendOtp(@RequestParam String email) throws MessagingException {
+    public String sendOtp(@RequestParam String email) throws MessagingException, IOException {
         accountService.sendOtp(email);
         return "OTP has been sent to your email";
     }

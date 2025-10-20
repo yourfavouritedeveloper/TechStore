@@ -1,27 +1,42 @@
 package com.tech.store.service;
 
-import jakarta.mail.MessagingException;
-import jakarta.mail.internet.MimeMessage;
+import com.sendgrid.*;
+import com.sendgrid.helpers.mail.Mail;
+import com.sendgrid.helpers.mail.objects.Content;
+import com.sendgrid.helpers.mail.objects.Email;
+import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.Random;
 
 @Service
 @RequiredArgsConstructor
 public class EmailService {
 
-    private final JavaMailSender mailSender;
+    @Value("${sendgrid.api-key}")
+    private String sendGridApiKey;
 
-    public void sendOtp(String toEmail, String otp) throws MessagingException {
+    @PostConstruct
+    public void checkApiKey() {
+        if (sendGridApiKey == null || sendGridApiKey.isEmpty()) {
+            System.err.println("SENDGRID_API_KEY is NOT set!");
+            throw new IllegalStateException("SENDGRID_API_KEY must be provided in environment variables or application.yml");
+        } else {
+            System.out.println("SENDGRID_API_KEY loaded successfully");
+        }
+    }
 
-        MimeMessage message = mailSender.createMimeMessage();
-        MimeMessageHelper helper = new MimeMessageHelper(message, "utf-8");
+    public void sendOtp(String toEmail, String otp) throws IOException {
 
-        String htmlMsg = "<!DOCTYPE html>" +
+        Email from = new Email("info.tech.store.ts@gmail.com");
+        Email to = new Email(toEmail);
+
+        String subject = "Your Verification Code";
+
+        String htmlContent = "<!DOCTYPE html>" +
                 "<html>" +
                 "<head>" +
                 "<style>" +
@@ -45,11 +60,28 @@ public class EmailService {
                 "</body>" +
                 "</html>";
 
-        helper.setText(htmlMsg, true); // true = HTML
-        helper.setTo(toEmail);
-        helper.setSubject("Your Verification Code");
-        mailSender.send(message);
+        Content content = new Content("text/html", htmlContent);
+        Mail mail = new Mail(from, subject, to, content);
+
+        SendGrid sg = new SendGrid(sendGridApiKey);
+        Request request = new Request();
+
+        try {
+            request.setMethod(Method.POST);
+            request.setEndpoint("mail/send");
+            request.setBody(mail.build());
+
+            Response response = sg.api(request);
+
+            if (response.getStatusCode() >= 400) {
+                throw new IOException("SendGrid Error: " + response.getBody());
+            }
+
+        } catch (IOException ex) {
+            throw new IOException("Failed to send email: " + ex.getMessage(), ex);
+        }
     }
+
 
     public String generateOtp() {
         Random random = new Random();
