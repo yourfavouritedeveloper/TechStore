@@ -32,7 +32,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @RequiredArgsConstructor
 public class  AccountService {
 
-
+    private final CartService cartService;
     private final EmailService emailService;
     private final AuthenticationManager authenticationManager;
     private final JWTService jwtService;
@@ -152,7 +152,18 @@ public class  AccountService {
         accountEntity.setRole(Role.USER);
         accountEntity.setPassword(bCryptPasswordEncoder.encode(registerRequestDto.getPassword()));
         accountEntity.setCustomerId(customerId);
+
         accountRepository.save(accountEntity);
+
+        CartDto cartDto = new CartDto();
+        AccountSummaryDto accountSummaryDto = new AccountSummaryDto();
+        accountSummaryDto.setUsername(accountEntity.getUsername());
+        accountSummaryDto.setEmail(accountEntity.getEmail());
+        accountSummaryDto.setCustomerName(accountEntity.getCustomerName());
+        accountSummaryDto.setId(accountEntity.getId());
+        cartDto.setAccount(accountSummaryDto);
+        cartService.create(cartDto);
+
         return accountRedisRepository.save(accountEntity);
     }
 
