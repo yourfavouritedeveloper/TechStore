@@ -114,41 +114,46 @@ useEffect(() => {
 
 
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setErrorMsg("");
-    setIsLoading(true);
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setErrorMsg("");
+  setIsLoading(true);
 
-    try {
-      const response = await fetch("https://techstore-3fvk.onrender.com/api/v1/accounts/login", {
-        method: "POST",
-        body: JSON.stringify({ username, password }),
-      });
+  try {
+    const response = await axios.post(
+      "https://techstore-3fvk.onrender.com/api/v1/accounts/login",
+      { username, password },
+      { headers: { "Content-Type": "application/json" } }
+    );
 
-      if (!response.ok) throw new Error("Invalid username or password");
+    const data = response.data;
 
-      const data = await response.json();
+    const token = data.token || data.jwt || data.accessToken;
+    const account = data.account || data.user || { username };
 
-      const token = data.token || data.jwt || data.accessToken;
-      const account = data.account || data.user || { username };
+    if (!token) throw new Error("No token received from server");
 
-      if (!token) throw new Error("No token received from server");
+    login(account, token);
+    localStorage.setItem("authToken", token);
 
-      login(account, token);
-      localStorage.setItem("authToken", token);
+    setSuccessMsg("Login Successful!");
+    setIsError(false);
 
-      setSuccessMsg("Login Successful!");
-      setIsError(false);
+    setTimeout(() => navigate(from, { replace: true }), 1000);
 
-      setTimeout(() => navigate(from, { replace: true }), 1000);
+  } catch (error) {
+    const errMsg =
+      error.response?.data?.message ||
+      (typeof error.response?.data === "string" && error.response.data) ||
+      error.message ||
+      "Network error. Please try again.";
 
-    } catch (error) {
-      setErrorMsg(error.message || "Network error. Please try again.");
-      setIsError(true);
-    } finally {
+    setErrorMsg(errMsg);
+    setIsError(true);
+  } finally {
     setIsLoading(false);
   }
-  };
+};
 
 
 

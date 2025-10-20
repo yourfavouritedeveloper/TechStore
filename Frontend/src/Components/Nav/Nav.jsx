@@ -81,12 +81,7 @@ const handleSignOut = () => {
     axios.put(
       `https://techstore-3fvk.onrender.com/api/v1/accounts/update`,
       accountToUpdate,
-      {
-        auth: {
-          username: account.username,
-          password: account.password
-        }
-      }
+      { headers: { Authorization: `Bearer ${token}` } }
     )
       .then(response => {
         if (response.data?.profilePictureUrl) {

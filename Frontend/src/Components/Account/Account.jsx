@@ -163,12 +163,7 @@ function Account({ account, edit, setEdit ,token, isPurchase, setIsPurchase}) {
 
     axios
       .get(`https://techstore-3fvk.onrender.com/api/v1/purchases/account/to/${logAccount.id}`,
-        {
-        auth: {
-            username: USERNAME, 
-            password: PASSWORD
-        }
-        }
+        { headers: { Authorization: `Bearer ${token}` } }
         
       )
       
@@ -574,7 +569,6 @@ const tickDatesSell = (() => {
                           </Link>
                         ))) : (
                             <li className={styles.noItem}>
-                              <p>No item found</p>
                             </li>)}
                               <li className={styles.addItem}>
                                 <Link
