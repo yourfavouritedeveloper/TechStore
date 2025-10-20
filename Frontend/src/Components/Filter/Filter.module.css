@@ -401,8 +401,8 @@ input:focus {
 
 
 .moreOption {
-    width: 96%;
-    left: 2%;
+    width: 99%;
+    left: 0.5%;
     top: -15rem;
     cursor: auto;
     border-radius: 0rem;
@@ -687,7 +687,7 @@ input:focus {
     right: 2.5rem;
     position: absolute;
     z-index: 10;
-    width: 40%;
+    width: 35%;
     line-height: 0.9;
     text-align: right;
     border-radius: 2rem;
