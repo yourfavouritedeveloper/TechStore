@@ -20,9 +20,11 @@
 }
 
 .account.active {
-      width: 80%; 
+      width: 92rem; 
       height: 20rem; 
       top: 15rem;
+      left: 50%;
+      transform: translateX(-50%);
 }
 
 .account .pp {
@@ -93,7 +95,7 @@
     position: absolute;
     z-index: 10;
     top:2rem;
-    left:23.8rem;
+    left:21.8rem;
     padding: 0.5rem 2rem;
     border-radius: 1rem;
     background-color: white;
@@ -104,7 +106,7 @@
     width: 10.2rem;
     height: 10.2rem;
     position: absolute; 
-    left: 23rem;         
+    left: 21rem;         
     top: 6.9rem;  
     z-index: 5;    
     padding: 0;
@@ -156,7 +158,7 @@
     font-family: "PoppinsRegular";
     white-space: nowrap;
     position: absolute;
-    right: 44.8vw;
+    right: 53.2rem;
     margin-right: 2.2rem;
     top: 3rem;
     font-size: clamp(1rem, 1.1rem, 10rem);    
@@ -165,7 +167,7 @@
 .nameInput {
   position: absolute;
   top: 6rem;
-  right: 45.8%;
+  right: 46.8%;
   width: 10%;
   white-space: nowrap;
   height: 1.5rem;
@@ -202,7 +204,7 @@
     font-family: "PoppinsRegular";
     white-space: nowrap;
     position: absolute;
-    right: 44.8vw;
+    right: 53rem;
     margin-right: 2.2rem;
     top: 9rem;
     font-size: clamp(1rem, 1.1rem, 10rem);    
@@ -211,7 +213,7 @@
 .usernameInput {
   position: absolute;
   top: 12rem;
-  right: 45.8%;
+  right: 46.8%;
   width: 10%;
   white-space: nowrap;
   height: 1.5rem;
@@ -237,7 +239,7 @@
 .errorUsername {
   position: absolute;
   top: 12.2rem;
-  right: 45.8%;
+  right: 46.8%;
   width: 10%;
   white-space: nowrap;
   height: 1.5rem;
@@ -265,7 +267,7 @@
 .confirmUsername {
   position: absolute;
   top: 12.2rem;
-  right: 45.8%;
+  right: 46.8%;
   width: 10%;
   white-space: nowrap;
   height: 1.5rem;
@@ -294,7 +296,7 @@
     white-space: nowrap;
     position: absolute;
     margin-right:-7.5rem; 
-    right: 33.3vw;      
+    right: 40.35rem;
     top: 3rem;        
     font-size: clamp(1rem, 1.1rem, 10rem);    
 }
@@ -302,7 +304,7 @@
 .passwordInput {
   position: absolute;
   top: 4.5rem;
-  left: 58.5%;
+  left: 57%;
   width: 10%;
   white-space: nowrap;
   height: 1.5rem;
@@ -331,7 +333,7 @@
     white-space: nowrap;
     position: absolute;
     margin-right:-7.5rem; 
-    right: 33.3vw;     
+    right: 39.5rem;
     top: 9rem;
     font-size: clamp(1rem, 1.1rem, 10rem);    
 }
@@ -339,7 +341,7 @@
 .passwordAgainInput {
   position: absolute;
   top: 10.5rem;
-  left: 58.5%;
+  left: 57%;
   width: 10%;
   white-space: nowrap;
   height: 1.5rem;
@@ -369,7 +371,7 @@
     border:none;
     background-color: rgba(245, 222, 179, 0);
     top:6.43rem;
-    left:54.7vw;
+    right:24.6rem;
     margin-left: 6rem;
     z-index: 7;
     cursor: pointer;
@@ -388,7 +390,7 @@
     border:none;
     background-color: rgba(245, 222, 179, 0);
     top:12.45rem;
-    left:54.7vw;
+    right:24.6rem;
     margin-left: 6rem;
     z-index: 7;
     cursor: pointer;
@@ -510,10 +512,13 @@
     left: 50%;
     transform: translateX(-345%);
     color: rgb(49, 49, 49);
+    transition: all 0.8s ease
 }
 
 .descriptionTitle.active {
-    top: 34rem;   
+    top: 34rem; 
+    transform: translateX(-350%);
+  
 }
 
 .accountDescription {
@@ -526,12 +531,14 @@
     background-color: rgb(230, 230, 230);
     border-radius: 2rem;
     overflow-y: scroll;
-    transition: all 1s ease;
+    transition: all 0.8s ease;
 }
 
 .accountDescription.active {
-    width: 80%;    
+    width: 92rem;    
     top:40rem;
+    left: 50%;
+    transform: translateX(-50%);
 
 }
 
@@ -539,7 +546,7 @@
   position: absolute;
   top: 1rem;
   left: 1%;
-  width: 35%;
+  width: 90.5%;
 
     font-family: "PoppinsRegular";
 
@@ -588,14 +595,17 @@
 
 .editContainer.active {
   background-color: #76abff;
-  right:29%;
+  right:50%;
+  width: 50rem;
+  transform: translateX(50%);
 }
 
 .errorEditContainer {
     background-color: rgb(240, 67, 67);
     height: 6.5rem;
-    width: 42%;
-    right:29%;
+    width: 50rem;
+    right:50%;
+    transform: translateX(50%);
     top:7rem;    
     border-radius: 2rem;
     position: absolute;
