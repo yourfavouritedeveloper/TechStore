@@ -517,7 +517,7 @@
 
 .descriptionTitle.active {
     top: 34rem; 
-    transform: translateX(-350%);
+    transform: translateX(-348%);
   
 }
 
@@ -952,14 +952,87 @@
 .purchaseContainer {
     position: absolute; 
     background-color: rgb(230, 230, 230);
-    width: 41.5rem;
+    width: 36.5rem;
     height: auto;
     min-height:41.5rem;
     right: 50%;
+    padding: 0rem 2.5rem;
     transform: translateX(110%);
     margin-top: 63rem;
     border-radius: 2rem;
     overflow: hidden;      
+}
+
+.purchaseList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px; 
+  margin-top:15rem;
+}
+
+.purchaseItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #ffffff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.purchaseItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.purchaseDate {
+  font-weight: 600;
+  font-size: 14px;
+  color: #555;
+  min-width: 120px;
+}
+
+.purchaseDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+  color: #333;
+}
+
+.purchaseDetails p {
+  margin: 0;
+}
+
+.noPurchases {
+  text-align: center;
+  color: #888;
+  padding: 16px 0;
+  font-size: 14px;
+  margin-top: 15rem;
+}
+
+.purchaseImage {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.purchaseImagePlaceholder {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  background-color: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #888;
 }
 
 
@@ -1030,7 +1103,8 @@
 
 .cropModal {
   position: fixed;
-  top: 0;
+  top: 50%;
+  transform: translateY(-50%);
   left: 0;
   width: 100%;
   height: 100%;
@@ -1046,18 +1120,18 @@
   background: #fff;
   border-radius: 1rem;
   padding: 1.5rem;
-  width: 400px;
+  width: 25rem;
   max-width: 90%;
-  height: 400px;
+  height: 25rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 
   position: absolute;
-  top: 25rem;
+  top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -62%);
 }
 
 .cropContainer .reactEasyCrop_Container {
@@ -1072,15 +1146,16 @@
 .cropContainer input[type="range"] {
   width: 50%;
   position: absolute;
-  top: 35rem;
+  top: 28.5rem;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .cropModal button {
   padding: 0.5rem 3rem;
-  top:14rem;
-  margin-left: 1rem;
+  top:18rem;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
   font-family: "PoppinsLight";
   border: none;
   border-radius: 1rem;

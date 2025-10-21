@@ -121,11 +121,16 @@ useEffect(() => {
 
 const handleCheckout = async () => {
   if (!cart || cart.products.length === 0) return;
+    console.log("Cart loaded:", cart);
+
 
   if (!logAccount || !logAccount.id) {
     console.error("Account not loaded yet — cannot start checkout.");
     return;
   }
+
+    console.log("Account loaded:", logAccount);
+
 
   setIsAdding(true);
 
@@ -143,11 +148,16 @@ const handleCheckout = async () => {
       payload.quantity[product.id] = amount;
     });
 
+        console.log("Checkout payload prepared:", payload);
+
+
 
     sessionStorage.setItem("checkoutPayload", JSON.stringify(payload));
 
     const successUrl = `${window.location.origin}/TechStore/#/success`;
     const cancelUrl = `${window.location.origin}/TechStore/#/account/${account.username}/cart`;
+
+        console.log("Sending checkout request to backend...");
 
     const response = await axios.post(
       "https://techstore-3fvk.onrender.com/api/v1/purchases/checkout",
@@ -157,6 +167,9 @@ const handleCheckout = async () => {
         params: { successUrl, failUrl: cancelUrl },
       }
     );
+
+        console.log("Checkout response received:", response.data);
+
 
     const sessionUrl = response.data.sessionUrl;
     if (sessionUrl) {

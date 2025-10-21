@@ -30,9 +30,11 @@ function Account({ account, edit, setEdit ,token, isPurchase, setIsPurchase}) {
       const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
 
       const purchaseRef = useRef(null);
+      const [productsMap, setProductsMap] = useState({});
 
         const navigate = useNavigate();
         const location = useLocation();
+        
 
 
 
@@ -48,6 +50,7 @@ function Account({ account, edit, setEdit ,token, isPurchase, setIsPurchase}) {
       
 
       const [purchases, setPurchases] = useState([]);
+      const [sells, setSells] = useState([]);
       const [sellPurchases, setSellPurchases] = useState([]);
       const [logAccount, setLogAccount] = useState(account);
       const [draftAccount, setDraftAccount] = useState(account);
@@ -101,6 +104,9 @@ function Account({ account, edit, setEdit ,token, isPurchase, setIsPurchase}) {
         setDraftAccount(account);
       }, [account]);
 
+      const [fileInputKey, setFileInputKey] = useState(Date.now());
+
+
       const handleProfilePicChange = (e) => {
         const file = e.target.files[0];
         if (!file) return;
@@ -110,6 +116,8 @@ function Account({ account, edit, setEdit ,token, isPurchase, setIsPurchase}) {
           setCropModalOpen(true);
         };
         reader.readAsDataURL(file);
+        setFileInputKey(Date.now());
+
       };
 
       const onCropComplete = (croppedArea, croppedAreaPixels) => {
@@ -158,26 +166,64 @@ function Account({ account, edit, setEdit ,token, isPurchase, setIsPurchase}) {
         }
       }, [token, navigate, location]);
 
-  useEffect(() => {
-    if (!account?.id) return;
+      useEffect(() => {
+        if (!logAccount?.id || !token) return;
 
-    axios
-      .get(`https://techstore-3fvk.onrender.com/api/v1/purchases/account/to/${logAccount.id}`,
-        { headers: { Authorization: `Bearer ${token}` } }
-        
-      )
-      
-      .then((response) => {
-        setSellPurchases(response.data); 
-      })
-      .catch((error) => {
-        console.error("Error fetching purchases:", error);
-      });
-  }, [logAccount]);
+        axios
+          .get(`https://techstore-3fvk.onrender.com/api/v1/purchases/account/from/${logAccount.id}`, {
+            headers: { Authorization: `Bearer ${token}` },
+          })
+          .then(async (res) => {
+            setPurchases(res.data);
 
+            const allFirstProductIds = [
+              ...new Set(res.data.map(p => p.productIds?.[0]).filter(Boolean))
+            ];
+
+            const fetches = allFirstProductIds.map(id =>
+              axios.get(`https://techstore-3fvk.onrender.com/api/v1/products/id/${id}`, {
+                headers: { Authorization: `Bearer ${token}` },
+              }).then(r => [id, r.data])
+                .catch(err => {
+                  console.error(`Product fetch error for ID ${id}:`, err);
+                  return [id, null];
+                })
+            );
+
+            const results = await Promise.all(fetches);
+            const newMap = {};
+            results.forEach(([id, data]) => {
+              if (data) newMap[id] = data;
+            });
+
+            setProductsMap(newMap);
+          })
+          .catch((err) => console.error("Purchases fetch error:", err));
+      }, [logAccount, token]);
+
+
+useEffect(() => {
+  if (!logAccount?.id || !token) return;
+
+  const fetchSellerPurchases = async () => {
+    try {
+      const response = await axios.get(
+        `https://techstore-3fvk.onrender.com/api/v1/purchases/account/to/${logAccount.id}`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      setSells(response.data); 
+    } catch (err) {
+      console.error("Error fetching seller purchases:", err);
+    }
+  };
+
+  fetchSellerPurchases();
+}, [logAccount?.id, token]);
   
 
-const getLastMonthData = (purchases = []) => {
+const getLast30DaysData = (purchases = []) => {
   const now = new Date();
   const dates = [];
 
@@ -188,9 +234,13 @@ const getLastMonthData = (purchases = []) => {
   }
 
   const purchaseMap = purchases.reduce((acc, p) => {
-    const date = new Date(p.purchaseDate).toLocaleDateString();
-    const totalSpent = (p.product?.price || 0) * (p.amount || 0);
-    acc[date] = (acc[date] || 0) + totalSpent;
+    const dateObj = new Date(p.purchaseDate); 
+    const date = dateObj.toLocaleDateString();
+    
+
+    const totalAmount = p.amount/100 || 0;
+
+    acc[date] = (acc[date] || 0) + totalAmount;
     return acc;
   }, {});
 
@@ -202,43 +252,24 @@ const getLastMonthData = (purchases = []) => {
 
 
 
-const purchaseData = getLastMonthData(logAccount?.purchases || []);
+const purchaseData = getLast30DaysData(purchases);
+const sellData = getLast30DaysData(sells)
 
-const tickDates = (() => {
-  const len = purchaseData.length;
-  if (len === 0) return [];
-  return [
-    purchaseData[0].date, 
-    purchaseData[Math.floor(len / 2)].date, 
-    purchaseData[len - 1].date 
-  ];
-})();
+const tickDates = purchaseData.length > 0 ? [
+  purchaseData[0].date,
+  purchaseData[Math.floor(purchaseData.length / 2)].date,
+  purchaseData[purchaseData.length - 1].date
+] : [];
+
+const tickDatesSell = sellData.length > 0 ? [
+  sellData[0].date,
+  sellData[Math.floor(sellData.length / 2)].date,
+  sellData[sellData.length - 1].date
+] : [];
 
 
 
 
-const getLastMonthDataSell = (sellPurchases = []) => {
-  const now = new Date();
-  const dates = [];
-
-  for (let i = 29; i >= 0; i--) {
-    const d = new Date();
-    d.setDate(now.getDate() - i);
-    dates.push(d.toLocaleDateString());
-  }
-
-  const purchaseMap = sellPurchases.reduce((acc, p) => {
-    const date = new Date(p.purchaseDate).toLocaleDateString();
-    const totalSpent = (p.product?.price || 0) * (p.amount || 0);
-    acc[date] = (acc[date] || 0) + totalSpent;
-    return acc;
-  }, {});
-
-  return dates.map(date => ({
-    date,
-    amount: purchaseMap[date] || 0
-  }));
-};
 
 const updateChanges = () => {
   setEdit(!edit);
@@ -250,17 +281,6 @@ const updateChanges = () => {
 
 };
 
-const purchaseDataSell = getLastMonthDataSell(sellPurchases || []);
-
-const tickDatesSell = (() => {
-  const len = purchaseDataSell.length;
-  if (len === 0) return [];
-  return [
-    purchaseDataSell[0].date, 
-    purchaseDataSell[Math.floor(len / 2)].date, 
-    purchaseDataSell[len - 1].date 
-  ];
-})();
 
 
 
@@ -288,7 +308,7 @@ const tickDatesSell = (() => {
               <label className={styles.uploadButton}>
 
                 <p>+</p>
-                <input type="file" accept="image/*" onChange={handleProfilePicChange} style={{ display: 'none' }} />
+                <input   key={fileInputKey} type="file" accept="image/*" onChange={handleProfilePicChange} style={{ display: 'none' }} />
               </label>
               {draftAccount.profilePictureUrl && (
                 <>
@@ -529,7 +549,7 @@ const tickDatesSell = (() => {
                 <p className={styles.activitySubTitle}>This chart shows how much money you earned each day from your product sales in the last month. Days without sales appear as zero, and the dates at the start, middle, and end make it easy to track your earnings over time.</p>
             <div className={styles.chart}>
                 <ResponsiveContainer height={300}>
-                <LineChart data={purchaseDataSell.length > 0 ? purchaseDataSell : [{ date: 'No Data', amount: 0 }]}>
+                <LineChart data={sellData.length > 0 ? sellData : [{ date: 'No Data', amount: 0 }]}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="date" ticks={tickDatesSell} />
                     <YAxis domain={[0, 'auto']} /> 
@@ -598,8 +618,43 @@ const tickDatesSell = (() => {
             </div>
 
             <div className={styles.purchaseContainer} ref={purchaseRef}>
-                <p className={styles.itemTitle}>Purchase History</p>
-                <p className={styles.itemSubtitle}>View all your past purchases in one place. Easily track what you bought, when you bought it, and how much you spent.</p>
+              <p className={styles.itemTitle}>Purchase History</p>
+              <p className={styles.itemSubtitle}>
+                View all your past purchases in one place. Easily track what you bought, when, and how much you spent.
+              </p>
+
+              {purchases.length > 0 ? (
+                <ul className={styles.purchaseList}>
+                  {purchases.map((purchase) => {
+                    const firstProductId = purchase.productIds?.[0];
+                    const product = productsMap[firstProductId];
+
+                    return (
+                      <li key={purchase.id} className={styles.purchaseItem}>
+                        {product ? (
+                          <img
+                            src={product?.productImageUrl}
+                            alt={product.name}
+                            className={styles.purchaseImage}
+                          />
+                        ) : (
+                          <div className={styles.purchaseImagePlaceholder}>Loading...</div>
+                        )}
+
+                        <div className={styles.purchaseDetails}>
+                          <p className={styles.purchaseDate}>
+                            {new Date(purchase.purchaseDate).toLocaleDateString()}
+                          </p>
+                          <p>Purchase ID: {purchase.id}</p>
+                          <p>Amount: {purchase.amount}</p>
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
+              ) : (
+                <p className={styles.noPurchases}>No purchases yet.</p>
+              )}
             </div>
               <div className={styles.spentContainer}>
                 <p className={styles.activityTitle}>Money Spent in Purchases</p>

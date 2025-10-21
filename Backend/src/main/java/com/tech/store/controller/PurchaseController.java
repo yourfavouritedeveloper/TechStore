@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/purchases")
+    @RequestMapping("/api/v1/purchases")
 @RequiredArgsConstructor
 @Tag(name = "Purchase", description = "APIs for purchase creation, read, update, and deletion")
 public class PurchaseController {
