@@ -4,7 +4,7 @@ import SuccessPage from "../Components/Success/Success"
 
 function Success() {
     return(<>
-    <title>Successfull Payment</title>
+    <title>Successful Payment</title>
         <Nav highlight={true}/>
         <SuccessPage />
     </>);

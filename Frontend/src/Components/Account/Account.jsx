@@ -23,6 +23,7 @@ import getCroppedImg from "../Utils/cropImage";
 
 function Account({ account, edit, setEdit ,token, isPurchase, setIsPurchase}) {
 
+      const [isPurchaseDone, setIsPurchaseDone] = useState(false);
       const [cropModalOpen, setCropModalOpen] = useState(false);
       const [cropImageSrc, setCropImageSrc] = useState(null);
       const [crop, setCrop] = useState({ x: 0, y: 0 });
@@ -168,6 +169,7 @@ function Account({ account, edit, setEdit ,token, isPurchase, setIsPurchase}) {
 
       useEffect(() => {
         if (!logAccount?.id || !token) return;
+        
 
         axios
           .get(`https://techstore-3fvk.onrender.com/api/v1/purchases/account/from/${logAccount.id}`, {
@@ -197,6 +199,7 @@ function Account({ account, edit, setEdit ,token, isPurchase, setIsPurchase}) {
             });
 
             setProductsMap(newMap);
+            setIsPurchaseDone(true);
           })
           .catch((err) => console.error("Purchases fetch error:", err));
       }, [logAccount, token]);
@@ -295,7 +298,7 @@ const updateChanges = () => {
     ? logAccount.products.slice(startIndex, startIndex + itemsPerPage)
     : [];
 
-    return  logAccount.profilePictureUrl ? (
+    return  (logAccount.profilePictureUrl && isPurchaseDone) ? (
     <>
         {loading &&  <div className={styles.loadingContainerPage}>
             <img src={spinnerBlack} alt="Loading..." className={styles.loadingImage} />
@@ -618,14 +621,15 @@ const updateChanges = () => {
             </div>
 
             <div className={styles.purchaseContainer} ref={purchaseRef}>
-              <p className={styles.itemTitle}>Purchase History</p>
-              <p className={styles.itemSubtitle}>
+              <p className={styles.purchaseTitle}>Purchase History</p>
+              <p className={styles.purchaseSubtitle}>
                 View all your past purchases in one place. Easily track what you bought, when, and how much you spent.
               </p>
 
               {purchases.length > 0 ? (
+                <>
                 <ul className={styles.purchaseList}>
-                  {purchases.map((purchase) => {
+                  {purchases.slice(0, 3).map((purchase) => {
                     const firstProductId = purchase.productIds?.[0];
                     const product = productsMap[firstProductId];
 
@@ -645,16 +649,25 @@ const updateChanges = () => {
                           <p className={styles.purchaseDate}>
                             {new Date(purchase.purchaseDate).toLocaleDateString()}
                           </p>
-                          <p>Purchase ID: {purchase.id}</p>
-                          <p>Amount: {purchase.amount}</p>
+                          <p className={styles.purchaseId}>Purchase ID: {purchase.id}</p>
+                          <p className={styles.purchaseAmount}>{purchase.amount/100}₼</p>
                         </div>
                       </li>
                     );
                   })}
                 </ul>
+              <Link
+                to={`/account/${account.username}/purchase`}
+                className={styles.viewAllLink}
+              >
+                View All Purchases
+              </Link>
+              </>
               ) : (
                 <p className={styles.noPurchases}>No purchases yet.</p>
               )}
+              
+ 
             </div>
               <div className={styles.spentContainer}>
                 <p className={styles.activityTitle}>Money Spent in Purchases</p>
