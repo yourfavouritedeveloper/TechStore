@@ -10,11 +10,15 @@ import Apple from "../../assets/apple.png"
 import Keyboard from "../../assets/keykeyboard.png"
 import TV from "../../assets/tvv.png"
 import spinner from "../../../public/brandlogo.png"
+import { AuthContext } from "../AuthContext";
 
 
 function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
 
-    const [hoverId, setHoverId] = useState(0);
+  
+  const {account, token} = useContext(AuthContext);
+  const [popularHoverId, setPopularHoverId] = useState(0);
+  const [boughtHoverId, setBoughtHoverId] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [itemsPopular, setItemsPopular] = useState([]);
   const [itemsSeller, setItemsSeller] = useState([]);
@@ -28,6 +32,9 @@ function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
   rating: null,
   discount: null
 });
+  const [isAdding, setIsAdding] = useState(false);
+  const [cart,setCart] = useState();
+  const [cartItems, setCartItems] = useState([]);
 
 
     useEffect(() => {
@@ -50,10 +57,109 @@ function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
       });
   }, []);
 
+      const ensureAuthenticated = () => {
+        if (!token) {
+            navigate("/login", { state: { from: location } });
+            return false;
+        }
+        return true;
+        };
+
+
+
+      useEffect(() => {
+        const fetchData = async () => {
+            try {
+                if (!token || !account?.username) return;
+                const accountResponse = await axios.get(
+                    `https://techstore-3fvk.onrender.com/api/v1/accounts/username/${account.username}`,
+                    {
+                        headers: { Authorization: `Bearer ${token}` }
+                    }
+                );
+
+                const logAccount = accountResponse.data;
+
+                const cartResponse = await axios.get(
+                    `https://techstore-3fvk.onrender.com/api/v1/carts/account/${logAccount.id}`,
+                    {
+                        headers: { Authorization: `Bearer ${token}` },
+                    }
+                );
+
+                setCart(cartResponse.data);
+                const productIds = cartResponse.data.products
+                  ? cartResponse.data.products.map(p => p.id)
+                  : Object.keys(cartResponse.data.amounts || {}).map(id => parseInt(id));
+
+                setCartItems(productIds);
+            } catch (err) {
+                console.error("Error fetching account or cart:", err);
+            }
+        };
+
+        if (account?.username) {
+            fetchData();
+        }
+    }, [account]);
+
 const navigate = useNavigate();
 
 const handleSortChange = (key, value) => {
   navigate("/product", { state: { sort: key, order: value } });
+};
+
+
+
+const updateCart = async (item) => {
+  if (!ensureAuthenticated()) return;
+  if (!cart || !item) return;
+
+  const currentAmount = cart.amounts?.[item.id] || 0;
+  const isInCart = currentAmount > 0;
+
+  let endpoint;
+  let amountChange;
+  if (isInCart && currentAmount > 1) {
+    endpoint = `https://techstore-3fvk.onrender.com/api/v1/carts/remove/product/${cart.id}`;
+    amountChange = 1;
+  } else if (isInCart && currentAmount === 1) {
+    endpoint = `https://techstore-3fvk.onrender.com/api/v1/carts/remove/product/${cart.id}`;
+    amountChange = 1;
+  } else {
+    endpoint = `https://techstore-3fvk.onrender.com/api/v1/carts/add/product/${cart.id}`;
+    amountChange = 1;
+  }
+
+  setIsAdding(true);
+
+  try {
+    const response = await axios.put(
+      endpoint,
+      {},
+      {
+        params: {
+          productId: item.id,
+          productAmount: amountChange,
+        },
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    setCart(response.data);
+
+    const updatedIds = response.data.products
+      ? response.data.products.map((p) => p.id)
+      : Object.keys(response.data.amounts || {}).map((id) => parseInt(id));
+
+    setCartItems(updatedIds);
+  } catch (err) {
+    console.error("Cart update failed:", err);
+  } finally {
+    setIsAdding(false);
+  }
 };
   
 
@@ -93,7 +199,10 @@ const handleSortChange = (key, value) => {
                 <>
                   <div className={styles.populardiv}>
                     <ul className={styles.itemsPopular}>
-                      {itemsPopular.map((item) => (
+                      {itemsPopular.map((item) => {
+                        const isInCart = cartItems.includes(item.id);
+                        return (
+                        
                         <Link key={item.id} className={styles.item} to={"/product/" + item.id}>
                           <p className={styles.searchRate}>Searched {item.searched ?? 0} times</p>
                           <div className={styles.popularInfo}>
@@ -106,22 +215,37 @@ const handleSortChange = (key, value) => {
                             <p className={styles.avail}>{item.amount}</p>
                             <p className={styles.priceTitle}>Price</p>
                             <p className={styles.price}>{item.price ?? 0}₼</p>
-                            <button className={styles.cart}
-                            onMouseEnter={() => {setIsHovered(true);setHoverId(item.id)}}
-                            onMouseLeave={() => {setIsHovered(false);setHoverId(0)}}>
-                              <p className={styles.cartText} style={{opacity: isHovered && hoverId == item.id ? "1" : "0"}}>Add to Cart</p>
+                            <button className={`${styles.cart} ${isInCart ? styles.inCart : ""}`}
+                               onClick={(e) => {
+                                  e.preventDefault(); 
+                                  e.stopPropagation(); 
+                                  updateCart(item);
+                                }}
+                            onMouseEnter={() => {setIsHovered(true);setPopularHoverId(item.id)}}
+                            onMouseLeave={() => {setIsHovered(false);setPopularHoverId(0)}}>
+                             {isAdding ? (
+                                  <>
+                                      <div className={styles.cartSpinnerDiv}>
+                                         <div className={styles.spinner}></div>
+                                     </div>
+                                   </>
+                                ) : (<></>
+                              )} 
+                              <p className={styles.cartText} style={{opacity: isHovered && popularHoverId == item.id ? "1" : "0"}}>{isInCart ? "In Cart" : "Add to Cart"}</p>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
                                     <path d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
                                 </svg>
                             </button>
                         </Link>
-                      ))}
+                      )})}
                     </ul>
                   </div>
 
                   <div className={styles.sellerdiv}>
                     <ul className={styles.itemsBought}>
-                      {itemsSeller.map((item) => (
+                      {itemsSeller.map((item) => {
+                        const isInCart = cartItems.includes(item.id);
+                        return (
                         <Link key={item.id} className={styles.item} to={"/product/" + item.id}>
                           <p className={styles.boughtRate}>Bought {item.bought ?? 0} times</p>
                           <div className={styles.popularInfo}>
@@ -134,16 +258,29 @@ const handleSortChange = (key, value) => {
                             <p className={styles.avail}>{item.amount}</p>
                             <p className={styles.priceTitle}>Price</p>
                             <p className={styles.price}>{item.price ?? 0}₼</p>
-                            <button className={styles.cart}
-                            onMouseEnter={() => {setIsHovered(true);setHoverId(item.id)}}
-                            onMouseLeave={() => {setIsHovered(false);setHoverId(0)}}>
-                              <p className={styles.cartText} style={{opacity: isHovered && hoverId == item.id ? "1" : "0"}}>Add to Cart</p>
+                            <button className={`${styles.cart} ${isInCart ? styles.inCart : ""}`}
+                              onClick={(e) => {
+                                  e.preventDefault(); 
+                                  e.stopPropagation(); 
+                                  updateCart(item);
+                              }}
+                            onMouseEnter={() => {setIsHovered(true);setBoughtHoverId(item.id)}}
+                            onMouseLeave={() => {setIsHovered(false);setBoughtHoverId(0)}}>
+                              {isAdding ? (
+                                  <>
+                                      <div className={styles.cartSpinnerDiv}>
+                                         <div className={styles.spinner}></div>
+                                     </div>
+                                   </>
+                                ) : (<></>
+                              )} 
+                              <p className={styles.cartText} style={{opacity: isHovered && boughtHoverId == item.id ? "1" : "0"}}>Add to Cart</p>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
                                     <path d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
                                 </svg>
                             </button>
                         </Link>
-                      ))}
+                      )})}
                     </ul>
                   </div>
                 </>

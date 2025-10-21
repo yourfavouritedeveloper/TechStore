@@ -54,6 +54,8 @@ function Item({ name, productId }) {
     };
 
     const [cart, setCart] = useState(changeCart);
+    const [cartItems, setCartItems] = useState([]);
+
 
     const isInCart = cart?.products?.some(product => product.id === item.id);
 
@@ -123,6 +125,12 @@ function Item({ name, productId }) {
                 );
 
                 setCart(cartResponse.data);
+
+                const productIds = cartResponse.data.products
+                  ? cartResponse.data.products.map(p => p.id)
+                  : Object.keys(cartResponse.data.amounts || {}).map(id => parseInt(id));
+
+                setCartItems(productIds);
             } catch (err) {
                 console.error("Error fetching account or cart:", err);
             }
@@ -414,7 +422,56 @@ function Item({ name, productId }) {
 
 
 
+const updateCart = async (item) => {
+  if (!ensureAuthenticated()) return;
+  if (!cart || !item) return;
 
+  const currentAmount = cart.amounts?.[item.id] || 0;
+  const isInCart = currentAmount > 0;
+
+  let endpoint;
+  let amountChange;
+  if (isInCart && currentAmount > 1) {
+    endpoint = `https://techstore-3fvk.onrender.com/api/v1/carts/remove/product/${cart.id}`;
+    amountChange = 1;
+  } else if (isInCart && currentAmount === 1) {
+    endpoint = `https://techstore-3fvk.onrender.com/api/v1/carts/remove/product/${cart.id}`;
+    amountChange = 1;
+  } else {
+    endpoint = `https://techstore-3fvk.onrender.com/api/v1/carts/add/product/${cart.id}`;
+    amountChange = 1;
+  }
+
+  setIsAdding(true);
+
+  try {
+    const response = await axios.put(
+      endpoint,
+      {},
+      {
+        params: {
+          productId: item.id,
+          productAmount: amountChange,
+        },
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    setCart(response.data);
+
+    const updatedIds = response.data.products
+      ? response.data.products.map((p) => p.id)
+      : Object.keys(response.data.amounts || {}).map((id) => parseInt(id));
+
+    setCartItems(updatedIds);
+  } catch (err) {
+    console.error("Cart update failed:", err);
+  } finally {
+    setIsAdding(false);
+  }
+};
 
 
 
@@ -859,7 +916,10 @@ function Item({ name, productId }) {
             <div className={styles.similar} ref={similarRef}>
                 <p className={styles.similarTitle}>Check similar items</p>
                 <ul className={styles.similarItems}>
-                    {similarItems.map((i) => (
+                    {similarItems.map((i) => {
+                        const isInCart = cartItems.includes(i.id);
+
+                        return(
                         <Link className={styles.similarItem} to={"/product/" + i.id}>
                             <div className={styles.info}>
                                 <img src={i.productImageUrl} alt={i.name} />
@@ -871,16 +931,29 @@ function Item({ name, productId }) {
                             <p className={styles.avail}>{i.amount}</p>
                             <p className={styles.priceTitle}>Price</p>
                             <p className={styles.priceOf}>{i.price ?? 0}₼</p>
-                            <button className={styles.cartOf}
+                            <button className={`${styles.cartOf} ${isInCart ? styles.inCartOf : ""}`}
+                                onClick={(e) => {
+                                  e.preventDefault(); 
+                                  e.stopPropagation(); 
+                                  updateCart(i);
+                                }}
                                 onMouseEnter={() => { setIsHovered(true); setHoverId(i.id) }}
                                 onMouseLeave={() => { setIsHovered(false); setHoverId(0) }}>
-                                <p className={styles.cartText} style={{ opacity: isHovered && hoverId == i.id ? "1" : "0" }}>Add to Cart</p>
+                                    {isAdding ? (
+                                       <>
+                                            <div className={styles.cartSpinnerDivOf}>
+                                                <div className={styles.spinnerOf}></div>
+                                            </div>
+                                       </>
+                                     ) : (<></>
+                                   )} 
+                                <p className={styles.cartText} style={{ opacity: isHovered && hoverId == i.id ? "1" : "0" }}>{isInCart ? "In Cart" : "Add to Cart"}</p>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
                                     <path d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
                                 </svg>
                             </button>
                         </Link>
-                    ))}
+                    )})}
                 </ul>
             </div>
         </div>
