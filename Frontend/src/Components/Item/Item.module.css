@@ -435,6 +435,24 @@ body {
     transform: scale(1.01);
 }
 
+.buySpinnerDiv {
+    padding: 0.52rem 0.52rem;
+    background-color: rgb(189, 189, 189);
+    color: white;
+    font-family: "PoppinsLight";
+    border: none;
+    bottom: 0.77rem;
+    position: absolute;
+    border-radius: 50%;
+    left: 82%;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+
+
 .decrease {
     font-size: 1.5rem;
     padding: 0rem 1rem;
@@ -571,6 +589,8 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
 }
+
+
 
 
 

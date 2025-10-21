@@ -44,6 +44,8 @@ function Item({ name, productId }) {
     const [selectedRating, setSelectedRating] = useState(0);
     const [hoverRating, setHoverRating] = useState(0);
     const [isAdding, setIsAdding] = useState(false);
+    const [isBuying, setIsBuying] = useState(false);
+    const [logAccount, setLogAccount] = useState({});
     const location = useLocation();
     const changeCart = {
         id: null,
@@ -56,6 +58,25 @@ function Item({ name, productId }) {
     const [cart, setCart] = useState(changeCart);
     const [cartItems, setCartItems] = useState([]);
 
+    useEffect(() => {
+        const fetchAccount = async () => {
+            if (!account?.username) return;
+
+            try {
+            const res = await axios.get(
+                `https://techstore-3fvk.onrender.com/api/v1/accounts/username/${account.username}`,
+                { headers: { Authorization: `Bearer ${token}` } }
+            );
+
+            setLogAccount(res.data); 
+            } catch (err) {
+            console.error("Failed to fetch account:", err);
+            }
+        };
+
+        fetchAccount();
+        }, [account?.username, token]);
+  
 
     const isInCart = cart?.products?.some(product => product.id === item.id);
 
@@ -370,6 +391,67 @@ function Item({ name, productId }) {
 
 
 
+    const handleCheckout = async (singleProduct) => {
+    const isSingle = !!singleProduct;
+    const products = isSingle ? [singleProduct] : cart?.products || [];
+
+    if (products.length === 0) return;
+
+
+    if (!logAccount || !logAccount.id) {
+        console.error("Account not loaded yet — cannot start checkout.");
+        return;
+    }
+
+    setIsBuying(true);
+
+    try {
+        const payload = {
+        buyerId: logAccount.id,
+        sellerIds: Array.from(new Set(products.map(p => p.account.id))),
+        productIds: products.map(p => p.id),
+        quantity: {},
+        currency: "AZN",
+        };
+
+        if (isSingle) {
+        payload.quantity[singleProduct.id] = 1;
+        } else {
+        cart.products.forEach((product) => {
+            payload.quantity[product.id] = cart.amounts[product.id];
+        });
+        }
+
+
+        sessionStorage.setItem("checkoutPayload", JSON.stringify(payload));
+
+        const successUrl = `${window.location.origin}/TechStore/#/success`;
+        const cancelUrl = `${window.location.origin}/TechStore/#/product/${item.id}`;
+
+
+        const response = await axios.post(
+        "https://techstore-3fvk.onrender.com/api/v1/purchases/checkout",
+        payload,
+        {
+            headers: { Authorization: `Bearer ${token}` },
+            params: { successUrl, failUrl: cancelUrl },
+        }
+        );
+
+
+        const sessionUrl = response.data.sessionUrl;
+        if (sessionUrl) {
+        window.location.href = sessionUrl;
+        } else {
+        console.error("No session URL returned from backend");
+        }
+    } catch (err) {
+        console.error("Checkout failed:", err);
+    } finally {
+        setIsAdding(false);
+    }
+    };
+
     const increase = () => { setCount(count + 1) };
 
     const decrease = () => { setCount(count == 0 ? 0 : count - 1) };
@@ -414,7 +496,7 @@ function Item({ name, productId }) {
         } catch (err) {
             console.error("Cart update failed:", err);
         } finally {
-            setIsAdding(false);
+            setIsBuying(false);
         }
     };
 
@@ -596,7 +678,16 @@ const updateCart = async (item) => {
                         )
                         }
 
-                        <button className={styles.buy} onClick={buy}>Buy now</button>
+                        <button className={styles.buy} onClick={() => handleCheckout(item)}>Buy now
+                            {isBuying ? (
+                                <>
+                                    <div className={styles.buySpinnerDiv}>
+                                        <div className={styles.spinner}></div>
+                                    </div>
+                                </>
+                            ) : (<></>
+                            )}    
+                        </button>
                         <button className={styles.cart} onClick={addCart}
                                 style={{ left: cart.amounts[item.id] != 0 && cart.amounts[item.id] ? "22.93rem" : "23.3rem" }}>{cart.amounts[item.id] != 0 && cart.amounts[item.id] ? "Update Cart" : "Add to cart"}</button>
                         {cart.id ? (<>
