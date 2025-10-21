@@ -573,6 +573,8 @@ body {
 }
 
 
+
+
 .success {
     font-size: clamp(1rem, 1.7rem, 10rem);
     color: #ffffff;
@@ -1690,6 +1692,58 @@ body {
     left:20%;
     fill:white;
 }
+
+.similarItems .inCartOf {
+    padding: 1.2rem 1.2rem;
+    background-color: rgb(54, 132, 250);   
+    border: 1px solid rgb(54, 132, 250);  
+}
+
+.similarItems .inCartOf svg {
+    height: 22px;
+    width: 22px;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    fill: rgb(255, 255, 255);
+    position: absolute;
+    transition: all 0.3s ease;
+}
+
+.cartSpinnerDivOf {
+    padding: 0.52rem 0.52rem;
+    background-color: rgb(189, 189, 189);
+    color: white;
+    font-family: "PoppinsLight";
+    border: none;
+    bottom: 0.33rem;
+    position: absolute;
+    border-radius: 50%;
+    right: 110%;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+.spinnerOf {
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #555;
+    border-radius: 50%;
+    width: 0.5rem;
+    height: 0.5rem;
+    position: relative;
+    animation: spin 0.8s linear infinite;
+    display: block;
+    margin: 0 auto;
+}
+
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 
 
 .loadingContainer {

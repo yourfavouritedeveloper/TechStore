@@ -1,11 +1,19 @@
 import styles from "./Filter.module.css"
 import axios from 'axios';
-import { useState, useEffect,useRef } from "react";
+import { useState, useEffect,useRef, useContext } from "react";
 import { applyFilters } from '../Utils/filterUtil';
 import { useLocation, Link,useNavigate } from "react-router-dom";
+import { AuthContext } from "../AuthContext";
+
 
 function Filter({ items, itemRef,bodyItems,  onResetFilters  }) {
 
+  const [isAdding, setIsAdding] = useState(false);
+  const [cart,setCart] = useState();
+  const [cartItems, setCartItems] = useState([]);
+  const {account, token} = useContext(AuthContext);
+  const [popularHoverId, setPopularHoverId] = useState(0);
+  const [boughtHoverId, setBoughtHoverId] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [hoverId, setHoverId] = useState(0);
   const scrollRef = useRef(null);
@@ -26,6 +34,15 @@ function Filter({ items, itemRef,bodyItems,  onResetFilters  }) {
   discount: null
 });
 
+      const ensureAuthenticated = () => {
+        if (!token) {
+            navigate("/login", { state: { from: location } });
+            return false;
+        }
+        return true;
+        };
+
+
 
   const [resetClicked, setResetClicked] = useState(false);
 
@@ -33,7 +50,92 @@ useEffect(() => {
   setName(search);
 }, [search]);
 
+     useEffect(() => {
+        const fetchData = async () => {
+            try {
+                if (!token || !account?.username) return;
+                const accountResponse = await axios.get(
+                    `https://techstore-3fvk.onrender.com/api/v1/accounts/username/${account.username}`,
+                    {
+                        headers: { Authorization: `Bearer ${token}` }
+                    }
+                );
 
+                const logAccount = accountResponse.data;
+
+                const cartResponse = await axios.get(
+                    `https://techstore-3fvk.onrender.com/api/v1/carts/account/${logAccount.id}`,
+                    {
+                        headers: { Authorization: `Bearer ${token}` },
+                    }
+                );
+
+                setCart(cartResponse.data);
+                const productIds = cartResponse.data.products
+                  ? cartResponse.data.products.map(p => p.id)
+                  : Object.keys(cartResponse.data.amounts || {}).map(id => parseInt(id));
+
+                setCartItems(productIds);
+            } catch (err) {
+                console.error("Error fetching account or cart:", err);
+            }
+        };
+
+        if (account?.username) {
+            fetchData();
+        }
+    }, [account]);
+
+const updateCart = async (item) => {
+  if (!ensureAuthenticated()) return;
+  if (!cart || !item) return;
+
+  const currentAmount = cart.amounts?.[item.id] || 0;
+  const isInCart = currentAmount > 0;
+
+  let endpoint;
+  let amountChange;
+  if (isInCart && currentAmount > 1) {
+    endpoint = `https://techstore-3fvk.onrender.com/api/v1/carts/remove/product/${cart.id}`;
+    amountChange = 1;
+  } else if (isInCart && currentAmount === 1) {
+    endpoint = `https://techstore-3fvk.onrender.com/api/v1/carts/remove/product/${cart.id}`;
+    amountChange = 1;
+  } else {
+    endpoint = `https://techstore-3fvk.onrender.com/api/v1/carts/add/product/${cart.id}`;
+    amountChange = 1;
+  }
+
+  setIsAdding(true);
+
+  try {
+    const response = await axios.put(
+      endpoint,
+      {},
+      {
+        params: {
+          productId: item.id,
+          productAmount: amountChange,
+        },
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    setCart(response.data);
+
+    const updatedIds = response.data.products
+      ? response.data.products.map((p) => p.id)
+      : Object.keys(response.data.amounts || {}).map((id) => parseInt(id));
+
+    setCartItems(updatedIds);
+  } catch (err) {
+    console.error("Cart update failed:", err);
+  } finally {
+    setIsAdding(false);
+  }
+};
 
 
 useEffect(() => {
@@ -358,7 +460,10 @@ const displayItems = currentItems.length ? currentItems : [];
                       </button>
                     </div>
                       <ul className={styles.items}>
-                       {displayItems && displayItems.length > 0 ? (displayItems.map((item) => (
+                       {displayItems && displayItems.length > 0 ? (displayItems.map((item) => {
+                        const isInCart = cartItems.includes(item.id);
+
+                        return(
                         <Link key={item.id} className={styles.item} to={"/product/" + item.id}>
                           <div className={styles.info}>
                             <img src={item.productImageUrl} alt={item.name} />
@@ -370,10 +475,23 @@ const displayItems = currentItems.length ? currentItems : [];
                             <p className={styles.avail}>{item.amount}</p>
                             <p className={styles.priceTitle}>Price</p>
                             <p className={styles.price}>{item.price ?? 0}₼</p>
-                            <button className={styles.cart}
+                            <button className={`${styles.cart} ${isInCart ? styles.inCart : ""}`}
+                            onClick={(e) => {
+                                  e.preventDefault(); 
+                                  e.stopPropagation(); 
+                                  updateCart(item);
+                            }}
                             onMouseEnter={() => {setIsHovered(true);setHoverId(item.id)}}
                             onMouseLeave={() => {setIsHovered(false);setHoverId(0)}}>
-                              <p className={styles.cartText} style={{opacity: isHovered && hoverId == item.id ? "1" : "0"}}>Add to Cart</p>
+                             {isAdding ? (
+                                      <>
+                                         <div className={styles.cartSpinnerDiv}>
+                                             <div className={styles.spinner}></div>
+                                        </div>
+                                      </>
+                                 ) : (<></>
+                              )} 
+                              <p className={styles.cartText} style={{opacity: isHovered && hoverId == item.id ? "1" : "0"}}>{isInCart ? "In Cart" : "Add to Cart"}</p>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
                                     <path d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
                                 </svg>
@@ -381,7 +499,7 @@ const displayItems = currentItems.length ? currentItems : [];
                         </Link>
                       
                     
-                        ))) : (
+                        )})) : (
                             <li className={styles.noItem}>
                               <p>No item found</p>
                             </li>)}
