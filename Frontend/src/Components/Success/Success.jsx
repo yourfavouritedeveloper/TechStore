@@ -10,15 +10,21 @@ function Success() {
   const { account, token } = useContext(AuthContext);
 
   useEffect(() => {
+    if (!token) return; 
     const savePurchase = async () => {
       const purchaseData = sessionStorage.getItem("checkoutPayload");
 
+            console.log("Raw checkoutPayload from sessionStorage:", purchaseData);
+
       if (!purchaseData) {
+        
         setLoading(false);
         return;
       }
 
       const parsedPurchase = JSON.parse(purchaseData);
+            console.log("Parsed checkoutPayload:", parsedPurchase);
+
       setPurchase(parsedPurchase);
 
       if (!token) {
@@ -28,6 +34,8 @@ function Success() {
       }
 
       try {
+                console.log("Posting purchase to backend:", parsedPurchase);
+
         const res = await axios.post(
           "https://techstore-3fvk.onrender.com/api/v1/purchases/purchase",
           parsedPurchase,
@@ -37,6 +45,8 @@ function Success() {
             },
           }
         );
+                console.log("Backend response for purchase save:", res.data);
+
       } catch (err) {
         console.error("Error saving purchase:", err.response || err);
       } finally {

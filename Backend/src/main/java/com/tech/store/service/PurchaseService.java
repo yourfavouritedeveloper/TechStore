@@ -66,18 +66,18 @@ public class PurchaseService {
         return purchaseRedisRepository.findByFromAccount(id)
                 .orElseGet(() -> {
                     AccountDto accountDto = accountService.findById(id);
+
                     List<PurchaseEntity> purchaseEntities = accountDto.getPurchases()
-                            .stream().map(purchaseSummaryDto -> findById(purchaseSummaryDto.getId()))
-                            .map(purchaseMapper::toPurchaseEntity).toList();
+                            .stream()
+                            .map(summary -> purchaseRepository.findById(summary.getId())
+                                    .orElseThrow(() -> new PurchaseNotFoundException("Purchase not found."))) // ensure full entity
+                            .toList();
 
                     purchaseEntities.forEach(purchaseRedisRepository::save);
 
-                    return purchaseEntities.stream().
-                            map(purchaseMapper::toPurchaseDto)
+                    return purchaseEntities.stream()
+                            .map(purchaseMapper::toPurchaseDto)
                             .toList();
-
-
-
                 });
     }
 
@@ -86,8 +86,10 @@ public class PurchaseService {
                 .orElseGet(() -> {
                     AccountDto accountDto = accountService.findById(id);
                     List<PurchaseEntity> purchaseEntities = accountDto.getSells()
-                            .stream().map(purchaseSummaryDto -> findById(purchaseSummaryDto.getId()))
-                            .map(purchaseMapper::toPurchaseEntity).toList();
+                            .stream()
+                            .map(summary -> purchaseRepository.findById(summary.getId())
+                                    .orElseThrow(() -> new PurchaseNotFoundException("Purchase not found."))) // ensure full entity
+                            .toList();
 
                     purchaseEntities.forEach(purchaseRedisRepository::save);
 
