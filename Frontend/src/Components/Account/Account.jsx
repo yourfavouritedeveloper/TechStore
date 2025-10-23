@@ -15,13 +15,14 @@ import spinnerBlack from "../../../public/brandblack.png"
 import axios from "axios";
 import Cropper from "react-easy-crop";
 import getCroppedImg from "../Utils/cropImage"; 
+import Nintendo from "../../assets/nintendo.png";
 
     const USERNAME = import.meta.env.VITE_API_USERNAME;
     const PASSWORD = import.meta.env.VITE_API_PASSWORD;
 
     
 
-function Account({ account, edit, setEdit ,token, isPurchase, setIsPurchase}) {
+function Account({ account, edit, setEdit ,token, isPurchase, setIsPurchase,logout}) {
 
       const [isPurchaseDone, setIsPurchaseDone] = useState(false);
       const [cropModalOpen, setCropModalOpen] = useState(false);
@@ -104,6 +105,80 @@ function Account({ account, edit, setEdit ,token, isPurchase, setIsPurchase}) {
         setLogAccount(account);
         setDraftAccount(account);
       }, [account]);
+
+
+  const handleDeactivate = async () => {
+    if (!logAccount?.id) return;
+
+    const confirmDeactivate = window.confirm(
+      "Are you sure you want to deactivate your account? This will close it but not permanently delete it."
+    );
+
+    if (!confirmDeactivate) return;
+
+    try {
+      setLoading(true);
+      const response = await axios.put(
+        `https://techstore-3fvk.onrender.com/api/v1/accounts/delete/${logAccount.id}`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      alert("Your account has been deactivated successfully.");
+      navigate("/login");
+    } catch (error) {
+      console.error("Error deactivating account:", error);
+      alert("Failed to deactivate account. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+const handleDelete = async () => {
+  if (!logAccount?.id) return;
+
+  const confirmDelete = window.confirm(
+    "This action will permanently delete your account and all related data. Are you absolutely sure?"
+  );
+
+  if (!confirmDelete) return;
+
+  try {
+    setLoading(true);
+    const res = await axios.delete(
+      `https://techstore-3fvk.onrender.com/api/v1/accounts/remove/${logAccount.id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    console.log("Delete response:", res.data);
+    alert("Your account has been permanently deleted.");
+    logout();
+    navigate("/login");
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      console.error("Axios error details:");
+      console.error("Message:", error.message);
+      console.error("Response:", error.response);
+      console.error("Status:", error.response?.status);
+      console.error("Data:", error.response?.data);
+      console.error("Headers:", error.response?.headers);
+    } else {
+      console.error("Non-Axios error:", error);
+    }
+    alert("Failed to delete account. Please check console for details.");
+  } finally {
+    setLoading(false);
+  }
+};
+
+
 
       const [fileInputKey, setFileInputKey] = useState(Date.now());
 
@@ -474,11 +549,12 @@ const updateChanges = () => {
                   )}
                 </div>
             </div>
-            <div className={`${styles.balanceContainer} ${edit ? styles.hidden : ""}`}>
-                <p className={styles.balance}>Balance: ₼{logAccount.balance}</p>
-                <button className={styles.add}>Add Balance</button>
-                <button className={styles.transaction}>History</button>
-            </div>
+            <Link className={`${styles.cartContainer} ${edit ? styles.hidden : ""}`}
+            to={`/account/${logAccount.username}/cart`}>
+                <p className={styles.cartTitle} >View Your Cart</p>
+                <img className={styles.cartImg} src={Nintendo} alt="" />
+
+            </Link>
             <p className={`${styles.descriptionTitle} ${edit ? styles.active : ""}`}>Description</p>
             <div className={`${styles.accountDescription} ${edit ? styles.active : ""}`}>
                   {edit ? (
@@ -697,6 +773,12 @@ const updateChanges = () => {
             </div>
 
 
+        </div>
+        <div className={styles.deleteContainer}>
+          <p className={styles.deleteTitle}>Deactivate or Delete Account</p>
+          <p className={styles.deleteSubtitle}>You can choose to temporarily close your account or permanently delete it. Closing your account will deactivate access, while deleting it will permanently remove all data.</p>
+          <button className={styles.deactivate} onClick={handleDeactivate}>Deactivate Account</button>
+          <button className={styles.delete} onClick={handleDelete}>Delete Account</button>
         </div>
             {cropModalOpen && (
       <div className={styles.cropModal}>

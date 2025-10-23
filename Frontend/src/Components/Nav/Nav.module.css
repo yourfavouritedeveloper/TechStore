@@ -36,6 +36,38 @@ body {
 
 }
 
+.normal {
+    top: 0rem;
+    background: linear-gradient(to bottom,
+     rgba(0, 0, 0, 0.9),
+     rgba(0, 0, 0, 0.89),
+     rgba(0, 0, 0, 0.88),
+     rgba(0, 0, 0, 0.87),
+     rgba(0, 0, 0, 0.86),
+     rgba(0, 0, 0, 0.85),
+     rgba(0, 0, 0, 0.84),
+    rgba(0, 0, 0, 0.83),
+    rgba(0, 0, 0, 0.82),
+    rgba(0, 0, 0, 0.81),
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0)); 
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  -webkit-mask-image: linear-gradient(to bottom, black, transparent);
+  mask-image: linear-gradient(to bottom, black, transparent);
+    width: 100%;
+    position: fixed;
+    justify-content: center;
+    z-index: 10;
+    left: 50%;
+    height: 15.8rem;
+    pointer-events: none;
+    transform: translateX(-50%);
+}
+
 
 #campaign {
     border-radius: 2rem;

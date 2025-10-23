@@ -1,9 +1,13 @@
 package com.tech.store.service;
 
 import com.tech.store.dao.entity.AccountEntity;
+import com.tech.store.dao.entity.CartEntity;
 import com.tech.store.dao.repository.AccountRedisRepository;
 import com.tech.store.dao.repository.AccountRepository;
+import com.tech.store.dao.repository.CartRedisRepository;
+import com.tech.store.dao.repository.CartRepository;
 import com.tech.store.exception.AccountNotFoundException;
+import com.tech.store.exception.CartNotFoundException;
 import com.tech.store.mapper.AccountMapper;
 import com.tech.store.model.dto.*;
 import com.tech.store.model.enumeration.Role;
@@ -33,6 +37,8 @@ import java.util.concurrent.ConcurrentHashMap;
 public class  AccountService {
 
     private final CartService cartService;
+    private final CartRepository cartRepository;
+    private final CartRedisRepository cartRedisRepository;
     private final EmailService emailService;
     private final AuthenticationManager authenticationManager;
     private final JWTService jwtService;
@@ -236,6 +242,10 @@ public class  AccountService {
     public String remove(Long id) {
         AccountEntity accountEntity = accountRepository.findById(id)
                 .orElseThrow(() -> new AccountNotFoundException("Account not found"));
+        CartEntity cartEntity = cartRepository.findById(accountEntity.getCart().getId())
+                .orElseThrow(() -> new CartNotFoundException("Cart not found"));
+        cartRepository.delete(cartEntity);
+        cartRedisRepository.delete(cartEntity);
         accountRepository.delete(accountEntity);
         return accountRedisRepository.delete(accountEntity);
     }

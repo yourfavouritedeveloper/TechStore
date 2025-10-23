@@ -21,7 +21,7 @@ function Account() {
 
   const location = useLocation();
   const { username } = useParams();
-  const { account: checkAccount, loading, token } = useContext(AuthContext);
+  const { account: checkAccount, loading, token, logout } = useContext(AuthContext);
 
   const [edit, setEdit] = useState(location.state?.edit || false);
   const [account, setAccount] = useState([]);
@@ -90,7 +90,7 @@ function Account() {
         <>
         <title>{"Account | " + account.customerName}</title>
         <Nav highlight={true}  onEditClick={handleEditClick} ></Nav>
-        <Profile account={account}  edit={edit} setEdit={setEdit} token={token} isPurchase={isPurchase}/>
+        <Profile account={account}  edit={edit} setEdit={setEdit} token={token} isPurchase={isPurchase} logout={logout}/>
         </>
     );
 }

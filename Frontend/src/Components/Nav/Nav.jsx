@@ -205,7 +205,7 @@ const handleSignOut = () => {
 
   return (
     <>
-      <div className={highlight ? styles.highcontainer : styles.none}></div>
+      <div className={highlight ? styles.highcontainer : styles.normal}></div>
       <nav className={styles.container}>
 
 
