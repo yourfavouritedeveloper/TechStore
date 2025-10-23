@@ -3,6 +3,7 @@ package com.tech.store.model.dto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.tech.store.dao.entity.ProductEntity;
 import com.tech.store.model.enumeration.Role;
+import com.tech.store.model.enumeration.Status;
 import com.tech.store.util.OnCreate;
 import com.tech.store.util.OnUpdate;
 import jakarta.validation.constraints.Email;
@@ -24,6 +25,8 @@ public class AccountDto {
     private Long id;
 
     private Role role;
+
+    private Status status;
 
     @NotBlank(message = "Username cannot be null",groups = {OnCreate.class, OnUpdate.class})
     private String username;
