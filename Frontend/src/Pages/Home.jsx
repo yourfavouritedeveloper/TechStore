@@ -32,9 +32,9 @@ useEffect(() => {
     const highRect = highRef.current?.getBoundingClientRect();
     const brandRect = brandRef.current?.getBoundingClientRect();
 
-    if (backgroundRect && backgroundRect.bottom > 0) {
+    if (backgroundRect && backgroundRect.bottom > 200) {
       setNavHighlight(false);
-    } else if (itemRect && itemRect.top < window.innerHeight && itemRect.bottom > 0) {
+    } else if (itemRect && itemRect.top < window.innerHeight && itemRect.bottom >0) {
       setNavHighlight(true);
     } else if (highRect && highRect.top < window.innerHeight && highRect.bottom > 0) {
       setNavHighlight(false);
