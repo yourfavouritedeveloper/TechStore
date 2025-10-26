@@ -35,15 +35,22 @@ public class JWTService {
     private String secretKey;
 
     /*
-    good practice to put expiration time for 1 hour (personal preference and experience)
+    good practice to put expiration time for 1 day (personal preference and experience)
      */
-    private static final long EXPIRATION_TIME = 1000 * 60 * 60;
+    private static final long EXPIRATION_TIME = 1000 * 60 * 60 * 24;
+
+    /*
+    Expiration time for refresh time, MUST BE LONGER THAN NORMAL JWT
+     */
+
+    private static final long EXPIRATION_TIME_REFRESH = 1000 * 60 * 60 * 24 * 7;
 
 
 
     public String generateToken(String username) {
 
         Map<String,Object> claims = new HashMap<>();
+        claims.put("type", "access");
 
 
         /*
@@ -56,6 +63,26 @@ public class JWTService {
                 .subject(username)
                 .issuedAt(new Date(System.currentTimeMillis()))
                 .expiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
+                .signWith(getKey())
+                .compact();
+
+    }
+
+    public String generateRefreshToken(String username) {
+
+        Map<String,Object> claims = new HashMap<>();
+        claims.put("type", "refresh");
+
+
+        /*
+        The method where REFRESH TOKENS are generated.
+        Refresh token : a long-lived version of jwt tokens.
+         */
+        return Jwts.builder()
+                .claims(claims)
+                .subject(username)
+                .issuedAt(new Date(System.currentTimeMillis()))
+                .expiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME_REFRESH))
                 .signWith(getKey())
                 .compact();
 
@@ -96,6 +123,17 @@ public class JWTService {
     public boolean validateToken(String token, UserDetails userDetails) {
         final String username = extractUsername(token);
         return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
+    }
+
+
+
+
+    public boolean isRefreshToken(String token) {
+        return "refresh".equals(extractAllClaims(token).get("type", String.class));
+    }
+
+    public boolean isAccessToken(String token) {
+        return "access".equals(extractAllClaims(token).get("type", String.class));
     }
 
     private boolean isTokenExpired(String token) {
