@@ -1,5 +1,6 @@
 package com.tech.store.service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tech.store.dao.entity.AccountEntity;
 import com.tech.store.dao.entity.CartEntity;
 import com.tech.store.dao.repository.AccountRedisRepository;
@@ -14,6 +15,8 @@ import com.tech.store.model.enumeration.Role;
 import com.tech.store.model.enumeration.Status;
 import com.tech.store.util.UpdateUtils;
 import jakarta.mail.MessagingException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
@@ -21,10 +24,14 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.http.HttpHeaders;
 
 
 import java.io.IOException;
@@ -187,9 +194,10 @@ public class  AccountService {
 
             // JWT with roles as claim
             String token = jwtService.generateToken(user.getUsername());
+            String refreshToken = jwtService.generateRefreshToken(user.getUsername());
 
 
-            return new LoginResponseDto(token, loginRequest.getUsername());
+            return new LoginResponseDto(token, refreshToken, loginRequest.getUsername());
         } catch (Exception e) {
             throw new BadCredentialsException("Authentication failed: " + e.getMessage());
         }
@@ -201,7 +209,8 @@ public class  AccountService {
         if(authentication.isAuthenticated()) {
 
             String token = jwtService.generateToken(loginRequest.getUsername());
-            return new LoginResponseDto(token, loginRequest.getUsername());
+            String refreshToken = jwtService.generateRefreshToken(loginRequest.getUsername());
+            return new LoginResponseDto(token, refreshToken, loginRequest.getUsername());
         }
         throw new AccountNotFoundException("User not found");
     }
@@ -251,7 +260,45 @@ public class  AccountService {
     }
 
 
+    public void refreshToken(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
+        /*
+        The client (Front-end) will send a header in "Bearer <token>" format
+        REFRESH TOKEN VERSION
+         */
+        String header = request.getHeader(HttpHeaders.AUTHORIZATION);
+        String refreshToken = null;
+        String username = null;
+        if (header != null && header.startsWith("Bearer ")) {
+            refreshToken = header.substring(7);
+            username = jwtService.extractUsername(refreshToken);
+        }
 
+        if(username != null) {
 
+            /*
+            calls the user from db
+             */
+            AccountEntity accountEntity = accountRepository.findByUsername(username)
+                    .orElseThrow(() -> new AccountNotFoundException("Account not found."));
+
+            Account userDetails = new Account(accountEntity);
+
+            /*
+            validation of token happens here
+             */
+            if(jwtService.validateToken(refreshToken,userDetails)) {
+                var accessToken = jwtService.generateToken(userDetails.getUsername());
+                var authResponse = LoginResponseDto.builder()
+                        .username(username)
+                        .refreshToken(refreshToken)
+                        .token(accessToken)
+                        .build();
+
+                new ObjectMapper().writeValue(response.getOutputStream(),authResponse);
+
+            }
+        }
+
+    }
 }

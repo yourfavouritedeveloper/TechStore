@@ -10,6 +10,8 @@ import com.tech.store.util.OnCreate;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.mail.MessagingException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -157,6 +159,14 @@ public class AccountController {
     @Operation(summary = "Get all accounts", description = "Gets all accounts.")
     public List<AccountDto> getAll() {
         return accountService.findAll();
+    }
+
+
+    @PostMapping("/refreshToken")
+    @ResponseStatus(HttpStatus.OK)
+    @Operation(summary = "Refresh Token", description = "Refresh Token")
+    public void refreshToken(@RequestBody HttpServletRequest request, @RequestBody HttpServletResponse response) throws IOException {
+        accountService.refreshToken(request,response);
     }
 
 
