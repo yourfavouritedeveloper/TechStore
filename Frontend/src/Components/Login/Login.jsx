@@ -94,7 +94,7 @@ useEffect(() => {
 }, [submitInView]);
 
 
-  const { login, logout, token } = useContext(AuthContext);
+  const { login, logout, token,refreshToken, refreshAccessToken } = useContext(AuthContext);
 
   const location = useLocation();
    const sign = location.state?.sign || false;

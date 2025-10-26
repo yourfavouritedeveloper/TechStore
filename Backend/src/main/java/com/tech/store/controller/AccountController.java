@@ -165,7 +165,7 @@ public class AccountController {
     @PostMapping("/refreshToken")
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Refresh Token", description = "Refresh Token")
-    public void refreshToken(@RequestBody HttpServletRequest request, @RequestBody HttpServletResponse response) throws IOException {
+    public void refreshToken(HttpServletRequest request,HttpServletResponse response) throws IOException {
         accountService.refreshToken(request,response);
     }
 
