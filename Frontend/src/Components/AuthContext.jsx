@@ -43,7 +43,7 @@ export function AuthProvider({ children }) {
   const refreshAccessToken = async () => {
     try {
       if (!refreshToken) return;
-      const response = await fetch("http://localhost:8080/api/v1/accounts/refreshToken", {
+      const response = await fetch("https://techstore-3fvk.onrender.com/api/v1/accounts/refreshToken", {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${refreshToken}`,

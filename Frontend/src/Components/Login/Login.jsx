@@ -94,7 +94,7 @@ useEffect(() => {
 }, [submitInView]);
 
 
-  const { login, logout, token,refreshToken, refreshAccessToken } = useContext(AuthContext);
+  const { login, logout, token, refreshAccessToken } = useContext(AuthContext);
 
   const location = useLocation();
    const sign = location.state?.sign || false;
@@ -112,6 +112,13 @@ useEffect(() => {
   const from = location.state?.from?.pathname || "/";
   const [isSign, setIsSign] = useState(sign);
 
+
+  
+  useEffect(() => {
+    if (!token) {
+      refreshAccessToken();
+    }
+  }, [token, refreshAccessToken]);
 
 
 const handleSubmit = async (e) => {

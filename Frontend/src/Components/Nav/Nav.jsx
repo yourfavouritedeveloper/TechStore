@@ -15,7 +15,7 @@ function Nav({ highlight, shiftUp, setShiftUp, onEditClick = () => { } }) {
   const [is599, setIs599] = useState(window.innerWidth === 599);
   const [menuOpen, setMenuOpen] = useState(false);
   const [accountMenu, setAccountMenu] = useState(false)
-  const { account, logout,token } = useContext(AuthContext);
+  const { account, logout,token, refreshToken,refreshAccessToken } = useContext(AuthContext);
   const [logAccount, setLogAccount] = useState();
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredItems, setFilteredItems] = useState([]);
@@ -25,9 +25,15 @@ function Nav({ highlight, shiftUp, setShiftUp, onEditClick = () => { } }) {
   
 
 const fetchAccount = async () => {
+  
   if (!account?.username || !token) return;
 
   try {
+    if (!token && refreshToken) {
+      await refreshAccessToken(); 
+    }
+
+
     const res = await axios.get(
       `https://techstore-3fvk.onrender.com/api/v1/accounts/username/${account.username}`,
       { headers: { Authorization: `Bearer ${token}` } }
@@ -43,9 +49,10 @@ const fetchAccount = async () => {
 
 useEffect(() => {
   fetchAccount();
-}, [account, token]);
+}, [account, token,refreshToken,refreshAccessToken]);
 
   
+
 
   useEffect(() => {
     const handleResize = () => {

@@ -21,7 +21,7 @@ function Account() {
 
   const location = useLocation();
   const { username } = useParams();
-  const { account: checkAccount, loading, token, logout } = useContext(AuthContext);
+  const { account: checkAccount, loading, token,refreshAccessToken, logout } = useContext(AuthContext);
 
   const [edit, setEdit] = useState(location.state?.edit || false);
   const [account, setAccount] = useState([]);
@@ -31,7 +31,7 @@ function Account() {
     useEffect(() => {
       if (!loading) {
         if (!checkAccount || checkAccount.username !== username) {
-          navigate("/login", { replace: true });
+          navigate("/login", { state: { from: location } });
         } else {
           setReady(true);
         }
@@ -43,6 +43,15 @@ function Account() {
         window.scrollTo({ top: 0, behavior: "auto" });
         window.onbeforeunload = () => window.scrollTo(0, 0);
       }, []);
+
+    useEffect(() => { 
+        if (!refreshToken) { 
+            navigate("/login", { state: { from: location } }); 
+        } 
+        else if (!token) {
+             refreshAccessToken(); 
+        } 
+    }, [token,refreshToken, navigate, location,refreshAccessToken]);
 
 
 
