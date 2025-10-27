@@ -34,6 +34,9 @@ spring:
     database-change-log-lock-table: databasechangeloglock
     database-change-log-table: databasechangelog
 
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
+
   data:
     redis:
       host: ${REDIS_HOST}

@@ -11,7 +11,9 @@ const USERNAME = import.meta.env.VITE_API_USERNAME;
 const PASSWORD = import.meta.env.VITE_API_PASSWORD;
 
 function Cart({ cart, setCart }) {
-  const { account, logout, token } = useContext(AuthContext);
+  const { account, logout, token,refreshToken, refreshAccessToken } = useContext(AuthContext);
+  
+
   const [isAdding, setIsAdding] = useState(false);
   const [pendingUpdate, setPendingUpdate] = useState(null);
   const [discount, setDiscount] = useState(0);
@@ -20,11 +22,14 @@ function Cart({ cart, setCart }) {
   const navigate = useNavigate();
   const location = useLocation();
 
-useEffect(() => {
-  if (!token) {
-    navigate("/login", { state: { from: location } });
-  }
-}, [token, navigate, location]);
+    useEffect(() => { 
+        if (!refreshToken) { 
+            navigate("/login", { state: { from: location } }); 
+        } 
+        else if (!token) {
+             refreshAccessToken(); 
+        } 
+    }, [token,refreshToken, navigate, location,refreshAccessToken]);
 
 
   useEffect(() => {

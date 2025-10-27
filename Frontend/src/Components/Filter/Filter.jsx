@@ -11,7 +11,8 @@ function Filter({ items, itemRef,bodyItems,  onResetFilters  }) {
   const [isAdding, setIsAdding] = useState(false);
   const [cart,setCart] = useState();
   const [cartItems, setCartItems] = useState([]);
-  const {account, token} = useContext(AuthContext);
+  const {account, token,refreshToken,refreshAccessToken} = useContext(AuthContext);
+
   const [popularHoverId, setPopularHoverId] = useState(0);
   const [boughtHoverId, setBoughtHoverId] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
@@ -34,13 +35,20 @@ function Filter({ items, itemRef,bodyItems,  onResetFilters  }) {
   discount: null
 });
 
-      const ensureAuthenticated = () => {
-        if (!token) {
-            navigate("/login", { state: { from: location } });
-            return false;
+      const ensureAuthenticated = () => {       
+        if (!refreshToken) {
+          navigate("/login", { state: { from: location } });
+          return false;
+        }
+        else if (!token) {
+            refreshAccessToken();
+            return true;
         }
         return true;
+      
         };
+
+
 
 
 

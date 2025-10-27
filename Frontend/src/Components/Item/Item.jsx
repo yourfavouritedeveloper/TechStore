@@ -19,7 +19,8 @@ function Item({ name, productId }) {
     const navigate = useNavigate();
     const [isHovered, setIsHovered] = useState(false);
     const [hoverId, setHoverId] = useState(0);
-    const { account, logout, token } = useContext(AuthContext);
+    const { account, logout, token,refreshToken,refreshAccessToken } = useContext(AuthContext);
+
     const [item, setItem] = useState([]);
     const [repliedAccount, setRepliedAccount] = useState("")
     const [repliedComment, setRepliedComment] = useState();
@@ -246,13 +247,20 @@ function Item({ name, productId }) {
 
 
 
-    const ensureAuthenticated = () => {
-    if (!token) {
-        navigate("/login", { state: { from: location } });
-        return false;
-    }
-    return true;
-    };
+      const ensureAuthenticated = () => {       
+        if (!refreshToken) {
+          navigate("/login", { state: { from: location } });
+          return false;
+        }
+        else if (!token) {
+            refreshAccessToken();
+            return true;
+        }
+        return true;
+      
+        };
+
+
 
 
 

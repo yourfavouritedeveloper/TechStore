@@ -15,8 +15,8 @@ import { AuthContext } from "../AuthContext";
 
 function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
 
-  
-  const {account, token} = useContext(AuthContext);
+  const location = useLocation();
+  const {account, token,refreshToken, refreshAccessToken} = useContext(AuthContext);
   const [popularHoverId, setPopularHoverId] = useState(0);
   const [boughtHoverId, setBoughtHoverId] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
@@ -32,6 +32,9 @@ function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
   rating: null,
   discount: null
 });
+
+
+
   const [isAdding, setIsAdding] = useState(false);
   const [cart,setCart] = useState();
   const [cartItems, setCartItems] = useState([]);
@@ -57,12 +60,17 @@ function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
       });
   }, []);
 
-      const ensureAuthenticated = () => {
-        if (!token) {
-            navigate("/login", { state: { from: location } });
-            return false;
+      const ensureAuthenticated = () => {       
+        if (!refreshToken) {
+          navigate("/login", { state: { from: location } });
+          return false;
+        }
+        else if (!token) {
+            refreshAccessToken();
+            return true;
         }
         return true;
+      
         };
 
 

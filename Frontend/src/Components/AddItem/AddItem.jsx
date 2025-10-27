@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 import styles from "./AddItem.module.css"
 import axios from "axios";
 import background from "../../assets/backgroundItem.mp4"
@@ -6,7 +6,9 @@ import Iphone from "../../assets/iphonePink.png"
 import Airpods from "../../assets/airpods.png"
 import Macbook from "../../assets/macbookPink.png"
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import { AuthContext } from "../AuthContext";
+
 
 
     const USERNAME = import.meta.env.VITE_API_USERNAME;
@@ -17,7 +19,9 @@ function AddItem({ highlight, setHighlight, username}) {
 
     const fileInputRef = useRef(null);
     const imageInputRef = useRef(null);
+
     const navigate = useNavigate();
+    const location = useLocation();
 
     const [videoFile, setVideoFile] = useState(null);
     const [item, setItem] = useState({});
@@ -30,6 +34,17 @@ function AddItem({ highlight, setHighlight, username}) {
     const [newPage, setNewPage] = useState(false);
     const [lastPage, setLastPage] = useState(false);
     const [rows, setRows] = useState([]);
+    const {account, token,refreshToken, refreshAccessToken} = useContext(AuthContext)
+
+    
+    useEffect(() => { 
+        if (!refreshToken) { 
+            navigate("/login", { state: { from: location } }); 
+        } 
+        else if (!token) {
+             refreshAccessToken(); 
+        } 
+    }, [token,refreshToken, navigate, location,refreshAccessToken]);
 
     const categories = [
         "computer",
@@ -154,11 +169,10 @@ function AddItem({ highlight, setHighlight, username}) {
             "https://techstore-3fvk.onrender.com/api/v1/products/create",
             payload
         );
-        console.log("✅ Product created:", res.data);
 
         navigate(`/account/${username}`);
     } catch (err) {
-        console.error("❌ Error creating product:", err);
+        console.error("Error creating product:", err);
     }
 };
 
@@ -191,18 +205,16 @@ function AddItem({ highlight, setHighlight, username}) {
     const handleImageChange = async (e) => {
         const file = e.target.files[0];
         if (!file) {
-            console.warn("⚠️ No file selected");
+            console.warn("No file selected");
             return;
         }
 
-        console.log("📂 File selected:", file.name);
         setVideoFile(file);
 
         const form = new FormData();
         form.append("file", file);
 
         try {
-            console.log("⏳ Uploading file:", file.name);
             const res = await axios.post(
                 "https://techstore-3fvk.onrender.com/api/v1/products/uploadProductImage",
                 form,
@@ -216,30 +228,27 @@ function AddItem({ highlight, setHighlight, username}) {
             productImageUrl: uploadedUrl,
             }));
 
-            console.log("✅ Image uploaded. URL:", uploadedUrl);
 
               let accessible = false;
                 for (let i = 0; i < 5; i++) { 
                     try {
                         await axios.head(uploadedUrl);
                         accessible = true;
-                        console.log("✅ Image is accessible on server:", uploadedUrl);
                         break;
                     } catch {
-                        console.warn(`⏳ Image not accessible yet, retrying... (${i + 1}/5)`);
+                        console.warn(`Image not accessible yet, retrying... (${i + 1}/5)`);
                         await new Promise(res => setTimeout(res, 500)); 
                     }
                 }
 
             try {
                 await axios.head(uploadedUrl);
-                console.log("✅ Image is accessible on server:", uploadedUrl);
             } catch {
-                console.warn("⚠️ Image uploaded, but not accessible yet:", uploadedUrl);
+                console.warn("Image uploaded, but not accessible yet:", uploadedUrl);
             }
 
         } catch (err) {
-            console.error("❌ Error uploading image:", err);
+            console.error("Error uploading image:", err);
         }
     };
 
@@ -250,18 +259,16 @@ function AddItem({ highlight, setHighlight, username}) {
     const handleVideoChange = async (e) => {
         const file = e.target.files[0];
         if (!file) {
-            console.warn("⚠️ No file selected");
+            console.warn("No file selected");
             return;
         }
 
-        console.log("📂 File selected:", file.name);
         setVideoFile(file);
 
         const form = new FormData();
         form.append("file", file);
 
         try {
-            console.log("⏳ Uploading file:", file.name);
             const res = await axios.post(
                 "https://techstore-3fvk.onrender.com/api/v1/products/uploadProductVideo",
                 form,
@@ -275,24 +282,21 @@ function AddItem({ highlight, setHighlight, username}) {
                 videoUrl: uploadedUrl,
                 }));
 
-            console.log("✅ Video uploaded. URL:", uploadedUrl);
             console.log(formData);
 
             try {
                 await axios.head(uploadedUrl);
-                console.log("✅ Video is accessible on server:", uploadedUrl);
             } catch {
-                console.warn("⚠️ Video uploaded, but not accessible yet:", uploadedUrl);
+                console.warn("Video uploaded, but not accessible yet:", uploadedUrl);
             }
 
         } catch (err) {
-            console.error("❌ Error uploading video:", err);
+            console.error("Error uploading video:", err);
         }
     };
 
 
     useEffect(() => {
-    console.log("🔑 Current category:", formData.category);
     }, [formData.category]);
 
 
