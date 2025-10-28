@@ -452,6 +452,7 @@ function AddItem({ highlight, setHighlight, username}) {
                         <input
                             className={styles.productName}
                             type="text"
+                            maxLength={50}
                             name="name"
                             value={formData.name}
                             onChange={handleChange}
@@ -461,6 +462,7 @@ function AddItem({ highlight, setHighlight, username}) {
                         <p className={styles.productDescriptionLabel}>Product Sub Title</p>
                         <textarea
                             name="description"
+                            maxLength={120}
                             className={styles.productDescription}
                             value={formData.description}
                             onChange={handleChange}
@@ -470,6 +472,7 @@ function AddItem({ highlight, setHighlight, username}) {
                         <p className={styles.productLongDescriptionLabel}>Product Description</p>
                         <textarea
                             name="longDescription"
+                            maxLength={172}
                             className={styles.productLongDescription}
                             value={formData.longDescription}
                             onChange={handleChange}
@@ -485,6 +488,7 @@ function AddItem({ highlight, setHighlight, username}) {
 
                         <input
                             type="text"
+                            maxLength={50}
                             name="company"
                             className={styles.productCompany}
                             value={formData.company}
@@ -496,6 +500,7 @@ function AddItem({ highlight, setHighlight, username}) {
                         <p className={styles.productGuaranteeLabel}>Guarantee</p>
                         <input
                             type="text"
+                            maxLength={50}
                             name="guarantee"
                             value={formData.guarantee}
                             className={styles.productGuarantee}
@@ -507,6 +512,7 @@ function AddItem({ highlight, setHighlight, username}) {
                         <p className={styles.productColorLabel}>Color</p>
                         <input
                             type="text"
+                            maxLength={50}
                             name="color"
                             value={formData.color}
                             className={styles.productColor}
@@ -523,6 +529,7 @@ function AddItem({ highlight, setHighlight, username}) {
                         <p className={styles.productPriceLabel}>Price (₼)</p>
                         <input
                             type="text"
+                            maxLength={50}
                             className={styles.productPrice}
                             step="0.01"
                             name="price"
@@ -548,6 +555,7 @@ function AddItem({ highlight, setHighlight, username}) {
                                 <p className={styles.discountLabel}>Discount Amount</p>
                                 <input
                                     type="text"
+                                    maxLength={50}
                                     name="discount"
                                     value={formData.discount}
                                     className={styles.productDiscount}
@@ -692,6 +700,7 @@ function AddItem({ highlight, setHighlight, username}) {
                                     <input
                                         className={styles.key}
                                         type="text"
+                                        maxLength={50}
                                         placeholder="Key"
                                         value={row.key}
                                         onChange={(e) => updateRow(row.id, "key", e.target.value)}
@@ -699,6 +708,7 @@ function AddItem({ highlight, setHighlight, username}) {
                                     <input
                                         className={styles.value}
                                         type="text"
+                                        maxLength={50}
                                         placeholder="Value"
                                         value={row.value}
                                         onChange={(e) => updateRow(row.id, "value", e.target.value)}
@@ -716,6 +726,7 @@ function AddItem({ highlight, setHighlight, username}) {
                         <p className={styles.weightLabel}>Weight</p>
                         <input
                             type="text"
+                            maxLength={50}
                             step="0.01"
                             name="weight"
                             className={styles.productWeight}
@@ -728,6 +739,7 @@ function AddItem({ highlight, setHighlight, username}) {
                         <p className={styles.heightLabel}>Height</p>
                         <input
                             type="text"
+                            maxLength={50}
                             step="0.01"
                             name="height"
                             value={formData.height}
@@ -741,6 +753,7 @@ function AddItem({ highlight, setHighlight, username}) {
                         <p className={styles.widthLabel}>Width</p>
                         <input
                             type="text"
+                            maxLength={50}
                             step="0.01"
                             name="width"
                             value={formData.width}
@@ -753,6 +766,7 @@ function AddItem({ highlight, setHighlight, username}) {
                         <p className={styles.volumeLabel}>Volume</p>
                         <input
                             type="text"
+                            maxLength={50}
                             step="0.01"
                             name="volume"
                             value={formData.volume}
@@ -765,6 +779,7 @@ function AddItem({ highlight, setHighlight, username}) {
                         <p className={styles.amountLabel}>Amount</p>
                         <input
                             type="number"
+                            maxLength={50}
                             name="amount"
                             value={formData.amount}
                             className={styles.productAmount}

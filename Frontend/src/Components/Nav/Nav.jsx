@@ -220,7 +220,7 @@ const handleSignOut = () => {
           <Link id={styles.name} className={highlight ? styles.highlight : ""} to="/">TechStore</Link>
           {is599 ? greater599 : less599}
           <div className={styles.inputBar}>
-            <input type="text" placeholder="Enter the product name"
+            <input type="text" maxLength={50} placeholder="Enter the product name"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               onKeyDown={(e) => {

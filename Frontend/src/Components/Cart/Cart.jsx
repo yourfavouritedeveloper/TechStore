@@ -22,6 +22,14 @@ function Cart({ cart, setCart }) {
   const navigate = useNavigate();
   const location = useLocation();
 
+  useEffect(() => {
+    if (!logAccount?.status) return;
+
+    if (logAccount.status === "CLOSED") {
+      navigate(`/account/${account?.username}`);
+    }
+  }, [logAccount, navigate, account?.username]);
+
     useEffect(() => { 
         if (!refreshToken) { 
             navigate("/login", { state: { from: location } }); 

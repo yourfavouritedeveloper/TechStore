@@ -251,6 +251,15 @@ public class  AccountService {
     }
 
     @Transactional
+    public AccountDto activate(Long id) {
+        AccountEntity accountEntity = accountRepository.findById(id)
+                .orElseThrow(() -> new AccountNotFoundException("Account not found"));
+        accountEntity.setStatus(Status.ACTIVE);
+        accountRepository.save(accountEntity);
+        return accountRedisRepository.save(accountEntity);
+    }
+
+    @Transactional
     public String remove(Long id) {
         AccountEntity accountEntity = accountRepository.findById(id)
                 .orElseThrow(() -> new AccountNotFoundException("Account not found"));

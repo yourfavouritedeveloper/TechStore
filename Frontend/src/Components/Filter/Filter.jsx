@@ -273,7 +273,7 @@ const displayItems = currentItems.length ? currentItems : [];
                     
                     <form ref={scrollRef}  className={styles.input}>
                       <div className={styles.inputBar}>
-                      <input type="text" placeholder="Enter the product name" 
+                      <input type="text" maxLength={100} placeholder="Enter the product name" 
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       onKeyDown={(e) => {
