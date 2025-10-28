@@ -1,10 +1,15 @@
 package com.tech.store.service;
 
 import com.tech.store.dao.entity.AccountEntity;
+import com.tech.store.dao.entity.RefreshToken;
+import com.tech.store.dao.repository.AccountRepository;
+import com.tech.store.dao.repository.RefreshTokenRepository;
+import com.tech.store.exception.AccountNotFoundException;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
@@ -13,13 +18,13 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import java.security.Key;
 import java.security.NoSuchAlgorithmException;
-import java.util.Base64;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.sql.Ref;
+import java.time.Instant;
+import java.util.*;
 import java.util.function.Function;
 
 @Service
+@RequiredArgsConstructor
 public class JWTService {
 
     /*This is a JWT Documentary written by Nihad Mammadov.
@@ -33,6 +38,9 @@ public class JWTService {
      */
     @Value("${jwt.secret}")
     private String secretKey;
+
+    private final RefreshTokenRepository refreshTokenRepository;
+    private final AccountRepository accountRepository;
 
     /*
     good practice to put expiration time for 1 day (personal preference and experience)
@@ -68,23 +76,25 @@ public class JWTService {
 
     }
 
-    public String generateRefreshToken(String username) {
-
-        Map<String,Object> claims = new HashMap<>();
-        claims.put("type", "refresh");
+    public RefreshToken generateRefreshToken(String username) {
 
 
         /*
         The method where REFRESH TOKENS are generated.
         Refresh token : a long-lived version of jwt tokens.
          */
-        return Jwts.builder()
-                .claims(claims)
-                .subject(username)
-                .issuedAt(new Date(System.currentTimeMillis()))
-                .expiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME_REFRESH))
-                .signWith(getKey())
-                .compact();
+
+        AccountEntity accountEntity = accountRepository.findByUsername(username)
+                .orElseThrow(() -> new AccountNotFoundException("Account not found"));
+
+        RefreshToken refreshToken = RefreshToken.builder()
+                .account(accountEntity)
+                .token(UUID.randomUUID().toString())
+                .expiresAt(Instant.now().plusMillis(EXPIRATION_TIME_REFRESH))
+                .build();
+
+        return refreshTokenRepository.save(refreshToken);
+
 
     }
 
