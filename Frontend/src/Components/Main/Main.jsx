@@ -90,6 +90,7 @@ const circleRef1 = useRef(null);
                         >
                           <input
                             type="text"
+                            maxLength={50}
                             placeholder="Try 'wireless headphones', 'gaming laptop'..."
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)} 

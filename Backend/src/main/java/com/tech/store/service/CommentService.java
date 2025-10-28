@@ -124,9 +124,17 @@ public class CommentService {
                         throw new CommentNotFoundException("Comment not found.");
                     }
 
-                    commentEntities.forEach(commentRedisRepository::save);
+                    List<CommentEntity> activeComments = commentEntities.stream()
+                                    .filter(comment -> comment.getFromAccount().getStatus().equals(Status.ACTIVE))
+                                            .toList();
 
-                    return commentEntities.stream().
+                    if (activeComments.isEmpty()) {
+                        throw new CommentNotFoundException("No active comments found for this product.");
+                    }
+
+                    activeComments.forEach(commentRedisRepository::save);
+
+                    return activeComments.stream().
                             map(commentMapper::toCommentDto)
                             .toList();
                 });

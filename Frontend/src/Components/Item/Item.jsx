@@ -948,6 +948,7 @@ const updateCart = async (item) => {
 
                         <textarea className={styles.input}
                             ref={textareaRef}
+                            maxLength={100}
                             value={newCommentText}
                             onChange={handleChange}
                             placeholder="Write a comment..."

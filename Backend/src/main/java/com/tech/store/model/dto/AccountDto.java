@@ -14,6 +14,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -27,6 +28,8 @@ public class AccountDto {
     private Role role;
 
     private Status status;
+
+    private LocalDateTime updatedAt;
 
     @NotBlank(message = "Username cannot be null",groups = {OnCreate.class, OnUpdate.class})
     private String username;

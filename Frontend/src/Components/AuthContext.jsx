@@ -24,6 +24,7 @@ export function AuthProvider({ children }) {
   const login = (accountData, jwtToken, refreshJwtToken) => {
     setAccount(accountData);
     setToken(jwtToken);
+    setRefreshToken(refreshJwtToken)
     localStorage.setItem("account", JSON.stringify(accountData));
     localStorage.setItem("token", jwtToken);
     localStorage.setItem("refreshToken", refreshJwtToken);
@@ -43,12 +44,13 @@ export function AuthProvider({ children }) {
   const refreshAccessToken = async () => {
     try {
       if (!refreshToken) return;
+
       const response = await fetch("https://techstore-3fvk.onrender.com/api/v1/accounts/refreshToken", {
         method: "POST",
         headers: {
-          "Authorization": `Bearer ${refreshToken}`,
           "Content-Type": "application/json",
         },
+        body: JSON.stringify({ token: refreshToken }),
       });
 
       if (!response.ok) throw new Error("Refresh failed");

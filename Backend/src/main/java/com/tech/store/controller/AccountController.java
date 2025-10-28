@@ -249,6 +249,21 @@ public class AccountController {
         return accountService.delete(id);
     }
 
+    @PutMapping("/activate/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    @Operation(summary = "Activate account", description = "Activates the specified account.")
+    public AccountDto activateAccount(@PathVariable Long id) {
+
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        AccountDto myAccount = accountService.findByName(username);
+
+        if (!myAccount.getId().equals(id)) {
+            throw new AccessDeniedException("You are not allowed to delete this account");
+        }
+
+        return accountService.activate(id);
+    }
+
     @DeleteMapping("/remove/{id}")
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Delete account", description = "Deletes the specified account.")

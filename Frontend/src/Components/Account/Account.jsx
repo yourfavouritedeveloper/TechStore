@@ -22,7 +22,7 @@ import Nintendo from "../../assets/nintendo.png";
 
     
 
-function Account({ account, edit, setEdit ,token, isPurchase, setIsPurchase,logout}) {
+function Account({ account, edit, setEdit ,token, refreshToken, isPurchase, setIsPurchase,logout}) {
 
       const [isPurchaseDone, setIsPurchaseDone] = useState(false);
       const [cropModalOpen, setCropModalOpen] = useState(false);
@@ -36,6 +36,15 @@ function Account({ account, edit, setEdit ,token, isPurchase, setIsPurchase,logo
 
         const navigate = useNavigate();
         const location = useLocation();
+
+      const closedAccount = (<>
+          <div className={styles.closedDiv}>
+            <p className={styles.closedTitle}>Your account has been closed</p>
+            <p className={styles.closedSubtitle}>You can still activate your account before it is too late!</p>
+            <button className={styles.activate}>Activate My Account</button>
+            <button className={styles.closedExit} onClick={() => navigate("/")}>Close</button>
+          </div>
+      </>)
         
 
 
@@ -379,6 +388,7 @@ const updateChanges = () => {
             <img src={spinnerBlack} alt="Loading..." className={styles.loadingImage} />
         </div>}
         <div className={styles.container}>
+            {logAccount.status == "CLOSED" ? closedAccount : <></>}
             <div className={`${styles.account} ${edit ? styles.active : ""}`}>
               {edit ? (
               <>
@@ -410,6 +420,7 @@ const updateChanges = () => {
                     <p className={styles.editName}>Full Name</p>
                     <textarea
                       className={styles.nameInput}
+                      maxLength={50}
                       value={draftAccount.customerName}
                       onChange={(e) =>
                         setDraftAccount((prev) => ({ ...prev, customerName: e.target.value }))
@@ -430,6 +441,7 @@ const updateChanges = () => {
                     )}
                     <textarea
                       className={styles.usernameInput}
+                      maxLength={50}
                       value={draftAccount.username}
                       onChange={(e) =>
                       {
@@ -475,6 +487,7 @@ const updateChanges = () => {
                       <input
                         type={showPassword ? "text" : "password"}
                         className={styles.passwordInput}
+                        maxLength={50}
                         placeholder="Enter a password"
                         value={password}
                         autoComplete="new-password"
@@ -485,6 +498,7 @@ const updateChanges = () => {
                       <input
                         type={showPassword1 ? "text" : "password"}
                         className={styles.passwordAgainInput}
+                        maxLength={50}
                         placeholder="Repeat password"
                         value={passwordCheck}
                         autoComplete="new-password"
@@ -560,6 +574,7 @@ const updateChanges = () => {
                   {edit ? (
                     <textarea
                       className={styles.descriptionInput}
+                      maxLength={120}
                       value={draftAccount.description}
                       onChange={(e) =>
                         setDraftAccount((prev) => ({ ...prev, description: e.target.value }))

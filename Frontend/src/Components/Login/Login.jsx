@@ -94,7 +94,7 @@ useEffect(() => {
 }, [submitInView]);
 
 
-  const { login, logout, token, refreshAccessToken } = useContext(AuthContext);
+  const { login, logout, token,refreshToken, refreshAccessToken } = useContext(AuthContext);
 
   const location = useLocation();
    const sign = location.state?.sign || false;
@@ -136,11 +136,12 @@ const handleSubmit = async (e) => {
     const data = response.data;
 
     const token = data.token || data.jwt || data.accessToken;
+    const refreshToken = data.refreshToken;
     const account = data.account || data.user || { username };
 
     if (!token) throw new Error("No token received from server");
 
-    login(account, token);
+    login(account, token,refreshToken);
     localStorage.setItem("authToken", token);
 
     setSuccessMsg("Login Successful!");
@@ -234,12 +235,12 @@ const handleSubmit = async (e) => {
         );
 
         const tokenSign = loginResp.data.token || loginResp.data.jwt || loginResp.data.accessToken;
+        const refreshTokenSign = loginResp.data.refreshToken;
         const accountSign = loginResp.data.account || loginResp.data.user || { username };
 
         if (!tokenSign) throw new Error("No token received from server");
 
-        login(accountSign, tokenSign);
-        localStorage.setItem("authToken", tokenSign);
+        login(accountSign, tokenSign,refreshTokenSign);
 
         setSuccessMsg("Signed Up Successfully!");
         setIsError(false);
@@ -326,6 +327,7 @@ const signUpFirst = (<>
                 <label htmlFor="signupusername" className={styles.labelUsername}>Enter Username</label>
                 <input id="signupusername" 
                 type="text" 
+                maxLength={50}
                 className={styles.username}  
                 placeholder="Enter Your Username"
                 value={username}
@@ -335,6 +337,7 @@ const signUpFirst = (<>
                 <label htmlFor="signupemail" className={styles.labelEmail}>Enter Email Address</label>
                 <input id="signupemail" 
                   type="email"
+                  maxLength={60}
                 className={styles.email}  
                 placeholder="Enter Your Email Address"
                 value={email}
@@ -344,6 +347,7 @@ const signUpFirst = (<>
                 <label htmlFor="signupfirstName" className={styles.labelFirstName}>First Name</label>
                 <input id="signupfirstName" 
                 type="text" 
+                maxLength={50}
                 className={styles.firstName}  
                 placeholder="Enter Your First Name"
                 value={firstName}
@@ -353,6 +357,7 @@ const signUpFirst = (<>
                 <label htmlFor="signuplastName" className={styles.labelLastName}>Last Name</label>
                 <input id="signuplastName" 
                 type="text" 
+                maxLength={50}
                 className={styles.lastName}  
                 placeholder="Enter Your Last Name"
                 value={lastName}
@@ -383,6 +388,7 @@ const signUpFirst = (<>
                 <label htmlFor="signuppassword" className={styles.labelPassword}>Enter Password</label>
                 <input id="signuppassword" 
                 type={showPassword ? "text" : "password"}
+                maxLength={50}
                 className={styles.password}  
                  placeholder="Enter Password"
                 value={password}
@@ -392,6 +398,7 @@ const signUpFirst = (<>
                 <label htmlFor="signuppasswordagain" className={styles.labelPasswordAgain}>Enter Password Again</label>
                 <input id="signuppasswordagain" 
                 type={showPassword1 ? "text" : "password"}
+                maxLength={50}
                 className={styles.passwordAgain}  
                  placeholder="Enter Password Again"
                 value={passwordAgain}
@@ -522,6 +529,7 @@ const signUpSecond = (<>
                 <input
                   id="otpCode"
                   type="text"
+                  maxLength={50}
                   className={styles.otp}
                   placeholder="Enter 6-digit code"
                   value={requestOtp}
@@ -606,7 +614,8 @@ const signUpSecond = (<>
                     <p className={styles.title}>Log In to Your Account</p>
                     <label htmlFor="loginusername" className={styles.labelUsername}>Username</label>
                     <input id="loginusername" 
-                    type="text" 
+                    type="text"
+                    maxLength={50} 
                     className={styles.username}  
                     placeholder="Enter Your Username"
                     value={username}
@@ -615,6 +624,7 @@ const signUpSecond = (<>
 
                     <label htmlFor="loginpassword" className={styles.labelPassword}>Password</label>
                     <input id="loginpassword" 
+                    maxLength={50}
                     type={showPassword ? "text" : "password"}
                     className={styles.password}  
                     placeholder="Enter Your Password"
