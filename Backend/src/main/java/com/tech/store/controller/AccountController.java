@@ -4,8 +4,11 @@ import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
 import com.stripe.model.Customer;
 import com.stripe.param.CustomerCreateParams;
+import com.tech.store.dao.entity.RefreshToken;
+import com.tech.store.exception.RefreshTokenNotFoundException;
 import com.tech.store.model.dto.*;
 import com.tech.store.service.AccountService;
+import com.tech.store.service.JWTService;
 import com.tech.store.util.OnCreate;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -23,6 +26,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import redis.clients.jedis.Response;
 
 import java.io.File;
 import java.io.IOException;
@@ -40,6 +44,7 @@ import java.util.Map;
 public class AccountController {
 
     private final AccountService accountService;
+    private final JWTService jwtService;
     private final String UPLOAD_DIR = "/app/uploads/";
     @Value("${stripe.apikey}")
     String stripeKey;
@@ -165,8 +170,18 @@ public class AccountController {
     @PostMapping("/refreshToken")
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Refresh Token", description = "Refresh Token")
-    public void refreshToken(HttpServletRequest request,HttpServletResponse response) throws IOException {
-        accountService.refreshToken(request,response);
+    public AuthResponseDto refreshToken(@RequestBody RefreshTokenRequest refreshTokenRequest) throws IOException {
+        return accountService.findByToken(refreshTokenRequest.getToken())
+                .map(accountService::verifyRefreshToken)
+                .map(RefreshToken::getAccount)
+                .map(accountEntity -> {
+                    String accessToken = jwtService.generateToken(accountEntity.getUsername());
+                    return AuthResponseDto.builder()
+                            .token(accessToken)
+                            .refreshToken(refreshTokenRequest.getToken())
+                            .username(accountEntity.getUsername())
+                            .build();
+                }).orElseThrow(() -> new RefreshTokenNotFoundException("Refresh token not found"));
     }
 
 
@@ -187,8 +202,8 @@ public class AccountController {
     @PostMapping("/login")
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Log in an account", description = "Logs an account in provided information.")
-    public LoginResponseDto login(@Validated(OnCreate.class) @RequestBody LoginRequestDto loginRequest) {
-        return accountService.login(loginRequest);
+    public AuthResponseDto login(@Validated(OnCreate.class) @RequestBody AuthRequestDto authRequest) {
+        return accountService.login(authRequest);
     }
 
     @PutMapping("/update")

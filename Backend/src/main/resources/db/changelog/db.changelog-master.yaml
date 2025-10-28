@@ -65,3 +65,7 @@ databaseChangeLog:
       file: db/changelog/logs/14-04-changelog.xml
   - include:
       file: db/changelog/logs/18-01-changelog.xml
+  - include:
+      file: db/changelog/logs/28-01-changelog.xml
+  - include:
+      file: db/changelog/logs/28-02-changelog.xml

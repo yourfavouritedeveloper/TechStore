@@ -3,12 +3,12 @@ package com.tech.store.service;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tech.store.dao.entity.AccountEntity;
 import com.tech.store.dao.entity.CartEntity;
-import com.tech.store.dao.repository.AccountRedisRepository;
-import com.tech.store.dao.repository.AccountRepository;
-import com.tech.store.dao.repository.CartRedisRepository;
-import com.tech.store.dao.repository.CartRepository;
+import com.tech.store.dao.entity.RefreshToken;
+import com.tech.store.dao.repository.*;
 import com.tech.store.exception.AccountNotFoundException;
 import com.tech.store.exception.CartNotFoundException;
+import com.tech.store.exception.RefreshTokenExpiredException;
+import com.tech.store.exception.RefreshTokenNotFoundException;
 import com.tech.store.mapper.AccountMapper;
 import com.tech.store.model.dto.*;
 import com.tech.store.model.enumeration.Role;
@@ -35,6 +35,8 @@ import org.springframework.http.HttpHeaders;
 
 
 import java.io.IOException;
+import java.sql.Ref;
+import java.time.Instant;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -49,6 +51,7 @@ public class  AccountService {
     private final EmailService emailService;
     private final AuthenticationManager authenticationManager;
     private final JWTService jwtService;
+    private final RefreshTokenRepository refreshTokenRepository;
     private final AccountRepository accountRepository;
     private final AccountRedisRepository accountRedisRepository;
     private final AccountMapper accountMapper;
@@ -181,36 +184,36 @@ public class  AccountService {
     }
 
     @Transactional
-    public LoginResponseDto login(@Valid LoginRequestDto loginRequest) {
+    public AuthResponseDto login(@Valid AuthRequestDto authRequest) {
         try {
             Authentication auth = authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword())
+                    new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword())
             );
 
             if (!auth.isAuthenticated()) throw new BadCredentialsException("Invalid credentials");
 
-            AccountEntity user = accountRepository.findByUsername(loginRequest.getUsername())
+            AccountEntity user = accountRepository.findByUsername(authRequest.getUsername())
                     .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
             // JWT with roles as claim
             String token = jwtService.generateToken(user.getUsername());
-            String refreshToken = jwtService.generateRefreshToken(user.getUsername());
+            RefreshToken refreshToken = jwtService.generateRefreshToken(user.getUsername());
 
 
-            return new LoginResponseDto(token, refreshToken, loginRequest.getUsername());
+            return new AuthResponseDto(token, refreshToken.getToken(), authRequest.getUsername());
         } catch (Exception e) {
             throw new BadCredentialsException("Authentication failed: " + e.getMessage());
         }
     }
 
-    public LoginResponseDto verify(LoginRequestDto loginRequest) {
-        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(),loginRequest.getPassword()));
+    public AuthResponseDto verify(AuthRequestDto authRequest) {
+        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUsername(),authRequest.getPassword()));
 
         if(authentication.isAuthenticated()) {
 
-            String token = jwtService.generateToken(loginRequest.getUsername());
-            String refreshToken = jwtService.generateRefreshToken(loginRequest.getUsername());
-            return new LoginResponseDto(token, refreshToken, loginRequest.getUsername());
+            String token = jwtService.generateToken(authRequest.getUsername());
+            RefreshToken refreshToken = jwtService.generateRefreshToken(authRequest.getUsername());
+            return new AuthResponseDto(token, refreshToken.getToken(), authRequest.getUsername());
         }
         throw new AccountNotFoundException("User not found");
     }
@@ -259,46 +262,16 @@ public class  AccountService {
         return accountRedisRepository.delete(accountEntity);
     }
 
+    public Optional<RefreshToken> findByToken(String token) {
+        return refreshTokenRepository.findByToken(token);
+    }
 
-    public void refreshToken(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        /*
-        The client (Front-end) will send a header in "Bearer <token>" format
-        REFRESH TOKEN VERSION
-         */
-        String header = request.getHeader(HttpHeaders.AUTHORIZATION);
-        String refreshToken = null;
-        String username = null;
-        if (header != null && header.startsWith("Bearer ")) {
-            refreshToken = header.substring(7);
-            username = jwtService.extractUsername(refreshToken);
+    public RefreshToken verifyRefreshToken(RefreshToken refreshToken) {
+        if(refreshToken.getExpiresAt().compareTo(Instant.now()) < 0) {
+            refreshTokenRepository.delete(refreshToken);
+            throw new RefreshTokenExpiredException("Refresh token expired");
         }
-
-        if(username != null) {
-
-            /*
-            calls the user from db
-             */
-            AccountEntity accountEntity = accountRepository.findByUsername(username)
-                    .orElseThrow(() -> new AccountNotFoundException("Account not found."));
-
-            Account userDetails = new Account(accountEntity);
-
-            /*
-            validation of token happens here
-             */
-            if(jwtService.validateToken(refreshToken,userDetails)) {
-                var accessToken = jwtService.generateToken(userDetails.getUsername());
-                var authResponse = LoginResponseDto.builder()
-                        .username(username)
-                        .refreshToken(refreshToken)
-                        .token(accessToken)
-                        .build();
-
-                new ObjectMapper().writeValue(response.getOutputStream(),authResponse);
-
-            }
-        }
-
+        return refreshToken;
     }
 }
