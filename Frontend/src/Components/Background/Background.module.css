@@ -115,8 +115,16 @@ body {
     top: 38.5rem;
     right: 5.4rem;
     z-index: 5;
-    background-color: #0f0f0f;
-    border: 0.12rem solid rgb(24, 24, 24);
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 0 5px 5px rgba(255, 255, 255, 0.041);
     border-radius: 2rem;
 
 
@@ -200,11 +208,15 @@ body {
 .coverBox {
     overflow: hidden;
     position: absolute;
-    background: linear-gradient(to bottom,
-            rgb(17, 17, 17) 1%,
-            rgb(10, 10, 10) 3%,
-            rgb(5, 5, 5) 5%,
-            rgb(0, 0, 0) 7%);
+    background: rgba(255, 255, 255, 0.097);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.119);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 0 5px 5px rgba(255, 255, 255, 0.041);
     height: 100%;
     width: 100%;
     z-index: 4;
@@ -238,7 +250,16 @@ body {
     width: 0.5rem;
     height: 18rem;
     z-index: 6;
-    background-color: rgba(255, 255, 255, 0.212);
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 0 5px 5px rgba(255, 255, 255, 0.041);
 
 }
 
@@ -246,13 +267,26 @@ body {
     position: absolute;
     display: inline-flex;
     justify-content: center;
-    top: 28.5rem;
-    left: 0rem;
-    width: 100%;
+    top: 34.5rem;
+    left: 10%;
+    width: 80%;
     height: 47.2rem;
+    padding-bottom: 15rem;
     z-index: 6;
     border-radius: 7rem;
     opacity: 1;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-top: 1px solid rgba(111, 111, 111, 0);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 0 5px 5px rgba(255, 255, 255, 0.041);
+
 
 }
 
@@ -262,13 +296,21 @@ body {
     justify-content: center;
     top: 38.5rem;
     left: 5.4rem;
-    border: 0.12rem solid rgb(24, 24, 24);
     width: 40rem;
     height: 35rem;
     z-index: 6;
     border-radius: 2rem;
     opacity: 1;
-    background-color: #0f0f0f;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 0 5px 5px rgba(255, 255, 255, 0.041);
     transition: all 0.3s ease;
 }
 
@@ -419,178 +461,178 @@ body {
 @media (max-width: 1540px) {
 
 
-.container {
-    height: 85rem;
-}
+    .container {
+        height: 85rem;
+    }
 
 
-.secondBox {
-    top: 10rem;
-    width: 85.9rem;
-}
+    .secondBox {
+        top: 10rem;
+        width: 85.9rem;
+    }
 
-.commercial {
-    width: 37.5rem;
-    height: 29.5rem;
-    top: 38.5rem;
-    right: 5.4rem;
-    border-radius: 1.5rem;
-    border: 0.09rem solid rgb(24, 24, 24);
-
-
-
-}
-
-.overflow {
-    height: 22rem;
-
-}
-
-.overflow .phoneCommercial {
-    border-radius: 1rem;
-}
+    .commercial {
+        width: 37.5rem;
+        height: 29.5rem;
+        top: 38.5rem;
+        right: 5.4rem;
+        border-radius: 1.5rem;
+        border: 0.09rem solid rgb(24, 24, 24);
 
 
 
-.commercial .commercialTitle {
-    right: 2.5rem;
-    top: 8.1rem;
-    font-size: clamp(2rem, 4.1rem, 15rem);
-    width: 80%;
-    line-height: 0.9;
-    letter-spacing: -0.15rem;
-}
+    }
 
-.commercial .commercialSubtitle {
-    top: 20.5rem;
-    right: 5%;
-    font-size: clamp(1rem, 1.1rem, 15rem);
-    width: 90%;
-    line-height: 0.9;
-    letter-spacing: -0rem;
-}
+    .overflow {
+        height: 22rem;
 
-.commercial button {
-    top: 1.8rem;
-    font-size: clamp(1rem, 1.15rem, 10rem);
-    padding: 0.7rem 2.8rem;
-    border-radius: 1.4rem;
+    }
 
-}
+    .overflow .phoneCommercial {
+        border-radius: 1rem;
+    }
 
 
 
-.coverBox {
-    height: 100%;
-    top: 28rem;
+    .commercial .commercialTitle {
+        right: 2.5rem;
+        top: 8.1rem;
+        font-size: clamp(2rem, 4.1rem, 15rem);
+        width: 80%;
+        line-height: 0.9;
+        letter-spacing: -0.15rem;
+    }
 
-}
+    .commercial .commercialSubtitle {
+        top: 20.5rem;
+        right: 5%;
+        font-size: clamp(1rem, 1.1rem, 15rem);
+        width: 90%;
+        line-height: 0.9;
+        letter-spacing: -0rem;
+    }
 
+    .commercial button {
+        top: 1.8rem;
+        font-size: clamp(1rem, 1.15rem, 10rem);
+        padding: 0.7rem 2.8rem;
+        border-radius: 1.4rem;
 
-
-.line {
-    top: 11.5rem;
-    left: 29.7rem;
-    width: 0.4rem;
-    height: 15rem;
-
-
-}
-
-.boxCampaign {
-    top: 28.5rem;
-    width: 100%;
-    height: 47.2rem;
-}
-
-.boxExplanation {
-    width: 36rem;
-    height: 29.5rem;
-    border-radius: 1.5rem;
-    border: 0.09rem solid rgb(24, 24, 24);
-
-}
+    }
 
 
 
-.boxExplanation .title {
-    font-size: clamp(1.6rem, 3.5rem, 10rem);
-    letter-spacing: -0.2rem;
-    line-height: 1.2;
-    top: -2.5rem;
-    left:49.7%;
+    .coverBox {
+        height: 100%;
+        top: 28rem;
 
-
-}
-
-
-.boxCampaignExplanation {
-    top: 6rem;
-    left: 2.5%;
-    width: 95%;
-    height: 22.75rem;
-    border-radius: 1rem;
-
-}
-
-
-.boxCampaignExplanation .subtitle {
-    width: 90%;
-    font-size: clamp(0rem, 0.8rem, 10rem);
-    line-height: 1;
-    top: 16.3rem;
-    left: 50%;
-
-}
-
-.boxCampaignExplanation .button {
-    top: 18.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    white-space: nowrap;
-    font-size: clamp(1rem, 1.1rem, 10rem);
-    padding: 0.6rem 2.4rem;
-    border-radius: 1.2rem;
-
-
-}
-
-.boxCampaignExplanation .campaignPhoto {
-    height: 65%;
-    width: 95%;
-    top: 0.7rem;
-    border-radius: 0.7rem;
-
-}
+    }
 
 
 
-
-.title {
-    top: 13rem;
-    font-size: clamp(2rem, 7.5rem, 15rem);
-    width: 55%;
-    left: -3.2%;
-    letter-spacing: -0.5rem;
+    .line {
+        top: 11.5rem;
+        left: 29.7rem;
+        width: 0.4rem;
+        height: 15rem;
 
 
-}
+    }
 
-.subtitle {
-    width: 62%;
-    font-size: clamp(0rem, 1.4rem, 10rem);
-    left: 26.5%;
-    top: 13.7rem;
+    .boxCampaign {
+        top: 28.5rem;
+        width: 100%;
+        height: 47.2rem;
+    }
 
-}
+    .boxExplanation {
+        width: 36rem;
+        height: 29.5rem;
+        border-radius: 1.5rem;
+        border: 0.09rem solid rgb(24, 24, 24);
 
-.shop {
-    top: 11.3rem;
-    font-size: clamp(0rem, 1.1rem, 10rem);
-    padding: 0.7rem 3.1rem;
-    border-radius: 1.5rem;
-    left: 4.8rem;
-}
+    }
+
+
+
+    .boxExplanation .title {
+        font-size: clamp(1.6rem, 3.5rem, 10rem);
+        letter-spacing: -0.2rem;
+        line-height: 1.2;
+        top: -2.5rem;
+        left: 49.7%;
+
+
+    }
+
+
+    .boxCampaignExplanation {
+        top: 6rem;
+        left: 2.5%;
+        width: 95%;
+        height: 22.75rem;
+        border-radius: 1rem;
+
+    }
+
+
+    .boxCampaignExplanation .subtitle {
+        width: 90%;
+        font-size: clamp(0rem, 0.8rem, 10rem);
+        line-height: 1;
+        top: 16.3rem;
+        left: 50%;
+
+    }
+
+    .boxCampaignExplanation .button {
+        top: 18.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        font-size: clamp(1rem, 1.1rem, 10rem);
+        padding: 0.6rem 2.4rem;
+        border-radius: 1.2rem;
+
+
+    }
+
+    .boxCampaignExplanation .campaignPhoto {
+        height: 65%;
+        width: 95%;
+        top: 0.7rem;
+        border-radius: 0.7rem;
+
+    }
+
+
+
+
+    .title {
+        top: 13rem;
+        font-size: clamp(2rem, 7.5rem, 15rem);
+        width: 55%;
+        left: -3.2%;
+        letter-spacing: -0.5rem;
+
+
+    }
+
+    .subtitle {
+        width: 62%;
+        font-size: clamp(0rem, 1.4rem, 10rem);
+        left: 26.5%;
+        top: 13.7rem;
+
+    }
+
+    .shop {
+        top: 11.3rem;
+        font-size: clamp(0rem, 1.1rem, 10rem);
+        padding: 0.7rem 3.1rem;
+        border-radius: 1.5rem;
+        left: 4.8rem;
+    }
 
 
 
@@ -612,180 +654,180 @@ body {
 @media (max-width: 1240px) {
 
 
-.container {
-    height: 60rem;
-}
+    .container {
+        height: 60rem;
+    }
 
 
-.secondBox {
-    top: -4rem;
-    width: 85.9rem;
-}
+    .secondBox {
+        top: -4rem;
+        width: 85.9rem;
+    }
 
-.commercial {
-    width: 27.5rem;
-    height: 21.5rem;
-    top: 38.5rem;
-    right: 15.5rem;
-    border-radius: 1.3rem;
-    border: 0.07rem solid rgb(24, 24, 24);
-
-
-
-}
-
-.overflow {
-    height: 16rem;
-
-}
-
-.overflow .phoneCommercial {
-    border-radius: 0.9rem;
-    top:0.7rem;
-}
+    .commercial {
+        width: 27.5rem;
+        height: 21.5rem;
+        top: 38.5rem;
+        right: 15.5rem;
+        border-radius: 1.3rem;
+        border: 0.07rem solid rgb(24, 24, 24);
 
 
 
-.commercial .commercialTitle {
-    right: 2rem;
-    top: 6.4rem;
-    font-size: clamp(2rem, 2.95rem, 15rem);
-    width: 80%;
-    line-height: 0.9;
-    letter-spacing: -0.1rem;
-}
+    }
 
-.commercial .commercialSubtitle {
-    top: 15.2rem;
-    right: 5%;
-    font-size: clamp(0rem, 0.8rem, 15rem);
-    width: 90%;
-    line-height: 0.9;
-    letter-spacing: -0rem;
-}
+    .overflow {
+        height: 16rem;
 
-.commercial button {
-    top: 1.7rem;
-    font-size: clamp(0rem, 0.7rem, 10rem);
-    padding: 0.4rem 1.75rem;
-    border-radius: 0.82rem;
+    }
 
-}
+    .overflow .phoneCommercial {
+        border-radius: 0.9rem;
+        top: 0.7rem;
+    }
 
 
 
-.coverBox {
-    height: 100%;
-    top: 20.5rem;
+    .commercial .commercialTitle {
+        right: 2rem;
+        top: 6.4rem;
+        font-size: clamp(2rem, 2.95rem, 15rem);
+        width: 80%;
+        line-height: 0.9;
+        letter-spacing: -0.1rem;
+    }
 
-}
+    .commercial .commercialSubtitle {
+        top: 15.2rem;
+        right: 5%;
+        font-size: clamp(0rem, 0.8rem, 15rem);
+        width: 90%;
+        line-height: 0.9;
+        letter-spacing: -0rem;
+    }
 
+    .commercial button {
+        top: 1.7rem;
+        font-size: clamp(0rem, 0.7rem, 10rem);
+        padding: 0.4rem 1.75rem;
+        border-radius: 0.82rem;
 
-
-.line {
-    top: 8.5rem;
-    left: 27.7rem;
-    width: 0.3rem;
-    height: 11rem;
-
-
-}
-
-.boxCampaign {
-    top: 28.5rem;
-    width: 100%;
-    height: 47.2rem;
-}
-
-.boxExplanation {
-    width: 26.3rem;
-    height: 21.5rem;
-    left: 15.4rem;
-    border-radius: 1.3rem;
-    border: 0.07rem solid rgb(24, 24, 24);
-
-}
+    }
 
 
 
-.boxExplanation .title {
-    font-size: clamp(1.6rem, 2.45rem, 10rem);
-    letter-spacing: -0.1rem;
-    line-height: 1.2;
-    top: -1.5rem;
-    left:41.5%;
+    .coverBox {
+        height: 100%;
+        top: 20.5rem;
 
-
-}
-
-
-.boxCampaignExplanation {
-    top: 4.5rem;
-    left: 2.5%;
-    width: 95%;
-    height: 16.45rem;
-    border-radius: 0.8rem;
-
-}
-
-
-.boxCampaignExplanation .subtitle {
-    width: 90%;
-    font-size: clamp(0rem, 0.57rem, 10rem);
-    line-height: 1;
-    top: 11.7rem;
-    left: 50%;
-
-}
-
-.boxCampaignExplanation .button {
-    top: 13.45rem;
-    left: 50%;
-    transform: translateX(-50%);
-    white-space: nowrap;
-    font-size: clamp(0rem, 0.7rem, 10rem);
-    padding: 0.4rem 1.75rem;
-    border-radius: 0.82rem;
-
-
-}
-
-.boxCampaignExplanation .campaignPhoto {
-    height: 65%;
-    width: 95%;
-    top: 0.55rem;
-    border-radius: 0.55rem;
-
-}
+    }
 
 
 
-
-.title {
-    top: 9.5rem;
-    font-size: clamp(2rem, 5.5rem, 15rem);
-    width: 35%;
-    left: 15.5%;
-    letter-spacing: -0.4rem;
+    .line {
+        top: 8.5rem;
+        left: 27.7rem;
+        width: 0.3rem;
+        height: 11rem;
 
 
-}
+    }
 
-.subtitle {
-    width: 47%;
-    font-size: clamp(0rem, 1.07rem, 10rem);
-    left: 5.8%;
-    top: 13.8rem;
+    .boxCampaign {
+        top: 28.5rem;
+        width: 100%;
+        height: 47.2rem;
+    }
 
-}
+    .boxExplanation {
+        width: 26.3rem;
+        height: 21.5rem;
+        left: 15.4rem;
+        border-radius: 1.3rem;
+        border: 0.07rem solid rgb(24, 24, 24);
 
-.shop {
-    top: 9rem;
-    font-size: clamp(0rem, 0.7rem, 10rem);
-    padding: 0.45rem 1.95rem;
-    border-radius: 0.9rem;
-    left: 2.3rem;
-}
+    }
+
+
+
+    .boxExplanation .title {
+        font-size: clamp(1.6rem, 2.45rem, 10rem);
+        letter-spacing: -0.1rem;
+        line-height: 1.2;
+        top: -1.5rem;
+        left: 41.5%;
+
+
+    }
+
+
+    .boxCampaignExplanation {
+        top: 4.5rem;
+        left: 2.5%;
+        width: 95%;
+        height: 16.45rem;
+        border-radius: 0.8rem;
+
+    }
+
+
+    .boxCampaignExplanation .subtitle {
+        width: 90%;
+        font-size: clamp(0rem, 0.57rem, 10rem);
+        line-height: 1;
+        top: 11.7rem;
+        left: 50%;
+
+    }
+
+    .boxCampaignExplanation .button {
+        top: 13.45rem;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        font-size: clamp(0rem, 0.7rem, 10rem);
+        padding: 0.4rem 1.75rem;
+        border-radius: 0.82rem;
+
+
+    }
+
+    .boxCampaignExplanation .campaignPhoto {
+        height: 65%;
+        width: 95%;
+        top: 0.55rem;
+        border-radius: 0.55rem;
+
+    }
+
+
+
+
+    .title {
+        top: 9.5rem;
+        font-size: clamp(2rem, 5.5rem, 15rem);
+        width: 35%;
+        left: 15.5%;
+        letter-spacing: -0.4rem;
+
+
+    }
+
+    .subtitle {
+        width: 47%;
+        font-size: clamp(0rem, 1.07rem, 10rem);
+        left: 5.8%;
+        top: 13.8rem;
+
+    }
+
+    .shop {
+        top: 9rem;
+        font-size: clamp(0rem, 0.7rem, 10rem);
+        padding: 0.45rem 1.95rem;
+        border-radius: 0.9rem;
+        left: 2.3rem;
+    }
 
 
 
@@ -800,190 +842,190 @@ body {
 @media (max-width: 950px) {
 
 
-.container {
-    height: 50rem;
-}
+    .container {
+        height: 50rem;
+    }
 
-.video {
-    width: 100%;
-    height: 40%;
-    object-fit: cover;
-    position: absolute;
-    top: 0rem;
-    left: 0;
-    z-index: -1;
-    filter: hue-rotate(300deg) brightness(1.5);
-}
-
-
-.title {
-    top: 9.3rem;
-    font-size: clamp(2rem, 4.3rem, 15rem);
-    width: 25%;
-    left: 26.5%;
-    letter-spacing: -0.2rem;
+    .video {
+        width: 100%;
+        height: 40%;
+        object-fit: cover;
+        position: absolute;
+        top: 0rem;
+        left: 0;
+        z-index: -1;
+        filter: hue-rotate(300deg) brightness(1.5);
+    }
 
 
-}
-
-.subtitle {
-    width: 35.9%;
-    font-size: clamp(0rem, 0.8rem, 10rem);
-    left: -8%;
-    top: 16rem;
-
-}
-
-.shop {
-    top: 9.3rem;
-    font-size: clamp(0rem, 0.55rem, 10rem);
-    padding: 0.35rem 1.45rem;
-    border-radius: 0.6rem;
-    left: 1rem;
-}
-
-.line {
-    top: 8.8rem;
-    left: 27.3rem;
-    width: 0.2rem;
-    height: 8.5rem;
+    .title {
+        top: 9.3rem;
+        font-size: clamp(2rem, 4.3rem, 15rem);
+        width: 25%;
+        left: 26.5%;
+        letter-spacing: -0.2rem;
 
 
-}
+    }
 
-.secondBox {
-    top: -8rem;
-    width: 75.9rem;
-}
+    .subtitle {
+        width: 35.9%;
+        font-size: clamp(0rem, 0.8rem, 10rem);
+        left: -8%;
+        top: 16rem;
 
-.commercial {
-    width: 22.5rem;
-    height: 17.15rem;
-    top: 38.5rem;
-    right: 15.5rem;
-    border-radius: 1rem;
-    border: 0.07rem solid rgb(24, 24, 24);
+    }
+
+    .shop {
+        top: 9.3rem;
+        font-size: clamp(0rem, 0.55rem, 10rem);
+        padding: 0.35rem 1.45rem;
+        border-radius: 0.6rem;
+        left: 1rem;
+    }
+
+    .line {
+        top: 8.8rem;
+        left: 27.3rem;
+        width: 0.2rem;
+        height: 8.5rem;
 
 
+    }
 
-}
+    .secondBox {
+        top: -8rem;
+        width: 75.9rem;
+    }
 
-.overflow {
-    height: 13.5rem;
-
-}
-
-.overflow .phoneCommercial {
-    border-radius: 0.6rem;
-    top:0.6rem;
-}
+    .commercial {
+        width: 22.5rem;
+        height: 17.15rem;
+        top: 38.5rem;
+        right: 15.5rem;
+        border-radius: 1rem;
+        border: 0.07rem solid rgb(24, 24, 24);
 
 
 
-.commercial .commercialTitle {
-    right: 1.5rem;
-    top: 5rem;
-    font-size: clamp(2rem, 2.5rem, 15rem);
-    width: 80%;
-    line-height: 0.9;
-    letter-spacing: -0.1rem;
-}
+    }
 
-.commercial .commercialSubtitle {
-    top: 12.6rem;
-    right: 5%;
-    font-size: clamp(0rem, 0.62rem, 15rem);
-    width: 90%;
-    line-height: 0.9;
-    letter-spacing: -0rem;
-}
+    .overflow {
+        height: 13.5rem;
 
-.commercial button {
-    top: 0.7rem;
-    font-size: clamp(0rem, 0.57rem, 10rem);
-    padding: 0.3rem 1.45rem;
-    border-radius: 0.62rem;
+    }
 
-}
+    .overflow .phoneCommercial {
+        border-radius: 0.6rem;
+        top: 0.6rem;
+    }
 
 
 
-.coverBox {
-    height: 100%;
-    top: 18rem;
+    .commercial .commercialTitle {
+        right: 1.5rem;
+        top: 5rem;
+        font-size: clamp(2rem, 2.5rem, 15rem);
+        width: 80%;
+        line-height: 0.9;
+        letter-spacing: -0.1rem;
+    }
 
-}
+    .commercial .commercialSubtitle {
+        top: 12.6rem;
+        right: 5%;
+        font-size: clamp(0rem, 0.62rem, 15rem);
+        width: 90%;
+        line-height: 0.9;
+        letter-spacing: -0rem;
+    }
 
+    .commercial button {
+        top: 0.7rem;
+        font-size: clamp(0rem, 0.57rem, 10rem);
+        padding: 0.3rem 1.45rem;
+        border-radius: 0.62rem;
 
-
-
-
-.boxCampaign {
-    top: 28.5rem;
-    width: 100%;
-    height: 47.2rem;
-}
-
-.boxExplanation {
-    width: 21.5rem;
-    height: 17.15rem;
-    left: 15.4rem;
-    border-radius: 1rem;
-    border: 0.07rem solid rgb(24, 24, 24);
-
-}
-
-
-
-.boxExplanation .title {
-    font-size: clamp(1.6rem, 2.25rem, 10rem);
-    letter-spacing: -0.1rem;
-    line-height: 1.2;
-    top: -1.5rem;
-    left: 35%;
+    }
 
 
-}
+
+    .coverBox {
+        height: 100%;
+        top: 18rem;
+
+    }
 
 
-.boxCampaignExplanation {
-    top: 4rem;
-    left: 2.5%;
-    width: 95%;
-    height: 12.55rem;
-    border-radius: 0.7rem;
-
-}
 
 
-.boxCampaignExplanation .subtitle {
-    width: 90%;
-    font-size: clamp(0rem, 0.47rem, 10rem);
-    line-height: 1;
-    top: 9.1rem;
-    left: 50%;
 
-}
+    .boxCampaign {
+        top: 28.5rem;
+        width: 100%;
+        height: 47.2rem;
+    }
 
-.boxCampaignExplanation .button {
-    top: 10.45rem;
-    left: 50%;
-    transform: translateX(-50%);
-    white-space: nowrap;
-    font-size: clamp(0rem, 0.55rem, 10rem);
-    padding: 0.3rem 1.25rem;
-    border-radius: 0.62rem;
+    .boxExplanation {
+        width: 21.5rem;
+        height: 17.15rem;
+        left: 15.4rem;
+        border-radius: 1rem;
+        border: 0.07rem solid rgb(24, 24, 24);
+
+    }
 
 
-}
 
-.boxCampaignExplanation .campaignPhoto {
-    height: 65%;
-    width: 95%;
-    top: 0.55rem;
-    border-radius: 0.55rem;
+    .boxExplanation .title {
+        font-size: clamp(1.6rem, 2.25rem, 10rem);
+        letter-spacing: -0.1rem;
+        line-height: 1.2;
+        top: -1.5rem;
+        left: 35%;
 
-}
+
+    }
+
+
+    .boxCampaignExplanation {
+        top: 4rem;
+        left: 2.5%;
+        width: 95%;
+        height: 12.55rem;
+        border-radius: 0.7rem;
+
+    }
+
+
+    .boxCampaignExplanation .subtitle {
+        width: 90%;
+        font-size: clamp(0rem, 0.47rem, 10rem);
+        line-height: 1;
+        top: 9.1rem;
+        left: 50%;
+
+    }
+
+    .boxCampaignExplanation .button {
+        top: 10.45rem;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        font-size: clamp(0rem, 0.55rem, 10rem);
+        padding: 0.3rem 1.25rem;
+        border-radius: 0.62rem;
+
+
+    }
+
+    .boxCampaignExplanation .campaignPhoto {
+        height: 65%;
+        width: 95%;
+        top: 0.55rem;
+        border-radius: 0.55rem;
+
+    }
 
 
 
@@ -994,199 +1036,199 @@ body {
 @media (max-width: 750px) {
 
 
-.container {
-    height: 102rem;
-}
+    .container {
+        height: 102rem;
+    }
 
-.video {
-    width: 100%;
-    height: 49.5%;
-    object-fit: cover;
-    position: absolute;
-    top: -2.5rem;
-    left: 0;
-    z-index: -1;
-    filter: hue-rotate(300deg) brightness(1.5);
-}
-
-
-.title {
-    top: 10.3rem;
-    font-size: clamp(2rem, 5.3rem, 15rem);
-    width: 30%;
-    left: 32%;
-    text-align: left;
-    letter-spacing: -0.3rem;
+    .video {
+        width: 100%;
+        height: 49.5%;
+        object-fit: cover;
+        position: absolute;
+        top: -2.5rem;
+        left: 0;
+        z-index: -1;
+        filter: hue-rotate(300deg) brightness(1.5);
+    }
 
 
-}
-
-.subtitle {
-    width: 54.5%;
-    font-size: clamp(0rem, 0.9rem, 10rem);
-    left: -35%;
-    top: 29.5rem;
-
-}
-
-.shop {
-    top: 23rem;
-    font-size: clamp(0rem, 1.1rem, 10rem);
-    padding: 0.75rem 4.6rem;
-    border-radius: 1.3rem;
-    left: -21rem;
-}
-
-.line {
-    display: none;
-    top: 8.8rem;
-    left: 27.3rem;
-    width: 0.2rem;
-    height: 8.5rem;
+    .title {
+        top: 10.3rem;
+        font-size: clamp(2rem, 5.3rem, 15rem);
+        width: 30%;
+        left: 32%;
+        text-align: left;
+        letter-spacing: -0.3rem;
 
 
-}
+    }
 
-.secondBox {
-    top: 7.5rem;
-    width: 65.9rem;
-}
+    .subtitle {
+        width: 54.5%;
+        font-size: clamp(0rem, 0.9rem, 10rem);
+        left: -35%;
+        top: 29.5rem;
 
-.commercial {
-    width: 35rem;
-    height: 23.75rem;
-    top: 69.5rem;
-    right: 15.5rem;
-    border-radius: 1rem;
-    border: 0.07rem solid rgb(24, 24, 24);
+    }
+
+    .shop {
+        top: 23rem;
+        font-size: clamp(0rem, 1.1rem, 10rem);
+        padding: 0.75rem 4.6rem;
+        border-radius: 1.3rem;
+        left: -21rem;
+    }
+
+    .line {
+        display: none;
+        top: 8.8rem;
+        left: 27.3rem;
+        width: 0.2rem;
+        height: 8.5rem;
 
 
+    }
 
-}
+    .secondBox {
+        top: 7.5rem;
+        width: 65.9rem;
+    }
 
-.overflow {
-    height: 17.5rem;
-
-}
-
-.overflow .phoneCommercial {
-    border-radius: 0.6rem;
-    top:0.6rem;
-}
+    .commercial {
+        width: 35rem;
+        height: 23.75rem;
+        top: 69.5rem;
+        right: 15.5rem;
+        border-radius: 1rem;
+        border: 0.07rem solid rgb(24, 24, 24);
 
 
 
-.commercial .commercialTitle {
-    right: 5rem;
-    top: 7.5rem;
-    font-size: clamp(2rem, 2.8rem, 15rem);
-    width: 80%;
-    line-height: 0.9;
-    letter-spacing: -0.1rem;
-    text-align: left;
+    }
 
-}
+    .overflow {
+        height: 17.5rem;
 
-.commercial .commercialSubtitle {
-    top: 16.3rem;
-    right: 4%;
-    font-size: clamp(0rem, 1rem, 15rem);
-    width: 90%;
-    text-align: left;
-    line-height: 0.9;
-    letter-spacing: -0rem;
-}
+    }
 
-.commercial button {
-    top: 2rem;
-    font-size: clamp(0rem, 1.1rem, 10rem);
-    padding: 0.6rem 2.7rem;
-    border-radius: 1.1rem;
-
-}
+    .overflow .phoneCommercial {
+        border-radius: 0.6rem;
+        top: 0.6rem;
+    }
 
 
 
-.coverBox {
-    height: 100%;
-    top: 34.5rem;
+    .commercial .commercialTitle {
+        right: 5rem;
+        top: 7.5rem;
+        font-size: clamp(2rem, 2.8rem, 15rem);
+        width: 80%;
+        line-height: 0.9;
+        letter-spacing: -0.1rem;
+        text-align: left;
 
-}
+    }
 
+    .commercial .commercialSubtitle {
+        top: 16.3rem;
+        right: 4%;
+        font-size: clamp(0rem, 1rem, 15rem);
+        width: 90%;
+        text-align: left;
+        line-height: 0.9;
+        letter-spacing: -0rem;
+    }
 
+    .commercial button {
+        top: 2rem;
+        font-size: clamp(0rem, 1.1rem, 10rem);
+        padding: 0.6rem 2.7rem;
+        border-radius: 1.1rem;
 
-
-
-.boxCampaign {
-    top: 45.5rem;
-    width: 100%;
-    height: 47.2rem;
-}
-
-.boxExplanation {
-    width: 35rem;
-    height: 30rem;
-    left: 15.4rem;
-    border-radius: 1rem;
-    border: 0.07rem solid rgb(24, 24, 24);
-
-}
-
-
-
-.boxExplanation .title {
-    font-size: clamp(1.6rem, 3.3rem, 10rem);
-    letter-spacing: -0.1rem;
-    line-height: 1.2;
-    top: -2.5rem;
-    font-family: "PoppinsMedium";
-    left: 38%;
+    }
 
 
-}
+
+    .coverBox {
+        height: 100%;
+        top: 34.5rem;
+
+    }
 
 
-.boxCampaignExplanation {
-    top: 0.6rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 96%;
-    height: 28.8rem;
-    border-radius: 0.7rem;
-
-}
 
 
-.boxCampaignExplanation .subtitle {
-    width: 90%;
-    font-size: clamp(0rem, 1.2rem, 10rem);
-    font-family: "PoppinsRegular";
-    line-height: 1;
-    top: 20.6rem;
-    text-align: left;
-    left: 50%;
 
-}
+    .boxCampaign {
+        top: 45.5rem;
+        width: 100%;
+        height: 47.2rem;
+    }
 
-.boxCampaignExplanation .button {
-    top: 24.45rem;
-    left: 50%;
-    transform: translateX(-50%);
-    white-space: nowrap;
-    font-size: clamp(0rem, 1rem, 10rem);
-    padding: 0.6rem 2.5rem;
-    border-radius: 1.1rem;
+    .boxExplanation {
+        width: 35rem;
+        height: 30rem;
+        left: 15.4rem;
+        border-radius: 1rem;
+        border: 0.07rem solid rgb(24, 24, 24);
+
+    }
 
 
-}
 
-.boxCampaignExplanation .campaignPhoto {
-    height: 50%;
-    width: 95%;
-    top: 5rem;
-    border-radius: 0.55rem;
+    .boxExplanation .title {
+        font-size: clamp(1.6rem, 3.3rem, 10rem);
+        letter-spacing: -0.1rem;
+        line-height: 1.2;
+        top: -2.5rem;
+        font-family: "PoppinsMedium";
+        left: 38%;
 
-}
+
+    }
+
+
+    .boxCampaignExplanation {
+        top: 0.6rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 96%;
+        height: 28.8rem;
+        border-radius: 0.7rem;
+
+    }
+
+
+    .boxCampaignExplanation .subtitle {
+        width: 90%;
+        font-size: clamp(0rem, 1.2rem, 10rem);
+        font-family: "PoppinsRegular";
+        line-height: 1;
+        top: 20.6rem;
+        text-align: left;
+        left: 50%;
+
+    }
+
+    .boxCampaignExplanation .button {
+        top: 24.45rem;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        font-size: clamp(0rem, 1rem, 10rem);
+        padding: 0.6rem 2.5rem;
+        border-radius: 1.1rem;
+
+
+    }
+
+    .boxCampaignExplanation .campaignPhoto {
+        height: 50%;
+        width: 95%;
+        top: 5rem;
+        border-radius: 0.55rem;
+
+    }
 
 
 
@@ -1200,7 +1242,4 @@ body {
 
 
 
-@media (max-width: 480px) {
-
-
-}
+@media (max-width: 480px) {}
