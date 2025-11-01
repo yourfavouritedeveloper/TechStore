@@ -12,7 +12,7 @@
 }
 
 .tableDiv {
-background: radial-gradient(circle at top left, #fff9e9, #f7f1e1);
+background: radial-gradient(circle at top left, hsl(44, 100%, 85%), #f7f1e1);
 width: 100%;
 height: 44.5rem;
   box-shadow: inset 0 -20px 60px rgba(0, 0, 0, 0.685);
@@ -55,3 +55,277 @@ background-size: 1px 80px;
     filter: drop-shadow(0rem 5rem 1.9rem rgba(0,0,0,0.5));
 
 }
+
+.clicked {
+    background-color: rgba(0, 0, 0, 0.466);
+    position: absolute;
+     top:0%;
+    z-index: 4;
+    width: 100%;
+    height: 100%;
+    transition: all 0.4s ease;
+}
+
+.not {
+     background-color: rgba(255, 0, 0, 0);
+     position: absolute;
+     top:0;
+    z-index: 4;
+    width: 100%;
+    height: 100%;   
+}
+
+.monitorDiv {
+    background: rgba(255, 255, 255, 0.014);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 0 5px 5px rgba(255, 255, 255, 0.041);
+    position: absolute;
+     top:50%;
+     left:50%;
+     transform: translate(-50%,-50%);
+    z-index: 6;
+    width: 35rem;
+    padding-left: 50rem;
+    height: 35rem;
+    transition: all 0.4s ease;   
+}
+
+.monitorDiv .title {
+    font-family: "PoppinsExtraLight";
+    color: white;
+    font-size: clamp(1rem,8rem,10rem);
+    position: absolute;
+    top:0rem;
+    right:5rem;
+
+}
+
+.monitorDiv button {
+    font-family: "PoppinsExtraLight";
+    color: #313131;
+    font-size: clamp(1rem,1.7rem,10rem);
+    position: absolute;
+    top:19rem;
+    right:12rem;
+    border-radius: 1rem;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    padding: 0.7rem 2.5rem;
+}
+
+.notMonitor {
+     background: rgba(255, 255, 255, 0.014);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 0 5px 5px rgba(255, 255, 255, 0.041);
+    position: absolute;
+     top:50%;
+     left:50%;
+     transform: translate(-50%,-50%);
+    z-index: 4;
+    width: 15rem;
+    padding-left: 20rem;
+    opacity: 0;
+    height: 15rem;
+    transition: all 0.4s ease;    
+}
+
+.notMonitor .title {
+    font-family: "PoppinsExtraLight";
+    color: white;
+    font-size: clamp(1rem,3rem,10rem);
+    position: absolute;
+    top:0rem;
+    right:1rem;
+
+}
+
+.notMonitor button {
+    font-family: "PoppinsExtraLight";
+    color: #313131;
+    font-size: clamp(0rem,0.7rem,10rem);
+    position: absolute;
+    top:9rem;
+    right:4rem;
+    border-radius: 1rem;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    padding: 0.7rem 2.5rem;
+}
+
+.monitor {
+    position: absolute;
+    top:20rem;
+    left:50%;
+    transform: translateX(-50%);
+    width: 20rem;
+    height: 20rem;
+    z-index: 4;
+    cursor: pointer;
+    transition: all 0.4s ease;
+        
+}
+
+.monitor:hover {
+    filter: drop-shadow(0rem 0rem 0.6rem rgba(0, 255, 157, 0.5));
+
+}
+
+.monitorClicked {
+    position: absolute;
+    top:10rem;
+    left:50%;
+    transform: translateX(-100%);
+    width: 40rem;
+    height: 40rem;
+    z-index: 6;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+
+
+
+
+
+.computerDiv {
+    background: rgba(255, 255, 255, 0.014);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 0 5px 5px rgba(255, 255, 255, 0.041);
+    position: absolute;
+     top:50%;
+     left:50%;
+     transform: translate(-50%,-50%);
+    z-index: 6;
+    width: 35rem;
+    padding-left: 50rem;
+    height: 35rem;
+    transition: all 0.4s ease;   
+}
+
+.computerDiv .title {
+    font-family: "PoppinsExtraLight";
+    color: white;
+    font-size: clamp(1rem,7rem,10rem);
+    position: absolute;
+    top:2rem;
+    right:5rem;
+
+}
+
+.computerDiv button {
+    font-family: "PoppinsExtraLight";
+    color: #313131;
+    font-size: clamp(1rem,1.7rem,10rem);
+    position: absolute;
+    top:20rem;
+    right:13rem;
+    border-radius: 1rem;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    padding: 0.7rem 2.5rem;
+}
+
+.notComputer {
+     background: rgba(255, 255, 255, 0.014);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 0 5px 5px rgba(255, 255, 255, 0.041);
+    position: absolute;
+     top:50%;
+     left:50%;
+     transform: translate(-50%,-50%);
+    z-index: 4;
+    width: 15rem;
+    padding-left: 20rem;
+    opacity: 0;
+    height: 15rem;
+    transition: all 0.4s ease;    
+    pointer-events: none;
+
+}
+
+.notComputer .title {
+    font-family: "PoppinsExtraLight";
+    color: white;
+    font-size: clamp(1rem,3rem,10rem);
+    position: absolute;
+    top:0rem;
+    right:1rem;
+
+}
+
+.notComputer button {
+    font-family: "PoppinsExtraLight";
+    color: #313131;
+    font-size: clamp(0rem,0.7rem,10rem);
+    position: absolute;
+    top:9rem;
+    right:4rem;
+    border-radius: 1rem;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    padding: 0.7rem 2.5rem;
+}
+
+.computer {
+    position: absolute;
+    top:23.5rem;
+    left:50%;
+    transform: translateX(-160%);
+    width: 17rem;
+    height: 17rem;
+    z-index: 4;
+    cursor: pointer;
+    transition: all 0.4s ease;
+        
+}
+
+.computer:hover {
+    filter: drop-shadow(0rem 0rem 0.6rem rgba(0, 255, 157, 0.5));
+
+}
+
+.computerClicked {
+    position: absolute;
+    top:10rem;
+    left:50%;
+    transform: translateX(-100%);
+    width: 40rem;
+    height: 40rem;
+    z-index: 6;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+
