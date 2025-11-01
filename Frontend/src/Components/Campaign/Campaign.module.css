@@ -1,6 +1,6 @@
 .container {
     background-color: transparent;
-    height: 40%;
+    height: 30%;
     width: 89rem;
     border-radius: 0rem;
     position: absolute;
@@ -8,8 +8,8 @@
     transition: all 0.4s ease;
     overflow: hidden;
     left: 50%;
-    top: 37%;
-    border-radius: 1rem;
+    top: 20%;
+    border-radius: 0.8rem;
     transform: translate(-50%, -50%);
 
 }
