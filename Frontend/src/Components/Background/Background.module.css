@@ -112,7 +112,7 @@ body {
     width: 47rem;
     height: 35rem;
     position: absolute;
-    top: 38.5rem;
+    top: 39.5rem;
     right: 5.4rem;
     z-index: 5;
     background: rgba(255, 255, 255, 0.06);
@@ -208,10 +208,10 @@ body {
 .coverBox {
     overflow: hidden;
     position: absolute;
-    background: rgba(255, 255, 255, 0.097);
+    background: rgba(255, 255, 255, 0.041);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.119);
+    border-top: 1px solid rgba(255, 255, 255, 0.119);
     box-shadow:
         0 8px 32px rgba(0, 0, 0, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.5),
@@ -265,28 +265,25 @@ body {
 
 .boxCampaign {
     position: absolute;
-    display: inline-flex;
-    justify-content: center;
-    top: 34.5rem;
-    left: 10%;
-    width: 80%;
+    top: 35.5rem;
+    left:50%;
+    margin-left:-47.65rem;
+    width: 95rem;
     height: 47.2rem;
     padding-bottom: 15rem;
     z-index: 6;
     border-radius: 7rem;
     opacity: 1;
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.014);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-radius: 40px;
+    border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.3);
-    border-top: 1px solid rgba(111, 111, 111, 0);
     box-shadow:
         0 8px 32px rgba(0, 0, 0, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.5),
         inset 0 -1px 0 rgba(255, 255, 255, 0.5),
         inset 0 0 5px 5px rgba(255, 255, 255, 0.041);
-
 
 }
 
@@ -294,7 +291,7 @@ body {
     position: absolute;
     display: inline-flex;
     justify-content: center;
-    top: 38.5rem;
+    top: 39.5rem;
     left: 5.4rem;
     width: 40rem;
     height: 35rem;
