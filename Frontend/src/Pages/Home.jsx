@@ -7,6 +7,7 @@ import Main from "../Components/Main/Main"
 import Footer from "../Components/Footer/Footer";
 import AdBanner from "../Components/Utils/AdBanner"
 import axios from 'axios';
+import Category from "../Components/Category/Category";
 
 function Home({ shiftUp, setShiftUp }) {
   const shopRef = useRef(null);
@@ -105,7 +106,7 @@ function scrollToShop() {
       <Nav highlight={navHighlight} shiftUp={shiftUp} setShiftUp={setShiftUp}/>
       <Background backgroundRef={backgroundRef} shopRef={shopRef} scrollTo={scrollToShop} onCategorySelect={handleCategoryFilter} />
       <Item items={filteredItems} bodyItems={bodyItems} itemRef={itemRef}   onResetFilters={handleResetFilters}  />
-      <Body shopRef={shopRef} itemRef={itemRef} scrollTo={scrollToItems} onCategorySelect={handleCategoryFilter} />
+      <Category shopRef={shopRef} itemRef={itemRef} scrollTo={scrollToItems} onCategorySelect={handleCategoryFilter} />
       <Main highRef={highRef} brandRef={brandRef} />
       <Footer />
     </>

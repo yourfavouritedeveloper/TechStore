@@ -1,0 +1,57 @@
+.container {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  width: 100%;
+  height: 55rem;
+  padding-bottom: 5rem;
+  background-color: white;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  z-index: 7;
+}
+
+.tableDiv {
+background: radial-gradient(circle at top left, #fff9e9, #f7f1e1);
+width: 100%;
+height: 44.5rem;
+  box-shadow: inset 0 -20px 60px rgba(0, 0, 0, 0.685);
+
+}
+
+.floorDiv {
+background:
+  linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent 40%),
+  repeating-linear-gradient(
+    0deg,
+    #3b2a1d 0,
+    #3b2a1d 120px,
+    #4a3525 120px,
+    #4a3525 240px
+  ),
+  radial-gradient(circle at 10% 15%, rgba(0, 0, 0, 0.25), transparent 55%),
+  radial-gradient(circle at 70% 25%, rgba(0, 0, 0, 0.15), transparent 65%),
+  radial-gradient(circle at 30% 60%, rgba(0, 0, 0, 0.2), transparent 70%),
+  radial-gradient(circle at 85% 70%, rgba(0, 0, 0, 0.3), transparent 60%),
+  radial-gradient(circle at 50% 85%, rgba(0, 0, 0, 0.1), transparent 75%);
+background-blend-mode: multiply;
+background-size: 1px 80px;
+  box-shadow: inset 0 100px 150px rgba(0, 0, 0, 0.356);
+
+    position: relative;
+    height: 95rem;
+    width: 100%;
+    top:5rem;
+    z-index: 2;
+    transform: rotateX(-80deg);
+}
+
+.table {
+    position: relative;
+    top:-75rem;
+    width: 90rem;
+    height: 40rem;
+    z-index: 3;
+    filter: drop-shadow(0rem 5rem 1.9rem rgba(0,0,0,0.5));
+
+}
