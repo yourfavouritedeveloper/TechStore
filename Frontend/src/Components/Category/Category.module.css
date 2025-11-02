@@ -83,7 +83,9 @@ background-size: 1px 80px;
     background-color: rgba(0, 0, 0, 0.466);
     position: absolute;
      top:0%;
-    z-index: 4;
+        backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    z-index: 6;
     width: 100%;
     height: 100%;
     transition: all 0.4s ease;
@@ -99,97 +101,118 @@ background-size: 1px 80px;
 }
 
 .monitorDiv {
-    background: rgba(255, 255, 255, 0.014);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 20px;
+
+    position: absolute;
+     top:50%;
+     left:50%;
+     transform: translate(-85%,-40%);
+    z-index: 8;
+        border-radius: 20px;
+    width: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow:
         0 8px 32px rgba(0, 0, 0, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.5),
         inset 0 -1px 0 rgba(255, 255, 255, 0.5),
         inset 0 0 5px 5px rgba(255, 255, 255, 0.041);
-    position: absolute;
-     top:50%;
-     left:50%;
-     transform: translate(-50%,-35%);
-    z-index: 8;
-    width: 35rem;
-    padding-left: 50rem;
-    height: 35rem;
+    padding-left: 35rem;
+    height: 20rem;
     transition: all 0.4s ease;   
 }
 
 .monitorDiv .title {
-    font-family: "PoppinsExtraLight";
+    font-family: "PoppinsMedium";
     color: white;
-    font-size: clamp(1rem,8rem,10rem);
+    font-size: clamp(1rem,2.8rem,10rem);
     position: absolute;
-    top:0rem;
-    right:5rem;
+    top:4rem;
+    left:22.9rem;
+
+}
+
+.monitorDiv .descTitle {
+    font-family: "PoppinsExtraLight";
+    color: rgb(255, 255, 255);
+    font-size: clamp(1rem,1rem,10rem);
+    position: absolute;
+    top:5.3rem;
+    left:23rem;
 
 }
 
 .monitorDiv button {
-    font-family: "PoppinsExtraLight";
+    font-family: "PoppinsRegular";
     color: #313131;
-    font-size: clamp(1rem,1.7rem,10rem);
+    font-size: clamp(1rem,1rem,10rem);
     position: absolute;
-    top:19rem;
-    right:12rem;
-    border-radius: 1rem;
+    top:10.5rem;
+    left:23rem;
+    border-radius: 0.6rem;
     border: none;
     cursor: pointer;
     white-space: nowrap;
-    padding: 0.7rem 2.5rem;
+    padding: 0.4rem 1.2rem;
 }
 
 .notMonitor {
-     background: rgba(255, 255, 255, 0.014);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 20px;
+    position: absolute;
+     top:50%;
+     left:50%;
+     transform: translate(-115%,-40%);
+    z-index: 8;
+        border-radius: 20px;
+    width: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow:
         0 8px 32px rgba(0, 0, 0, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.5),
         inset 0 -1px 0 rgba(255, 255, 255, 0.5),
         inset 0 0 5px 5px rgba(255, 255, 255, 0.041);
-    position: absolute;
-     top:50%;
-     left:50%;
-     transform: translate(-50%,-50%);
-    z-index: 4;
-    width: 15rem;
-    padding-left: 20rem;
+    padding-left: 25rem;
+    height: 10rem;
     opacity: 0;
-    height: 15rem;
     pointer-events: none;
     transition: all 0.4s ease;    
 }
 
 .notMonitor .title {
-    font-family: "PoppinsExtraLight";
+    font-family: "PoppinsMedium";
     color: white;
-    font-size: clamp(1rem,3rem,10rem);
+    font-size: clamp(1rem,2.8rem,10rem);
     position: absolute;
     top:0rem;
-    right:1rem;
+    left:22.9rem;
+    transition: all 0.4s ease;    
+
+
+}
+
+.notMonitor .descTitle {
+    font-family: "PoppinsExtraLight";
+    color: rgb(255, 255, 255);
+    font-size: clamp(1rem,1rem,10rem);
+    position: absolute;
+    top:1.3rem;
+    left:23rem;
+    transition: all 0.4s ease;    
+
 
 }
 
 .notMonitor button {
-    font-family: "PoppinsExtraLight";
+    font-family: "PoppinsRegular";
     color: #313131;
-    font-size: clamp(0rem,0.7rem,10rem);
+    font-size: clamp(1rem,1rem,10rem);
     position: absolute;
-    top:9rem;
-    right:4rem;
-    border-radius: 1rem;
+    top:6.5rem;
+    left:23rem;
+    border-radius: 0.6rem;
     border: none;
     cursor: pointer;
     white-space: nowrap;
-    padding: 0.7rem 2.5rem;
+    padding: 0.4rem 1.2rem;
+    transition: all 0.4s ease;    
+
 }
 
 .monitor {
@@ -214,11 +237,11 @@ background-size: 1px 80px;
 
 .monitorClicked {
     position: absolute;
-    top:29.3rem;
+    top:31rem;
     left:50%;
-    transform: translateX(-120%);
-    width: 30rem;
-    height: 22rem;
+    transform: translateX(-155%);
+    width: 19rem;
+    height: 13rem;
     z-index: 8;
     cursor: pointer;
     transition: all 0.4s ease;
@@ -229,99 +252,123 @@ background-size: 1px 80px;
 
 
 
+
+
+
+
 .computerDiv {
-    background: rgba(255, 255, 255, 0.014);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 20px;
+
+    position: absolute;
+     top:50%;
+     left:50%;
+     transform: translate(-37.5%,-25%);
+    z-index: 8;
+        border-radius: 20px;
+    width: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow:
         0 8px 32px rgba(0, 0, 0, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.5),
         inset 0 -1px 0 rgba(255, 255, 255, 0.5),
         inset 0 0 5px 5px rgba(255, 255, 255, 0.041);
-    position: absolute;
-     top:50%;
-     left:50%;
-     transform: translate(-50%,-35%);
-    z-index: 8;
-    width: 35rem;
-    padding-left: 50rem;
-    height: 35rem;
+    padding-left: 35rem;
+    height: 20rem;
     transition: all 0.4s ease;   
 }
 
 .computerDiv .title {
-    font-family: "PoppinsExtraLight";
+    font-family: "PoppinsMedium";
     color: white;
-    font-size: clamp(1rem,7rem,10rem);
+    font-size: clamp(1rem,2.8rem,10rem);
     position: absolute;
-    top:2rem;
-    right:5rem;
+    top:4rem;
+    left:18rem;
+
+}
+
+.computerDiv .descTitle {
+    font-family: "PoppinsExtraLight";
+    color: rgb(255, 255, 255);
+    font-size: clamp(1rem,1rem,10rem);
+    position: absolute;
+    top:5.3rem;
+    left:18.2rem;
 
 }
 
 .computerDiv button {
-    font-family: "PoppinsExtraLight";
+    font-family: "PoppinsRegular";
     color: #313131;
-    font-size: clamp(1rem,1.7rem,10rem);
+    font-size: clamp(1rem,1rem,10rem);
     position: absolute;
-    top:20rem;
-    right:13rem;
-    border-radius: 1rem;
+    top:11rem;
+    left:18.2rem;
+    border-radius: 0.6rem;
     border: none;
     cursor: pointer;
     white-space: nowrap;
-    padding: 0.7rem 2.5rem;
+    padding: 0.4rem 1.2rem;
 }
 
 .notComputer {
-     background: rgba(255, 255, 255, 0.014);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 20px;
+    position: absolute;
+     top:50%;
+     left:50%;
+     transform: translate(-37%,-25%);
+    z-index: 8;
+        border-radius: 20px;
+    width: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow:
         0 8px 32px rgba(0, 0, 0, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.5),
         inset 0 -1px 0 rgba(255, 255, 255, 0.5),
         inset 0 0 5px 5px rgba(255, 255, 255, 0.041);
-    position: absolute;
-     top:50%;
-     left:50%;
-     transform: translate(-50%,-50%);
-    z-index: 4;
-    width: 15rem;
-    padding-left: 20rem;
+    padding-left: 25rem;
+    height: 10rem;
     opacity: 0;
-    height: 15rem;
-    transition: all 0.4s ease;    
     pointer-events: none;
-
+    transition: all 0.4s ease;    
 }
 
 .notComputer .title {
-    font-family: "PoppinsExtraLight";
+    font-family: "PoppinsMedium";
     color: white;
-    font-size: clamp(1rem,3rem,10rem);
+    font-size: clamp(1rem,2.8rem,10rem);
     position: absolute;
     top:0rem;
-    right:1rem;
+    left:14.9rem;
+    transition: all 0.4s ease;    
+
+
+}
+
+.notComputer .descTitle {
+    font-family: "PoppinsExtraLight";
+    color: rgb(255, 255, 255);
+    font-size: clamp(1rem,1rem,10rem);
+    position: absolute;
+    top:1.3rem;
+    left:15rem;
+    transition: all 0.4s ease;    
+
 
 }
 
 .notComputer button {
-    font-family: "PoppinsExtraLight";
+    font-family: "PoppinsRegular";
     color: #313131;
-    font-size: clamp(0rem,0.7rem,10rem);
+    font-size: clamp(1rem,1rem,10rem);
     position: absolute;
-    top:9rem;
-    right:4rem;
-    border-radius: 1rem;
+    top:6.5rem;
+    left:15rem;
+    border-radius: 0.6rem;
     border: none;
     cursor: pointer;
     white-space: nowrap;
-    padding: 0.7rem 2.5rem;
+    padding: 0.4rem 1.2rem;
+    transition: all 0.4s ease;    
+
 }
 
 .computer {
@@ -344,11 +391,11 @@ background-size: 1px 80px;
 
 .computerClicked {
     position: absolute;
-    top:19.5rem;
+    top:31.5rem;
     left:50%;
-    transform: translateX(-100%);
-    width: 40rem;
-    height: 40rem;
+    transform: translateX(-70%);
+    width: 17rem;
+    height: 17rem;
     z-index: 8;
     cursor: pointer;
     transition: all 0.4s ease;
@@ -365,98 +412,118 @@ background-size: 1px 80px;
 
 
 .phoneDiv {
-    background: rgba(255, 255, 255, 0.014);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 20px;
+
+    position: absolute;
+     top:50%;
+     left:50%;
+     transform: translate(-125%,-35%);
+    z-index: 8;
+        border-radius: 20px;
+    width: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow:
         0 8px 32px rgba(0, 0, 0, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.5),
         inset 0 -1px 0 rgba(255, 255, 255, 0.5),
         inset 0 0 5px 5px rgba(255, 255, 255, 0.041);
-    position: absolute;
-     top:50%;
-     left:50%;
-     transform: translate(-50%,-35%);
-    z-index: 8;
-    width: 35rem;
-    padding-left: 50rem;
-    height: 35rem;
+    padding-left: 35rem;
+    height: 20rem;
     transition: all 0.4s ease;   
 }
 
 .phoneDiv .title {
-    font-family: "PoppinsExtraLight";
+    font-family: "PoppinsMedium";
     color: white;
-    font-size: clamp(1rem,8rem,10rem);
+    font-size: clamp(1rem,2.8rem,10rem);
     position: absolute;
-    top:0rem;
-    right:6rem;
+    top:4rem;
+    left:18.9rem;
+
+}
+
+.phoneDiv .descTitle {
+    font-family: "PoppinsExtraLight";
+    color: rgb(255, 255, 255);
+    font-size: clamp(1rem,1rem,10rem);
+    position: absolute;
+    top:5.3rem;
+    left:19rem;
 
 }
 
 .phoneDiv button {
-    font-family: "PoppinsExtraLight";
+    font-family: "PoppinsRegular";
     color: #313131;
-    font-size: clamp(1rem,1.7rem,10rem);
+    font-size: clamp(1rem,1rem,10rem);
     position: absolute;
-    top:19rem;
-    right:12rem;
-    border-radius: 1rem;
+    top:10.5rem;
+    left:19rem;
+    border-radius: 0.6rem;
     border: none;
     cursor: pointer;
     white-space: nowrap;
-    padding: 0.7rem 2.5rem;
+    padding: 0.4rem 1.2rem;
 }
 
 .notPhone {
-     background: rgba(255, 255, 255, 0.014);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 20px;
+    position: absolute;
+     top:50%;
+     left:50%;
+     transform: translate(-185%,-15%);
+    z-index: 8;
+        border-radius: 20px;
+    width: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow:
         0 8px 32px rgba(0, 0, 0, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.5),
         inset 0 -1px 0 rgba(255, 255, 255, 0.5),
         inset 0 0 5px 5px rgba(255, 255, 255, 0.041);
-    position: absolute;
-     top:50%;
-     left:50%;
-     transform: translate(-50%,-50%);
-    z-index: 4;
-    width: 15rem;
-    padding-left: 20rem;
+    padding-left: 25rem;
+    height: 10rem;
     opacity: 0;
-    height: 15rem;
-    transition: all 0.4s ease;  
     pointer-events: none;
-  
+    transition: all 0.4s ease;    
 }
 
 .notPhone .title {
-    font-family: "PoppinsExtraLight";
+    font-family: "PoppinsMedium";
     color: white;
-    font-size: clamp(1rem,3rem,10rem);
+    font-size: clamp(1rem,2.8rem,10rem);
     position: absolute;
     top:0rem;
-    right:1rem;
+    left:22.9rem;
+    transition: all 0.4s ease;    
+
+
+}
+
+.notPhone .descTitle {
+    font-family: "PoppinsExtraLight";
+    color: rgb(255, 255, 255);
+    font-size: clamp(1rem,1rem,10rem);
+    position: absolute;
+    top:1.3rem;
+    left:23rem;
+    transition: all 0.4s ease;    
+
 
 }
 
 .notPhone button {
-    font-family: "PoppinsExtraLight";
+    font-family: "PoppinsRegular";
     color: #313131;
-    font-size: clamp(0rem,0.7rem,10rem);
+    font-size: clamp(1rem,1rem,10rem);
     position: absolute;
-    top:9rem;
-    right:4rem;
-    border-radius: 1rem;
+    top:6.5rem;
+    left:23rem;
+    border-radius: 0.6rem;
     border: none;
     cursor: pointer;
     white-space: nowrap;
-    padding: 0.7rem 2.5rem;
+    padding: 0.4rem 1.2rem;
+    transition: all 0.4s ease;    
+
 }
 
 .phone {
@@ -464,7 +531,8 @@ background-size: 1px 80px;
     top:40.5rem;
     left:50%;
     padding: 2rem;
-    transform: translateX(-650%) rotateX(70deg) rotateZ(90deg); 
+    margin-left:-35rem;
+    transform: translateX(-120%) rotateX(70deg) rotateZ(90deg); 
     
     width: 2.5rem;
     height: 5rem;
@@ -476,7 +544,7 @@ background-size: 1px 80px;
 
 .phone:hover {
     filter: drop-shadow(0rem 0rem 0.6rem rgba(0, 255, 157, 0.5));
-    transform: translateX(-650%) ;
+    transform: translateX(-120%) ;
     top:37.5rem;
 
 
@@ -485,11 +553,15 @@ background-size: 1px 80px;
 
 .phoneClicked {
     position: absolute;
-    top:26.5rem;
     left:50%;
-    transform: translateX(-220%);
-    width: 14.5rem;
-    height: 27rem;
+    padding: 2rem;
+    margin-left:-35rem;
+
+    transform: translateX(-70%) ;
+    top:30.5rem; 
+    
+    width: 6rem;
+    height: 11.5rem;
     z-index: 8;
     cursor: pointer;
     transition: all 0.4s ease;
@@ -502,99 +574,125 @@ background-size: 1px 80px;
 
 
 
+
+
+
+
 .keyboardDiv {
-    background: rgba(255, 255, 255, 0.014);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 20px;
+
+    position: absolute;
+     top:50%;
+     left:50%;
+     transform: translate(-85%,-40%);
+    z-index: 8;
+        border-radius: 20px;
+    width: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow:
         0 8px 32px rgba(0, 0, 0, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.5),
         inset 0 -1px 0 rgba(255, 255, 255, 0.5),
         inset 0 0 5px 5px rgba(255, 255, 255, 0.041);
-    position: absolute;
-     top:50%;
-     left:50%;
-     transform: translate(-50%,-35%);
-    z-index: 8;
-    width: 35rem;
-    padding-left: 50rem;
-    height: 35rem;
+    padding-left: 37rem;
+    height: 20rem;
     transition: all 0.4s ease;   
 }
 
 .keyboardDiv .title {
-    font-family: "PoppinsExtraLight";
+    font-family: "PoppinsMedium";
     color: white;
-    font-size: clamp(1rem,8rem,10rem);
+    font-size: clamp(1rem,2.8rem,10rem);
     position: absolute;
-    top:0rem;
-    right:2rem;
+    top:4rem;
+    left:21.5rem;
+
+}
+
+.keyboardDiv .descTitle {
+    font-family: "PoppinsExtraLight";
+    color: rgb(255, 255, 255);
+    font-size: clamp(1rem,1rem,10rem);
+    position: absolute;
+    top:5.3rem;
+    left:21.6rem;
 
 }
 
 .keyboardDiv button {
-    font-family: "PoppinsExtraLight";
+    font-family: "PoppinsRegular";
     color: #313131;
-    font-size: clamp(1rem,1.7rem,10rem);
+    font-size: clamp(1rem,1rem,10rem);
     position: absolute;
-    top:19rem;
-    right:13rem;
-    border-radius: 1rem;
+    top:10.9rem;
+    left:21.6rem;
+    border-radius: 0.6rem;
     border: none;
     cursor: pointer;
     white-space: nowrap;
-    padding: 0.7rem 2.5rem;
+    padding: 0.4rem 1.2rem;
 }
 
 .notKeyboard {
-     background: rgba(255, 255, 255, 0.014);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 20px;
+    position: absolute;
+     top:50%;
+     left:50%;
+     transform: translate(-115%,-40%);
+    z-index: 8;
+        border-radius: 20px;
+    width: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow:
         0 8px 32px rgba(0, 0, 0, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.5),
         inset 0 -1px 0 rgba(255, 255, 255, 0.5),
         inset 0 0 5px 5px rgba(255, 255, 255, 0.041);
-    position: absolute;
-     top:50%;
-     left:50%;
-     transform: translate(-50%,-50%);
-    z-index: 4;
-    width: 15rem;
-    padding-left: 20rem;
+    padding-left: 25rem;
+    height: 10rem;
     opacity: 0;
-    height: 15rem;
     pointer-events: none;
     transition: all 0.4s ease;    
 }
 
 .notKeyboard .title {
-    font-family: "PoppinsExtraLight";
+    font-family: "PoppinsMedium";
     color: white;
-    font-size: clamp(1rem,3rem,10rem);
+    font-size: clamp(1rem,2.8rem,10rem);
     position: absolute;
     top:0rem;
-    right:1rem;
+    left:22.9rem;
+    transition: all 0.4s ease;    
+
+
+}
+
+.notKeyboard .descTitle {
+    font-family: "PoppinsExtraLight";
+    color: rgb(255, 255, 255);
+    font-size: clamp(1rem,1rem,10rem);
+    position: absolute;
+    top:1.3rem;
+    left:23rem;
+    transition: all 0.4s ease;    
+
 
 }
 
 .notKeyboard button {
-    font-family: "PoppinsExtraLight";
+    font-family: "PoppinsRegular";
     color: #313131;
-    font-size: clamp(0rem,0.7rem,10rem);
+    font-size: clamp(1rem,1rem,10rem);
     position: absolute;
-    top:9rem;
-    right:4rem;
-    border-radius: 1rem;
+    top:6.5rem;
+    left:23rem;
+    border-radius: 0.6rem;
     border: none;
     cursor: pointer;
     white-space: nowrap;
-    padding: 0.7rem 2.5rem;
+    padding: 0.4rem 1.2rem;
+    transition: all 0.4s ease;    
+
 }
+
 
 .scene {
   perspective: 800px; 
@@ -610,7 +708,8 @@ background-size: 1px 80px;
   cursor: pointer;
   transition: all 0.4s ease;
   opacity: 0.85;
-  transform: translateX(-231%) rotateX(70deg) scaleY(0.8);
+  margin-left: -20rem;
+  transform: translateX(-50.5%) rotateX(70deg) scaleY(0.8);
   transform-origin: center center;
         
 }
@@ -619,21 +718,22 @@ background-size: 1px 80px;
     filter: drop-shadow(0rem 0rem 0.6rem rgba(0, 255, 157, 0.5));
     top:41rem;
     opacity: 1;
-    transform: translateX(-231%) 
-
+    transform: translateX(-50.5%);
 
 }
 
 .keyboardClicked {
-    position: absolute;
-    top:33rem;
-    left:50%;
-    transform: translateX(-115%);
-    width: 34rem;
-    height: 14rem;
-    z-index: 8;
-    cursor: pointer;
-    transition: all 0.4s ease;
+  position: absolute;
+  top:34rem;
+  left: 50%;
+  width: 17.5rem;
+  height: 6.5rem;
+  z-index: 8;
+  cursor: pointer;
+  margin-left: -20rem;
+  transition: all 0.4s ease;
+  transform: translateX(-63.5%);
+  transform-origin: center center;
 }
 
 
@@ -659,98 +759,120 @@ background-size: 1px 80px;
 
 
 .headphoneDiv {
-    background: rgba(255, 255, 255, 0.014);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 20px;
+
+    position: absolute;
+     top:50%;
+     left:50%;
+     transform: translate(-125%,-35%);
+    z-index: 8;
+        border-radius: 20px;
+    width: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow:
         0 8px 32px rgba(0, 0, 0, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.5),
         inset 0 -1px 0 rgba(255, 255, 255, 0.5),
         inset 0 0 5px 5px rgba(255, 255, 255, 0.041);
-    position: absolute;
-     top:50%;
-     left:50%;
-     transform: translate(-50%,-35%);
-    z-index: 8;
-    width: 35rem;
-    padding-left: 50rem;
-    height: 35rem;
+    padding-left: 35rem;
+    height: 20rem;
     transition: all 0.4s ease;   
 }
 
 .headphoneDiv .title {
-    font-family: "PoppinsExtraLight";
+    font-family: "PoppinsMedium";
     color: white;
-    font-size: clamp(1rem,8rem,10rem);
+    font-size: clamp(1rem,2.8rem,10rem);
     position: absolute;
-    top:0rem;
-    right:2rem;
+    top:4rem;
+    left:15.9rem;
+
+}
+
+.headphoneDiv .descTitle {
+    font-family: "PoppinsExtraLight";
+    color: rgb(255, 255, 255);
+    font-size: clamp(1rem,1rem,10rem);
+    position: absolute;
+    top:5.3rem;
+    left:16rem;
 
 }
 
 .headphoneDiv button {
-    font-family: "PoppinsExtraLight";
+    font-family: "PoppinsRegular";
     color: #313131;
-    font-size: clamp(1rem,1.7rem,10rem);
+    font-size: clamp(1rem,1rem,10rem);
     position: absolute;
-    top:19rem;
-    right:15.7rem;
-    border-radius: 1rem;
+    top:11rem;
+    left:16rem;
+    border-radius: 0.6rem;
     border: none;
     cursor: pointer;
     white-space: nowrap;
-    padding: 0.7rem 2.5rem;
+    padding: 0.4rem 1.2rem;
 }
 
 .notHeadphone {
-     background: rgba(255, 255, 255, 0.014);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 20px;
+    position: absolute;
+     top:50%;
+     left:50%;
+     transform: translate(-185%,-15%);
+    z-index: 8;
+        border-radius: 20px;
+    width: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow:
         0 8px 32px rgba(0, 0, 0, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.5),
         inset 0 -1px 0 rgba(255, 255, 255, 0.5),
         inset 0 0 5px 5px rgba(255, 255, 255, 0.041);
-    position: absolute;
-     top:50%;
-     left:50%;
-     transform: translate(-50%,-50%);
-    z-index: 4;
-    width: 15rem;
-    padding-left: 20rem;
+    padding-left: 25rem;
+    height: 10rem;
     opacity: 0;
-    height: 15rem;
     pointer-events: none;
     transition: all 0.4s ease;    
 }
 
 .notHeadphone .title {
-    font-family: "PoppinsExtraLight";
+    font-family: "PoppinsMedium";
     color: white;
-    font-size: clamp(1rem,3rem,10rem);
+    font-size: clamp(1rem,2.8rem,10rem);
     position: absolute;
     top:0rem;
-    right:1rem;
+    left:22.9rem;
+    transition: all 0.4s ease;    
+
+
+}
+
+.notHeadphone .descTitle {
+    font-family: "PoppinsExtraLight";
+    color: rgb(255, 255, 255);
+    font-size: clamp(1rem,1rem,10rem);
+    position: absolute;
+    top:1.3rem;
+    left:23rem;
+    transition: all 0.4s ease;    
+
 
 }
 
 .notHeadphone button {
-    font-family: "PoppinsExtraLight";
+    font-family: "PoppinsRegular";
     color: #313131;
-    font-size: clamp(0rem,0.7rem,10rem);
+    font-size: clamp(1rem,1rem,10rem);
     position: absolute;
-    top:9rem;
-    right:4rem;
-    border-radius: 1rem;
+    top:6.5rem;
+    left:23rem;
+    border-radius: 0.6rem;
     border: none;
     cursor: pointer;
     white-space: nowrap;
-    padding: 0.7rem 2.5rem;
+    padding: 0.4rem 1.2rem;
+    transition: all 0.4s ease;    
+
 }
+
 
 .scene {
   perspective: 800px; 
@@ -780,15 +902,18 @@ background-size: 1px 80px;
 }
 
 .headphoneClicked {
-    position: absolute;
-    top:27.5rem;
-    left:50%;
-    transform: translateX(-195%);
-    width: 19rem;
-    height: 25rem;
-    z-index: 8;
-    cursor: pointer;
-    transition: all 0.4s ease;
+  position: absolute;
+  top: 30.8rem;
+  left: 50%;
+  width: 11rem;
+  height: 14.5rem;
+  z-index: 8;
+  cursor: pointer;
+  margin-left:-30rem;
+  transition: all 0.4s ease;
+  transform: translateX(-120%);
+
+  transform-origin: center center;
 }
 
 
@@ -819,97 +944,118 @@ background-size: 1px 80px;
 
 
 .tvDiv {
-    background: rgba(255, 255, 255, 0.014);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 20px;
+
+    position: absolute;
+     top:50%;
+     left:50%;
+     transform: translate(3%,-35%);
+    z-index: 8;
+        border-radius: 20px;
+    width: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow:
         0 8px 32px rgba(0, 0, 0, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.5),
         inset 0 -1px 0 rgba(255, 255, 255, 0.5),
         inset 0 0 5px 5px rgba(255, 255, 255, 0.041);
-    position: absolute;
-     top:50%;
-     left:50%;
-     transform: translate(-50%,-35%);
-    z-index: 8;
-    width: 35rem;
-    padding-left: 50rem;
-    height: 35rem;
+    padding-left: 40rem;
+    height: 20rem;
     transition: all 0.4s ease;   
 }
 
 .tvDiv .title {
-    font-family: "PoppinsExtraLight";
+    font-family: "PoppinsMedium";
     color: white;
-    font-size: clamp(1rem,8rem,10rem);
+    font-size: clamp(1rem,2.8rem,10rem);
     position: absolute;
-    top:0rem;
-    right:12.8rem;
+    top:4rem;
+    left:28.9rem;
+
+}
+
+.tvDiv .descTitle {
+    font-family: "PoppinsExtraLight";
+    color: rgb(255, 255, 255);
+    font-size: clamp(1rem,1rem,10rem);
+    position: absolute;
+    top:5.3rem;
+    left:29rem;
 
 }
 
 .tvDiv button {
-    font-family: "PoppinsExtraLight";
+    font-family: "PoppinsRegular";
     color: #313131;
-    font-size: clamp(1rem,1.7rem,10rem);
+    font-size: clamp(1rem,1rem,10rem);
     position: absolute;
-    top:19rem;
-    right:12rem;
-    border-radius: 1rem;
+    top:10.5rem;
+    left:29rem;
+    border-radius: 0.6rem;
     border: none;
     cursor: pointer;
     white-space: nowrap;
-    padding: 0.7rem 2.5rem;
+    padding: 0.4rem 1.2rem;
 }
 
 .notTv {
-     background: rgba(255, 255, 255, 0.014);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 20px;
+    position: absolute;
+     top:50%;
+     left:50%;
+     transform: translate(3%,-35%);
+    z-index: 8;
+        border-radius: 20px;
+    width: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow:
         0 8px 32px rgba(0, 0, 0, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.5),
         inset 0 -1px 0 rgba(255, 255, 255, 0.5),
         inset 0 0 5px 5px rgba(255, 255, 255, 0.041);
-    position: absolute;
-     top:50%;
-     left:50%;
-     transform: translate(-50%,-50%);
-    z-index: 4;
-    width: 15rem;
-    padding-left: 20rem;
+    padding-left: 25rem;
+    height: 10rem;
     opacity: 0;
-    height: 15rem;
     pointer-events: none;
     transition: all 0.4s ease;    
 }
 
 .notTv .title {
-    font-family: "PoppinsExtraLight";
+    font-family: "PoppinsMedium";
     color: white;
-    font-size: clamp(1rem,3rem,10rem);
+    font-size: clamp(1rem,2.8rem,10rem);
     position: absolute;
     top:0rem;
-    right:1rem;
+    left:22.9rem;
+    transition: all 0.4s ease;    
+
+
+}
+
+.notTv .descTitle {
+    font-family: "PoppinsExtraLight";
+    color: rgb(255, 255, 255);
+    font-size: clamp(1rem,1rem,10rem);
+    position: absolute;
+    top:1.3rem;
+    left:23rem;
+    transition: all 0.4s ease;    
+
 
 }
 
 .notTv button {
-    font-family: "PoppinsExtraLight";
+    font-family: "PoppinsRegular";
     color: #313131;
-    font-size: clamp(0rem,0.7rem,10rem);
+    font-size: clamp(1rem,1rem,10rem);
     position: absolute;
-    top:9rem;
-    right:4rem;
-    border-radius: 1rem;
+    top:6.5rem;
+    left:23rem;
+    border-radius: 0.6rem;
     border: none;
     cursor: pointer;
     white-space: nowrap;
-    padding: 0.7rem 2.5rem;
+    padding: 0.4rem 1.2rem;
+    transition: all 0.4s ease;    
+
 }
 
 .tv {
@@ -934,11 +1080,11 @@ background-size: 1px 80px;
 
 .tvClicked {
     position: absolute;
-    top:28.5rem;
+    top:30.7rem;
     left:50%;
-    transform: translateX(-100%);
-    width: 37rem;
-    height: 24rem;
+    transform: translateX(19%);
+    width: 23.5rem;
+    height: 15rem;
     z-index: 8;
     cursor: pointer;
     transition: all 0.4s ease;
@@ -967,97 +1113,118 @@ background-size: 1px 80px;
 
 
 .tabletDiv {
-    background: rgba(255, 255, 255, 0.014);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 20px;
+
+    position: absolute;
+     top:50%;
+     left:50%;
+     transform: translate(27%,-5%);
+    z-index: 8;
+        border-radius: 20px;
+    width: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow:
         0 8px 32px rgba(0, 0, 0, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.5),
         inset 0 -1px 0 rgba(255, 255, 255, 0.5),
         inset 0 0 5px 5px rgba(255, 255, 255, 0.041);
-    position: absolute;
-     top:50%;
-     left:50%;
-     transform: translate(-50%,-35%);
-    z-index: 8;
-    width: 35rem;
-    padding-left: 50rem;
-    height: 35rem;
+    padding-left: 34rem;
+    height: 20rem;
     transition: all 0.4s ease;   
 }
 
 .tabletDiv .title {
-    font-family: "PoppinsExtraLight";
+    font-family: "PoppinsMedium";
     color: white;
-    font-size: clamp(1rem,8rem,10rem);
+    font-size: clamp(1rem,2.8rem,10rem);
     position: absolute;
-    top:0rem;
-    right:6.6rem;
+    top:4rem;
+    left:18.9rem;
+
+}
+
+.tabletDiv .descTitle {
+    font-family: "PoppinsExtraLight";
+    color: rgb(255, 255, 255);
+    font-size: clamp(1rem,1rem,10rem);
+    position: absolute;
+    top:5.3rem;
+    left:19rem;
 
 }
 
 .tabletDiv button {
-    font-family: "PoppinsExtraLight";
+    font-family: "PoppinsRegular";
     color: #313131;
-    font-size: clamp(1rem,1.7rem,10rem);
+    font-size: clamp(1rem,1rem,10rem);
     position: absolute;
-    top:19rem;
-    right:12rem;
-    border-radius: 1rem;
+    top:10.5rem;
+    left:19rem;
+    border-radius: 0.6rem;
     border: none;
     cursor: pointer;
     white-space: nowrap;
-    padding: 0.7rem 2.5rem;
+    padding: 0.4rem 1.2rem;
 }
 
 .notTablet {
-     background: rgba(255, 255, 255, 0.014);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 20px;
+    position: absolute;
+     top:50%;
+     left:50%;
+     transform: translate(27%,-5%);
+    z-index: 8;
+        border-radius: 20px;
+    width: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow:
         0 8px 32px rgba(0, 0, 0, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.5),
         inset 0 -1px 0 rgba(255, 255, 255, 0.5),
         inset 0 0 5px 5px rgba(255, 255, 255, 0.041);
-    position: absolute;
-     top:50%;
-     left:50%;
-     transform: translate(-50%,-50%);
-    z-index: 4;
-    width: 15rem;
-    padding-left: 20rem;
+    padding-left: 25rem;
+    height: 10rem;
     opacity: 0;
-    height: 15rem;
     pointer-events: none;
     transition: all 0.4s ease;    
 }
 
 .notTablet .title {
-    font-family: "PoppinsExtraLight";
+    font-family: "PoppinsMedium";
     color: white;
-    font-size: clamp(1rem,3rem,10rem);
+    font-size: clamp(1rem,2.8rem,10rem);
     position: absolute;
     top:0rem;
-    right:1rem;
+    left:22.9rem;
+    transition: all 0.4s ease;    
+
+
+}
+
+.notTablet .descTitle {
+    font-family: "PoppinsExtraLight";
+    color: rgb(255, 255, 255);
+    font-size: clamp(1rem,1rem,10rem);
+    position: absolute;
+    top:1.3rem;
+    left:23rem;
+    transition: all 0.4s ease;    
+
 
 }
 
 .notTablet button {
-    font-family: "PoppinsExtraLight";
+    font-family: "PoppinsRegular";
     color: #313131;
-    font-size: clamp(0rem,0.7rem,10rem);
+    font-size: clamp(1rem,1rem,10rem);
     position: absolute;
-    top:9rem;
-    right:4rem;
-    border-radius: 1rem;
+    top:6.5rem;
+    left:23rem;
+    border-radius: 0.6rem;
     border: none;
     cursor: pointer;
     white-space: nowrap;
-    padding: 0.7rem 2.5rem;
+    padding: 0.4rem 1.2rem;
+    transition: all 0.4s ease;    
+
 }
 
 .tablet {
@@ -1084,11 +1251,12 @@ background-size: 1px 80px;
 
 .tabletClicked {
     position: absolute;
-    top:26rem;
+    top:37.5rem;
     left:50%;
-    transform: translateX(-160%);
-    width: 21rem;
-    height: 28rem;
+    margin-left:20rem;
+    transform: translateX(-55%);
+    width: 10.5rem;
+    height: 13.5rem;
     z-index: 8;
     cursor: pointer;
     transition: all 0.4s ease;
@@ -1107,97 +1275,118 @@ background-size: 1px 80px;
 
 
 .watchDiv {
-    background: rgba(255, 255, 255, 0.014);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 20px;
+
+    position: absolute;
+     top:50%;
+     left:50%;
+     transform: translate(27%,-5%);
+    z-index: 8;
+        border-radius: 20px;
+    width: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow:
         0 8px 32px rgba(0, 0, 0, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.5),
         inset 0 -1px 0 rgba(255, 255, 255, 0.5),
         inset 0 0 5px 5px rgba(255, 255, 255, 0.041);
-    position: absolute;
-     top:50%;
-     left:50%;
-     transform: translate(-50%,-35%);
-    z-index: 8;
-    width: 35rem;
-    padding-left: 50rem;
-    height: 35rem;
+    padding-left: 34rem;
+    height: 20rem;
     transition: all 0.4s ease;   
 }
 
 .watchDiv .title {
-    font-family: "PoppinsExtraLight";
+    font-family: "PoppinsMedium";
     color: white;
-    font-size: clamp(1rem,8rem,10rem);
+    font-size: clamp(1rem,2.8rem,10rem);
     position: absolute;
-    top:0rem;
-    right:6.6rem;
+    top:4rem;
+    left:18.9rem;
+
+}
+
+.watchDiv .descTitle {
+    font-family: "PoppinsExtraLight";
+    color: rgb(255, 255, 255);
+    font-size: clamp(1rem,1rem,10rem);
+    position: absolute;
+    top:5.3rem;
+    left:19rem;
 
 }
 
 .watchDiv button {
-    font-family: "PoppinsExtraLight";
+    font-family: "PoppinsRegular";
     color: #313131;
-    font-size: clamp(1rem,1.7rem,10rem);
+    font-size: clamp(1rem,1rem,10rem);
     position: absolute;
-    top:19rem;
-    right:13rem;
-    border-radius: 1rem;
+    top:10.5rem;
+    left:19rem;
+    border-radius: 0.6rem;
     border: none;
     cursor: pointer;
     white-space: nowrap;
-    padding: 0.7rem 2.5rem;
+    padding: 0.4rem 1.2rem;
 }
 
 .notWatch {
-     background: rgba(255, 255, 255, 0.014);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 20px;
+    position: absolute;
+     top:50%;
+     left:50%;
+     transform: translate(27%,-5%);
+    z-index: 8;
+        border-radius: 20px;
+    width: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow:
         0 8px 32px rgba(0, 0, 0, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.5),
         inset 0 -1px 0 rgba(255, 255, 255, 0.5),
         inset 0 0 5px 5px rgba(255, 255, 255, 0.041);
-    position: absolute;
-     top:50%;
-     left:50%;
-     transform: translate(-50%,-50%);
-    z-index: 4;
-    width: 15rem;
-    padding-left: 20rem;
+    padding-left: 25rem;
+    height: 10rem;
     opacity: 0;
-    height: 15rem;
     pointer-events: none;
     transition: all 0.4s ease;    
 }
 
 .notWatch .title {
-    font-family: "PoppinsExtraLight";
+    font-family: "PoppinsMedium";
     color: white;
-    font-size: clamp(1rem,3rem,10rem);
+    font-size: clamp(1rem,2.8rem,10rem);
     position: absolute;
     top:0rem;
-    right:1rem;
+    left:22.9rem;
+    transition: all 0.4s ease;    
+
+
+}
+
+.notWatch .descTitle {
+    font-family: "PoppinsExtraLight";
+    color: rgb(255, 255, 255);
+    font-size: clamp(1rem,1rem,10rem);
+    position: absolute;
+    top:1.3rem;
+    left:23rem;
+    transition: all 0.4s ease;    
+
 
 }
 
 .notWatch button {
-    font-family: "PoppinsExtraLight";
+    font-family: "PoppinsRegular";
     color: #313131;
-    font-size: clamp(0rem,0.7rem,10rem);
+    font-size: clamp(1rem,1rem,10rem);
     position: absolute;
-    top:9rem;
-    right:4rem;
-    border-radius: 1rem;
+    top:6.5rem;
+    left:23rem;
+    border-radius: 0.6rem;
     border: none;
     cursor: pointer;
     white-space: nowrap;
-    padding: 0.7rem 2.5rem;
+    padding: 0.4rem 1.2rem;
+    transition: all 0.4s ease;    
+
 }
 
 .watch {
@@ -1223,11 +1412,11 @@ background-size: 1px 80px;
 
 .watchClicked {
     position: absolute;
-    top:26rem;
+    top:36.8rem;
     left:50%;
-    transform: translateX(-140%);
-    width: 28rem;
-    height: 28rem;
+    transform: translateX(75%);
+    width: 15rem;
+    height: 15rem;
     z-index: 8;
     cursor: pointer;
     transition: all 0.4s ease;
