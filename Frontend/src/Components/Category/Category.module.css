@@ -27,6 +27,7 @@ width: 100%;
     font-size: clamp(1rem,6.5rem,10rem);
     left:50%;
     top:3rem;
+    z-index: 5;
     transform: translateX(-123%);
 }
 
@@ -38,6 +39,7 @@ width: 100%;
     width: 65rem;
     text-align: left;
     top:17rem;
+    z-index: 5;
     transform: translateX(-67.7%);
 }
 
