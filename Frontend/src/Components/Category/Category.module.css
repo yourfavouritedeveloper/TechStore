@@ -600,7 +600,7 @@ background-size: 1px 80px;
   perspective: 800px; 
 }
 
-.keyboard {
+.keyboardOf {
   position: absolute;
   top: 43rem;
   left: 50%;
@@ -615,7 +615,7 @@ background-size: 1px 80px;
         
 }
 
-.keyboard:hover {
+.keyboardOf:hover {
     filter: drop-shadow(0rem 0rem 0.6rem rgba(0, 255, 157, 0.5));
     top:41rem;
     opacity: 1;

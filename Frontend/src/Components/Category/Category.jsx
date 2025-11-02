@@ -108,7 +108,7 @@ function Category({itemRef,scrollTo, onItemClick,onCategorySelect}) {
 
                 </div>
                 <img 
-                className={isClicked && clickedName == "keyboard" ? styles.keyboardClicked : styles.keyboard} 
+                className={isClicked && clickedName == "keyboard" ? styles.keyboardClicked : styles.keyboardOf} 
                 style={{pointerEvents: clickedName == "monitor" ? "none" : ""}}
                 src={Keyboard} 
                 onClick={() => {
