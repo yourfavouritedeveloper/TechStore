@@ -64,7 +64,7 @@ function Category({itemRef,scrollTo, onItemClick,onCategorySelect}) {
                 <div className={isClicked && clickedName == "computer" ? styles.computerDiv : styles.notComputer}>
                 <p className={styles.title}>Computers</p>
                 <p className={styles.descTitle}>Computers & Techs.</p>
-                    <button onClick={() => handleClick("COMPUTER")}>Check Computers</button>
+                    <button onClick={() => handleClick("COMPUTER")}>Check Computers →</button>
 
                 </div>
                 <img 
@@ -85,7 +85,7 @@ function Category({itemRef,scrollTo, onItemClick,onCategorySelect}) {
                 <div className={isClicked && clickedName == "phone" ? styles.phoneDiv : styles.notPhone}>
                 <p className={styles.title}>Phones</p>
                 <p className={styles.descTitle}>Mobile Phones & Tablets.</p>
-                    <button onClick={() => handleClick("MOBILE_PHONE")}>Check Phones</button>
+                    <button onClick={() => handleClick("MOBILE_PHONE")}>Check Phones →</button>
 
                 </div>
                 <img 
@@ -108,7 +108,7 @@ function Category({itemRef,scrollTo, onItemClick,onCategorySelect}) {
                 <div className={isClicked && clickedName == "keyboard" ? styles.keyboardDiv : styles.notKeyboard}>
                 <p className={styles.title}>Keyboards</p>
                 <p className={styles.descTitle}>Computer Accessories</p>
-                    <button onClick={() => handleClick("KEYBOARD")}>Check Keyboards</button>
+                    <button onClick={() => handleClick("KEYBOARD")}>Check Keyboards →</button>
 
                 </div>
                 <img 
@@ -132,7 +132,7 @@ function Category({itemRef,scrollTo, onItemClick,onCategorySelect}) {
                 <div className={isClicked && clickedName == "headphone" ? styles.headphoneDiv : styles.notHeadphone}>
                 <p className={styles.title}>Headphones</p>
                 <p className={styles.descTitle}>Computer Accessories</p>
-                    <button onClick={() => handleClick("HEADPHONE")}>Check Headphones</button>
+                    <button onClick={() => handleClick("HEADPHONE")}>Check Headphones →</button>
 
                 </div>
                 <img 
@@ -159,7 +159,7 @@ function Category({itemRef,scrollTo, onItemClick,onCategorySelect}) {
                 <div className={isClicked && clickedName == "tv" ? styles.tvDiv : styles.notTv}>
                 <p className={styles.descTitle}>Tech. Accessories</p>
                 <p className={styles.title}>TVs</p>
-                    <button onClick={() => handleClick("TV")}>Check TVs</button>
+                    <button onClick={() => handleClick("TV")}>Check TVs →</button>
 
                 </div>
                 <img 
@@ -186,7 +186,7 @@ function Category({itemRef,scrollTo, onItemClick,onCategorySelect}) {
                 <div className={isClicked && clickedName == "tablet" ? styles.tabletDiv : styles.notTablet}>
                 <p className={styles.title}>Tablets</p>
                 <p className={styles.descTitle}>Mobile Phones & Tablets.</p>
-                    <button onClick={() => handleClick("TABLET")}>Check Tablets</button>
+                    <button onClick={() => handleClick("TABLET")}>Check Tablets →</button>
 
                 </div>
                 <img 
@@ -211,7 +211,7 @@ function Category({itemRef,scrollTo, onItemClick,onCategorySelect}) {
                 <div className={isClicked && clickedName == "watch" ? styles.watchDiv : styles.notWatch}>
                 <p className={styles.title}>Watches</p>
                 <p className={styles.descTitle}>Tech. Accessories</p>
-                    <button onClick={() => handleClick("SMART_WATCH")}>Check Watches</button>
+                    <button onClick={() => handleClick("SMART_WATCH")}>Check Watches →</button>
 
                 </div>
                 <img 
