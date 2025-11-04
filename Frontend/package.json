@@ -20,6 +20,7 @@
     "framer-motion": "^12.23.9",
     "gh-pages": "^6.3.0",
     "jwt-decode": "^4.0.0",
+    "lucide-react": "^0.552.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-easy-crop": "^5.5.0",

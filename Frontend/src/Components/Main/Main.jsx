@@ -15,6 +15,13 @@ const circleRef1 = useRef(null);
   const boxRef = useRef(null);
   const lineRef = useRef(null);
 
+  const popularProducts = [
+  { name: "iPhone 15 Pro Max", id: 1 },
+  { name: "MacBook Pro", id: 7 },
+  { name: "Samsung Galaxy S24 Ultra", id: 2 },
+  { name: "Dell XPS 15", id: 14 },
+  ];
+
   const circleInView1 = useInView(circleRef1, { once: true });
   const circleInView2 = useInView(circleRef2, { once: true });
   const boxInView = useInView(boxRef, { once: true });
@@ -79,35 +86,90 @@ const circleRef1 = useRef(null);
 
 
               </div>
-                    <div className={styles.brandnewdiv} ref={brandRef}>
-                        <p className={styles.title}>Looking for something specific?</p>
-                        <p className={styles.subtitle}>Our smart search helps you find exactly what you need in seconds.</p>
-                      <form
-                        onSubmit={(e) => {
+                <div className={styles.brandnewdiv} ref={brandRef}>
+                  <div className={styles.searchHeader}>
+                    <p className={styles.title}>Looking for something specific?</p>
+                    <p className={styles.subtitle}>Our smart search helps you find exactly what you need in seconds.</p>
+                  </div>
+
+                  <div className={styles.searchCard}>
+                    <form
+                      onSubmit={(e) => {
                         e.preventDefault();
-                        navigate("/product", { state: { search: searchTerm, category: null } });
-                        }}
-                        >
+                        if (searchTerm.trim()) {
+                          navigate("/product", { state: { search: searchTerm, category: null } });
+                        }
+                      }}
+                    >
+                      <div className={styles.searchRow}>
+                        <div className={styles.searchInputWrapper}>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className={styles.searchIcon}
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                          </svg>
                           <input
                             type="text"
                             maxLength={50}
-                            placeholder="Try 'wireless headphones', 'gaming laptop'..."
+                            placeholder="Try 'Iphone 15', 'Macbook Pro', 'Samsung Galaxy'..."
                             value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)} 
+                            onChange={(e) => setSearchTerm(e.target.value)}
                             onKeyDown={(e) => {
-                               if (e.key === "Enter") {
-                                 e.preventDefault(); 
-                                 console.log(searchTerm);
-                                  navigate("/product", { state: { search: searchTerm, category: null } }); 
-                                }
-                           }}
+                              if (e.key === "Enter") {
+                                e.preventDefault();
+                                navigate("/product", { state: { search: searchTerm, category: null } });
+                              }
+                            }}
+                            className={styles.searchInput}
                           />
-                       <button type="submit" className={styles.search}>Start Searching</button>
-                      </form>
-                      <div className={styles.circle3}></div>
-                      <div className={styles.circle4}></div>
+                        </div>
+                        <button type="submit" className={styles.searchButton}>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className={styles.searchButtonIcon}
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                          </svg>
+                          <span>Start Searching</span>
+                        </button>
+                      </div>
+                    </form>
 
+                    <div className={styles.popularSearches}>
+                      <p className={styles.popularTitle}>Popular:</p>
+                      {popularProducts.map(({ name, id }) => (
+                        <button
+                          key={id}
+                          className={styles.popularButton}
+                          onClick={() => {
+                            setSearchTerm(name);
+                            navigate(`/product/${id}`);
+                          }}
+                        >
+                          {name}
+                        </button>
+                      ))}
                     </div>
+
+                    <div className={styles.circleGlow1}></div>
+                    <div className={styles.circleGlow2}></div>
+                  </div>
+                </div>
     
     
     </>)

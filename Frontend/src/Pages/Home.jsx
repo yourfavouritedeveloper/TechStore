@@ -40,7 +40,7 @@ useEffect(() => {
     } else if (highRect && highRect.top < window.innerHeight && highRect.bottom > 0) {
       setNavHighlight(false);
     } else if (brandRect && brandRect.top < window.innerHeight && brandRect.bottom > 0) {
-      setNavHighlight(true);
+      setNavHighlight(false);
      } else {
       setNavHighlight(true);
     }
