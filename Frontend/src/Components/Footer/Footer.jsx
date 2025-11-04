@@ -1,37 +1,88 @@
 import React from 'react';
 import styles from './Footer.module.css';
-import Brand from '../../assets/branddark.png'
+import { useNavigate } from 'react-router-dom';
+import Brand from "../../../public/brandlogowhite.png";
 
-const Footer = () => {
-  const currentYear = new Date().getFullYear();
+function Footer() {
+
+    const navigate = useNavigate();
 
   return (
     <footer className={styles.footer}>
-        <div className={styles.content}>
-            <div className={styles.left}>
-                <p>&copy; {currentYear} Tech Store. All rights reserved.</p>
-            </div>
-            <div className={styles.right}>
-                <p>Contact us:</p>
-                <div className={styles.contacts}>
-                    <a className={styles.mail} href="mailto:info.tech.store.ts@gmail.com">
-                         info.tech.store.ts@gmail.com
-                    </a>
-                    <a
-                    className={styles.number}
-                    href="https://wa.me/994508514536"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >
-                        +994 50 851 45 36
-                    </a>
-                </div>
-            </div>
-        </div>
-         <img src={Brand} alt="TechStore" />
-    </footer>
+      <div className={styles.container}>
+        <div className={styles.columns}>
+          <div className={styles.column}>
+            <p className={styles.title}>FIND A STORE</p>
+            <ul className={styles.linkList}>
+              <li><a href="#" className={styles.link} onClick={(e) => {
+                e.preventDefault();
+                navigate("/login", { state: { sign: true } });
+                }}>Become A Member</a></li>
+              <li>
+                <a
+                    href="#"
+                    className={styles.link}
+                    onClick={(e) => {
+                    e.preventDefault();
+                    navigate('/login');
+                    }}
+                >
+                    Sign Up for Username
+                </a>
+                </li>
+              <li><a  href="mailto:info.tech.store.ts@gmail.com"
+                className={styles.link}>Send Us Feedback</a></li>
+              <li><a href="#" className={styles.link} onClick={(e) => {
+                e.preventDefault();
+                navigate("/campaign");
+                }}>Student Discounts</a></li>
+            </ul>
+          </div>
 
+          <div className={styles.column}>
+            <p className={styles.title}>GET HELP</p>
+            <ul className={styles.linkList}>
+              <li><a href="#" className={styles.link}>Delivery</a></li>
+              <li><a href="#" className={styles.link}>Returns</a></li>
+              <li><a href="#" className={styles.link}>Payment Options</a></li>
+              <li><a href="#" className={styles.link}  onClick={(e) => {
+                e.preventDefault();
+                navigate("/contact");
+                }}>Contact Us</a></li>
+            </ul>
+          </div>
+
+          <div className={styles.column}>
+            <p className={styles.title}>ABOUT TECHSTORE</p>
+            <ul className={styles.linkList}>
+              <li><a href="#" className={styles.link}>News</a></li>
+              <li><a href="#" className={styles.link}>Careers</a></li>
+              <li><a href="#" className={styles.link}>Investors</a></li>
+              <li><a href="#" className={styles.link}>Sustainability</a></li>
+            </ul>
+          </div>
+                
+          <div className={styles.column}>
+            <img className={styles.brand} src={Brand} alt="" />
+          </div>
+
+        </div>
+
+        <div className={styles.bottomBar}>
+          <div className={styles.bottomLeft}>
+            <span>© 2025 TechStore</span>
+            <span>Azerbaijan</span>
+          </div>
+          <div className={styles.bottomRight}>
+            <a href="#" className={styles.link}>Guides</a>
+            <a href="#" className={styles.link}>Terms of Sale</a>
+            <a href="#" className={styles.link}>Terms of Use</a>
+            <a href="#" className={styles.link}>Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
   );
-};
+}
 
 export default Footer;

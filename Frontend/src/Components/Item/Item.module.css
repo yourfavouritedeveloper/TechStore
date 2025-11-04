@@ -5,11 +5,72 @@ body {
 
 .container {
     overflow-x: hidden;
-    padding-bottom: 100rem;
-    background-color: rgb(238, 238, 238);
+    padding-bottom: 70rem;
+    background-color: rgb(255, 255, 255);
 
 }
 
+
+.headerContainer {
+  position: fixed;
+  top:4.9rem;
+  width: 100%;
+  z-index: 7;
+  text-align: left;
+  background-color: #f9fafb;
+  border-bottom: 1px solid rgb(219, 219, 219);
+  padding: 1.5rem 0; 
+  padding-right: 5rem;
+  margin-left: -5rem;
+}
+
+
+
+
+.headerInner {
+  max-width: 80rem; 
+  margin: 0 auto;
+  padding-left: 1rem; 
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .headerInner {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .headerInner {
+    padding-left: 2rem; 
+    padding-right: 2rem;
+  }
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem; 
+  font-family: "PoppinsRegular";
+  background: none;
+  border: none;
+  color: #111827; 
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.backButton:hover {
+  color: #374151; 
+  transform: translateX(-2px);
+}
+
+.backIcon {
+  width: 1rem; 
+  height: 1rem; 
+}
 
 
 .itemMainContainer {
@@ -17,7 +78,7 @@ body {
     height: 35rem;
     position: absolute;
     left: 50%;
-    top: 12rem;
+    top: 18rem;
     border-radius: 2rem;
     transform: translateX(-50%);
 }
@@ -34,13 +95,15 @@ body {
 .item {
     background-color: rgb(255, 255, 255);
     box-sizing: border-box;
-    padding: 19.5rem 9rem;
+    padding: 20.6rem 9rem;
     padding-right: 28rem;
     left: 50%;
-    top: 0%;
+    top: 1rem;
     z-index: 1;
     border-radius: 1rem;
     color: black;
+    border: 1px solid rgb(219, 219, 219);
+
 
 }
 
@@ -51,11 +114,11 @@ body {
 .amount {
     position: absolute;
     font-size: clamp(1rem, 1.2rem, 10rem);
-    font-family: "PoppinsSemiBold";
+    font-family: "PoppinsMedium";
     background-color: #ff4036;
     color: white;
     padding: 0.5rem 1.5rem;
-    border-radius: 1rem;
+    border-radius: 0.7rem;
     top: -0.3rem;
     right: 1rem;
 
@@ -67,7 +130,7 @@ body {
     width: 40rem;
     position: absolute;
     left: 50%;
-    transform: translate(-50%, -62%);
+    transform: translate(-50%, -64%);
     top: 50%;
 }
 
@@ -79,7 +142,7 @@ body {
     padding: 3.1rem 6rem;
     right: 50%;
     z-index: 5;
-    top: 28.45rem;
+    top: 29.45rem;
     transform: translateX(50%);
     gap: 1rem;
     color: black;
@@ -229,7 +292,7 @@ body {
     height: 4rem;
     width: 70%;
     z-index: 4;
-    top: 34.8rem;
+    top: 36.3rem;
     left: 50%;
     transform: translateX(-50%);
     position: absolute;
@@ -287,11 +350,13 @@ body {
 .itemDescription {
     background-color: rgb(255, 255, 255);
     box-sizing: border-box;
-    padding: 40.5rem 20rem;
+    padding: 20.6rem 18.4rem;
     padding-left: 30rem;
     right: 50%;
-    top: -6.5rem;
-    transform: translateX(88.5%);
+    top: -5.5rem;
+    border: 1px solid rgb(219, 219, 219);
+
+    transform: translateX(92.5%);
     border-radius: 1rem;
     color: rgb(0, 0, 0);
     position: absolute;
@@ -305,7 +370,7 @@ body {
     width: 100%;
     height: 14rem;
     z-index: 21;
-    top: 0;
+    top: 1rem;
     left: 0;
     position: absolute;
     border-bottom: 1.9px solid rgb(219, 219, 219);
@@ -360,9 +425,8 @@ body {
     height: 7.5rem;
     z-index: 10;
     left: 0;
-    top: 37.5rem;
+    top: 39.5rem;
     position: absolute;
-    border-top: 1.9px solid rgb(219, 219, 219);
 }
 
 .price {
@@ -422,17 +486,17 @@ body {
     left: 3.4rem;
     cursor: pointer;
     border: none;
-    color: rgb(255, 255, 255);
+    color: #fff;
     border-radius: 1rem;
-    background-color: #FF4136;
+    background: linear-gradient(90deg, #4f46e5, #bc96ff);
+    background-size: 200%;
+    background-position: left;
     font-family: "PoppinsMedium";
-    transition: all 0.3s ease;
+    transition: background-position 0.6s ease, transform 0.3s ease;
 }
 
-
 .buy:hover {
-    background-color: #ff5c53;
-    transform: scale(1.01);
+    background-position: top;
 }
 
 .buySpinnerDiv {
@@ -455,13 +519,13 @@ body {
 
 .decrease {
     font-size: 1.5rem;
-    padding: 0rem 1rem;
+    padding: 0.2rem 1rem;
     border-radius: 8px;
     border: none;
-    left: 23.3rem;
+    left: 23rem;
     top: -9rem;
     font-family: "PoppinsSemiBold";
-    background: #FF4136;
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
     color: white;
     position: absolute;
     z-index: 50;
@@ -471,13 +535,13 @@ body {
 
 .increase {
     font-size: 1.5rem;
-    padding: 0rem 1rem;
+    padding: 0.2rem 1rem;
     border-radius: 8px;
     border: none;
     top: -9rem;
     font-family: "PoppinsSemiBold";
-    right: 17rem;
-    background: #FF4136;
+    right: 16.5rem;
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
     color: white;
     position: absolute;
     z-index: 50;
@@ -498,67 +562,90 @@ body {
     font-family: "PoppinsSemiBold";
     color: #313131;
     text-align: center;
-    right: 21rem;
-    top: -11.4rem;
+    right: 20rem;
+    top: -11.2rem;
     position: absolute;
 
 }
 
 .added {
-    font-size: 1.8rem;
-    min-width: 2rem;
-    font-family: "PoppinsLight";
-    color: #ffffff;
-    padding: 0.4rem 1.25rem;
-    text-align: center;
-    right: 3.5rem;
-    top: -10rem;
-    border-radius: 0.7rem;
     position: absolute;
-    background-color: #FF4136;
+    top: -10.3rem;
+    right: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
 
+    padding: 1.1rem 1.6rem;
+    font-size: 1.6rem;
+    font-family: "PoppinsSemiBold";
+    color: #fff;
 
+    background: linear-gradient(135deg, #ff4b2b, #ff416c);
+    border-radius: 1rem;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 4;
+}
+
+.added:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0px 4px rgba(255, 65, 54, 0.6);
 }
 
 .added svg {
-    position: relative;
-    right: 0.3rem;
-    top: 0.7rem;
-    height: 30px;
-    width: 30px;
-    fill: rgb(255, 255, 255);
+    width: 28px;
+    height: 28px;
+    fill: white;
+    transition: transform 0.3s ease;
+}
+
+.added:hover svg {
+    transform: scale(1.15);
 }
 
 .addedNumber {
-    font-size: 0.8rem;
-    font-family: "PoppinsSemiBold";
-    color: #FF4136;
-    text-align: center;
-    height: 22px;
-    width: 22px;
-    right: 4.3rem;
-    top: -9.7rem;
-    border-radius: 50%;
     position: absolute;
-    background-color: white;
+    top: 0.2rem;
+    right: 0.2rem;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 24px;
+    height: 24px;
+    z-index: 10;
+    background: white;
+    color: #ff4b2b;
+    font-size: 0.9rem;
+    font-family: "PoppinsRegular";
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(255, 65, 54, 0.4);
+    transition: transform 0.3s ease;
 
 }
 
+.added:hover .addedNumber {
+    transform: translateY(-0.5px);
+}
+
 .addedNumber p {
+    margin: 0;
     position: relative;
-    top: -0.68rem;
-    left: -0.02rem;
+    top: -0.05rem;
 }
 
 
 .cart {
     position: absolute;
-    padding: 0.65rem 4.5rem;
+    padding: 0.75rem 4.5rem;
     font-size: clamp(1rem, 1.5rem, 10rem);
-    bottom: 9.60rem;
+    bottom: 9.55rem;
     white-space: nowrap;
-    left: 23.3rem;
+    left: 20.3rem;
     cursor: pointer;
     border: 1.5px solid rgb(56, 56, 56);
     color: rgb(68, 68, 68);
@@ -569,9 +656,7 @@ body {
 }
 
 .cart:hover {
-    border: 1.5px solid rgb(255, 140, 0);
-    background-color: rgb(255, 140, 0);
-    color: white;
+
     transform: scale(1.01);
 }
 
@@ -613,21 +698,37 @@ body {
 
 .favourite {
     position: absolute;
-    padding: 1.85rem 2.3rem;
+    padding: 1.9rem 2rem;
     font-size: clamp(0rem, 0.6rem, 10rem);
-    bottom: 9.65rem;
-    left: 42rem;
+    bottom: 9.7rem;
+    left: 41.77rem;
     cursor: pointer;
     border: none;
     color: rgb(68, 68, 68);
     border-radius: 0.7rem;
-    background-color: rgb(194, 194, 194);
+    background: linear-gradient(90deg, #4b4b4b, #919191,#ff4b2b, #ff416c);
+    background-size: 280%;
+    background-position: left;    
     font-family: "PoppinsRegular";
     transition: all 0.3s ease;
+
+
+    right: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    border-radius: 1rem;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 4;
 }
 
 .favourite:hover {
-    background-color: #FF4136;
+    background-size: 300%;
+    background-position: right;    
     color: white;
     transform: scale(1.01);
 }
@@ -643,7 +744,7 @@ body {
 .ratingGeneral {
     width: 100%;
     height: 24rem;
-    top: 0;
+    top: 2rem;
     left: 0;
     position: absolute;
     z-index: 20;
@@ -707,35 +808,37 @@ body {
 
 
 .longDescriptionGeneral {
-    width: 100%;
-    height: 34rem;
-    top: 37rem;
-    left: 0;
-    position: absolute;
-    z-index: 20;
+    width: 89.5rem;
+    height: 44rem;
+    left:50%;
+    border-top: 1px solid rgb(219, 219, 219);
+    transform: translateX(-50%);
+    top: 59rem;
+    position: relative;
+    z-index: 6;
 }
 
 .longDescriptionGeneral .about {
     position: absolute;
     z-index: 5;
-    font-size: clamp(1rem, 1.5rem, 10rem);
-    font-family: "PoppinsMedium";
-    top: 0rem;
+    font-size: clamp(1rem, 2.5rem, 10rem);
+    font-family: "PoppinsSemiBold";
+    top: -0.5rem;
     color: #313131;
-    left: 3.5rem;
+    left: 0.5rem;
 
 }
 
 .longDescriptionGeneral .productLongDescriptionFirst {
     position: relative;
     z-index: 5;
-    width: 86%;
+    width: 89rem;
     text-align: left;
-    font-size: clamp(0rem, 0.95rem, 10rem);
+    font-size: clamp(0rem, 1.05rem, 10rem);
     font-family: "PoppinsRegular";
-    top: 3rem;
+    top: 5.5rem;
     color: #313131;
-    left: 3.5rem;
+    left: 0.5rem;
 
 
 }
@@ -744,11 +847,11 @@ body {
 
 .itemVideo {
     position: relative;
-    width: 86%;
-    height: 15rem;
+    width: 88.5rem;
+    height: 20rem;
     background-color: black;
     left: 50%;
-    top: 4rem;
+    top: 6rem;
     transform: translateX(-50%);
     overflow: hidden;
     transition: all 0.7s ease;
@@ -783,13 +886,13 @@ body {
 .longDescriptionGeneral .productLongDescriptionSecond {
     position: relative;
     z-index: 5;
-    width: 86%;
+    width: 89rem;
     text-align: left;
-    font-size: clamp(1rem, 1rem, 10rem);
+    font-size: clamp(0rem, 1.05rem, 10rem);
     font-family: "PoppinsRegular";
-    top: 5rem;
+    top: 7rem;
     color: #313131;
-    left: 3.5rem;
+    left: 0.5rem;
 
 }
 
@@ -803,23 +906,24 @@ body {
     z-index: 5;
     font-size: clamp(1rem, 2.5rem, 10rem);
     font-family: "PoppinsSemiBold";
-    top: 89rem;
+    top: 105rem;
     left: 50%;
     color: #313131;
-    transform: translateX(-319%);
+    transform: translateX(-342%);
 }
 
 
 .properties {
-    width: 89rem;
+    width: 88.5rem;
     box-sizing: border-box;
-    padding: 2.5rem;
+    padding: 0rem;
     padding-top: 8rem;
     padding-bottom: 4.5rem;
-    margin: 0 auto;
+    left:50%;
+    border-top: 1px solid rgb(219, 219, 219);
+    transform: translateX(-50%);
     gap: 0rem;
-    top: 88rem;
-    border-radius: 1rem;
+    top: 61rem;
     color: black;
     position: relative;
     display: grid;
@@ -839,7 +943,7 @@ body {
     display: flex;
     margin-right: 5%;
     position: relative;
-    left: 2.5%;
+    left: 1.7%;
     overflow: hidden;
     justify-content: space-between;
     align-items: center;
@@ -873,10 +977,10 @@ body {
     padding-bottom: 0rem;
     margin: 0 auto;
     gap: 1rem;
-    top: 89.7rem;
-    border-radius: 1rem;
+    top: 63.7rem;
     color: black;
     position: relative;
+    border-top: 1px solid rgb(219, 219, 219);
     background-color: rgb(255, 255, 255);
 }
 
@@ -887,7 +991,7 @@ body {
     font-family: "PoppinsSemiBold";
     top: 0.5rem;
     color: #313131;
-    left: 3.2rem;
+    left: 0.3rem;
 }
 
 .commentBox {
@@ -899,8 +1003,8 @@ body {
     top: 4.5rem;
     height: auto;
     overflow: hidden;
-    left: -1.2%;
-    width: 104%;
+    left: -6.2%;
+    width: 113.7%;
     border-radius: 0.5rem;
 }
 
@@ -1026,7 +1130,7 @@ body {
     bottom: 4.2rem;
     position: absolute;
     border-radius: 50%;
-    left: 73.6rem;
+    left: 80.3rem;
     font-size: 1.4rem;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -1035,7 +1139,7 @@ body {
 .starsContainer {
     position: absolute;
     bottom: 6.65rem;
-    left: 74.3rem;
+    left: 81rem;
 }
 
 .rate .rateTitle {
@@ -1162,7 +1266,7 @@ body {
     bottom: 1.45rem;
     position: absolute;
     border-radius: 50%;
-    left: 73.6rem;
+    left: 80.3rem;
     font-size: 1.4rem;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -1491,13 +1595,13 @@ body {
 
 .similar {
     width: 89rem;
+    border-top: 1px solid rgb(219, 219, 219);
     box-sizing: border-box;
-    padding: 0rem 2.5rem;
+    padding: 0rem 0rem;
     padding-top: 10rem;
     margin: 0 auto;
     gap: 1rem;
-    top: 91.6rem;
-    border-radius: 1rem;
+    top: 67.6rem;
     color: black;
     position: relative;
     display: grid;
@@ -1510,9 +1614,9 @@ body {
     z-index: 5;
     font-size: clamp(1rem, 2.5rem, 10rem);
     font-family: "PoppinsSemiBold";
-    top: 1rem;
+    top: 0rem;
     color: #313131;
-    left: 3.1rem;
+    left: 0.1rem;
 }
 
 
@@ -1541,8 +1645,8 @@ body {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 1rem;
-    padding: 0rem 0.8rem;
-    top:-0.5rem;
+    padding: 0rem 0rem;
+    top:-2.5rem;
     padding-bottom: 3rem;
     position: relative;
 
@@ -1611,7 +1715,7 @@ body {
 .similarItems .avail {
     position: absolute;
     top:16.7rem;   
-    left: 12.45rem;  
+    left: 15.1rem;  
     font-family: "PoppinsMedium";
     font-size: clamp(0rem, 0.84rem, 2rem);
     color: #1d3c94;
@@ -1658,7 +1762,7 @@ body {
 .similarItems img {
     position: absolute;
     left:50%;
-    width: 110%;
+    width: 90%;
     top:50%;
     transform: translate(-50%,-50%);
 }

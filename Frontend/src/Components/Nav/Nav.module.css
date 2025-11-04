@@ -19,6 +19,7 @@ body {
     transform: translateX(-50%);
 
 
+
 }
 
 .highcontainer {
@@ -35,6 +36,8 @@ body {
 
 
 }
+
+
 
 .normal {
     top: 0rem;
@@ -54,6 +57,7 @@ body {
     rgba(0, 0, 0, 0.6),
     rgba(0, 0, 0, 0.4),
       rgba(0, 0, 0, 0)); 
+    
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   -webkit-mask-image: linear-gradient(to bottom, black, transparent);
@@ -66,6 +70,7 @@ body {
     height: 15.8rem;
     pointer-events: none;
     transform: translateX(-50%);
+
 }
 
 
@@ -600,7 +605,7 @@ a {
     border-radius: 8px;
 }
 
-.inputBar input {
+.highlightInputBar input {
     flex: 1;
     z-index: 0;
     outline: none;
@@ -612,11 +617,35 @@ a {
     padding: 0.3rem 2rem;
 }
 
+.highlightInputBar input:focus {
+    border: 0.13px solid rgb(175, 175, 175);
+}
+
+.inputBar input {
+    flex: 1;
+    z-index: 0;
+    outline: none;
+    font-size: 1rem;
+    top: -1.2rem;
+    background-color: #0000007c;
+    border: 0.13px solid rgb(175, 175, 175);
+    margin-left: -38rem;
+    width: 13rem;
+    padding: 0.3rem 2rem;
+    color: white; 
+}
+
+
+.inputBar input::placeholder {
+  color: rgb(255, 255, 255);
+  font-family: "PoppinsExtraLight";
+}
+
 .inputBar input:focus {
     border: 0.13px solid rgb(175, 175, 175);
 }
 
-.search {
+.highlightInputBar  .search {
     z-index: 1;
     top: 0.6rem;
     width: 28px;
@@ -624,6 +653,17 @@ a {
     position: absolute;
     left: 30rem;
     fill: #757575ff;
+
+}
+
+.inputBar .search {
+    z-index: 1;
+    top: 0.6rem;
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    left: 30rem;
+    fill: rgb(255, 255, 255);
 
 }
 

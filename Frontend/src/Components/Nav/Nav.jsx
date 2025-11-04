@@ -7,6 +7,7 @@ import axios from 'axios';
 import { AuthContext } from "../AuthContext";
 import spinner from "../../../public/brandlogowhite.png"
 import { usePurchase } from "../../Components/Utils/PurchaseContext";
+import { ShoppingCart, User, Menu, Search } from "lucide-react";
 
 const USERNAME = import.meta.env.VITE_API_USERNAME;
 const PASSWORD = import.meta.env.VITE_API_PASSWORD;
@@ -219,7 +220,7 @@ const handleSignOut = () => {
         <ul className={styles.navbar}>
           <Link id={styles.name} className={highlight ? styles.highlight : ""} to="/">TechStore</Link>
           {is599 ? greater599 : less599}
-          <div className={styles.inputBar}>
+          <div className={ highlight ? styles.highlightInputBar : styles.inputBar}>
             <input type="text" maxLength={50} placeholder="Enter the product name"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}

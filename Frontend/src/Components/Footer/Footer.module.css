@@ -1,166 +1,97 @@
 .footer {
-  background-color: #1a1a1a;
-  color: #fff;
-  padding: 0.2rem 5rem;
-  height: 6rem;
+  background: #0e0e0e;
+  color: white;
+  margin-top: 0rem;
+  padding-top: 3rem;
   position: relative;
-  z-index: 1;
-
+  z-index: 5;
+  padding-bottom: 3rem;
 }
 
-
-body {
-    overflow-y: hidden;
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
-.content {
-  z-index: 2;
-  position: relative;
+.columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12rem;
+  opacity: 0.7;
+  text-align: left;
+}
+
+.brand {
+  position: absolute;
+  width: 11rem;
+}
+
+@media (min-width: 768px) {
+  .columns {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  font-family: "PoppinsLight";
+  color: white ;
+}
+
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.link {
+  color: #9b9b9b;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: var(--color-primary-foreground);
+}
+
+.bottomBar {
+  border-top: 1px solid white;
+  margin-top: 3rem;
+  padding-top: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-
+  color: white;
+  font-size: 0.875rem;
 }
 
-.left {
-  margin-top: 2rem;
-  margin-left: 51rem;
-  font-size: 0.8rem;
+@media (min-width: 768px) {
+  .bottomBar {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
-.right {
-  text-align: center;
-  position: relative;
-  top:-3.8rem;
-  margin-right:-114rem;
-  right:50rem;
-
-
-}
-
-.right p {
-  position: relative;
-  right:11rem;
-  font-size: 0.8rem;
-}
-
-.contacts {
+.bottomLeft {
   display: flex;
-  flex-direction: column;
-  gap: 0rem;
-  top:-1rem;
-  position: relative;
-  margin-top: 0.3rem;
-  font-size: 0.8rem;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
-.mail, .number {
-  color: #4ea1f3;
-  text-decoration: none;
-  
+@media (min-width: 768px) {
+  .bottomLeft {
+    margin-bottom: 0;
+  }
 }
 
-.mail {
-  position: relative;
-  right: 7.5rem;  
+.bottomRight {
+  display: flex;
+  gap: 1.5rem;
 }
-
- .number {
-  position: relative;
-  right: 9.8rem;
-  top:-0.2rem;
- }
-
-.mail:hover, .number:hover {
-  text-decoration: underline;
-}
-
-.footer img {
-  top:0.25rem;
-  z-index: 0;
-  margin-left:-6.5rem;
-  left:50%;
-  transform: translateX(-107.7%);
-  position: absolute;  
-  width:35.8rem;
-}
-
-
-
-
-
-
-@media (max-width: 1440px) {}
-
-@media (max-width: 1200px) {}
-
-@media (max-width: 992px) {}
-
-@media (max-width: 768px) {}
-
-@media (max-width: 576px) {}
-
-@media (max-width: 	480px) {
-
-.footer {
-  padding: 0.2rem 5rem;
-  height: 4rem;
-}
-
-
-.left {
-  margin-top: 0.1rem;
-  margin-left: 100%;
-  font-size: 0.45rem;
-  white-space: nowrap;
-}
-
-.right {
-  top:-1.45rem;
-  margin-right:-24rem;
-  right:45vw;
-
-
-}
-
-.right p {
-  font-size: 0.45rem;
-}
-
-
-.contacts {
-  gap: 0rem;
-  top:-1rem;
-  margin-top: 0.3rem;
-  font-size: 0.5rem;
-}
-
-
-
-.mail {
-  top:0.6rem;
-  right: 8.1rem;  
-}
-
- .number {
-  right: 10.1rem;
-  top:0.6rem;
- }
-
- .footer img {
-  top:1.2rem;
-  z-index: 0;
-  margin-left:-12.5rem;
-  left:100vw;
-  position: absolute;  
-  width:15rem;
-}
-
-
-
-
-}
-
-
-

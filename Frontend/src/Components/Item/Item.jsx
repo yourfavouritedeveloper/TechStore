@@ -5,6 +5,7 @@ import { Link,useLocation,useNavigate } from "react-router-dom";
 import Choice from "../Choice/Choice"
 import spinner from "../../../public/brandlogo.png"
 import { AuthContext } from "../AuthContext";
+import { Star, Heart, Share2, ShoppingCart, Check, Truck, Shield, RotateCcw, ChevronLeft } from "lucide-react";
 
 const USERNAME = import.meta.env.VITE_API_USERNAME;
 const PASSWORD = import.meta.env.VITE_API_PASSWORD;
@@ -595,9 +596,29 @@ const updateCart = async (item) => {
 
         {isChoice ? <Choice item={item} setIsChoice={setIsChoice} /> : null}
         <div className={styles.container}>
+            <div className={styles.headerContainer}>
+                <div className={styles.headerInner}>
+                    <button className={styles.backButton} onClick={() => navigate("/product")}>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className={styles.backIcon}
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                    >
+                        <polyline points="15 18 9 12 15 6" />
+                    </svg>
+                    <span>Back to Products</span>
+                    </button>
+                </div>
+                </div>
+
             <div className={styles.item} style={{
-                position: isFixed ? "fixed" : "absolute",
-                transform: isFixed ? "translate(-120.5%, 14.2%)" : "translate(-120.5%, 47.5rem)"
+                position:"absolute",
+                transform:"translate(-120.5%, 27.83%)"
             }}>
                 <img className={styles.image} src={item.productImageUrl} alt={item.name} />
                 <p className={styles.amount}>Only {item.amount} left!</p>
@@ -705,6 +726,9 @@ const updateCart = async (item) => {
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
                                         <path d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
                                     </svg>
+                                    <div className={styles.addedNumber}>
+                                        <p>{cart.amounts[item.id]}</p>
+                                    </div>
                                 </Link>
                             </>) : (<>
 
@@ -712,9 +736,7 @@ const updateCart = async (item) => {
 
                             }
                             <button className={styles.decrease} onClick={decrease} style={styles.button}>-</button>
-                            <div className={styles.addedNumber}>
-                                <p>{cart.amounts[item.id]}</p>
-                            </div>
+
                             <button className={styles.increase} onClick={increase} style={styles.button}>+</button>
 
                             {isAdding ? (
@@ -732,7 +754,12 @@ const updateCart = async (item) => {
                         </button>
                     </div>
 
-                    <div className={styles.longDescriptionGeneral}>
+                    
+
+
+                </div>
+            </div>
+            <div className={styles.longDescriptionGeneral}>
                         <p className={styles.about}>About</p>
                         <p className={styles.productLongDescriptionFirst}>{firstPart}</p>
                         {item.videoUrl && (
@@ -753,10 +780,6 @@ const updateCart = async (item) => {
 
                         <p className={styles.productLongDescriptionSecond}>{secondPart}</p>
                     </div>
-
-
-                </div>
-            </div>
 
 
 
