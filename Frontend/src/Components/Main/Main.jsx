@@ -88,11 +88,6 @@ const circleRef1 = useRef(null);
               </div>
                 <div className={styles.brandnewdiv} ref={brandRef}>
                   <div className={styles.searchHeader}>
-                    <div className={styles.sparkleCircle}>
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="28" height="28">
-                        <path d="M12 2l1.5 4.5L18 8l-4.5 1.5L12 14l-1.5-4.5L6 8l4.5-1.5L12 2zm0 20l1-3 3-1-3-1-1-3-1 3-3 1 3 1 1 3z" />
-                      </svg>
-                    </div>
                     <p className={styles.title}>Looking for something specific?</p>
                     <p className={styles.subtitle}>Our smart search helps you find exactly what you need in seconds.</p>
                   </div>
