@@ -49,6 +49,7 @@ function Item({ name, productId }) {
     const [isBuying, setIsBuying] = useState(false);
     const [logAccount, setLogAccount] = useState({});
     const location = useLocation();
+    const[itemId, setItemId] = useState();
     const changeCart = {
         id: null,
         account: {},
@@ -534,6 +535,7 @@ const updateCart = async (item) => {
   }
 
   setIsAdding(true);
+  setItemId(item.id);
 
   try {
     const response = await axios.put(
@@ -561,6 +563,7 @@ const updateCart = async (item) => {
     console.error("Cart update failed:", err);
   } finally {
     setIsAdding(false);
+    setItemId(null);
   }
 };
 
@@ -1062,7 +1065,7 @@ const updateCart = async (item) => {
                                 }}
                                 onMouseEnter={() => { setIsHovered(true); setHoverId(i.id) }}
                                 onMouseLeave={() => { setIsHovered(false); setHoverId(0) }}>
-                                    {isAdding ? (
+                                    {(isAdding && itemId == i.id ) ? (
                                        <>
                                             <div className={styles.cartSpinnerDivOf}>
                                                 <div className={styles.spinnerOf}></div>

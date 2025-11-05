@@ -24,12 +24,15 @@ function CampaignPage ({setHighlight}) {
     }
     };
     
+
     const navigate = useNavigate();
     const [isHovered, setIsHovered] = useState(false);
     const [hoverId, setHoverId] = useState(0);
     const { account, logout, token,refreshToken,refreshAccessToken } = useContext(AuthContext);
     const [logAccount, setLogAccount] = useState();
     const [isAdding, setIsAdding] = useState(false);
+    const[itemId, setItemId] = useState();
+
 
 
 
@@ -162,6 +165,7 @@ function CampaignPage ({setHighlight}) {
         }
 
         setIsAdding(true);
+        setItemId(item.id);
 
         try {
             const response = await axios.put(
@@ -189,6 +193,7 @@ function CampaignPage ({setHighlight}) {
             console.error("Cart update failed:", err);
         } finally {
             setIsAdding(false);
+            setItemId(null);
         }
         };
 
@@ -231,7 +236,7 @@ function CampaignPage ({setHighlight}) {
                                 }}
                                 onMouseEnter={() => { setIsHovered(true); setHoverId(i.id) }}
                                 onMouseLeave={() => { setIsHovered(false); setHoverId(0) }}>
-                                    {isAdding ? (
+                                    {(isAdding && itemId==i.id ) ? (
                                        <>
                                             <div className={styles.cartSpinnerDivOf}>
                                                 <div className={styles.spinnerOf}></div>

@@ -277,7 +277,13 @@ const logged = (
         <div className={highlight ? styles.highmenu : styles.menu}>
           <Link id={styles.campaign} className={highlight ? styles.highlight : ""} to="/campaign">Campaign</Link>
           <Link id={styles.about} className={highlight ? styles.highlight : ""} to="/product">Market</Link>
-          <Link id={styles.contact} className={highlight ? styles.highlight : ""} to="/contact">Contact</Link>
+          <Link id={styles.contact} className={highlight ? styles.highlight : ""}   onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({
+              top: document.body.scrollHeight,
+              behavior: "smooth"
+            });
+          }}>Contact</Link>
           <Link id={styles.login} className={highlight ? styles.highlight : ""} onClick={() => setAccountMenu(prev => !prev)}>Account
             <AnimatePresence>
               {accountMenu && (
@@ -300,7 +306,13 @@ const logged = (
   const greater599 = (<>
     <Link id={styles.campaign} className={highlight ? styles.highlight : ""} to="/campaign">Campaign</Link>
     <Link id={styles.about} className={highlight ? styles.highlight : ""} to="/product">Market</Link>
-    <Link id={styles.contact} className={highlight ? styles.highlight : ""} to="/contact">Contact</Link>
+    <Link id={styles.contact} className={highlight ? styles.highlight : ""}   onClick={(e) => {
+      e.preventDefault();
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth"
+      });
+    }}>Contact</Link>
     <Link id={styles.login} style={{ opacity: menuOpen ? "0" : "1" }} className={highlight ? styles.highlight : ""} onClick={() => setMenuOpen(prev => !prev)}>
 
       Account
@@ -319,7 +331,12 @@ const logged = (
 
 
         <ul className={styles.navbar}>
-          <Link id={styles.name} className={highlight ? styles.highlight : ""} to="/">TechStore</Link>
+          <Link id={styles.name} className={highlight ? styles.highlight : ""} to="/"  onClick={(e) => {
+            if (window.location.hash === "#/") {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          }}>TechStore</Link>
           {is599 ? greater599 : less599}
           <div className={ highlight ? styles.highlightInputBar : styles.inputBar}>
             <input type="text" maxLength={50} placeholder="Enter the product name"

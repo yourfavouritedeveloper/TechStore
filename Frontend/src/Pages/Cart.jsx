@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { AuthContext } from "../Components/AuthContext";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
+import Footer from "../Components/Footer/Footer";
 
 const USERNAME = import.meta.env.VITE_API_USERNAME;
 const PASSWORD = import.meta.env.VITE_API_PASSWORD;
@@ -53,6 +54,7 @@ function Cart() {
     <title>{logAccount?.customerName + " | Shopping Cart"}</title>
     <Nav highlight={true} />
     <AccountCart cart={cart} setCart={setCart} />
+    <Footer />
   </>)
 }
 
