@@ -115,6 +115,7 @@ const updateCart = async (item) => {
   }
 
   setIsAdding(true);
+  setItemId(item.id);
 
   try {
     const response = await axios.put(
@@ -142,6 +143,7 @@ const updateCart = async (item) => {
     console.error("Cart update failed:", err);
   } finally {
     setIsAdding(false);
+    setItemId(null);
   }
 };
 
@@ -198,6 +200,8 @@ useEffect(() => {
   } 
 
 }, [category, items]);
+
+  const[itemId, setItemId] = useState();
 
 
 const handleFilterClick = () => {
@@ -491,7 +495,7 @@ const displayItems = currentItems.length ? currentItems : [];
                             }}
                             onMouseEnter={() => {setIsHovered(true);setHoverId(item.id)}}
                             onMouseLeave={() => {setIsHovered(false);setHoverId(0)}}>
-                             {isAdding ? (
+                             {(isAdding && itemId == item.id) ? (
                                       <>
                                          <div className={styles.cartSpinnerDiv}>
                                              <div className={styles.spinner}></div>

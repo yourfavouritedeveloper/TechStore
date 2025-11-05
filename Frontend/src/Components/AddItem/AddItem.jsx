@@ -418,16 +418,18 @@ function AddItem({ highlight, setHighlight, username}) {
                     style={{
                         left: buttonActive ? "90%" : "83%"
                     }}>
-                    <p className={styles.title}>
+                    <p className={styles.title}
+                    style={{left: newPage || lastPage ? "2%" : "12.5%"}}>
                         {newPage ? (lastPage ? "Property Overview" : "General Overview") : "Add a New Product"}
                     </p>
-                    <p className={styles.subtitle}>
+                    <p className={styles.subtitle}
+                    style={{left: newPage || lastPage ? "6.5%" : "17%"}}>
                         {newPage ? (lastPage ? "Add the essential product characteristics that describe its functionality and build." : "Provide a brief overview of the product, including its main features and general information.") :
                             "Add your brand-new product here and make it shine. Pick a category, upload images or videos, and fill in all the details to showcase your product to the world. Once saved, it will be live and ready for customers to discover!"
                         }</p>
                     {newPage ? (
                         <>
-                            <button className={styles.back} style={{ right: lastPage ? "38%" : "46%" }} onClick={handleAddNow}>ᐸ</button>
+                            <button className={styles.back} style={{ right: lastPage ? "38%" : "48%" }} onClick={handleAddNow}>ᐸ</button>
 
                             {lastPage ? (
                                 <></>
@@ -444,7 +446,7 @@ function AddItem({ highlight, setHighlight, username}) {
             </div>
 
             <div className={styles.right}
-                style={{ right: lastPage ? "100%" : "0%" }}>
+                style={{ right: lastPage ? "100%" : "-8%" }}>
                 <div className={styles.productForm}>
 
                     <div className={styles.generalInfo}>
@@ -790,7 +792,7 @@ function AddItem({ highlight, setHighlight, username}) {
                         />
                     </div>
                     <div className={styles.submittion}>
-                        <button className={styles.submit} onClick={submitClick}>Submit</button>
+                        <button className={styles.submit} onClick={submitClick}>Add Product</button>
                         <button className={styles.cancel} onClick={cancelClick}>Cancel</button>
                     </div>
 

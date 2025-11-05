@@ -5,6 +5,7 @@ import {useEffect,useState,useContext } from "react";
 import axios from "axios";
 import { usePurchase } from "../Components/Utils/PurchaseContext";
 import { AuthContext  } from "../Components/AuthContext";
+import Footer from "../Components/Footer/Footer";
 
 function Account() {
 
@@ -101,6 +102,7 @@ useEffect(() => {
         <title>{"Account | " + account.customerName}</title>
         <Nav highlight={true}  onEditClick={handleEditClick} ></Nav>
         <Profile account={account}  edit={edit} setEdit={setEdit} token={token} refreshToken={refreshToken} isPurchase={isPurchase} logout={logout}/>
+        <Footer />
         </>
     );
 }

@@ -73,6 +73,9 @@ function Item({ items, itemRef,bodyItems,  onResetFilters  }) {
       
         };
 
+        const[itemSearchId, setItemSearchId] = useState();
+        const [itemBoughtId,setItemBoughtId] = useState();
+
 
 
       useEffect(() => {
@@ -167,6 +170,8 @@ const updateCart = async (item) => {
     console.error("Cart update failed:", err);
   } finally {
     setIsAdding(false);
+    setItemSearchId(null);
+    setItemBoughtId(null);
   }
 };
   
@@ -227,11 +232,12 @@ const updateCart = async (item) => {
                                onClick={(e) => {
                                   e.preventDefault(); 
                                   e.stopPropagation(); 
+                                  setItemSearchId(item.id);
                                   updateCart(item);
                                 }}
                             onMouseEnter={() => {setIsHovered(true);setPopularHoverId(item.id)}}
                             onMouseLeave={() => {setIsHovered(false);setPopularHoverId(0)}}>
-                             {isAdding ? (
+                             {(isAdding && itemSearchId == item.id) ? (
                                   <>
                                       <div className={styles.cartSpinnerDiv}>
                                          <div className={styles.spinner}></div>
@@ -270,11 +276,13 @@ const updateCart = async (item) => {
                               onClick={(e) => {
                                   e.preventDefault(); 
                                   e.stopPropagation(); 
+                                  setItemBoughtId(item.id);
                                   updateCart(item);
+                                  
                               }}
                             onMouseEnter={() => {setIsHovered(true);setBoughtHoverId(item.id)}}
                             onMouseLeave={() => {setIsHovered(false);setBoughtHoverId(0)}}>
-                              {isAdding ? (
+                              {(isAdding && itemBoughtId == item.id)? (
                                   <>
                                       <div className={styles.cartSpinnerDiv}>
                                          <div className={styles.spinner}></div>
