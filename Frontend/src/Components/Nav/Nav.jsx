@@ -104,64 +104,165 @@ const handleSignOut = () => {
 
   const guest = (<>
   <div className={styles.accountDiv}>
-    <p className={styles.logName} onClick={() => setMenuOpen(prev => !prev)}>Account</p>
-    <p className={styles.title}>Oops! It looks like you’re currently browsing in Guest mode. </p>
-    <p className={styles.subtitle}>To access your account features like order history, saved preferences, and personalized settings, please log in or create an account. We’d love to have you on board!"</p>
+     <div className={styles.header}>
+            <p className={styles.title}>Account</p>
+            <button
+              className={styles.closeBtn}
+              onClick={() => setMenuOpen(false)}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" 
+              height="24px" 
+              viewBox="0 -960 960 960" width="24px" 
+              fill="#ffffff">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+            </button>
+      </div>
+    <p className={styles.signTitle}>Oops! It looks like you’re currently browsing in Guest mode. </p>
+    <p className={styles.signSubtitle}>To access your account features like order history, saved preferences, and personalized settings, please log in or create an account. We’d love to have you on board!"</p>
     <Link className={styles.signup} to="/login" state={{ sign: true }}>
+   <svg xmlns="http://www.w3.org/2000/svg" 
+   height="24px" 
+   viewBox="0 -960 960 960" width="24px" 
+   fill="rgba(175, 141, 255, 1)"><path d="M720-400v-120H600v-80h120v-120h80v120h120v80H800v120h-80Zm-360-80q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM40-160v-112q0-34 17.5-62.5T104-378q62-31 126-46.5T360-440q66 0 130 15.5T616-378q29 15 46.5 43.5T680-272v112H40Zm80-80h480v-32q0-11-5.5-20T580-306q-54-27-109-40.5T360-360q-56 0-111 13.5T140-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T440-640q0-33-23.5-56.5T360-720q-33 0-56.5 23.5T280-640q0 33 23.5 56.5T360-560Zm0-80Zm0 400Z"/></svg>
       Sign Up</Link>
-    <Link className={styles.log} to="/login" state={{ sign: false }}>Log In</Link>
+    <Link className={styles.log} to="/login" state={{ sign: false }}>
+     <svg xmlns="http://www.w3.org/2000/svg"
+     height="24px" viewBox="0 -960 960 960"
+      width="24px" 
+      fill="rgba(175, 141, 255, 1)"><path d="M480-120v-80h280v-560H480v-80h280q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H480Zm-80-160-55-58 102-102H120v-80h327L345-622l55-58 200 200-200 200Z"/></svg>
+      Log In</Link>
   </div>
 
   </>);
 
-  const logged = (<>
+const logged = (
+  <>
     {logAccount ? (
       <>
-        <div className={styles.accountDiv}>
-          <p className={styles.logName} onClick={() => setMenuOpen(prev => !prev)}>Account</p>
-          <img
-            className={styles.pp}
-            src={logAccount.profilePictureUrl ? logAccount.profilePictureUrl : def}
-            alt="Profile"
-          />
-          <p className={styles.fullname}>{logAccount.customerName}</p>
-          <p className={styles.username}>@{logAccount.username}</p>
-          <p className={styles.balance}>Balance: ${logAccount.balance}</p>
 
-          <div className={styles.purchaseHistory}>
-            <p className={styles.purchaseText}>
-              Easily track your spending and review past transactions.
-            </p>
-            <Link className={styles.purchaseButton}
+
+        <div
+          className={styles.panel}
+          style={{ right: menuOpen ? "0" : "-100%" }}
+        >
+          <div className={styles.header}>
+            <p className={styles.title}>Account</p>
+            <button
+              className={styles.closeBtn}
+              onClick={() => setMenuOpen(false)}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" 
+              height="24px" 
+              viewBox="0 -960 960 960" width="24px" 
+              fill="#ffffff">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+            </button>
+          </div>
+
+          <div className={styles.userInfo}>
+            <div className={styles.avatarWrapper}>
+              <img
+                className={styles.avatar}
+                src={logAccount.profilePictureUrl ? logAccount.profilePictureUrl : def}
+                alt="Profile"
+              />
+              <div className={styles.statusDot}></div>
+            </div>
+            <div className={styles.userDetails}>
+              <p className={styles.userName}>{logAccount.customerName}</p>
+              <p className={styles.userEmail}>@{logAccount.username}</p>
+              <p className={styles.memberSince}>Member since 2024</p>
+            </div>
+          </div>
+
+          <div className={styles.stats}>
+            <div className={styles.stat}>
+              <p className={styles.statValue}>${logAccount.balance}</p>
+              <p className={styles.statLabel}>Balance</p>
+            </div>
+            <div className={styles.statDivider}></div>
+            <div className={styles.stat}>
+              <p className={styles.statValue}>12</p>
+              <p className={styles.statLabel}>Orders</p>
+            </div>
+          </div>
+
+          <div className={styles.menu}>
+            <div
+              className={styles.menuItem}
+              onClick={() => navigate(`/account/${logAccount.username}`)}
+            >
+              <div className={styles.menuItemLeft}>
+                <div className={styles.menuIcon}>
+                  <svg xmlns="http://www.w3.org/2000/svg" 
+                  height="24px" 
+                  viewBox="0 -960 960 960" 
+                  width="24px" 
+                  fill="rgba(175, 141, 255, 1)"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z"/></svg>
+                </div>
+                <p>View Profile</p>
+              </div>
+            </div>
+
+            <div
+              className={styles.menuItem}
+              onClick={() => navigate(`/account/${logAccount.username}/cart`)}
+            >
+              <div className={styles.menuItemLeft}>
+                <div className={styles.menuIcon}><svg xmlns="http://www.w3.org/2000/svg" 
+                height="24px" 
+                viewBox="0 -960 960 960" 
+                width="24px" fill="rgba(175, 141, 255, 1)"><path d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z"/></svg></div>
+                <p>View Cart</p>
+              </div>
+              <p className={styles.menuCount}>{logAccount.cart.products.length}</p>
+            </div>
+
+            <div
+              className={styles.menuItem}
               onClick={(e) => {
                 e.preventDefault();
                 setIsPurchase(true);
-                navigate(`/account/${logAccount?.username}`);
-              }}>
-              Purchase History
-            </Link>
+                navigate(`/account/${logAccount.username}`);
+              }}
+            >
+              <div className={styles.menuItemLeft}>
+                <div className={styles.menuIcon}>
+                  <svg xmlns="http://www.w3.org/2000/svg" 
+                  height="24px"
+                   viewBox="0 -960 960 960"
+                    width="24px" 
+                    fill="rgba(175, 141, 255, 1)"><path d="M880-720v480q0 33-23.5 56.5T800-160H160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720Zm-720 80h640v-80H160v80Zm0 160v240h640v-240H160Zm0 240v-480 480Z"/></svg></div>
+                <p>Purchase History</p>
+              </div>
+            </div>
           </div>
 
-          <Link className={styles.view} to={`/account/${logAccount.username}`}>
-            View Profile
-          </Link>
+          <button
+            className={styles.logoutBtn}
+            onClick={handleSignOut}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" 
+            height="24px" 
+            viewBox="0 -960 960 960" 
+            width="24px" fill="#ef4444"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h280v80H200Zm440-160-55-58 102-102H360v-80h327L585-622l55-58 200 200-200 200Z"/></svg> Sign Out
+          </button>
 
-          <Link className={styles.edit} to={`/account/${logAccount.username}/cart`}>
-            View Cart
-          </Link>
-
-          <Link className={styles.signout} to="/" onClick={handleSignOut}>
-            Sign Out
-          </Link>
+          <div className={styles.footer}>
+            <p>
+              © 2025 TechStore •{" "}
+              <a href="/terms">Terms & Privacy</a>
+            </p>
+          </div>
         </div>
       </>
     ) : (
       <div className={styles.loadingContainer}>
         <img src={spinner} alt="Loading..." className={styles.loadingImage} />
       </div>
-
     )}
-  </>);
+  </>
+);
 
 
   const less599 = (<>
@@ -241,6 +342,11 @@ const handleSignOut = () => {
           </div>
         </ul>
       </nav>
+        <div
+            className={styles.backdrop}
+            style={{opacity: menuOpen ? "1" : "0"}}
+            onClick={() => setMenuOpen(false)}
+        ></div>
 
       <div
         className={styles.loginSection}

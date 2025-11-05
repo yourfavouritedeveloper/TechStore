@@ -348,20 +348,39 @@
 
 
 
+.glassBand {
+  position: relative;
+  width: 100%;
+  height: 10rem;
+  background: rgba(44, 44, 44, 0.699);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 60px rgba(255, 255, 255, 0.1) inset;
+  z-index: 7;
+  top:35rem;
+}
 
-
-
-
-
+.glassBand p {
+  font-family: "PoppinsRegular";
+  color: white;
+  position: absolute;
+  top:50%;
+  left:50%;
+  white-space: nowrap;
+  transform: translate(-50%,-117%);
+  font-size: clamp(1rem,5.5rem,6rem);
+}
 
 .brandnewdiv {
   position: relative;
   padding: 16rem 2rem;
-  background: radial-gradient(circle at center, #1a1a1a, #000);
+  background: radial-gradient(circle at center, 
+  #1a1a1a, #000);
   text-align: center;
-  overflow: hidden;
-  margin-top:40rem;
-  z-index: 6;
+  margin-top:29.9rem;
+  z-index: 2;
 }
 
 .searchHeader {
@@ -532,7 +551,7 @@
   width: 55rem;
   height: 55rem;
   background: #ec4899;
-  bottom: -5rem;
+  bottom: -9rem;
   left: 50%;
   transform: translateX(-150%);
 }

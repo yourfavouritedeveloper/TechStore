@@ -86,6 +86,11 @@ const circleRef1 = useRef(null);
 
 
               </div>
+
+                <div className={styles.glassBand}>
+                  <p>Your Journey Starts Here!</p>
+                </div>
+
                 <div className={styles.brandnewdiv} ref={brandRef}>
                   <div className={styles.searchHeader}>
                     <p className={styles.title}>Looking for something specific?</p>
