@@ -128,10 +128,10 @@ function AddItem({ highlight, setHighlight, username}) {
         const accountRes = await axios.get(
             `https://techstore-3fvk.onrender.com/api/v1/accounts/username/${username}`,
                     {
-                    auth: {
-                        username: USERNAME, 
-                        password: PASSWORD
-                    }
+                        headers: {
+                        Authorization: `Bearer ${token}`,
+                        },
+                    
                     }
         );
         const accountData = accountRes.data;
@@ -167,6 +167,7 @@ function AddItem({ highlight, setHighlight, username}) {
 
         const res = await axios.post(
             "https://techstore-3fvk.onrender.com/api/v1/products/create",
+
             payload
         );
 
@@ -472,7 +473,7 @@ function AddItem({ highlight, setHighlight, username}) {
                         <p className={styles.productLongDescriptionLabel}>Product Description</p>
                         <textarea
                             name="longDescription"
-                            maxLength={172}
+                            maxLength={770}
                             className={styles.productLongDescription}
                             value={formData.longDescription}
                             onChange={handleChange}
