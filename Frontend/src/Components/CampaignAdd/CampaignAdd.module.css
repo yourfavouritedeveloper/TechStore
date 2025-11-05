@@ -71,7 +71,7 @@
     position: relative;
     font-family: "PoppinsRegular"; 
     color: rgb(255, 255, 255);
-    z-index: 10;    
+    z-index: 5;    
 }
 
 .button {
@@ -86,7 +86,7 @@
     position: relative;
     font-family: "PoppinsLight"; 
     color: rgb(0, 0, 0);
-    z-index: 10; 
+    z-index: 5; 
     transition: all 0.3s ease;    
 }
 
