@@ -1,3 +1,9 @@
+.container {
+    width: 100%;
+    height: 165rem;
+}
+
+
 .campaignDiv {
     width: 100%;
     position: relative;
@@ -55,4 +61,416 @@
 .campaignDiv .explore:hover {
     background-color: rgba(255, 168, 38, 0.9);
     color: white;
+}
+
+
+.mainDiv {
+    background-color: rgb(255, 255, 255);
+    height: 100rem;
+    position: relative;
+    top:-5rem;
+}
+
+.mainDiv .title {
+    font-family: "PoppinsRegular";
+    font-size: clamp(1rem,4.5rem,10rem);
+    color: rgb(0, 0, 0);
+    top:7%;
+    position: relative;
+    z-index: 2;
+    letter-spacing: -0.2rem;
+    white-space: nowrap;    
+}
+
+.campaign1 {
+    height: 10rem;
+    width: 89rem;
+    height: 20rem;
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+    top:16rem;
+    border-radius: 1.5rem;
+    background: linear-gradient(
+        135deg,
+        #ffffff 0%,
+        #f2f8ff 25%,
+        #dbeafe 60%,
+        #c7d2fe 100%
+        );
+    border: 1px solid rgba(77, 77, 77, 0.3);
+    overflow: hidden;
+
+
+}
+
+.campaign1 .title1 {
+    font-family: "PoppinsRegular";
+    font-size: clamp(1rem,5rem,10rem);
+    width: 50rem;
+    text-align: left;
+    line-height: 0.8;
+    color: #313131;
+    top:25%;
+    left:2rem;
+    position: relative;
+    z-index: 2;
+    letter-spacing: -0.2rem;
+}
+
+
+.campaign1 .apple {
+    width: 30rem;
+    position: absolute;
+    top: -2rem;
+    right: 4rem;
+    transform: rotateZ(15deg);
+    filter: brightness(0.8);
+}
+
+
+
+
+.appleDiv {
+    width: 89rem;
+    box-sizing: border-box;
+    padding: 0rem 0rem;
+    padding-top: 10rem;
+    margin: 0 auto;
+    gap: 1rem;
+    top: 20.6rem;
+    color: black;
+    position: relative;
+    display: grid;
+    overflow: hidden;
+}
+
+
+
+.appleItems {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    padding: 0rem 0rem;
+    top:-2.5rem;
+    padding-bottom: 3rem;
+    position: relative;
+
+
+
+}
+
+.appleItems .info {
+    background-color: rgb(243, 243, 243);
+    position: absolute;
+    padding:6rem 1rem; 
+    top:0.7rem;
+    width: 77%;
+    left:50%;
+    transform: translateX(-50%);
+}
+
+
+
+
+.appleItems .appleItem {
+    margin-top: 0rem;
+    flex: 1 0 10%; 
+    box-sizing: border-box; 
+    padding:11.5rem 1rem;
+    border-radius: 0.2rem;
+    color: black;
+    position: relative;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255); 
+    border: 1.9px solid rgb(219, 219, 219);
+
+
+}
+
+.appleItems .guaranteeTitle {
+    position: absolute;
+    top:15.5rem;   
+    font-family: "PoppinsMedium";
+    left: 0.85rem;  
+    font-size: clamp(0rem, 0.8rem, 2rem);
+    color:#a0a0a0; 
+}
+
+.appleItems .guarantee {
+    position: absolute;
+    top:16.7rem;   
+    left: 0.85rem;  
+    font-family: "PoppinsMedium";
+    font-size: clamp(0rem, 0.84rem, 2rem);
+    color: #1d3c94;
+}
+
+ 
+
+
+.appleItems .availTitle {
+    position: absolute;
+    top:15.5rem;   
+    font-family: "PoppinsMedium";
+    right: 0.85rem;  
+    font-size: clamp(0rem, 0.8rem, 2rem);
+    color:#a0a0a0; 
+}
+
+.appleItems .avail {
+    position: absolute;
+    top:16.7rem;   
+    left: 15.1rem;  
+    font-family: "PoppinsMedium";
+    font-size: clamp(0rem, 0.84rem, 2rem);
+    color: #1d3c94;
+}
+
+
+
+.appleItems .priceTitle {
+    position: absolute;
+    top:18.5rem;    
+    font-family: "PoppinsMedium";
+    left: 0.85rem;  
+    font-size: clamp(0rem, 0.8rem, 2rem);
+    color:#a0a0a0; 
+}
+
+.appleItems .priceOf {
+    position: absolute;
+    top:19.25rem;    
+    font-family: "PoppinsSemiBold";
+    left: 0.8rem;  
+    font-size: clamp(1rem, 1.2rem, 2rem);
+    color:#313131;
+}
+
+
+
+.appleItems .nameOf {
+    text-align: left;
+    position: absolute;
+    top:12.5rem;
+    font-family: "PoppinsMedium";
+    line-height: 1.1;
+    color: #313131;
+    align-items: center;
+    left: 0.5rem;
+    padding: 0rem 0.4rem;
+    font-size: clamp(0.5rem, 1rem, 2rem);
+
+
+}
+
+
+.appleItems img {
+    position: absolute;
+    left:50%;
+    width: 90%;
+    top:50%;
+    transform: translate(-50%,-50%);
+}
+
+
+
+.appleItems .cartOf {
+    position: absolute;
+    background-color: white;
+    border: none;
+    top:19.5rem;
+    right: 0.85rem; 
+    border-radius: 0; 
+    cursor: pointer;
+    padding: 1.2rem 1.2rem;
+    border: 1px solid rgb(54, 132, 250);
+    transition: all 0.3s ease;
+}
+
+
+.appleItems .cartText {
+    position: absolute;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    top:15%;
+    left:60%;
+    transform: translate(-50%,-50%);
+    color: white;
+    font-family: "PoppinsRegular";
+}
+
+
+.appleItems .cartOf svg {
+    height: 22px;
+    width: 22px;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    fill: rgb(54, 132, 250);
+    position: absolute;
+    transition: all 0.3s ease;
+}
+
+.appleItems .cartOf:hover {
+    padding: 1.2rem 4rem;
+    background-color: rgb(54, 132, 250);   
+    border: 1px solid rgb(54, 132, 250);
+}
+
+.appleItems .cartOf:hover svg {
+    left:20%;
+    fill:white;
+}
+
+.appleItems .inCartOf {
+    padding: 1.2rem 1.2rem;
+    background-color: rgb(54, 132, 250);   
+    border: 1px solid rgb(54, 132, 250);  
+}
+
+.appleItems .inCartOf svg {
+    height: 22px;
+    width: 22px;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    fill: rgb(255, 255, 255);
+    position: absolute;
+    transition: all 0.3s ease;
+}
+
+.cartSpinnerDivOf {
+    padding: 0.52rem 0.52rem;
+    background-color: rgb(189, 189, 189);
+    color: white;
+    font-family: "PoppinsLight";
+    border: none;
+    bottom: 0.33rem;
+    position: absolute;
+    border-radius: 50%;
+    right: 110%;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+.spinnerOf {
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #555;
+    border-radius: 50%;
+    width: 0.5rem;
+    height: 0.5rem;
+    position: relative;
+    animation: spin 0.8s linear infinite;
+    display: block;
+    margin: 0 auto;
+}
+
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+.campaign2 {
+    height: 10rem;
+    width: 89rem;
+    height: 40rem;
+    position: absolute;
+    right:50%;
+    transform: translateX(50%);
+    top:72rem;
+    border-radius: 1.5rem;
+    background: linear-gradient(to bottom right, #0d0d0d, #1a1a1a, #000000);   
+    border: 1px solid rgba(77, 77, 77, 0.3);
+    overflow: hidden;
+
+
+}
+
+.campaign2 .title2 {
+     font-family: "PoppinsRegular";
+    font-size: clamp(1rem,5.5rem,10rem);
+    width: 60rem;
+    text-align: left;
+    line-height: 0.8;
+    color: #ffffff;
+    top:3rem;
+
+    left:5rem;
+    position: relative;
+    z-index: 2;
+    letter-spacing: -0.2rem;   
+}
+
+.campaign2 .subtitle2 {
+     font-family: "PoppinsLight";
+    font-size: clamp(1rem,1.5rem,10rem);
+    width: 40rem;
+    text-align: left;
+    line-height: 1;
+    color: #ffffff;
+    top:0%;
+
+    left:5rem;
+    position: relative;
+    z-index: 2;
+    letter-spacing: 0rem;   
+}
+
+
+.campaign2 .explore {
+    position: absolute;
+    top: 26rem;
+    left:5rem;
+    font-family: "PoppinsLight";
+    font-size: clamp(1rem,1.5rem,3rem);
+    padding: 0.9rem 4rem;
+    border: none;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    color: #313131;
+    transition: all 0.3s ease;    
+}
+
+.campaign2 .explore:hover {
+    color: white;
+    background-color: #3166f7;
+}
+
+.campaign2 .headphone {
+    width: 35rem;
+    position: absolute;
+    right: 3rem;
+    top:2rem;
+    transform: rotateZ(15deg);
+}
+
+
+
+.loadingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.loadingImage {
+    width: 80px;
+    height: 80px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
