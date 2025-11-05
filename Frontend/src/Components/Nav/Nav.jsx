@@ -276,7 +276,7 @@ const logged = (
       {menuOpen && (
         <div className={highlight ? styles.highmenu : styles.menu}>
           <Link id={styles.campaign} className={highlight ? styles.highlight : ""} to="/campaign">Campaign</Link>
-          <Link id={styles.about} className={highlight ? styles.highlight : ""} to="/about">About</Link>
+          <Link id={styles.about} className={highlight ? styles.highlight : ""} to="/product">Market</Link>
           <Link id={styles.contact} className={highlight ? styles.highlight : ""} to="/contact">Contact</Link>
           <Link id={styles.login} className={highlight ? styles.highlight : ""} onClick={() => setAccountMenu(prev => !prev)}>Account
             <AnimatePresence>
@@ -299,7 +299,7 @@ const logged = (
 
   const greater599 = (<>
     <Link id={styles.campaign} className={highlight ? styles.highlight : ""} to="/campaign">Campaign</Link>
-    <Link id={styles.about} className={highlight ? styles.highlight : ""} to="/about">About</Link>
+    <Link id={styles.about} className={highlight ? styles.highlight : ""} to="/product">Market</Link>
     <Link id={styles.contact} className={highlight ? styles.highlight : ""} to="/contact">Contact</Link>
     <Link id={styles.login} style={{ opacity: menuOpen ? "0" : "1" }} className={highlight ? styles.highlight : ""} onClick={() => setMenuOpen(prev => !prev)}>
 

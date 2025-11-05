@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
-import About from "./Pages/About";
+import Campaign from "./Pages/Campaign";
 import Items from "./Pages/Items";
 import Item from "./Pages/Item"
 import Login from "./Pages/Login";
@@ -24,7 +24,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home shiftUp={shiftUp} setShiftUp={setShiftUp} />} />
               <Route path="/product" element={<Items shiftUp={shiftUp} setShiftUp={setShiftUp} />} />
-              <Route path="/about" element={<About />} />
+              <Route path="/campaign" element={<Campaign />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/product/:id" element={<Item shiftUp={shiftUp} setShiftUp={setShiftUp} />} />
