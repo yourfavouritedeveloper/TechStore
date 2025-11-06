@@ -82,6 +82,8 @@ function Item({ name, productId }) {
   
 
     const isInCart = cart?.products?.some(product => product.id === item.id);
+    
+
 
     const fetchRepliesByIds = async (repliesId) => {
         if (!repliesId || repliesId.length === 0) return [];
@@ -329,65 +331,59 @@ function Item({ name, productId }) {
     };
 
 
-    const handleLike = async (commentId) => {
-        if (!ensureAuthenticated()) return;
-        if (!account?.username) {
-            alert("You must be logged in to like a comment.");
-            return;
-        }
+const handleLike = async (commentId) => {
+    if (!ensureAuthenticated()) return;
+    if (!account?.username) {
+        alert("You must be logged in to like a comment.");
+        return;
+    }
 
-        try {
-            const response = await axios.post(
-                "https://techstore-3fvk.onrender.com/api/v1/comments/like",
-                null,
-                {
-                    params: {
-                        commentId: commentId,
-                        username: account.username
-                    }
+    try {
+        const response = await axios.post(
+            "https://techstore-3fvk.onrender.com/api/v1/comments/like",
+            null,
+            {
+                params: {
+                    commentId: commentId,
+                    username: account.username,
+                },
+            }
+        );
+
+        const updatedComment = response.data;
+
+        setComments((prevComments) =>
+            prevComments.map((comment) => {
+                if (comment.id === updatedComment.id) {
+                    return {
+                        ...comment,
+                        likes: updatedComment.likes,
+                        likedBy: updatedComment.likedBy,
+                    };
                 }
-            );
 
-            const updatedComment = response.data;
+                if (comment.replies && comment.replies.length > 0) {
+                    return {
+                        ...comment,
+                        replies: comment.replies.map((reply) =>
+                            reply.id === updatedComment.id
+                                ? {
+                                      ...reply,
+                                      likes: updatedComment.likes,
+                                      likedBy: updatedComment.likedBy,
+                                  }
+                                : reply
+                        ),
+                    };
+                }
 
-            setComments(prevComments => {
-                return prevComments.map(comment => {
-                    if (comment.id === updatedComment.id) {
-                        return updatedComment;
-                    }
-
-                    if (comment.replies && comment.replies.length > 0) {
-                        return {
-                            ...comment,
-                            replies: comment.replies.map(reply => {
-                                if (reply.id === updatedComment.id) {
-                                    return {
-                                        id: updatedComment.id,
-                                        comment: updatedComment.comment,
-                                        fromAccount: updatedComment.fromAccount,
-                                        likes: updatedComment.likes,
-                                        likedBy: updatedComment.likedBy,
-                                        toAccount: updatedComment.toAccount,
-                                        repliedCommentId: updatedComment.repliedComment?.id,
-                                        repliedUsername: updatedComment.repliedUsername,
-                                        rate: updatedComment.rate,
-                                        productId: updatedComment.product.id,
-                                        repliesId: updatedComment.replies?.map(r => r.id) || []
-                                    };
-                                }
-                                return reply;
-                            })
-                        };
-                    }
-
-                    return comment;
-                });
-            });
-
-        } catch (error) {
-            console.error("Error liking comment:", error);
-        }
-    };
+                return comment;
+            })
+        );
+    } catch (error) {
+        console.error("Error liking comment:", error);
+    }
+};
 
     const [count, setCount] = useState(0);
 
@@ -594,7 +590,7 @@ const updateCart = async (item) => {
 
     return item.productImageUrl ? (<>
 
-        <p className={styles.success} style={{ top: successMessage ? "5.15rem" : "-1rem" }}>{successMessage}</p>
+        <p className={styles.success} style={{ top: successMessage ? "10.15rem" : "-1rem" }}>{successMessage}</p>
 
 
         {isChoice ? <Choice item={item} setIsChoice={setIsChoice} /> : null}
@@ -901,7 +897,7 @@ const updateCart = async (item) => {
                                                 {openReplies[comment.id] && (
                                                     <div className={styles.replies}>
 
-                                                        {comment.replies.map((reply) => (
+                                                        {[...comment.replies].reverse().map((reply) => (
                                                             <div key={reply.id} className={styles.replyComment}>
                                                                 {reply.fromAccount && (
                                                                     <div className={styles.accountReplyInfo}>
@@ -977,6 +973,12 @@ const updateCart = async (item) => {
                             maxLength={100}
                             value={newCommentText}
                             onChange={handleChange}
+                            onKeyDown={(e) => {
+                                if (e.key === "Enter") {
+                                e.preventDefault();
+                                sendComment();
+                                }
+                            }}
                             placeholder="Write a comment..."
                             rows={1}
                         />

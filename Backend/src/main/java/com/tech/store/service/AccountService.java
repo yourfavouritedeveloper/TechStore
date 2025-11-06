@@ -145,6 +145,7 @@ public class  AccountService {
 
     }
 
+
     @Transactional
     public boolean verifyOtp(String email, String requestOtp) {
         String storedOtp = otpStore.get(email);
@@ -155,6 +156,14 @@ public class  AccountService {
         return true;
 
 
+    }
+
+    @Transactional
+    public void sendPasswordResetEmail(String email) throws IOException {
+        AccountEntity account = accountRepository.findByEmail(email)
+                .orElseThrow(() -> new AccountNotFoundException("Account not found with email: " + email));
+
+        emailService.sendPasswordReset(email);
     }
 
     @Transactional
@@ -231,8 +240,8 @@ public class  AccountService {
     }
 
     @Transactional
-    public AccountDto changePassword(Long id, String password) throws Exception {
-        AccountEntity accountEntity = accountRepository.findById(id)
+    public AccountDto changePassword(String email, String password) throws Exception {
+        AccountEntity accountEntity = accountRepository.findByEmail(email)
                 .orElseThrow(() -> new AccountNotFoundException("Account not found"));
 
         accountEntity.setPassword(bCryptPasswordEncoder.encode(password));

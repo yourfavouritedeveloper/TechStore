@@ -56,6 +56,13 @@ public class AccountController {
         return "OTP has been sent to your email";
     }
 
+    @PutMapping("/recovery/password")
+    @ResponseStatus(HttpStatus.OK)
+    public String sendPasswordRecoveryMail(@RequestParam String email) throws MessagingException, IOException {
+        accountService.sendPasswordResetEmail(email);
+        return "Recovery mail has been sent to your email";
+    }
+
     @PutMapping("/otp/verify")
     @ResponseStatus(HttpStatus.OK)
     public boolean verifyOtp(@RequestParam String email, @RequestParam String requestOtp) {
@@ -223,15 +230,15 @@ public class AccountController {
     @PutMapping("/password")
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Change password", description = "Changes the password of an Account")
-    public AccountDto changePassword(@RequestParam Long id, @RequestParam String password) throws Exception {
+    public AccountDto changePassword(@RequestParam String email, @RequestParam String password) throws Exception {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         AccountDto myAccount = accountService.findByName(username);
 
-        if (!myAccount.getId().equals(id)) {
+        if (!myAccount.getEmail().equals(email)) {
             throw new AccessDeniedException("You are not allowed to change password for this account");
         }
 
-        return accountService.changePassword(id, password);
+        return accountService.changePassword(email, password);
     }
 
     @PutMapping("/delete/{id}")

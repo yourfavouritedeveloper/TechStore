@@ -7,6 +7,7 @@
     height: 100%;
     z-index: 6;
     transition: all 0.4s ease;
+    
 }
 
 .purchaseDiv {
@@ -24,6 +25,7 @@
     flex-direction: column; 
     padding: 2rem;
     box-sizing: border-box;
+    
 }
 
 
@@ -65,7 +67,9 @@
 .purchaseList {
     flex: 1; 
     overflow-y: auto;
-    margin-top: 1rem;
+      overflow-x: hidden;
+
+    margin-top: 0rem;
 }
 
 .purchaseList ul {
@@ -76,9 +80,9 @@
 
 .purchaseList li {
     background: #ffffff; 
-    border: 1px solid #cccccc; 
+    border: 1px solid #3f3f3f; 
     border-radius: 0.8rem;
-    padding: 1rem;
+    padding: 1rem 2rem;
     padding-bottom: 0rem;
     margin-bottom: 1rem;
     display: flex;
@@ -91,14 +95,15 @@
     font-family: "PoppinsMedium";
     font-size: clamp(1rem,1.5rem,5rem);
     position: relative;
-    left:-38.3%;
+    top:1rem;
+    left:-39.5%;
     color: #313131;
 }
 
 
 .purchaseList li .amount {
     font-family: "PoppinsRegular";
-    font-size: clamp(1rem,1.2rem,5rem);
+    font-size: clamp(1rem,1.5rem,5rem);
     position: relative;
     width: 98.7%;
     padding-top: 1rem;
@@ -114,15 +119,16 @@
     color:#8d8d8d;
     font-size: clamp(1rem,1.2rem,5rem);
     position: relative;
-    top:-4.7rem;
-    right:-31rem;
+    top:-3.7rem;
+    right:-29.5rem;
 } 
 
 .productList {
   list-style: none;
   padding: 0;
-  margin: 1rem 0;
+  margin: 0rem 0;
   transition: all 0.4s ease;
+  overflow-x: hidden;
 }
 
 .productItem {
@@ -131,8 +137,8 @@
   background-color: #ffffff;
   border: 1px solid #ccc;
   border-radius: 0.8rem;
-  padding: 1rem;
-  margin-bottom: 1rem;
+  padding: 0rem;
+  margin-top: 1rem;
   gap: 1rem;
   transition: all 0.4s ease;
 }
@@ -142,12 +148,15 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
+
+
 .productImage {
-  width: 80px;
-  height: 80px;
+  width: 110px;
+  height: 110px;
   position: relative;
-  left:-33rem;
+  left:-30.3rem;
   padding: 0 0;
+  background-color: #e7e7e7;
   object-fit: cover;
   border-radius: 0.5rem;
 }
@@ -156,24 +165,44 @@
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
+  position: relative;
   padding: 0 0;
 }
 
 .productName {
-  font-weight: 600;
-  font-size: 1rem;
+  font-size: 1.5rem;
+  font-family: "PoppinsRegular";
+  position: absolute;
+  top:-7.3rem;
+  left:-25rem;
+  white-space: nowrap;
   color: #333;
 }
 
 .productCompany {
-  font-size: 0.85rem;
+  position: absolute;
+  white-space: nowrap;
+  font-size: 0.95rem;
+  top:-7.9rem;
+  left:-25rem;
   color: #777;
 }
 
-.productQuantity,
+.productQuantity{
+  font-size: 1.5rem;
+  color: #313131;
+  position: absolute;
+  top:-7.3rem;
+  font-family: "PoppinsMedium";
+  right:-33rem;
+}
+
 .productPrice {
-  font-size: 0.9rem;
-  color: #555;
+  font-size: 1.2rem;
+  color: #313131;
+  position: absolute;
+  top:-5rem;
+  left:-25rem;
 }
 
 
