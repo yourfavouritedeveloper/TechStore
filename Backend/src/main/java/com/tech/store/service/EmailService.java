@@ -4,6 +4,8 @@ import com.sendgrid.*;
 import com.sendgrid.helpers.mail.Mail;
 import com.sendgrid.helpers.mail.objects.Content;
 import com.sendgrid.helpers.mail.objects.Email;
+import com.tech.store.dao.entity.AccountEntity;
+import com.tech.store.dao.repository.AccountRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,6 +20,9 @@ public class EmailService {
 
     @Value("${sendgrid.api-key}")
     private String sendGridApiKey;
+
+    private final AccountRepository accountRepository;
+    private final JWTService jwtService;
 
     @PostConstruct
     public void checkApiKey() {
@@ -51,8 +56,14 @@ public class EmailService {
 
 
     public void sendPasswordReset(String toEmail) throws IOException {
-        String subject = "Reset Your TechStore Password";
-        String resetLink = "https://yourfavouritedeveloper.github.io/TechStore/#/recover";
+        String subject = "Reset Your Password";
+
+        AccountEntity accountEntity = accountRepository.findByEmail(toEmail)
+                .orElseThrow(() -> new IllegalArgumentException("No account found with this email"));
+
+        String token = jwtService.generateToken(accountEntity.getUsername());
+
+        String resetLink = "https://yourfavouritedeveloper.github.io/TechStore/#/recover?token=" + token;
 
         String htmlContent = "<!DOCTYPE html>" +
                 "<html><head><style>" +
@@ -67,7 +78,7 @@ public class EmailService {
                 "<h1>Reset Your Password</h1>" +
                 "<p>We received a request to reset your TechStore password.</p>" +
                 "<p>Click the button below to set a new password:</p>" +
-                "<a href='" + resetLink + "' class='button'>Reset Password</a>" +
+                "<a href='" + resetLink + "' class='button' style='color:white;'>Reset Password</a>" +
                 "<p style='margin-top:25px;font-size:13px;color:#64748b;'>If you didn’t request this, you can safely ignore this email.</p>" +
                 "</div></div></body></html>";
 

@@ -164,6 +164,38 @@ const handleSubmit = async (e) => {
   }
 };
 
+const sendEmail = async () => {
+    if (!recoveryMail) {
+      setErrorMsg("Please enter your email address.");
+      return;
+    }
+
+    setIsLoading(true);
+    setErrorMsg("");
+
+    try {
+      const response = await axios.put(
+        `https://techstore-3fvk.onrender.com/api/v1/accounts/recovery/password`,
+        null,
+        { params: { email: recoveryMail  } }
+      );
+
+      setSuccessMsg("Recovery mail sent successfully!");
+      setTimeout(() => setSuccessMsg(""), 3000);
+    } catch (error) {
+      console.error("Error sending recovery email:", error);
+      if (error.response?.status === 404) {
+        setErrorMsg("No account found with this email.");
+      } else {
+        setErrorMsg("Failed to send recovery email. Try again later.");
+      }
+      setTimeout(() => setErrorMsg(""), 3000);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+
 
 
 
@@ -670,19 +702,19 @@ const signUpSecond = (<>
                 </>) : (<>
                     <div className={styles.logDiv}>
                           <p className={styles.recoveryTitle}>Change Your Password</p>
-                          <label htmlFor="email" className={styles.labelRecoveryMail}></label>
                           <input id="email" 
                           type="text"
                           maxLength={50} 
                           className={styles.recoveryMail}  
                           placeholder="Enter Your Email"
                           value={recoveryMail}
-                          onChange={(e) => setUsername(e.target.value)}  
+                          onChange={(e) => setRecoveryMail(e.target.value)}  
                           />
 
                           <Link className={styles.forgot} onClick={() => setIsForgot(false)}>Go back to Login</Link>
                           <button
-                              className={styles.submit}
+                              type="button"
+                              className={styles.submitForgot}
                               onClick={sendEmail}>                      
                               {isLoading ? (
                                 <span className={styles.loader}></span>
