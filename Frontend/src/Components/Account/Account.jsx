@@ -23,9 +23,15 @@ import Purchase from "../Purchase/Purchase";
 
     
 
-function Account({ account, edit, setEdit ,token, refreshToken, isPurchase, setIsPurchase,logout}) {
+function Account({ account, edit, setEdit ,token, refreshToken, isPurchase, setIsPurchase,logout,isHistory}) {
 
-        const [isPurchaseHistory,setIsPurchaseHistory] = useState(false);
+      const [isPurchaseHistory, setIsPurchaseHistory] = useState(false);
+
+      useEffect(() => {
+          if (isHistory) {
+            setIsPurchaseHistory(true);
+          }
+      }, [isHistory]);
       const [isPurchaseDone, setIsPurchaseDone] = useState(false);
       const [cropModalOpen, setCropModalOpen] = useState(false);
       const [cropImageSrc, setCropImageSrc] = useState(null);
@@ -617,7 +623,7 @@ const updateChanges = () => {
                               headers: {
                                 Authorization: `Bearer ${token}`,
                               },
-                              params: { id: draftAccount.id, password },
+                              params: { email: draftAccount.email, password },
                             }
                           );
                           setLogAccount(passwordResponse.data);

@@ -77,6 +77,7 @@ function AddItem({ highlight, setHighlight, username}) {
         videoUrl: "",
         bought: 0,
         rating: 0,
+        rating_count: 0,
         searched: 0
     };
 
@@ -161,7 +162,8 @@ function AddItem({ highlight, setHighlight, username}) {
             videoUrl: formData.videoUrl || null,
             account: accountSummary,
             bought: 0,      
-            rating: 0,      
+            rating: 0,  
+            rating_count: 0,    
             searched: 0     
         };
 

@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "./Purchase.module.css";
+import { useNavigate } from "react-router-dom";
 
 function Purchase({ setIsPurchaseHistory, accountId, token }) {
     const [purchases, setPurchases] = useState([]);
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (!accountId) return;
@@ -38,6 +40,10 @@ function Purchase({ setIsPurchaseHistory, accountId, token }) {
                     );
                     return { ...purchase, products };
                 })
+                );
+
+                purchasesWithProducts.sort(
+                    (a, b) => new Date(b.purchaseDate) - new Date(a.purchaseDate)
                 );
 
                 setPurchases(purchasesWithProducts);
@@ -82,18 +88,18 @@ function Purchase({ setIsPurchaseHistory, accountId, token }) {
                     ) : (
                         <ul>
                             {purchases.map((purchase) => (
-                                <li key={purchase.id}>
+                                <li key={purchase.id} style={{marginBottom:"5rem"}}>
                                     <p className={styles.code}>{purchase.purchaseCode}</p>
                                     <p className={styles.date}>
                                     {new Date(purchase.purchaseDate).toLocaleDateString("en-GB", {
-                                        day: "numeric",
+                                        day: "numeric", 
                                         month: "long",
                                         year: "numeric",
                                     })}
                                     </p>
                                     <ul className={styles.productList}>
                                         {purchase.products.map((product) => (
-                                            <li key={product.id} className={styles.productItem}>
+                                            <li key={product.id} className={styles.productItem}  style={{border: "1px solid #c9c9c9"}} onClick={() => navigate(`/product/${product.id}`)}>
                                             <img
                                                 src={product.productImageUrl}
                                                 alt={product.name}
@@ -102,9 +108,9 @@ function Purchase({ setIsPurchaseHistory, accountId, token }) {
                                             <div className={styles.productInfo}>
                                                 <p className={styles.productName}>{product.name}</p>
                                                 <p className={styles.productCompany}>{product.company}</p>
-                                                <p className={styles.productQuantity}>Quantity: {product.quantity}</p>
+                                                <p className={styles.productQuantity}>{product.quantity}x</p>
                                                 <p className={styles.productPrice}>
-                                                Total: ${product.totalPrice.toFixed(2)}
+                                                {product.totalPrice.toFixed(2)}₼
                                                 </p>
                                             </div>
                                             </li>

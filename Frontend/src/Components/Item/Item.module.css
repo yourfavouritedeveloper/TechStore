@@ -431,7 +431,7 @@ body {
 
 .price {
     position: absolute;
-    bottom: 10.6rem;
+    bottom: 10.2rem;
     font-size: clamp(1rem, 2.2rem, 10rem);
     left: -0.5rem;
     color: #000000;
@@ -442,7 +442,7 @@ body {
 
 .discounted {
     position: absolute;
-    bottom: 13.7rem;
+    bottom: 13.2rem;
     font-size: clamp(1rem, 1.7rem, 10rem);
     left: 3.9rem;
     color: rgb(148, 148, 148);
@@ -456,7 +456,7 @@ body {
 
 .discount {
     position: absolute;
-    bottom: 15.6rem;
+    bottom: 15.1rem;
     font-size: clamp(1rem, 1.2rem, 10rem);
     left: 3.5rem;
     color: rgb(255, 255, 255);
@@ -469,7 +469,7 @@ body {
 
 .discountedPrice {
     position: absolute;
-    bottom: 10.6rem;
+    bottom: 10.1rem;
     font-size: clamp(1rem, 2.2rem, 10rem);
     left: -0.5rem;
     color: #000000;
@@ -525,8 +525,7 @@ body {
     left: 23rem;
     top: -9rem;
     font-family: "PoppinsSemiBold";
-    background: linear-gradient(135deg, #2563eb, #3b82f6);
-    color: white;
+    color: rgb(0, 0, 0);
     position: absolute;
     z-index: 50;
     cursor: pointer;
@@ -541,8 +540,7 @@ body {
     top: -9rem;
     font-family: "PoppinsSemiBold";
     right: 16.5rem;
-    background: linear-gradient(135deg, #2563eb, #3b82f6);
-    color: white;
+    color: rgb(0, 0, 0);
     position: absolute;
     z-index: 50;
     cursor: pointer;
@@ -551,10 +549,7 @@ body {
 
 }
 
-.increase:hover,
-.decrease:hover {
-    background-color: #ff5c53;
-}
+
 
 .number {
     font-size: 2rem;
@@ -582,8 +577,8 @@ body {
     font-family: "PoppinsSemiBold";
     color: #fff;
 
-    background: linear-gradient(135deg, #ff4b2b, #ff416c);
-    border-radius: 1rem;
+    background: linear-gradient(90deg, #4f46e5, #bc96ff); 
+       border-radius: 1rem;
 
     cursor: pointer;
     transition: all 0.3s ease;
@@ -592,7 +587,7 @@ body {
 
 .added:hover {
     transform: translateY(-2px);
-    box-shadow: 0 0px 4px rgba(255, 65, 54, 0.6);
+    box-shadow: 0 0px 4px #4f46e5;
 }
 
 .added svg {
@@ -608,8 +603,8 @@ body {
 
 .addedNumber {
     position: absolute;
-    top: 0.2rem;
-    right: 0.2rem;
+    top: 0.3rem;
+    right: 0.3rem;
 
     display: flex;
     align-items: center;
@@ -619,11 +614,10 @@ body {
     height: 24px;
     z-index: 10;
     background: white;
-    color: #ff4b2b;
+    color: #4f46e5;
     font-size: 0.9rem;
     font-family: "PoppinsRegular";
     border-radius: 50%;
-    box-shadow: 0 2px 8px rgba(255, 65, 54, 0.4);
     transition: transform 0.3s ease;
 
 }
@@ -764,7 +758,7 @@ body {
 .ratingLine {
     position: absolute;
     height: 0.5rem;
-    background-color: rgb(110, 160, 63);
+    background: linear-gradient(90deg, #4f46e5, #bc96ff);
     z-index: 1;
     top: 17.9rem;
     left: 3.45rem;
@@ -800,8 +794,9 @@ body {
 
 
 .check:hover {
-    border: 1.5px solid #9b59b6;
-    background-color: #9b59b6;
+    border: none;
+    background: linear-gradient(90deg, #4f46e5, #bc96ff);
+
     color: white;
     transform: scale(1.01);
 }
@@ -1527,7 +1522,7 @@ body {
 .successMessage {
     background-color: rgb(11, 150, 11);
     width: 30%;
-    top: -11%;
+    top: 5%;
     left: 50%;
     transform: translateX(-50%);
     color: white;
@@ -1560,7 +1555,7 @@ body {
     bottom: 1.45rem;
     position: absolute;
     border-radius: 50%;
-    left: 73.6rem;
+    left: 80.3rem;
     font-size: 1.4rem;
     cursor: pointer;
     transition: all 0.3s ease;

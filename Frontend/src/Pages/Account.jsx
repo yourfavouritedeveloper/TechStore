@@ -9,6 +9,7 @@ import Footer from "../Components/Footer/Footer";
 
 function Account() {
 
+
       const { isPurchase, setIsPurchase } = usePurchase();
 
     useEffect(() => {
@@ -26,6 +27,9 @@ function Account() {
 
   const [edit, setEdit] = useState(location.state?.edit || false);
   const [account, setAccount] = useState([]);
+
+  const [isHistory, setIsHistory] = useState(location.state?.isHistory || false);
+
   const [ready, setReady] = useState(false);
 
   
@@ -45,16 +49,20 @@ function Account() {
         window.onbeforeunload = () => window.scrollTo(0, 0);
       }, []);
 
-useEffect(() => {
-  if (loading) return;
+  useEffect(() => {
+    if (loading) return;
 
-  if (!refreshToken) {
-    navigate("/login", { state: { from: location } });
-  } else if (!token) {
-    refreshAccessToken();
-  }
-}, [loading, token, refreshToken, navigate, location, refreshAccessToken]);
+    if (!refreshToken) {
+      navigate("/login", { state: { from: location } });
+    } else if (!token) {
+      refreshAccessToken();
+    }
+  }, [loading, token, refreshToken, navigate, location, refreshAccessToken]);
 
+
+    useEffect(() => {
+      if (location.state?.isHistory) setIsHistory(true);
+    }, [location.state]);
 
 
     useEffect(() => {
@@ -101,7 +109,7 @@ useEffect(() => {
         <>
         <title>{"Account | " + account.customerName}</title>
         <Nav highlight={true}  onEditClick={handleEditClick} ></Nav>
-        <Profile account={account}  edit={edit} setEdit={setEdit} token={token} refreshToken={refreshToken} isPurchase={isPurchase} logout={logout}/>
+        <Profile account={account}  edit={edit} setEdit={setEdit} token={token} refreshToken={refreshToken} isPurchase={isPurchase} logout={logout} isHistory={isHistory}/>
         <Footer />
         </>
     );
