@@ -230,15 +230,11 @@ public class AccountController {
     @PutMapping("/password")
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Change password", description = "Changes the password of an Account")
-    public AccountDto changePassword(@RequestParam String email, @RequestParam String password) throws Exception {
-        String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        AccountDto myAccount = accountService.findByName(username);
-
-        if (!myAccount.getEmail().equals(email)) {
-            throw new AccessDeniedException("You are not allowed to change password for this account");
-        }
-
-        return accountService.changePassword(email, password);
+    public AccountDto changePassword(@RequestHeader("Authorization") String token, @RequestParam String password) throws Exception {
+        String jwt = token.substring(7);
+        String username = jwtService.extractUsername(jwt);
+        AccountDto account = accountService.findByName(username);
+        return accountService.changePassword(account.getEmail(), password);
     }
 
     @PutMapping("/delete/{id}")
