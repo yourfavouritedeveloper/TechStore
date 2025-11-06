@@ -17,30 +17,41 @@ function Recovery() {
   const [showPassword1, setShowPassword1] = useState(false);
   const [showPassword2, setShowPassword2] = useState(false);
 
-
-
-
-    const handleReset = async () => {
-    if (password !== passwordAgain) {
-        setErrorMsg("Passwords do not match.");
-        setTimeout(() => setErrorMsg(""), 3000);
-        return;
-    }
-
-    setIsLoading(true);
-    try {
-        const response = await axios.put(
-        `http://localhost:8080/api/v1/accounts/reset-password?password=${password}`,
-        {},
-        { headers: { Authorization: `Bearer ${token}` } }
+    if (!token) {
+        return (
+        <div className={styles.containerWhite}>
+            <p className={styles.errorMsg}>Invalid or missing recovery link.</p>
+        </div>
         );
-        setSuccessMsg("Password reset successfully!");
-    } catch (error) {
-        setErrorMsg("Invalid or expired link.");
-    } finally {
-        setTimeout(() => setErrorMsg(""), 3000);
-        setIsLoading(false);
     }
+
+
+    const handleReset = async (e) => {
+        e.preventDefault();
+
+
+
+
+        if (password !== passwordAgain) {
+            setErrorMsg("Passwords do not match.");
+            setTimeout(() => setErrorMsg(""), 3000);
+            return;
+        }
+
+        setIsLoading(true);
+        try {
+            const response = await axios.put(
+            `https://techstore-3fvk.onrender.com/api/v1/accounts/password?password=${password}`,
+            {},
+            { headers: { Authorization: `Bearer ${token}` } }
+            );
+            setSuccessMsg("Password reset successfully!");
+        } catch (error) {
+            setErrorMsg("Invalid or expired link.");
+        } finally {
+            setTimeout(() => setErrorMsg(""), 3000);
+            setIsLoading(false);
+        }
     };
 
   return (
