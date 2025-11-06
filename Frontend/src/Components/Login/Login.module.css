@@ -169,7 +169,7 @@
     position:absolute;
     left:4.9rem;
     width: 29.5rem;
-    top:22.5rem;
+    top:23.5rem;
     padding: 0.8rem 0rem;
     border-radius: 0.6rem;
     box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
@@ -178,6 +178,28 @@
     padding-left: 1rem;
     color: #313131;
 }
+
+.box .submitForgot {
+    position: absolute;
+    top:33.5rem;
+    left:4.95rem;
+    width: 30.3rem;
+    background: linear-gradient(145deg, 
+        #1a52ac 0%,
+        #3b82f6 45%,    
+        #60a5fa 100%
+    );  
+    color:white;
+    font-size: clamp(0.2rem, 1.5rem, 2.5rem);  
+    padding: 0.6rem 1rem;
+    border:none;
+    font-family: "PoppinsLight";
+    border-radius: 0.6rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+}
+
 
 
 .box .labelUsername {

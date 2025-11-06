@@ -13,6 +13,7 @@ import EditProduct from "./Pages/EditProduct";
 import Cart from "./Pages/Cart"
 import Success from "./Pages/Success";
 import { PurchaseProvider } from "./Components/Utils/PurchaseContext";
+import Password from "./Pages/Password";
 
 function App() {
   const [shiftUp, setShiftUp] = useState(false);
@@ -33,6 +34,7 @@ function App() {
               <Route path="/account/:username/product/edit/:id" element={<EditProduct />} />
               <Route path="/account/:username/cart" element={<Cart />} />
               <Route path="/success" element={<Success />} />
+              <Route path="/recover" element={<Password />} />
             </Routes>
           </HashRouter>
         </PurchaseProvider>
