@@ -42,4 +42,7 @@ public class PurchaseDto {
 
     private String currency;
 
+    private String purchaseCode;
+
+
 }

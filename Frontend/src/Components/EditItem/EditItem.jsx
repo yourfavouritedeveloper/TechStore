@@ -17,7 +17,8 @@ import { AuthContext } from "../AuthContext";
 function EditItem({ highlight, setHighlight, username,product}) {
 
     const { token,refreshToken,refreshAccessToken } = useContext(AuthContext);
-    
+    const [loading, setLoading] = useState(false);
+
 
     const fileInputRef = useRef(null);
     const imageInputRef = useRef(null);
@@ -144,6 +145,7 @@ function EditItem({ highlight, setHighlight, username,product}) {
 
 
  const submitClick = async () => {
+    setLoading(true); 
     try {
         const accountRes = await axios.get(
         `https://techstore-3fvk.onrender.com/api/v1/accounts/username/${username}`,
@@ -201,6 +203,9 @@ function EditItem({ highlight, setHighlight, username,product}) {
             console.error("Axios error:", err.message);
         }
         console.error("Full error object:", err);
+    }
+    finally {
+        setLoading(false); 
     }
 };
 
@@ -284,45 +289,45 @@ function EditItem({ highlight, setHighlight, username,product}) {
 
 
 
-    const handleVideoChange = async (e) => {
-        const file = e.target.files[0];
-        if (!file) {
-            console.warn("No file selected");
-            return;
+const handleVideoChange = async (e) => {
+    const file = e.target.files[0];
+
+
+    if (!file) {
+        console.warn("No file selected");
+        return;
+    }
+
+    setVideoFile(file);
+
+    const form = new FormData();
+    form.append("file", file);
+
+    try {
+        const res = await axios.post(
+            "https://techstore-3fvk.onrender.com/api/v1/products/uploadProductVideo",
+            form,
+            { headers: { Authorization: `Bearer ${token}` } }
+        );
+
+
+        const uploadedUrl = res.data.url;
+
+        setVideoUrl(uploadedUrl);
+
+        setFormData((prev) => {
+            const updated = { ...prev, videoUrl: uploadedUrl };
+            return updated;
+        });
+
+
+    } catch (err) {
+        console.error("Error uploading video:", err);
+        if (err.response) {
+            console.error("Backend responded with:", err.response.data);
         }
-
-        setVideoFile(file);
-
-        const form = new FormData();
-        form.append("file", file);
-
-        try {
-            const res = await axios.post(
-                "https://techstore-3fvk.onrender.com/api/v1/products/uploadProductVideo",
-                form,
-            );
-
-            const uploadedUrl = res.data.url;
-            setVideoUrl(uploadedUrl);
-
-                setFormData((prev) => ({
-                ...prev,
-                videoUrl: uploadedUrl,
-                }));
-
-            console.log(formData);
-
-            try {
-                await axios.head(uploadedUrl);
-            } catch {
-                console.warn("Video uploaded, but not accessible yet:", uploadedUrl);
-            }
-
-        } catch (err) {
-            console.error("Error uploading video:", err);
-        }
-    };
-
+    }
+};
 
     useEffect(() => {
     }, [formData.category]);
@@ -722,7 +727,9 @@ function EditItem({ highlight, setHighlight, username,product}) {
                         />
                     </div>
                     <div className={styles.submittion}>
-                        <button className={styles.submit} onClick={submitClick}>Save Product</button>
+                        <button className={loading ? styles.submitted : styles.submit } onClick={submitClick}>
+                            {loading ? <p className={styles.buttonSpinner}></p> : "Save Product"}
+                        </button>
                         <button className={styles.cancel} onClick={cancelClick}>Cancel</button>
                     </div>
 

@@ -39,6 +39,9 @@ public class PurchaseEntity extends BaseEntity {
     @JsonBackReference("buyer-purchases")
     private AccountEntity buyer;
 
+    @Column(name = "purchase_code")
+    private String purchaseCode;
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "purchase_sellers",
@@ -80,6 +83,18 @@ public class PurchaseEntity extends BaseEntity {
 
     @Column(name = "currency", nullable = false)
     private String currency;
+
+
+    @PrePersist
+    private void generatePurchaseCode() {
+        if (this.purchaseCode == null || this.purchaseCode.isEmpty()) {
+            String datePart = java.time.LocalDate.now().format(java.time.format.DateTimeFormatter.ofPattern("yyyyMMdd"));
+
+
+            long suffix = System.currentTimeMillis() % 10000;
+            this.purchaseCode = "ORD-" + datePart + "-" + suffix;
+        }
+    }
 
 
 }

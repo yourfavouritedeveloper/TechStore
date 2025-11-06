@@ -37,6 +37,9 @@ public class PurchaseSummaryDto {
 
     private Map<Long,Long> quantity;
 
+    private String purchaseCode;
+
+
 
 
 }
