@@ -1291,7 +1291,7 @@
 .loadingContainerPage {
   position: fixed;
   display: flex;
-  z-index: 6;
+  z-index: 9;
   width: 100%;
   background-color: #00000042;
   justify-content: center;

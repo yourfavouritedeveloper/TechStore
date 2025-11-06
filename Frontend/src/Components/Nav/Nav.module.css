@@ -454,7 +454,7 @@ body {
   color: #ffffff;
   margin: 0;
   position: relative;
-  right:0.5rem;
+  left:-0.5rem;
   top:0.5rem;
 }
 
@@ -463,7 +463,7 @@ body {
   color: rgba(255, 255, 255, 0.6);
   margin: 0;
   position: relative;
-  right:3.6rem;
+  left:-4.2rem;
   top:-0.3rem;
 }
 
