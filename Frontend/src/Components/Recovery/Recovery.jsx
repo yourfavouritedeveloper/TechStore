@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import styles from "./Recovery.module.css";
 
@@ -13,9 +13,11 @@ function Recovery() {
   const [errorMsg, setErrorMsg] = useState("");
   const [successMsg, setSuccessMsg] = useState("");
   const [loading,setIsLoading] = useState(false);
-
+  const from = location.state?.from?.pathname || "/";
+  const navigate = useNavigate();
   const [showPassword1, setShowPassword1] = useState(false);
   const [showPassword2, setShowPassword2] = useState(false);
+  
 
     if (!token) {
         return (
@@ -46,6 +48,7 @@ function Recovery() {
             { headers: { Authorization: `Bearer ${token}` } }
             );
             setSuccessMsg("Password reset successfully!");
+            setTimeout(() => navigate(from, { replace: true }), 1000)
         } catch (error) {
             setErrorMsg("Invalid or expired link.");
         } finally {
