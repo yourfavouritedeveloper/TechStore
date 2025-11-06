@@ -1,0 +1,231 @@
+
+
+.container {
+    position: relative; 
+    background: linear-gradient(145deg, 
+        #1a52ac 0%,
+        #3b82f6 45%,    
+        #60a5fa 100%
+    );    
+    height: 100vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
+
+}
+
+.errorMsg {
+    position: absolute;
+    z-index: 20;
+    top:2.4rem;
+    left:50%;
+    transform: translateX(-35%);
+    white-space: nowrap;
+    min-width: 28.3rem;
+    background: radial-gradient(
+    circle,
+    rgb(180, 39, 39) 0%,     
+    rgb(220, 50, 50) 60%,    
+     rgb(255, 100, 100) 100%  
+    );
+    color:white;
+    font-size: clamp(0.2rem, 1.7rem, 2.5rem);  
+    padding: 0.3rem 1rem;
+    border:none;
+    font-family: "PoppinsLight";
+    border-radius: 1.1rem;
+    transition: all 0.3s ease;
+
+}
+
+.safeMsg {
+    position: absolute;
+    z-index: 20;
+    left:50%;
+    transform: translateX(-35%);
+    white-space: nowrap;
+    min-width: 28.3rem;
+    background: radial-gradient(
+    circle,
+      rgb(72, 161, 72) 0%,               
+     rgb(61, 141, 61) 70%,               
+     rgb(41, 105, 41) 100%       
+    );
+    color:white;
+    font-size: clamp(0.2rem, 1.7rem, 2.5rem);  
+    padding: 0.3rem 1rem;
+    border:none;
+    font-family: "PoppinsRegular";
+    border-radius: 1.1rem;
+    transition: all 0.3s ease;
+
+
+}
+
+.backgroundDiv {
+    height: 50rem;
+    position: absolute;
+    width: 50rem;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+}
+
+.backgroundDiv .backgroundTitle {
+      position: relative;
+    border-radius: 1.7rem;
+    padding: 0.4rem;
+    top:19%;
+    left:50%;
+    transform: translateX(-95%);
+    width: 50rem;
+    color: white;
+    text-align: left;
+    line-height: 0.8;
+    font-size: clamp(1rem, 7.5rem, 8rem);
+    letter-spacing: -0.2rem;
+    font-family: "PoppinsSemiBold";   
+}
+
+
+
+
+
+.box {
+    overflow-y:scroll;
+    overflow-x: hidden;
+    position: absolute;
+    height: 100vh;
+    width: 45.5vw;
+    top:0rem;
+    left:50%;
+    transform: translateX(10%);
+    background-color: rgb(237, 241, 247);
+  backdrop-filter: blur(0px);
+}
+
+
+.box .labelPassword {
+    font-family: "PoppinsRegular";
+    position:absolute;
+    left:5rem;
+    color: #afafaf;
+    top:18.5rem;
+    font-size: clamp(0.2rem, 1rem, 2.5rem);    
+}
+
+.box .labelPasswordAgain {
+    font-family: "PoppinsRegular";
+    position:absolute;
+    color: #afafaf;
+    left:5rem;
+    top:24.5rem;
+    font-size: clamp(0.2rem, 1rem, 2.5rem);    
+}
+
+.box .password {
+    position:absolute;
+    left:4.9rem;
+    width: 29.5rem;
+    top:19rem;
+    padding: 0.8rem 0rem;
+    border-radius: 0.6rem;
+    box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
+    font-family: "PoppinsRegular";
+    font-size: clamp(0.2rem, 1rem, 2.5rem);
+    padding-left: 1rem;
+    color: #313131;
+}
+
+.box .passwordAgain {
+    position:absolute;
+    top:25rem;
+    left:4.9rem;
+    width: 25.5rem;
+    box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
+    padding: 0.8rem 0rem;
+    border-radius: 0.6rem;
+    font-family: "PoppinsRegular";
+    font-size: clamp(0.2rem, 1rem, 2.5rem);
+    padding-left: 1rem;
+    padding-right: 4rem;
+    color: #313131;
+}
+
+.box .submit {
+    position: absolute;
+    top:33.5rem;
+    left:4.95rem;
+    width: 30.3rem;
+    background: linear-gradient(145deg, 
+        #1a52ac 0%,
+        #3b82f6 45%,    
+        #60a5fa 100%
+    );  
+    color:white;
+    font-size: clamp(0.2rem, 1.5rem, 2.5rem);  
+    padding: 0.6rem 1rem;
+    border:none;
+    font-family: "PoppinsLight";
+    border-radius: 0.6rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+}
+
+
+.toggleBtn1 {
+    position: absolute;
+    border:none;
+    background-color: rgba(245, 222, 179, 0);
+    top:21.2rem;
+    left:32rem;
+    z-index: 10;
+    cursor: pointer;
+
+}
+
+.toggleBtn1 svg {
+    height: 24px;
+    width: 24px;
+    fill: #313131;
+}
+
+.toggleBtn2 {
+    position: absolute;
+    border:none;
+    background-color: rgba(245, 222, 179, 0);
+    top:27.2rem;
+    left:32rem;
+    z-index: 10;
+    cursor: pointer;
+
+}
+
+.toggleBtn2 svg {
+    height: 24px;
+    width: 24px;
+    fill: #313131;
+}
+
+
+.loader {
+  width: 18px;
+  height: 18px;
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.submit[disabled] {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
