@@ -853,6 +853,7 @@ const updateCart = async (item) => {
                                                 </div>
                                             )}
                                             <p className={styles.commentText}>{comment?.comment}</p>
+                                            
                                             <div className={styles.likeDiv}>
                                                 <p className={styles.likeCount}>{comment?.likes ? comment?.likes : 0}</p>
                                                 <button className={styles.like} onClick={() => handleLike(comment?.id)}
@@ -910,12 +911,12 @@ const updateCart = async (item) => {
                                                                 <div className={styles.likeReplyDiv}>
                                                                     <p className={styles.replyLikeCount}>{reply.likes ? reply.likes : 0}</p>
                                                                     <button className={styles.replyLike} onClick={() => handleLike(reply.id)}
-                                                                        style={{ backgroundColor: (reply.likedBy || []).includes(account.username) ? "rgb(112, 139, 255)" : "", color: (reply.likedBy || []).includes(account.username) ? "white" : "rgb(82, 82, 82)" }}
+                                                                        style={{ backgroundColor: (reply.likedBy || []).includes(account?.username) ? "rgb(112, 139, 255)" : "", color: (reply.likedBy || []).includes(account?.username) ? "white" : "rgb(82, 82, 82)" }}
                                                                     >
 
                                                                         <svg xmlns="http://www.w3.org/2000/svg"
                                                                             height="20px"
-                                                                            viewBox="0 -960 960 960" width="20px" fill={(reply.likedBy || []).includes(account.username) ? "white" : "rgb(82, 82, 82)"}><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z" />
+                                                                            viewBox="0 -960 960 960" width="20px" fill={(reply.likedBy || []).includes(account?.username) ? "white" : "rgb(82, 82, 82)"}><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z" />
                                                                         </svg>
                                                                     </button>
                                                                     <button className={styles.replyReply} onClick={() => {
