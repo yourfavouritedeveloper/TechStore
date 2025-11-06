@@ -683,7 +683,7 @@ const signUpSecond = (<>
                           <Link className={styles.forgot} onClick={() => setIsForgot(false)}>Go back to Login</Link>
                           <button
                               className={styles.submit}
-                              onClick={}>                      
+                              onClick={sendEmail}>                      
                               {isLoading ? (
                                 <span className={styles.loader}></span>
                               ) : (

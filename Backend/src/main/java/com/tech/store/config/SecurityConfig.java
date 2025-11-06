@@ -54,6 +54,7 @@ public class SecurityConfig {
                                 "/api/v1/accounts/refreshToken",
                                 "/api/v1/accounts/otp/send",
                                 "/api/v1/accounts/otp/verify",
+                                "/api/v1/accounts/recovery/password",
                                 "/api/v1/accounts/available/username",
                                 "/api/v1/accounts/available/email",
                                 "/api/v1/products/**",
