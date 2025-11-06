@@ -45,11 +45,41 @@ function Account({ account, edit, setEdit ,token, refreshToken, isPurchase, setI
         const navigate = useNavigate();
         const location = useLocation();
 
+      const handleActivate = async () => {
+        if (!logAccount?.id) return;
+
+        try {
+          setLoading(true);
+
+          const response = await axios.put(
+            `https://techstore-3fvk.onrender.com/api/v1/accounts/activate/${logAccount.id}`,
+            {}, 
+            {
+              headers: {
+                Authorization: `Bearer ${token}`, 
+              },
+            }
+          );
+
+          setLogAccount(prev => ({ ...prev, status: "ACTIVE" }));
+
+          alert("Your account has been activated successfully.");
+          window.location.reload();
+        } catch (err) {
+          console.error("Error activating account:", err);
+          alert("Failed to activate account. Please try again later.");
+        } finally {
+          setLoading(false);
+        }
+      };
+
+
+
       const closedAccount = (<>
           <div className={styles.closedDiv}>
             <p className={styles.closedTitle}>Your account has been closed</p>
             <p className={styles.closedSubtitle}>You can still activate your account before it is too late!</p>
-            <button className={styles.activate}>Activate My Account</button>
+            <button className={styles.activate} onClick={handleActivate}>Activate My Account</button>
             <button className={styles.closedExit} onClick={() => navigate("/")}>Close</button>
           </div>
       </>)
