@@ -177,7 +177,7 @@ const sendEmail = async () => {
       const response = await axios.put(
         `https://techstore-3fvk.onrender.com/api/v1/accounts/recovery/password`,
         null,
-        { params: { recoveryMail } }
+        { params: { email: recoveryMail  } }
       );
 
       setSuccessMsg("Recovery mail sent successfully!");
