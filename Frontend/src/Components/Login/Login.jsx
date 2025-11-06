@@ -617,6 +617,7 @@ const signUpSecond = (<>
         <div 
         className={styles.container}
         >
+
                       <p
                         className={styles.errorMsg}
                         style={{top: errorMsg? "2.4rem" : "-7rem"}}
@@ -641,6 +642,25 @@ const signUpSecond = (<>
              className={styles.box}
             ref={boxRef}
              >
+             <div className={styles.headerContainer}>
+                      <div className={styles.headerInner}>
+                          <button type="button" className={styles.backButton} onClick={() => navigate(from, { replace: true })}>
+                          <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              className={styles.backIcon}
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                          >
+                              <polyline points="15 18 9 12 15 6" />
+                          </svg>
+                          <span>Back</span>
+                          </button>
+                      </div>
+                    </div>
               {!isSign ? (<>
 
                   {!isForgot ? (<>
