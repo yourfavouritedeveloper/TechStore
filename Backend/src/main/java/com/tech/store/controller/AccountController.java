@@ -258,7 +258,7 @@ public class AccountController {
         AccountDto myAccount = accountService.findByName(username);
 
         if (!myAccount.getId().equals(id)) {
-            throw new AccessDeniedException("You are not allowed to delete this account");
+            throw new AccessDeniedException("You are not allowed to activate this account");
         }
 
         return accountService.activate(id);
