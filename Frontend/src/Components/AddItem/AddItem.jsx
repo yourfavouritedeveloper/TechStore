@@ -61,23 +61,23 @@ function AddItem({ highlight, setHighlight, username}) {
         name: "",
         description: "",
         longDescription: "",
-        price: "",
+        price: 0,
         category: "",
         company: "",
         productImageUrl: "",
         properties: {},
-        weight: "",
-        height: "",
-        width: "",
-        volume: "",
-        discount: "",
-        amount: "",
-        guarantee: "",
+        weight: 0,
+        height: 0,
+        width: 0,
+        volume: 0,
+        discount: 0,
+        amount: 0,
+        guarantee: 0,
         color: "",
         videoUrl: "",
-        bought: "",
-        rating: "",
-        searched: ""
+        bought: 0,
+        rating: 0,
+        searched: 0
     };
 
         const [formData, setFormData] = useState(initialFormData);
@@ -141,7 +141,8 @@ function AddItem({ highlight, setHighlight, username}) {
             customerName: accountData.customerName,
             email: accountData.email,
             profilePictureUrl: accountData.profilePictureUrl,
-            balance: accountData.balance
+            description: accountData.description, 
+            status: accountData.status
         };
 
         const payload = {
@@ -159,9 +160,9 @@ function AddItem({ highlight, setHighlight, username}) {
             productImageUrl: formData.productImageUrl || "",
             videoUrl: formData.videoUrl || null,
             account: accountSummary,
-            bought: formData.bought ? parseInt(formData.bought) : 0,  
-            rating: formData.rating ? parseFloat(formData.rating) : 0,
-            searched: formData.searched ? parseInt(formData.searched) : 0
+            bought: 0,      
+            rating: 0,      
+            searched: 0     
         };
 
 

@@ -61,7 +61,7 @@ function Success() {
   if (loading) {
     return (
       <div className={styles.container}>
-        <p>Loading purchase details...</p>
+        <p className={styles.loading}>Loading purchase details...</p>
       </div>
     );
   }

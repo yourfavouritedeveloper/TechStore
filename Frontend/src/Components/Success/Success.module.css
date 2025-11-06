@@ -1,98 +1,228 @@
 .container {
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  text-align: center;
-  animation: fadeIn 0.5s ease-in;
-background: linear-gradient(180deg, #7effe5, #a8ffeb, #ecfffa);
-
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
 }
 
+.container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: float 20s linear infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}
+
+
+
+
 .div {
-    position: relative;
-    background-color: white;
-    box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
-    padding: 6rem;
-    border-radius: 1rem;
+  background: white;
+  border-radius: 24px;
+  padding: 4rem 3rem;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+  animation: slideUp 0.6s ease-out;
+  text-align: center;
+}
 
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
+.div::before {
+  content: '✓';
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 3rem;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+  animation: checkmark 0.8s ease-out;
+}
+
+@keyframes checkmark {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) scale(0);
+  }
+  50% {
+    transform: translateX(-50%) scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
 }
 
 .title {
-  font-size: 3.5rem;
-  font-family: "PoppinsSemiBold";
-  color: #00b894;
+  color: #1a1a1a;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 .message {
-  font-size: 1.3rem;
-  font-family: "PoppinsRegular";
-  margin-top: -3.5rem;
+  color: #4a5568;
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+.message strong {
+  color: #667eea;
 }
 
 .subMessage {
-  color: #666;
-  margin-bottom: 2rem;
+  color: #718096;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
 }
 
 .actions {
   display: flex;
+  flex-direction: column;
   gap: 1rem;
+  margin-top: 2rem;
 }
 
 .button {
-  padding: 0.8rem 1.6rem;
-  left:50%;
-  transform: translateX(-137%);
-  position: relative;
-  background-color: #00b894;
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  border-radius: 8px;
   text-decoration: none;
-  transition: 0.2s;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
 }
 
 .button:hover {
-  background-color: #019875;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
 }
 
-.secondary {
-  background-color: #0984e3;
-  left:50%;
-  transform: translateX(-85%);
-  position: relative;
+.button:active {
+  transform: translateY(0);
 }
 
-.secondary:hover {
-  background-color: #065bb7;
+.button.secondary {
+  background: white;
+  color: #667eea;
+  border: 2px solid #667eea;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.1);
 }
 
-.errorTitle {
-  color: #d63031;
-  font-size: 1.8rem;
+.button.secondary:hover {
+  background: #f7fafc;
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.2);
 }
 
-.errorMessage {
-  color: #b2bec3;
-  margin-top: 0.5rem;
+
+
+
+
+
+
+@media (min-width: 640px) {
+  .actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .button {
+    min-width: 180px;
+  }
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+@media (max-width: 480px) {
+  .div {
+    padding: 3rem 2rem;
+  }
+  
+  .div::before {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+    top: -30px;
+  }
+}
+
+.container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle, #ffd700 2px, transparent 2px),
+    radial-gradient(circle, #ff6b6b 2px, transparent 2px),
+    radial-gradient(circle, #4ecdc4 2px, transparent 2px),
+    radial-gradient(circle, #95e1d3 2px, transparent 2px);
+  background-size: 200px 200px, 300px 300px, 250px 250px, 350px 350px;
+  background-position: 0 0, 50px 50px, 100px 100px, 150px 150px;
+  animation: confetti 30s linear infinite;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+@keyframes confetti {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
 }
 
 .notTitle {
-    font-family: "PoppinsSemiBold";
-    color: #00b894;
-    font-size: clamp(1rem,7rem,10rem);
+  color: #e53e3e;
+
+  margin-bottom: 1rem;
 }
+
 .notsubTitle {
-     font-family: "PoppinsRegular";
-    color: #00b894;
-    top:-9rem;
-    position: relative;
-    font-size: clamp(1rem,1.5rem,10rem);   
+  color: #718096;
+  line-height: 1.6;
+}
+
+.loading {
+  color: white;
+  font-size: clamp(1rem,2.5em,5rem);
 }
