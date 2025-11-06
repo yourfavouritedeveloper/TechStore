@@ -16,6 +16,7 @@ import axios from "axios";
 import Cropper from "react-easy-crop";
 import getCroppedImg from "../Utils/cropImage"; 
 import Nintendo from "../../assets/nintendo.png";
+import Purchase from "../Purchase/Purchase";
 
     const USERNAME = import.meta.env.VITE_API_USERNAME;
     const PASSWORD = import.meta.env.VITE_API_PASSWORD;
@@ -24,6 +25,7 @@ import Nintendo from "../../assets/nintendo.png";
 
 function Account({ account, edit, setEdit ,token, refreshToken, isPurchase, setIsPurchase,logout}) {
 
+        const [isPurchaseHistory,setIsPurchaseHistory] = useState(false);
       const [isPurchaseDone, setIsPurchaseDone] = useState(false);
       const [cropModalOpen, setCropModalOpen] = useState(false);
       const [cropImageSrc, setCropImageSrc] = useState(null);
@@ -388,6 +390,7 @@ const updateChanges = () => {
             <img src={spinnerBlack} alt="Loading..." className={styles.loadingImage} />
         </div>}
         <div className={styles.container}>
+            {isPurchaseHistory ? <Purchase setIsPurchaseHistory={setIsPurchaseHistory} accountId={logAccount.id} token={token}/> : <></>}
             {logAccount.status == "CLOSED" ? closedAccount : <></>}
             <div className={`${styles.account} ${edit ? styles.active : ""}`}>
               {edit ? (
@@ -748,7 +751,7 @@ const updateChanges = () => {
                   })}
                 </ul>
               <Link
-                to={`/account/${account.username}/purchase`}
+                onClick={() => setIsPurchaseHistory(true)}
                 className={styles.viewAllLink}
               >
                 View All Purchases
