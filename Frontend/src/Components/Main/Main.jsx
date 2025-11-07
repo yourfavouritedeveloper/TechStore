@@ -53,8 +53,8 @@ const circleRef1 = useRef(null);
 
 
     return ( <>
+            <img className={styles.background} ref={highRef} src={Background} alt="" />
             <div className={styles.aiDiv}  ref={highRef}>
-                  <img className={styles.background} ref={highRef} src={Background} alt="" />
                   <div className={styles.particleWrapper}>
                     <ParticleSphere />
                   </div>
@@ -82,7 +82,7 @@ const circleRef1 = useRef(null);
                   </div>
                     <p className={styles.explanationTitle}>Get smart suggestions, explore items that match what you want, and receive tailored recommendations</p>
                     <p className={styles.explanationSubtitle}>TechStore provides everything from store comparisons to personalized product suggestions — all made for your convenience.</p>
-                    <Link className={styles.launch}>Launch App</Link>
+                    <button className={styles.launch}>Launch App</button>
 
 
               </div>
