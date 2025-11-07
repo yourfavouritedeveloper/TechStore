@@ -6,19 +6,54 @@
   height: 55rem;
   padding-bottom: 5rem;
   background-color: white;
-  overflow-y: hidden;
-  overflow-x: hidden;
+
   z-index: 7;
   padding-top:10rem;
 }
 
 .tableDiv {
+    width: 100%;
+  margin-top:-11rem;
+  height: 55.5rem;
+
+}
+
+
+.backgroundDiv {
 background: radial-gradient(circle at top left, hsl(44, 100%, 85%), #f7f1e1);
 width: 100%;
   margin-top:-11rem;
   height: 55.5rem;
   box-shadow: inset 0 -20px 60px rgba(0, 0, 0, 0.685);
+  position: absolute;  
+}
 
+
+.floorbackgroundDiv {
+ background:
+  linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent 40%),
+  repeating-linear-gradient(
+    0deg,
+    #3b2a1d 0,
+    #3b2a1d 120px,
+    #4a3525 120px,
+    #4a3525 240px
+  ),
+  radial-gradient(circle at 10% 15%, rgba(0, 0, 0, 0.25), transparent 55%),
+  radial-gradient(circle at 70% 25%, rgba(0, 0, 0, 0.15), transparent 65%),
+  radial-gradient(circle at 30% 60%, rgba(0, 0, 0, 0.2), transparent 70%),
+  radial-gradient(circle at 85% 70%, rgba(0, 0, 0, 0.3), transparent 60%),
+  radial-gradient(circle at 50% 85%, rgba(0, 0, 0, 0.1), transparent 75%);
+background-blend-mode: multiply;
+background-size: 1px 80px;
+  box-shadow: inset 0 100px 150px rgba(0, 0, 0, 0.356);
+
+    position: absolute;
+    height: 95rem;
+    width: 100%;
+    top:14.5rem;
+    z-index: 2;
+    transform: rotateX(-80deg);   
 }
 
 .mainTitle {
@@ -44,23 +79,9 @@ width: 100%;
 }
 
 .floorDiv {
-background:
-  linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent 40%),
-  repeating-linear-gradient(
-    0deg,
-    #3b2a1d 0,
-    #3b2a1d 120px,
-    #4a3525 120px,
-    #4a3525 240px
-  ),
-  radial-gradient(circle at 10% 15%, rgba(0, 0, 0, 0.25), transparent 55%),
-  radial-gradient(circle at 70% 25%, rgba(0, 0, 0, 0.15), transparent 65%),
-  radial-gradient(circle at 30% 60%, rgba(0, 0, 0, 0.2), transparent 70%),
-  radial-gradient(circle at 85% 70%, rgba(0, 0, 0, 0.3), transparent 60%),
-  radial-gradient(circle at 50% 85%, rgba(0, 0, 0, 0.1), transparent 75%);
+
 background-blend-mode: multiply;
 background-size: 1px 80px;
-  box-shadow: inset 0 100px 150px rgba(0, 0, 0, 0.356);
 
     position: relative;
     height: 95rem;
@@ -634,6 +655,8 @@ background-size: 1px 80px;
     padding: 0.4rem 1.2rem;
 }
 
+
+
 .notKeyboard {
     position: absolute;
      top:50%;
@@ -813,6 +836,9 @@ background-size: 1px 80px;
     white-space: nowrap;
     padding: 0.4rem 1.2rem;
 }
+
+
+
 
 .notHeadphone {
     position: absolute;
@@ -999,6 +1025,9 @@ background-size: 1px 80px;
     padding: 0.4rem 1.2rem;
 }
 
+
+
+
 .notTv {
     position: absolute;
      top:50%;
@@ -1168,6 +1197,9 @@ background-size: 1px 80px;
     padding: 0.4rem 1.2rem;
 }
 
+
+
+
 .notTablet {
     position: absolute;
      top:50%;
@@ -1330,6 +1362,8 @@ background-size: 1px 80px;
     padding: 0.4rem 1.2rem;
 }
 
+
+
 .notWatch {
     position: absolute;
      top:50%;
@@ -1422,4 +1456,168 @@ background-size: 1px 80px;
     z-index: 8;
     cursor: pointer;
     transition: all 0.4s ease;
+}
+
+
+
+@media (max-width: 1540px) {
+
+
+    .container {
+    height: 40.8rem;
+
+    }
+
+    .tableDiv {
+        margin-top:-17rem;
+        transform: scale(0.8);
+        z-index: 6;
+    }
+
+
+
+
+    .floorbackgroundDiv {
+        top:2rem;
+        z-index: 0;
+    }
+
+
+    .table {
+        position: relative;
+        top:-63.3rem;
+        right:20rem;
+        width: 60rem;
+        height: 33rem;
+        z-index: 3;
+        filter: drop-shadow(0rem 5rem 1.9rem rgba(0,0,0,0.5));
+
+    }
+
+
+
+.clicked {
+
+    width: 125%;
+    height: 133.5%;
+    left:-12.5%;
+}
+
+.not {
+
+    width: 125%;
+    left:-12.5%;
+
+    height: 133.5%;
+}
+
+
+.monitorDiv {
+
+     transform: translate(-85%,-3%);
+ 
+}
+
+.notMonitor {
+    transform: translate(-125%,-3%);
+}
+
+
+
+.computerDiv {
+     transform: translate(-37.5%,11%);
+}
+
+
+.notComputer {
+     transform: translate(-37.5%,11%);
+}
+
+
+.phoneDiv {
+
+
+     transform: translate(-125%,2%);
+  
+}
+
+.notPhone {
+
+     transform: translate(-185%,25%);
+   
+}
+
+
+.keyboardDiv {
+
+
+     transform: translate(-85%,-4%);
+ 
+}
+
+.notKeyboard {
+
+     transform: translate(-115%,-4%);
+  
+}
+
+
+
+.headphoneDiv {
+
+     transform: translate(-125%,1%);
+ 
+}
+
+
+.notHeadphone {
+
+     transform: translate(-185%,21%);
+ 
+}
+
+
+.tvDiv {
+
+
+     transform: translate(3%,1%);
+
+}
+
+.notTv {
+
+     transform: translate(3%,-5%);
+   
+}
+
+
+.tabletDiv {
+
+
+     transform: translate(27%,31%);
+
+}
+
+.notTablet {
+ 
+     transform: translate(27%,31%);
+  
+}
+
+
+.watchDiv {
+
+
+     transform: translate(27%,31%);
+  
+}
+
+
+.notWatch {
+ 
+     transform: translate(27%,31%);
+
+}
+
+
 }

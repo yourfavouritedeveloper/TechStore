@@ -32,6 +32,8 @@ function Category({itemRef,scrollTo, onItemClick,onCategorySelect}) {
 
     return(<>
         <div className={styles.container}  ref={itemRef}>
+            <div className={styles.backgroundDiv}></div>
+            <div className={styles.floorbackgroundDiv}></div>
             <div className={styles.tableDiv}>
                 <p className={styles.mainTitle}>Categories</p>
                 <p className={styles.subtitle}>Browse through our curated collection of products. Each category is tailored to help you quickly discover the best options for your needs.</p>

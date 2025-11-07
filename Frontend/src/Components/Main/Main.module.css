@@ -321,15 +321,14 @@
 .launch {
   font-size: clamp(0rem, 1.8rem, 10rem);
   line-height: 1;
-  top: 13rem;
+  top: 11.4rem;
   text-align: left;
   left: 3rem;
   z-index: 2;
   color: rgb(255, 255, 255);
   font-family: "PoppinsLight";
-  width: 37rem;
   left: 0%;
-  padding: 1.2rem 4rem;
+  padding: 1.5rem 4rem;
   background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -343,6 +342,7 @@
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 
@@ -554,4 +554,94 @@
   bottom: -9rem;
   left: 50%;
   transform: translateX(-150%);
+}
+
+
+
+
+@media (max-width: 1540px) {
+  .aiDiv {
+    height: 73rem;
+
+  }
+
+
+  .background {
+  height: 115rem;
+
+}
+
+
+  
+.particleWrapper {
+  margin-left: -12rem;
+  margin-top: 10rem;
+  transform: scale(0.88);
+
+}
+
+
+.type {
+  z-index: 7;
+  transform: scale(0.8);
+}
+
+
+.explanationDiv {
+  top: -16rem;
+  transform: translateX(-50%) scale(0.8);
+  border-radius: 40px;
+
+
+}
+
+
+.explanationTitle {
+  transform: translate(-50%, -207%) scale(0.8);
+
+}
+
+
+.explanationSubtitle {
+  transform: translate(-50%, -177%) scale(0.8);
+
+}
+
+
+.launch {
+
+  top: -2.8rem;
+  transform: scale(0.8);
+}
+
+
+.glassBand {
+  width: 125%;
+  left:-12.5%;
+
+  top:33rem;
+
+  transform: scale(0.8);
+}
+
+.searchHeader {
+  transform: scale(0.8);
+    margin-top:-6rem;
+    margin-bottom: -1rem;
+}
+
+
+.searchCard {
+
+  transform: translateX(-50%) scale(0.8);
+  
+}
+
+.brandnewdiv {
+
+  padding-bottom: 11.5rem;
+
+}
+
+
 }

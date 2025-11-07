@@ -728,272 +728,36 @@
 
 
 @media (max-width: 1540px) {
-.container {
-    padding-top: 10rem;
-    height: 72rem;
-    padding-bottom: 10rem;
 
+
+.container {
+   height: 75rem;
+  
 }
 
 .containers {
-    height: 15rem;
-    width: 74.2rem;
-    margin: 25.8rem auto 0 auto;
+    transform: scale(0.8);
+    top:-8.8rem;
+
 }
-
-.container1 {
-
-    width: 34.5rem;
-    left:1.12%;
-    top:-8rem;
-    height: 13rem;
-}
-
-.container2 {
-
-    width: 34.5rem;
-    left:22.21%;
-    top:-8rem;
-    height: 13rem;
-}
-
 
 .discoverBox {
-  width: 70rem;
-  height: 24.3rem;
-  top:3.7rem;
-
+  transform: translateX(-50%) scale(0.8);
+    top:0.8rem;
 
   
 }
 
-.discoverBox .title {
-    left:-1rem;
-    top: 2.2rem;
-    font-size: clamp(1rem, 3.8rem,10rem);
-}
-
-.discoverBox .subtitle {
-  top:-2rem;
-  font-size: clamp(1rem, 1.22rem,10rem);
-  width: 35%;
-  left:-0.7rem;
-
-}
-
-.discoverBox img {
-  width: 58%;
-  left:20%;
-  top:-11.6rem;
-}
-
-
-.popularExplanation {
-
-    width: 35%;
-    height: 32rem;
-    left:4rem;
-}
-
-.popularExplanation .subtitle {
-      font-size: clamp(1rem, 2rem,10rem); 
-
-}
-
-.popularExplanation .subsubtitle {
-      font-size: clamp(0rem, 0.85rem,10rem); 
-      top:-21.7rem;   
-      width: 110%;
-
-}
-
-
-.popularButton {
-      font-size: clamp(0rem, 0.8rem,10rem); 
-      left:0rem;
-      top: -8.7rem;
-      z-index: 40;
-      padding: 0.5rem 1rem;
-      border-radius: 0.7rem;
-
-
-}
-
-
-.container1 img {
-  width: 45%;
-  top:0.5rem;
-  left:7rem;
-}
-
-.sellerExplanation {
-
-    width: 35%;
-    height: 32rem;
-    left:4rem;
-}
-
-.sellerExplanation .subtitle {
-      font-size: clamp(1rem, 2rem,10rem); 
-}
-
-.sellerExplanation .subsubtitle {
-      font-size: clamp(0rem, 0.85rem,10rem); 
-      top:-21.7rem;   
-      width: 110%;
-}
-
-
-.sellerButton {
-      font-size: clamp(0rem, 0.8rem,10rem); 
-      left:0rem;
-      top: -8.7rem;
-      z-index: 40;
-      padding: 0.5rem 1rem;
-      border-radius: 0.7rem;
-
-
-}
-
-
-
-.container2 img {
-  width: 55%;
-  top:0.5rem;
-  left:7rem;
-}
-
 
 .populardiv {
-    padding: 0rem 0 5rem 0;
-    width: 71.2rem;
-    height: 25rem;
-    margin: -4.8rem auto 0 auto; 
-
-
-
-    
+    transform: scale(0.8);
+    top:-14rem;
 }
-
-
-
-
-.itemsPopular .searchRate {
-    top: -2.8rem;
-    left:0rem;
-    width: 9.4rem;
-    font-size: clamp(0.8rem, 0.95rem, 2rem);
-    padding: 0rem 1.24rem;
-    border-radius: 0.4rem;
-}
-
-.itemsPopular .guarantee {
-    position: absolute;
-    top:16.8rem;   
-    right: 0.3rem;  
-    font-size: clamp(0rem, 0.75rem, 2rem);
-}
-
-
-
-.itemsPopular {
-    gap: 1rem; 
-    padding: 0rem 4rem;
-    
-
-    
-}
-
-
-
-
-.itemsPopular .item {
-    padding:7rem 1rem;
-    border-radius: 0.25rem;
-
-}
-
-
-.itemsPopular span {
-    top:17.45rem;    
-    left: 0.35rem;  
-    font-size: clamp(0rem, 0.9rem, 2rem);
-}
-
-.itemsPopular .name {
-    top:14rem;
-    line-height: 1.1;
-    left: 0rem;
-    font-size: clamp(0.5rem, 0.81rem, 2rem);
-
-
-}
-
 
 
 .sellerdiv {
-    padding: 0rem 0 5rem 0;
-    width: 71.2rem;
-    height: 25rem;
-    margin: -6rem auto 0 auto; 
-    
-}
-
-
-
-
-.itemsBought .boughtRate {
-    top: -2.8rem;
-    left:0rem;
-    width: 9.4rem;
-    font-size: clamp(0.8rem, 0.95rem, 2rem);
-    padding: 0rem 1.24rem;
-    border-radius: 0.4rem;
-}
-
-.itemsBought .guarantee {
-    position: absolute;
-    top:16.8rem;   
-    right: 0.3rem;  
-    font-size: clamp(0rem, 0.75rem, 2rem);
-}
-
-
-
-.itemsBought {
-    gap: 1rem; 
-    padding: 0rem 4rem;
-    
-    
-
-    
-}
-
-
-
-.itemsBought .item {
-    padding:7rem 1rem;
-    border-radius: 0.25rem;
-}
-
-
-
-
-
-
-.itemsBought span {
-    top:17.45rem;    
-    left: 0.35rem;  
-    font-size: clamp(0rem, 0.9rem, 2rem);
-}
-
-.itemsBought .name {
-    top:14rem;
-    line-height: 1.1;
-    left: 0rem;
-    font-size: clamp(0.5rem, 0.81rem, 2rem);
-
-
+    transform: scale(0.8);
+    top:-20rem;
 }
 
 
