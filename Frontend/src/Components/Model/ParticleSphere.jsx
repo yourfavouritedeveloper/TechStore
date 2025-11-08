@@ -63,7 +63,7 @@ function WaterBubble({ radius = 1.5 }) {
 
 export default function App() {
   return (
-    <Canvas camera={{ position: [0, 0, 5], fov: 75 }} style={{width: "70rem", height: "70rem" }}>
+    <Canvas camera={{ position: [0, 0, 5], fov: 75 }} style={{width: "70rem", height: "70rem", }}>
       <ambientLight intensity={0.1} />
       <directionalLight position={[5, 5, 5]} intensity={1} />
       <WaterBubble />

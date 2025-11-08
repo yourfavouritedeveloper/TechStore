@@ -471,14 +471,14 @@ body {
     }
 
     .titleBox {
-        top:-2.5rem;
+        top:-3.5rem;
         transform: translate(-50%, 0%) scale(0.8);
     }
 
 
     
     .coverBox {
-        top: 28rem;
+        top: 27rem;
     }
 
 
@@ -495,7 +495,7 @@ body {
     }
 
     .boxCampaign {
-        top: 29.5rem;
+        top: 28.5rem;
         margin-left:-37.55rem;
         width: 75rem;
         height: 33.5rem;
@@ -537,179 +537,54 @@ body {
 
 
     .container {
-        height: 60rem;
+        height: 61rem;
+    }
+
+    .titleBox {
+        top:-7.5rem;
+        transform: translate(-50%, 0%) scale(0.6);
     }
 
 
-    .secondBox {
-        top: -4rem;
-        width: 85.9rem;
+    
+    .coverBox {
+        top: 21rem;
     }
+
+
 
     .commercial {
-        width: 27.5rem;
-        height: 21.5rem;
-        top: 38.5rem;
-        right: 15.5rem;
-        border-radius: 1.3rem;
-        border: 0.07rem solid rgb(24, 24, 24);
+        width: 47rem;
+        height: 35rem;
+        top: 9.7rem;
+        right: 13.95rem;
+        transform: scale(0.6);
 
-
-
-    }
-
-    .overflow {
-        height: 16rem;
-
-    }
-
-    .overflow .phoneCommercial {
-        border-radius: 0.9rem;
-        top: 0.7rem;
-    }
-
-
-
-    .commercial .commercialTitle {
-        right: 2rem;
-        top: 6.4rem;
-        font-size: clamp(2rem, 2.95rem, 15rem);
-        width: 80%;
-        line-height: 0.9;
-        letter-spacing: -0.1rem;
-    }
-
-    .commercial .commercialSubtitle {
-        top: 15.2rem;
-        right: 5%;
-        font-size: clamp(0rem, 0.8rem, 15rem);
-        width: 90%;
-        line-height: 0.9;
-        letter-spacing: -0rem;
-    }
-
-    .commercial button {
-        top: 1.7rem;
-        font-size: clamp(0rem, 0.7rem, 10rem);
-        padding: 0.4rem 1.75rem;
-        border-radius: 0.82rem;
-
-    }
-
-
-
-    .coverBox {
-        height: 100%;
-        top: 20.5rem;
-
-    }
-
-
-
-    .line {
-        top: 8.5rem;
-        left: 27.7rem;
-        width: 0.3rem;
-        height: 11rem;
 
 
     }
 
     .boxCampaign {
-        top: 28.5rem;
-        width: 100%;
-        height: 47.2rem;
+        top: 22.5rem;
+        margin-left:-28.6rem;
+        width: 57rem;
+        height: 22rem;
+        padding-bottom: 15rem;
+        border-radius: 0.65rem;
+
     }
 
     .boxExplanation {
-        width: 26.3rem;
-        height: 21.5rem;
-        left: 15.4rem;
-        border-radius: 1.3rem;
-        border: 0.07rem solid rgb(24, 24, 24);
 
+        top: 9.7rem;
+        left: 15.25rem;
+        width: 40rem;
+        height: 35rem;
+
+
+        transform: scale(0.6);
     }
 
-
-
-    .boxExplanation .title {
-        font-size: clamp(1.6rem, 2.45rem, 10rem);
-        letter-spacing: -0.1rem;
-        line-height: 1.2;
-        top: -1.5rem;
-        left: 41.5%;
-
-
-    }
-
-
-    .boxCampaignExplanation {
-        top: 4.5rem;
-        left: 2.5%;
-        width: 95%;
-        height: 16.45rem;
-        border-radius: 0.8rem;
-
-    }
-
-
-    .boxCampaignExplanation .subtitle {
-        width: 90%;
-        font-size: clamp(0rem, 0.57rem, 10rem);
-        line-height: 1;
-        top: 11.7rem;
-        left: 50%;
-
-    }
-
-    .boxCampaignExplanation .button {
-        top: 13.45rem;
-        left: 50%;
-        transform: translateX(-50%);
-        white-space: nowrap;
-        font-size: clamp(0rem, 0.7rem, 10rem);
-        padding: 0.4rem 1.75rem;
-        border-radius: 0.82rem;
-
-
-    }
-
-    .boxCampaignExplanation .campaignPhoto {
-        height: 65%;
-        width: 95%;
-        top: 0.55rem;
-        border-radius: 0.55rem;
-
-    }
-
-
-
-
-    .title {
-        top: 9.5rem;
-        font-size: clamp(2rem, 5.5rem, 15rem);
-        width: 35%;
-        left: 15.5%;
-        letter-spacing: -0.4rem;
-
-
-    }
-
-    .subtitle {
-        width: 47%;
-        font-size: clamp(0rem, 1.07rem, 10rem);
-        left: 5.8%;
-        top: 13.8rem;
-
-    }
-
-    .shop {
-        top: 9rem;
-        font-size: clamp(0rem, 0.7rem, 10rem);
-        padding: 0.45rem 1.95rem;
-        border-radius: 0.9rem;
-        left: 2.3rem;
-    }
 
 
 
@@ -724,191 +599,53 @@ body {
 @media (max-width: 950px) {
 
 
-    .container {
-        height: 50rem;
+     .container {
+        height: 41rem;
     }
 
-    .video {
-        width: 100%;
-        height: 40%;
-        object-fit: cover;
-        position: absolute;
-        top: 0rem;
-        left: 0;
-        z-index: -1;
-        filter: hue-rotate(300deg) brightness(1.5);
+    .titleBox {
+        top:-11.5rem;
+        transform: translate(-50%, 0%) scale(0.4);
     }
 
 
-    .title {
-        top: 9.3rem;
-        font-size: clamp(2rem, 4.3rem, 15rem);
-        width: 25%;
-        left: 26.5%;
-        letter-spacing: -0.2rem;
-
-
+    
+    .coverBox {
+        top: 14.5rem;
     }
 
-    .subtitle {
-        width: 35.9%;
-        font-size: clamp(0rem, 0.8rem, 10rem);
-        left: -8%;
-        top: 16rem;
 
-    }
-
-    .shop {
-        top: 9.3rem;
-        font-size: clamp(0rem, 0.55rem, 10rem);
-        padding: 0.35rem 1.45rem;
-        border-radius: 0.6rem;
-        left: 1rem;
-    }
-
-    .line {
-        top: 8.8rem;
-        left: 27.3rem;
-        width: 0.2rem;
-        height: 8.5rem;
-
-
-    }
-
-    .secondBox {
-        top: -8rem;
-        width: 75.9rem;
-    }
 
     .commercial {
-        width: 22.5rem;
-        height: 17.15rem;
-        top: 38.5rem;
-        right: 15.5rem;
-        border-radius: 1rem;
-        border: 0.07rem solid rgb(24, 24, 24);
+        width: 47rem;
+        height: 35rem;
+        top: -5.7rem;
+        right: 18.05rem;
+        transform: scale(0.4);
 
 
 
     }
-
-    .overflow {
-        height: 13.5rem;
-
-    }
-
-    .overflow .phoneCommercial {
-        border-radius: 0.6rem;
-        top: 0.6rem;
-    }
-
-
-
-    .commercial .commercialTitle {
-        right: 1.5rem;
-        top: 5rem;
-        font-size: clamp(2rem, 2.5rem, 15rem);
-        width: 80%;
-        line-height: 0.9;
-        letter-spacing: -0.1rem;
-    }
-
-    .commercial .commercialSubtitle {
-        top: 12.6rem;
-        right: 5%;
-        font-size: clamp(0rem, 0.62rem, 15rem);
-        width: 90%;
-        line-height: 0.9;
-        letter-spacing: -0rem;
-    }
-
-    .commercial button {
-        top: 0.7rem;
-        font-size: clamp(0rem, 0.57rem, 10rem);
-        padding: 0.3rem 1.45rem;
-        border-radius: 0.62rem;
-
-    }
-
-
-
-    .coverBox {
-        height: 100%;
-        top: 18rem;
-
-    }
-
-
-
-
 
     .boxCampaign {
-        top: 28.5rem;
-        width: 100%;
-        height: 47.2rem;
+        top: 15.5rem;
+        margin-left:-18.8rem;
+        width: 37.5rem;
+        height: 9.5rem;
+        padding-bottom: 15rem;
+        border-radius: 0.65rem;
     }
 
     .boxExplanation {
-        width: 21.5rem;
-        height: 17.15rem;
-        left: 15.4rem;
-        border-radius: 1rem;
-        border: 0.07rem solid rgb(24, 24, 24);
 
+        top: -5.7rem;
+        left: 20.15rem;
+        width: 40rem;
+        height: 35rem;
+
+
+        transform: scale(0.4);
     }
-
-
-
-    .boxExplanation .title {
-        font-size: clamp(1.6rem, 2.25rem, 10rem);
-        letter-spacing: -0.1rem;
-        line-height: 1.2;
-        top: -1.5rem;
-        left: 35%;
-
-
-    }
-
-
-    .boxCampaignExplanation {
-        top: 4rem;
-        left: 2.5%;
-        width: 95%;
-        height: 12.55rem;
-        border-radius: 0.7rem;
-
-    }
-
-
-    .boxCampaignExplanation .subtitle {
-        width: 90%;
-        font-size: clamp(0rem, 0.47rem, 10rem);
-        line-height: 1;
-        top: 9.1rem;
-        left: 50%;
-
-    }
-
-    .boxCampaignExplanation .button {
-        top: 10.45rem;
-        left: 50%;
-        transform: translateX(-50%);
-        white-space: nowrap;
-        font-size: clamp(0rem, 0.55rem, 10rem);
-        padding: 0.3rem 1.25rem;
-        border-radius: 0.62rem;
-
-
-    }
-
-    .boxCampaignExplanation .campaignPhoto {
-        height: 65%;
-        width: 95%;
-        top: 0.55rem;
-        border-radius: 0.55rem;
-
-    }
-
 
 
 }

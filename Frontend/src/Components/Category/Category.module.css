@@ -1621,3 +1621,340 @@ background-size: 1px 80px;
 
 
 }
+
+
+@media (max-width: 1240px) {
+
+    .container {
+    height: 25.8rem;
+
+    }
+
+    .tableDiv {
+        margin-top:-21rem;
+        transform: scale(0.6);
+        z-index: 6;
+    }
+
+    .backgroundDiv {
+
+        height: 43.5rem;
+
+    }
+
+
+
+
+
+    .floorbackgroundDiv {
+        top:7.5rem;
+        z-index: 0;
+        background-size: 1px 50px;
+        height: 60rem;
+    }
+
+
+    .table {
+        position: relative;
+        top:-63.3rem;
+        right:20rem;
+        width: 60rem;
+        height: 33rem;
+        z-index: 3;
+        filter: drop-shadow(0rem 5rem 1.9rem rgba(0,0,0,0.5));
+
+    }
+
+
+
+.clicked {
+
+    width: 168%;
+    height: 127.7%;
+    left:-34%;
+}
+
+.not {
+
+    width: 168%;
+    left:-34%;
+
+    height: 127.7%;
+}
+
+
+.monitorDiv {
+
+     transform: translate(-85%,-3%);
+ 
+}
+
+.notMonitor {
+    transform: translate(-125%,-3%);
+}
+
+
+
+.computerDiv {
+     transform: translate(-37.5%,11%);
+}
+
+
+.notComputer {
+     transform: translate(-37.5%,11%);
+}
+
+
+.phoneDiv {
+
+
+     transform: translate(-125%,2%);
+  
+}
+
+.notPhone {
+
+     transform: translate(-185%,25%);
+   
+}
+
+
+.keyboardDiv {
+
+
+     transform: translate(-85%,-4%);
+ 
+}
+
+.notKeyboard {
+
+     transform: translate(-115%,-4%);
+  
+}
+
+
+
+.headphoneDiv {
+
+     transform: translate(-125%,1%);
+ 
+}
+
+
+.notHeadphone {
+
+     transform: translate(-185%,21%);
+ 
+}
+
+
+.tvDiv {
+
+
+     transform: translate(3%,1%);
+
+}
+
+.notTv {
+
+     transform: translate(3%,-5%);
+   
+}
+
+
+.tabletDiv {
+
+
+     transform: translate(27%,31%);
+
+}
+
+.notTablet {
+ 
+     transform: translate(27%,31%);
+  
+}
+
+
+.watchDiv {
+
+
+     transform: translate(27%,31%);
+  
+}
+
+
+.notWatch {
+ 
+     transform: translate(27%,31%);
+
+}
+}
+
+
+@media (max-width: 950px)  {
+     .container {
+    height: 25.8rem;
+
+    }
+
+    .tableDiv {
+        margin-top:-26.5rem;
+        transform: scale(0.4);
+        z-index: 6;
+    }
+
+    .backgroundDiv {
+
+        height: 43.5rem;
+
+    }
+
+
+
+
+
+    .floorbackgroundDiv {
+        top:7.5rem;
+        z-index: 0;
+        background-size: 1px 50px;
+        height: 60rem;
+    }
+
+
+    .table {
+        position: relative;
+        top:-63.3rem;
+        right:20rem;
+        width: 60rem;
+        height: 33rem;
+        z-index: 3;
+        filter: drop-shadow(0rem 5rem 1.9rem rgba(0,0,0,0.5));
+
+    }
+
+
+
+.clicked {
+
+    width: 168%;
+    height: 127.7%;
+    left:-34%;
+}
+
+.not {
+
+    width: 168%;
+    left:-34%;
+
+    height: 127.7%;
+}
+
+
+.monitorDiv {
+
+     transform: translate(-85%,-3%);
+ 
+}
+
+.notMonitor {
+    transform: translate(-125%,-3%);
+}
+
+
+
+.computerDiv {
+     transform: translate(-37.5%,11%);
+}
+
+
+.notComputer {
+     transform: translate(-37.5%,11%);
+}
+
+
+.phoneDiv {
+
+
+     transform: translate(-125%,2%);
+  
+}
+
+.notPhone {
+
+     transform: translate(-185%,25%);
+   
+}
+
+
+.keyboardDiv {
+
+
+     transform: translate(-85%,-4%);
+ 
+}
+
+.notKeyboard {
+
+     transform: translate(-115%,-4%);
+  
+}
+
+
+
+.headphoneDiv {
+
+     transform: translate(-125%,1%);
+ 
+}
+
+
+.notHeadphone {
+
+     transform: translate(-185%,21%);
+ 
+}
+
+
+.tvDiv {
+
+
+     transform: translate(3%,1%);
+
+}
+
+.notTv {
+
+     transform: translate(3%,-5%);
+   
+}
+
+
+.tabletDiv {
+
+
+     transform: translate(27%,31%);
+
+}
+
+.notTablet {
+ 
+     transform: translate(27%,31%);
+  
+}
+
+
+.watchDiv {
+
+
+     transform: translate(27%,31%);
+  
+}
+
+
+.notWatch {
+ 
+     transform: translate(27%,31%);
+
+}   
+}
