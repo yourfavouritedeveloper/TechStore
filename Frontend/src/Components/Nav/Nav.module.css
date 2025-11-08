@@ -868,6 +868,8 @@ a {
 
 .highcontainer {
     height: 3.85rem;
+          border-bottom: 1.3px solid rgb(180, 180, 180);
+
 }
 
 }
@@ -876,155 +878,42 @@ a {
 
 
 @media (max-width: 1240px) {
-    .container {
-        width: 59rem;
-
-    }
-
-    #name {
-        left: 1.5%;
-        top: -0.1rem;
-        font-size: clamp(0rem, 1.05rem, 2.5rem);
-
-    }
-
-
-    #campaign {
-        left: 45.5%;
-        top: -0.1rem;
-        font-size: clamp(0rem, 1.05rem, 2.5rem);
-
-    }
-
-
-
-
-
-    #about {
-        left: 62.3%;
-        top: -0.1rem;
-        font-size: clamp(0rem, 1.05rem, 2.5rem);
-
-    }
-
-
-
-    #contact {
-        left: 76%;
-        top: -0.1rem;
-        font-size: clamp(0rem, 1.05rem, 2.5rem);
-
-    }
-
-
-
-
-
-
-    #login {
-
-        left: 91%;
-        top: -0.1rem;
-        font-size: clamp(0rem, 1.05rem, 2.5rem);
-
-    }
-
-
-
-
-    .inputBar input {
-        font-size: 0.75rem;
-        top: -1.25rem;
-        margin-left: -43rem;
-        width: 9rem;
-        padding: 0.15rem 1.3rem;
-        padding-right: 2.1rem;
-    }
-
-
-
-    .search {
-        top: 0.4rem;
-        left: 21rem;
-        width: 20px;
-        height: 20px;
-    }
+ .container {
+    top:-0.6rem;
+    transform: translateX(-50%) scale(0.6);
 }
 
+.highcontainer {
+    height: 2.65rem;
+    border-bottom: 1px solid rgb(180, 180, 180);
+
+}
+
+.normal {
+    height: 13.8rem;
+}
+}
+
+
+
+
 @media (max-width: 950px) {
-    .container {
-        width: 49rem;
+ .container {
+    top:-0.7rem;
+    transform: translateX(-50%) scale(0.4);
+}
 
-    }
+.highcontainer {
+    
+    height: 1.8rem;
+    border-bottom: 0.7px solid rgb(180, 180, 180);
 
-    #name {
-        left: 4.5%;
-        top: -0.5rem;
-        font-size: clamp(0rem, 0.9rem, 2.5rem);
+}   
 
-    }
+.normal {
+    height: 8.8rem;
+}
 
-
-    #campaign {
-        left: 43.5%;
-        top: -0.5rem;
-        font-size: clamp(0rem, 0.9rem, 2.5rem);
-
-    }
-
-
-
-
-
-    #about {
-        left: 60.3%;
-        top: -0.5rem;
-        font-size: clamp(0rem, 0.9rem, 2.5rem);
-
-    }
-
-
-
-    #contact {
-        left: 72%;
-        top: -0.5rem;
-        font-size: clamp(0rem, 0.9rem, 2.5rem);
-
-    }
-
-
-
-
-
-
-    #login {
-
-        left: 86%;
-        top: -0.5rem;
-        font-size: clamp(0rem, 0.9rem, 2.5rem);
-
-    }
-
-
-
-
-    .inputBar input {
-        font-size: 0.6rem;
-        top: -1.6rem;
-        margin-left: -44rem;
-        width: 9rem;
-        padding: 0.15rem 0.8rem;
-        padding-right: 0.2rem;
-    }
-
-
-
-    .search {
-        top: 0rem;
-        left: 17.9rem;
-        width: 16px;
-        height: 16px;
-    }    
 }
 
 

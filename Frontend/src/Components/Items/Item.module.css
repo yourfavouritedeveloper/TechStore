@@ -744,6 +744,7 @@
 .discoverBox {
   transform: translateX(-50%) scale(0.8);
     top:0.8rem;
+    z-index: -1;
 
   
 }
@@ -764,9 +765,102 @@
 
 }
 
-@media (max-width: 1200px) {}
 
-@media (max-width: 992px) {}
+@media (max-width: 1440px) {
+.containers {
+    left:50%;
+    transform: translateX(-50%) scale(0.8);
+    top:-8.8rem;
+
+}
+
+.populardiv {
+    left:50%;
+    transform: translateX(-50%) scale(0.8);
+    top:-14rem;
+}
+
+
+.sellerdiv {
+    left:50%;
+    transform: translateX(-50%) scale(0.8);
+    top:-20rem;
+}
+
+
+}
+
+
+@media (max-width: 1240px) {
+.container {
+   height: 52rem;
+  
+}
+
+.containers {
+    left:50%;
+    transform: translateX(-50%) scale(0.6);
+    top:-16.9rem;
+
+}
+
+.discoverBox {
+  transform: translateX(-50%) scale(0.6);
+    top:-2.8rem;
+
+  
+}
+
+
+.populardiv {
+    left:50%;
+    transform: translateX(-50%) scale(0.6);
+    top:-27.5rem;
+}
+
+
+.sellerdiv {
+    left:50%;
+    transform: translateX(-50%) scale(0.6);
+    top:-39rem;
+}
+
+}
+
+@media (max-width: 950px) {
+.container {
+   height: 28rem;
+  
+}
+
+.containers {
+    left:50%;
+    transform: translateX(-50%) scale(0.4);
+    top:-25.9rem;
+
+}
+
+.discoverBox {
+  transform: translateX(-50%) scale(0.4);
+    top:-7rem;
+
+  
+}
+
+
+.populardiv {
+    left:50%;
+    transform: translateX(-50%) scale(0.4);
+    top:-41.5rem;
+}
+
+
+.sellerdiv {
+    left:50%;
+    transform: translateX(-50%) scale(0.4);
+    top:-59rem;
+}    
+}
 
 @media (max-width: 768px) {}
 

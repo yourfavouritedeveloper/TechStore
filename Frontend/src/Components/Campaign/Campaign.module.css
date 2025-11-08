@@ -316,132 +316,13 @@
 
 @media (max-width: 1240px) {
 
-    .container {
-        height: 22%;
-        width: 55rem;
-        top: -3%;
+     .container {
+        top: 19.5%;
+        transform:translate(-50%, -50%) scale(0.6);
+        height: 50.5%;
+        border-radius: 0.7rem;
 
     }
-
-
-
-    .campaign1 .title {
-        font-size: clamp(3rem, 4.5rem, 10rem);
-        top: -4rem;
-        letter-spacing: -0.3rem;
-        left: 1rem;
-    }
-
-
-    .campaign1 .subtitle {
-        font-size: clamp(1rem, 1.2rem, 10rem);
-        top: -10.1rem;
-        left: -9.8rem;
-    }
-
-    .campaign1 .subsubtitle {
-        font-size: clamp(0rem, 1.015rem, 10rem);
-        top: -11.8rem;
-        left: -16.29rem;
-    }
-
-
-    .campaign2 .title {
-        font-size: clamp(3rem, 5rem, 10rem);
-        top: -5.5rem;
-        left: -17rem;
-        letter-spacing: -0.3rem;
-
-    }
-
-
-    .campaign2 .subtitle {
-        font-size: clamp(1rem, 1.2rem, 10rem);
-        top: -12.5rem;
-        left: -12rem;
-    }
-
-    .campaign2 .subsubtitle {
-        font-size: clamp(0rem, 0.85rem, 10rem);
-        top: -14.2rem;
-        left: -17.2rem;
-    }
-
-    .campaign2 button {
-        top: 7.7rem;
-        left: 1.35rem;
-        font-size: clamp(0rem, 0.8rem, 10rem);
-        border-radius: 1.5rem;
-        padding: 0.35rem 1.3rem;
-
-    }
-
-
-
-    .campaign2 img {
-        right: 1rem;
-        width: 35%;
-        top: -2.5rem;
-
-
-    }
-
-    .campaign3 .title {
-        font-size: clamp(2rem, 3.1rem, 10rem);
-        width: 90%;
-        letter-spacing: -0.2rem;
-        line-height: 0.88;
-        top: -1.5rem;
-        left: 2rem;
-    }
-
-
-    .campaign3 .subtitle {
-        font-size: clamp(1rem, 1rem, 10rem);
-        width: 50%;
-        line-height: 1;
-        top: 3.5rem;
-        left: 2.3rem;
-    }
-
-
-
-    .campaign3 button {
-        top: 6.9rem;
-        left: 2.25rem;
-        font-size: clamp(0rem, 0.8rem, 10rem);
-        border-radius: 1.5rem;
-        padding: 0.35rem 1.3rem;
-    }
-
-
-
-
-    .campaign3 img {
-        position: absolute;
-        right: 4rem;
-        width: 22%;
-        top: -2.5rem;
-        transform: rotate(25deg);
-    }
-
-
-    .controls {
-        gap: 0.7rem;
-    }
-
-
-
-    .controls button {
-        padding: 0.25rem 0.6rem;
-        top: 0.3rem;
-        border-radius: 0.6rem;
-        font-size: 1.2rem;
-
-    }
-
-
-
 
 
 
@@ -452,131 +333,13 @@
 
 @media (max-width: 950px) {
 
-    .container {
-        height: 19%;
-        width: 45rem;
-        top: -9%;
+      .container {
+        top: 19%;
+        transform:translate(-50%, -50%) scale(0.4);
+        height: 75.5%;
+        border-radius: 0.7rem;
 
     }
-
-
-
-    .campaign1 .title {
-        font-size: clamp(3rem, 3.7rem, 10rem);
-        top: -4rem;
-        letter-spacing: -0.2rem;
-        left: 1rem;
-    }
-
-
-    .campaign1 .subtitle {
-        font-size: clamp(1rem, 1.1rem, 10rem);
-        top: -9.5rem;
-        left: -6.2rem;
-    }
-
-    .campaign1 .subsubtitle {
-        font-size: clamp(0rem, 0.9rem, 10rem);
-        top: -11rem;
-        left: -12.49rem;
-    }
-
-
-    .campaign2 .title {
-        font-size: clamp(3rem, 4.2rem, 10rem);
-        top: -4.5rem;
-        left: -13.5rem;
-        letter-spacing: -0.2rem;
-
-    }
-
-
-    .campaign2 .subtitle {
-        font-size: clamp(1rem, 1rem, 10rem);
-        top: -10.6rem;
-        left: -9.5rem;
-    }
-
-    .campaign2 .subsubtitle {
-        font-size: clamp(0rem, 0.75rem, 10rem);
-        top: -12.1rem;
-        left: -13.4rem;
-    }
-
-    .campaign2 button {
-        top: 6.4rem;
-        left: 1.15rem;
-        font-size: clamp(0rem, 0.65rem, 10rem);
-        border-radius: 1.5rem;
-        padding: 0.2rem 1.1rem;
-
-    }
-
-
-
-    .campaign2 img {
-        right: 1rem;
-        width: 37%;
-        top: -2rem;
-
-
-    }
-
-    .campaign3 .title {
-        font-size: clamp(2rem, 2.5rem, 10rem);
-        width: 90%;
-        letter-spacing: -0.2rem;
-        line-height: 0.88;
-        top: -1rem;
-        left: 2rem;
-    }
-
-
-    .campaign3 .subtitle {
-        font-size: clamp(0rem, 0.8rem, 10rem);
-        width: 50%;
-        line-height: 1;
-        top: 3rem;
-        left: 2.3rem;
-    }
-
-
-
-    .campaign3 button {
-        top: 5.7rem;
-        left: 2.15rem;
-        font-size: clamp(0rem, 0.65rem, 10rem);
-        border-radius: 1.5rem;
-        padding: 0.2rem 1.1rem;
-    }
-
-
-
-
-    .campaign3 img {
-        position: absolute;
-        right: 4rem;
-        width: 25%;
-        top: -2rem;
-        transform: rotate(25deg);
-    }
-
-
-    .controls {
-        gap: 0.5rem;
-    }
-
-
-
-    .controls button {
-        padding: 0.15rem 0.4rem;
-        top: 0.3rem;
-        border-radius: 0.5rem;
-        font-size: 1rem;
-
-    }
-
-
 
 
 

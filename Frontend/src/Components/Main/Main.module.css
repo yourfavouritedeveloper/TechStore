@@ -561,7 +561,7 @@
 
 @media (max-width: 1540px) {
   .aiDiv {
-    height: 73rem;
+    height: 68rem;
 
   }
 
@@ -574,21 +574,24 @@
 
   
 .particleWrapper {
-  margin-left: -12rem;
-  margin-top: 10rem;
-  transform: scale(0.88);
+
+  transform: translate(-20%, 20%) scale(0.88);
+  width: 46rem;
 
 }
 
 
 .type {
   z-index: 7;
+  width: 120%;
+  left:-10%;
+  top:-5rem;
   transform: scale(0.8);
 }
 
 
 .explanationDiv {
-  top: -16rem;
+  top: -21rem;
   transform: translateX(-50%) scale(0.8);
   border-radius: 40px;
 
@@ -597,20 +600,20 @@
 
 
 .explanationTitle {
-  transform: translate(-50%, -207%) scale(0.8);
+  transform: translate(-50%, -267%) scale(0.8);
 
 }
 
 
 .explanationSubtitle {
-  transform: translate(-50%, -177%) scale(0.8);
+  transform: translate(-50%, -267%) scale(0.8);
 
 }
 
 
 .launch {
 
-  top: -2.8rem;
+  top: -7.8rem;
   transform: scale(0.8);
 }
 
@@ -641,6 +644,249 @@
 
   padding-bottom: 11.5rem;
 
+}
+
+
+
+.circleGlow1 {
+  width: 50rem;
+  height: 50rem;
+  top: -4rem;
+  right: 50%;
+  transform: translateX(150%) scale(0.9);
+}
+
+.circleGlow2 {
+  width: 55rem;
+  height: 55rem;
+  bottom: -9rem;
+  left: 50%;
+  transform: translateX(-150%) scale(0.9);
+}
+
+
+
+}
+
+
+
+
+
+@media (max-width: 1240px) {
+  .aiDiv {
+    height: 44rem;
+    
+  }
+
+
+  .background {
+  height: 80rem;
+
+}
+
+
+  
+.particleWrapper {
+  margin-left: -13rem;
+  margin-top:0rem;
+
+  left: 50%;
+  transform: translate(0%, 20%) scale(0.75);
+  width: 42rem;
+}
+
+
+.type {
+  z-index: 8;
+  width: 140%;
+  left:-20%;
+  top:-12rem;
+  transform: scale(0.6);
+}
+
+
+.explanationDiv {
+  top: -36rem;
+  transform: translateX(-50%) scale(0.6);
+  border-radius: 40px;
+
+
+}
+
+
+.explanationTitle {
+  transform: translate(-50%, -495%) scale(0.6);
+
+}
+
+
+.explanationSubtitle {
+  transform: translate(-50%, -625%) scale(0.6);
+
+}
+
+
+.launch {
+
+  top: -28.8rem;
+  transform: scale(0.6);
+}
+
+
+.glassBand {
+  width: 170%;
+  left:-35%;
+
+  top:33rem;
+
+  transform: scale(0.6);
+}
+
+.searchHeader {
+  transform: scale(0.6);
+    margin-top:-7rem;
+    margin-bottom: -4rem;
+}
+
+
+.searchCard {
+
+  transform: translateX(-50%) scale(0.6);
+  
+}
+
+.brandnewdiv {
+  margin-top:24.9rem;
+
+  padding-bottom: 6.5rem;
+
+}
+
+.circleGlow1 {
+  width: 60rem;
+  height: 60rem;
+  top: -8rem;
+  right: 50%;
+  transform: translateX(125%) scale(0.8);
+}
+
+.circleGlow2 {
+  width: 65rem;
+  height: 65rem;
+  bottom: -15rem;
+  left: 50%;
+  transform: translateX(-125%) scale(0.8);
+}
+
+
+}
+
+
+@media (max-width: 950px)  {
+   .aiDiv {
+    height: 17rem;
+    
+  }
+
+
+  .background {
+  height: 54rem;
+
+}
+
+
+  
+.particleWrapper {
+  margin-left: -11.5rem;
+  margin-top:-5rem;
+
+  left: 50%;
+  transform: translate(0%, 20%) scale(0.65);
+  width: 34rem;
+}
+
+
+.type {
+  z-index: 8;
+  width: 180%;
+  left:-40%;
+  top:-20rem;
+  transform: scale(0.4);
+}
+
+
+.explanationDiv {
+  top: -51rem;
+  transform: translateX(-50%) scale(0.4);
+  border-radius: 40px;
+
+
+}
+
+
+.explanationTitle {
+  transform: translate(-50%, -62rem) scale(0.4);
+
+}
+
+
+.explanationSubtitle {
+  transform: translate(-50%, -57rem) scale(0.4);
+
+}
+
+
+.launch {
+
+  top: -52.3rem;
+  transform: scale(0.4);
+}
+
+
+
+.glassBand {
+  width: 270%;
+  left:-85%;
+
+  top:31rem;
+
+  transform: scale(0.4);
+}
+
+.searchHeader {
+  transform: scale(0.6);
+    margin-top:-9rem;
+    margin-bottom: -4rem;
+}
+
+
+.searchCard {
+
+  transform: translateX(-50%) scale(0.5);
+  
+}
+
+.brandnewdiv {
+  margin-top:24.9rem;
+
+  padding-bottom: 6.5rem;
+
+}
+
+.circleGlow1 {
+  width: 60rem;
+  height: 60rem;
+  top: -12rem;
+  right: 50%;
+  transform: translateX(125%) scale(0.8);
+}
+
+.circleGlow2 {
+  width: 65rem;
+  height: 65rem;
+  bottom: -3rem;
+  left: 50%;
+  transform: translateX(-125%) scale(0.8);
 }
 
 
