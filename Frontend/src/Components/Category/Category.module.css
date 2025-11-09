@@ -1794,7 +1794,7 @@ background-size: 1px 80px;
 
 @media (max-width: 950px)  {
      .container {
-    height: 25.8rem;
+    height: 15rem;
 
     }
 
@@ -1806,7 +1806,7 @@ background-size: 1px 80px;
 
     .backgroundDiv {
 
-        height: 43.5rem;
+        height: 23.5rem;
 
     }
 
@@ -1815,17 +1815,18 @@ background-size: 1px 80px;
 
 
     .floorbackgroundDiv {
-        top:7.5rem;
+        top:-0.5rem;
         z-index: 0;
         background-size: 1px 50px;
-        height: 60rem;
+        height: 52rem;
     }
 
 
     .table {
-        position: relative;
-        top:-63.3rem;
-        right:20rem;
+        position: absolute;
+        top:31.7rem;
+        right:50%;
+        transform: translateX(16.5%);
         width: 60rem;
         height: 33rem;
         z-index: 3;
@@ -1836,18 +1837,20 @@ background-size: 1px 80px;
 
 
 .clicked {
-
-    width: 168%;
-    height: 127.7%;
-    left:-34%;
+    top:-0.5rem;
+    width: 250%;
+    height: 135.5%;
+    left:-75%;
 }
 
 .not {
 
-    width: 168%;
-    left:-34%;
-
-    height: 127.7%;
+    top:-0.5rem;
+    width: 250%;
+    height: 135.5%;
+    left:-75%;
+    
+   
 }
 
 
