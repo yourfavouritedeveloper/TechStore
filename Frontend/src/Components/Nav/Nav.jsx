@@ -13,8 +13,9 @@ const USERNAME = import.meta.env.VITE_API_USERNAME;
 const PASSWORD = import.meta.env.VITE_API_PASSWORD;
 
 function Nav({ highlight, shiftUp, setShiftUp, onEditClick = () => { } }) {
-  const [is599, setIs599] = useState(window.innerWidth === 599);
+  const [is750, setIs750] = useState(window.innerWidth === 750);
   const [menuOpen, setMenuOpen] = useState(false);
+    const [boardOpen, setBoardOpen] = useState(false);
   const [accountMenu, setAccountMenu] = useState(false)
   const { account, logout,token, refreshToken,refreshAccessToken } = useContext(AuthContext);
   const [logAccount, setLogAccount] = useState();
@@ -57,7 +58,7 @@ useEffect(() => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIs599(window.innerWidth > 599);
+      setIs750(window.innerWidth > 750);
     };
 
     window.addEventListener('resize', handleResize);
@@ -272,15 +273,14 @@ const logged = (
 );
 
 
-  const less599 = (<>
-    <div>
-      <div className={styles.board} onClick={() => setMenuOpen(prev => !prev)}>
-        <svg xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 -960 960 960"
-          fill="#000000">
-          <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" /></svg>
+  const less750 = (<>
+    <div className={highlight ? styles.highcontainer : ""}>
+      <div className={styles.board} onClick={() => setBoardOpen(prev => !prev)}>
+   <svg xmlns="http://www.w3.org/2000/svg"viewBox="0 -960 960 960" 
+    fill="#000000">
+      <path d="M120-200v-80h720v80H120Zm0-160v-80h720v80H120Zm0-160v-80h720v80H120Zm0-160v-80h720v80H120Z"/></svg>
       </div>
-      {menuOpen && (
+      {boardOpen && (
         <div className={highlight ? styles.highmenu : styles.menu}>
           <Link id={styles.campaign} className={highlight ? styles.highlight : ""} to="/campaign">Campaign</Link>
           <Link id={styles.about} className={highlight ? styles.highlight : ""} to="/product">Market</Link>
@@ -291,26 +291,28 @@ const logged = (
               behavior: "smooth"
             });
           }}>Contact</Link>
-          <Link id={styles.login} className={highlight ? styles.highlight : ""} onClick={() => setAccountMenu(prev => !prev)}>Account
-            <AnimatePresence>
-              {accountMenu && (
-                <motion.div
-                  className={styles.loginSection}
-                  initial={{ x: "30rem", opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  exit={{ x: "80rem" }}
-                  transition={{ duration: 0.3 }}
-                >
-                  {account ? logged : guest}
-                </motion.div>)}
-            </AnimatePresence>
-          </Link>
+
         </div>
+        
       )}
+    <Link
+      id={styles.login}
+      style={{ 
+        opacity: menuOpen ? "0" : "1", 
+        pointerEvents: logAccount?.username ? "auto" : "none",
+        cursor: logAccount?.username ? "pointer" : "default" 
+      }}
+      className={highlight ? styles.highlightAccount : ""}
+      to={logAccount?.username ? `/account/${logAccount.username}` : `/login`}
+    >
+      <svg xmlns="http://www.w3.org/2000/svg"  
+      viewBox="0 -960 960 960" 
+      fill="#ffffffff"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z"/></svg>
+    </Link>
     </div>
   </>)
 
-  const greater599 = (<>
+  const greater750 = (<>
     <Link id={styles.campaign} className={highlight ? styles.highlight : ""} to="/campaign">Campaign</Link>
     <Link id={styles.about} className={highlight ? styles.highlight : ""} to="/product">Market</Link>
     <Link id={styles.contact} className={highlight ? styles.highlight : ""}   onClick={(e) => {
@@ -333,18 +335,18 @@ const logged = (
 
   return (
     <>
-      <div className={highlight ? styles.highcontainer : styles.normal}></div>
+      <div className={highlight && is750 ? styles.highcontainer : styles.normal}></div>
       <nav className={styles.container}>
 
 
         <ul className={styles.navbar}>
-          <Link id={styles.name} className={highlight ? styles.highlight : ""} to="/"  onClick={(e) => {
+          <Link id={styles.name} className={highlight ? styles.highlightName : ""} to="/"  onClick={(e) => {
             if (window.location.hash === "#/") {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }
           }}>TechStore</Link>
-          {is599 ? greater599 : less599}
+          {is750 ? greater750 : less750}
           <div className={ highlight ? styles.highlightInputBar : styles.inputBar}>
             <input type="text" maxLength={50} placeholder="Enter the product name"
               value={searchTerm}
