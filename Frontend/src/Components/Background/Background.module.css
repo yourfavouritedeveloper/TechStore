@@ -907,4 +907,122 @@ body {
 
 
 
-@media (max-width: 480px) {}
+@media (max-width: 450px) {
+    .container {
+        height: 100rem;
+    }
+
+
+    .video {
+        width: 100%;
+        height: 55%;
+        object-fit: cover;
+        position: absolute;
+        top: -6rem;
+        left: 0;
+        z-index: -1;
+        filter: hue-rotate(300deg) brightness(1.5);
+    }
+
+
+
+
+
+    .title {
+        top: 10.3rem;
+        font-size: clamp(2rem, 5.3rem, 15rem);
+        width: 30%;
+        left: 33%;
+        text-align: left;
+        letter-spacing: -0.3rem;
+
+
+    }
+
+    .subtitle {
+        width: 54.5%;
+        font-size: clamp(0rem, 0.9rem, 10rem);
+        left: -33%;
+        top: 29.5rem;
+
+    }
+
+    .shop {
+        top: 23rem;
+        font-size: clamp(0rem, 1.1rem, 10rem);
+        padding: 0.75rem 4.6rem;
+        border-radius: 1rem;
+        left: -20.05rem;
+    }
+
+
+    .titleBox {
+        top: 3.5rem;
+        transform: translate(-49.7%, 0%) scale(0.68);
+    }
+
+    .line {
+        display: none;
+        top: 8.8rem;
+        left: 27.3rem;
+        width: 0.2rem;
+        height: 8.5rem;
+
+
+    }
+
+    .secondBox {
+        top: 7.5rem;
+        width: 65.9rem;
+    }
+
+    .coverBox {
+        top: 44.5rem;
+    }
+
+
+
+    .commercial {
+        width: 47rem;
+        height: 35rem;
+        top: 58.5rem;
+        right: 9.4rem;
+        transform: scale(0.455);
+
+
+
+    }
+
+    .boxCampaign {
+        top: 45.5rem;
+        margin-left: -11.55rem;
+        width: 23rem;
+        height: 32rem;
+        padding-bottom: 15rem;
+        border-radius: 0.55rem;
+    }
+
+    .boxExplanation {
+
+        top: 40.2rem;
+        left: 12.91rem;
+        width: 40rem;
+        height: 35rem;
+        transform: scale(0.537);
+    }
+
+
+    .boxExplanation .title {
+        color: rgba(255, 255, 255, 0.781);
+        position: absolute;
+        font-size: clamp(1.6rem, 4.1rem, 10rem);
+        letter-spacing: -0.2rem;
+        line-height: 1.2;
+        text-align: center;
+        top: -3rem;
+        left: 50%;
+        transform: translateX(-95%);
+
+    }
+
+}
