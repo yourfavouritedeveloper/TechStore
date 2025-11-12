@@ -431,12 +431,12 @@
   gap: 1rem;
 }
 
-@media (min-width: 768px) {
+
   .searchRow {
     flex-direction: row;
     align-items: center;
   }
-}
+
 
 .searchInputWrapper {
   position: relative;
@@ -891,3 +891,502 @@
 
 
 }
+
+
+@media (max-width: 750px) {
+
+   .aiDiv {
+    height: 50rem;
+    
+  }
+
+  .background {
+  height: 85rem;
+
+}
+
+  .particleWrapper {
+  margin-left: -2.5rem;
+  margin-top:8.8rem;
+
+  left: 50%;
+  transform: translate(-50%, 20%) scale(0.75);
+  width: 44rem;
+}
+
+.type {
+  z-index: 8;
+  width: 260%;
+  left:-80%;
+  top:-20rem;
+  transform: scale(0.4);
+}
+
+
+
+
+.titleStoreSUB {
+  font-size: clamp(0rem, 2.5rem, 10rem);
+  top: 16rem;
+  left: 2rem;
+  width: 73.5rem;
+  padding: 2rem 3rem;
+
+}
+
+
+
+
+.storeShop {
+  font-size: clamp(1rem, 3rem, 10rem);
+  padding: 2rem 32.4rem;
+  top: 16rem;
+  border-radius: 1rem;
+  left: 2rem;
+
+
+}
+
+
+.explanationDiv {
+  top: -29rem;
+  width: 50rem;
+  transform: translateX(-50%) scale(0.6);
+  border-radius: 40px;
+
+
+}
+
+
+
+.leftText {
+  font-size: clamp(1rem, 2rem, 5rem);
+  width: 18rem;
+
+  left: 0%;
+
+  padding: 1rem;
+  padding-right: 0.5rem;
+
+}
+
+.middleText {
+  font-size: clamp(1rem, 2rem, 5rem);
+  width: 18rem;
+
+  transform: translate(-53%, -50%);
+
+  padding: 1rem;
+
+}
+
+
+.rightText {
+  font-size: clamp(1rem, 2rem, 5rem);
+  width: 19rem;
+
+  right: 0%;
+
+  padding: 1rem;
+  padding-left: 0.5rem;
+}
+
+
+.explanationTitle {
+  font-size: clamp(1rem, 4.2rem, 5rem);
+  width: 80rem;
+  transform: translate(-50%, -40rem) scale(0.4);
+
+}
+
+
+.explanationSubtitle {
+  font-size: clamp(1rem, 2.5rem, 5rem);
+  width: 80rem;
+  transform: translate(-50%, -30.5rem) scale(0.4);
+
+}
+
+
+.launch {
+
+  top: -21rem;
+  transform: scale(0.7);
+}
+
+.glassBand {
+  width: 270%;
+  left:-85%;
+
+  top:31rem;
+
+  transform: scale(0.5);
+}
+
+.searchHeader {
+  transform: scale(0.6);
+    margin-top:-9rem;
+    margin-bottom: -4rem;
+}
+
+
+.searchCard {
+  padding: 6rem 2.5rem;
+  width: 55rem;
+  transform: translateX(-50%) scale(0.6);
+  position: relative;
+  top:9rem;
+  
+}
+
+
+
+
+.searchIcon {
+  position: absolute;
+  left: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.5rem;
+  height: 1.5rem;
+  z-index: 5;
+  color: #313131;
+}
+
+.searchInput {
+  width: 88%;
+  padding: 1.5rem 1rem 1.5rem 3.5rem;
+  left:-0.8%;
+  top:-0.7rem;
+
+  font-size: 1.5rem;
+
+}
+
+
+
+
+.searchButton {
+
+  padding: 1.48rem 3rem;
+
+  font-size: clamp(1rem,1.6rem,5rem);
+
+}
+
+
+
+.popularSearches {
+  margin-top: 1.5rem;
+
+  gap: 0.75rem;
+  margin-left:7.8rem;
+}
+
+.popularTitle {
+  font-size: 1.7rem;
+}
+
+.popularButton {
+
+  height: 4rem;
+  padding: 0rem 2rem;
+  font-size: 1.5rem;
+
+}
+
+.brandnewdiv {
+  margin-top:24.9rem;
+
+  padding-bottom: 16.5rem;
+
+}
+
+
+.title {
+  font-size: 5.5rem;
+  width:60rem;
+  left:50%;
+  transform: translateX(-50%);
+  position: absolute;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: #bda5f7;
+  font-size: 2.2rem;
+  position: relative;
+  top:18.4rem;
+}
+
+.circleGlow1 {
+  width: 60rem;
+  height: 60rem;
+  top: -12rem;
+  right: 50%;
+  transform: translateX(125%) scale(0.8);
+}
+
+.circleGlow2 {
+  width: 65rem;
+  height: 65rem;
+  bottom: -3rem;
+  left: 50%;
+  transform: translateX(-125%) scale(0.8);
+}
+
+
+}
+
+
+
+
+@media (max-width: 580px) {
+
+  .aiDiv {
+    height: 50rem;
+    
+  }
+
+  .background {
+  height: 85rem;
+
+}
+
+  .particleWrapper {
+  margin-left: -0.5rem;
+  margin-top:8.8rem;
+
+  left: 50%;
+  transform: translate(-50%, 20%) scale(0.65);
+  width: 44rem;
+}
+
+.type {
+  z-index: 8;
+  width: 300%;
+  left:-100%;
+  top:-20rem;
+  transform: scale(0.33);
+}
+
+
+
+
+.titleStoreSUB {
+  font-size: clamp(0rem, 2.5rem, 10rem);
+  top: 16rem;
+  left: 2rem;
+  width: 73.5rem;
+  padding: 2rem 3rem;
+
+}
+
+
+
+
+.storeShop {
+  font-size: clamp(1rem, 3rem, 10rem);
+  padding: 2rem 32.4rem;
+  top: 16rem;
+  border-radius: 1rem;
+  left: 2rem;
+
+
+}
+
+
+.explanationDiv {
+  top: -36.5rem;
+  width: 50rem;
+  transform: translateX(-50%) scale(0.5);
+  border-radius: 40px;
+
+
+}
+
+
+
+.leftText {
+  font-size: clamp(1rem, 2rem, 5rem);
+  width: 18rem;
+
+  left: 0%;
+
+  padding: 1rem;
+  padding-right: 0.5rem;
+
+}
+
+.middleText {
+  font-size: clamp(1rem, 2rem, 5rem);
+  width: 18rem;
+
+  transform: translate(-53%, -50%);
+
+  padding: 1rem;
+
+}
+
+
+.rightText {
+  font-size: clamp(1rem, 2rem, 5rem);
+  width: 19rem;
+
+  right: 0%;
+
+  padding: 1rem;
+  padding-left: 0.5rem;
+}
+
+
+.explanationTitle {
+  font-size: clamp(1rem, 4.2rem, 5rem);
+  width: 80rem;
+  transform: translate(-50%, -50rem) scale(0.35);
+
+}
+
+
+.explanationSubtitle {
+  font-size: clamp(1rem, 2.5rem, 5rem);
+  width: 80rem;
+  transform: translate(-50%, -41rem) scale(0.35);
+
+}
+
+
+.launch {
+
+  top: -32rem;
+  transform: scale(0.6);
+}
+
+
+
+ }
+
+
+
+ @media (max-width: 450px) {
+    .aiDiv {
+    height: 35rem;
+    
+  }
+
+  .background {
+  height: 70rem;
+
+}
+
+  .particleWrapper {
+  margin-left: -4rem;
+  margin-top:7rem;
+
+  left: 50%;
+  transform: translate(-50%, 20%) scale(0.65);
+  width: 34rem;
+}
+
+.type {
+  z-index: 8;
+  width: 350%;
+  left:-125%;
+  top:-20rem;
+  transform: scale(0.27);
+}
+
+
+
+
+.titleStoreSUB {
+  font-size: clamp(0rem, 2.5rem, 10rem);
+  top: 16rem;
+  left: 2rem;
+  width: 73.5rem;
+  padding: 2rem 3rem;
+
+}
+
+
+
+
+.storeShop {
+  font-size: clamp(1rem, 3rem, 10rem);
+  padding: 2rem 32.4rem;
+  top: 16rem;
+  border-radius: 1rem;
+  left: 2rem;
+
+
+}
+
+
+.explanationDiv {
+  top: -39.5rem;
+  width: 50rem;
+  transform: translateX(-50%) scale(0.4);
+  border-radius: 40px;
+
+
+}
+
+
+
+.leftText {
+  font-size: clamp(1rem, 2rem, 5rem);
+  width: 18rem;
+
+  left: 0%;
+
+  padding: 1rem;
+  padding-right: 0.5rem;
+
+}
+
+.middleText {
+  font-size: clamp(1rem, 2rem, 5rem);
+  width: 18rem;
+
+  transform: translate(-53%, -50%);
+
+  padding: 1rem;
+
+}
+
+
+.rightText {
+  font-size: clamp(1rem, 2rem, 5rem);
+  width: 19rem;
+
+  right: 0%;
+
+  padding: 1rem;
+  padding-left: 0.5rem;
+}
+
+
+.explanationTitle {
+  font-size: clamp(1rem, 4.2rem, 5rem);
+  width: 80rem;
+  transform: translate(-50%, -54rem) scale(0.27);
+
+}
+
+
+.explanationSubtitle {
+  font-size: clamp(1rem, 2.5rem, 5rem);
+  width: 80rem;
+  transform: translate(-50%, -46rem) scale(0.27);
+
+}
+
+
+.launch {
+
+  top: -37rem;
+  transform: scale(0.55);
+}
+
+ }

@@ -242,6 +242,25 @@
 }
 
 
+
+
+
+
+
+.itemsPopular {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+  position: relative;
+
+
+}
+
+
+
+
+
 .itemsPopular .searchRate {
     position: absolute;
     top: -3rem;
@@ -253,27 +272,6 @@
     white-space: nowrap;
     background-color: rgb(142, 147, 255);
 }
-
-
-
-
-.itemsPopular {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    padding: 0rem 0rem;
-    position: relative;
-
-
-
-}
-
-
-
-
-
-
 
 
 
@@ -482,13 +480,11 @@
 
 
 .itemsBought {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    padding: 0rem 0rem;
-    position: relative;
-
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+  position: relative;
 
 
 }
@@ -869,7 +865,7 @@
 
 @media (max-width: 750px) {
     .container {
-        height: 69rem;
+        height: 71rem;
 
     }
 
@@ -1029,17 +1025,286 @@
 
     .populardiv {
         left: 50%;
-        transform: translateX(-50%) scale(0.4);
-        top: -8.5rem;
+        transform: translateX(-50%) scale(0.378);
+        top: -10.5rem;
+
     }
+
+    
+    .itemsPopular .searchRate {
+        width: 26.8rem;
+        font-size: clamp(0.8rem, 2rem, 2rem);
+
+    }
+
+
+
+
+
+    .popularInfo {
+        padding: 10rem 1rem;
+        top: 3rem;
+        width: 86%;
+
+
+    }
+
+    .itemsPopular .guaranteeTitle {
+        top: 28rem;
+        left: 1rem;
+        font-size: clamp(0rem, 1.4rem, 2rem);
+
+    }
+
+    .itemsPopular .guarantee {
+        top: 29.8rem;
+        left: 1rem;
+        font-size: clamp(0rem, 1.4rem, 2rem);
+    }
+
+    .itemsPopular .availTitle {
+        top: 28rem;
+        right: 1rem;
+        font-size: clamp(0rem, 1.4rem, 2rem);
+    }
+
+    .itemsPopular .avail {
+        top: 29.8rem;
+        left: 21.53rem;
+        font-size: clamp(0rem, 1.4rem, 2rem);
+
+    }
+
+
+
+    .itemsPopular .priceTitle {
+        top: 33rem;
+        left: 1rem;
+        font-size: clamp(0rem, 1.4rem, 2rem);
+    }
+
+    .itemsPopular .price {
+        top: 34rem;
+        left: 0.92rem;
+        font-size: clamp(1rem, 2rem, 2rem);
+    }
+
+    .itemsPopular .name {
+        top: 22rem;
+        left: 0.55rem;
+        font-size: clamp(0.5rem, 2.1rem, 3rem);
+
+
+    }
+
+
+    .itemsPopular img {
+
+        width: 100%;
+
+    }
+
+
+
+    .itemsPopular .cart {
+        top: 34.9rem;
+        right: 1rem;
+        padding: 1.7rem 1.7rem;
+
+    }
+
+
+    .itemsPopular .cartText {
+        font-size: 1.2rem;
+
+    }
+
+
+    .itemsPopular .cart svg {
+        height: 30px;
+        width: 30px;
+
+    }
+
+    .itemsPopular .cart:hover {
+        padding: 1.7rem 6rem;
+
+    }
+
+  
+
+    .itemsPopular .inCart {
+        top: 34.9rem;
+        right: 1rem;
+        padding: 1.7rem 1.7rem;
+    }
+
+    .itemsPopular .inCart svg {
+        height: 30px;
+        width: 30px;
+    }
+
+
 
 
     .sellerdiv {
         left: 50%;
-        transform: translateX(-50%) scale(0.4);
-        top: -25rem;
+        transform: translateX(-50%) scale(0.378);
+        top: -22rem;
 
     }
+
+
+    .itemsBought .boughtRate {
+        width: 26.8rem;
+        font-size: clamp(0.8rem, 2rem, 2rem);
+
+    }
+
+
+
+
+
+    .boughtInfo {
+        padding: 10rem 1rem;
+        top: 3rem;
+        width: 86%;
+
+
+    }
+
+    .itemsBought .guaranteeTitle {
+        top: 28rem;
+        left: 1rem;
+        font-size: clamp(0rem, 1.4rem, 2rem);
+
+    }
+
+    .itemsBought .guarantee {
+        top: 29.8rem;
+        left: 1rem;
+        font-size: clamp(0rem, 1.4rem, 2rem);
+    }
+
+    .itemsBought .availTitle {
+        top: 28rem;
+        right: 1rem;
+        font-size: clamp(0rem, 1.4rem, 2rem);
+    }
+
+    .itemsBought .avail {
+        top: 29.8rem;
+        left: 21.53rem;
+        font-size: clamp(0rem, 1.4rem, 2rem);
+
+    }
+
+
+
+    .itemsBought .priceTitle {
+        top: 33rem;
+        left: 1rem;
+        font-size: clamp(0rem, 1.4rem, 2rem);
+    }
+
+    .itemsBought .price {
+        top: 34rem;
+        left: 0.92rem;
+        font-size: clamp(1rem, 2rem, 2rem);
+    }
+
+    .itemsBought .name {
+        top: 22rem;
+        left: 0.55rem;
+        font-size: clamp(0.5rem, 2.1rem, 3rem);
+
+
+    }
+
+
+    .itemsBought img {
+
+        width: 100%;
+
+    }
+
+
+
+    .itemsBought .cart {
+        top: 34.9rem;
+        right: 1rem;
+        padding: 1.7rem 1.7rem;
+
+    }
+
+
+    .itemsBought .cartText {
+        font-size: 1.2rem;
+
+    }
+
+
+    .itemsBought .cart svg {
+        height: 30px;
+        width: 30px;
+
+    }
+
+    .itemsBought .cart:hover {
+        padding: 1.7rem 6rem;
+
+    }
+
+  
+
+    .itemsBought .inCart {
+        top: 34.9rem;
+        right: 1rem;
+        padding: 1.7rem 1.7rem;
+    }
+
+    .itemsBought .inCart svg {
+        height: 30px;
+        width: 30px;
+    }
+
+  .itemsPopular,
+  .itemsBought {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    flex-wrap: nowrap;
+    gap: 0.9rem;
+    height: 40rem;
+    padding-top: 2rem;
+    padding-bottom: 10px;
+    
+  }
+
+  .itemsPopular::-webkit-scrollbar,
+  .itemsBought::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .itemsPopular::-webkit-scrollbar-thumb,
+  .itemsBought::-webkit-scrollbar-thumb {
+    background: #bbb;
+    border-radius: 10px;
+  }
+
+  .itemsPopular::-webkit-scrollbar-track,
+  .itemsBought::-webkit-scrollbar-track {
+    background: #eee;
+  }
+
+  .itemsPopular .item,
+  .itemsBought .item {
+    flex: 0 0 calc(33.33% - 10px);
+    min-width: 200px;
+    scroll-snap-align: start;
+  }
+    
 }
 
 @media (max-width: 576px) {}
