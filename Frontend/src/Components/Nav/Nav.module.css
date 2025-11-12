@@ -1032,7 +1032,7 @@ a {
   .container #login svg {
     position: relative;
     top: 0rem;
-    left: 1rem;
+    left: 0.8rem;
     height: 4.8rem;
     width: 4.8rem;
     transition: none;
@@ -1040,7 +1040,7 @@ a {
 
   .highlightAccount {
     position: absolute;
-    margin-left: -32rem;
+    margin-left: -32.5rem;
     top: 0.85rem;
     transition: none;
 
@@ -1144,5 +1144,28 @@ a {
   .normal {
     height: 4.8rem;
   }
+
+}
+
+@media (max-width: 580px) {
+  .container {
+    top: -2.47rem;
+    transform: translateX(-50%) scale(0.313);
+  }
+
+  .highcontainer {
+
+    height: 7.3rem;
+    border-bottom: 0.7px solid rgb(180, 180, 180);
+
+  }
+
+  .normal {
+    height: 8.8rem;
+  }
+
+
+
+
 
 }
