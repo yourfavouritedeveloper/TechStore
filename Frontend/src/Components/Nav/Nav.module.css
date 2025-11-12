@@ -1,38 +1,38 @@
 html,
 body {
-    margin: 0px;
-    font-family: 'PoppinsLight';
-    text-align: center;
-    overflow-x: hidden;
+  margin: 0px;
+  font-family: 'PoppinsLight';
+  text-align: center;
+  overflow-x: hidden;
 
 }
 
 
 
 .container {
-    background-color: rgba(0, 0, 0, 0);
-    width: 92rem;
-    position: fixed;
-    justify-content: center;
-    z-index: 20;
-    left: 50%;
-    transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0);
+  width: 92rem;
+  position: fixed;
+  justify-content: center;
+  z-index: 20;
+  left: 50%;
+  transform: translateX(-50%);
 
 
 
 }
 
 .highcontainer {
-    top: 0rem;
-    background-color: rgb(255, 255, 255);
-    width: 100%;
-    position: fixed;
-    justify-content: center;
-    z-index: 10;
-    left: 50%;
-    height: 4.8rem;
-    transform: translateX(-50%);
-    border-bottom: 1.9px solid rgb(180, 180, 180);
+  top: 0rem;
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  position: fixed;
+  justify-content: center;
+  z-index: 10;
+  left: 50%;
+  height: 4.8rem;
+  transform: translateX(-50%);
+  border-bottom: 1.9px solid rgb(180, 180, 180);
 
 
 }
@@ -40,71 +40,71 @@ body {
 
 
 .normal {
-    top: 0rem;
-    background: linear-gradient(to bottom,
-     rgba(0, 0, 0, 0.9),
-     rgba(0, 0, 0, 0.89),
-     rgba(0, 0, 0, 0.88),
-     rgba(0, 0, 0, 0.87),
-     rgba(0, 0, 0, 0.86),
-     rgba(0, 0, 0, 0.85),
-     rgba(0, 0, 0, 0.84),
-    rgba(0, 0, 0, 0.83),
-    rgba(0, 0, 0, 0.82),
-    rgba(0, 0, 0, 0.81),
-    rgba(0, 0, 0, 0.8),
-    rgba(0, 0, 0, 0.7),
-    rgba(0, 0, 0, 0.6),
-    rgba(0, 0, 0, 0.4),
-      rgba(0, 0, 0, 0)); 
-    
+  top: 0rem;
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.9),
+      rgba(0, 0, 0, 0.89),
+      rgba(0, 0, 0, 0.88),
+      rgba(0, 0, 0, 0.87),
+      rgba(0, 0, 0, 0.86),
+      rgba(0, 0, 0, 0.85),
+      rgba(0, 0, 0, 0.84),
+      rgba(0, 0, 0, 0.83),
+      rgba(0, 0, 0, 0.82),
+      rgba(0, 0, 0, 0.81),
+      rgba(0, 0, 0, 0.8),
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0));
+
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   -webkit-mask-image: linear-gradient(to bottom, black, transparent);
   mask-image: linear-gradient(to bottom, black, transparent);
-    width: 100%;
-    position: fixed;
-    justify-content: center;
-    z-index: 10;
-    left: 50%;
-    height: 15.8rem;
-    pointer-events: none;
-    transform: translateX(-50%);
+  width: 100%;
+  position: fixed;
+  justify-content: center;
+  z-index: 10;
+  left: 50%;
+  height: 15.8rem;
+  pointer-events: none;
+  transform: translateX(-50%);
 
 }
 
 
 
 #campaign {
-    border-radius: 2rem;
-    position: absolute;
-    left: 43.2%;
-    z-index: 21;
-    padding: 4.5px 0px;
-    font-size: clamp(1rem, 1.45rem, 2.5rem);
-    transition: all 0.3s ease;
+  border-radius: 2rem;
+  position: absolute;
+  left: 43.2%;
+  z-index: 21;
+  padding: 4.5px 0px;
+  font-size: clamp(1rem, 1.45rem, 2.5rem);
+  transition: all 0.3s ease;
 
 }
 
 #campaign::before {
-    content: "";
-    position: absolute;
-    bottom: 1px;
-    height: 2px;
-    width: 125.5px;
-    background-color: rgb(255, 140, 0);
-    border-radius: 50px;
-    z-index: 10;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.1s linear;
+  content: "";
+  position: absolute;
+  bottom: 1px;
+  height: 2px;
+  width: 125.5px;
+  background-color: rgb(255, 140, 0);
+  border-radius: 50px;
+  z-index: 10;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.1s linear;
 
 }
 
 
 
 #campaign:hover::before {
-    transform: scaleX(1);
+  transform: scaleX(1);
 
 }
 
@@ -112,68 +112,68 @@ body {
 
 
 #about {
-    padding: 4.5px 0px;
-    position: absolute;
-    left: 61.1%;
-    border-radius: 2rem;
-    font-size: clamp(1rem, 1.45rem, 2.5rem);
-    transition: all 0.3s ease;
+  padding: 4.5px 0px;
+  position: absolute;
+  left: 61.1%;
+  border-radius: 2rem;
+  font-size: clamp(1rem, 1.45rem, 2.5rem);
+  transition: all 0.3s ease;
 
 }
 
 
 #about::before {
-    content: "";
-    position: absolute;
-    bottom: 1px;
-    height: 2px;
-    width: 100%;
-    background-color: rgb(54, 90, 250);
-    border-radius: 50px;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.1s linear;
+  content: "";
+  position: absolute;
+  bottom: 1px;
+  height: 2px;
+  width: 100%;
+  background-color: rgb(54, 90, 250);
+  border-radius: 50px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.1s linear;
 
 }
 
 
 
 #about:hover::before {
-    transform: scaleX(1);
+  transform: scaleX(1);
 
 }
 
 
 
 #contact {
-    position: absolute;
-    left: 75.2%;
-    border-radius: 2rem;
-    padding: 4.5px 0px;
-    font-size: clamp(1rem, 1.45rem, 2.5rem);
-    transition: all 0.3s ease;
+  position: absolute;
+  left: 75.2%;
+  border-radius: 2rem;
+  padding: 4.5px 0px;
+  font-size: clamp(1rem, 1.45rem, 2.5rem);
+  transition: all 0.3s ease;
 
 }
 
 
 #contact::before {
-    content: "";
-    position: absolute;
-    bottom: 1px;
-    height: 2px;
-    width: 100%;
-    background-color: rgb(62, 187, 62);
-    border-radius: 50px;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.1s linear;
+  content: "";
+  position: absolute;
+  bottom: 1px;
+  height: 2px;
+  width: 100%;
+  background-color: rgb(62, 187, 62);
+  border-radius: 50px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.1s linear;
 
 }
 
 
 
 #contact:hover::before {
-    transform: scaleX(1);
+  transform: scaleX(1);
 
 }
 
@@ -185,36 +185,36 @@ body {
 
 
 #login {
-    position: absolute;
-    border-radius: 2rem;
-    padding: 5px 0px;
-    left: 90.9%;
-    font-size: clamp(1rem, 1.45rem, 2.5rem);
-    transition: all 0.3s ease;
-    z-index: 10;
-    cursor: pointer;
+  position: absolute;
+  border-radius: 2rem;
+  padding: 5px 0px;
+  left: 90.9%;
+  font-size: clamp(1rem, 1.45rem, 2.5rem);
+  transition: all 0.3s ease;
+  z-index: 10;
+  cursor: pointer;
 
 }
 
 
 #login::before {
-    content: "";
-    position: absolute;
-    bottom: 1px;
-    height: 2px;
-    width: 100%;
-    background-color: #9b59b6;
-    border-radius: 50px;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.1s linear;
+  content: "";
+  position: absolute;
+  bottom: 1px;
+  height: 2px;
+  width: 100%;
+  background-color: #9b59b6;
+  border-radius: 50px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.1s linear;
 
 }
 
 
 
 #login:hover::before {
-    transform: scaleX(1);
+  transform: scaleX(1);
 
 }
 
@@ -222,16 +222,16 @@ body {
 
 
 .loginSection {
-    z-index: 10;
-    position: fixed;
-    top: 0%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    height: 15.2vh;
-    cursor: auto;
-    transition: all 0.8s ease;
-    color: white;
+  z-index: 10;
+  position: fixed;
+  top: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 15.2vh;
+  cursor: auto;
+  transition: all 0.8s ease;
+  color: white;
 
 }
 
@@ -239,51 +239,51 @@ body {
 
 
 .accountDiv {
-    position: absolute;
-    height: 100vh;
-    width: 100%;
-    max-width: 450px;
-    background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
-    box-shadow: -4px 0 40px rgba(0, 0, 0, 0.5);
-    top: 0%;
-    overflow: hidden;
-    right: 0;
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  max-width: 450px;
+  background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+  box-shadow: -4px 0 40px rgba(0, 0, 0, 0.5);
+  top: 0%;
+  overflow: hidden;
+  right: 0;
 }
 
 .center {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 19.8rem;
-    height: 110vh;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 19.8rem;
+  height: 110vh;
 }
 
 .loginSection.open {
-    transform: translateX(0);
+  transform: translateX(0);
 
 }
 
 .signTitle {
-    position: absolute;
-    font-family: "PoppinsRegular";
-    font-weight: normal;
-    width: 26rem;
-    left: 1.5rem;
-    line-height: 1;
-    font-size: clamp(0.9rem, 2rem, 2rem);
-    text-align: left;
-    top: 18rem;
-    margin-top: -2rem;
+  position: absolute;
+  font-family: "PoppinsRegular";
+  font-weight: normal;
+  width: 26rem;
+  left: 1.5rem;
+  line-height: 1;
+  font-size: clamp(0.9rem, 2rem, 2rem);
+  text-align: left;
+  top: 18rem;
+  margin-top: -2rem;
 }
 
 .signSubtitle {
-    position: absolute;
-    top: 21.5rem;
-    width: 26rem;
-    font-size: clamp(0.3rem, 1.1rem, 2.5rem);
-    left: 1.5rem;
-    line-height: 1.1;
-    text-align: left;
+  position: absolute;
+  top: 21.5rem;
+  width: 26rem;
+  font-size: clamp(0.3rem, 1.1rem, 2.5rem);
+  left: 1.5rem;
+  line-height: 1.1;
+  text-align: left;
 }
 
 .signup {
@@ -295,10 +295,10 @@ body {
   border-radius: 12px;
   color: #ffffff;
   font-size: 1rem;
-  top:25rem;
-  gap:0.5rem;
+  top: 25rem;
+  gap: 0.5rem;
   width: 75.5%;
-  left:4%;
+  left: 4%;
   position: relative;
   font-family: inherit;
   cursor: pointer;
@@ -313,16 +313,16 @@ body {
 .log {
   display: flex;
   align-items: center;
-  gap:0.5rem;
+  gap: 0.5rem;
   padding: 1.5rem 2.2rem;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
   color: #ffffff;
   font-size: 1rem;
-  top:25.5rem;
+  top: 25.5rem;
   width: 75.5%;
-  left:4%;
+  left: 4%;
   position: relative;
   font-family: inherit;
   cursor: pointer;
@@ -335,9 +335,9 @@ body {
 }
 
 #login:hover .loginSection {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 
@@ -346,8 +346,8 @@ body {
 .backdrop {
   position: fixed;
   inset: 0;
-    overflow: hidden;
-    height: 100vh;
+  overflow: hidden;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
@@ -366,7 +366,7 @@ body {
   background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
   box-shadow: -4px 0 40px rgba(0, 0, 0, 0.5);
   z-index: 9999;
-    overflow: hidden;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
@@ -385,8 +385,8 @@ body {
   color: #ffffff;
   margin: 0;
   position: absolute;
-  top:2.1%;
-  left:8.5%;
+  top: 2.1%;
+  left: 8.5%;
   font-family: "PoppinsLight";
 }
 
@@ -399,7 +399,7 @@ body {
   border-radius: 10px;
   display: flex;
   position: absolute;
-  right:5%;
+  right: 5%;
   align-items: center;
   justify-content: center;
   cursor: pointer;
@@ -448,7 +448,7 @@ body {
   gap: 0.35rem;
   position: relative;
   text-align: left;
-  left:-0.5rem;
+  left: -0.5rem;
   justify-content: center;
 }
 
@@ -458,7 +458,7 @@ body {
   color: #ffffff;
   margin: 0;
   position: relative;
-  top:0.5rem;
+  top: 0.5rem;
 }
 
 .userEmail {
@@ -466,7 +466,7 @@ body {
   color: rgba(255, 255, 255, 0.6);
   margin: 0;
   position: relative;
-  top:-0.3rem;
+  top: -0.3rem;
 }
 
 .memberSince {
@@ -474,8 +474,8 @@ body {
   color: rgba(255, 255, 255, 0.4);
   margin: 0;
   position: relative;
-  left:0.15rem;
-  top:-0.5rem;
+  left: 0.15rem;
+  top: -0.5rem;
 }
 
 .stats {
@@ -667,87 +667,87 @@ body {
 
 
 #name {
-    padding: 0.3rem;
-    left: 1.65%;
-    font-size: clamp(1rem, 1.45rem, 2.5rem);
-    transition: all 0.3s ease;
-    position: absolute;
-    display: inline-flex;
-    list-style: none;
-    padding-top: 0.3rem;
-    padding-right: 24rem;
+  padding: 0.3rem;
+  left: 1.65%;
+  font-size: clamp(1rem, 1.45rem, 2.5rem);
+  transition: all 0.3s ease;
+  position: absolute;
+  display: inline-flex;
+  list-style: none;
+  padding-top: 0.3rem;
+  padding-right: 24rem;
 }
 
 .navbar {
-    position: relative;
-    display: flex;
-    gap: 5rem;
-    list-style: none;
+  position: relative;
+  display: flex;
+  gap: 5rem;
+  list-style: none;
 
 }
 
 
 
 a {
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 
 }
 
 
 
 .highlight {
-    color: #000000;
-    transition: all 0.3s ease;
+  color: #000000;
+  transition: all 0.3s ease;
 }
 
 .highlight .signout {
-    color: white;
-    transition: all 0.3s ease;
+  color: white;
+  transition: all 0.3s ease;
 }
 
 .highlight .purchaseButton {
-    color: rgb(255, 255, 255);
-    transition: all 0.3s ease;
+  color: rgb(255, 255, 255);
+  transition: all 0.3s ease;
 
 }
 
 .highlight .edit {
-    transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .highlight .edit:hover {
-    color: black;
+  color: black;
 }
 
 .highlight .view {
-    color: white;
-    transition: all 0.3s ease;
+  color: white;
+  transition: all 0.3s ease;
 }
 
 
 .highlight .purchaseButton:hover {
-    color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
 
 }
 
 .highlight a {
-    color: #000000;
-    transition: color 0.3s ease;
+  color: #000000;
+  transition: color 0.3s ease;
 }
 
 .highlight .loginSection {
-    color: white;
+  color: white;
 
 }
 
 .highlight .signup {
-    color: white;
-    transition: all 0.3s ease;
+  color: white;
+  transition: all 0.3s ease;
 }
 
 .highlight .log {
-    transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 
@@ -755,51 +755,51 @@ a {
 
 
 .highlight .log:hover {
-    color: black;
+  color: black;
 }
 
 #name.highlight:hover {
-    color: black;
+  color: black;
 }
 
 .inputBar {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
 }
 
 .highlightInputBar input {
-    flex: 1;
-    z-index: 0;
-    outline: none;
-    font-size: 1rem;
-    top: -1.2rem;
-    border: 0.13px solid rgb(175, 175, 175);
-    margin-left: -38rem;
-    width: 13rem;
-    padding: 0.3rem 2rem;
+  flex: 1;
+  z-index: 0;
+  outline: none;
+  font-size: 1rem;
+  top: -1.2rem;
+  border: 0.13px solid rgb(175, 175, 175);
+  margin-left: -38rem;
+  width: 13rem;
+  padding: 0.3rem 2rem;
 }
 
 .highlightInputBar input:focus {
-    border: 0.13px solid rgb(175, 175, 175);
+  border: 0.13px solid rgb(175, 175, 175);
 }
 
 
 
 .inputBar input {
-    flex: 1;
-    z-index: 0;
-    outline: none;
-    font-size: 1rem;
-    top: -1.2rem;
-    background-color: #0000007c;
-    border: 0.13px solid rgb(175, 175, 175);
-    margin-left: -38rem;
-    width: 13rem;
-    padding: 0.3rem 2rem;
-    color: white; 
+  flex: 1;
+  z-index: 0;
+  outline: none;
+  font-size: 1rem;
+  top: -1.2rem;
+  background-color: #0000007c;
+  border: 0.13px solid rgb(175, 175, 175);
+  margin-left: -38rem;
+  width: 13rem;
+  padding: 0.3rem 2rem;
+  color: white;
 }
 
 
@@ -809,71 +809,71 @@ a {
 }
 
 .inputBar input:focus {
-    border: 0.13px solid rgb(175, 175, 175);
+  border: 0.13px solid rgb(175, 175, 175);
 }
 
-.highlightInputBar  .search {
-    z-index: 1;
-    top: 0.6rem;
-    width: 28px;
-    height: 28px;
-    position: absolute;
-    left: 30rem;
-    fill: #757575ff;
+.highlightInputBar .search {
+  z-index: 1;
+  top: 0.6rem;
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  left: 30rem;
+  fill: #757575ff;
 
 }
 
 .inputBar .search {
-    z-index: 1;
-    top: 0.6rem;
-    width: 28px;
-    height: 28px;
-    position: absolute;
-    left: 30rem;
-    fill: rgb(255, 255, 255);
+  z-index: 1;
+  top: 0.6rem;
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  left: 30rem;
+  fill: rgb(255, 255, 255);
 
 }
 
 
 .loadingContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .loadingImage {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
 
-    to {
-        transform: rotate(360deg);
-    }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 
 @media (max-width: 1540px) {
 
-.container {
-    top:-0.2rem;
+  .container {
+    top: -0.2rem;
     transform: translateX(-50%) scale(0.8);
-}
+  }
 
-.highcontainer {
+  .highcontainer {
     height: 3.85rem;
-          border-bottom: 1.3px solid rgb(180, 180, 180);
+    border-bottom: 1.3px solid rgb(180, 180, 180);
 
-}
+  }
 
 }
 
@@ -881,41 +881,41 @@ a {
 
 
 @media (max-width: 1240px) {
- .container {
-    top:-0.6rem;
+  .container {
+    top: -0.6rem;
     transform: translateX(-50%) scale(0.6);
-}
+  }
 
-.highcontainer {
+  .highcontainer {
     height: 2.65rem;
     border-bottom: 1px solid rgb(180, 180, 180);
 
-}
+  }
 
-.normal {
+  .normal {
     height: 13.8rem;
-}
+  }
 }
 
 
 
 
 @media (max-width: 950px) {
- .container {
-    top:-0.7rem;
+  .container {
+    top: -0.7rem;
     transform: translateX(-50%) scale(0.4);
-}
+  }
 
-.highcontainer {
-    
+  .highcontainer {
+
     height: 1.8rem;
     border-bottom: 0.7px solid rgb(180, 180, 180);
 
-}   
+  }
 
-.normal {
+  .normal {
     height: 8.8rem;
-}
+  }
 
 }
 
@@ -925,7 +925,7 @@ a {
 
   .container {
     background-color: rgba(0, 0, 0, 0.562);
-    top:-2.25rem;
+    top: -2.25rem;
     padding: 0rem 15rem;
     height: 7rem;
 
@@ -933,85 +933,85 @@ a {
 
 
 
-} 
+  }
 
 
-.highcontainer {
+  .highcontainer {
     z-index: -1;
     height: 7rem;
     width: 140%;
     border-bottom: 0.7px solid rgb(180, 180, 180);
 
-}   
+  }
 
   .container .board {
     background-color: rgba(255, 255, 255, 0);
     width: 6rem;
     height: 5.8rem;
-    top:-0.25rem;
+    top: -0.25rem;
     position: absolute;
-    border-radius:1rem;
+    border-radius: 1rem;
     cursor: pointer;
   }
 
   .board:hover {
-    background-color:rgb(54, 90, 250);
+    background-color: rgb(54, 90, 250);
   }
 
-  .highcontainer  .board {
+  .highcontainer .board {
     background-color: rgba(255, 255, 255, 0);
     width: 6rem;
     height: 5.8rem;
-    top:0.4rem;
+    top: 0.4rem;
     left: 42rem;
     position: absolute;
-    border-radius:1rem;
+    border-radius: 1rem;
     cursor: pointer;
   }
 
 
   .board svg {
     position: relative;
-    top:0.35rem;
+    top: 0.35rem;
     width: 5rem;
     height: 5rem;
     fill: #ffffff;
-    
+
   }
 
-    .highcontainer .board svg {
-       position: relative;
-      top:0.7rem;
-      width: 5rem;
-      height: 5rem;
-      fill: #313131;
-    }
+  .highcontainer .board svg {
+    position: relative;
+    top: 0.7rem;
+    width: 5rem;
+    height: 5rem;
+    fill: #313131;
+  }
 
 
-    .board:hover svg {
-      fill:white;
-    }
+  .board:hover svg {
+    fill: white;
+  }
 
-    .highcontainer .board:hover svg {
-      fill: #0c0c0c;
-    }
+  .highcontainer .board:hover svg {
+    fill: #0c0c0c;
+  }
 
-    .highlightName {
-        padding: 0.3rem;
-      left: 12%;
-      color: #313131;
-      font-size: clamp(1rem, 3rem, 4.5rem);
-      transition: all 0.3s ease;
-      position: absolute;
-      display: inline-flex;
-      list-style: none;
-      padding-top: 0rem;
-      margin-top: 0rem;
-      font-family: "PoppinsRegular";
-      padding-right: 0rem;  
-    }
+  .highlightName {
+    padding: 0.3rem;
+    left: 12%;
+    color: #313131;
+    font-size: clamp(1rem, 3rem, 4.5rem);
+    transition: all 0.3s ease;
+    position: absolute;
+    display: inline-flex;
+    list-style: none;
+    padding-top: 0rem;
+    margin-top: 0rem;
+    font-family: "PoppinsRegular";
+    padding-right: 0rem;
+  }
 
-   .container  #name {
+  .container #name {
     padding: 0.3rem;
     left: 12%;
     font-size: clamp(1rem, 3rem, 4.5rem);
@@ -1020,52 +1020,52 @@ a {
     display: inline-flex;
     list-style: none;
     padding-top: 0rem;
-    top:0.4rem;
+    top: 0.4rem;
     padding-right: 0rem;
-}
+  }
 
 
-.container #login::before {
-  margin-left:1rem;
-}
+  .container #login::before {
+    margin-left: 1rem;
+  }
 
-.container #login svg {
-  position: relative;
-  top:0rem;
-  left:1rem;
-  height: 4.8rem;
-  width: 4.8rem;
-  transition: none;
-}
+  .container #login svg {
+    position: relative;
+    top: 0rem;
+    left: 1rem;
+    height: 4.8rem;
+    width: 4.8rem;
+    transition: none;
+  }
 
-.highlightAccount {
-  position: absolute;
-  margin-left:-32rem;
-  top:0.85rem;
- transition: none;
+  .highlightAccount {
+    position: absolute;
+    margin-left: -32rem;
+    top: 0.85rem;
+    transition: none;
 
-}
+  }
 
-.highlightAccount svg {
-  position: relative;
-  z-index: 5;
-  top:-0.4rem;
-  height: 4.8rem;
-  fill: #313131;
-  width: 4.8rem;
- transition: none;
-}
+  .highlightAccount svg {
+    position: relative;
+    z-index: 5;
+    top: -0.4rem;
+    height: 4.8rem;
+    fill: #313131;
+    width: 4.8rem;
+    transition: none;
+  }
 
-.inputBar {
+  .inputBar {
     display: flex;
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 1rem;
     border-radius: 1px;
-}
+  }
 
 
-.inputBar input {
+  .inputBar input {
     flex: 1;
     z-index: 0;
     outline: none;
@@ -1078,20 +1078,20 @@ a {
     border-radius: 0.7rem;
     padding: 1rem 0rem;
     padding-left: 6rem;
-    color: white; 
-}
+    color: white;
+  }
 
 
-.inputBar input::placeholder {
-  color: rgb(255, 255, 255);
-  font-family: "PoppinsExtraLight";
-}
+  .inputBar input::placeholder {
+    color: rgb(255, 255, 255);
+    font-family: "PoppinsExtraLight";
+  }
 
-.inputBar input:focus {
+  .inputBar input:focus {
     border: 0.13px solid rgb(175, 175, 175);
-}
+  }
 
-.highlightInputBar input {
+  .highlightInputBar input {
     flex: 1;
     z-index: 0;
     outline: none;
@@ -1104,49 +1104,45 @@ a {
     border-radius: 0.7rem;
     padding: 1rem 0rem;
     padding-left: 6rem;
-    color: white; 
-}
+    color: white;
+  }
 
-.highlightInputBar input::placeholder {
-  color: #6d6d6d;
-}
+  .highlightInputBar input::placeholder {
+    color: #6d6d6d;
+  }
 
-.highlightInputBar input:focus {
+  .highlightInputBar input:focus {
     border: 0.13px solid rgb(175, 175, 175);
-}
+  }
 
 
 
-.highlightInputBar  .search {
+  .highlightInputBar .search {
     z-index: 1;
     width: 3rem;
     height: 3rem;
     position: absolute;
     left: 30rem;
-    top:1.25rem;
-    left:31.7rem;
+    top: 1.25rem;
+    left: 31.7rem;
     fill: #6d6d6d;
 
-}
+  }
 
-.inputBar .search {
+  .inputBar .search {
     z-index: 1;
-    top: 0.6rem;
     width: 3rem;
     height: 3rem;
     position: absolute;
     left: 30rem;
-    top:0.9rem;
-    left:31.7rem;
+    top: 1.25rem;
+    left: 31.7rem;
     fill: rgb(255, 255, 255);
 
-}
+  }
 
-.normal {
+  .normal {
     height: 4.8rem;
-}
+  }
 
 }
-
-
-
