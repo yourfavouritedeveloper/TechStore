@@ -299,7 +299,7 @@
 
     .container {
         top: 18.6%;
-        transform:translate(-50%, -50%) scale(0.8);
+        transform: translate(-50%, -50%) scale(0.8);
         height: 38%;
         border-radius: 0.7rem;
 
@@ -316,9 +316,9 @@
 
 @media (max-width: 1240px) {
 
-     .container {
+    .container {
         top: 19.5%;
-        transform:translate(-50%, -50%) scale(0.6);
+        transform: translate(-50%, -50%) scale(0.6);
         height: 50.5%;
         border-radius: 0.7rem;
 
@@ -333,9 +333,9 @@
 
 @media (max-width: 950px) {
 
-      .container {
+    .container {
         top: 19%;
-        transform:translate(-50%, -50%) scale(0.4);
+        transform: translate(-50%, -50%) scale(0.4);
         height: 75.5%;
         border-radius: 0.7rem;
 
@@ -350,9 +350,9 @@
 
 @media (max-width: 750px) {
 
-      .container {
+    .container {
         top: 10%;
-        transform:translate(-50%, -50%) scale(0.6);
+        transform: translate(-50%, -50%) scale(0.6);
         height: 29%;
         width: 54.9rem;
         border-radius: 0.7rem;
@@ -360,4 +360,151 @@
     }
 
 
+
+
+
+    .campaign1 .title {
+        top: -6rem;
+        width: 40rem;
+        left: 1rem;
+    }
+
+
+    .campaign1 .subtitle {
+        width: 40rem;
+        top: -13.5rem;
+        text-align: left;
+        left: 1.5rem;
+        line-height: 0.9;
+    }
+
+    .campaign1 .subsubtitle {
+        top: -15.6rem;
+        width: 40rem;
+        left: -2rem;
+    }
+
+
+
+
+
+    .campaign2 .title {
+        letter-spacing: -0.4rem;
+        top: -8.5rem;
+        left: -22.8rem;
+    }
+
+
+    .campaign2 .subtitle {
+        width: 40rem;
+        top: -19.5rem;
+        left: 2rem;
+        text-align: left;
+        line-height: 0.9;
+    }
+
+    .campaign2 .subsubtitle {
+
+        top: -13.5rem;
+        left: -26.5rem;
+    }
+
+    .campaign2 button {
+        top: 13.8rem;
+        left: 1.7rem;
+        font-size: clamp(1rem, 1.8rem, 10rem);
+        border-radius: 1.5rem;
+        padding: 0.6rem 2rem;
+    }
+
+
+
+
+    .campaign2 img {
+        right: 20rem;
+        width: 40%;
+        top: -4rem;
+
+    }
+
+
+
+
+    .campaign3 .title {
+        font-size: clamp(4rem, 5.3rem, 10rem);
+        width: 90%;
+        letter-spacing: -0.4rem;
+        line-height: 0.88;
+        width: 45rem;
+        top: -3rem;
+        left: 2rem;
+    }
+
+
+    .campaign3 .subtitle {
+        font-size: clamp(1.7rem, 1.7rem, 10rem);
+        width: 50%;
+        text-align: left;
+        line-height: 1;
+        position: absolute;
+        top: 9.8rem;
+        left: 2.3rem;
+    }
+
+
+
+    .campaign3 button {
+        top: 15.2rem;
+        left: 2.2rem;
+        font-size: clamp(1rem, 1.8rem, 10rem);
+        border-radius: 1.5rem;
+        padding: 0.6rem 2rem;
+    }
+
+
+
+
+    .campaign3 img {
+        position: absolute;
+        right: 26rem;
+        width: 25%;
+        z-index: -1;
+        top: -3rem;
+        transform: rotate(25deg);
+    }
+
+
+
+
+
+    .controls button {
+        padding: 1rem 2rem;
+        border: none;
+        top: 0rem;
+        position: relative;
+        border-radius: 1rem;
+        cursor: pointer;
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+    }
+
+    .controls button:hover {
+        background: rgba(0, 0, 0, 0.8);
+    }
+
+
+
+}
+
+
+
+@media (max-width: 580px) {
+    .container {
+        top: 10.8%;
+        transform: translate(-50%, -50%) scale(0.44);
+        height: 41%;
+        width: 54.9rem;
+        border-radius: 0.7rem;
+
+    }
 }

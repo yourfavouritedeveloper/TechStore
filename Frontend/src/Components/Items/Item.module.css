@@ -12,10 +12,10 @@
 }
 
 .containers {
-    display: flex;          
-    flex-direction: row;     
-    justify-content: space-around; 
-    align-items: center; 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
     height: 15rem;
     position: relative;
     width: 90rem;
@@ -27,8 +27,8 @@
     width: 44.3rem;
     position: relative;
     background-color: rgb(221, 229, 233);
-    left:-0.34%;
-    top:0rem;
+    left: -0.34%;
+    top: 0rem;
     height: 15rem;
 }
 
@@ -37,103 +37,103 @@
     width: 44.3rem;
     position: relative;
     background-color: rgb(221, 229, 233);
-    left:25%;
+    left: 25%;
     transform: translateX(-50%);
-    top:0rem;
+    top: 0rem;
     height: 15rem;
 }
 
 
 .discoverBox {
-  width: 90rem;
-  left:50%;
-  transform: translateX(-50%);
-  height: 30rem;
-  background-color: rgb(205, 199, 238);
-  top:4.8rem;
-  position: absolute;
+    width: 90rem;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 30rem;
+    background-color: rgb(205, 199, 238);
+    top: 4.8rem;
+    position: absolute;
 
-  
+
 }
 
 .discoverBox .title {
     position: relative;
-    left:0rem;
+    left: 0rem;
     text-align: left;
     top: 2.2rem;
     padding-left: 6rem;
-    color:rgb(0, 0, 0);    
+    color: rgb(0, 0, 0);
     font-family: "PoppinsMedium";
-    font-size: clamp(1rem, 4.8rem,10rem);
+    font-size: clamp(1rem, 4.8rem, 10rem);
 }
 
 .discoverBox .subtitle {
-  top:-2.8rem;
-  color: rgb(0, 0, 0);
-  font-family: "PoppinsLight";
-  font-size: clamp(1rem, 1.56rem,10rem);
-  width: 40%;
-  line-height: 1;
-  left:0.2rem;
-  padding-left: 6rem;
-  text-align: left;
-  position: relative;
+    top: -2.8rem;
+    color: rgb(0, 0, 0);
+    font-family: "PoppinsLight";
+    font-size: clamp(1rem, 1.56rem, 10rem);
+    width: 40%;
+    line-height: 1;
+    left: 0.2rem;
+    padding-left: 6rem;
+    text-align: left;
+    position: relative;
 }
 
 .discoverBox img {
-  width: 60%;
-  position: relative;
-  left:20%;
-  top:-14.8rem;
+    width: 60%;
+    position: relative;
+    left: 20%;
+    top: -14.8rem;
 }
 
 .popularExplanation {
 
-    padding:3rem 0rem;
+    padding: 3rem 0rem;
     padding-bottom: 5rem;
     width: 35%;
     height: 32rem;
     position: absolute;
-    left:5rem;
-    top:17rem;
-    border-radius: 3rem; 
+    left: 5rem;
+    top: 17rem;
+    border-radius: 3rem;
 }
 
 .popularExplanation .subtitle {
-      font-size: clamp(1rem, 2.4rem,10rem); 
-      text-align: left; 
-      line-height: 0.9;
-      position: relative;
-      top:-20rem;   
-      width: 120%;
-      font-family: "PoppinsSemiBold";
+    font-size: clamp(1rem, 2.4rem, 10rem);
+    text-align: left;
+    line-height: 0.9;
+    position: relative;
+    top: -20rem;
+    width: 120%;
+    font-family: "PoppinsSemiBold";
 }
 
 .popularExplanation .subsubtitle {
-      font-size: clamp(1rem, 1rem,10rem); 
-      text-align: left; 
-      line-height: 1.3;
-      position: relative;
-      top:-22rem;   
-      width: 110%;
-      font-family: "PoppinsRegular";
+    font-size: clamp(1rem, 1rem, 10rem);
+    text-align: left;
+    line-height: 1.3;
+    position: relative;
+    top: -22rem;
+    width: 110%;
+    font-family: "PoppinsRegular";
 }
 
 
 .popularButton {
     background-color: #2c8f9c;
-    color:white;
-      font-size: clamp(0rem, 0.85rem,10rem); 
-      text-align: left; 
-      line-height: 1.3;
-      left:0rem;
-      position: absolute;
-      top: -7rem;
-      z-index: 40;
-      white-space: nowrap;
-      padding: 0.5rem 1rem;
-      border-radius: 0.7rem;
-      transition: all 0.3s ease;
+    color: white;
+    font-size: clamp(0rem, 0.85rem, 10rem);
+    text-align: left;
+    line-height: 1.3;
+    left: 0rem;
+    position: absolute;
+    top: -7rem;
+    z-index: 40;
+    white-space: nowrap;
+    padding: 0.5rem 1rem;
+    border-radius: 0.7rem;
+    transition: all 0.3s ease;
 
 
 }
@@ -144,59 +144,59 @@
 
 
 .container1 img {
-  position: relative;
-  width: 45%;
-  top:-1rem;
-  left:9rem;
+    position: relative;
+    width: 45%;
+    top: -1rem;
+    left: 9rem;
 }
 
 .sellerExplanation {
 
-    padding:3rem 0rem;
+    padding: 3rem 0rem;
     padding-bottom: 5rem;
     width: 35%;
     height: 32rem;
     position: absolute;
-    left:5rem;
-    top:17rem;
-    border-radius: 3rem; 
+    left: 5rem;
+    top: 17rem;
+    border-radius: 3rem;
 }
 
 .sellerExplanation .subtitle {
-      font-size: clamp(1rem, 2.4rem,10rem); 
-      text-align: left; 
-      line-height: 0.9;
-      position: relative;
-      top:-20rem;   
-      width: 120%;
-      font-family: "PoppinsSemiBold";
+    font-size: clamp(1rem, 2.4rem, 10rem);
+    text-align: left;
+    line-height: 0.9;
+    position: relative;
+    top: -20rem;
+    width: 120%;
+    font-family: "PoppinsSemiBold";
 }
 
 .sellerExplanation .subsubtitle {
-      font-size: clamp(1rem, 1rem,10rem); 
-      text-align: left; 
-      line-height: 1.3;
-      position: relative;
-      top:-22rem;   
-      width: 105%;
-      font-family: "PoppinsRegular";
+    font-size: clamp(1rem, 1rem, 10rem);
+    text-align: left;
+    line-height: 1.3;
+    position: relative;
+    top: -22rem;
+    width: 105%;
+    font-family: "PoppinsRegular";
 }
 
 
 .sellerButton {
     background-color: #2c8f9c;
-    color:white;
-      font-size: clamp(0rem, 0.85rem,10rem); 
-      text-align: left; 
-      line-height: 1.3;
-      left:0rem;
-      position: absolute;
-      top: -7rem;
-      z-index: 40;
-      white-space: nowrap;
-      padding: 0.5rem 1rem;
-      border-radius: 0.7rem;
-      transition: all 0.3s ease;
+    color: white;
+    font-size: clamp(0rem, 0.85rem, 10rem);
+    text-align: left;
+    line-height: 1.3;
+    left: 0rem;
+    position: absolute;
+    top: -7rem;
+    z-index: 40;
+    white-space: nowrap;
+    padding: 0.5rem 1rem;
+    border-radius: 0.7rem;
+    transition: all 0.3s ease;
 
 
 }
@@ -207,10 +207,10 @@
 
 
 .container2 img {
-  position: relative;
-  width: 55%;
-  top:-1rem;
-  left:9rem;
+    position: relative;
+    width: 55%;
+    top: -1rem;
+    left: 9rem;
 }
 
 
@@ -219,33 +219,33 @@
     padding: 3rem 0 5rem 0;
     width: 90rem;
     height: 25rem;
-    margin: 2rem auto 0 auto; 
-    position: relative;         
+    margin: 2rem auto 0 auto;
+    position: relative;
 
 
 
-    
+
 }
 
 
 
 .popular {
     position: relative;
-    left:4rem;
+    left: 4rem;
     text-align: left;
     margin-top: 0rem;
-    top:-1rem;
+    top: -1rem;
     margin-bottom: -1rem;
-    color:white;    
+    color: white;
     font-size: clamp(5rem, 1.5rem, 2.5rem);
-    
+
 }
 
 
 .itemsPopular .searchRate {
     position: absolute;
     top: -3rem;
-    left:-0.05rem;
+    left: -0.05rem;
     width: 14.7rem;
     font-size: clamp(0.8rem, 1.2rem, 2rem);
     color: rgb(255, 255, 255);
@@ -261,12 +261,12 @@
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem; 
+    gap: 1rem;
     padding: 0rem 0rem;
     position: relative;
-    
 
-    
+
+
 }
 
 
@@ -279,14 +279,14 @@
 
 .itemsPopular .item {
     margin-top: 0rem;
-    flex: 1 0 15%; 
-    box-sizing: border-box; 
-    padding:11.5rem 1rem;
+    flex: 1 0 15%;
+    box-sizing: border-box;
+    padding: 11.5rem 1rem;
     border-radius: 0.2rem;
     color: black;
     position: relative;
     cursor: pointer;
-    background-color: rgb(255, 255, 255); 
+    background-color: rgb(255, 255, 255);
     border: 1.9px solid rgb(219, 219, 219);
 
 
@@ -295,27 +295,27 @@
 .popularInfo {
     background-color: rgb(243, 243, 243);
     position: absolute;
-    padding:6rem 1rem; 
-    top:0.7rem;
+    padding: 6rem 1rem;
+    top: 0.7rem;
     width: 77%;
-    left:50%;
+    left: 50%;
     transform: translateX(-50%);
 
 }
 
 .itemsPopular .guaranteeTitle {
     position: absolute;
-    top:15.5rem;   
+    top: 15.5rem;
     font-family: "PoppinsMedium";
-    left: 0.85rem;  
+    left: 0.85rem;
     font-size: clamp(0rem, 0.8rem, 2rem);
-    color:#a0a0a0; 
+    color: #a0a0a0;
 }
 
 .itemsPopular .guarantee {
     position: absolute;
-    top:16.7rem;   
-    left: 0.85rem;  
+    top: 16.7rem;
+    left: 0.85rem;
     font-family: "PoppinsMedium";
     font-size: clamp(0rem, 0.84rem, 2rem);
     color: #1d3c94;
@@ -323,17 +323,17 @@
 
 .itemsPopular .availTitle {
     position: absolute;
-    top:15.5rem;   
+    top: 15.5rem;
     font-family: "PoppinsMedium";
-    right: 0.85rem;  
+    right: 0.85rem;
     font-size: clamp(0rem, 0.8rem, 2rem);
-    color:#a0a0a0; 
+    color: #a0a0a0;
 }
 
 .itemsPopular .avail {
     position: absolute;
-    top:16.7rem;   
-    left: 12.45rem;  
+    top: 16.7rem;
+    left: 12.45rem;
     font-family: "PoppinsMedium";
     font-size: clamp(0rem, 0.84rem, 2rem);
     color: #1d3c94;
@@ -343,26 +343,26 @@
 
 .itemsPopular .priceTitle {
     position: absolute;
-    top:18.5rem;    
+    top: 18.5rem;
     font-family: "PoppinsMedium";
-    left: 0.85rem;  
+    left: 0.85rem;
     font-size: clamp(0rem, 0.8rem, 2rem);
-    color:#a0a0a0; 
+    color: #a0a0a0;
 }
 
 .itemsPopular .price {
     position: absolute;
-    top:19.25rem;    
+    top: 19.25rem;
     font-family: "PoppinsSemiBold";
-    left: 0.8rem;  
+    left: 0.8rem;
     font-size: clamp(1rem, 1.2rem, 2rem);
-    color:#313131;
+    color: #313131;
 }
 
 .itemsPopular .name {
     text-align: left;
     position: absolute;
-    top:12.5rem;
+    top: 12.5rem;
     font-family: "PoppinsMedium";
     line-height: 1.1;
     color: #313131;
@@ -377,10 +377,10 @@
 
 .itemsPopular img {
     position: absolute;
-    left:50%;
+    left: 50%;
     width: 110%;
-    top:50%;
-    transform: translate(-50%,-50%);
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 
@@ -389,8 +389,8 @@
     position: absolute;
     background-color: white;
     border: none;
-    top:19.5rem;
-    right: 0.85rem;  
+    top: 19.5rem;
+    right: 0.85rem;
     cursor: pointer;
     z-index: 20;
     padding: 1.2rem 1.2rem;
@@ -403,9 +403,9 @@
     position: absolute;
     transition: all 0.3s ease;
     white-space: nowrap;
-    top:15%;
-    left:60%;
-    transform: translate(-50%,-50%);
+    top: 15%;
+    left: 60%;
+    transform: translate(-50%, -50%);
     color: white;
     font-family: "PoppinsRegular";
 }
@@ -414,9 +414,9 @@
 .itemsPopular .cart svg {
     height: 22px;
     width: 22px;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     fill: rgb(54, 132, 250);
     position: absolute;
     transition: all 0.3s ease;
@@ -424,28 +424,28 @@
 
 .itemsPopular .cart:hover {
     padding: 1.2rem 4rem;
-    background-color: rgb(54, 132, 250);   
+    background-color: rgb(54, 132, 250);
     border: 1px solid rgb(54, 132, 250);
 }
 
 .itemsPopular .cart:hover svg {
-    left:20%;
-    fill:white;
+    left: 20%;
+    fill: white;
 }
 
 
 .itemsPopular .inCart {
     padding: 1.2rem 1.2rem;
-    background-color: rgb(54, 132, 250);   
-    border: 1px solid rgb(54, 132, 250);  
+    background-color: rgb(54, 132, 250);
+    border: 1px solid rgb(54, 132, 250);
 }
 
 .itemsPopular .inCart svg {
     height: 22px;
     width: 22px;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     fill: rgb(255, 255, 255);
     position: absolute;
     transition: all 0.3s ease;
@@ -457,9 +457,9 @@
     padding: 3rem 0 5rem 0;
     width: 90rem;
     height: 25rem;
-    margin: -4rem auto 0 auto; 
-    position: relative;   
-    
+    margin: -4rem auto 0 auto;
+    position: relative;
+
 }
 
 
@@ -469,7 +469,7 @@
 .itemsBought .boughtRate {
     position: absolute;
     top: -3rem;
-    left:-0.05rem;
+    left: -0.05rem;
     width: 14.7rem;
     font-size: clamp(0.8rem, 1.2rem, 2rem);
     color: rgb(255, 255, 255);
@@ -485,12 +485,12 @@
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem; 
+    gap: 1rem;
     padding: 0rem 0rem;
     position: relative;
-    
 
-    
+
+
 }
 
 
@@ -503,14 +503,14 @@
 
 .itemsBought .item {
     margin-top: 0rem;
-    flex: 1 0 15%; 
-    box-sizing: border-box; 
-    padding:11.5rem 1rem;
+    flex: 1 0 15%;
+    box-sizing: border-box;
+    padding: 11.5rem 1rem;
     border-radius: 0.2rem;
     color: black;
     position: relative;
     cursor: pointer;
-    background-color: rgb(255, 255, 255); 
+    background-color: rgb(255, 255, 255);
     border: 1.9px solid rgb(219, 219, 219);
 
 
@@ -519,27 +519,27 @@
 .popularInfo {
     background-color: rgb(243, 243, 243);
     position: absolute;
-    padding:6rem 1rem; 
-    top:0.7rem;
+    padding: 6rem 1rem;
+    top: 0.7rem;
     width: 77%;
-    left:50%;
+    left: 50%;
     transform: translateX(-50%);
 
 }
 
 .itemsBought .guaranteeTitle {
     position: absolute;
-    top:15.5rem;   
+    top: 15.5rem;
     font-family: "PoppinsMedium";
-    left: 0.85rem;  
+    left: 0.85rem;
     font-size: clamp(0rem, 0.8rem, 2rem);
-    color:#a0a0a0; 
+    color: #a0a0a0;
 }
 
 .itemsBought .guarantee {
     position: absolute;
-    top:16.7rem;   
-    left: 0.85rem;  
+    top: 16.7rem;
+    left: 0.85rem;
     font-family: "PoppinsMedium";
     font-size: clamp(0rem, 0.84rem, 2rem);
     color: #1d3c94;
@@ -547,17 +547,17 @@
 
 .itemsBought .availTitle {
     position: absolute;
-    top:15.5rem;   
+    top: 15.5rem;
     font-family: "PoppinsMedium";
-    right: 0.85rem;  
+    right: 0.85rem;
     font-size: clamp(0rem, 0.8rem, 2rem);
-    color:#a0a0a0; 
+    color: #a0a0a0;
 }
 
 .itemsBought .avail {
     position: absolute;
-    top:16.7rem;   
-    left: 12.45rem;  
+    top: 16.7rem;
+    left: 12.45rem;
     font-family: "PoppinsMedium";
     font-size: clamp(0rem, 0.84rem, 2rem);
     color: #1d3c94;
@@ -567,26 +567,26 @@
 
 .itemsBought .priceTitle {
     position: absolute;
-    top:18.5rem;    
+    top: 18.5rem;
     font-family: "PoppinsMedium";
-    left: 0.85rem;  
+    left: 0.85rem;
     font-size: clamp(0rem, 0.8rem, 2rem);
-    color:#a0a0a0; 
+    color: #a0a0a0;
 }
 
 .itemsBought .price {
     position: absolute;
-    top:19.25rem;    
+    top: 19.25rem;
     font-family: "PoppinsSemiBold";
-    left: 0.8rem;  
+    left: 0.8rem;
     font-size: clamp(1rem, 1.2rem, 2rem);
-    color:#313131;
+    color: #313131;
 }
 
 .itemsBought .name {
     text-align: left;
     position: absolute;
-    top:12.5rem;
+    top: 12.5rem;
     font-family: "PoppinsMedium";
     line-height: 1.1;
     color: #313131;
@@ -601,10 +601,10 @@
 
 .itemsBought img {
     position: absolute;
-    left:50%;
+    left: 50%;
     width: 110%;
-    top:50%;
-    transform: translate(-50%,-50%);
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 
@@ -613,8 +613,8 @@
     position: absolute;
     background-color: white;
     border: none;
-    top:19.5rem;
-    right: 0.85rem;  
+    top: 19.5rem;
+    right: 0.85rem;
     cursor: pointer;
     padding: 1.2rem 1.2rem;
     border: 1px solid rgb(54, 132, 250);
@@ -626,9 +626,9 @@
     position: absolute;
     transition: all 0.3s ease;
     white-space: nowrap;
-    top:15%;
-    left:60%;
-    transform: translate(-50%,-50%);
+    top: 15%;
+    left: 60%;
+    transform: translate(-50%, -50%);
     color: white;
     font-family: "PoppinsRegular";
 }
@@ -637,9 +637,9 @@
 .itemsBought .cart svg {
     height: 22px;
     width: 22px;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     fill: rgb(54, 132, 250);
     position: absolute;
     transition: all 0.3s ease;
@@ -647,28 +647,28 @@
 
 .itemsBought .cart:hover {
     padding: 1.2rem 4rem;
-    background-color: rgb(54, 132, 250);   
+    background-color: rgb(54, 132, 250);
     border: 1px solid rgb(54, 132, 250);
 }
 
 .itemsBought .cart:hover svg {
-    left:20%;
-    fill:white;
+    left: 20%;
+    fill: white;
 }
 
 
 .itemsBought .inCart {
     padding: 1.2rem 1.2rem;
-    background-color: rgb(54, 132, 250);   
-    border: 1px solid rgb(54, 132, 250);  
+    background-color: rgb(54, 132, 250);
+    border: 1px solid rgb(54, 132, 250);
 }
 
 .itemsBought .inCart svg {
     height: 22px;
     width: 22px;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     fill: rgb(255, 255, 255);
     position: absolute;
     transition: all 0.3s ease;
@@ -677,16 +677,16 @@
 
 
 .loadingContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .loadingImage {
-  width: 80px;
-  height: 80px;
-  animation: spin 1s linear infinite;
+    width: 80px;
+    height: 80px;
+    animation: spin 1s linear infinite;
 }
 
 .cartSpinnerDiv {
@@ -719,8 +719,13 @@
 
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 
@@ -730,36 +735,36 @@
 @media (max-width: 1540px) {
 
 
-.container {
-   height: 75rem;
-  
-}
+    .container {
+        height: 75rem;
 
-.containers {
-    transform: scale(0.8);
-    top:-8.8rem;
+    }
 
-}
+    .containers {
+        transform: scale(0.8);
+        top: -8.8rem;
 
-.discoverBox {
-  transform: translateX(-50%) scale(0.8);
-    top:0.8rem;
-    z-index: -1;
+    }
 
-  
-}
+    .discoverBox {
+        transform: translateX(-50%) scale(0.8);
+        top: 0.8rem;
+        z-index: -1;
 
 
-.populardiv {
-    transform: scale(0.8);
-    top:-14rem;
-}
+    }
 
 
-.sellerdiv {
-    transform: scale(0.8);
-    top:-20rem;
-}
+    .populardiv {
+        transform: scale(0.8);
+        top: -14rem;
+    }
+
+
+    .sellerdiv {
+        transform: scale(0.8);
+        top: -20rem;
+    }
 
 
 
@@ -767,111 +772,278 @@
 
 
 @media (max-width: 1440px) {
-.containers {
-    left:50%;
-    transform: translateX(-50%) scale(0.8);
-    top:-8.8rem;
+    .containers {
+        left: 50%;
+        transform: translateX(-50%) scale(0.8);
+        top: -8.8rem;
 
-}
+    }
 
-.populardiv {
-    left:50%;
-    transform: translateX(-50%) scale(0.8);
-    top:-14rem;
-}
+    .populardiv {
+        left: 50%;
+        transform: translateX(-50%) scale(0.8);
+        top: -14rem;
+    }
 
 
-.sellerdiv {
-    left:50%;
-    transform: translateX(-50%) scale(0.8);
-    top:-20rem;
-}
+    .sellerdiv {
+        left: 50%;
+        transform: translateX(-50%) scale(0.8);
+        top: -20rem;
+    }
 
 
 }
 
 
 @media (max-width: 1240px) {
-.container {
-   height: 52rem;
-  
-}
+    .container {
+        height: 52rem;
 
-.containers {
-    left:50%;
-    transform: translateX(-50%) scale(0.6);
-    top:-16.9rem;
+    }
 
-}
+    .containers {
+        left: 50%;
+        transform: translateX(-50%) scale(0.6);
+        top: -16.9rem;
 
-.discoverBox {
-  transform: translateX(-50%) scale(0.6);
-    top:-2.8rem;
+    }
 
-  
-}
+    .discoverBox {
+        transform: translateX(-50%) scale(0.6);
+        top: -2.8rem;
 
 
-.populardiv {
-    left:50%;
-    transform: translateX(-50%) scale(0.6);
-    top:-27.5rem;
-}
+    }
 
 
-.sellerdiv {
-    left:50%;
-    transform: translateX(-50%) scale(0.6);
-    top:-39rem;
-}
+    .populardiv {
+        left: 50%;
+        transform: translateX(-50%) scale(0.6);
+        top: -27.5rem;
+    }
+
+
+    .sellerdiv {
+        left: 50%;
+        transform: translateX(-50%) scale(0.6);
+        top: -39rem;
+    }
 
 }
 
 @media (max-width: 950px) {
-.container {
-   height: 28rem;
-  
+    .container {
+        height: 28rem;
+
+    }
+
+    .containers {
+        left: 50%;
+        transform: translateX(-50%) scale(0.4);
+        top: -25.9rem;
+
+    }
+
+    .discoverBox {
+        transform: translateX(-50%) scale(0.4);
+        top: -7rem;
+
+
+    }
+
+
+    .populardiv {
+        left: 50%;
+        transform: translateX(-50%) scale(0.4);
+        top: -41.5rem;
+    }
+
+
+    .sellerdiv {
+        left: 50%;
+        transform: translateX(-50%) scale(0.4);
+        top: -59rem;
+    }
 }
 
-.containers {
-    left:50%;
-    transform: translateX(-50%) scale(0.4);
-    top:-25.9rem;
+@media (max-width: 750px) {
+    .container {
+        height: 69rem;
 
+    }
+
+    .containers {
+        left: 50%;
+        transform: translateX(-50%) scale(0.4);
+        top: -17.9rem;
+
+    }
+
+    .discoverBox {
+        transform: translateX(-50%) scale(0.377);
+        height: 50rem;
+        top: -13rem;
+
+
+    }
+
+
+
+    .discoverBox .title {
+        top: -3.2rem;
+        font-size: clamp(1rem, 9.5rem, 10rem);
+    }
+
+    .discoverBox .subtitle {
+        top: -13.8rem;
+        font-size: clamp(1rem, 3rem, 10rem);
+        width: 70%;
+
+    }
+
+    .discoverBox img {
+        width: 60%;
+        position: relative;
+        left: 20%;
+        top: -17.8rem;
+    }
+
+    .container1 {
+
+        width: 84.9rem;
+        position: absolute;
+        left: 2.78%;
+        top: 0rem;
+        height: 35rem;
+    }
+
+    .container2 {
+
+        width: 84.9rem;
+        position: absolute;
+        left: 50%;
+        top: 38rem;
+        height: 35rem;
+    }
+
+
+    .popularExplanation {
+
+        padding: 3rem 0rem;
+        padding-bottom: 5rem;
+        width: 35%;
+        height: 32rem;
+        position: absolute;
+        left: 5rem;
+        top: 17rem;
+        border-radius: 3rem;
+    }
+
+    .popularExplanation .subtitle {
+        font-size: clamp(1rem, 5.4rem, 10rem);
+        text-align: left;
+        line-height: 0.9;
+        position: relative;
+        top: -20rem;
+        width: 150%;
+    }
+
+    .popularExplanation .subsubtitle {
+        font-size: clamp(1rem, 2.3rem, 10rem);
+        top: -24rem;
+        width: 110%;
+    }
+
+
+    .popularButton {
+        font-size: clamp(0rem, 2.5rem, 10rem);
+        left: 0rem;
+        position: absolute;
+        top: 7rem;
+        padding: 1rem 2rem;
+        border-radius: 0.7rem;
+
+
+    }
+
+
+
+
+    .container1 img {
+        position: relative;
+        width: 45%;
+        top: 5rem;
+        left: 20rem;
+    }
+
+    .sellerExplanation {
+
+        padding: 3rem 0rem;
+        padding-bottom: 5rem;
+        width: 35%;
+        height: 32rem;
+        position: absolute;
+        left: 5rem;
+        top: 17rem;
+        border-radius: 3rem;
+    }
+
+    .sellerExplanation .subtitle {
+        font-size: clamp(1rem, 5.4rem, 10rem);
+        text-align: left;
+        line-height: 0.9;
+        position: relative;
+        top: -20rem;
+        width: 150%;
+    }
+
+    .sellerExplanation .subsubtitle {
+        font-size: clamp(1rem, 2.3rem, 10rem);
+        top: -24rem;
+        width: 110%;
+    }
+
+
+    .sellerButton {
+        font-size: clamp(0rem, 2.5rem, 10rem);
+        left: 0rem;
+        position: absolute;
+        top: 7rem;
+        padding: 1rem 2rem;
+        border-radius: 0.7rem;
+
+
+    }
+
+
+
+    .container2 img {
+        position: relative;
+        width: 55%;
+        top: 5rem;
+        left: 20rem;
+    }
+
+
+
+    .populardiv {
+        left: 50%;
+        transform: translateX(-50%) scale(0.4);
+        top: -8.5rem;
+    }
+
+
+    .sellerdiv {
+        left: 50%;
+        transform: translateX(-50%) scale(0.4);
+        top: -25rem;
+    }
 }
-
-.discoverBox {
-  transform: translateX(-50%) scale(0.4);
-    top:-7rem;
-
-  
-}
-
-
-.populardiv {
-    left:50%;
-    transform: translateX(-50%) scale(0.4);
-    top:-41.5rem;
-}
-
-
-.sellerdiv {
-    left:50%;
-    transform: translateX(-50%) scale(0.4);
-    top:-59rem;
-}    
-}
-
-@media (max-width: 768px) {}
 
 @media (max-width: 576px) {}
 
-@media (max-width: 	480px) {
-
-}
+@media (max-width: 480px) {}
 
 
-@media (max-width: 360px) {
-
-}
-
+@media (max-width: 360px) {}
