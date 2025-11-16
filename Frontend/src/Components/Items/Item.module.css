@@ -1307,9 +1307,898 @@
     
 }
 
-@media (max-width: 576px) {}
-
-@media (max-width: 480px) {}
 
 
-@media (max-width: 360px) {}
+
+@media (max-width: 580px) {
+     .container {
+        height: 49rem;
+        
+
+    }
+
+    .containers {
+        left: 50%;
+        transform: translateX(-50%) scale(0.3);
+        top: -24rem;
+
+    }
+
+    .discoverBox {
+        transform: translateX(-50%) scale(0.2826);
+        height: 50rem;
+        top: -16rem;
+
+
+    }
+
+
+
+    .discoverBox .title {
+        top: -3.2rem;
+        font-size: clamp(1rem, 9.5rem, 10rem);
+    }
+
+    .discoverBox .subtitle {
+        top: -13.8rem;
+        font-size: clamp(1rem, 3rem, 10rem);
+        width: 70%;
+
+    }
+
+    .discoverBox img {
+        width: 60%;
+        position: relative;
+        left: 20%;
+        top: -17.8rem;
+    }
+
+    .container1 {
+
+        width: 84.9rem;
+        position: absolute;
+        left: 2.78%;
+        top: 0rem;
+        height: 35rem;
+    }
+
+    .container2 {
+
+        width: 84.9rem;
+        position: absolute;
+        left: 50%;
+        top: 38rem;
+        height: 35rem;
+    }
+
+
+    .popularExplanation {
+
+        padding: 3rem 0rem;
+        padding-bottom: 5rem;
+        width: 35%;
+        height: 32rem;
+        position: absolute;
+        left: 5rem;
+        top: 17rem;
+        border-radius: 3rem;
+    }
+
+    .popularExplanation .subtitle {
+        font-size: clamp(1rem, 5.4rem, 10rem);
+        text-align: left;
+        line-height: 0.9;
+        position: relative;
+        top: -20rem;
+        width: 150%;
+    }
+
+    .popularExplanation .subsubtitle {
+        font-size: clamp(1rem, 2.3rem, 10rem);
+        top: -24rem;
+        width: 110%;
+    }
+
+
+    .popularButton {
+        font-size: clamp(0rem, 2.5rem, 10rem);
+        left: 0rem;
+        position: absolute;
+        top: 7rem;
+        padding: 1rem 2rem;
+        border-radius: 0.7rem;
+
+
+    }
+
+
+
+
+    .container1 img {
+        position: relative;
+        width: 45%;
+        top: 5rem;
+        left: 20rem;
+    }
+
+    .sellerExplanation {
+
+        padding: 3rem 0rem;
+        padding-bottom: 5rem;
+        width: 35%;
+        height: 32rem;
+        position: absolute;
+        left: 5rem;
+        top: 17rem;
+        border-radius: 3rem;
+    }
+
+    .sellerExplanation .subtitle {
+        font-size: clamp(1rem, 5.4rem, 10rem);
+        text-align: left;
+        line-height: 0.9;
+        position: relative;
+        top: -20rem;
+        width: 150%;
+    }
+
+    .sellerExplanation .subsubtitle {
+        font-size: clamp(1rem, 2.3rem, 10rem);
+        top: -24rem;
+        width: 110%;
+    }
+
+
+    .sellerButton {
+        font-size: clamp(0rem, 2.5rem, 10rem);
+        left: 0rem;
+        position: absolute;
+        top: 7rem;
+        padding: 1rem 2rem;
+        border-radius: 0.7rem;
+
+
+    }
+
+
+
+    .container2 img {
+        position: relative;
+        width: 55%;
+        top: 5rem;
+        left: 20rem;
+    }
+
+
+
+    .populardiv {
+        left: 50%;
+        transform: translateX(-50%) scale(0.2826);
+        top: -24.5rem;
+
+    }
+
+    
+    .itemsPopular .searchRate {
+        width: 26.8rem;
+        font-size: clamp(0.8rem, 2rem, 2rem);
+
+    }
+
+
+
+
+
+    .popularInfo {
+        padding: 10rem 1rem;
+        top: 3rem;
+        width: 86%;
+
+
+    }
+
+    .itemsPopular .guaranteeTitle {
+        top: 28rem;
+        left: 1rem;
+        font-size: clamp(0rem, 1.4rem, 2rem);
+
+    }
+
+    .itemsPopular .guarantee {
+        top: 29.8rem;
+        left: 1rem;
+        font-size: clamp(0rem, 1.4rem, 2rem);
+    }
+
+    .itemsPopular .availTitle {
+        top: 28rem;
+        right: 1rem;
+        font-size: clamp(0rem, 1.4rem, 2rem);
+    }
+
+    .itemsPopular .avail {
+        top: 29.8rem;
+        left: 21.53rem;
+        font-size: clamp(0rem, 1.4rem, 2rem);
+
+    }
+
+
+
+    .itemsPopular .priceTitle {
+        top: 33rem;
+        left: 1rem;
+        font-size: clamp(0rem, 1.4rem, 2rem);
+    }
+
+    .itemsPopular .price {
+        top: 34rem;
+        left: 0.92rem;
+        font-size: clamp(1rem, 2rem, 2rem);
+    }
+
+    .itemsPopular .name {
+        top: 22rem;
+        left: 0.55rem;
+        font-size: clamp(0.5rem, 2.1rem, 3rem);
+
+
+    }
+
+
+    .itemsPopular img {
+
+        width: 100%;
+
+    }
+
+
+
+    .itemsPopular .cart {
+        top: 34.9rem;
+        right: 1rem;
+        padding: 1.7rem 1.7rem;
+
+    }
+
+
+    .itemsPopular .cartText {
+        font-size: 1.2rem;
+
+    }
+
+
+    .itemsPopular .cart svg {
+        height: 30px;
+        width: 30px;
+
+    }
+
+    .itemsPopular .cart:hover {
+        padding: 1.7rem 6rem;
+
+    }
+
+  
+
+    .itemsPopular .inCart {
+        top: 34.9rem;
+        right: 1rem;
+        padding: 1.7rem 1.7rem;
+    }
+
+    .itemsPopular .inCart svg {
+        height: 30px;
+        width: 30px;
+    }
+
+
+
+
+    .sellerdiv {
+        left: 50%;
+        transform: translateX(-50%) scale(0.2826);
+        top: -40rem;
+
+    }
+
+
+    .itemsBought .boughtRate {
+        width: 26.8rem;
+        font-size: clamp(0.8rem, 2rem, 2rem);
+
+    }
+
+
+
+
+
+    .boughtInfo {
+        padding: 10rem 1rem;
+        top: 3rem;
+        width: 86%;
+
+
+    }
+
+    .itemsBought .guaranteeTitle {
+        top: 28rem;
+        left: 1rem;
+        font-size: clamp(0rem, 1.4rem, 2rem);
+
+    }
+
+    .itemsBought .guarantee {
+        top: 29.8rem;
+        left: 1rem;
+        font-size: clamp(0rem, 1.4rem, 2rem);
+    }
+
+    .itemsBought .availTitle {
+        top: 28rem;
+        right: 1rem;
+        font-size: clamp(0rem, 1.4rem, 2rem);
+    }
+
+    .itemsBought .avail {
+        top: 29.8rem;
+        left: 21.53rem;
+        font-size: clamp(0rem, 1.4rem, 2rem);
+
+    }
+
+
+
+    .itemsBought .priceTitle {
+        top: 33rem;
+        left: 1rem;
+        font-size: clamp(0rem, 1.4rem, 2rem);
+    }
+
+    .itemsBought .price {
+        top: 34rem;
+        left: 0.92rem;
+        font-size: clamp(1rem, 2rem, 2rem);
+    }
+
+    .itemsBought .name {
+        top: 22rem;
+        left: 0.55rem;
+        font-size: clamp(0.5rem, 2.1rem, 3rem);
+
+
+    }
+
+
+    .itemsBought img {
+
+        width: 100%;
+
+    }
+
+
+
+    .itemsBought .cart {
+        top: 34.9rem;
+        right: 1rem;
+        padding: 1.7rem 1.7rem;
+
+    }
+
+
+    .itemsBought .cartText {
+        font-size: 1.2rem;
+
+    }
+
+
+    .itemsBought .cart svg {
+        height: 30px;
+        width: 30px;
+
+    }
+
+    .itemsBought .cart:hover {
+        padding: 1.7rem 6rem;
+
+    }
+
+  
+
+    .itemsBought .inCart {
+        top: 34.9rem;
+        right: 1rem;
+        padding: 1.7rem 1.7rem;
+    }
+
+    .itemsBought .inCart svg {
+        height: 30px;
+        width: 30px;
+    }
+
+  .itemsPopular,
+  .itemsBought {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    flex-wrap: nowrap;
+    gap: 0.9rem;
+    height: 40rem;
+    padding-top: 2rem;
+    padding-bottom: 10px;
+    
+  }
+
+  .itemsPopular::-webkit-scrollbar,
+  .itemsBought::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .itemsPopular::-webkit-scrollbar-thumb,
+  .itemsBought::-webkit-scrollbar-thumb {
+    background: #bbb;
+    border-radius: 10px;
+  }
+
+  .itemsPopular::-webkit-scrollbar-track,
+  .itemsBought::-webkit-scrollbar-track {
+    background: #eee;
+  }
+
+  .itemsPopular .item,
+  .itemsBought .item {
+    flex: 0 0 calc(33.33% - 10px);
+    min-width: 200px;
+    scroll-snap-align: start;
+  }   
+}
+
+
+
+
+
+@media (max-width: 450px) {
+     .container {
+        height: 43rem;
+        
+
+    }
+
+    .containers {
+        left: 50%;
+        transform: translateX(-50%) scale(0.2653);
+        top: -26.1rem;
+
+    }
+
+    .discoverBox {
+        transform: translateX(-50%) scale(0.25);
+        height: 50rem;
+        top: -17rem;
+
+
+    }
+
+
+
+    .discoverBox .title {
+        top: -3.2rem;
+        font-size: clamp(1rem, 9.5rem, 10rem);
+    }
+
+    .discoverBox .subtitle {
+        top: -13.8rem;
+        font-size: clamp(1rem, 3rem, 10rem);
+        width: 70%;
+
+    }
+
+    .discoverBox img {
+        width: 60%;
+        position: relative;
+        left: 20%;
+        top: -17.8rem;
+    }
+
+    .container1 {
+
+        width: 84.9rem;
+        position: absolute;
+        left: 2.78%;
+        top: 0rem;
+        height: 35rem;
+    }
+
+    .container2 {
+
+        width: 84.9rem;
+        position: absolute;
+        left: 50%;
+        top: 38rem;
+        height: 35rem;
+    }
+
+
+    .popularExplanation {
+
+        padding: 3rem 0rem;
+        padding-bottom: 5rem;
+        width: 35%;
+        height: 32rem;
+        position: absolute;
+        left: 5rem;
+        top: 17rem;
+        border-radius: 3rem;
+    }
+
+    .popularExplanation .subtitle {
+        font-size: clamp(1rem, 5.4rem, 10rem);
+        text-align: left;
+        line-height: 0.9;
+        position: relative;
+        top: -20rem;
+        width: 150%;
+    }
+
+    .popularExplanation .subsubtitle {
+        font-size: clamp(1rem, 2.3rem, 10rem);
+        top: -24rem;
+        width: 110%;
+    }
+
+
+    .popularButton {
+        font-size: clamp(0rem, 2.5rem, 10rem);
+        left: 0rem;
+        position: absolute;
+        top: 7rem;
+        padding: 1rem 2rem;
+        border-radius: 0.7rem;
+
+
+    }
+
+
+
+
+    .container1 img {
+        position: relative;
+        width: 45%;
+        top: 5rem;
+        left: 20rem;
+    }
+
+    .sellerExplanation {
+
+        padding: 3rem 0rem;
+        padding-bottom: 5rem;
+        width: 35%;
+        height: 32rem;
+        position: absolute;
+        left: 5rem;
+        top: 17rem;
+        border-radius: 3rem;
+    }
+
+    .sellerExplanation .subtitle {
+        font-size: clamp(1rem, 5.4rem, 10rem);
+        text-align: left;
+        line-height: 0.9;
+        position: relative;
+        top: -20rem;
+        width: 150%;
+    }
+
+    .sellerExplanation .subsubtitle {
+        font-size: clamp(1rem, 2.3rem, 10rem);
+        top: -24rem;
+        width: 110%;
+    }
+
+
+    .sellerButton {
+        font-size: clamp(0rem, 2.5rem, 10rem);
+        left: 0rem;
+        position: absolute;
+        top: 7rem;
+        padding: 1rem 2rem;
+        border-radius: 0.7rem;
+
+
+    }
+
+
+
+    .container2 img {
+        position: relative;
+        width: 55%;
+        top: 5rem;
+        left: 20rem;
+    }
+
+
+
+    .populardiv {
+        left: 50%;
+        transform: translateX(-50%) scale(0.25);
+        top: -29rem;
+
+    }
+
+    
+    .itemsPopular .searchRate {
+        width: 26.8rem;
+        font-size: clamp(0.8rem, 2rem, 2rem);
+
+    }
+
+
+
+
+
+    .popularInfo {
+        padding: 10rem 1rem;
+        top: 3rem;
+        width: 86%;
+
+
+    }
+
+    .itemsPopular .guaranteeTitle {
+        top: 28rem;
+        left: 1rem;
+        font-size: clamp(0rem, 1.4rem, 2rem);
+
+    }
+
+    .itemsPopular .guarantee {
+        top: 29.8rem;
+        left: 1rem;
+        font-size: clamp(0rem, 1.4rem, 2rem);
+    }
+
+    .itemsPopular .availTitle {
+        top: 28rem;
+        right: 1rem;
+        font-size: clamp(0rem, 1.4rem, 2rem);
+    }
+
+    .itemsPopular .avail {
+        top: 29.8rem;
+        left: 21.53rem;
+        font-size: clamp(0rem, 1.4rem, 2rem);
+
+    }
+
+
+
+    .itemsPopular .priceTitle {
+        top: 33rem;
+        left: 1rem;
+        font-size: clamp(0rem, 1.4rem, 2rem);
+    }
+
+    .itemsPopular .price {
+        top: 34rem;
+        left: 0.92rem;
+        font-size: clamp(1rem, 2rem, 2rem);
+    }
+
+    .itemsPopular .name {
+        top: 22rem;
+        left: 0.55rem;
+        font-size: clamp(0.5rem, 2.1rem, 3rem);
+
+
+    }
+
+
+    .itemsPopular img {
+
+        width: 100%;
+
+    }
+
+
+
+    .itemsPopular .cart {
+        top: 34.9rem;
+        right: 1rem;
+        padding: 1.7rem 1.7rem;
+
+    }
+
+
+    .itemsPopular .cartText {
+        font-size: 1.2rem;
+
+    }
+
+
+    .itemsPopular .cart svg {
+        height: 30px;
+        width: 30px;
+
+    }
+
+    .itemsPopular .cart:hover {
+        padding: 1.7rem 6rem;
+
+    }
+
+  
+
+    .itemsPopular .inCart {
+        top: 34.9rem;
+        right: 1rem;
+        padding: 1.7rem 1.7rem;
+    }
+
+    .itemsPopular .inCart svg {
+        height: 30px;
+        width: 30px;
+    }
+
+
+
+
+    .sellerdiv {
+        left: 50%;
+        transform: translateX(-50%) scale(0.25);
+        top: -46rem;
+
+    }
+
+
+    .itemsBought .boughtRate {
+        width: 26.8rem;
+        font-size: clamp(0.8rem, 2rem, 2rem);
+
+    }
+
+
+
+
+
+    .boughtInfo {
+        padding: 10rem 1rem;
+        top: 3rem;
+        width: 86%;
+
+
+    }
+
+    .itemsBought .guaranteeTitle {
+        top: 28rem;
+        left: 1rem;
+        font-size: clamp(0rem, 1.4rem, 2rem);
+
+    }
+
+    .itemsBought .guarantee {
+        top: 29.8rem;
+        left: 1rem;
+        font-size: clamp(0rem, 1.4rem, 2rem);
+    }
+
+    .itemsBought .availTitle {
+        top: 28rem;
+        right: 1rem;
+        font-size: clamp(0rem, 1.4rem, 2rem);
+    }
+
+    .itemsBought .avail {
+        top: 29.8rem;
+        left: 21.53rem;
+        font-size: clamp(0rem, 1.4rem, 2rem);
+
+    }
+
+
+
+    .itemsBought .priceTitle {
+        top: 33rem;
+        left: 1rem;
+        font-size: clamp(0rem, 1.4rem, 2rem);
+    }
+
+    .itemsBought .price {
+        top: 34rem;
+        left: 0.92rem;
+        font-size: clamp(1rem, 2rem, 2rem);
+    }
+
+    .itemsBought .name {
+        top: 22rem;
+        left: 0.55rem;
+        font-size: clamp(0.5rem, 2.1rem, 3rem);
+
+
+    }
+
+
+    .itemsBought img {
+
+        width: 100%;
+
+    }
+
+
+
+    .itemsBought .cart {
+        top: 34.9rem;
+        right: 1rem;
+        padding: 1.7rem 1.7rem;
+
+    }
+
+
+    .itemsBought .cartText {
+        font-size: 1.2rem;
+
+    }
+
+
+    .itemsBought .cart svg {
+        height: 30px;
+        width: 30px;
+
+    }
+
+    .itemsBought .cart:hover {
+        padding: 1.7rem 6rem;
+
+    }
+
+  
+
+    .itemsBought .inCart {
+        top: 34.9rem;
+        right: 1rem;
+        padding: 1.7rem 1.7rem;
+    }
+
+    .itemsBought .inCart svg {
+        height: 30px;
+        width: 30px;
+    }
+
+  .itemsPopular,
+  .itemsBought {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    flex-wrap: nowrap;
+    gap: 0.9rem;
+    height: 40rem;
+    padding-top: 2rem;
+    padding-bottom: 10px;
+    
+  }
+
+  .itemsPopular::-webkit-scrollbar,
+  .itemsBought::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .itemsPopular::-webkit-scrollbar-thumb,
+  .itemsBought::-webkit-scrollbar-thumb {
+    background: #bbb;
+    border-radius: 10px;
+  }
+
+  .itemsPopular::-webkit-scrollbar-track,
+  .itemsBought::-webkit-scrollbar-track {
+    background: #eee;
+  }
+
+  .itemsPopular .item,
+  .itemsBought .item {
+    flex: 0 0 calc(33.33% - 10px);
+    min-width: 200px;
+    scroll-snap-align: start;
+  }   
+}
+
