@@ -449,6 +449,10 @@
     transition: all 0.3s ease;
 }
 
+.populardiv .scroll {
+    display: none;
+}
+
 
 
 .sellerdiv {
@@ -669,6 +673,11 @@
     position: absolute;
     transition: all 0.3s ease;
 }
+
+
+    .sellerdiv .scroll {
+        display:none;
+    }
 
 
 
@@ -1144,7 +1153,12 @@
         width: 30px;
     }
 
-
+    .populardiv .scroll {
+        display:block;
+        position: relative;
+        top:-2rem;
+        font-size: 1.7rem;
+    }
 
 
     .sellerdiv {
@@ -1268,13 +1282,26 @@
         width: 30px;
     }
 
+    .sellerdiv .scroll {
+        display:block;
+        position: relative;
+        top:-2rem;
+        font-size: 1.7rem;
+    }
+
+
+    
+
   .itemsPopular,
   .itemsBought {
     display: flex;
     overflow-x: auto;
+    overflow-y: hidden;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     flex-wrap: nowrap;
+    scrollbar-width: thin;       
+    scrollbar-color: #bbb #eee;
     gap: 0.9rem;
     height: 40rem;
     padding-top: 2rem;
@@ -1282,9 +1309,12 @@
     
   }
 
+
+
   .itemsPopular::-webkit-scrollbar,
   .itemsBought::-webkit-scrollbar {
-    height: 6px;
+    height: 8px;                 
+    display: block; 
   }
 
   .itemsPopular::-webkit-scrollbar-thumb,
@@ -2173,7 +2203,7 @@
         width: 45px;
     }
 
-        
+
 
 
   .itemsPopular,
