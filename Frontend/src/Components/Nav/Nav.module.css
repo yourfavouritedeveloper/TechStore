@@ -1755,8 +1755,8 @@ a {
       top: -3.7rem;
       left: 50%;
       right: 0;
-      height: 119vh;
-      width: 125%;
+      height: 63rem;
+      width: 125vw;
       max-width: 1050px;
       background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
       box-shadow: -4px 0 40px rgba(0, 0, 0, 0.5);
@@ -1770,14 +1770,15 @@ a {
   .accountDiv {
     position: absolute;
     height: 100vh;
-    width: 50rem;
-    margin-right:-16.89rem;
+    width: 60rem;
+    left: 50%;
     max-width: 450px;
     background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
     box-shadow: -4px 0 40px rgba(0, 0, 0, 0.5);
     top: 0%;
     overflow: hidden;
     right: 0;
+    transform: translateX(-50%);
   }
  
 }
