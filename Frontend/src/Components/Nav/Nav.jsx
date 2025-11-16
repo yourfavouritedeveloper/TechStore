@@ -114,7 +114,7 @@ const handleSignOut = () => {
 
 
   const guest = (<>
-  <div className={styles.accountDiv}>
+  <div className={styles.panel}>
      <div className={styles.header}>
             <p className={styles.title}>Account</p>
             <button
@@ -198,7 +198,7 @@ const logged = (
             </div>
           </div>
 
-          <div className={styles.menu}>
+          <div className={styles.menus}>
             <div
               className={styles.menuItem}
               onClick={() => navigate(`/account/${logAccount.username}`)}
@@ -307,11 +307,8 @@ const logged = (
       )}
     <Link
       id={styles.login}
-      style={{ 
-        opacity: menuOpen ? "0" : "1", 
-      }}
       className={highlight ? styles.highlightAccount : ""}
-      to={logAccount?.username ? `/account/${logAccount.username}` : `/login`}
+      onClick={() => setMenuOpen(prev => !prev)}
     >
       <svg xmlns="http://www.w3.org/2000/svg"  
       viewBox="0 -960 960 960" 
@@ -385,7 +382,7 @@ const logged = (
       <div
         className={styles.loginSection}
         style={{
-          transform: menuOpen ? "translateX(-50%)" : "translateX(20rem)",
+          transform: menuOpen ? "translateX(-50%)" : "translateX(25rem)",
           pointerEvents: menuOpen ? "auto" : "none"
         }}
       >
