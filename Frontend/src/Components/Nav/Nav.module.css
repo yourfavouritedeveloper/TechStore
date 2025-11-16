@@ -750,9 +750,13 @@ a {
   transition: all 0.3s ease;
 }
 
+#name.highlight {
+  color: black;
+}
 
-
-
+.highlightName {
+  color: black;
+}
 
 .highlight .log:hover {
   color: black;

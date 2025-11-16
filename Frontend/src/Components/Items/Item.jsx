@@ -236,7 +236,9 @@ const updateCart = async (item) => {
                                   updateCart(item);
                                 }}
                             onMouseEnter={() => {setIsHovered(true);setPopularHoverId(item.id)}}
-                            onMouseLeave={() => {setIsHovered(false);setPopularHoverId(0)}}>
+                            onMouseLeave={() => {setIsHovered(false);setPopularHoverId(0)}}
+                            onTouchStart={() => { setIsHovered(true); setPopularHoverId(item.id); }}
+                            onTouchEnd={() => { setIsHovered(false); setPopularHoverId(0); }}>
                              {(isAdding && itemSearchId == item.id) ? (
                                   <>
                                       <div className={styles.cartSpinnerDiv}>
@@ -281,7 +283,9 @@ const updateCart = async (item) => {
                                   
                               }}
                             onMouseEnter={() => {setIsHovered(true);setBoughtHoverId(item.id)}}
-                            onMouseLeave={() => {setIsHovered(false);setBoughtHoverId(0)}}>
+                            onMouseLeave={() => {setIsHovered(false);setBoughtHoverId(0)}}
+                            onTouchStart={() => { setIsHovered(true); setPopularHoverId(item.id); }}
+                            onTouchEnd={() => { setIsHovered(false); setPopularHoverId(0); }}>
                               {(isAdding && itemBoughtId == item.id)? (
                                   <>
                                       <div className={styles.cartSpinnerDiv}>
