@@ -1760,7 +1760,7 @@
 
 @media (max-width: 450px) {
      .container {
-        height: 43rem;
+        height: 53rem;
         
 
     }
@@ -1928,8 +1928,9 @@
 
     
     .itemsPopular .searchRate {
-        width: 26.8rem;
-        font-size: clamp(0.8rem, 2rem, 2rem);
+        width: 41.1rem;
+        top:-5rem;
+        font-size: clamp(0.8rem, 3rem, 4rem);
 
     }
 
@@ -1938,57 +1939,57 @@
 
 
     .popularInfo {
-        padding: 10rem 1rem;
-        top: 3rem;
+        padding: 16rem 1rem;
+        top: 4rem;
         width: 86%;
 
 
     }
 
     .itemsPopular .guaranteeTitle {
-        top: 28rem;
-        left: 1rem;
-        font-size: clamp(0rem, 1.4rem, 2rem);
+        top: 43rem;
+        left: 2rem;
+        font-size: clamp(0rem, 2rem, 2rem);
 
     }
 
     .itemsPopular .guarantee {
-        top: 29.8rem;
-        left: 1rem;
-        font-size: clamp(0rem, 1.4rem, 2rem);
+        top: 45.4rem;
+        left: 2rem;
+        font-size: clamp(0rem, 2rem, 2rem);
     }
 
     .itemsPopular .availTitle {
-        top: 28rem;
-        right: 1rem;
-        font-size: clamp(0rem, 1.4rem, 2rem);
+        top: 43rem;
+        right: 2rem;
+        font-size: clamp(0rem, 2rem, 2rem);
     }
 
     .itemsPopular .avail {
-        top: 29.8rem;
-        left: 21.53rem;
-        font-size: clamp(0rem, 1.4rem, 2rem);
+        top: 45.4rem;
+        left: 40rem;
+        font-size: clamp(0rem, 2rem, 2rem);
 
     }
 
 
 
     .itemsPopular .priceTitle {
-        top: 33rem;
-        left: 1rem;
-        font-size: clamp(0rem, 1.4rem, 2rem);
+        top: 49.5rem;
+        left: 2rem;
+        font-size: clamp(0rem, 2rem, 2rem);
     }
 
     .itemsPopular .price {
-        top: 34rem;
-        left: 0.92rem;
-        font-size: clamp(1rem, 2rem, 2rem);
+        top: 51rem;
+        left: 2rem;
+        font-size: clamp(1rem, 3rem, 3rem);
     }
 
     .itemsPopular .name {
-        top: 22rem;
-        left: 0.55rem;
-        font-size: clamp(0.5rem, 2.1rem, 3rem);
+        top: 34.5rem;
+        left: 2rem;
+        font-size: clamp(0.5rem, 2.9rem, 3rem);
 
 
     }
@@ -2003,41 +2004,44 @@
 
 
     .itemsPopular .cart {
-        top: 34.9rem;
-        right: 1rem;
-        padding: 1.7rem 1.7rem;
+        top: 52.2rem;
+        right: 2rem;
+        padding: 2.6rem 2.6rem;
 
     }
 
 
     .itemsPopular .cartText {
-        font-size: 1.2rem;
+        position: absolute;
+        font-size: 1.8rem;
 
     }
 
+    
+
 
     .itemsPopular .cart svg {
-        height: 30px;
-        width: 30px;
+        height: 45px;
+        width: 45px;
 
     }
 
     .itemsPopular .cart:hover {
-        padding: 1.7rem 6rem;
+        padding: 2.6rem 10rem;
 
     }
 
   
 
     .itemsPopular .inCart {
-        top: 34.9rem;
-        right: 1rem;
-        padding: 1.7rem 1.7rem;
+        top: 52.2rem;
+        right: 2rem;
+        padding: 2.6rem 2.6rem;
     }
 
     .itemsPopular .inCart svg {
-        height: 30px;
-        width: 30px;
+        height: 45px;
+        width: 45px;
     }
 
 
@@ -2046,14 +2050,15 @@
     .sellerdiv {
         left: 50%;
         transform: translateX(-50%) scale(0.25);
-        top: -46rem;
+        top: -40.5rem;
 
     }
 
 
     .itemsBought .boughtRate {
-        width: 26.8rem;
-        font-size: clamp(0.8rem, 2rem, 2rem);
+        width: 41.1rem;
+        top:-5rem;
+        font-size: clamp(0.8rem, 3rem, 4rem);
 
     }
 
@@ -2061,58 +2066,58 @@
 
 
 
-    .boughtInfo {
-        padding: 10rem 1rem;
-        top: 3rem;
+      .boughtInfo {
+        padding: 16rem 1rem;
+        top: 4rem;
         width: 86%;
 
 
     }
 
     .itemsBought .guaranteeTitle {
-        top: 28rem;
-        left: 1rem;
-        font-size: clamp(0rem, 1.4rem, 2rem);
+        top: 43rem;
+        left: 2rem;
+        font-size: clamp(0rem, 2rem, 2rem);
 
     }
 
     .itemsBought .guarantee {
-        top: 29.8rem;
-        left: 1rem;
-        font-size: clamp(0rem, 1.4rem, 2rem);
+        top: 45.4rem;
+        left: 2rem;
+        font-size: clamp(0rem, 2rem, 2rem);
     }
 
     .itemsBought .availTitle {
-        top: 28rem;
-        right: 1rem;
-        font-size: clamp(0rem, 1.4rem, 2rem);
+        top: 43rem;
+        right: 2rem;
+        font-size: clamp(0rem, 2rem, 2rem);
     }
 
     .itemsBought .avail {
-        top: 29.8rem;
-        left: 21.53rem;
-        font-size: clamp(0rem, 1.4rem, 2rem);
+        top: 45.4rem;
+        left: 40rem;
+        font-size: clamp(0rem, 2rem, 2rem);
 
     }
 
 
 
     .itemsBought .priceTitle {
-        top: 33rem;
-        left: 1rem;
-        font-size: clamp(0rem, 1.4rem, 2rem);
+        top: 49.5rem;
+        left: 2rem;
+        font-size: clamp(0rem, 2rem, 2rem);
     }
 
     .itemsBought .price {
-        top: 34rem;
-        left: 0.92rem;
-        font-size: clamp(1rem, 2rem, 2rem);
+        top: 51rem;
+        left: 2rem;
+        font-size: clamp(1rem, 3rem, 3rem);
     }
 
     .itemsBought .name {
-        top: 22rem;
-        left: 0.55rem;
-        font-size: clamp(0.5rem, 2.1rem, 3rem);
+        top: 34.5rem;
+        left: 2rem;
+        font-size: clamp(0.5rem, 2.9rem, 3rem);
 
 
     }
@@ -2126,43 +2131,50 @@
 
 
 
+  
     .itemsBought .cart {
-        top: 34.9rem;
-        right: 1rem;
-        padding: 1.7rem 1.7rem;
+        top: 52.2rem;
+        right: 2rem;
+        padding: 2.6rem 2.6rem;
 
     }
 
 
     .itemsBought .cartText {
-        font-size: 1.2rem;
+        position: absolute;
+        font-size: 1.8rem;
 
     }
 
+    
+
 
     .itemsBought .cart svg {
-        height: 30px;
-        width: 30px;
+        height: 45px;
+        width: 45px;
 
     }
 
     .itemsBought .cart:hover {
-        padding: 1.7rem 6rem;
+        padding: 2.6rem 10rem;
 
     }
 
   
 
     .itemsBought .inCart {
-        top: 34.9rem;
-        right: 1rem;
-        padding: 1.7rem 1.7rem;
+        top: 52.2rem;
+        right: 2rem;
+        padding: 2.6rem 2.6rem;
     }
 
     .itemsBought .inCart svg {
-        height: 30px;
-        width: 30px;
+        height: 45px;
+        width: 45px;
     }
+
+        
+
 
   .itemsPopular,
   .itemsBought {
@@ -2171,8 +2183,8 @@
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     flex-wrap: nowrap;
-    gap: 0.9rem;
-    height: 40rem;
+    gap: 2.9rem;
+    height: 60rem;
     padding-top: 2rem;
     padding-bottom: 10px;
     
@@ -2196,7 +2208,7 @@
 
   .itemsPopular .item,
   .itemsBought .item {
-    flex: 0 0 calc(33.33% - 10px);
+    flex: 0 0 calc(49.1% - 10px);
     min-width: 200px;
     scroll-snap-align: start;
   }   
