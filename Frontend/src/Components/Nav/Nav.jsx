@@ -24,7 +24,17 @@ function Nav({ highlight, shiftUp, setShiftUp, onEditClick = () => { } }) {
   const { setIsPurchase } = usePurchase();
   const navigate = useNavigate();
 
-  
+      const [logoText, setLogoText] = useState(window.innerWidth <= 580 ? "TS" : "TechStore");
+
+    useEffect(() => {
+      const handleResize = () => {
+        setLogoText(window.innerWidth <= 580 ? "TS" : "TechStore");
+      };
+
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
 
 const fetchAccount = async () => {
   
@@ -345,7 +355,7 @@ const logged = (
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }
-          }}>TechStore</Link>
+          }}>{logoText}</Link>
           {is750 ? greater750 : less750}
           <div className={ highlight ? styles.highlightInputBar : styles.inputBar}>
             <input type="text" maxLength={50} placeholder="Enter the product name"
