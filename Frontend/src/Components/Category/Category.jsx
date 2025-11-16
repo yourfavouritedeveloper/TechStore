@@ -38,9 +38,11 @@ function Category({itemRef,scrollTo, onItemClick,onCategorySelect}) {
                 <p className={styles.mainTitle}>Categories</p>
                 <p className={styles.subtitle}>Browse through our curated collection of products. Each category is tailored to help you quickly discover the best options for your needs.</p>
                 <div className={styles.floorDiv}></div>
+                <div className={isClicked ? styles.clicked : styles.not}></div>
+                <div className={styles.tableObject}>
                 <img className={styles.table} src={Table} alt="" />
 
-                <div className={isClicked ? styles.clicked : styles.not}></div>
+
                 <div className={isClicked && clickedName == "monitor" ? styles.monitorDiv : styles.notMonitor}>
                     <p className={styles.title}>Monitors</p>
                     <p className={styles.descTitle}>Computers & Techs.</p>
@@ -151,11 +153,11 @@ function Category({itemRef,scrollTo, onItemClick,onCategorySelect}) {
                 alt="" 
                 />
 
+                </div>
 
 
 
-
-
+                <div className={styles.tvObject}>
                 <img className={styles.tvTable} src={TvTable} alt="" />
 
                 <div className={isClicked && clickedName == "tv" ? styles.tvDiv : styles.notTv}>
@@ -229,7 +231,7 @@ function Category({itemRef,scrollTo, onItemClick,onCategorySelect}) {
                 }}
                 alt="" 
                 />
-
+            </div>
 
                 
             </div>

@@ -309,8 +309,6 @@ const logged = (
       id={styles.login}
       style={{ 
         opacity: menuOpen ? "0" : "1", 
-        pointerEvents: logAccount?.username ? "auto" : "none",
-        cursor: logAccount?.username ? "pointer" : "default" 
       }}
       className={highlight ? styles.highlightAccount : ""}
       to={logAccount?.username ? `/account/${logAccount.username}` : `/login`}
