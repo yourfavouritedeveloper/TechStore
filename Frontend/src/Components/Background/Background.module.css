@@ -51,6 +51,7 @@ body {
     font-family: "PoppinsRegular";
     left: -1.2%;
     padding: 0;
+    opacity: 0.8;
     line-height: 0.8;
     letter-spacing: -0.5rem;
     transform: translate(-50%, -50%);
@@ -370,7 +371,7 @@ body {
     background: rgba(0, 0, 0, 0);
     z-index: 9;
     pointer-events: none;
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(0px);
 }
 
 

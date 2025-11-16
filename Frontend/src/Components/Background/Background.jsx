@@ -136,8 +136,7 @@ function Background({ backgroundRef, shopRef, scrollTo, onShopClick, onItemClick
                         className={styles.title}
                         ref={textRef}
                         variants={{
-                            hidden: { opacity: 0, y: "50px", filter: "blur(12px)" },
-                            visible: { opacity: 0.8, y: "0px", filter: "blur(0px)" }
+                            visible: {y: "0px"}
                         }}
                         initial="hidden"
                         viewport={{ margin: "0px" }}
@@ -155,13 +154,6 @@ function Background({ backgroundRef, shopRef, scrollTo, onShopClick, onItemClick
                     <motion.div
                         ref={boxRef}
                         className={styles.box}
-                        variants={{
-                            hidden: { y: "100px" },
-                            visible: { y: "0px" }
-                        }}
-                        initial="hidden"
-                        animate={boxControls}
-                        transition={{ duration: 1 }}
                     >
 
 
@@ -169,7 +161,6 @@ function Background({ backgroundRef, shopRef, scrollTo, onShopClick, onItemClick
                             ref={boxRef}
                             className={styles.subtitle}
                             variants={{
-                                hidden: { opacity: 0 },
                                 visible: { opacity: 1 }
                             }}
 
@@ -183,14 +174,7 @@ function Background({ backgroundRef, shopRef, scrollTo, onShopClick, onItemClick
                         <motion.button
                             ref={shopRef}
                             className={styles.shop}
-                            variants={{
-                                hidden: { opacity: 0 },
-                                visible: { opacity: 1 }
-                            }}
-                            viewport={{ margin: "0px" }}
-                            initial="hidden"
-                            animate={boxControls}
-                            transition={{ duration: 1 }}
+
                             onClick={handleClick}
                         >SHOP NOW
                         </motion.button>
@@ -207,14 +191,7 @@ function Background({ backgroundRef, shopRef, scrollTo, onShopClick, onItemClick
                 <motion.div
                     ref={boxRef}
                     className={styles.boxCampaign}
-                    variants={{
-                        hidden: { y: "100px" },
-                        visible: { y: "0px" }
-                    }}
-                    viewport={{ margin: "10px" }}
-                    initial="hidden"
-                    animate={boxControls}
-                    transition={{ duration: 1 }}
+
                 >
                     <Campaign />
                 </motion.div>
@@ -289,13 +266,7 @@ function Background({ backgroundRef, shopRef, scrollTo, onShopClick, onItemClick
                 <motion.div
                     ref={ref}
                     className={styles.blurOverlay}
-                    variants={{
-                        hidden: { backdropFilter: "blur(12px)" },
-                        visible: { backdropFilter: "blur(0px)" },
-                    }}
-                    initial="hidden"
-                    animate={controls}
-                    transition={{ duration: 1 }}
+ 
                 />
 
 
