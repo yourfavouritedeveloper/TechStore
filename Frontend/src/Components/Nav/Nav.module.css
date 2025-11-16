@@ -1173,20 +1173,223 @@ a {
 
 @media (max-width: 450px) {
    .container {
-    top: -2.67rem;
-    transform: translateX(-50%) scale(0.263);
+    top: -3.35rem;
+      height: 9rem;
+    transform: translateX(-50%) scale(0.363);
   }
 
   .highcontainer {
 
-    height: 7.2rem;
+    height: 9rem;
     border-bottom: 0.7px solid rgb(180, 180, 180);
 
   }
 
-  .normal {
-    height: 8.8rem;
+  
+
+
+  .container .board {
+    background-color: rgba(255, 255, 255, 0);
+    width: 6rem;
+    height: 5.8rem;
+    top: 1.35rem;
+    left: 14rem;
+    position: absolute;
+    border-radius: 1rem;
+    cursor: pointer;
   }
 
+  .board:hover {
+    background-color: rgb(54, 90, 250);
+  }
+
+  .highcontainer .board {
+    background-color: rgba(255, 255, 255, 0);
+    width: 6rem;
+    height: 5.8rem;
+    top: 2rem;
+    left: 53.5rem;
+    position: absolute;
+    border-radius: 1rem;
+    cursor: pointer;
+  }
+
+
+  .board svg {
+    position: relative;
+    top: 0.35rem;
+    width: 5rem;
+    height: 5rem;
+    fill: #ffffff;
+
+  }
+
+  .highcontainer .board svg {
+    position: relative;
+    top: 0.7rem;
+    width: 5rem;
+    height: 5rem;
+    fill: #313131;
+  }
+
+
+  .board:hover svg {
+    fill: white;
+  }
+
+  .highcontainer .board:hover svg {
+    fill: #0c0c0c;
+  }
+
+  .highlightName {
+    padding: 0.3rem;
+    left: 12%;
+    color: #313131;
+    font-size: clamp(1rem, 1rem, 4.5rem);
+    transition: all 0.3s ease;
+    position: absolute;
+    display: inline-flex;
+    list-style: none;
+    padding-top: 0rem;
+    font-family: "PoppinsSemiBold";
+    padding-right: 0rem;
+    margin-left: 3rem;
+  }
+
+  .container #name {
+    padding: 0.3rem;
+    left: 20.5%;
+    font-size: clamp(1rem, 3.3rem, 4.5rem);
+    transition: all 0.3s ease;
+    position: absolute;
+    font-family: "PoppinsMedium";
+    display: inline-flex;
+    list-style: none;
+    padding-top: 0rem;
+    top: 1.75rem;
+    padding-right: 0rem;
+      margin-left: 3rem;
+
+  }
+
+
+  .container #login::before {
+    margin-left: 1rem;
+  }
+
+  .container #login svg {
+    position: relative;
+    top: 1.3rem;
+    left: -11rem;
+    height: 4.8rem;
+    width: 4.8rem;
+    transition: none;
+  }
+
+  .highlightAccount {
+    position: absolute;
+    margin-left: -32rem;
+    top: 1.15rem;
+    transition: none;
+
+  }
+
+  .highlightAccount svg {
+    position: relative;
+    z-index: 5;
+    top: -0.4rem;
+    height: 4.8rem;
+    fill: #313131;
+    width: 4.8rem;
+    transition: none;
+  }
+
+
+  .normal {
+    height: 4rem;
+  }
+
+    .inputBar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 1px;
+  }
+
+
+  .inputBar input {
+    flex: 1;
+    z-index: 0;
+    outline: none;
+    font-size: 1.7rem;
+    top: 0rem;
+    background-color: #0000007c;
+    border: 0.13px solid rgb(175, 175, 175);
+    margin-left: -25rem;
+    width: 37rem;
+    border-radius: 0.7rem;
+    padding: 1.3rem 0rem;
+    padding-left: 6rem;
+    color: white;
+  }
+
+
+  .inputBar input::placeholder {
+    color: rgb(255, 255, 255);
+    font-family: "PoppinsExtraLight";
+  }
+
+  .inputBar input:focus {
+    border: 0.13px solid rgb(175, 175, 175);
+  }
+
+  .highlightInputBar input {
+    flex: 1;
+    z-index: 0;
+    outline: none;
+    font-size: 1.7rem;
+    top: 0rem;
+    background-color: #e4e4e4;
+    border: 0.13px solid rgba(175, 175, 175, 0);
+    margin-left: -25rem;
+    width: 37rem;
+    border-radius: 0.7rem;
+    padding: 1.3rem 0rem;
+    padding-left: 6rem;
+    color: white;
+  }
+
+  .highlightInputBar input::placeholder {
+    color: #6d6d6d;
+  }
+
+  .highlightInputBar input:focus {
+    border: 0.13px solid rgb(175, 175, 175);
+  }
+
+
+
+  .highlightInputBar .search {
+    z-index: 1;
+    width: 3rem;
+    height: 3rem;
+    position: absolute;
+    top: 2.75rem;
+    left: 29.7rem;
+    fill: #6d6d6d;
+
+  }
+
+  .inputBar .search {
+    z-index: 1;
+    width: 3rem;
+    height: 3rem;
+    position: absolute;
+    top: 2.75rem;
+    left: 29.7rem;
+    fill: rgb(255, 255, 255);
+
+  }
  
 }
