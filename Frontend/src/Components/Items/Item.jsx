@@ -255,7 +255,7 @@ const updateCart = async (item) => {
                         </Link>
                       )})}
                     </ul>
-                    <p className={styles.scroll}>──────────────────────────────── Scroll ────────────────────────────────</p>
+                    <p className={styles.scroll}>──────────────────────── Scroll ────────────────────────</p>
                   </div>
 
                   <div className={styles.sellerdiv}>
@@ -303,7 +303,7 @@ const updateCart = async (item) => {
                         </Link>
                       )})}
                     </ul>
-                     <p className={styles.scroll}>──────────────────────────────── Scroll ────────────────────────────────</p>
+                     <p className={styles.scroll}>──────────────────────── Scroll ────────────────────────</p>
                   </div>
                 </>
               ) : (
