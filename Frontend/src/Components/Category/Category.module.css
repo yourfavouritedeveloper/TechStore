@@ -198,6 +198,8 @@ background-size: 1px 80px;
     padding: 0.4rem 1.2rem;
 }
 
+
+
 .notMonitor {
     position: absolute;
      top:50%;
@@ -354,6 +356,8 @@ background-size: 1px 80px;
     padding: 0.4rem 1.2rem;
 }
 
+
+
 .notComputer {
     position: absolute;
      top:50%;
@@ -508,6 +512,8 @@ background-size: 1px 80px;
     white-space: nowrap;
     padding: 0.4rem 1.2rem;
 }
+
+
 
 .notPhone {
     position: absolute;
@@ -675,6 +681,8 @@ background-size: 1px 80px;
     white-space: nowrap;
     padding: 0.4rem 1.2rem;
 }
+
+
 
 
 
@@ -1533,112 +1541,6 @@ background-size: 1px 80px;
 }
 
 
-.monitorDiv {
-
-     transform: translate(-85%,-3%);
- 
-}
-
-.notMonitor {
-    transform: translate(-125%,-3%);
-}
-
-
-
-.computerDiv {
-     transform: translate(-37.5%,11%);
-}
-
-
-.notComputer {
-     transform: translate(-37.5%,11%);
-}
-
-
-.phoneDiv {
-
-
-     transform: translate(-125%,2%);
-  
-}
-
-.notPhone {
-
-     transform: translate(-185%,25%);
-   
-}
-
-
-.keyboardDiv {
-
-
-     transform: translate(-85%,-4%);
- 
-}
-
-.notKeyboard {
-
-     transform: translate(-115%,-4%);
-  
-}
-
-
-
-.headphoneDiv {
-
-     transform: translate(-125%,1%);
- 
-}
-
-
-.notHeadphone {
-
-     transform: translate(-185%,21%);
- 
-}
-
-
-.tvDiv {
-
-
-     transform: translate(3%,1%);
-
-}
-
-.notTv {
-
-     transform: translate(3%,-5%);
-   
-}
-
-
-.tabletDiv {
-
-
-     transform: translate(27%,31%);
-
-}
-
-.notTablet {
- 
-     transform: translate(27%,31%);
-  
-}
-
-
-.watchDiv {
-
-
-     transform: translate(27%,31%);
-  
-}
-
-
-.notWatch {
- 
-     transform: translate(27%,31%);
-
-}
 
 
 }
@@ -1704,112 +1606,6 @@ background-size: 1px 80px;
 }
 
 
-.monitorDiv {
-
-     transform: translate(-85%,-3%);
- 
-}
-
-.notMonitor {
-    transform: translate(-125%,-3%);
-}
-
-
-
-.computerDiv {
-     transform: translate(-37.5%,11%);
-}
-
-
-.notComputer {
-     transform: translate(-37.5%,11%);
-}
-
-
-.phoneDiv {
-
-
-     transform: translate(-125%,2%);
-  
-}
-
-.notPhone {
-
-     transform: translate(-185%,25%);
-   
-}
-
-
-.keyboardDiv {
-
-
-     transform: translate(-85%,-4%);
- 
-}
-
-.notKeyboard {
-
-     transform: translate(-115%,-4%);
-  
-}
-
-
-
-.headphoneDiv {
-
-     transform: translate(-125%,1%);
- 
-}
-
-
-.notHeadphone {
-
-     transform: translate(-185%,21%);
- 
-}
-
-
-.tvDiv {
-
-
-     transform: translate(3%,1%);
-
-}
-
-.notTv {
-
-     transform: translate(3%,-5%);
-   
-}
-
-
-.tabletDiv {
-
-
-     transform: translate(27%,31%);
-
-}
-
-.notTablet {
- 
-     transform: translate(27%,31%);
-  
-}
-
-
-.watchDiv {
-
-
-     transform: translate(27%,31%);
-  
-}
-
-
-.notWatch {
- 
-     transform: translate(27%,31%);
-
-}
 }
 
 
@@ -1882,113 +1678,7 @@ background-size: 1px 80px;
    
 }
 
-
-.monitorDiv {
-
-     transform: translate(-85%,-3%);
  
-}
-
-.notMonitor {
-    transform: translate(-125%,-3%);
-}
-
-
-
-.computerDiv {
-     transform: translate(-37.5%,11%);
-}
-
-
-.notComputer {
-     transform: translate(-37.5%,11%);
-}
-
-
-.phoneDiv {
-
-
-     transform: translate(-125%,2%);
-  
-}
-
-.notPhone {
-
-     transform: translate(-185%,25%);
-   
-}
-
-
-.keyboardDiv {
-
-
-     transform: translate(-85%,-4%);
- 
-}
-
-.notKeyboard {
-
-     transform: translate(-115%,-4%);
-  
-}
-
-
-
-.headphoneDiv {
-
-     transform: translate(-125%,1%);
- 
-}
-
-
-.notHeadphone {
-
-     transform: translate(-185%,21%);
- 
-}
-
-
-.tvDiv {
-
-
-     transform: translate(3%,1%);
-
-}
-
-.notTv {
-
-     transform: translate(3%,-5%);
-   
-}
-
-
-.tabletDiv {
-
-
-     transform: translate(27%,31%);
-
-}
-
-.notTablet {
- 
-     transform: translate(27%,31%);
-  
-}
-
-
-.watchDiv {
-
-
-     transform: translate(27%,31%);
-  
-}
-
-
-.notWatch {
- 
-     transform: translate(27%,31%);
-
-}   
 }
 
 
@@ -2006,6 +1696,8 @@ background-size: 1px 80px;
         transform: scale(0.49);
         z-index: 6;
     }
+
+
 
 
     .backgroundDiv {
@@ -2066,6 +1758,124 @@ background-size: 1px 80px;
         margin-right: auto;
         width: 100%;
     }
+
+
+    .monitorDiv {
+     transform: translate(-85%,135%);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    background-color: rgba(0, 0, 0, 0.384) ;
+ 
+}
+
+.notMonitor {
+
+     transform: translate(-115%,135%);
+ 
+}
+
+.computerDiv {
+     transform: translate(-85%,148%);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    background-color: rgba(0, 0, 0, 0.384) ;
+
+   
+}
+
+.notComputer {
+
+     transform: translate(-37%,225%);
+ 
+}
+
+
+.computerClicked {
+
+    transform: translateX(-180%);
+
+}
+
+
+.phoneDiv {
+
+     transform: translate(-125%,141%);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    background-color: rgba(0, 0, 0, 0.384) ; 
+}
+
+.notPhone {
+     transform: translate(-185%,205%); 
+}
+
+
+.keyboardDiv {
+
+     transform: translate(-85%,135.5%);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    background-color: rgba(0, 0, 0, 0.384) ;  
+}
+
+
+.notKeyboard {
+
+     transform: translate(-115%,132%);
+ 
+}
+
+.headphoneDiv {
+
+     transform: translate(-125%,139%);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    background-color: rgba(0, 0, 0, 0.384) ;  
+}
+
+.notHeadphone {
+
+     transform: translate(-185%,139%);
+  
+}
+
+
+.tvDiv {
+
+
+     transform: translate(19%,138%);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    background-color: rgba(0, 0, 0, 0.384) ;   
+}
+
+
+.tvClicked {
+ 
+    transform: translateX(49%);
+
+}
+
+.tabletDiv {
+
+     transform: translate(27%,169%);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    background-color: rgba(0, 0, 0, 0.384) ;     
+}
+
+
+
+
+
+.watchDiv {
+
+     transform: translate(27%,169%);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    background-color: rgba(0, 0, 0, 0.384) ;   
+}
+
 
 
 
