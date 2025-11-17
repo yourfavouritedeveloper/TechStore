@@ -12,7 +12,7 @@ function Filter({ items, itemRef,bodyItems,  onResetFilters  }) {
   const [cart,setCart] = useState();
   const [cartItems, setCartItems] = useState([]);
   const {account, token,refreshToken,refreshAccessToken} = useContext(AuthContext);
-
+  const [showCategories, setShowCategories] = useState(false);
   const [popularHoverId, setPopularHoverId] = useState(0);
   const [boughtHoverId, setBoughtHoverId] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
@@ -263,6 +263,7 @@ const displayItems = currentItems.length ? currentItems : [];
 
           </div>
         </div>
+            <div className={styles.barContainer}>
                 <div className={styles.bar}>
                   <div className={styles.inBar}></div>
                     <button className={styles.filter}
@@ -296,6 +297,13 @@ const displayItems = currentItems.length ? currentItems : [];
                         fill="#757575ff">
                         <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
                       </div>
+
+                      <button
+                        className={styles.toggleButton}
+                        onClick={() => setShowCategories(prev => !prev)}
+                      >
+                        Categories
+                      </button>
                       <label className={styles.low}>
                         <input type="radio" name="price" 
                         onChange={() => handleSortChange("price", "lowToHigh")}/>
@@ -435,39 +443,47 @@ const displayItems = currentItems.length ? currentItems : [];
                    </div>
 
                     <div className={styles.itemContainer}>
-                      
-                    <div className={styles.categorySelector}>
-                      <button className={styles.computer} onClick={() => navigate("/product", { state: { category: "COMPUTER" } })}>Computers
+
+                    <div  className={`${styles.categorySelector} ${showCategories ? styles.open : ""}`}>
+                      <button className={styles.computer} onClick={() => {navigate("/product", { state: { category: "COMPUTER" } });
+                                      setShowCategories(prev => !prev)}}>Computers
                         <svg style={{top:"3.2rem"}} xmlns="http://www.w3.org/2000/svg"
 
                         viewBox="0 -960 960 960">
                           <path d="M40-120v-80h880v80H40Zm120-120q-33 0-56.5-23.5T80-320v-440q0-33 23.5-56.5T160-840h640q33 0 56.5 23.5T880-760v440q0 33-23.5 56.5T800-240H160Zm0-80h640v-440H160v440Zm0 0v-440 440Z"/></svg>
                       </button>
-                      <button className={styles.mobilePhone} onClick={() => navigate("/product", { state: { category: "MOBILE_PHONE" } })}>Mobile Phones
+                      <button className={styles.mobilePhone} onClick={() => {navigate("/product", { state: { category: "MOBILE_PHONE" } });
+                                      setShowCategories(prev => !prev)}}>Mobile Phones
                         <svg style={{top:"7rem"}}xmlns="http://www.w3.org/2000/svg" 
                         viewBox="0 -960 960 960"
                         ><path d="M280-40q-33 0-56.5-23.5T200-120v-720q0-33 23.5-56.5T280-920h400q33 0 56.5 23.5T760-840v124q18 7 29 22t11 34v80q0 19-11 34t-29 22v404q0 33-23.5 56.5T680-40H280Zm0-80h400v-720H280v720Zm0 0v-720 720Zm200-40q17 0 28.5-11.5T520-200q0-17-11.5-28.5T480-240q-17 0-28.5 11.5T440-200q0 17 11.5 28.5T480-160Z"/></svg>
                       </button>
-                      <button className={styles.tv} onClick={() => navigate("/product", { state: { category: "TV" } })}>TVs
+                      <button className={styles.tv} onClick={() => {navigate("/product", { state: { category: "TV" } });
+                                      setShowCategories(prev => !prev)}}>TVs
                         <svg style={{top:"10.85rem"}} xmlns="http://www.w3.org/2000/svg" 
                         viewBox="0 -960 960 960"
                         ><path d="M320-120v-80H160q-33 0-56.5-23.5T80-280v-480q0-33 23.5-56.5T160-840h640q33 0 56.5 23.5T880-760v480q0 33-23.5 56.5T800-200H640v80H320ZM160-280h640v-480H160v480Zm0 0v-480 480Z"/></svg>
                       </button>
-                      <button className={styles.watch } onClick={() => navigate("/product", { state: { category: "SMART_WATCH" } })}>Smart Watches
+                      <button className={styles.watch } onClick={() => {navigate("/product", { state: { category: "SMART_WATCH" } });
+                                      setShowCategories(prev => !prev)}}>Smart Watches
                       <svg style={{top:"14.7rem"}} xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 -960 960 960">
                         <path d="M420-800h120-120Zm0 640h120-120Zm-60 80-54-182q-48-38-77-95t-29-123q0-66 29-123t77-95l54-182h240l54 182q48 38 77 95t29 123q0 66-29 123t-77 95L600-80H360Zm120-200q83 0 141.5-58.5T680-480q0-83-58.5-141.5T480-680q-83 0-141.5 58.5T280-480q0 83 58.5 141.5T480-280Zm-76-470q20-5 38.5-8t37.5-3q19 0 37.5 3t38.5 8l-16-50H420l-16 50Zm16 590h120l16-50q-20 5-38.5 7.5T480-200q-19 0-37.5-2.5T404-210l16 50Z"/></svg>
                       </button>
-                      <button className={styles.keyboard} onClick={() => navigate("/product", { state: { category: "KEYBOARD" } })}>Keyboards
+                      <button className={styles.keyboard} onClick={() => {navigate("/product", { state: { category: "KEYBOARD" } });
+                                      setShowCategories(prev => !prev)}}>Keyboards
                         <svg style={{top:"18.55rem"}} xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M160-200q-33 0-56.5-23.5T80-280v-400q0-33 23.5-56.5T160-760h640q33 0 56.5 23.5T880-680v400q0 33-23.5 56.5T800-200H160Zm0-80h640v-400H160v400Zm160-40h320v-80H320v80ZM200-440h80v-80h-80v80Zm120 0h80v-80h-80v80Zm120 0h80v-80h-80v80Zm120 0h80v-80h-80v80Zm120 0h80v-80h-80v80ZM200-560h80v-80h-80v80Zm120 0h80v-80h-80v80Zm120 0h80v-80h-80v80Zm120 0h80v-80h-80v80Zm120 0h80v-80h-80v80ZM160-280v-400 400Z"/></svg>
                       </button>
-                      <button className={styles.headphone} onClick={() => navigate("/product", { state: { category: "HEADPHONE" } })}>Headphones
+                      <button className={styles.headphone} onClick={() => {navigate("/product", { state: { category: "HEADPHONE" } });
+                                      setShowCategories(prev => !prev)}}>Headphones
                         <svg style={{top:"22.43rem"}} xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M360-120H200q-33 0-56.5-23.5T120-200v-280q0-75 28.5-140.5t77-114q48.5-48.5 114-77T480-840q75 0 140.5 28.5t114 77q48.5 48.5 77 114T840-480v280q0 33-23.5 56.5T760-120H600v-320h160v-40q0-117-81.5-198.5T480-760q-117 0-198.5 81.5T200-480v40h160v320Zm-80-240h-80v160h80v-160Zm400 0v160h80v-160h-80Zm-400 0h-80 80Zm400 0h80-80Z"/></svg>
                       </button>
-                      <button className={styles.monitor} onClick={() => navigate("/product", { state: { category: "MONITOR" } })}>Monitors
+                      <button className={styles.monitor} onClick={() => {navigate("/product", { state: { category: "MONITOR" } });
+                                    setShowCategories(prev => !prev)}}>Monitors
                        <svg style={{top:"26.25rem"}} xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M240-120v-80l40-40H160q-33 0-56.5-23.5T80-320v-440q0-33 23.5-56.5T160-840h640q33 0 56.5 23.5T880-760v440q0 33-23.5 56.5T800-240H680l40 40v80H240Zm-80-200h640v-440H160v440Zm0 0v-440 440Z"/></svg>
                       </button>
-                      <button className={styles.tablet} onClick={() => navigate("/product", { state: { category: "TABLET" } })}>Tablets
+                      <button className={styles.tablet} onClick={() => {navigate("/product", { state: { category: "TABLET" } });
+                                    setShowCategories(prev => !prev)}}>Tablets
                         <svg style={{top:"30.1rem"}} xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-140q17 0 28.5-11.5T520-180q0-17-11.5-28.5T480-220q-17 0-28.5 11.5T440-180q0 17 11.5 28.5T480-140ZM200-40q-33 0-56.5-23.5T120-120v-720q0-33 23.5-56.5T200-920h560q33 0 56.5 23.5T840-840v720q0 33-23.5 56.5T760-40H200Zm0-200v120h560v-120H200Zm0-80h560v-400H200v400Zm0-480h560v-40H200v40Zm0 0v-40 40Zm0 560v120-120Z"/></svg>
                       </button>
                     </div>
@@ -529,6 +545,7 @@ const displayItems = currentItems.length ? currentItems : [];
                           ))}
                          </div>
                         )}
+                    </div>
                     </div>
                   </div>
         </>

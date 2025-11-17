@@ -7,6 +7,8 @@
 }
 
 
+
+
 .bar {
 
     position: absolute;
@@ -724,6 +726,10 @@ input:focus {
 }
 
 
+.toggleButton {
+        display: none;
+    }
+
 .categorySelector {
     height: 400rem;
     width: 19rem;
@@ -1082,414 +1088,436 @@ input:focus {
 
 
 
-@media (max-width: 1440px) {}
-
-@media (max-width: 1200px) {}
-
-@media (max-width: 992px) {}
-
-@media (max-width: 768px) {}
-
-@media (max-width: 576px) {}
-
-@media (max-width: 480px) {
-
-    .container {
-        width: 100%;
-        margin-bottom: 6rem;
-        overflow-y: hidden;
-        overflow-x: hidden;
-    }
+@media (max-width: 1540px) {
 
 
-    .bar {
-        width: 90%;
-        margin-left: 5%;
-        height: 15rem;
-        top: 41rem;
-        border-radius: 1rem;
 
-    }
-
-    .inBar {
-
-        width: 100%;
-        height: 6.2rem;
-        border-radius: 1rem;
-    }
-
-
-    .cover {
-
+.cover {
+        top:27rem;
+        transform: translateX(-50%) scale(0.8);
         height: 10rem;
-        top: 35rem;
-
-
+        width: 90rem;
     }
 
-    .subtitle {
 
-        width: 90%;
-        top: -2rem;
-        height: 4rem;
 
+.barContainer {
+    left:50%;
+    width: 100rem;
+    transform:translateX(-50%) scale(0.8);
+    position: relative;
+    top:-2.7rem;
+}
+
+
+.bar {
+
+    top: -0.6rem;
+    border-radius: 2rem;
+
+
+}
+
+.categorySelector {
+
+    top: 4.9rem;
+
+}
+
+
+.itemContainer {
+    padding-top: 2.4rem;
+    margin-top: 10rem;
+ 
+
+}
+
+
+}
+
+@media (max-width: 1240px) {
+ .cover {
+        top:21rem;
+        transform: translateX(-50%) scale(0.6);
+        height: 10rem;
+        width: 90rem;
     }
 
-    .subtitle p {
-        font-size: clamp(0rem, 1.3rem, 10rem);
-        top: -2rem;
-        width: 60%;
-        left: 20%;
-        position: relative;
+
+
+.barContainer {
+    left:50%;
+    width: 100rem;
+    transform:translateX(-50%) scale(0.6);
+    position: relative;
+    top:-12rem;
+}
+
+
+.bar {
+
+    top: -0.6rem;
+    border-radius: 2rem;
+
+
+}
+
+.categorySelector {
+
+    top: 4.9rem;
+
+}
+
+
+.itemContainer {
+    padding-top: 2.4rem;
+    margin-top: 10rem;
+ 
+
+}  
+}
+
+@media (max-width: 950px) {
+ .cover {
+        top:15.1rem;
+        transform: translateX(-50%) scale(0.4);
+        height: 10rem;
+        width: 90rem;
     }
 
-    .circle1,
-    .circle2 {
-        border-radius: 50%;
-        width: 20rem;
-        height: 20rem;
-        background-color: rgb(70, 130, 180);
+
+
+.barContainer {
+    left:50%;
+    width: 100rem;
+    transform:translateX(-50%) scale(0.4);
+    position: relative;
+    top:-21.1rem;
+}
+
+
+.bar {
+
+    top: -0.6rem;
+    border-radius: 2rem;
+
+
+}
+
+.categorySelector {
+
+    top: 4.9rem;
+
+}
+
+
+.itemContainer {
+    padding-top: 2.4rem;
+    margin-top: 10rem;
+ 
+
+}      
+}
+
+@media (max-width: 750px) {
+ .cover {
+        top:52.3rem;
+        transform: translateX(-50%) scale(1);
+        height: 10rem;
+        width: 35rem;
+    }
+
+.subtitle {
+
+    font-family: "PoppinsSemiBold";
+    color: rgb(255, 255, 255);
+    width: 90rem;
+    top: 1.5rem;
+    height: 10rem;
+    position: relative;
+    padding-top: 2.9rem;
+    line-height: 0.9;
+    background-color: rgb(135, 206, 250);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.subtitle p {
+    font-size: clamp(1.5rem, 2.5rem, 10rem);
+    top: 28%;
+    transform: translateY(-50%);
+    width: 80%;
+    left: 10%;
+    position: absolute;
+    z-index: 7;
+}
+
+.circle1,
+.circle2 {
+    border-radius: 50%;
+    width: 35rem;
+    height: 25rem;
+    background-color: rgb(70, 130, 180);
+    position: absolute;
+    z-index: 2;
+    transition: all 1s ease;
+
+}
+
+.circle1 {
+    left: -24rem;
+    top: -15rem;
+}
+
+.circle2 {
+    right: -22rem;
+    bottom: -15rem;
+}
+
+.subtitle:hover .circle1 {
+    left: -20rem;
+    top: -12rem;
+    transform: rotate(-15deg);
+}
+
+.subtitle:hover .circle2 {
+    right: -18rem;
+    bottom: -12rem;
+    transform: rotate(-15deg);
+}
+
+.barContainer {
+    left:50%;
+    width: 100rem;
+    transform:translateX(-50%) scale(1);
+    position: relative;
+    top:6.1rem;
+}
+
+
+.bar {
+
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+    width: 36rem;
+    margin-left: 10%;
+    left: 0%;
+    right: 0;
+    margin: 0 auto;
+    height: 35rem;
+    top: 0rem;
+    border-radius: 2rem;
+    z-index: auto;
+    overflow-x: hidden;
+    overflow-y: visible;
+
+
+}
+
+
+.inBar {
+
+
+    width: 36rem;
+    height: 13.5rem;
+    border-radius: 2rem;
+    z-index: 3;
+}
+
+.toggleButton {
+    display: block;
+    left: 23.8rem;
+    top:  9.1rem;
         position: absolute;
-        z-index: 20;
-        transition: all 1s ease;
+    font-size: 1.2rem;
+    font-family: "PoppinsLight";
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    border: none;
+    background-color: #2962FF;
+    color: rgb(255, 255, 255);
+    border-radius: 2rem;
+    transition: all 0.3s ease;
+    z-index: 3;
+}
 
-    }
+.categorySelector.open {
+    height: 31rem;
+    width: 25rem;
+    left: 50%;
+    top: 17rem;
+    z-index: 1;
+    position: absolute;
+    background-color: rgb(235, 235, 235);
 
-    .circle1 {
-        left: -14rem;
-        top: -12rem;
-    }
+    transform: translate(-50%, 0%) scale(1.3);
+    border-radius: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 1rem;
+    padding: 1rem;
+    padding-top: 2.5rem;
+}
 
-    .circle2 {
-        right: -14rem;
-        bottom: -12rem;
-    }
+.categorySelector {
+    display: none;  
+}
 
-    .subtitle:hover .circle1 {
-        left: -16rem;
-        top: -12rem;
-        transform: rotate(-15deg);
-    }
 
-    .subtitle:hover .circle2 {
-        right: -16rem;
-        bottom: -12rem;
-        transform: rotate(-15deg);
-    }
+.itemContainer {
+    padding-top: 2.4rem;
+    margin-top: 10rem;
+    padding: 7rem 0rem;
+    padding-left: 5rem;
+    width: 30rem;
+    min-height: 40rem;
 
+}   
 
-    .filter {
-        font-size: 0.7rem;
-        padding: 0.2rem 0.7rem;
-        left: 0.8rem;
-        top: 0.5rem;
+.items {
 
-    }
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 5rem 0rem;
+    top:2.5rem;
+    padding-bottom: 3rem;
+    left: -2.5rem;
+    position: relative;
 
 
 
+}
 
-    .filter svg {
-        top: 0.1445rem;
-        height: 13px;
-        width: 13px;
 
-    }
 
+.filter {
 
+    left: 2.5rem;
+    top: 1.5rem;
 
-    .input input {
-        width: 76vw;
-        padding: 0.35rem 0rem;
-        padding-left: 6.3vw;
-        margin-top: 4.1rem;
-        border-radius: 0.5rem;
-        left: 0.8rem;
-        font-size: clamp(0rem, 0.6rem, 2.5rem);
+}
 
-    }
 
 
 
-    .search {
-        margin-top: 4.35rem;
-        left: 1.05rem;
-        width: 16px;
-        height: 16px;
-    }
+.bar input {
+    width: 15.5rem;
+    padding: 0.47rem 1.5rem;
+    padding-left: 3.1rem;
+    margin-top: 9rem;
+    font-size: 1.3rem;
+    border-radius: 1.5rem;
+    left: 2.5rem;
 
+}
 
 
 
-    .low span {
-        font-size: 0.7rem;
-        padding: 0.2rem 0.7rem;
-        left: 90vw;
-        margin-left: -12.5rem;
-        top: 0.55rem;
+.search {
+    width: 30px;
+    height: 30px;
+    margin-top: 9.5rem;
+    left: 3.3rem;
 
-    }
+}
 
 
 
-    .high span {
-        font-size: 0.7rem;
-        padding: 0.2rem 0.7rem;
-        left: 90vw;
-        margin-left: -6.3rem;
-        top: 0.55rem;
-    }
 
 
+.low span {
 
+    left: 11.75rem;
+    top: 1.5rem;
 
-    .newest span {
-        font-size: 0.7rem;
-        padding: 0.2rem 0.7rem;
-        left: 90vw;
-        margin-left: -9.5rem;
-        top: 2.4rem;
-    }
 
+}
 
 
-    .oldest span {
-        font-size: 0.7rem;
-        padding: 0.2rem 0.7rem;
-        left: 90vw;
-        margin-left: -4.6rem;
-        top: 2.4rem;
-    }
 
-    .more span {
-        font-size: 0.7rem;
-        padding: 0.2rem 0.8rem;
-        padding-left: 1.3rem;
-        left: 0.8rem;
-        top: 2.4rem;
-    }
+.high span {
 
+    left: 23.7rem;
+    top: 1.5rem;
 
+}
 
 
-    .more svg {
-        top: 2.55rem;
-        height: 18px;
-        width: 18px;
-        left: 1.8rem;
 
 
-    }
 
+.newest span {
+    left: 2.5rem;
+    top: 5.3rem;
 
+}
 
 
-    .more:hover .moreOption {
-        top: 3rem;
-        height: 11rem;
-        border-radius: 1rem;
-    }
 
+.oldest span {
+    left: 11.5rem;
+    top: 5.3rem;
+}
 
-    .more input:checked~.moreOption {
-        top: 3rem;
-        height: 11rem;
-        border-radius: 1rem;
 
-    }
 
 
-    .moreOption {
-        width: 96%;
-        left: 2%;
-        top: -8rem;
-        border-radius: 0rem;
-        height: 11rem;
+.more span {
+    left: 19.75rem;
+    top: 5.3rem;
+}
 
 
-    }
 
 
-    .bestSelling label {
-        font-size: 0.6rem;
-        padding: 0.2rem 0.7rem;
-        left: 0.8rem;
-        top: 3.7rem;
 
-    }
 
+.more svg {
+    left: 20.25rem;
+    top: 5.8rem;
 
+}
 
-    .mostSearched label {
-        font-size: 0.6rem;
-        padding: 0.2rem 0.7rem;
-        left: 5.9rem;
-        top: 3.7rem;
-    }
+.more:hover .moreOption {
+    top: 1rem;
+    height: 20rem;
+    border-radius: 3.5rem;
+    opacity: 1;
+}
 
+.more input:checked~.moreOption {
+    top: 1rem;
+    height: 20rem;
+    border-radius: 3.5rem;
+    opacity: 1;
+}
 
 
-    .AZ label {
-        font-size: 0.6rem;
-        padding: 0.2rem 0.7rem;
-        left: 12.2rem;
-        top: 3.7rem;
 
-    }
+.moreOption {
+    width: 99%;
+    left: 0.5%;
+    top: -20rem;
+    margin-top: 8rem;
+    cursor: auto;
+    border-radius: 0rem;
+    position: absolute;
+    height: 20rem;
+    z-index: 2;
+    transition: all 0.5s ease;
+    pointer-events: auto;
 
 
+}
 
-    .ZA label {
-        font-size: 0.6rem;
-        padding: 0.2rem 0.7rem;
-        left: 0.8rem;
-        top: 5.5rem;
 
-    }
-
-
-
-    .inStock label {
-
-        font-size: 0.6rem;
-        padding: 0.2rem 0.7rem;
-        left: 8.3rem;
-        top: 5.5rem;
-
-    }
-
-
-
-
-
-
-    .outOfStock label {
-        font-size: 0.6rem;
-        padding: 0.2rem 0.7rem;
-        left: 12.8rem;
-        top: 5.5rem;
-
-    }
-
-
-
-
-    .highestRating label {
-        font-size: 0.6rem;
-        padding: 0.2rem 0.7rem;
-        left: 0.8rem;
-        top: 7.2rem;
-
-    }
-
-
-
-
-    .lowestRating label {
-        font-size: 0.6rem;
-        padding: 0.2rem 0.7rem;
-        left: 7rem;
-        top: 7.2rem;
-    }
-
-
-
-    .discount label {
-        font-size: 0.6rem;
-        padding: 0.2rem 0.7rem;
-        left: 0.8rem;
-        top: 9rem;
-
-    }
-
-
-
-
-    .moreText {
-
-        top: 6rem;
-        right: 1.4rem;
-        width: 28%;
-        line-height: 1.1;
-        border-radius: 2rem;
-        font-size: 0.8rem;
-
-
-    }
-
-
-
-
-    .refresh {
-        font-size: 0.7rem;
-        padding: 0.2rem 0.8rem;
-        left: 5.4rem;
-        top: 2.4rem;
-    }
-
-
-
-    .itemContainer {
-        border-radius: 1.5rem;
-        padding: 0rem 0.5rem;
-        padding-top: 9rem;
-        width: 80%;
-        margin-top: 8rem;
-
-    }
-
-
-    .items {
-        gap: 0.5rem;
-        margin-top: -19rem;
-        padding: 2rem 0.6vw;
-        padding-top: 18rem;
-
-    }
-
-
-
-
-    .items .guarantee {
-        top: 9.4rem;
-        left: 0.6rem;
-        font-size: 0.6rem;
-    }
-
-    .items .item {
-
-        flex: 0 1 10%;
-        padding: 5.5rem 19vw;
-        border-radius: 0.7rem;
-    }
-
-
-    .items span {
-        top: 9.9rem;
-        font-size: clamp(0rem, 0.7rem, 2rem);
-        left: 35vw;
-        margin-left: -3rem;
-    }
-
-    .items .name {
-        top: 4.85rem;
-        line-height: 1;
-        align-items: center;
-        left: 0.6rem;
-        padding: 0rem 0.4rem;
-        font-size: clamp(0rem, 0.6rem, 2rem);
-    }
-
-
-
-
-
-    .items img {
-        left: 17vw;
-        margin-left: -4.7rem;
-        top: 0.5rem;
-        width: 165px;
-    }
+.bestSelling label {
+    top: 5.5rem;
+    left: 2rem;
 
 
 }
@@ -1497,405 +1525,907 @@ input:focus {
 
 
 
-@media (max-width: 360px) {
+.mostSearched label {
+    top: 5.5rem;
+    left: 12.65rem;
 
-    .container {
-        width: 100%;
-        margin-bottom: 6rem;
-        overflow-y: hidden;
-        overflow-x: hidden;
-    }
+}
 
 
-    .bar {
-        width: 90%;
-        margin-left: 5%;
-        height: 15rem;
-        top: 41rem;
-        border-radius: 1rem;
-
-    }
-
-    .inBar {
-
-        width: 100%;
-        height: 6.2rem;
-        border-radius: 1rem;
-    }
 
 
-    .cover {
+.AZ label {
+    top: 9rem;
+    left: 2rem;
 
+}
+
+
+
+
+.ZA label {
+    top: 12.5rem;
+    left: 2rem;
+
+}
+
+
+
+.inStock label {
+    top: 5.5rem;
+    left: 25.3rem;
+
+}
+
+
+
+
+
+
+.outOfStock label {
+    top: 12.5rem;
+    left: 17.3rem;
+
+}
+
+
+
+
+
+.highestRating label {
+    top: 16rem;
+    left: 2rem;
+
+}
+
+
+
+.lowestRating label {
+   top: 16rem;
+    left: 14.5rem;
+
+}
+
+
+.discount label {
+    top: 9rem;
+    left: 17.3rem;
+
+}
+
+
+
+.moreText {
+
+    top: 10.6rem;
+    right: 2rem;
+    width: 22%;
+    line-height: 1.05;
+    font-size: 1.3rem;
+
+
+}
+
+
+
+
+
+
+
+.refresh {
+
+    left: 27.2rem;
+    top: 5.3rem;
+
+}
+
+
+
+}
+
+@media (max-width: 580px) {
+ .cover {
+        top:47rem;
+        transform: translateX(-50%) scale(0.8);
         height: 10rem;
-        top: 35rem;
-
-
+        width: 35rem;
     }
 
-    .subtitle {
+.subtitle {
 
-        width: 90%;
-        top: -2rem;
-        height: 4rem;
+    font-family: "PoppinsSemiBold";
+    color: rgb(255, 255, 255);
+    width: 90rem;
+    top: 1.5rem;
+    height: 10rem;
+    position: relative;
+    padding-top: 2.9rem;
+    line-height: 0.9;
+    background-color: rgb(135, 206, 250);
+    overflow: hidden;
+    cursor: pointer;
+}
 
-    }
+.subtitle p {
+    font-size: clamp(1.5rem, 2.5rem, 10rem);
+    top: 28%;
+    transform: translateY(-50%);
+    width: 80%;
+    left: 10%;
+    position: absolute;
+    z-index: 7;
+}
 
-    .subtitle p {
-        font-size: clamp(0rem, 0.9rem, 10rem);
-        top: -1.4rem;
-        width: 60%;
-        left: 20%;
-        position: relative;
-    }
+.circle1,
+.circle2 {
+    border-radius: 50%;
+    width: 35rem;
+    height: 25rem;
+    background-color: rgb(70, 130, 180);
+    position: absolute;
+    z-index: 2;
+    transition: all 1s ease;
 
-    .circle1,
-    .circle2 {
-        border-radius: 50%;
-        width: 20rem;
-        height: 20rem;
-        background-color: rgb(70, 130, 180);
+}
+
+.circle1 {
+    left: -24rem;
+    top: -15rem;
+}
+
+.circle2 {
+    right: -22rem;
+    bottom: -15rem;
+}
+
+.subtitle:hover .circle1 {
+    left: -20rem;
+    top: -12rem;
+    transform: rotate(-15deg);
+}
+
+.subtitle:hover .circle2 {
+    right: -18rem;
+    bottom: -12rem;
+    transform: rotate(-15deg);
+}
+
+.barContainer {
+    left:50%;
+    width: 100rem;
+    transform:translateX(-50%) scale(0.8);
+    position: relative;
+    top:-13.5rem;
+}
+
+
+.bar {
+
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+    width: 36rem;
+    margin-left: 10%;
+    left: 0%;
+    right: 0;
+    margin: 0 auto;
+    height: 35rem;
+    top: 0rem;
+    border-radius: 2rem;
+    z-index: auto;
+    overflow-x: hidden;
+    overflow-y: visible;
+
+
+}
+
+
+.inBar {
+
+
+    width: 36rem;
+    height: 13.5rem;
+    border-radius: 2rem;
+    z-index: 3;
+}
+
+.toggleButton {
+    display: block;
+    left: 23.8rem;
+    top:  9.1rem;
         position: absolute;
-        z-index: 20;
-        transition: all 1s ease;
+    font-size: 1.2rem;
+    font-family: "PoppinsLight";
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    border: none;
+    background-color: #2962FF;
+    color: rgb(255, 255, 255);
+    border-radius: 2rem;
+    transition: all 0.3s ease;
+    z-index: 3;
+}
 
+.categorySelector.open {
+    height: 31rem;
+    width: 25rem;
+    left: 50%;
+    top: 17rem;
+    z-index: 1;
+    position: absolute;
+    background-color: rgb(235, 235, 235);
+
+    transform: translate(-50%, 0%) scale(1.3);
+    border-radius: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 1rem;
+    padding: 1rem;
+    padding-top: 2.5rem;
+}
+
+.categorySelector {
+    display: none;  
+}
+
+
+.itemContainer {
+    padding-top: 2.4rem;
+    margin-top: 10rem;
+    padding: 7rem 0rem;
+    padding-bottom: 2rem;
+    padding-left: 5rem;
+    width: 30rem;
+    min-height: 40rem;
+
+}   
+
+.items {
+
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 5rem 0rem;
+    top:2.5rem;
+    padding-bottom: 3rem;
+    left: -2.5rem;
+    position: relative;
+
+
+
+}
+
+
+
+.filter {
+
+    left: 2.5rem;
+    top: 1.5rem;
+
+}
+
+
+
+
+.bar input {
+    width: 15.5rem;
+    padding: 0.47rem 1.5rem;
+    padding-left: 3.1rem;
+    margin-top: 9rem;
+    font-size: 1.3rem;
+    border-radius: 1.5rem;
+    left: 2.5rem;
+
+}
+
+
+
+.search {
+    width: 30px;
+    height: 30px;
+    margin-top: 9.5rem;
+    left: 3.3rem;
+
+}
+
+
+
+
+
+.low span {
+
+    left: 11.75rem;
+    top: 1.5rem;
+
+
+}
+
+
+
+.high span {
+
+    left: 23.7rem;
+    top: 1.5rem;
+
+}
+
+
+
+
+
+.newest span {
+    left: 2.5rem;
+    top: 5.3rem;
+
+}
+
+
+
+.oldest span {
+    left: 11.5rem;
+    top: 5.3rem;
+}
+
+
+
+
+.more span {
+    left: 19.75rem;
+    top: 5.3rem;
+}
+
+
+
+
+
+
+.more svg {
+    left: 20.25rem;
+    top: 5.8rem;
+
+}
+
+.more:hover .moreOption {
+    top: 1rem;
+    height: 20rem;
+    border-radius: 3.5rem;
+    opacity: 1;
+}
+
+.more input:checked~.moreOption {
+    top: 1rem;
+    height: 20rem;
+    border-radius: 3.5rem;
+    opacity: 1;
+}
+
+
+
+.moreOption {
+    width: 99%;
+    left: 0.5%;
+    top: -20rem;
+    margin-top: 8rem;
+    cursor: auto;
+    border-radius: 0rem;
+    position: absolute;
+    height: 20rem;
+    z-index: 2;
+    transition: all 0.5s ease;
+    pointer-events: auto;
+
+
+}
+
+
+.bestSelling label {
+    top: 5.5rem;
+    left: 2rem;
+
+
+}
+
+
+
+
+.mostSearched label {
+    top: 5.5rem;
+    left: 12.65rem;
+
+}
+
+
+
+
+.AZ label {
+    top: 9rem;
+    left: 2rem;
+
+}
+
+
+
+
+.ZA label {
+    top: 12.5rem;
+    left: 2rem;
+
+}
+
+
+
+.inStock label {
+    top: 5.5rem;
+    left: 25.3rem;
+
+}
+
+
+
+
+
+
+.outOfStock label {
+    top: 12.5rem;
+    left: 17.3rem;
+
+}
+
+
+
+
+
+.highestRating label {
+    top: 16rem;
+    left: 2rem;
+
+}
+
+
+
+.lowestRating label {
+   top: 16rem;
+    left: 14.5rem;
+
+}
+
+
+.discount label {
+    top: 9rem;
+    left: 17.3rem;
+
+}
+
+
+
+.moreText {
+
+    top: 10.6rem;
+    right: 2rem;
+    width: 22%;
+    line-height: 1.05;
+    font-size: 1.3rem;
+
+
+}
+
+
+
+
+
+
+
+.refresh {
+
+    left: 27.2rem;
+    top: 5.3rem;
+
+}
+
+    
+}
+
+@media (max-width: 450px) {
+  .cover {
+        top:36rem;
+        transform: translateX(-50%) scale(0.65);
+        height: 10rem;
+        width: 35rem;
     }
 
-    .circle1 {
-        left: -15rem;
-        top: -12rem;
-    }
+.subtitle {
+
+    font-family: "PoppinsSemiBold";
+    color: rgb(255, 255, 255);
+    width: 90rem;
+    top: 1.5rem;
+    height: 10rem;
+    position: relative;
+    padding-top: 2.9rem;
+    line-height: 0.9;
+    background-color: rgb(135, 206, 250);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.subtitle p {
+    font-size: clamp(1.5rem, 2.5rem, 10rem);
+    top: 28%;
+    transform: translateY(-50%);
+    width: 80%;
+    left: 10%;
+    position: absolute;
+    z-index: 7;
+}
+
+.circle1,
+.circle2 {
+    border-radius: 50%;
+    width: 35rem;
+    height: 25rem;
+    background-color: rgb(70, 130, 180);
+    position: absolute;
+    z-index: 2;
+    transition: all 1s ease;
+
+}
+
+.circle1 {
+    left: -24rem;
+    top: -15rem;
+}
+
+.circle2 {
+    right: -22rem;
+    bottom: -15rem;
+}
+
+.subtitle:hover .circle1 {
+    left: -20rem;
+    top: -12rem;
+    transform: rotate(-15deg);
+}
+
+.subtitle:hover .circle2 {
+    right: -18rem;
+    bottom: -12rem;
+    transform: rotate(-15deg);
+}
+
+.barContainer {
+    left:50%;
+    width: 100rem;
+    transform:translateX(-50%) scale(0.65);
+    position: relative;
+    top:-28rem;
+}
+
+
+.bar {
+
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+    width: 36rem;
+    margin-left: 10%;
+    left: 0%;
+    right: 0;
+    margin: 0 auto;
+    height: 35rem;
+    top: 0rem;
+    border-radius: 2rem;
+    z-index: auto;
+    overflow-x: hidden;
+    overflow-y: visible;
+
+
+}
+
+
+.inBar {
+
+
+    width: 36rem;
+    height: 13.5rem;
+    border-radius: 2rem;
+    z-index: 3;
+}
+
+.toggleButton {
+    display: block;
+    left: 23.8rem;
+    top:  9.1rem;
+        position: absolute;
+    font-size: 1.2rem;
+    font-family: "PoppinsLight";
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    border: none;
+    background-color: #2962FF;
+    color: rgb(255, 255, 255);
+    border-radius: 2rem;
+    transition: all 0.3s ease;
+    z-index: 3;
+}
 
-    .circle2 {
-        right: -15rem;
-        bottom: -12rem;
-    }
+.categorySelector.open {
+    height: 31rem;
+    width: 25rem;
+    left: 50%;
+    top: 17rem;
+    z-index: 1;
+    position: absolute;
+    background-color: rgb(235, 235, 235);
 
-    .subtitle:hover .circle1 {
-        left: -16rem;
-        top: -12rem;
-        transform: rotate(-15deg);
-    }
+    transform: translate(-50%, 0%) scale(1.3);
+    border-radius: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 1rem;
+    padding: 1rem;
+    padding-top: 2.5rem;
+}
 
-    .subtitle:hover .circle2 {
-        right: -16rem;
-        bottom: -12rem;
-        transform: rotate(-15deg);
-    }
+.categorySelector {
+    display: none;  
+}
 
 
-    .filter {
-        font-size: 0.6rem;
-        padding: 0.2rem 0.7rem;
-        left: 0.8rem;
-        top: 0.5rem;
+.itemContainer {
+    padding-top: 2.4rem;
+    margin-top: 10rem;
+    padding: 7rem 0rem;
+    padding-bottom: 2rem;
+    padding-left: 5rem;
+    width: 30rem;
+    min-height: 40rem;
 
-    }
+}   
 
+.items {
 
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 5rem 0rem;
+    top:2.5rem;
+    padding-bottom: 3rem;
+    left: -2.5rem;
+    position: relative;
 
 
-    .filter svg {
-        top: 0.15rem;
-        height: 12px;
-        width: 12px;
 
-    }
+}
 
 
 
-    .input input {
-        width: 74vw;
-        padding: 0.35rem 0rem;
-        padding-left: 1.3rem;
-        margin-top: 4.1rem;
-        border-radius: 0.5rem;
-        left: 0.8rem;
-        font-size: clamp(0rem, 0.6rem, 2.5rem);
+.filter {
 
-    }
+    left: 2.5rem;
+    top: 1.5rem;
 
+}
 
 
-    .search {
-        margin-top: 4.35rem;
-        left: 1rem;
-        width: 16px;
-        height: 16px;
-    }
 
 
+.bar input {
+    width: 15.5rem;
+    padding: 0.47rem 1.5rem;
+    padding-left: 3.1rem;
+    margin-top: 9rem;
+    font-size: 1.3rem;
+    border-radius: 1.5rem;
+    left: 2.5rem;
 
+}
 
-    .low span {
-        font-size: 0.6rem;
-        padding: 0.2rem 0.7rem;
-        left: 90vw;
-        margin-left: -11rem;
-        top: 0.55rem;
 
-    }
 
+.search {
+    width: 30px;
+    height: 30px;
+    margin-top: 9.5rem;
+    left: 3.3rem;
 
+}
 
-    .high span {
-        font-size: 0.6rem;
-        padding: 0.2rem 0.7rem;
-        left: 90vw;
-        margin-left: -5.8rem;
-        top: 0.55rem;
-    }
 
 
 
 
-    .newest span {
-        font-size: 0.6rem;
-        padding: 0.2rem 0.7rem;
-        left: 90vw;
-        margin-left: -8.4rem;
-        top: 2.4rem;
-    }
+.low span {
 
+    left: 11.75rem;
+    top: 1.5rem;
 
 
-    .oldest span {
-        font-size: 0.6rem;
-        padding: 0.2rem 0.7rem;
-        left: 90vw;
-        margin-left: -4.4rem;
-        top: 2.4rem;
-    }
+}
 
-    .more span {
-        font-size: 0.6rem;
-        padding: 0.2rem 0.8rem;
-        padding-left: 1.3rem;
-        left: 0.8rem;
-        top: 2.4rem;
-    }
 
 
+.high span {
 
+    left: 23.7rem;
+    top: 1.5rem;
 
-    .more svg {
-        top: 2.45rem;
-        height: 18px;
-        width: 18px;
-        left: 1.8rem;
+}
 
 
-    }
 
 
 
+.newest span {
+    left: 2.5rem;
+    top: 5.3rem;
 
-    .more:hover .moreOption {
-        top: 3rem;
-        height: 11.5rem;
-        border-radius: 1rem;
-    }
+}
 
 
-    .more input:checked~.moreOption {
-        top: 3rem;
-        height: 11.5rem;
-        border-radius: 1rem;
 
-    }
+.oldest span {
+    left: 11.5rem;
+    top: 5.3rem;
+}
 
 
-    .moreOption {
-        width: 96%;
-        left: 2%;
-        top: -8rem;
-        border-radius: 0rem;
-        height: 11rem;
 
 
-    }
+.more span {
+    left: 19.75rem;
+    top: 5.3rem;
+}
 
 
-    .bestSelling label {
-        font-size: 0.5rem;
-        padding: 0.2rem 0.7rem;
-        left: 0.8rem;
-        top: 3.7rem;
 
-    }
 
 
 
-    .mostSearched label {
-        font-size: 0.5rem;
-        padding: 0.2rem 0.7rem;
-        left: 5.5rem;
-        top: 3.7rem;
-    }
+.more svg {
+    left: 20.25rem;
+    top: 5.8rem;
 
+}
 
+.more:hover .moreOption {
+    top: 1rem;
+    height: 20rem;
+    border-radius: 3.5rem;
+    opacity: 1;
+}
 
-    .AZ label {
-        font-size: 0.5rem;
-        padding: 0.2rem 0.7rem;
-        left: 0.8rem;
-        top: 5.2rem;
+.more input:checked~.moreOption {
+    top: 1rem;
+    height: 20rem;
+    border-radius: 3.5rem;
+    opacity: 1;
+}
 
-    }
 
 
+.moreOption {
+    width: 99%;
+    left: 0.5%;
+    top: -20rem;
+    margin-top: 8rem;
+    cursor: auto;
+    border-radius: 0rem;
+    position: absolute;
+    height: 20rem;
+    z-index: 2;
+    transition: all 0.5s ease;
+    pointer-events: auto;
 
-    .ZA label {
-        font-size: 0.5rem;
-        padding: 0.2rem 0.7rem;
-        left: 0.8rem;
-        top: 6.7rem;
 
-    }
+}
 
 
+.bestSelling label {
+    top: 5.5rem;
+    left: 2rem;
 
-    .inStock label {
 
-        font-size: 0.5rem;
-        padding: 0.2rem 0.7rem;
-        left: 7.3rem;
-        top: 5.2rem;
+}
 
-    }
 
 
 
+.mostSearched label {
+    top: 5.5rem;
+    left: 12.65rem;
 
+}
 
 
-    .outOfStock label {
-        font-size: 0.5rem;
-        padding: 0.2rem 0.7rem;
-        left: 7.3rem;
-        top: 6.7rem;
 
-    }
 
+.AZ label {
+    top: 9rem;
+    left: 2rem;
 
+}
 
 
-    .highestRating label {
-        font-size: 0.5rem;
-        padding: 0.2rem 0.7rem;
-        left: 0.8rem;
-        top: 8.2rem;
 
-    }
 
+.ZA label {
+    top: 12.5rem;
+    left: 2rem;
 
+}
 
 
-    .lowestRating label {
-        font-size: 0.5rem;
-        padding: 0.2rem 0.7rem;
-        left: 6.2rem;
-        top: 8.2rem;
-    }
 
+.inStock label {
+    top: 5.5rem;
+    left: 25.3rem;
 
+}
 
-    .discount label {
-        font-size: 0.5rem;
-        padding: 0.2rem 0.7rem;
-        left: 0.8rem;
-        top: 9.7rem;
 
-    }
 
 
 
 
-    .moreText {
+.outOfStock label {
+    top: 12.5rem;
+    left: 17.3rem;
 
-        top: 4.5rem;
-        right: 0.8rem;
-        width: 30%;
-        border-radius: 2rem;
-        font-size: 0.85rem;
+}
 
 
-    }
 
 
 
+.highestRating label {
+    top: 16rem;
+    left: 2rem;
 
-    .refresh {
-        font-size: 0.6rem;
-        padding: 0.2rem 0.8rem;
-        left: 4.8rem;
-        top: 2.4rem;
-    }
+}
 
 
 
-    .itemContainer {
-        border-radius: 1.5rem;
-        padding: 0rem 0.5rem;
-        padding-top: 9rem;
-        width: 80%;
-        margin-top: 8rem;
+.lowestRating label {
+   top: 16rem;
+    left: 14.5rem;
 
-    }
+}
 
 
-    .items {
-        gap: 0.5rem;
-        margin-top: -19rem;
-        padding: 2rem 0.6vw;
-        padding-top: 18rem;
+.discount label {
+    top: 9rem;
+    left: 17.3rem;
 
-    }
+}
 
 
 
+.moreText {
 
-    .items .guarantee {
-        top: 7.5rem;
-        left: 0.6rem;
-        font-size: 0.5rem;
-    }
+    top: 10.6rem;
+    right: 2rem;
+    width: 22%;
+    line-height: 1.05;
+    font-size: 1.3rem;
 
-    .items .item {
 
-        flex: 0 1 10%;
-        padding: 4.5rem 19vw;
-        border-radius: 0.7rem;
-    }
+}
 
 
-    .items span {
-        top: 7.9rem;
-        font-size: clamp(0rem, 0.6rem, 2rem);
-        left: 35vw;
-        margin-left: -2.7rem;
-    }
 
-    .items .name {
-        top: 3.45rem;
-        line-height: 1;
-        align-items: center;
-        left: 0.6rem;
-        padding: 0rem 0.4rem;
-        font-size: clamp(0rem, 0.5rem, 2rem);
-    }
 
 
 
 
+.refresh {
 
-    .items img {
-        left: 17vw;
-        margin-left: -4.2rem;
-        top: 0.3rem;
-        width: 145px;
-    }
+    left: 27.2rem;
+    top: 5.3rem;
 
-
-
-
+}
+   
 }
