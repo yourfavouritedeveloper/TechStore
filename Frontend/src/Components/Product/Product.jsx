@@ -11,6 +11,7 @@ function Product({shopRef}) {
 
     return (<>
     <div ref={shopRef} className={styles.container}>
+        <div className={styles.subContainer}>
             <div className={styles.titleContainer}>
             <p className={styles.title}>Explore All Products</p>
             </div>
@@ -33,7 +34,7 @@ function Product({shopRef}) {
             </div>
         
         
-
+        </div>
 
         
       
