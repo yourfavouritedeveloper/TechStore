@@ -255,7 +255,7 @@
 }      
 }
 
-@media (max-width: 450px) {
+@media (max-width: 460px) {
    .titleContainer {
     top:-30rem;
     transform: translateX(6.8%) scale(0.87);
