@@ -2489,7 +2489,6 @@ input:focus {
     width: 25rem;
     left: 50%;
     top:84.9rem;
-    
     z-index: 1;
     position: absolute;
     background-color: rgb(235, 235, 235);
