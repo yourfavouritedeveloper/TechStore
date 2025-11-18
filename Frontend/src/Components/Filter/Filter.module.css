@@ -1498,10 +1498,11 @@ input:focus {
 
 @media (max-width: 750px) {
  .cover {
-        top:52.3rem;
+        top:52rem;
         transform: translateX(-50%) scale(1);
-        height: 10rem;
+        height: 24rem;
         width: 35rem;
+        padding: 0rem 0.5rem;
     }
 
 .subtitle {
@@ -1563,13 +1564,7 @@ input:focus {
     transform: rotate(-15deg);
 }
 
-.barContainer {
-    left:50%;
-    width: 100rem;
-    transform:translateX(-50%) scale(1);
-    position: relative;
-    top:6.1rem;
-}
+
 
 
 .bar {
@@ -1580,13 +1575,13 @@ input:focus {
     z-index: 10;
     width: 36rem;
     left: 50%;
-    transform: translateX(-69.5%) scale(1);
+    transform: translateX(-50%) scale(1);
     right: 0;
     margin: 0 auto;
-    height: 35rem;
-    top: 0rem;
+    height: 15rem;
+    top: 35rem;
     border-radius: 2rem;
-    z-index: 3;
+    z-index: 5;
     overflow-x: hidden;
     overflow-y: visible;
 
@@ -1600,7 +1595,7 @@ input:focus {
     width: 36rem;
     height: 13.5rem;
     border-radius: 2rem;
-    z-index: 3;
+    z-index: 4;
 }
 
 .toggleButton {
@@ -1617,14 +1612,14 @@ input:focus {
     color: rgb(255, 255, 255);
     border-radius: 2rem;
     transition: all 0.3s ease;
-    z-index: 3;
+    z-index: 4;
 }
 
 .categorySelector.open {
     height: 31rem;
     width: 25rem;
     left: 50%;
-    top: 17rem;
+    top:51.7rem;
     z-index: 1;
     position: absolute;
     background-color: rgb(235, 235, 235);
@@ -1647,7 +1642,7 @@ input:focus {
 
 .itemContainer {
     padding-top: 2.4rem;
-    margin-top: 10rem;
+    margin-top: -19rem;
     padding: 7rem 0rem;
     padding-left: 5rem;
     width: 30rem;
@@ -1655,14 +1650,21 @@ input:focus {
 
 }   
 
+.itemDiv {
+    transform: scale(0.8) translateY(-2.5rem);
+    min-height: 152rem;
+
+}
+
 .items {
 
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
     padding: 5rem 0rem;
-    top:2.5rem;
+    top:31rem;
+    width: 40rem;
     padding-bottom: 3rem;
-    left: -2.5rem;
+    left: -8.1rem;
     position: relative;
 
 
@@ -1777,19 +1779,46 @@ input:focus {
 
 .moreOption {
     width: 99%;
-    left: 0.5%;
-    top: -20rem;
+    left: 50%;
+    top: 45rem;
+    transform: translateX(-50%) scale(1);
     margin-top: 8rem;
     cursor: auto;
-    border-radius: 0rem;
+    width: 35.7rem;
+    border-radius: 2rem;
     position: absolute;
     height: 20rem;
     z-index: 2;
     transition: all 0.5s ease;
     pointer-events: auto;
+    overflow: hidden;
 
 
 }
+
+
+.moreOptionActive {
+    width: 99%;
+    left: 50%;
+    top: 69rem;
+    transform: translateX(-50%) scale(1);
+    margin-top: 8rem;
+    cursor: auto;
+    width: 35.7rem;
+    border-radius: 2rem;
+    position: absolute;
+    height: 20rem;
+    z-index: 2;
+    transition: all 0.5s ease;
+    pointer-events: auto;
+    overflow: hidden;
+
+
+
+}   
+
+
+
 
 
 .bestSelling label {
@@ -1896,16 +1925,21 @@ input:focus {
 
 }
 
+.items img {
 
+    width: 95%;
+
+}
 
 }
 
 @media (max-width: 580px) {
  .cover {
-        top:47rem;
+        top:45.6rem;
         transform: translateX(-50%) scale(0.8);
-        height: 10rem;
+        height: 24rem;
         width: 35rem;
+        padding: 0rem 0.5rem;
     }
 
 .subtitle {
@@ -1967,13 +2001,7 @@ input:focus {
     transform: rotate(-15deg);
 }
 
-.barContainer {
-    left:50%;
-    width: 100rem;
-    transform:translateX(-50%) scale(0.8);
-    position: relative;
-    top:-13.5rem;
-}
+
 
 
 .bar {
@@ -1983,14 +2011,14 @@ input:focus {
     justify-content: center;
     z-index: 10;
     width: 36rem;
-    margin-left: 10%;
-    left: 0%;
+    left: 50%;
+    transform: translateX(-50%) scale(0.8);
     right: 0;
     margin: 0 auto;
-    height: 35rem;
-    top: 0rem;
+    height: 15rem;
+    top: 58.5rem;
     border-radius: 2rem;
-    z-index: auto;
+    z-index: 5;
     overflow-x: hidden;
     overflow-y: visible;
 
@@ -2004,7 +2032,7 @@ input:focus {
     width: 36rem;
     height: 13.5rem;
     border-radius: 2rem;
-    z-index: 3;
+    z-index: 4;
 }
 
 .toggleButton {
@@ -2021,19 +2049,19 @@ input:focus {
     color: rgb(255, 255, 255);
     border-radius: 2rem;
     transition: all 0.3s ease;
-    z-index: 3;
+    z-index: 4;
 }
 
 .categorySelector.open {
     height: 31rem;
     width: 25rem;
     left: 50%;
-    top: 17rem;
+    top:69.9rem;
     z-index: 1;
     position: absolute;
     background-color: rgb(235, 235, 235);
 
-    transform: translate(-50%, 0%) scale(1.3);
+    transform: translate(-50%, 0%) scale(1.05);
     border-radius: 1.5rem;
     display: flex;
     flex-direction: column;
@@ -2051,23 +2079,29 @@ input:focus {
 
 .itemContainer {
     padding-top: 2.4rem;
-    margin-top: 10rem;
+    margin-top: -47rem;
     padding: 7rem 0rem;
-    padding-bottom: 2rem;
     padding-left: 5rem;
-    width: 30rem;
+    width: 23.4rem;
     min-height: 40rem;
 
 }   
+
+.itemDiv {
+    transform: scale(0.65) translateY(-2.5rem);
+    min-height: 152rem;
+
+}
 
 .items {
 
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
     padding: 5rem 0rem;
-    top:2.5rem;
+    top:55rem;
+    width: 40rem;
     padding-bottom: 3rem;
-    left: -2.5rem;
+    left: -12.15rem;
     position: relative;
 
 
@@ -2182,19 +2216,46 @@ input:focus {
 
 .moreOption {
     width: 99%;
-    left: 0.5%;
-    top: -20rem;
+    left: 50%;
+    top: 45rem;
+    transform: translateX(-50%) scale(0.8);
     margin-top: 8rem;
     cursor: auto;
-    border-radius: 0rem;
+    width: 35.7rem;
+    border-radius: 2rem;
     position: absolute;
     height: 20rem;
     z-index: 2;
     transition: all 0.5s ease;
     pointer-events: auto;
+    overflow: hidden;
 
 
 }
+
+
+.moreOptionActive {
+    width: 99%;
+    left: 50%;
+    top: 58.3rem;
+    transform: translateX(-50%) scale(0.8);
+    margin-top: 8rem;
+    cursor: auto;
+    width: 35.7rem;
+    border-radius: 2rem;
+    position: absolute;
+    height: 20rem;
+    z-index: 2;
+    transition: all 0.5s ease;
+    pointer-events: auto;
+    overflow: hidden;
+
+
+
+}   
+
+
+
 
 
 .bestSelling label {
@@ -2304,12 +2365,13 @@ input:focus {
     
 }
 
-@media (max-width: 450px) {
-  .cover {
-        top:36rem;
+@media (max-width: 460px) {
+ .cover {
+        top:33.5rem;
         transform: translateX(-50%) scale(0.65);
-        height: 10rem;
+        height: 24rem;
         width: 35rem;
+        padding: 0rem 0.5rem;
     }
 
 .subtitle {
@@ -2371,13 +2433,7 @@ input:focus {
     transform: rotate(-15deg);
 }
 
-.barContainer {
-    left:50%;
-    width: 100rem;
-    transform:translateX(-50%) scale(0.65);
-    position: relative;
-    top:-28rem;
-}
+
 
 
 .bar {
@@ -2387,14 +2443,14 @@ input:focus {
     justify-content: center;
     z-index: 10;
     width: 36rem;
-    margin-left: 10%;
-    left: 0%;
+    left: 50%;
+    transform: translateX(-50%) scale(0.63);
     right: 0;
     margin: 0 auto;
-    height: 35rem;
-    top: 0rem;
+    height: 15rem;
+    top: 77.5rem;
     border-radius: 2rem;
-    z-index: auto;
+    z-index: 5;
     overflow-x: hidden;
     overflow-y: visible;
 
@@ -2408,7 +2464,7 @@ input:focus {
     width: 36rem;
     height: 13.5rem;
     border-radius: 2rem;
-    z-index: 3;
+    z-index: 4;
 }
 
 .toggleButton {
@@ -2425,19 +2481,19 @@ input:focus {
     color: rgb(255, 255, 255);
     border-radius: 2rem;
     transition: all 0.3s ease;
-    z-index: 3;
+    z-index: 4;
 }
 
 .categorySelector.open {
     height: 31rem;
     width: 25rem;
     left: 50%;
-    top: 17rem;
+    top:84.9rem;
     z-index: 1;
     position: absolute;
     background-color: rgb(235, 235, 235);
 
-    transform: translate(-50%, 0%) scale(1.3);
+    transform: translate(-50%, 0%) scale(0.85);
     border-radius: 1.5rem;
     display: flex;
     flex-direction: column;
@@ -2455,23 +2511,29 @@ input:focus {
 
 .itemContainer {
     padding-top: 2.4rem;
-    margin-top: 10rem;
+    margin-top: -70rem;
     padding: 7rem 0rem;
-    padding-bottom: 2rem;
     padding-left: 5rem;
-    width: 30rem;
+    width: 17.4rem;
     min-height: 40rem;
 
 }   
+
+.itemDiv {
+    transform: scale(0.53) translateY(-2.5rem);
+    min-height: 152rem;
+
+}
 
 .items {
 
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
     padding: 5rem 0rem;
-    top:2.5rem;
+    top:84.5rem;
+    width: 40rem;
     padding-bottom: 3rem;
-    left: -2.5rem;
+    left: -16.05rem;
     position: relative;
 
 
@@ -2586,19 +2648,46 @@ input:focus {
 
 .moreOption {
     width: 99%;
-    left: 0.5%;
-    top: -20rem;
+    left: 50%;
+    top: 30rem;
+    transform: translateX(-50%) scale(0.63);
     margin-top: 8rem;
     cursor: auto;
-    border-radius: 0rem;
+    width: 35.7rem;
+    border-radius: 2rem;
     position: absolute;
     height: 20rem;
     z-index: 2;
     transition: all 0.5s ease;
     pointer-events: auto;
+    overflow: hidden;
 
 
 }
+
+
+.moreOptionActive {
+    width: 99%;
+    left: 50%;
+    top: 42rem;
+    transform: translateX(-50%) scale(0.63);
+    margin-top: 8rem;
+    cursor: auto;
+    width: 35.7rem;
+    border-radius: 2rem;
+    position: absolute;
+    height: 20rem;
+    z-index: 2;
+    transition: all 0.5s ease;
+    pointer-events: auto;
+    overflow: hidden;
+
+
+
+}   
+
+
+
 
 
 .bestSelling label {
