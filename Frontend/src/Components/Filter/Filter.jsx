@@ -24,6 +24,9 @@ function Filter({ items, itemRef,bodyItems,  onResetFilters  }) {
   const [name, setName] = useState("");
   const [originalItems, setOriginalItems] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
+  const [isMoreHovered, setIsMoreHovered] = useState(false);
+  const [isMoreClicked, setIsMoreClicked] = useState(false);
+  const clickLock = useRef(false);
   const [sortOptions, setSortOptions] = useState({
   price: null,
   date: null,
@@ -34,6 +37,17 @@ function Filter({ items, itemRef,bodyItems,  onResetFilters  }) {
   rating: null,
   discount: null
 });
+
+  const handleClick = () => {
+      if (clickLock.current) return; 
+      clickLock.current = true;
+
+      setIsMoreClicked(prev => !prev);
+
+      setTimeout(() => {
+        clickLock.current = false;
+      }, 0);
+    };
 
       const ensureAuthenticated = () => {       
         if (!refreshToken) {
@@ -147,6 +161,9 @@ const updateCart = async (item) => {
   }
 };
 
+useEffect(() => {
+  console.log("isMoreClicked changed:", isMoreClicked);
+}, [isMoreClicked]);
 
 useEffect(() => {
   if (!name) {
@@ -218,6 +235,7 @@ const handleReset = () => {
   
   setResetClicked(true);
   setFilteredItems(originalItems)
+  setIsMoreClicked(false);
   if (onResetFilters) onResetFilters();
 
 };
@@ -252,20 +270,25 @@ const displayItems = currentItems.length ? currentItems : [];
 
 
     return (
-        <>        
-        <div className={styles.container} style={displayItems.length === 0 || resetClicked ?{ marginBottom: "2rem"} : {marginBottom: "2rem"}}>
+        <>      
         <div className={styles.cover}>
 
-          <div className={styles.subtitle}>
-            <p>From phones to TVs discover it all</p>
-            <div className={styles.circle1}></div>
-            <div className={styles.circle2}></div>
+                  <div className={styles.subtitle}>
+                    <p>From phones to TVs discover it all</p>
+                    <div className={styles.circle1}></div>
+                    <div className={styles.circle2}></div>
 
+                  </div>
           </div>
-        </div>
+         
+        <div className={styles.container} style={displayItems.length === 0 || resetClicked ?{ marginBottom: "2rem"} : {marginBottom: "2rem"}}>
+
             <div className={styles.barContainer}>
+
+                
+              <div className={styles.barDiv}>
                 <div className={styles.bar}>
-                  <div className={styles.inBar}></div>
+                  <div className={styles.inBar}></div> 
                     <button className={styles.filter}
                     onClick={handleFilterClick}>
                         <svg xmlns="http://www.w3.org/2000/svg" 
@@ -275,7 +298,12 @@ const displayItems = currentItems.length ? currentItems : [];
                         </svg>
                         Filter
                     </button>
-                    
+                      <button
+                        className={styles.toggleButton}
+                        onClick={() => setShowCategories(prev => !prev)}
+                      >
+                        Categories
+                      </button>
                     <form ref={scrollRef}  className={styles.input}>
                       <div className={styles.inputBar}>
                       <input type="text" maxLength={100} placeholder="Enter the product name" 
@@ -298,12 +326,7 @@ const displayItems = currentItems.length ? currentItems : [];
                         <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
                       </div>
 
-                      <button
-                        className={styles.toggleButton}
-                        onClick={() => setShowCategories(prev => !prev)}
-                      >
-                        Categories
-                      </button>
+
                       <label className={styles.low}>
                         <input type="radio" name="price" 
                         onChange={() => handleSortChange("price", "lowToHigh")}/>
@@ -331,7 +354,8 @@ const displayItems = currentItems.length ? currentItems : [];
 
                       <button type="reset" className={styles.refresh}
                         onClick={handleReset}>Reset</button>
-                    <label className={styles.more}>
+                    <label className={styles.more}
+                      onClick={handleClick}>
                       <input type="checkbox" name="more" />
                       <span className={styles.moreSpan}>More</span>
                       <svg xmlns="http://www.w3.org/2000/svg"
@@ -339,10 +363,17 @@ const displayItems = currentItems.length ? currentItems : [];
                           fill="#ffffffff">
                       <path d="M400-280v-400l200 200-200 200Z"/></svg>
 
+                    </label>
 
 
 
-                      <div className={styles.moreOption}>
+
+                    </form>
+                    </div>
+                   </div>
+                     <div className={`${styles.moreOption} ${
+                          isMoreClicked ? styles.moreOptionActive : ""
+                        }`}>
                         <div className={styles.bestSelling}>
                           <input
                             type="radio"
@@ -430,20 +461,9 @@ const displayItems = currentItems.length ? currentItems : [];
                           <p className={styles.moreText}>Make browsing faster and more precise</p>
                       </div>
 
-
-
-
-                    </label>
-
-
-
-
-                    </form>
-                    
-                   </div>
-
+                  <div className={styles.itemCover}>
                     <div className={styles.itemContainer}>
-
+                    
                     <div  className={`${styles.categorySelector} ${showCategories ? styles.open : ""}`}>
                       <button className={styles.computer} onClick={() => {navigate("/product", { state: { category: "COMPUTER" } });
                                       setShowCategories(prev => !prev)}}>Computers
@@ -487,6 +507,7 @@ const displayItems = currentItems.length ? currentItems : [];
                         <svg style={{top:"30.1rem"}} xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-140q17 0 28.5-11.5T520-180q0-17-11.5-28.5T480-220q-17 0-28.5 11.5T440-180q0 17 11.5 28.5T480-140ZM200-40q-33 0-56.5-23.5T120-120v-720q0-33 23.5-56.5T200-920h560q33 0 56.5 23.5T840-840v720q0 33-23.5 56.5T760-40H200Zm0-200v120h560v-120H200Zm0-80h560v-400H200v400Zm0-480h560v-40H200v40Zm0 0v-40 40Zm0 560v120-120Z"/></svg>
                       </button>
                     </div>
+                    <div className={styles.itemDiv}>
                       <ul className={styles.items}>
                        {displayItems && displayItems.length > 0 ? (displayItems.map((item) => {
                         const isInCart = cartItems.includes(item.id);
@@ -532,6 +553,7 @@ const displayItems = currentItems.length ? currentItems : [];
                               <p>No item found</p>
                             </li>)}
                       </ul>
+                      </div>
                         {totalPages > 1 && (
                          <div className={styles.pagination}>
                             {Array.from({ length: totalPages }, (_, i) => (
@@ -545,6 +567,7 @@ const displayItems = currentItems.length ? currentItems : [];
                           ))}
                          </div>
                         )}
+                    </div>
                     </div>
                     </div>
                   </div>
