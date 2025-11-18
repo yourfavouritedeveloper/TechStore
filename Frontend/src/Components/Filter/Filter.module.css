@@ -1184,7 +1184,7 @@ input:focus {
     width: 19rem;
     left: 50%;
     top: -21.55rem;
-    transform: translate(-186%, 0%) scale(0.8);
+    transform: translate(-185.1%, 0%) scale(0.8);
     z-index: 5;
 
 }
@@ -1276,7 +1276,7 @@ input:focus {
 
 .bar {
     transform: translateX(-50%) scale(0.6);
-    top: -5rem;
+    top: 30rem;
     height: 8rem;
     left: 50%;
     z-index: 3;
@@ -1299,9 +1299,10 @@ input:focus {
     width: 45.5rem;
     min-height: 30rem;
     display: block;
+    border-radius: 2rem;
     position: relative;
     margin: 0 auto;
-    margin-top: 13rem;
+    margin-top: -22rem;
     opacity: 1;
     overflow: hidden;
 
@@ -1312,8 +1313,8 @@ input:focus {
     height: 400rem;
     width: 19rem;
     left: 50%;
-    top: -35.95rem;
-    transform: translate(-186%, 0%) scale(0.6);
+    top: -45.8rem;
+    transform: translate(-150%, 0%) scale(0.6);
     z-index: 5;
 
 }
@@ -1324,9 +1325,9 @@ input:focus {
     position: relative;
     width: 67rem;
     padding: 0rem 0rem;
-    top:-35rem;
+    top:22.5rem;
     padding-bottom: 0rem;
-    left: 2.5rem;
+    left: -7.8rem;
 
 }
 
@@ -1368,45 +1369,131 @@ input:focus {
 }
 
 @media (max-width: 950px) {
- .cover {
-        top:15.1rem;
+.cover {
+        top:12rem;
         transform: translateX(-50%) scale(0.4);
-        height: 10rem;
+        height:20rem;
         width: 90rem;
+        padding: 0rem 2rem;
     }
 
 
 
-.barContainer {
-    left:50%;
-    width: 100rem;
-    transform:translateX(-50%) scale(0.4);
+.barDiv {
+    
+    border-radius: 2rem;
     position: relative;
-    top:-21.1rem;
+
 }
 
+
+.inBar {
+
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    background-color: #f3f0f0;
+    width: 94rem;
+    top:0rem;
+    height: 5.95rem;
+    left:50%;
+    z-index: 4;
+    transform: translateX(-50%);
+    border-radius: 2rem;
+}
 
 .bar {
-
-    top: -0.6rem;
+    transform: translateX(-50%) scale(0.4);
+    top: 46rem;
+    height: 8rem;
+    left: 50%;
+    z-index: 3;
     border-radius: 2rem;
+    overflow: visible;
 
 
 }
 
-.categorySelector {
-
-    top: 4.9rem;
-
+.itemDiv {
+    transform: scale(0.4) translateY(-2.5rem);
+    min-height: 72rem;
 }
-
 
 .itemContainer {
-    padding-top: 2.4rem;
-    margin-top: 10rem;
- 
+    border-radius: 3rem;
+    padding: 0rem 0rem;
+    padding-left: 9rem;
+    padding-top: 9rem;
+    width: 27.5rem;
+    min-height: 30rem;
+    display: block;
+    border-radius: 1.3rem;
+    position: relative;
+    margin: 0 auto;
+    margin-top: -42rem;
+    opacity: 1;
+    overflow: hidden;
 
-}      
+}
+
+
+.categorySelector {
+    height: 400rem;
+    width: 19rem;
+    left: 50%;
+    top: -70.36rem;
+    transform: translate(-117%, 0%) scale(0.4);
+    z-index: 5;
+
+}
+
+.items {
+
+    gap: 1rem;
+    position: relative;
+    width: 67rem;
+    padding: 0rem 0rem;
+    top:52.7rem;
+    padding-bottom: 0rem;
+    left: -20.6rem;
+
+}
+
+
+
+.moreOption {
+    width: 93rem;
+    left: 50%;
+    transform: translateX(-50%) scale(0.4);
+    top:15rem;
+    cursor: auto;
+    border-radius: 3.5rem;
+    position: absolute;
+    height: 16rem;
+    background-color: rgb(207, 207, 207);
+    z-index: 1;
+    transition: all 0.5s ease;
+    pointer-events: auto;
+
+
+}
+
+.moreOptionActive {
+    width: 93rem;
+    left: 50%;
+    transform: translateX(-50%) scale(0.4);
+    top:20rem;
+    cursor: auto;
+    border-radius: 3.5rem;
+    position: absolute;
+    height: 16rem;
+    background-color: rgb(207, 207, 207);
+    z-index: 1;
+    transition: all 0.5s ease;
+    pointer-events: auto;
+
+
+}     
 }
 
 @media (max-width: 750px) {
@@ -1492,14 +1579,14 @@ input:focus {
     justify-content: center;
     z-index: 10;
     width: 36rem;
-    margin-left: 10%;
-    left: 0%;
+    left: 50%;
+    transform: translateX(-69.5%) scale(1);
     right: 0;
     margin: 0 auto;
     height: 35rem;
     top: 0rem;
     border-radius: 2rem;
-    z-index: auto;
+    z-index: 3;
     overflow-x: hidden;
     overflow-y: visible;
 

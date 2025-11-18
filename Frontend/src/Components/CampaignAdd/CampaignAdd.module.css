@@ -173,7 +173,7 @@ background: radial-gradient(
 
 @media (max-width: 1240px) {
     .container {
-    margin-top: -25rem;
+    margin-top: 5rem;
     height: 45rem;
 }
 
@@ -193,7 +193,7 @@ background: radial-gradient(
 
 @media (max-width: 950px) {
     .container {
-    margin-top: -45rem;
+    margin-top: 1rem;
     height: 30rem;
 }
 
