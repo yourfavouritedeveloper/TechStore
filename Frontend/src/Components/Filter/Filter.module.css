@@ -35,9 +35,12 @@
     justify-content: center;
     background-color: #f3f0f0;
     width: 94rem;
+    top:0rem;
     height: 5.95rem;
+    left:50%;
+    transform: translateX(-50%);
     border-radius: 2rem;
-    z-index: 3;
+    z-index: 4;
 }
 
 
@@ -46,13 +49,13 @@
     position: absolute;
     display: flex;
     justify-content: center;
-    z-index: 1;
     background-color: #ffffff;
     width: 100%;
     left: 50%;
     transform: translateX(-50%);
     height: 20rem;
     top: 35rem;
+    z-index: 2;
 
 
 }
@@ -129,7 +132,7 @@
     color: rgb(255, 255, 255);
     border-radius: 2rem;
     transition: all 0.3s ease;
-    z-index: 3;
+    z-index: 5;
 }
 
 .filter:hover {
@@ -175,7 +178,7 @@ input {
     font-family: "PoppinsLight";
     font-size: clamp(1.5rem, 1rem, 2.5rem);
     transition: transform 0.3s ease;
-    z-index: 4;
+    z-index: 5;
 }
 
 input:focus {
@@ -192,7 +195,7 @@ input:focus {
     left: 54.5rem;
     transform: rotateZ(0deg);
     transition: transform 0.3s ease;
-    z-index: 4;
+    z-index: 5;
 }
 
 .inputBar:hover .search {
@@ -375,7 +378,7 @@ input:focus {
 
 
 
-.more:hover .moreOption {
+.moreOptionActive {
     top: 1rem;
     height: 16rem;
     border-radius: 3.5rem;
@@ -403,15 +406,33 @@ input:focus {
 
 
 .moreOption {
-    width: 99%;
-    left: 0.5%;
-    top: -15rem;
+    width: 93rem;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 40rem;
     cursor: auto;
-    border-radius: 0rem;
+    border-radius: 3.5rem;
     position: absolute;
-    height: 20rem;
+    height: 16rem;
     background-color: rgb(207, 207, 207);
-    z-index: 2;
+    z-index: 1;
+    transition: all 0.5s ease;
+    pointer-events: auto;
+
+
+}
+
+.moreOptionActive {
+    width: 93rem;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 52rem;
+    cursor: auto;
+    border-radius: 3.5rem;
+    position: absolute;
+    height: 16rem;
+    background-color: rgb(207, 207, 207);
+    z-index: 1;
     transition: all 0.5s ease;
     pointer-events: auto;
 
@@ -824,8 +845,6 @@ input:focus {
     left: 6rem;
     position: relative;
 
-
-
 }
 
 .info {
@@ -1093,42 +1112,128 @@ input:focus {
 
 
 .cover {
-        top:27rem;
+        top:26.3rem;
         transform: translateX(-50%) scale(0.8);
-        height: 10rem;
+        height: 17rem;
         width: 90rem;
+        z-index: 3;
+        padding: 0rem 2rem;
     }
 
 
 
-.barContainer {
-    left:50%;
-    width: 100rem;
-    transform:translateX(-50%) scale(0.8);
+.barDiv {
+    
+    border-radius: 2rem;
     position: relative;
-    top:-2.7rem;
+
 }
 
+
+.inBar {
+
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    background-color: #f3f0f0;
+    width: 94rem;
+    top:0rem;
+    height: 5.95rem;
+    left:50%;
+    z-index: 4;
+    transform: translateX(-50%);
+    border-radius: 2rem;
+}
 
 .bar {
-
-    top: -0.6rem;
+    transform: translateX(-50%) scale(0.8);
+    top: 13.8rem;
+    height: 8rem;
+    z-index: 3;
+    left: 50%;
     border-radius: 2rem;
+    overflow: visible;
 
 
 }
 
-.categorySelector {
-
-    top: 4.9rem;
-
+.itemDiv {
+    transform: scale(0.8) translateY(-2.5rem);
+    min-height: 72rem;
 }
-
 
 .itemContainer {
-    padding-top: 2.4rem;
-    margin-top: 10rem;
- 
+    border-radius: 3rem;
+    padding: 0rem 0rem;
+    padding-left: 9rem;
+    padding-top: 9rem;
+    width: 64.5rem;
+    min-height: 30rem;
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    margin-top: -2rem;
+    opacity: 1;
+    overflow: hidden;
+
+}
+
+
+.categorySelector {
+    height: 400rem;
+    width: 19rem;
+    left: 50%;
+    top: -21.55rem;
+    transform: translate(-186%, 0%) scale(0.8);
+    z-index: 5;
+
+}
+
+.items {
+
+    gap: 1rem;
+    position: relative;
+    width: 67rem;
+    padding: 0rem 0rem;
+    top:7rem;
+    padding-bottom: 0rem;
+    left: 3.5rem;
+
+}
+
+
+
+.moreOption {
+    width: 93rem;
+    left: 50%;
+    transform: translateX(-50%) scale(0.8);
+    top: 27rem;
+    cursor: auto;
+    border-radius: 3.5rem;
+    position: absolute;
+    height: 16rem;
+    background-color: rgb(207, 207, 207);
+    z-index: 1;
+    transition: all 0.5s ease;
+    pointer-events: auto;
+
+
+}
+
+.moreOptionActive {
+    width: 93rem;
+    left: 50%;
+    transform: translateX(-50%) scale(0.8);
+    top: 40rem;
+    cursor: auto;
+    border-radius: 3.5rem;
+    position: absolute;
+    height: 16rem;
+    background-color: rgb(207, 207, 207);
+    z-index: 1;
+    transition: all 0.5s ease;
+    pointer-events: auto;
+
 
 }
 
@@ -1137,44 +1242,129 @@ input:focus {
 
 @media (max-width: 1240px) {
  .cover {
-        top:21rem;
+        top:19rem;
         transform: translateX(-50%) scale(0.6);
-        height: 10rem;
+        height:20rem;
         width: 90rem;
+        padding: 0rem 2rem;
     }
 
 
 
-.barContainer {
-    left:50%;
-    width: 100rem;
-    transform:translateX(-50%) scale(0.6);
+.barDiv {
+    
+    border-radius: 2rem;
     position: relative;
-    top:-12rem;
+
 }
 
+
+.inBar {
+
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    background-color: #f3f0f0;
+    width: 94rem;
+    top:0rem;
+    height: 5.95rem;
+    left:50%;
+    z-index: 4;
+    transform: translateX(-50%);
+    border-radius: 2rem;
+}
 
 .bar {
-
-    top: -0.6rem;
+    transform: translateX(-50%) scale(0.6);
+    top: -5rem;
+    height: 8rem;
+    left: 50%;
+    z-index: 3;
     border-radius: 2rem;
+    overflow: visible;
 
 
 }
 
-.categorySelector {
-
-    top: 4.9rem;
-
+.itemDiv {
+    transform: scale(0.6) translateY(-2.5rem);
+    min-height: 72rem;
 }
-
 
 .itemContainer {
-    padding-top: 2.4rem;
-    margin-top: 10rem;
- 
+    border-radius: 3rem;
+    padding: 0rem 0rem;
+    padding-left: 9rem;
+    padding-top: 9rem;
+    width: 45.5rem;
+    min-height: 30rem;
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 13rem;
+    opacity: 1;
+    overflow: hidden;
 
-}  
+}
+
+
+.categorySelector {
+    height: 400rem;
+    width: 19rem;
+    left: 50%;
+    top: -35.95rem;
+    transform: translate(-186%, 0%) scale(0.6);
+    z-index: 5;
+
+}
+
+.items {
+
+    gap: 1rem;
+    position: relative;
+    width: 67rem;
+    padding: 0rem 0rem;
+    top:-35rem;
+    padding-bottom: 0rem;
+    left: 2.5rem;
+
+}
+
+
+
+.moreOption {
+    width: 93rem;
+    left: 50%;
+    transform: translateX(-50%) scale(0.6);
+    top:20rem;
+    cursor: auto;
+    border-radius: 3.5rem;
+    position: absolute;
+    height: 16rem;
+    background-color: rgb(207, 207, 207);
+    z-index: 1;
+    transition: all 0.5s ease;
+    pointer-events: auto;
+
+
+}
+
+.moreOptionActive {
+    width: 93rem;
+    left: 50%;
+    transform: translateX(-50%) scale(0.6);
+    top: 30rem;
+    cursor: auto;
+    border-radius: 3.5rem;
+    position: absolute;
+    height: 16rem;
+    background-color: rgb(207, 207, 207);
+    z-index: 1;
+    transition: all 0.5s ease;
+    pointer-events: auto;
+
+
+}
 }
 
 @media (max-width: 950px) {

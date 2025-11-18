@@ -134,7 +134,7 @@ background: radial-gradient(
 
 @media (max-width: 1540px) {
 .container {
-    margin-top: -8rem;
+    margin-top: 4rem;
     height: 50rem;
 ;
 }
