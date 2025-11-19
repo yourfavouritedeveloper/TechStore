@@ -248,11 +248,11 @@
 
 
 .itemsPopular {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-  padding: 0;
-  position: relative;
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    padding: 0;
+    position: relative;
 
 
 }
@@ -484,11 +484,11 @@
 
 
 .itemsBought {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-  padding: 0;
-  position: relative;
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    padding: 0;
+    position: relative;
 
 
 }
@@ -675,9 +675,9 @@
 }
 
 
-    .sellerdiv .scroll {
-        display:none;
-    }
+.sellerdiv .scroll {
+    display: none;
+}
 
 
 
@@ -872,7 +872,7 @@
     }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 751px) {
     .container {
         height: 71rem;
 
@@ -1039,7 +1039,7 @@
 
     }
 
-    
+
     .itemsPopular .searchRate {
         width: 26.8rem;
         font-size: clamp(0.8rem, 2rem, 2rem);
@@ -1140,7 +1140,7 @@
 
     }
 
-  
+
 
     .itemsPopular .inCart {
         top: 34.9rem;
@@ -1154,9 +1154,9 @@
     }
 
     .populardiv .scroll {
-        display:block;
+        display: block;
         position: relative;
-        top:-2rem;
+        top: -2rem;
         font-size: 1.7rem;
     }
 
@@ -1269,7 +1269,7 @@
 
     }
 
-  
+
 
     .itemsBought .inCart {
         top: 34.9rem;
@@ -1283,67 +1283,67 @@
     }
 
     .sellerdiv .scroll {
-        display:block;
+        display: block;
         position: relative;
-        top:-2rem;
+        top: -2rem;
         font-size: 1.7rem;
     }
 
 
-    
-
-  .itemsPopular,
-  .itemsBought {
-    display: flex;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    flex-wrap: nowrap;
-    scrollbar-width: thin;       
-    scrollbar-color: #bbb #eee;
-    gap: 0.9rem;
-    height: 40rem;
-    padding-top: 2rem;
-    padding-bottom: 10px;
-    
-  }
 
 
+    .itemsPopular,
+    .itemsBought {
+        display: flex;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        flex-wrap: nowrap;
+        scrollbar-width: thin;
+        scrollbar-color: #bbb #eee;
+        gap: 0.9rem;
+        height: 40rem;
+        padding-top: 2rem;
+        padding-bottom: 10px;
 
-  .itemsPopular::-webkit-scrollbar,
-  .itemsBought::-webkit-scrollbar {
-    height: 8px;                 
-    display: block; 
-  }
+    }
 
-  .itemsPopular::-webkit-scrollbar-thumb,
-  .itemsBought::-webkit-scrollbar-thumb {
-    background: #bbb;
-    border-radius: 10px;
-  }
 
-  .itemsPopular::-webkit-scrollbar-track,
-  .itemsBought::-webkit-scrollbar-track {
-    background: #eee;
-  }
 
-  .itemsPopular .item,
-  .itemsBought .item {
-    flex: 0 0 calc(33.33% - 10px);
-    min-width: 200px;
-    scroll-snap-align: start;
-  }
-    
+    .itemsPopular::-webkit-scrollbar,
+    .itemsBought::-webkit-scrollbar {
+        height: 8px;
+        display: block;
+    }
+
+    .itemsPopular::-webkit-scrollbar-thumb,
+    .itemsBought::-webkit-scrollbar-thumb {
+        background: #bbb;
+        border-radius: 10px;
+    }
+
+    .itemsPopular::-webkit-scrollbar-track,
+    .itemsBought::-webkit-scrollbar-track {
+        background: #eee;
+    }
+
+    .itemsPopular .item,
+    .itemsBought .item {
+        flex: 0 0 calc(33.33% - 10px);
+        min-width: 200px;
+        scroll-snap-align: start;
+    }
+
 }
 
 
 
 
 @media (max-width: 580px) {
-     .container {
+    .container {
         height: 49rem;
-        
+
 
     }
 
@@ -1508,7 +1508,7 @@
 
     }
 
-    
+
     .itemsPopular .searchRate {
         width: 26.8rem;
         font-size: clamp(0.8rem, 2rem, 2rem);
@@ -1609,7 +1609,7 @@
 
     }
 
-  
+
 
     .itemsPopular .inCart {
         top: 34.9rem;
@@ -1733,7 +1733,7 @@
 
     }
 
-  
+
 
     .itemsBought .inCart {
         top: 34.9rem;
@@ -1746,42 +1746,42 @@
         width: 30px;
     }
 
-  .itemsPopular,
-  .itemsBought {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    flex-wrap: nowrap;
-    gap: 0.9rem;
-    height: 40rem;
-    padding-top: 2rem;
-    padding-bottom: 10px;
-    
-  }
+    .itemsPopular,
+    .itemsBought {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        flex-wrap: nowrap;
+        gap: 0.9rem;
+        height: 40rem;
+        padding-top: 2rem;
+        padding-bottom: 10px;
 
-  .itemsPopular::-webkit-scrollbar,
-  .itemsBought::-webkit-scrollbar {
-    height: 6px;
-  }
+    }
 
-  .itemsPopular::-webkit-scrollbar-thumb,
-  .itemsBought::-webkit-scrollbar-thumb {
-    background: #bbb;
-    border-radius: 10px;
-  }
+    .itemsPopular::-webkit-scrollbar,
+    .itemsBought::-webkit-scrollbar {
+        height: 6px;
+    }
 
-  .itemsPopular::-webkit-scrollbar-track,
-  .itemsBought::-webkit-scrollbar-track {
-    background: #eee;
-  }
+    .itemsPopular::-webkit-scrollbar-thumb,
+    .itemsBought::-webkit-scrollbar-thumb {
+        background: #bbb;
+        border-radius: 10px;
+    }
 
-  .itemsPopular .item,
-  .itemsBought .item {
-    flex: 0 0 calc(33.33% - 10px);
-    min-width: 200px;
-    scroll-snap-align: start;
-  }   
+    .itemsPopular::-webkit-scrollbar-track,
+    .itemsBought::-webkit-scrollbar-track {
+        background: #eee;
+    }
+
+    .itemsPopular .item,
+    .itemsBought .item {
+        flex: 0 0 calc(33.33% - 10px);
+        min-width: 200px;
+        scroll-snap-align: start;
+    }
 }
 
 
@@ -1789,9 +1789,9 @@
 
 
 @media (max-width: 450px) {
-     .container {
+    .container {
         height: 53rem;
-        
+
 
     }
 
@@ -1956,10 +1956,10 @@
 
     }
 
-    
+
     .itemsPopular .searchRate {
         width: 41.1rem;
-        top:-5rem;
+        top: -5rem;
         font-size: clamp(0.8rem, 3rem, 4rem);
 
     }
@@ -2047,7 +2047,7 @@
 
     }
 
-    
+
 
 
     .itemsPopular .cart svg {
@@ -2061,7 +2061,7 @@
 
     }
 
-  
+
 
     .itemsPopular .inCart {
         top: 52.2rem;
@@ -2087,7 +2087,7 @@
 
     .itemsBought .boughtRate {
         width: 41.1rem;
-        top:-5rem;
+        top: -5rem;
         font-size: clamp(0.8rem, 3rem, 4rem);
 
     }
@@ -2096,7 +2096,7 @@
 
 
 
-      .boughtInfo {
+    .boughtInfo {
         padding: 16rem 1rem;
         top: 4rem;
         width: 86%;
@@ -2161,7 +2161,7 @@
 
 
 
-  
+
     .itemsBought .cart {
         top: 52.2rem;
         right: 2rem;
@@ -2176,7 +2176,7 @@
 
     }
 
-    
+
 
 
     .itemsBought .cart svg {
@@ -2190,7 +2190,7 @@
 
     }
 
-  
+
 
     .itemsBought .inCart {
         top: 52.2rem;
@@ -2206,41 +2206,40 @@
 
 
 
-  .itemsPopular,
-  .itemsBought {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    flex-wrap: nowrap;
-    gap: 2.9rem;
-    height: 60rem;
-    padding-top: 2rem;
-    padding-bottom: 10px;
-    
-  }
+    .itemsPopular,
+    .itemsBought {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        flex-wrap: nowrap;
+        gap: 2.9rem;
+        height: 60rem;
+        padding-top: 2rem;
+        padding-bottom: 10px;
 
-  .itemsPopular::-webkit-scrollbar,
-  .itemsBought::-webkit-scrollbar {
-    height: 6px;
-  }
+    }
 
-  .itemsPopular::-webkit-scrollbar-thumb,
-  .itemsBought::-webkit-scrollbar-thumb {
-    background: #bbb;
-    border-radius: 10px;
-  }
+    .itemsPopular::-webkit-scrollbar,
+    .itemsBought::-webkit-scrollbar {
+        height: 6px;
+    }
 
-  .itemsPopular::-webkit-scrollbar-track,
-  .itemsBought::-webkit-scrollbar-track {
-    background: #eee;
-  }
+    .itemsPopular::-webkit-scrollbar-thumb,
+    .itemsBought::-webkit-scrollbar-thumb {
+        background: #bbb;
+        border-radius: 10px;
+    }
 
-  .itemsPopular .item,
-  .itemsBought .item {
-    flex: 0 0 calc(49.1% - 10px);
-    min-width: 200px;
-    scroll-snap-align: start;
-  }   
+    .itemsPopular::-webkit-scrollbar-track,
+    .itemsBought::-webkit-scrollbar-track {
+        background: #eee;
+    }
+
+    .itemsPopular .item,
+    .itemsBought .item {
+        flex: 0 0 calc(49.1% - 10px);
+        min-width: 200px;
+        scroll-snap-align: start;
+    }
 }
-
