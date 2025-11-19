@@ -564,24 +564,39 @@ function Item({ name, productId }) {
     };
 
 
+    const [similarItemsFull, setSimilarItemsFull] = useState([]);
 
 
 
     useEffect(() => {
         if (!item?.category) return;
 
-        axios.get("https://techstore-3fvk.onrender.com/api/v1/products/all",
-
-        )
+        axios
+            .get("https://techstore-3fvk.onrender.com/api/v1/products/all")
             .then(response => {
-                const filtered = response.data.filter(i => i.category === item.category && i.name !== item.name)
+                const filtered = response.data
+                    .filter(i => i.category === item.category && i.name !== item.name)
                     .slice(0, 5);
+
+                setSimilarItemsFull(filtered);
                 setSimilarItems(filtered);
             })
             .catch(error => {
                 console.error("Error fetching data:", error);
             });
     }, [item]);
+
+    useEffect(() => {
+        if (similarItemsFull.length === 0) return;
+
+        const limit = window.innerWidth <= 750 ? 4 : 5;
+
+        setSimilarItems(similarItemsFull.slice(0, limit));
+    }, [similarItemsFull]);
+
+
+
+
 
 
     const discount = item.discount

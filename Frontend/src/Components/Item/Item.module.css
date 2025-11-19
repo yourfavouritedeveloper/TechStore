@@ -1976,7 +1976,7 @@ body {
     }
 
     .container {
-        padding-bottom: 73rem;
+        padding-bottom: 55rem;
         margin-bottom: 0rem;
 
     }
@@ -2158,16 +2158,1150 @@ body {
 
     }
 
-    .similar {
-        top: 86rem;
+    .commentBox {
+
+        left: -12.9%;
+        width: 45rem;
+    }
+
+    .comment {
+        width: 34rem;
+        left: 54.5%;
+
+
+    }
+
+    .comment .accountInfo {
+        width: 122.2%;
+        left: -4%;
+    }
+
+    .accountInfo img {
+
+        width: 9.5%;
+        left: -5rem;
+
+    }
+
+    .accountInfo .commentRate {
+        right: 2rem;
+        top: -2rem;
+    }
+
+
+
+    .accountInfo .commentCustomerName {
+
+        left: -0.5rem;
+        top: -3.6rem;
+    }
+
+    .comment .commentText {
+        font-size: clamp(1rem, 1.5rem, 10rem);
+    }
+
+    .commentBox .reviewSubTitle {
+        position: relative;
+        z-index: 5;
+        font-size: clamp(1rem, 1.6rem, 10rem);
+        font-family: "PoppinsMedium";
+        color: #313131;
+        top: -2.5rem;
         left: 50%;
+        margin-bottom: 1rem;
         transform: translateX(-50%);
+    }
+
+    .send {
+        position: relative;
+        bottom: 1rem;
+        width: 96.4%;
+        height: auto;
+        border-top: 1.5px solid #c0c0c0;
+        padding: 1rem;
+        margin-top: 0rem;
+        padding-top: 2.5rem;
+    }
+
+    .commentBox .input {
+
+        width: 66.5%;
+        left: 30.5%;
+
+        font-size: 1.3rem;
+
+    }
+
+
+
+    .commentBox .rate {
+
+        left: 37rem;
+        font-size: 1.4rem;
+
+    }
+
+    .starsContainer {
+        bottom: 6.65rem;
+        left: 37.7rem;
+    }
+
+
+
+    .commentBox .post {
+        left: 37rem;
+
+    }
+
+
+    .showReplies {
+
+        font-size: clamp(0rem, 1.4rem, 10rem);
+    }
+
+
+
+    .showMoreComments {
+
+        font-size: clamp(0rem, 1.9rem, 10rem);
+    }
+
+    .replies {
+        gap: 0.5rem;
+        padding-top: 3rem;
+        position: relative;
+        align-items: center;
+        top: -5rem;
+        height: auto;
+        overflow: hidden;
+        left: -1.2%;
+        width: 104%;
+        border-radius: 0.5rem;
+    }
+
+    .replyComment {
+        width: 65%;
+        left: 57%;
+
+    }
+
+
+    .accountReplyInfo img {
+        width: 10%;
+        left: -4.7rem;
+
+    }
+
+    .replyCustomerName {
+
+        left: -0.5rem;
+        top: -1.1rem;
+
+    }
+
+
+    .repliedTo {
+
+        left: 0rem;
+        top: -1rem;
+        font-size: clamp(0rem, 1rem, 10rem);
+    }
+
+    .replyText {
+        font-family: "PoppinsRegular";
+        left: 0.2rem;
+        top: -0rem;
+        letter-spacing: -0.05rem;
+        font-size: clamp(1rem, 1.3rem, 10rem);
+    }
+
+    .commentBox .likeReplyDiv {
+        top: 6rem;
+    }
+
+    .cancelReply {
+
+        right: 8.5%;
+
+    }
+
+
+
+    .replyReply {
+        font-size: clamp(0rem, 1.1rem, 10rem);
+        left: 40%;
+        top: -9.2%;
+
+    }
+
+
+
+
+    .replySend {
+
+        width: 83.5%;
+
+        left: 46.5%;
+
+    }
+
+    .replyCommentSend {
+        width: 80.5%;
+
+        padding: 1.3rem 2rem;
+        padding-bottom: 2rem;
+        left: 49%;
+
+
+
+    }
+
+
+    .similar {
+        top: 77rem;
+        left: 50%;
+        width: 45.5rem;
+        transform: translateX(-52%) scale(0.8);
+
+    }
+
+
+
+
+    .similarTitle {
+        position: absolute;
+        z-index: 5;
+        font-size: clamp(1rem, 2.5rem, 10rem);
+        font-family: "PoppinsSemiBold";
+        top: 0rem;
+        color: #313131;
+        left: 0.1rem;
+    }
+
+
+    .itemContainer {
+        background-color: rgb(223, 223, 223);
+        border-radius: 3rem;
+        padding: 5rem 0rem;
+        padding-left: rem;
+        padding-top: 9rem;
+        width: 83.3rem;
+        min-height: 40rem;
+        display: block;
+        position: relative;
+        margin: 0 auto;
+        margin-top: 10rem;
+        z-index: 0;
+        opacity: 1;
+        overflow: hidden;
+
+    }
+
+
+
+    .similarItems {
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        padding: 0rem 2rem;
+        top: -2.5rem;
+        padding-bottom: 3rem;
+        position: relative;
+
+
 
     }
 
 
 }
 
-@media (max-width: 580px) {}
+@media (max-width: 580px) {
+    .itemCover {
+        margin-top: -31rem;
+        transform: scale(0.68);
+    }
 
-@media (max-width: 450px) {}
+    .container {
+        padding-bottom: 20rem;
+        margin-bottom: 0rem;
+
+    }
+
+    .headerContainer {
+        top: 1.8rem;
+        width: 55rem;
+        padding-left: 20rem;
+        left: 50%;
+        transform: translateX(-40.5%) scale(0.8);
+    }
+
+    .item {
+        left: 50%;
+        top: 1rem;
+        margin-left: 26.3rem;
+
+
+
+    }
+
+    .itemDescription {
+
+        padding: 20.6rem 18.4rem;
+        padding-bottom: 16rem;
+        padding-left: 18.5rem;
+        right: 50%;
+        margin-right: 15.5rem;
+        top: 38.5rem;
+
+
+        transform: translateX(92.5%);
+
+    }
+
+    .itemGeneral {
+        left: -2.5rem;
+        transform: scale(0.9);
+
+    }
+
+    .priceGeneral {
+        left: -3.4rem;
+        top: 35.5rem;
+        transform: scale(0.85);
+    }
+
+    .ratingGeneral {
+        left: -2.5rem;
+        transform: scale(0.9);
+    }
+
+
+    .favourite {
+        padding: 1.9rem 2rem;
+        bottom: 13.9rem;
+        left: 37.27rem;
+
+    }
+
+
+
+    .decrease {
+        font-size: 1.5rem;
+        padding: 0.2rem 1rem;
+        left: 19.2rem;
+        top: -9.1rem;
+
+    }
+
+    .increase {
+        font-size: 1.5rem;
+        padding: 0.2rem 1rem;
+        top: -9.1rem;
+        right: 7.3rem;
+
+
+
+    }
+
+
+
+    .number {
+        font-size: 2rem;
+        min-width: 2rem;
+        font-family: "PoppinsSemiBold";
+        color: #313131;
+        text-align: center;
+        right: 11.5rem;
+        top: -11.2rem;
+        position: absolute;
+
+    }
+
+    .added {
+        top: -10.3rem;
+        right: 0.6rem;
+
+    }
+
+
+
+
+
+
+    .longDescriptionGeneral {
+        width: 46rem;
+        transform: translateX(-50%) scale(0.8);
+        top: 93rem;
+
+    }
+
+
+
+
+    .longDescriptionGeneral .productLongDescriptionFirst {
+
+        width: 46rem;
+
+    }
+
+
+
+    .itemVideo {
+        width: 45.5rem;
+        height: 17rem;
+        left: 50%;
+        top: 6rem;
+
+
+    }
+
+
+    .itemVideo .videoText {
+
+        top: 38%;
+
+    }
+
+
+
+
+    .longDescriptionGeneral .productLongDescriptionSecond {
+        width: 46rem;
+
+    }
+
+
+
+
+
+
+    .propertiesTitle {
+
+        font-size: clamp(1rem, 2.5rem, 10rem);
+        top: 138rem;
+        left: 50%;
+        transform: translateX(-140.5%);
+    }
+
+
+    .properties {
+        width: 45.5rem;
+        padding: 0rem;
+        padding-top: 8rem;
+        padding-bottom: 4.5rem;
+        left: 50%;
+        transform: translateX(-50%) scale(0.8);
+        gap: 0rem;
+        top: 91rem;
+
+    }
+
+    .review {
+        top: 86rem;
+        width: 45.5rem;
+        left: 50%;
+        transform: translateX(-52%) scale(0.8);
+
+    }
+
+    .commentBox {
+
+        left: -12.9%;
+        width: 45rem;
+    }
+
+    .comment {
+        width: 34rem;
+        left: 54.5%;
+
+
+    }
+
+    .comment .accountInfo {
+        width: 122.2%;
+        left: -4%;
+    }
+
+    .accountInfo img {
+
+        width: 9.5%;
+        left: -5rem;
+
+    }
+
+    .accountInfo .commentRate {
+        right: 2rem;
+        top: -2rem;
+    }
+
+
+
+    .accountInfo .commentCustomerName {
+
+        left: -0.5rem;
+        top: -3.6rem;
+    }
+
+    .comment .commentText {
+        font-size: clamp(1rem, 1.5rem, 10rem);
+    }
+
+    .commentBox .reviewSubTitle {
+        position: relative;
+        z-index: 5;
+        font-size: clamp(1rem, 1.6rem, 10rem);
+        font-family: "PoppinsMedium";
+        color: #313131;
+        top: -2.5rem;
+        left: 50%;
+        margin-bottom: 1rem;
+        transform: translateX(-50%);
+    }
+
+    .send {
+        position: relative;
+        bottom: 1rem;
+        width: 96.4%;
+        height: auto;
+        border-top: 1.5px solid #c0c0c0;
+        padding: 1rem;
+        margin-top: 0rem;
+        padding-top: 2.5rem;
+    }
+
+    .commentBox .input {
+
+        width: 66.5%;
+        left: 30.5%;
+
+        font-size: 1.3rem;
+
+    }
+
+
+
+    .commentBox .rate {
+
+        left: 37rem;
+        font-size: 1.4rem;
+
+    }
+
+    .starsContainer {
+        bottom: 6.65rem;
+        left: 37.7rem;
+    }
+
+
+
+    .commentBox .post {
+        left: 37rem;
+
+    }
+
+
+    .showReplies {
+
+        font-size: clamp(0rem, 1.4rem, 10rem);
+    }
+
+
+
+    .showMoreComments {
+
+        font-size: clamp(0rem, 1.9rem, 10rem);
+    }
+
+    .replies {
+        gap: 0.5rem;
+        padding-top: 3rem;
+        position: relative;
+        align-items: center;
+        top: -5rem;
+        height: auto;
+        overflow: hidden;
+        left: -1.2%;
+        width: 104%;
+        border-radius: 0.5rem;
+    }
+
+    .replyComment {
+        width: 65%;
+        left: 57%;
+
+    }
+
+
+    .accountReplyInfo img {
+        width: 10%;
+        left: -4.7rem;
+
+    }
+
+    .replyCustomerName {
+
+        left: -0.5rem;
+        top: -1.1rem;
+
+    }
+
+
+    .repliedTo {
+
+        left: 0rem;
+        top: -1rem;
+        font-size: clamp(0rem, 1rem, 10rem);
+    }
+
+    .replyText {
+        font-family: "PoppinsRegular";
+        left: 0.2rem;
+        top: -0rem;
+        letter-spacing: -0.05rem;
+        font-size: clamp(1rem, 1.3rem, 10rem);
+    }
+
+    .commentBox .likeReplyDiv {
+        top: 6rem;
+    }
+
+    .cancelReply {
+
+        right: 8.5%;
+
+    }
+
+
+
+    .replyReply {
+        font-size: clamp(0rem, 1.1rem, 10rem);
+        left: 40%;
+        top: -9.2%;
+
+    }
+
+
+
+
+    .replySend {
+
+        width: 83.5%;
+
+        left: 46.5%;
+
+    }
+
+    .replyCommentSend {
+        width: 80.5%;
+
+        padding: 1.3rem 2rem;
+        padding-bottom: 2rem;
+        left: 49%;
+
+
+
+    }
+
+
+    .similar {
+        top: 77rem;
+        left: 50%;
+        width: 45.5rem;
+        transform: translateX(-52%) scale(0.8);
+
+    }
+
+
+
+
+    .similarTitle {
+        position: absolute;
+        z-index: 5;
+        font-size: clamp(1rem, 2.5rem, 10rem);
+        font-family: "PoppinsSemiBold";
+        top: 0rem;
+        color: #313131;
+        left: 0.1rem;
+    }
+
+
+    .itemContainer {
+        background-color: rgb(223, 223, 223);
+        border-radius: 3rem;
+        padding: 5rem 0rem;
+        padding-left: rem;
+        padding-top: 9rem;
+        width: 83.3rem;
+        min-height: 40rem;
+        display: block;
+        position: relative;
+        margin: 0 auto;
+        margin-top: 10rem;
+        z-index: 0;
+        opacity: 1;
+        overflow: hidden;
+
+    }
+
+
+
+    .similarItems {
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        padding: 0rem 2rem;
+        top: -2.5rem;
+        padding-bottom: 3rem;
+        position: relative;
+
+
+
+    }
+}
+
+@media (max-width: 450px) {
+    .itemCover {
+        margin-top: -38rem;
+        transform: scale(0.6);
+    }
+
+    .container {
+        padding-bottom: 5rem;
+        margin-bottom: 0rem;
+
+    }
+
+    .headerContainer {
+        top: 2.3rem;
+        width: 55rem;
+        padding-left: 22.5rem;
+        left: 50%;
+        transform: translateX(-40.5%) scale(0.8);
+    }
+
+    .item {
+        left: 50%;
+        top: 1rem;
+        margin-left: 26.3rem;
+
+
+
+    }
+
+    .itemDescription {
+
+        padding: 20.6rem 18.4rem;
+        padding-bottom: 16rem;
+        padding-left: 18.5rem;
+        right: 50%;
+        margin-right: 15.5rem;
+        top: 38.5rem;
+
+
+        transform: translateX(92.5%);
+
+    }
+
+    .itemGeneral {
+        left: -2.5rem;
+        transform: scale(0.9);
+
+    }
+
+    .priceGeneral {
+        left: -3.4rem;
+        top: 35.5rem;
+        transform: scale(0.85);
+    }
+
+    .ratingGeneral {
+        left: -2.5rem;
+        transform: scale(0.9);
+    }
+
+
+    .favourite {
+        padding: 1.9rem 2rem;
+        bottom: 13.9rem;
+        left: 37.27rem;
+
+    }
+
+
+
+    .decrease {
+        font-size: 1.5rem;
+        padding: 0.2rem 1rem;
+        left: 19.2rem;
+        top: -9.1rem;
+
+    }
+
+    .increase {
+        font-size: 1.5rem;
+        padding: 0.2rem 1rem;
+        top: -9.1rem;
+        right: 7.3rem;
+
+
+
+    }
+
+
+
+    .number {
+        font-size: 2rem;
+        min-width: 2rem;
+        font-family: "PoppinsSemiBold";
+        color: #313131;
+        text-align: center;
+        right: 11.5rem;
+        top: -11.2rem;
+        position: absolute;
+
+    }
+
+    .added {
+        top: -10.3rem;
+        right: 0.6rem;
+
+    }
+
+
+
+
+
+
+    .longDescriptionGeneral {
+        width: 46rem;
+        transform: translateX(-50%) scale(0.8);
+        top: 93rem;
+
+    }
+
+
+
+
+    .longDescriptionGeneral .productLongDescriptionFirst {
+
+        width: 46rem;
+
+    }
+
+
+
+    .itemVideo {
+        width: 45.5rem;
+        height: 17rem;
+        left: 50%;
+        top: 6rem;
+
+
+    }
+
+
+    .itemVideo .videoText {
+
+        top: 38%;
+
+    }
+
+
+
+
+    .longDescriptionGeneral .productLongDescriptionSecond {
+        width: 46rem;
+
+    }
+
+
+
+
+
+
+    .propertiesTitle {
+
+        font-size: clamp(1rem, 2.5rem, 10rem);
+        top: 138rem;
+        left: 50%;
+        transform: translateX(-140.5%);
+    }
+
+
+    .properties {
+        width: 45.5rem;
+        padding: 0rem;
+        padding-top: 8rem;
+        padding-bottom: 4.5rem;
+        left: 50%;
+        transform: translateX(-50%) scale(0.8);
+        gap: 0rem;
+        top: 91rem;
+
+    }
+
+    .review {
+        top: 86rem;
+        width: 45.5rem;
+        left: 50%;
+        transform: translateX(-52%) scale(0.8);
+
+    }
+
+    .commentBox {
+
+        left: -12.9%;
+        width: 45rem;
+    }
+
+    .comment {
+        width: 34rem;
+        left: 54.5%;
+
+
+    }
+
+    .comment .accountInfo {
+        width: 122.2%;
+        left: -4%;
+    }
+
+    .accountInfo img {
+
+        width: 9.5%;
+        left: -5rem;
+
+    }
+
+    .accountInfo .commentRate {
+        right: 2rem;
+        top: -2rem;
+    }
+
+
+
+    .accountInfo .commentCustomerName {
+
+        left: -0.5rem;
+        top: -3.6rem;
+    }
+
+    .comment .commentText {
+        font-size: clamp(1rem, 1.5rem, 10rem);
+    }
+
+    .commentBox .reviewSubTitle {
+        position: relative;
+        z-index: 5;
+        font-size: clamp(1rem, 1.6rem, 10rem);
+        font-family: "PoppinsMedium";
+        color: #313131;
+        top: -2.5rem;
+        left: 50%;
+        margin-bottom: 1rem;
+        transform: translateX(-50%);
+    }
+
+    .send {
+        position: relative;
+        bottom: 1rem;
+        width: 96.4%;
+        height: auto;
+        border-top: 1.5px solid #c0c0c0;
+        padding: 1rem;
+        margin-top: 0rem;
+        padding-top: 2.5rem;
+    }
+
+    .commentBox .input {
+
+        width: 66.5%;
+        left: 30.5%;
+
+        font-size: 1.3rem;
+
+    }
+
+
+
+    .commentBox .rate {
+
+        left: 37rem;
+        font-size: 1.4rem;
+
+    }
+
+    .starsContainer {
+        bottom: 6.65rem;
+        left: 37.7rem;
+    }
+
+
+
+    .commentBox .post {
+        left: 37rem;
+
+    }
+
+
+    .showReplies {
+
+        font-size: clamp(0rem, 1.4rem, 10rem);
+    }
+
+
+
+    .showMoreComments {
+
+        font-size: clamp(0rem, 1.9rem, 10rem);
+    }
+
+    .replies {
+        gap: 0.5rem;
+        padding-top: 3rem;
+        position: relative;
+        align-items: center;
+        top: -5rem;
+        height: auto;
+        overflow: hidden;
+        left: -1.2%;
+        width: 104%;
+        border-radius: 0.5rem;
+    }
+
+    .replyComment {
+        width: 65%;
+        left: 57%;
+
+    }
+
+
+    .accountReplyInfo img {
+        width: 10%;
+        left: -4.7rem;
+
+    }
+
+    .replyCustomerName {
+
+        left: -0.5rem;
+        top: -1.1rem;
+
+    }
+
+
+    .repliedTo {
+
+        left: 0rem;
+        top: -1rem;
+        font-size: clamp(0rem, 1rem, 10rem);
+    }
+
+    .replyText {
+        font-family: "PoppinsRegular";
+        left: 0.2rem;
+        top: -0rem;
+        letter-spacing: -0.05rem;
+        font-size: clamp(1rem, 1.3rem, 10rem);
+    }
+
+    .commentBox .likeReplyDiv {
+        top: 6rem;
+    }
+
+    .cancelReply {
+
+        right: 8.5%;
+
+    }
+
+
+
+    .replyReply {
+        font-size: clamp(0rem, 1.1rem, 10rem);
+        left: 40%;
+        top: -9.2%;
+
+    }
+
+
+
+
+    .replySend {
+
+        width: 83.5%;
+
+        left: 46.5%;
+
+    }
+
+    .replyCommentSend {
+        width: 80.5%;
+
+        padding: 1.3rem 2rem;
+        padding-bottom: 2rem;
+        left: 49%;
+
+
+
+    }
+
+
+    .similar {
+        top: 77rem;
+        left: 50%;
+        width: 45.5rem;
+        transform: translateX(-52%) scale(0.8);
+
+    }
+
+
+
+
+    .similarTitle {
+        position: absolute;
+        z-index: 5;
+        font-size: clamp(1rem, 2.5rem, 10rem);
+        font-family: "PoppinsSemiBold";
+        top: 0rem;
+        color: #313131;
+        left: 0.1rem;
+    }
+
+
+    .itemContainer {
+        background-color: rgb(223, 223, 223);
+        border-radius: 3rem;
+        padding: 5rem 0rem;
+        padding-left: rem;
+        padding-top: 9rem;
+        width: 83.3rem;
+        min-height: 40rem;
+        display: block;
+        position: relative;
+        margin: 0 auto;
+        margin-top: 10rem;
+        z-index: 0;
+        opacity: 1;
+        overflow: hidden;
+
+    }
+
+
+
+    .similarItems {
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        padding: 0rem 2rem;
+        top: -2.5rem;
+        padding-bottom: 3rem;
+        position: relative;
+
+
+
+    }
+}
