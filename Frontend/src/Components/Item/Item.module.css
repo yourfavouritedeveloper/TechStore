@@ -2361,7 +2361,7 @@ body {
         top: 77rem;
         left: 50%;
         width: 45.5rem;
-        transform: translateX(-52%) scale(0.8);
+        transform: translateX(-50%) scale(0.8);
 
     }
 
@@ -2601,7 +2601,7 @@ body {
         top: 86rem;
         width: 45.5rem;
         left: 50%;
-        transform: translateX(-52%) scale(0.8);
+        transform: translateX(-50%) scale(0.8);
 
     }
 
@@ -2808,7 +2808,7 @@ body {
         top: 77rem;
         left: 50%;
         width: 45.5rem;
-        transform: translateX(-52%) scale(0.8);
+        transform: translateX(-50%) scale(0.8);
 
     }
 
@@ -3046,7 +3046,7 @@ body {
         top: 86rem;
         width: 45.5rem;
         left: 50%;
-        transform: translateX(-52%) scale(0.8);
+        transform: translateX(-50%) scale(0.8);
 
     }
 
@@ -3253,7 +3253,7 @@ body {
         top: 77rem;
         left: 50%;
         width: 45.5rem;
-        transform: translateX(-52%) scale(0.8);
+        transform: translateX(-50%) scale(0.8);
 
     }
 
@@ -3275,7 +3275,6 @@ body {
         background-color: rgb(223, 223, 223);
         border-radius: 3rem;
         padding: 5rem 0rem;
-        padding-left: rem;
         padding-top: 9rem;
         width: 83.3rem;
         min-height: 40rem;

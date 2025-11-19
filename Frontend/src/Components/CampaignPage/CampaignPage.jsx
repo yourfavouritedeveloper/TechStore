@@ -63,7 +63,7 @@ function CampaignPage ({setHighlight}) {
     useEffect(() => {
     axios.get("https://techstore-3fvk.onrender.com/api/v1/products/all")
         .then(response => {
-        const filtered = response.data.filter(i => i.company === "Apple").slice(0, 5);
+        const filtered = response.data.filter(i => i.company === "Apple");
         setAppleItems(filtered);
         })
         .catch(error => {
@@ -200,9 +200,11 @@ function CampaignPage ({setHighlight}) {
     return appleItems.length > 0 ? (<>
     <div className={styles.container}>
         <div className={styles.campaignDiv}>
-            <p className={styles.title}>Exclusive Campaigns</p>
-            <p className={styles.subtitle}>Discover limited-time promotions and special member-only deals tailored to your interests. Enjoy early access to new releases, premium discounts.</p>
-            <button className={styles.explore}  onClick={handleScroll}>Explore Deals</button>
+            <div className={styles.campaignCover}>
+                <p className={styles.title}>Exclusive Campaigns</p>
+                <p className={styles.subtitle}>Discover limited-time promotions and special member-only deals tailored to your interests. Enjoy early access to new releases, premium discounts.</p>
+                <button className={styles.explore}  onClick={handleScroll}>Explore Deals</button>
+            </div>
         </div>
 
         <div className={styles.mainDiv} ref={ref}>
@@ -213,7 +215,7 @@ function CampaignPage ({setHighlight}) {
             </div>
             <div className={styles.appleDiv}>
                 <ul className={styles.appleItems}>
-                    {appleItems.map((i) => {
+                    {appleItems.slice(0,(window.innerWidth <= 750 ? 4 : 5)).map((i) => {
                         const isInCart = cartItems.includes(i.id);
 
                         return(

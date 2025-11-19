@@ -974,7 +974,9 @@ a {
   }
 
 
-
+  .normal {
+    height: 13rem;
+  }
 
 
 
@@ -1028,7 +1030,7 @@ a {
   }
 
   .normal {
-    height: 13.8rem;
+    height: 12.8rem;
   }
 
   .panel {
@@ -1147,7 +1149,7 @@ a {
 
 
 
-@media (max-width: 751px) {
+@media (max-width: 750px) {
 
   .container {
     background-color: rgba(0, 0, 0, 0.562);

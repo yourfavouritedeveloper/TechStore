@@ -477,4 +477,477 @@
 }
 
 
-@media (max-width: 1540px) {}
+@media (max-width: 1540px) {
+
+    .campaignDiv {
+        height: 32rem;
+
+    }
+
+
+
+
+    .container {
+        height: 132rem;
+    }
+
+    .campaignCover {
+        top:16.1rem;
+        position: relative;
+        transform: scale(0.8);
+    }
+
+    .campaignDiv .explore {
+        bottom: -12rem;
+    }
+
+    .mainDiv {
+        top:-14.8rem;
+        transform: scale(0.8);
+    }
+
+    
+}
+
+@media (max-width: 1425px) {
+    .appleDiv {
+    left:50%;
+    transform: translateX(-50%);
+
+}
+}
+
+
+@media (max-width: 1240px) {
+    .campaignDiv {
+        height: 30rem;
+
+    }
+
+    .container {
+        height: 110rem;
+    }
+
+    .campaignCover {
+        top:15.1rem;
+        position: relative;
+        transform: scale(0.6);
+    }
+
+    .campaignDiv .explore {
+        bottom: -12rem;
+    }
+
+    .mainDiv {
+        top:-22.8rem;
+        transform: scale(0.6);
+    }
+   
+}
+
+@media (max-width: 950px) {
+    .campaignDiv {
+        height: 20rem;
+
+    }
+
+    .container {
+        height: 75rem;
+    }
+
+    .campaignCover {
+        top:10.1rem;
+        position: relative;
+        transform: scale(0.4);
+    }
+
+    .campaignDiv .explore {
+        bottom: -12rem;
+    }
+
+    .mainDiv {
+        top:-32.8rem;
+        transform: scale(0.4);
+    }
+       
+}
+
+@media (max-width: 750px) {
+    .campaignDiv {
+        height: 45rem;
+
+    }
+
+    .container {
+        height: 165rem;
+    }
+
+    .campaignCover {
+        top:10.1rem;
+        position: relative;
+        transform: scale(0.8);
+    }
+
+    .campaignDiv .title {
+        line-height: 0.8;
+        transform: translate(-50%, -40%);
+        white-space:initial;
+    }
+
+    .campaignDiv .subtitle {
+        width: 40rem;
+        line-height: 0.9;
+        transform: translate(-50%, 260%);
+    }
+
+    .campaignDiv .explore {
+        bottom: -29rem;
+        border-radius: 1.2rem;
+    }
+
+    .mainDiv {
+        top:-15.8rem;
+        transform: scale(0.8);
+    }
+
+    .campaign1 {
+    width: 45rem;
+
+
+
+}
+
+.campaign1 .title1 {
+    font-size: clamp(1rem, 4.3rem, 10rem);
+    top: 35%;
+
+}
+
+
+.campaign1 .apple {
+    width: 25rem;
+    top: 0rem;
+    right: 0rem;
+}
+
+.appleItems {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 0rem 24.2rem;
+    top: -2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-bottom: 3rem;
+
+
+
+}  
+
+.campaign2 {
+    width: 45rem;
+    height: 50rem;
+    top: 93rem;
+
+
+}
+
+.campaign2 .title2 {
+
+    font-size: clamp(1rem, 4.5rem, 10rem);
+    width: 50rem;
+
+    top: 3rem;
+
+    left: 2rem;
+
+}
+
+.campaign2 .subtitle2 {
+
+    left: 2rem;
+
+}
+
+
+.campaign2 .explore {
+    position: absolute;
+    top: 22.5rem;
+    left: 2rem;
+    font-family: "PoppinsLight";
+    font-size: clamp(1rem, 1.5rem, 3rem);
+    padding: 0.9rem 4rem;
+    border: none;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    color: #313131;
+    transition: all 0.3s ease;
+}
+
+
+
+.campaign2 .headphone {
+    width: 28rem;
+    position: absolute;
+    right: 1rem;
+    top: 22rem;
+    transform: rotateZ(15deg);
+}
+
+}
+
+
+@media (max-width: 580px) {
+    .campaignDiv {
+        height: 45rem;
+
+    }
+
+    .container {
+        height: 138rem;
+    }
+
+    .campaignCover {
+        top:12rem;
+        position: relative;
+        transform: scale(0.6);
+    }
+
+
+    .campaignDiv .title {
+        line-height: 0.8;
+        transform: translate(-50%, -40%);
+        white-space:initial;
+    }
+
+    .campaignDiv .subtitle {
+        width: 40rem;
+        line-height: 0.9;
+        transform: translate(-50%, 260%);
+    }
+
+    .campaignDiv .explore {
+        bottom: -29rem;
+        border-radius: 1.2rem;
+        white-space: nowrap;
+    }
+
+    .mainDiv {
+        top:-22.8rem;
+        transform: scale(0.6);
+    }
+
+    .mainDiv .title {
+        width: 50rem;
+        left:50%;
+        transform: translateX(-50%);
+
+    }
+
+    .campaign1 {
+    width: 45rem;
+
+
+
+}
+
+.campaign1 .title1 {
+    font-size: clamp(1rem, 4.3rem, 10rem);
+    top: 35%;
+
+}
+
+
+.campaign1 .apple {
+    width: 25rem;
+    top: 0rem;
+    right: 0rem;
+}
+
+.appleItems {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 0rem 24.2rem;
+    top: -2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-bottom: 3rem;
+
+
+
+}  
+
+.campaign2 {
+    width: 45rem;
+    height: 50rem;
+    top: 93rem;
+
+
+}
+
+.campaign2 .title2 {
+
+    font-size: clamp(1rem, 4.5rem, 10rem);
+    width: 50rem;
+
+    top: 3rem;
+
+    left: 2rem;
+
+}
+
+.campaign2 .subtitle2 {
+
+    left: 2rem;
+
+}
+
+
+.campaign2 .explore {
+    position: absolute;
+    top: 22.5rem;
+    left: 2rem;
+    font-family: "PoppinsLight";
+    font-size: clamp(1rem, 1.5rem, 3rem);
+    padding: 0.9rem 4rem;
+    border: none;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    color: #313131;
+    transition: all 0.3s ease;
+}
+
+
+
+.campaign2 .headphone {
+    width: 28rem;
+    position: absolute;
+    right: 1rem;
+    top: 22rem;
+    transform: rotateZ(15deg);
+}
+
+}
+
+
+@media (max-width: 450px) {
+    .campaignDiv {
+        height: 45rem;
+
+    }
+
+    .container {
+        height: 122rem;
+    }
+
+    .campaignCover {
+        top:12.35rem;
+        position: relative;
+        transform: scale(0.5);
+    }
+
+    .campaignDiv .title {
+        line-height: 0.8;
+        transform: translate(-50%, -40%);
+        white-space:initial;
+    }
+
+    .campaignDiv .subtitle {
+        width: 40rem;
+        line-height: 0.9;
+        transform: translate(-50%, 260%);
+    }
+
+    .campaignDiv .explore {
+        bottom: -29rem;
+        border-radius: 1.2rem;
+    }
+
+    .mainDiv {
+        top:-28.8rem;
+        transform: scale(0.5);
+    }
+
+    .campaign1 {
+    width: 45rem;
+
+
+
+}
+
+.campaign1 .title1 {
+    font-size: clamp(1rem, 4.3rem, 10rem);
+    top: 35%;
+
+}
+
+
+.campaign1 .apple {
+    width: 25rem;
+    top: 0rem;
+    right: 0rem;
+}
+
+.appleItems {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 0rem 24.2rem;
+    top: -2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-bottom: 3rem;
+
+
+
+}  
+
+.campaign2 {
+    width: 45rem;
+    height: 50rem;
+    top: 93rem;
+
+
+}
+
+.campaign2 .title2 {
+
+    font-size: clamp(1rem, 4.5rem, 10rem);
+    width: 50rem;
+
+    top: 3rem;
+
+    left: 2rem;
+
+}
+
+.campaign2 .subtitle2 {
+
+    left: 2rem;
+
+}
+
+
+.campaign2 .explore {
+    position: absolute;
+    top: 22.5rem;
+    left: 2rem;
+    font-family: "PoppinsLight";
+    font-size: clamp(1rem, 1.5rem, 3rem);
+    padding: 0.9rem 4rem;
+    border: none;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    color: #313131;
+    transition: all 0.3s ease;
+}
+
+
+
+.campaign2 .headphone {
+    width: 28rem;
+    position: absolute;
+    right: 1rem;
+    top: 22rem;
+    transform: rotateZ(15deg);
+}
+
+}
