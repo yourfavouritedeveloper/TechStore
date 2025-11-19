@@ -348,7 +348,7 @@
 
 
 
-@media (max-width: 750px) {
+@media (max-width: 751px) {
 
     .container {
         top: 10%;
@@ -511,12 +511,12 @@
 
 
 @media (max-width: 450px) {
-      .container {
+    .container {
         top: 10.5%;
         transform: translate(-50%, -50%) scale(0.393);
         height: 45.7%;
         width: 54.9rem;
         border-radius: 0.7rem;
 
-    }  
+    }
 }

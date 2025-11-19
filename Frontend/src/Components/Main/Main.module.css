@@ -359,27 +359,27 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: 0 0 60px rgba(255, 255, 255, 0.1) inset;
   z-index: 7;
-  top:35rem;
+  top: 35rem;
 }
 
 .glassBand p {
   font-family: "PoppinsRegular";
   color: white;
   position: absolute;
-  top:50%;
-  left:50%;
+  top: 50%;
+  left: 50%;
   white-space: nowrap;
-  transform: translate(-50%,-117%);
-  font-size: clamp(1rem,5.5rem,6rem);
+  transform: translate(-50%, -117%);
+  font-size: clamp(1rem, 5.5rem, 6rem);
 }
 
 .brandnewdiv {
   position: relative;
   padding: 16rem 2rem;
-  background: radial-gradient(circle at center, 
-  #1a1a1a, #000);
+  background: radial-gradient(circle at center,
+      #1a1a1a, #000);
   text-align: center;
-  margin-top:29.9rem;
+  margin-top: 29.9rem;
   z-index: 2;
 }
 
@@ -408,7 +408,7 @@
 .subtitle {
   color: #bda5f7;
   font-size: 1.2rem;
-  margin-top:-0.4rem;
+  margin-top: -0.4rem;
 }
 
 .searchCard {
@@ -418,7 +418,7 @@
   border-radius: 2rem;
   padding: 2.5rem;
   width: 70rem;
-  left:50%;
+  left: 50%;
   transform: translateX(-50%);
   position: relative;
   z-index: 2;
@@ -432,10 +432,10 @@
 }
 
 
-  .searchRow {
-    flex-direction: row;
-    align-items: center;
-  }
+.searchRow {
+  flex-direction: row;
+  align-items: center;
+}
 
 
 .searchInputWrapper {
@@ -459,8 +459,8 @@
   padding: 1rem 1rem 1rem 3.5rem;
   border-radius: 1rem;
   position: relative;
-  left:-0.8%;
-  top:-0.7rem;
+  left: -0.8%;
+  top: -0.7rem;
   border: 2px solid transparent;
   background: rgba(255, 255, 255, 0.8);
   font-size: 1rem;
@@ -485,7 +485,7 @@
   padding: 0.89rem 3rem;
   white-space: nowrap;
   font-family: "PoppinsRegular";
-  font-size: clamp(1rem,1.3rem,5rem);
+  font-size: clamp(1rem, 1.3rem, 5rem);
   border-radius: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -501,7 +501,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin-left:0.8rem;
+  margin-left: 0.8rem;
   justify-content: left;
 }
 
@@ -567,102 +567,102 @@
 
 
   .background {
-  height: 115rem;
+    height: 115rem;
 
-}
-
-
-  
-.particleWrapper {
-
-  transform: translate(-20%, 20%) scale(0.88);
-  width: 46rem;
-
-}
+  }
 
 
-.type {
-  z-index: 7;
-  width: 120%;
-  left:-10%;
-  top:-5rem;
-  transform: scale(0.8);
-}
+
+  .particleWrapper {
+
+    transform: translate(-20%, 20%) scale(0.88);
+    width: 46rem;
+
+  }
 
 
-.explanationDiv {
-  top: -21rem;
-  transform: translateX(-50%) scale(0.8);
-  border-radius: 40px;
+  .type {
+    z-index: 7;
+    width: 120%;
+    left: -10%;
+    top: -5rem;
+    transform: scale(0.8);
+  }
 
 
-}
+  .explanationDiv {
+    top: -21rem;
+    transform: translateX(-50%) scale(0.8);
+    border-radius: 40px;
 
 
-.explanationTitle {
-  transform: translate(-50%, -267%) scale(0.8);
-
-}
+  }
 
 
-.explanationSubtitle {
-  transform: translate(-50%, -267%) scale(0.8);
+  .explanationTitle {
+    transform: translate(-50%, -267%) scale(0.8);
 
-}
-
-
-.launch {
-
-  top: -7.8rem;
-  transform: scale(0.8);
-}
+  }
 
 
-.glassBand {
-  width: 125%;
-  left:-12.5%;
+  .explanationSubtitle {
+    transform: translate(-50%, -267%) scale(0.8);
 
-  top:33rem;
+  }
 
-  transform: scale(0.8);
-}
 
-.searchHeader {
-  transform: scale(0.8);
-    margin-top:-6rem;
+  .launch {
+
+    top: -7.8rem;
+    transform: scale(0.8);
+  }
+
+
+  .glassBand {
+    width: 125%;
+    left: -12.5%;
+
+    top: 33rem;
+
+    transform: scale(0.8);
+  }
+
+  .searchHeader {
+    transform: scale(0.8);
+    margin-top: -6rem;
     margin-bottom: -1rem;
-}
+  }
 
 
-.searchCard {
+  .searchCard {
 
-  transform: translateX(-50%) scale(0.8);
-  
-}
+    transform: translateX(-50%) scale(0.8);
 
-.brandnewdiv {
+  }
 
-  padding-bottom: 11.5rem;
+  .brandnewdiv {
 
-}
+    padding-bottom: 11.5rem;
+
+  }
 
 
 
-.circleGlow1 {
-  width: 50rem;
-  height: 50rem;
-  top: -4rem;
-  right: 50%;
-  transform: translateX(150%) scale(0.9);
-}
+  .circleGlow1 {
+    width: 50rem;
+    height: 50rem;
+    top: -4rem;
+    right: 50%;
+    transform: translateX(150%) scale(0.9);
+  }
 
-.circleGlow2 {
-  width: 55rem;
-  height: 55rem;
-  bottom: -9rem;
-  left: 50%;
-  transform: translateX(-150%) scale(0.9);
-}
+  .circleGlow2 {
+    width: 55rem;
+    height: 55rem;
+    bottom: -9rem;
+    left: 50%;
+    transform: translateX(-150%) scale(0.9);
+  }
 
 
 
@@ -675,466 +675,466 @@
 @media (max-width: 1240px) {
   .aiDiv {
     height: 44rem;
-    
+
   }
 
 
   .background {
-  height: 80rem;
+    height: 80rem;
 
-}
-
-
-  
-.particleWrapper {
-  margin-left: -13rem;
-  margin-top:0rem;
-
-  left: 50%;
-  transform: translate(0%, 20%) scale(0.75);
-  width: 42rem;
-}
-
-
-.type {
-  z-index: 8;
-  width: 140%;
-  left:-20%;
-  top:-12rem;
-  transform: scale(0.6);
-}
-
-
-.explanationDiv {
-  top: -36rem;
-  transform: translateX(-50%) scale(0.6);
-  border-radius: 40px;
-
-
-}
-
-
-.explanationTitle {
-  transform: translate(-50%, -495%) scale(0.6);
-
-}
-
-
-.explanationSubtitle {
-  transform: translate(-50%, -625%) scale(0.6);
-
-}
-
-
-.launch {
-
-  top: -28.8rem;
-  transform: scale(0.6);
-}
-
-
-.glassBand {
-  width: 170%;
-  left:-35%;
-
-  top:33rem;
-
-  transform: scale(0.6);
-}
-
-.searchHeader {
-  transform: scale(0.6);
-    margin-top:-7rem;
-    margin-bottom: -4rem;
-}
-
-
-.searchCard {
-
-  transform: translateX(-50%) scale(0.6);
-  
-}
-
-.brandnewdiv {
-  margin-top:24.9rem;
-
-  padding-bottom: 6.5rem;
-
-}
-
-.circleGlow1 {
-  width: 60rem;
-  height: 60rem;
-  top: -8rem;
-  right: 50%;
-  transform: translateX(125%) scale(0.8);
-}
-
-.circleGlow2 {
-  width: 65rem;
-  height: 65rem;
-  bottom: -15rem;
-  left: 50%;
-  transform: translateX(-125%) scale(0.8);
-}
-
-
-}
-
-
-@media (max-width: 950px)  {
-   .aiDiv {
-    height: 17rem;
-    
   }
 
 
-  .background {
-  height: 54rem;
-
-}
-
-
-  
-.particleWrapper {
-  margin-left: -11.5rem;
-  margin-top:-5rem;
-
-  left: 50%;
-  transform: translate(0%, 20%) scale(0.65);
-  width: 34rem;
-}
-
-
-.type {
-  z-index: 8;
-  width: 180%;
-  left:-40%;
-  top:-20rem;
-  transform: scale(0.4);
-}
-
-
-.explanationDiv {
-  top: -51rem;
-  transform: translateX(-50%) scale(0.4);
-  border-radius: 40px;
-
-
-}
-
-
-.explanationTitle {
-  transform: translate(-50%, -62rem) scale(0.4);
-
-}
-
-
-.explanationSubtitle {
-  transform: translate(-50%, -57rem) scale(0.4);
-
-}
-
-
-.launch {
-
-  top: -52.3rem;
-  transform: scale(0.4);
-}
-
-
-
-.glassBand {
-  width: 270%;
-  left:-85%;
-
-  top:31rem;
-
-  transform: scale(0.4);
-}
-
-.searchHeader {
-  transform: scale(0.6);
-    margin-top:-9rem;
-    margin-bottom: -4rem;
-}
-
-
-.searchCard {
-
-  transform: translateX(-50%) scale(0.5);
-  
-}
-
-.brandnewdiv {
-  margin-top:24.9rem;
-
-  padding-bottom: 6.5rem;
-
-}
-
-.circleGlow1 {
-  width: 60rem;
-  height: 60rem;
-  top: -12rem;
-  right: 50%;
-  transform: translateX(125%) scale(0.8);
-}
-
-.circleGlow2 {
-  width: 65rem;
-  height: 65rem;
-  bottom: -3rem;
-  left: 50%;
-  transform: translateX(-125%) scale(0.8);
-}
-
-
-}
-
-
-@media (max-width: 750px) {
-
-   .aiDiv {
-    height: 50rem;
-    
-  }
-
-  .background {
-  height: 85rem;
-
-}
 
   .particleWrapper {
-  margin-left: -2.5rem;
-  margin-top:8.8rem;
+    margin-left: -13rem;
+    margin-top: 0rem;
 
-  left: 50%;
-  transform: translate(-50%, 20%) scale(0.75);
-  width: 44rem;
-}
-
-.type {
-  z-index: 8;
-  width: 260%;
-  left:-80%;
-  top:-20rem;
-  transform: scale(0.4);
-}
+    left: 50%;
+    transform: translate(0%, 20%) scale(0.75);
+    width: 42rem;
+  }
 
 
+  .type {
+    z-index: 8;
+    width: 140%;
+    left: -20%;
+    top: -12rem;
+    transform: scale(0.6);
+  }
 
 
-.titleStoreSUB {
-  font-size: clamp(0rem, 2.5rem, 10rem);
-  top: 16rem;
-  left: 2rem;
-  width: 73.5rem;
-  padding: 2rem 3rem;
-
-}
+  .explanationDiv {
+    top: -36rem;
+    transform: translateX(-50%) scale(0.6);
+    border-radius: 40px;
 
 
+  }
 
 
-.storeShop {
-  font-size: clamp(1rem, 3rem, 10rem);
-  padding: 2rem 32.4rem;
-  top: 16rem;
-  border-radius: 1rem;
-  left: 2rem;
+  .explanationTitle {
+    transform: translate(-50%, -495%) scale(0.6);
+
+  }
 
 
-}
+  .explanationSubtitle {
+    transform: translate(-50%, -625%) scale(0.6);
+
+  }
 
 
-.explanationDiv {
-  top: -29rem;
-  width: 50rem;
-  transform: translateX(-50%) scale(0.6);
-  border-radius: 40px;
+  .launch {
+
+    top: -28.8rem;
+    transform: scale(0.6);
+  }
 
 
-}
+  .glassBand {
+    width: 170%;
+    left: -35%;
 
+    top: 33rem;
 
+    transform: scale(0.6);
+  }
 
-.leftText {
-  font-size: clamp(1rem, 2rem, 5rem);
-  width: 18rem;
-
-  left: 0%;
-
-  padding: 1rem;
-  padding-right: 0.5rem;
-
-}
-
-.middleText {
-  font-size: clamp(1rem, 2rem, 5rem);
-  width: 18rem;
-
-  transform: translate(-53%, -50%);
-
-  padding: 1rem;
-
-}
-
-
-.rightText {
-  font-size: clamp(1rem, 2rem, 5rem);
-  width: 19rem;
-
-  right: 0%;
-
-  padding: 1rem;
-  padding-left: 0.5rem;
-}
-
-
-.explanationTitle {
-  font-size: clamp(1rem, 4.2rem, 5rem);
-  width: 80rem;
-  transform: translate(-50%, -40rem) scale(0.4);
-
-}
-
-
-.explanationSubtitle {
-  font-size: clamp(1rem, 2.5rem, 5rem);
-  width: 80rem;
-  transform: translate(-50%, -30.5rem) scale(0.4);
-
-}
-
-
-.launch {
-
-  top: -21rem;
-  transform: scale(0.7);
-}
-
-.glassBand {
-  width: 270%;
-  left:-85%;
-
-  top:31rem;
-
-  transform: scale(0.5);
-}
-
-.searchHeader {
-  transform: scale(0.6);
-    margin-top:-9rem;
+  .searchHeader {
+    transform: scale(0.6);
+    margin-top: -7rem;
     margin-bottom: -4rem;
-}
+  }
 
 
-.searchCard {
-  padding: 6rem 2.5rem;
-  width: 55rem;
-  transform: translateX(-50%) scale(0.6);
-  position: relative;
-  top:9rem;
-  
-}
+  .searchCard {
 
+    transform: translateX(-50%) scale(0.6);
 
+  }
 
+  .brandnewdiv {
+    margin-top: 24.9rem;
 
-.searchIcon {
-  position: absolute;
-  left: 1.5rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 1.5rem;
-  height: 1.5rem;
-  z-index: 5;
-  color: #313131;
-}
+    padding-bottom: 6.5rem;
 
-.searchInput {
-  width: 88%;
-  padding: 1.5rem 1rem 1.5rem 3.5rem;
-  left:-0.8%;
-  top:-0.7rem;
+  }
 
-  font-size: 1.5rem;
+  .circleGlow1 {
+    width: 60rem;
+    height: 60rem;
+    top: -8rem;
+    right: 50%;
+    transform: translateX(125%) scale(0.8);
+  }
 
-}
+  .circleGlow2 {
+    width: 65rem;
+    height: 65rem;
+    bottom: -15rem;
+    left: 50%;
+    transform: translateX(-125%) scale(0.8);
+  }
 
-
-
-
-.searchButton {
-
-  padding: 1.48rem 3rem;
-
-  font-size: clamp(1rem,1.6rem,5rem);
 
 }
 
 
+@media (max-width: 950px) {
+  .aiDiv {
+    height: 17rem;
 
-.popularSearches {
-  margin-top: 1.5rem;
+  }
 
-  gap: 0.75rem;
-  margin-left:7.8rem;
+
+  .background {
+    height: 54rem;
+
+  }
+
+
+
+  .particleWrapper {
+    margin-left: -11.5rem;
+    margin-top: -5rem;
+
+    left: 50%;
+    transform: translate(0%, 20%) scale(0.65);
+    width: 34rem;
+  }
+
+
+  .type {
+    z-index: 8;
+    width: 180%;
+    left: -40%;
+    top: -20rem;
+    transform: scale(0.4);
+  }
+
+
+  .explanationDiv {
+    top: -51rem;
+    transform: translateX(-50%) scale(0.4);
+    border-radius: 40px;
+
+
+  }
+
+
+  .explanationTitle {
+    transform: translate(-50%, -62rem) scale(0.4);
+
+  }
+
+
+  .explanationSubtitle {
+    transform: translate(-50%, -57rem) scale(0.4);
+
+  }
+
+
+  .launch {
+
+    top: -52.3rem;
+    transform: scale(0.4);
+  }
+
+
+
+  .glassBand {
+    width: 270%;
+    left: -85%;
+
+    top: 31rem;
+
+    transform: scale(0.4);
+  }
+
+  .searchHeader {
+    transform: scale(0.6);
+    margin-top: -9rem;
+    margin-bottom: -4rem;
+  }
+
+
+  .searchCard {
+
+    transform: translateX(-50%) scale(0.5);
+
+  }
+
+  .brandnewdiv {
+    margin-top: 24.9rem;
+
+    padding-bottom: 6.5rem;
+
+  }
+
+  .circleGlow1 {
+    width: 60rem;
+    height: 60rem;
+    top: -12rem;
+    right: 50%;
+    transform: translateX(125%) scale(0.8);
+  }
+
+  .circleGlow2 {
+    width: 65rem;
+    height: 65rem;
+    bottom: -3rem;
+    left: 50%;
+    transform: translateX(-125%) scale(0.8);
+  }
+
+
 }
 
-.popularTitle {
-  font-size: 1.7rem;
-}
 
-.popularButton {
+@media (max-width: 751px) {
 
-  height: 4rem;
-  padding: 0rem 2rem;
-  font-size: 1.5rem;
+  .aiDiv {
+    height: 50rem;
 
-}
+  }
 
-.brandnewdiv {
-  margin-top:24.9rem;
+  .background {
+    height: 85rem;
 
-  padding-bottom: 16.5rem;
+  }
 
-}
+  .particleWrapper {
+    margin-left: -2.5rem;
+    margin-top: 8.8rem;
+
+    left: 50%;
+    transform: translate(-50%, 20%) scale(0.75);
+    width: 44rem;
+  }
+
+  .type {
+    z-index: 8;
+    width: 260%;
+    left: -80%;
+    top: -20rem;
+    transform: scale(0.4);
+  }
 
 
-.title {
-  font-size: 5.5rem;
-  width:60rem;
-  left:50%;
-  transform: translateX(-50%);
-  position: absolute;
-  line-height: 1;
-  margin-bottom: 0.5rem;
-}
 
-.subtitle {
-  color: #bda5f7;
-  font-size: 2.2rem;
-  position: relative;
-  top:18.4rem;
-}
 
-.circleGlow1 {
-  width: 60rem;
-  height: 60rem;
-  top: -12rem;
-  right: 50%;
-  transform: translateX(125%) scale(0.8);
-}
+  .titleStoreSUB {
+    font-size: clamp(0rem, 2.5rem, 10rem);
+    top: 16rem;
+    left: 2rem;
+    width: 73.5rem;
+    padding: 2rem 3rem;
 
-.circleGlow2 {
-  width: 65rem;
-  height: 65rem;
-  bottom: -3rem;
-  left: 50%;
-  transform: translateX(-125%) scale(0.8);
-}
+  }
+
+
+
+
+  .storeShop {
+    font-size: clamp(1rem, 3rem, 10rem);
+    padding: 2rem 32.4rem;
+    top: 16rem;
+    border-radius: 1rem;
+    left: 2rem;
+
+
+  }
+
+
+  .explanationDiv {
+    top: -29rem;
+    width: 50rem;
+    transform: translateX(-50%) scale(0.6);
+    border-radius: 40px;
+
+
+  }
+
+
+
+  .leftText {
+    font-size: clamp(1rem, 2rem, 5rem);
+    width: 18rem;
+
+    left: 0%;
+
+    padding: 1rem;
+    padding-right: 0.5rem;
+
+  }
+
+  .middleText {
+    font-size: clamp(1rem, 2rem, 5rem);
+    width: 18rem;
+
+    transform: translate(-53%, -50%);
+
+    padding: 1rem;
+
+  }
+
+
+  .rightText {
+    font-size: clamp(1rem, 2rem, 5rem);
+    width: 19rem;
+
+    right: 0%;
+
+    padding: 1rem;
+    padding-left: 0.5rem;
+  }
+
+
+  .explanationTitle {
+    font-size: clamp(1rem, 4.2rem, 5rem);
+    width: 80rem;
+    transform: translate(-50%, -40rem) scale(0.4);
+
+  }
+
+
+  .explanationSubtitle {
+    font-size: clamp(1rem, 2.5rem, 5rem);
+    width: 80rem;
+    transform: translate(-50%, -30.5rem) scale(0.4);
+
+  }
+
+
+  .launch {
+
+    top: -21rem;
+    transform: scale(0.7);
+  }
+
+  .glassBand {
+    width: 270%;
+    left: -85%;
+
+    top: 31rem;
+
+    transform: scale(0.5);
+  }
+
+  .searchHeader {
+    transform: scale(0.6);
+    margin-top: -9rem;
+    margin-bottom: -4rem;
+  }
+
+
+  .searchCard {
+    padding: 6rem 2.5rem;
+    width: 55rem;
+    transform: translateX(-50%) scale(0.6);
+    position: relative;
+    top: 9rem;
+
+  }
+
+
+
+
+  .searchIcon {
+    position: absolute;
+    left: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.5rem;
+    height: 1.5rem;
+    z-index: 5;
+    color: #313131;
+  }
+
+  .searchInput {
+    width: 88%;
+    padding: 1.5rem 1rem 1.5rem 3.5rem;
+    left: -0.8%;
+    top: -0.7rem;
+
+    font-size: 1.5rem;
+
+  }
+
+
+
+
+  .searchButton {
+
+    padding: 1.48rem 3rem;
+
+    font-size: clamp(1rem, 1.6rem, 5rem);
+
+  }
+
+
+
+  .popularSearches {
+    margin-top: 1.5rem;
+
+    gap: 0.75rem;
+    margin-left: 7.8rem;
+  }
+
+  .popularTitle {
+    font-size: 1.7rem;
+  }
+
+  .popularButton {
+
+    height: 4rem;
+    padding: 0rem 2rem;
+    font-size: 1.5rem;
+
+  }
+
+  .brandnewdiv {
+    margin-top: 24.9rem;
+
+    padding-bottom: 16.5rem;
+
+  }
+
+
+  .title {
+    font-size: 5.5rem;
+    width: 60rem;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    color: #bda5f7;
+    font-size: 2.2rem;
+    position: relative;
+    top: 18.4rem;
+  }
+
+  .circleGlow1 {
+    width: 60rem;
+    height: 60rem;
+    top: -12rem;
+    right: 50%;
+    transform: translateX(125%) scale(0.8);
+  }
+
+  .circleGlow2 {
+    width: 65rem;
+    height: 65rem;
+    bottom: -3rem;
+    left: 50%;
+    transform: translateX(-125%) scale(0.8);
+  }
 
 
 }
@@ -1146,503 +1146,503 @@
 
   .aiDiv {
     height: 50rem;
-    
+
   }
 
   .background {
-  height: 85rem;
+    height: 85rem;
 
-}
+  }
 
   .particleWrapper {
-  margin-left: -0.5rem;
-  margin-top:8.8rem;
+    margin-left: -0.5rem;
+    margin-top: 8.8rem;
 
-  left: 50%;
-  transform: translate(-50%, 20%) scale(0.65);
-  width: 44rem;
-}
+    left: 50%;
+    transform: translate(-50%, 20%) scale(0.65);
+    width: 44rem;
+  }
 
-.type {
-  z-index: 8;
-  width: 300%;
-  left:-100%;
-  top:-20rem;
-  transform: scale(0.33);
-}
-
-
-
-
-.titleStoreSUB {
-  font-size: clamp(0rem, 2.5rem, 10rem);
-  top: 16rem;
-  left: 2rem;
-  width: 73.5rem;
-  padding: 2rem 3rem;
-
-}
+  .type {
+    z-index: 8;
+    width: 300%;
+    left: -100%;
+    top: -20rem;
+    transform: scale(0.33);
+  }
 
 
 
 
-.storeShop {
-  font-size: clamp(1rem, 3rem, 10rem);
-  padding: 2rem 32.4rem;
-  top: 16rem;
-  border-radius: 1rem;
-  left: 2rem;
+  .titleStoreSUB {
+    font-size: clamp(0rem, 2.5rem, 10rem);
+    top: 16rem;
+    left: 2rem;
+    width: 73.5rem;
+    padding: 2rem 3rem;
 
-
-}
-
-
-.explanationDiv {
-  top: -36.5rem;
-  width: 50rem;
-  transform: translateX(-50%) scale(0.5);
-  border-radius: 40px;
-
-
-}
+  }
 
 
 
-.leftText {
-  font-size: clamp(1rem, 2rem, 5rem);
-  width: 18rem;
 
-  left: 0%;
-
-  padding: 1rem;
-  padding-right: 0.5rem;
-
-}
-
-.middleText {
-  font-size: clamp(1rem, 2rem, 5rem);
-  width: 18rem;
-
-  transform: translate(-53%, -50%);
-
-  padding: 1rem;
-
-}
+  .storeShop {
+    font-size: clamp(1rem, 3rem, 10rem);
+    padding: 2rem 32.4rem;
+    top: 16rem;
+    border-radius: 1rem;
+    left: 2rem;
 
 
-.rightText {
-  font-size: clamp(1rem, 2rem, 5rem);
-  width: 19rem;
-
-  right: 0%;
-
-  padding: 1rem;
-  padding-left: 0.5rem;
-}
+  }
 
 
-.explanationTitle {
-  font-size: clamp(1rem, 4.2rem, 5rem);
-  width: 80rem;
-  transform: translate(-50%, -50rem) scale(0.35);
-
-}
-
-
-.explanationSubtitle {
-  font-size: clamp(1rem, 2.5rem, 5rem);
-  width: 80rem;
-  transform: translate(-50%, -41rem) scale(0.35);
-
-}
+  .explanationDiv {
+    top: -36.5rem;
+    width: 50rem;
+    transform: translateX(-50%) scale(0.5);
+    border-radius: 40px;
 
 
-.launch {
-
-  top: -32rem;
-  transform: scale(0.6);
-}
+  }
 
 
-.glassBand {
-  width: 300%;
-  left:-100%;
 
-  top:24rem;
+  .leftText {
+    font-size: clamp(1rem, 2rem, 5rem);
+    width: 18rem;
 
-  transform: scale(0.36);
-}
+    left: 0%;
 
-.searchHeader {
-  transform: scale(0.6);
-    margin-top:-9rem;
+    padding: 1rem;
+    padding-right: 0.5rem;
+
+  }
+
+  .middleText {
+    font-size: clamp(1rem, 2rem, 5rem);
+    width: 18rem;
+
+    transform: translate(-53%, -50%);
+
+    padding: 1rem;
+
+  }
+
+
+  .rightText {
+    font-size: clamp(1rem, 2rem, 5rem);
+    width: 19rem;
+
+    right: 0%;
+
+    padding: 1rem;
+    padding-left: 0.5rem;
+  }
+
+
+  .explanationTitle {
+    font-size: clamp(1rem, 4.2rem, 5rem);
+    width: 80rem;
+    transform: translate(-50%, -50rem) scale(0.35);
+
+  }
+
+
+  .explanationSubtitle {
+    font-size: clamp(1rem, 2.5rem, 5rem);
+    width: 80rem;
+    transform: translate(-50%, -41rem) scale(0.35);
+
+  }
+
+
+  .launch {
+
+    top: -32rem;
+    transform: scale(0.6);
+  }
+
+
+  .glassBand {
+    width: 300%;
+    left: -100%;
+
+    top: 24rem;
+
+    transform: scale(0.36);
+  }
+
+  .searchHeader {
+    transform: scale(0.6);
+    margin-top: -9rem;
     margin-bottom: -4rem;
+  }
+
+
+  .searchCard {
+    padding: 6rem 2.5rem;
+    width: 55rem;
+    transform: translateX(-50%) scale(0.4);
+    position: relative;
+    top: 1rem;
+
+  }
+
+
+
+
+  .searchIcon {
+    position: absolute;
+    left: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.5rem;
+    height: 1.5rem;
+    z-index: 5;
+    color: #313131;
+  }
+
+  .searchInput {
+    width: 88%;
+    padding: 1.5rem 1rem 1.5rem 3.5rem;
+    left: -0.8%;
+    top: -0.7rem;
+
+    font-size: 1.5rem;
+
+  }
+
+
+
+
+  .searchButton {
+
+    padding: 1.48rem 3rem;
+
+    font-size: clamp(1rem, 1.6rem, 5rem);
+
+  }
+
+
+
+  .popularSearches {
+    margin-top: 1.5rem;
+
+    gap: 0.75rem;
+    margin-left: 7.8rem;
+  }
+
+  .popularTitle {
+    font-size: 1.7rem;
+  }
+
+  .popularButton {
+
+    height: 4rem;
+    padding: 0rem 2rem;
+    font-size: 1.5rem;
+
+  }
+
+  .brandnewdiv {
+    margin-top: 18.9rem;
+
+    padding-bottom: 5.5rem;
+
+  }
+
+
+  .title {
+    font-size: 5.5rem;
+    width: 60rem;
+    left: 50%;
+    transform: translateX(-50%) scale(0.65);
+    position: absolute;
+    line-height: 1;
+    top: -2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    color: #bda5f7;
+    font-size: 2.2rem;
+    position: relative;
+    transform: translateX(-50%) scale(0.85);
+    top: 13.4rem;
+    width: 45rem;
+    left: 50%;
+  }
+
+  .circleGlow1 {
+    width: 60rem;
+    height: 60rem;
+    top: -12rem;
+    right: 50%;
+    transform: translateX(125%) scale(0.8);
+  }
+
+  .circleGlow2 {
+    width: 65rem;
+    height: 65rem;
+    bottom: -3rem;
+    left: 50%;
+    transform: translateX(-125%) scale(0.8);
+  }
+
+
+
 }
 
 
-.searchCard {
-  padding: 6rem 2.5rem;
-  width: 55rem;
-  transform: translateX(-50%) scale(0.4);
-  position: relative;
-  top:1rem;
-  
-}
 
-
-
-
-.searchIcon {
-  position: absolute;
-  left: 1.5rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 1.5rem;
-  height: 1.5rem;
-  z-index: 5;
-  color: #313131;
-}
-
-.searchInput {
-  width: 88%;
-  padding: 1.5rem 1rem 1.5rem 3.5rem;
-  left:-0.8%;
-  top:-0.7rem;
-
-  font-size: 1.5rem;
-
-}
-
-
-
-
-.searchButton {
-
-  padding: 1.48rem 3rem;
-
-  font-size: clamp(1rem,1.6rem,5rem);
-
-}
-
-
-
-.popularSearches {
-  margin-top: 1.5rem;
-
-  gap: 0.75rem;
-  margin-left:7.8rem;
-}
-
-.popularTitle {
-  font-size: 1.7rem;
-}
-
-.popularButton {
-
-  height: 4rem;
-  padding: 0rem 2rem;
-  font-size: 1.5rem;
-
-}
-
-.brandnewdiv {
-  margin-top:18.9rem;
-
-  padding-bottom: 5.5rem;
-
-}
-
-
-.title {
-  font-size: 5.5rem;
-  width:60rem;
-  left:50%;
-  transform: translateX(-50%) scale(0.65);
-  position: absolute;
-  line-height: 1;
-  top:-2rem;
-  margin-bottom: 0.5rem;
-}
-
-.subtitle {
-  color: #bda5f7;
-  font-size: 2.2rem;
-  position: relative;
-  transform: translateX(-50%) scale(0.85);
-  top:13.4rem;
-  width:45rem;
-  left:50%;
-}
-
-.circleGlow1 {
-  width: 60rem;
-  height: 60rem;
-  top: -12rem;
-  right: 50%;
-  transform: translateX(125%) scale(0.8);
-}
-
-.circleGlow2 {
-  width: 65rem;
-  height: 65rem;
-  bottom: -3rem;
-  left: 50%;
-  transform: translateX(-125%) scale(0.8);
-}
-
-
-
- }
-
-
-
- @media (max-width: 450px) {
-    .aiDiv {
+@media (max-width: 450px) {
+  .aiDiv {
     height: 40rem;
-    
+
   }
 
   .background {
-  height: 70rem;
+    height: 70rem;
 
-}
+  }
 
   .particleWrapper {
-  margin-left: -4rem;
-  margin-top:7rem;
+    margin-left: -4rem;
+    margin-top: 7rem;
 
-  left: 50%;
-  transform: translate(-50%, 20%) scale(0.65);
-  width: 34rem;
-}
+    left: 50%;
+    transform: translate(-50%, 20%) scale(0.65);
+    width: 34rem;
+  }
 
-.type {
-  z-index: 8;
-  width: 350%;
-  left:-125%;
-  top:-20rem;
-  transform: scale(0.27);
-}
-
-
-
-
-.titleStoreSUB {
-  font-size: clamp(0rem, 2.5rem, 10rem);
-  top: 16rem;
-  left: 2rem;
-  width: 73.5rem;
-  padding: 2rem 3rem;
-
-}
+  .type {
+    z-index: 8;
+    width: 350%;
+    left: -125%;
+    top: -20rem;
+    transform: scale(0.27);
+  }
 
 
 
 
-.storeShop {
-  font-size: clamp(1rem, 3rem, 10rem);
-  padding: 2rem 32.4rem;
-  top: 16rem;
-  border-radius: 1rem;
-  left: 2rem;
+  .titleStoreSUB {
+    font-size: clamp(0rem, 2.5rem, 10rem);
+    top: 16rem;
+    left: 2rem;
+    width: 73.5rem;
+    padding: 2rem 3rem;
 
-
-}
-
-
-.explanationDiv {
-  top: -39.5rem;
-  width: 50rem;
-  transform: translateX(-50%) scale(0.4);
-  border-radius: 40px;
-
-
-}
+  }
 
 
 
-.leftText {
-  font-size: clamp(1rem, 2rem, 5rem);
-  width: 18rem;
 
-  left: 0%;
-
-  padding: 1rem;
-  padding-right: 0.5rem;
-
-}
-
-.middleText {
-  font-size: clamp(1rem, 2rem, 5rem);
-  width: 18rem;
-
-  transform: translate(-53%, -50%);
-
-  padding: 1rem;
-
-}
+  .storeShop {
+    font-size: clamp(1rem, 3rem, 10rem);
+    padding: 2rem 32.4rem;
+    top: 16rem;
+    border-radius: 1rem;
+    left: 2rem;
 
 
-.rightText {
-  font-size: clamp(1rem, 2rem, 5rem);
-  width: 19rem;
-
-  right: 0%;
-
-  padding: 1rem;
-  padding-left: 0.5rem;
-}
+  }
 
 
-.explanationTitle {
-  font-size: clamp(1rem, 4.2rem, 5rem);
-  width: 80rem;
-  transform: translate(-50%, -54rem) scale(0.27);
-
-}
-
-
-.explanationSubtitle {
-  font-size: clamp(1rem, 2.5rem, 5rem);
-  width: 80rem;
-  transform: translate(-50%, -46rem) scale(0.27);
-
-}
+  .explanationDiv {
+    top: -39.5rem;
+    width: 50rem;
+    transform: translateX(-50%) scale(0.4);
+    border-radius: 40px;
 
 
-.launch {
-
-  top: -37rem;
-  transform: scale(0.55);
-}
+  }
 
 
-.glassBand {
-  width: 400%;
-  left:-150%;
 
-  top:23.5rem;
+  .leftText {
+    font-size: clamp(1rem, 2rem, 5rem);
+    width: 18rem;
 
-  transform: scale(0.27);
-}
+    left: 0%;
 
-.searchHeader {
-  transform: scale(0.6);
-    margin-top:-9rem;
+    padding: 1rem;
+    padding-right: 0.5rem;
+
+  }
+
+  .middleText {
+    font-size: clamp(1rem, 2rem, 5rem);
+    width: 18rem;
+
+    transform: translate(-53%, -50%);
+
+    padding: 1rem;
+
+  }
+
+
+  .rightText {
+    font-size: clamp(1rem, 2rem, 5rem);
+    width: 19rem;
+
+    right: 0%;
+
+    padding: 1rem;
+    padding-left: 0.5rem;
+  }
+
+
+  .explanationTitle {
+    font-size: clamp(1rem, 4.2rem, 5rem);
+    width: 80rem;
+    transform: translate(-50%, -54rem) scale(0.27);
+
+  }
+
+
+  .explanationSubtitle {
+    font-size: clamp(1rem, 2.5rem, 5rem);
+    width: 80rem;
+    transform: translate(-50%, -46rem) scale(0.27);
+
+  }
+
+
+  .launch {
+
+    top: -37rem;
+    transform: scale(0.55);
+  }
+
+
+  .glassBand {
+    width: 400%;
+    left: -150%;
+
+    top: 23.5rem;
+
+    transform: scale(0.27);
+  }
+
+  .searchHeader {
+    transform: scale(0.6);
+    margin-top: -9rem;
     margin-bottom: -4rem;
+  }
+
+
+  .searchCard {
+    padding: 6rem 2.5rem;
+    width: 55rem;
+    transform: translateX(-50%) scale(0.35);
+    position: relative;
+    top: -4rem;
+
+  }
+
+
+
+
+  .searchIcon {
+    position: absolute;
+    left: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.5rem;
+    height: 1.5rem;
+    z-index: 5;
+    color: #313131;
+  }
+
+  .searchInput {
+    width: 88%;
+    padding: 1.5rem 1rem 1.5rem 3.5rem;
+    left: -0.8%;
+    top: -0.7rem;
+
+    font-size: 1.5rem;
+
+  }
+
+
+
+
+  .searchButton {
+
+    padding: 1.48rem 3rem;
+
+    font-size: clamp(1rem, 1.6rem, 5rem);
+
+  }
+
+
+
+  .popularSearches {
+    margin-top: 1.5rem;
+
+    gap: 0.75rem;
+    margin-left: 7.8rem;
+  }
+
+  .popularTitle {
+    font-size: 1.7rem;
+  }
+
+  .popularButton {
+
+    height: 4rem;
+    padding: 0rem 2rem;
+    font-size: 1.5rem;
+
+  }
+
+  .brandnewdiv {
+    margin-top: 18.9rem;
+    height: 22rem;
+    padding-bottom: 0rem;
+
+  }
+
+
+  .title {
+    font-size: 5.5rem;
+    width: 60rem;
+    left: 50%;
+    transform: translateX(-50%) scale(0.55);
+    position: absolute;
+    line-height: 1;
+    top: -7rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    color: #bda5f7;
+    font-size: 2.2rem;
+    position: relative;
+    transform: translateX(-50%) scale(0.7);
+    top: 7.4rem;
+    width: 45rem;
+    left: 50%;
+  }
+
+  .circleGlow1 {
+    width: 60rem;
+    height: 60rem;
+    top: -12rem;
+    right: 50%;
+    transform: translateX(135%) scale(1.3);
+  }
+
+  .circleGlow2 {
+    width: 65rem;
+    height: 65rem;
+    bottom: -3rem;
+    left: 50%;
+    transform: translateX(-135%) scale(1.3);
+  }
+
+
+
 }
-
-
-.searchCard {
-  padding: 6rem 2.5rem;
-  width: 55rem;
-  transform: translateX(-50%) scale(0.35);
-  position: relative;
-  top:-4rem;
-  
-}
-
-
-
-
-.searchIcon {
-  position: absolute;
-  left: 1.5rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 1.5rem;
-  height: 1.5rem;
-  z-index: 5;
-  color: #313131;
-}
-
-.searchInput {
-  width: 88%;
-  padding: 1.5rem 1rem 1.5rem 3.5rem;
-  left:-0.8%;
-  top:-0.7rem;
-
-  font-size: 1.5rem;
-
-}
-
-
-
-
-.searchButton {
-
-  padding: 1.48rem 3rem;
-
-  font-size: clamp(1rem,1.6rem,5rem);
-
-}
-
-
-
-.popularSearches {
-  margin-top: 1.5rem;
-
-  gap: 0.75rem;
-  margin-left:7.8rem;
-}
-
-.popularTitle {
-  font-size: 1.7rem;
-}
-
-.popularButton {
-
-  height: 4rem;
-  padding: 0rem 2rem;
-  font-size: 1.5rem;
-
-}
-
-.brandnewdiv {
-  margin-top:18.9rem;
-  height: 22rem;
-  padding-bottom: 0rem;
-
-}
-
-
-.title {
-  font-size: 5.5rem;
-  width:60rem;
-  left:50%;
-  transform: translateX(-50%) scale(0.55);
-  position: absolute;
-  line-height: 1;
-  top:-7rem;
-  margin-bottom: 0.5rem;
-}
-
-.subtitle {
-  color: #bda5f7;
-  font-size: 2.2rem;
-  position: relative;
-  transform: translateX(-50%) scale(0.7);
-  top:7.4rem;
-  width:45rem;
-  left:50%;
-}
-
-.circleGlow1 {
-  width: 60rem;
-  height: 60rem;
-  top: -12rem;
-  right: 50%;
-  transform: translateX(135%) scale(1.3);
-}
-
-.circleGlow2 {
-  width: 65rem;
-  height: 65rem;
-  bottom: -3rem;
-  left: 50%;
-  transform: translateX(-135%) scale(1.3);
-}
-
-
-
- }
