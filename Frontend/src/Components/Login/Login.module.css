@@ -1,12 +1,9 @@
-
-
 .container {
-    position: relative; 
-    background: linear-gradient(145deg, 
-        #1a52ac 0%,
-        #3b82f6 45%,    
-        #60a5fa 100%
-    );    
+    position: relative;
+    background: linear-gradient(145deg,
+            #1a52ac 0%,
+            #3b82f6 45%,
+            #60a5fa 100%);
     height: 100vh;
     overflow-y: hidden;
     overflow-x: hidden;
@@ -14,82 +11,80 @@
 }
 
 .headerContainer {
-  position: fixed;
-  top:0rem;
-  width: 100%;
-  z-index: 7;
-  text-align: left;
-  background-color: #f9fafb;
-  border-bottom: 1px solid rgb(219, 219, 219);
-  padding: 1.5rem 0; 
-  margin-left: 0rem;
+    position: fixed;
+    top: 0rem;
+    width: 100%;
+    z-index: 7;
+    text-align: left;
+    background-color: #f9fafb;
+    border-bottom: 1px solid rgb(219, 219, 219);
+    padding: 1.5rem 0;
+    margin-left: 0rem;
 }
 
 
 
 
 .headerInner {
-  max-width: 80rem; 
-  margin: 0 auto;
+    max-width: 80rem;
+    margin: 0 auto;
 }
 
 @media (min-width: 640px) {
-  .headerInner {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
+    .headerInner {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
 }
 
 @media (min-width: 1024px) {
-  .headerInner {
-    padding-left: 2rem; 
-    padding-right: 2rem;
-  }
+    .headerInner {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
 }
 
 .backButton {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem; 
-  font-family: "PoppinsRegular";
-  background: none;
-  border: none;
-  color: #111827; 
-  font-weight: 500;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: color 0.2s ease, transform 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: "PoppinsRegular";
+    background: none;
+    border: none;
+    color: #111827;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .backButton:hover {
-  color: #374151; 
-  transform: translateX(-2px);
+    color: #374151;
+    transform: translateX(-2px);
 }
 
 .backIcon {
-  width: 1rem; 
-  height: 1rem; 
+    width: 1rem;
+    height: 1rem;
 }
 
 
 .errorMsg {
     position: absolute;
     z-index: 20;
-    top:2.4rem;
-    left:50%;
+    top: 2.4rem;
+    left: 50%;
     transform: translateX(-35%);
     white-space: nowrap;
     min-width: 28.3rem;
-    background: radial-gradient(
-    circle,
-    rgb(180, 39, 39) 0%,     
-    rgb(220, 50, 50) 60%,    
-     rgb(255, 100, 100) 100%  
-    );
-    color:white;
-    font-size: clamp(0.2rem, 1.7rem, 2.5rem);  
+    background: radial-gradient(circle,
+            rgb(180, 39, 39) 0%,
+            rgb(220, 50, 50) 60%,
+            rgb(255, 100, 100) 100%);
+    color: white;
+    font-size: clamp(0.2rem, 1.7rem, 2.5rem);
     padding: 0.3rem 1rem;
-    border:none;
+    border: none;
     font-family: "PoppinsLight";
     border-radius: 1.1rem;
     transition: all 0.3s ease;
@@ -99,20 +94,18 @@
 .safeMsg {
     position: absolute;
     z-index: 20;
-    left:50%;
+    left: 50%;
     transform: translateX(-35%);
     white-space: nowrap;
     min-width: 28.3rem;
-    background: radial-gradient(
-    circle,
-      rgb(72, 161, 72) 0%,               
-     rgb(61, 141, 61) 70%,               
-     rgb(41, 105, 41) 100%       
-    );
-    color:white;
-    font-size: clamp(0.2rem, 1.7rem, 2.5rem);  
+    background: radial-gradient(circle,
+            rgb(72, 161, 72) 0%,
+            rgb(61, 141, 61) 70%,
+            rgb(41, 105, 41) 100%);
+    color: white;
+    font-size: clamp(0.2rem, 1.7rem, 2.5rem);
     padding: 0.3rem 1rem;
-    border:none;
+    border: none;
     font-family: "PoppinsRegular";
     border-radius: 1.1rem;
     transition: all 0.3s ease;
@@ -124,17 +117,17 @@
     height: 50rem;
     position: absolute;
     width: 50rem;
-    left:50%;
-    top:50%;
-    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .backgroundDiv .backgroundTitle {
-      position: relative;
+    position: relative;
     border-radius: 1.7rem;
     padding: 0.4rem;
-    top:13%;
-    left:50%;
+    top: 13%;
+    left: 50%;
     transform: translateX(-85%);
     width: 50rem;
     color: white;
@@ -142,51 +135,51 @@
     line-height: 0.8;
     font-size: clamp(1rem, 7.5rem, 8rem);
     letter-spacing: -0.2rem;
-    font-family: "PoppinsSemiBold";   
+    font-family: "PoppinsSemiBold";
 }
 
 .backgroundDiv .backgroundSubtitle {
-      position: relative;
+    position: relative;
     border-radius: 1.7rem;
     padding: 0.4rem;
-    left:50%;
+    left: 50%;
     transform: translateX(-105%);
-    top:-1rem;
+    top: -1rem;
     width: 40rem;
     color: white;
     text-align: left;
     line-height: 0.9;
     font-size: clamp(1rem, 2.5rem, 8rem);
     letter-spacing: -0.1rem;
-    font-family: "PoppinsLight";   
+    font-family: "PoppinsLight";
 }
 
 
 
 .box {
-    overflow-y:scroll;
+    overflow-y: scroll;
     overflow-x: hidden;
     position: absolute;
     height: 100vh;
     width: 45.5vw;
-    top:0rem;
-    left:50%;
+    top: 0rem;
+    left: 50%;
     transform: translateX(10%);
     background-color: rgb(237, 241, 247);
-  backdrop-filter: blur(0px);
+    backdrop-filter: blur(0px);
 }
 
 .logDiv {
     height: 50rem;
     position: absolute;
-    top:50%;
+    top: 50%;
     transform: translateY(-50%);
 }
 
 .signDiv {
     height: 50rem;
     position: absolute;
-    top:50%;
+    top: 50%;
     transform: translateY(-50%);
 }
 
@@ -196,15 +189,15 @@
     position: relative;
     border-radius: 1.7rem;
     padding: 0.4rem;
-    left:4.5rem;
-    top:3rem;
+    left: 4.5rem;
+    top: 3rem;
     width: 34rem;
     text-align: left;
     line-height: 0.9;
     color: #313131;
     font-size: clamp(1rem, 4.5rem, 8rem);
     letter-spacing: -0.05rem;
-    font-family: "PoppinsSemiBold";  
+    font-family: "PoppinsSemiBold";
 }
 
 .box .recoveryTitle {
@@ -212,23 +205,23 @@
     position: relative;
     border-radius: 1.7rem;
     padding: 0.4rem;
-    left:4.5rem;
-    top:8rem;
+    left: 4.5rem;
+    top: 8rem;
     width: 34rem;
     text-align: left;
     line-height: 0.9;
     color: #313131;
     font-size: clamp(1rem, 4.5rem, 8rem);
     letter-spacing: -0.05rem;
-    font-family: "PoppinsSemiBold";  
+    font-family: "PoppinsSemiBold";
 }
 
 
 .box .recoveryMail {
-    position:absolute;
-    left:4.9rem;
+    position: absolute;
+    left: 4.9rem;
     width: 29.5rem;
-    top:23.5rem;
+    top: 23.5rem;
     padding: 0.8rem 0rem;
     border-radius: 0.6rem;
     box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
@@ -240,18 +233,17 @@
 
 .box .submitForgot {
     position: absolute;
-    top:33.5rem;
-    left:4.95rem;
+    top: 33.5rem;
+    left: 4.95rem;
     width: 30.3rem;
-    background: linear-gradient(145deg, 
-        #1a52ac 0%,
-        #3b82f6 45%,    
-        #60a5fa 100%
-    );  
-    color:white;
-    font-size: clamp(0.2rem, 1.5rem, 2.5rem);  
+    background: linear-gradient(145deg,
+            #1a52ac 0%,
+            #3b82f6 45%,
+            #60a5fa 100%);
+    color: white;
+    font-size: clamp(0.2rem, 1.5rem, 2.5rem);
     padding: 0.6rem 1rem;
-    border:none;
+    border: none;
     font-family: "PoppinsLight";
     border-radius: 0.6rem;
     transition: all 0.3s ease;
@@ -263,27 +255,27 @@
 
 .box .labelUsername {
     font-family: "PoppinsRegular";
-    position:absolute;
-    left:5rem;
+    position: absolute;
+    left: 5rem;
     color: #afafaf;
-    top:18.5rem;
-    font-size: clamp(0.2rem, 1rem, 2.5rem);    
+    top: 18.5rem;
+    font-size: clamp(0.2rem, 1rem, 2.5rem);
 }
 
 .box .labelPassword {
     font-family: "PoppinsRegular";
-    position:absolute;
+    position: absolute;
     color: #afafaf;
-    left:5rem;
-    top:24.5rem;
-    font-size: clamp(0.2rem, 1rem, 2.5rem);    
+    left: 5rem;
+    top: 24.5rem;
+    font-size: clamp(0.2rem, 1rem, 2.5rem);
 }
 
 .box .username {
-    position:absolute;
-    left:4.9rem;
+    position: absolute;
+    left: 4.9rem;
     width: 29.5rem;
-    top:19rem;
+    top: 19rem;
     padding: 0.8rem 0rem;
     border-radius: 0.6rem;
     box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
@@ -294,9 +286,9 @@
 }
 
 .box .password {
-    position:absolute;
-    top:25rem;
-    left:4.9rem;
+    position: absolute;
+    top: 25rem;
+    left: 4.9rem;
     width: 25.5rem;
     box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
     padding: 0.8rem 0rem;
@@ -310,18 +302,17 @@
 
 .box .submit {
     position: absolute;
-    top:33.5rem;
-    left:4.95rem;
+    top: 33.5rem;
+    left: 4.95rem;
     width: 30.3rem;
-    background: linear-gradient(145deg, 
-        #1a52ac 0%,
-        #3b82f6 45%,    
-        #60a5fa 100%
-    );  
-    color:white;
-    font-size: clamp(0.2rem, 1.5rem, 2.5rem);  
+    background: linear-gradient(145deg,
+            #1a52ac 0%,
+            #3b82f6 45%,
+            #60a5fa 100%);
+    color: white;
+    font-size: clamp(0.2rem, 1.5rem, 2.5rem);
     padding: 0.6rem 1rem;
-    border:none;
+    border: none;
     font-family: "PoppinsLight";
     border-radius: 0.6rem;
     transition: all 0.3s ease;
@@ -333,8 +324,8 @@
 .forgot {
     position: absolute;
     color: #2760bb;
-    top:30rem;
-    left:5.1rem;
+    top: 30rem;
+    left: 5.1rem;
     font-family: "PoppinsRegular";
     text-decoration: underline;
 }
@@ -342,10 +333,10 @@
 
 .toggleBtn {
     position: absolute;
-    border:none;
+    border: none;
     background-color: rgba(245, 222, 179, 0);
-    top:27.2rem;
-    left:32rem;
+    top: 27.2rem;
+    left: 32rem;
     z-index: 10;
     cursor: pointer;
 
@@ -359,17 +350,17 @@
 
 .subtitle {
     position: absolute;
-    top:38.5rem;
-    left:8.8rem;  
-    font-family: "PoppinsRegular";  
+    top: 38.5rem;
+    left: 8.8rem;
+    font-family: "PoppinsRegular";
     color: #313131;
 }
 
 .signnow {
     position: absolute;
-    top:39.5rem;
+    top: 39.5rem;
     font-family: "PoppinsSemiBold";
-    left:22.7rem;
+    left: 22.7rem;
     color: #2760bb;
 
 }
@@ -382,8 +373,8 @@
     position: relative;
     border-radius: 1.7rem;
     padding: 0.4rem;
-    left:4.5rem;
-    top:-3rem;
+    left: 4.5rem;
+    top: -3rem;
     width: 34rem;
     text-align: left;
     line-height: 0.9;
@@ -395,10 +386,10 @@
 
 
 .signDiv .username {
-      position:absolute;
-    left:4.9rem;
+    position: absolute;
+    left: 4.9rem;
     width: 29.5rem;
-    top:25rem;
+    top: 25rem;
     padding: 0.8rem 0rem;
     border-radius: 0.6rem;
     box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
@@ -407,17 +398,17 @@
     padding-left: 1rem;
     color: #313131;
 
-    
+
 }
 
 
 
 
 .signDiv .email {
-      position:absolute;
-    left:4.9rem;
+    position: absolute;
+    left: 4.9rem;
     width: 29.5rem;
-    top:18.5rem;
+    top: 18.5rem;
     padding: 0.8rem 0rem;
     border-radius: 0.6rem;
     box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
@@ -425,32 +416,50 @@
     font-size: clamp(0.2rem, 1rem, 2.5rem);
     padding-left: 1rem;
     color: #313131;
-    
+
 }
 
 .pwCriteria {
     position: absolute;
-     top:32.4rem;
-     left:22.5rem;
-     font-size: 13px;
-    }
-.pwCriteria ul { list-style: none; padding: 0; margin: 40px 0 0 0; }
-.pwCriteria li { margin: 4px 0; display:flex; gap:8px; align-items:center; }
-.ok { color: #2760bb; }   
-.bad { color: #ef4444; }  
-.criteriaTitle { 
-    color:#313131;
+    top: 32.4rem;
+    left: 22.5rem;
+    font-size: 13px;
+}
+
+.pwCriteria ul {
+    list-style: none;
+    padding: 0;
+    margin: 40px 0 0 0;
+}
+
+.pwCriteria li {
+    margin: 4px 0;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.ok {
+    color: #2760bb;
+}
+
+.bad {
+    color: #ef4444;
+}
+
+.criteriaTitle {
+    color: #313131;
     font-family: "PoppinsRegular";
-    margin-bottom: 6px; 
+    margin-bottom: 6px;
     position: absolute;
 }
 
 
 .signDiv .password {
-      position:absolute;
-    left:4.9rem;
+    position: absolute;
+    left: 4.9rem;
     width: 11.5rem;
-    top:31.5rem;
+    top: 31.5rem;
     padding: 0.8rem 0rem;
     border-radius: 0.6rem;
     box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
@@ -458,15 +467,15 @@
     font-size: clamp(0.2rem, 1rem, 2.5rem);
     padding-left: 1rem;
     padding-right: 3rem;
-    color: #313131;   
+    color: #313131;
 }
 
 
 .signDiv .passwordAgain {
-      position:absolute;
-    left:4.9rem;
+    position: absolute;
+    left: 4.9rem;
     width: 11.5rem;
-    top:38rem;
+    top: 38rem;
     padding: 0.8rem 0rem;
     border-radius: 0.6rem;
     box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
@@ -474,14 +483,14 @@
     font-size: clamp(0.2rem, 1rem, 2.5rem);
     padding-left: 1rem;
     padding-right: 3rem;
-    color: #313131;  
+    color: #313131;
 }
 
 .signDiv .firstName {
-      position:absolute;
-    left:4.9rem;
+    position: absolute;
+    left: 4.9rem;
     width: 13.8rem;
-    top:12rem;
+    top: 12rem;
     padding: 0.8rem 0rem;
     border-radius: 0.6rem;
     box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
@@ -492,10 +501,10 @@
 }
 
 .signDiv .lastName {
-      position:absolute;
-    left:20.65rem;
+    position: absolute;
+    left: 20.65rem;
     width: 13.8rem;
-    top:12rem;
+    top: 12rem;
     padding: 0.8rem 0rem;
     border-radius: 0.6rem;
     box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
@@ -507,67 +516,67 @@
 
 .signDiv .labelFirstName {
     font-family: "PoppinsRegular";
-    position:absolute;
-    left:5rem;
+    position: absolute;
+    left: 5rem;
     color: #afafaf;
-    top:11.5rem;
-    font-size: clamp(0.2rem, 1rem, 2.5rem);   
+    top: 11.5rem;
+    font-size: clamp(0.2rem, 1rem, 2.5rem);
 }
 
 .signDiv .labelLastName {
     font-family: "PoppinsRegular";
-    position:absolute;
-    left:20.75rem;
+    position: absolute;
+    left: 20.75rem;
     color: #afafaf;
-    top:11.5rem;
-    font-size: clamp(0.2rem, 1rem, 2.5rem);     
+    top: 11.5rem;
+    font-size: clamp(0.2rem, 1rem, 2.5rem);
 }
 
 
 
 .signDiv .labelUsername {
     font-family: "PoppinsRegular";
-    position:absolute;
-    left:5rem;
+    position: absolute;
+    left: 5rem;
     color: #afafaf;
-    top:24.5rem;
-    font-size: clamp(0.2rem, 1rem, 2.5rem);  
+    top: 24.5rem;
+    font-size: clamp(0.2rem, 1rem, 2.5rem);
 }
 
-.signDiv .labelEmail{
+.signDiv .labelEmail {
     font-family: "PoppinsRegular";
-    position:absolute;
-    left:5rem;
+    position: absolute;
+    left: 5rem;
     color: #afafaf;
-    top:18rem;
-    font-size: clamp(0.2rem, 1rem, 2.5rem);    
+    top: 18rem;
+    font-size: clamp(0.2rem, 1rem, 2.5rem);
 }
 
 .signDiv .labelPassword {
     font-family: "PoppinsRegular";
-    position:absolute;
-    left:5rem;
+    position: absolute;
+    left: 5rem;
     color: #afafaf;
-    top:31rem;
-    font-size: clamp(0.2rem, 1rem, 2.5rem);      
+    top: 31rem;
+    font-size: clamp(0.2rem, 1rem, 2.5rem);
 }
 
 
-.signDiv .labelPasswordAgain{
+.signDiv .labelPasswordAgain {
     font-family: "PoppinsRegular";
-    position:absolute;
-    left:5rem;
+    position: absolute;
+    left: 5rem;
     color: #afafaf;
-    top:37.5rem;
-    font-size: clamp(0.2rem, 1rem, 2.5rem);   
+    top: 37.5rem;
+    font-size: clamp(0.2rem, 1rem, 2.5rem);
 }
 
 .toggleBtn1 {
     position: absolute;
-    border:none;
+    border: none;
     background-color: rgba(245, 222, 179, 0);
-    top:33.75rem;
-    left:17.5rem;
+    top: 33.75rem;
+    left: 17.5rem;
     z-index: 10;
     cursor: pointer;
 }
@@ -582,10 +591,10 @@
 
 .toggleBtn2 {
     position: absolute;
-    border:none;
+    border: none;
     background-color: rgba(245, 222, 179, 0);
-    top:40.3rem;
-    left:17.5rem;
+    top: 40.3rem;
+    left: 17.5rem;
     z-index: 10;
     cursor: pointer;
 }
@@ -600,17 +609,17 @@
 
 .signDiv .subtitle {
     position: relative;
-    top:32.6rem;
-    left:-0.7rem;    
+    top: 32.6rem;
+    left: -0.7rem;
     padding-bottom: 4rem;
 }
 
 
 .signDiv .signnow {
     position: relative;
-    top:26.1rem;
+    top: 26.1rem;
     font-family: "PoppinsSemiBold";
-    left:9rem;
+    left: 9rem;
     padding-bottom: 4rem;
 
 }
@@ -619,18 +628,17 @@
 
 .signDiv .submit {
     position: absolute;
-    top:45.5rem;
-    left:4.95rem;
+    top: 45.5rem;
+    left: 4.95rem;
     width: 30.3rem;
-    background: linear-gradient(145deg, 
-        #1a52ac 0%,
-        #3b82f6 45%,    
-        #60a5fa 100%
-    );  
-    color:white;
-    font-size: clamp(0.2rem, 1.5rem, 2.5rem);  
+    background: linear-gradient(145deg,
+            #1a52ac 0%,
+            #3b82f6 45%,
+            #60a5fa 100%);
+    color: white;
+    font-size: clamp(0.2rem, 1.5rem, 2.5rem);
     padding: 0.6rem 1rem;
-    border:none;
+    border: none;
     font-family: "PoppinsLight";
     border-radius: 0.6rem;
     transition: all 0.3s ease;
@@ -642,8 +650,8 @@
     position: relative;
     border-radius: 1.7rem;
     padding: 0.4rem;
-    left:4.5rem;
-    top:7rem;
+    left: 4.5rem;
+    top: 7rem;
     width: 34rem;
     text-align: left;
     line-height: 0.9;
@@ -657,8 +665,8 @@
     position: relative;
     border-radius: 1.7rem;
     padding: 0.4rem;
-    left:4.5rem;
-    top:3rem;
+    left: 4.5rem;
+    top: 3rem;
     width: 34rem;
     text-align: left;
     line-height: 0.9;
@@ -669,10 +677,10 @@
 }
 
 .signDiv .otp {
-      position:absolute;
-    left:4.9rem;
+    position: absolute;
+    left: 4.9rem;
     width: 12.5rem;
-    top:25.5rem;
+    top: 25.5rem;
     padding: 0.8rem 0rem;
     border-radius: 0.6rem;
     box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
@@ -681,32 +689,31 @@
     padding-left: 1rem;
     color: #313131;
 
-    
+
 }
 
 .signDiv .labelOtp {
     font-family: "PoppinsRegular";
-    position:absolute;
-    left:5rem;
+    position: absolute;
+    left: 5rem;
     color: #afafaf;
-    top:25rem;
-    font-size: clamp(0.2rem, 1rem, 2.5rem);  
+    top: 25rem;
+    font-size: clamp(0.2rem, 1rem, 2.5rem);
 }
 
 .signDiv .submitSignUp {
     position: absolute;
-    top:32rem;
-    left:4.95rem;
+    top: 32rem;
+    left: 4.95rem;
     width: 31.7rem;
-    background: linear-gradient(145deg, 
-        #1a52ac 0%,
-        #3b82f6 45%,    
-        #60a5fa 100%
-    );  
-    color:white;
-    font-size: clamp(0.2rem, 1.5rem, 2.5rem);  
+    background: linear-gradient(145deg,
+            #1a52ac 0%,
+            #3b82f6 45%,
+            #60a5fa 100%);
+    color: white;
+    font-size: clamp(0.2rem, 1.5rem, 2.5rem);
     padding: 0.6rem 1rem;
-    border:none;
+    border: none;
     font-family: "PoppinsLight";
     border-radius: 0.6rem;
     transition: all 0.3s ease;
@@ -716,19 +723,18 @@
 
 .signDiv .submitResend {
     position: absolute;
-    top:27rem;
-    left:19.65rem;
+    top: 27rem;
+    left: 19.65rem;
     white-space: nowrap;
     width: 17rem;
-    background: linear-gradient(145deg, 
-        #8fbaff 0%,
-        #6b84ac 45%,    
-        #5f6d7e 100%
-    );  
-    color:white;
-    font-size: clamp(0.2rem, 1.2rem, 2.5rem);  
+    background: linear-gradient(145deg,
+            #8fbaff 0%,
+            #6b84ac 45%,
+            #5f6d7e 100%);
+    color: white;
+    font-size: clamp(0.2rem, 1.2rem, 2.5rem);
     padding: 0.6rem 1rem;
-    border:none;
+    border: none;
     font-family: "PoppinsLight";
     border-radius: 0.6rem;
     transition: all 0.3s ease;
@@ -737,34 +743,556 @@
 }
 
 .loader {
-  width: 18px;
-  height: 18px;
-  border: 3px solid rgba(255, 255, 255, 0.4);
-  border-top-color: #fff;
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-  display: inline-block;
-  vertical-align: middle;
+    width: 18px;
+    height: 18px;
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 @keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .submit[disabled] {
-  opacity: 0.8;
-  cursor: not-allowed;
+    opacity: 0.8;
+    cursor: not-allowed;
 }
 
 
-@media (max-width: 1440px) {}
+@media (max-width: 1540px) {
 
-@media (max-width: 1200px) {}
+    .headerContainer {
+        top: -0.4rem;
+        width: 150%;
+        margin-left: -6.3rem;
+        transform: scale(0.8);
+    }
 
-@media (max-width: 992px) {}
+    .backgroundDiv {
+        transform: translate(-50%, -50%) scale(0.8);
+    }
 
-@media (max-width: 768px) {}
+    .logDiv {
+        transform: translate(-3.5rem, -24rem) scale(0.8);
+    }
 
-@media (max-width: 576px) {}
+    .signDiv {
+        transform: translate(-3.5rem, -24.5rem) scale(0.8);
+    }
+}
+
+@media (max-width: 1240px) {
+    .headerContainer {
+        top: -0.9rem;
+        width: 260%;
+        padding-left: 5rem;
+        margin-left: 7.5rem;
+        left: 50%;
+        transform: translateX(-50%) scale(0.6);
+    }
+
+    .backgroundDiv {
+        transform: translate(-50%, -50%) scale(0.6);
+    }
+
+    .logDiv {
+        transform: translate(-6.5rem, -24rem) scale(0.6);
+    }
+
+    .signDiv {
+        transform: translate(-6.5rem, -24.5rem) scale(0.6);
+    }
+}
+
+@media (max-width: 950px) {
+    .headerContainer {
+        top: -1.4rem;
+        width: 260%;
+        padding-left: 5rem;
+        margin-left: 0.5rem;
+        left: 50%;
+        transform: translateX(-50%) scale(0.4);
+    }
+
+    .backgroundDiv {
+        transform: translate(-50%, -50%) scale(0.4);
+    }
+
+    .logDiv {
+        transform: translate(-9.5rem, -25rem) scale(0.4);
+    }
+
+    .signDiv {
+        transform: translate(-9.5rem, -24.5rem) scale(0.4);
+    }
+}
+
+@media (max-width: 750px) {
+    .headerContainer {
+        top: -0.5rem;
+        width: 100%;
+        padding-left: 5rem;
+        margin-left: 0.5rem;
+        left: 50%;
+        transform: translateX(-50%) scale(0.8);
+    }
+
+    .backgroundDiv {
+        transform: translate(-50%, -50%) scale(0.4);
+    }
+
+    .logDiv {
+        transform: translate(18%, -48%) scale(0.6);
+        background-color: rgb(237, 241, 247);
+        padding-right: 6rem;
+        border-radius: 3rem;
+    }
+
+    .box {
+        overflow-y: scroll;
+        overflow-x: visible;
+        position: absolute;
+        height: 100vh;
+        width: 55.5rem;
+        top: 0rem;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(237, 241, 247, 0);
+        backdrop-filter: blur(0px);
+    }
+
+    .signDiv {
+        transform: translate(18%, -48%) scale(0.6);
+        background-color: rgb(237, 241, 247);
+        padding: 2rem 0rem;
+        padding-right: 6rem;
+        border-radius: 3rem;
+    }
+
+    .backgroundDiv .backgroundTitle {
+        display: none;
+    }
+
+    .backgroundDiv .backgroundSubtitle {
+        display: none;
+    }
+
+    .signDiv .username {
+
+        top: 26rem;
+
+
+
+    }
+
+
+
+
+    .signDiv .email {
+        top: 19.5rem;
+
+
+    }
+
+    .signDiv .password {
+        top: 32.5rem;
+
+    }
+
+
+    .signDiv .passwordAgain {
+        top: 39rem;
+
+    }
+
+    .signDiv .firstName {
+
+        top: 13rem;
+
+    }
+
+    .signDiv .lastName {
+        top: 13rem;
+    }
+
+    .signDiv .labelFirstName {
+        top: 12.5rem;
+    }
+
+    .signDiv .labelLastName {
+        top: 12.5rem;
+    }
+
+
+
+    .signDiv .labelUsername {
+        top: 25.5rem;
+    }
+
+    .signDiv .labelEmail {
+        top: 19rem;
+    }
+
+    .signDiv .labelPassword {
+        top: 32rem;
+    }
+
+
+    .signDiv .labelPasswordAgain {
+
+        top: 38.5rem;
+    }
+
+    .toggleBtn1 {
+        top: 34.75rem;
+
+    }
+
+
+
+
+
+    .toggleBtn2 {
+
+        top: 41.3rem;
+
+    }
+
+
+
+
+    .signDiv .subtitle {
+        top: 30.6rem;
+
+    }
+
+
+    .signDiv .signnow {
+        top: 24.1rem;
+
+
+    }
+
+    .signDiv .labelOtp {
+        display: none;
+    }
+
+
+
+
+
+
+
+
+}
+
+@media (max-width: 580px) {
+    .headerContainer {
+        top: -0.6rem;
+        width: 100%;
+        padding-left: 20rem;
+        margin-left: 0.5rem;
+        left: 50%;
+        transform: translateX(-50%) scale(0.8);
+    }
+
+    .backgroundDiv {
+        transform: translate(-50%, -50%) scale(0.4);
+    }
+
+    .logDiv {
+        transform: translate(18%, -48%) scale(0.6);
+        background-color: rgb(237, 241, 247);
+        padding-right: 6rem;
+        border-radius: 3rem;
+    }
+
+    .box {
+        overflow-y: scroll;
+        overflow-x: visible;
+        position: absolute;
+        height: 100vh;
+        width: 55.5rem;
+        top: 0rem;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(237, 241, 247, 0);
+        backdrop-filter: blur(0px);
+    }
+
+    .signDiv {
+        transform: translate(18%, -48%) scale(0.6);
+        background-color: rgb(237, 241, 247);
+        padding: 2rem 0rem;
+        padding-right: 6rem;
+        border-radius: 3rem;
+    }
+
+    .backgroundDiv .backgroundTitle {
+        display: none;
+    }
+
+    .backgroundDiv .backgroundSubtitle {
+        display: none;
+    }
+
+    .signDiv .username {
+
+        top: 26rem;
+
+
+
+    }
+
+
+
+
+    .signDiv .email {
+        top: 19.5rem;
+
+
+    }
+
+    .signDiv .password {
+        top: 32.5rem;
+
+    }
+
+
+    .signDiv .passwordAgain {
+        top: 39rem;
+
+    }
+
+    .signDiv .firstName {
+
+        top: 13rem;
+
+    }
+
+    .signDiv .lastName {
+        top: 13rem;
+    }
+
+    .signDiv .labelFirstName {
+        top: 12.5rem;
+    }
+
+    .signDiv .labelLastName {
+        top: 12.5rem;
+    }
+
+
+
+    .signDiv .labelUsername {
+        top: 25.5rem;
+    }
+
+    .signDiv .labelEmail {
+        top: 19rem;
+    }
+
+    .signDiv .labelPassword {
+        top: 32rem;
+    }
+
+
+    .signDiv .labelPasswordAgain {
+
+        top: 38.5rem;
+    }
+
+    .toggleBtn1 {
+        top: 34.75rem;
+
+    }
+
+
+
+
+
+    .toggleBtn2 {
+
+        top: 41.3rem;
+
+    }
+
+
+
+
+    .signDiv .subtitle {
+        top: 30.6rem;
+
+    }
+
+
+    .signDiv .signnow {
+        top: 24.1rem;
+
+
+    }
+
+    .signDiv .labelOtp {
+        display: none;
+    }
+
+
+
+}
+
+@media (max-width: 450px) {
+    .headerContainer {
+        top: -0.7rem;
+        width: 100%;
+        padding-left: 22rem;
+        margin-left: 0.5rem;
+        left: 50%;
+        transform: translateX(-50%) scale(0.7);
+    }
+
+    .backgroundDiv {
+        transform: translate(-50%, -50%) scale(0.4);
+    }
+
+    .logDiv {
+        transform: translate(18%, -48%) scale(0.55);
+        background-color: rgb(237, 241, 247);
+        padding-right: 6rem;
+        border-radius: 3rem;
+    }
+
+    .box {
+        overflow-y: scroll;
+        overflow-x: visible;
+        position: absolute;
+        height: 100vh;
+        width: 55.5rem;
+        top: 0rem;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(237, 241, 247, 0);
+        backdrop-filter: blur(0px);
+    }
+
+    .signDiv {
+        transform: translate(18%, -48%) scale(0.55);
+        background-color: rgb(237, 241, 247);
+        padding: 2rem 0rem;
+        padding-right: 6rem;
+        border-radius: 3rem;
+    }
+
+    .backgroundDiv .backgroundTitle {
+        display: none;
+    }
+
+    .backgroundDiv .backgroundSubtitle {
+        display: none;
+    }
+
+    .signDiv .username {
+
+        top: 26rem;
+
+
+
+    }
+
+
+
+
+    .signDiv .email {
+        top: 19.5rem;
+
+
+    }
+
+    .signDiv .password {
+        top: 32.5rem;
+
+    }
+
+
+    .signDiv .passwordAgain {
+        top: 39rem;
+
+    }
+
+    .signDiv .firstName {
+
+        top: 13rem;
+
+    }
+
+    .signDiv .lastName {
+        top: 13rem;
+    }
+
+    .signDiv .labelFirstName {
+        top: 12.5rem;
+    }
+
+    .signDiv .labelLastName {
+        top: 12.5rem;
+    }
+
+
+
+    .signDiv .labelUsername {
+        top: 25.5rem;
+    }
+
+    .signDiv .labelEmail {
+        top: 19rem;
+    }
+
+    .signDiv .labelPassword {
+        top: 32rem;
+    }
+
+
+    .signDiv .labelPasswordAgain {
+
+        top: 38.5rem;
+    }
+
+    .toggleBtn1 {
+        top: 34.75rem;
+
+    }
+
+
+
+
+
+    .toggleBtn2 {
+
+        top: 41.3rem;
+
+    }
+
+
+
+
+    .signDiv .subtitle {
+        top: 30.6rem;
+
+    }
+
+
+    .signDiv .signnow {
+        top: 24.1rem;
+
+
+    }
+
+    .signDiv .labelOtp {
+        display: none;
+    }
+}
