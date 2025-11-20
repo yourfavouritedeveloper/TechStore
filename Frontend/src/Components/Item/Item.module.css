@@ -2010,8 +2010,9 @@ body {
     }
 
     .itemCover {
-        margin-top: 0rem;
-        transform: translateY(-8.3%) scale(0.85);
+        margin-top: -5rem;
+        min-height: 232rem;
+        transform: translateY(-8.3%) scale(0.8);
     }
 
     .container {
@@ -2470,6 +2471,7 @@ body {
 
     .itemCover {
         margin-top: 0rem;
+        min-height: 202rem;
         transform: translateY(-16.3%) scale(0.68);
     }
 
@@ -2920,16 +2922,17 @@ body {
 @media (max-width: 450px) {
     .itemCover {
         margin-top: 0rem;
+        margin-bottom: -15rem;
+        min-height: 125rem;
         transform: translateY(-19.8%) scale(0.6);
     }
 
     .container {
         min-height: 46rem;
-        padding-bottom: 0rem;
-        margin-bottom: -42rem;
+        padding-bottom: 7rem;
+        margin-bottom: -38rem;
 
     }
-
     .headerContainer {
         top: 2.3rem;
         width: 55rem;

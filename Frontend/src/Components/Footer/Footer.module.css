@@ -189,6 +189,7 @@
 
 @media (max-width: 580px) {
   .footer {
+    margin-top: 16rem;
     padding-top: 3rem;
     height: 35rem;
     left:50%;
