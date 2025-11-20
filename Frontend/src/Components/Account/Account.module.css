@@ -79,6 +79,8 @@
     background-color: #ffffff;   
 }
 
+
+
 .account {
     position: absolute; 
     background-color: rgb(230, 230, 230);
@@ -1443,6 +1445,12 @@
     height: 111rem;
 }
 
+
+.activityContainer.hidden {
+  right:-85%;
+  pointer-events: none; 
+}
+
 }
 
 @media (max-width: 750px) {
@@ -1453,7 +1461,7 @@
 }
 
 .container {
-    height: 244rem;
+    height: 248rem;
 }
 
 .account {
@@ -1700,7 +1708,7 @@
 
 .descriptionTitle.active {
     top: 34rem; 
-    transform: translateX(-348%);
+    transform: translateX(-156%);
   
 }
 
@@ -1718,18 +1726,18 @@
 }
 
 .accountDescription.active {
-    width: 92rem;    
-    top:40rem;
+    width: 43rem;    
+    top:66.5em;
     left: 50%;
-    transform: translateX(-150%);
+    transform: translateX(-50%);
 
 }
 
 .descriptionInput {
   position: absolute;
   top: 1rem;
-  left: 1%;
-  width: 90.5%;
+  left: 2%;
+  width: 79.8%;
 
     font-family: "PoppinsRegular";
 
@@ -1820,7 +1828,7 @@
 }
 
 .activityContainer.hidden {
-  right:-45%;
+  right:-75%;
   pointer-events: none; 
 }
 
@@ -1828,10 +1836,10 @@
 .itemsContainer {
 
     width: 49rem;
-    min-height: 50rem;
+    min-height: 75rem;
     left: 50%;
     transform: translateX(-50%) scale(0.85);
-
+    padding-bottom: 13rem;
     top: 89rem;
     padding-top: 1rem;
   
@@ -1895,7 +1903,7 @@
     width: 41.5rem;
     right:50%;
     transform: translateX(50%);
-    top:251rem;
+    top:255rem;
     border-radius: 1.2rem;
     position: absolute;
     z-index:5;
@@ -1944,22 +1952,22 @@
 
 @media (max-width: 580px) {
   .accountCover {
-  margin-top: -36rem;
+  margin-top: -36.5rem;
   transform: scale(0.63);
 }
 
 .container {
-    height: 193rem;
+    height: 196rem;
 }
 }
 
 @media (max-width: 450px) {
   .accountCover {
-  margin-top: -39.5rem;
+  margin-top: -40.2rem;
   transform: scale(0.53);
 }
 
 .container {
-    height: 170rem;
+    height: 173rem;
 }
 }
