@@ -624,14 +624,14 @@ function Login() {
 
         <p
           className={styles.errorMsg}
-          style={{ top: !errorMsg ? "2.4rem" : "-7rem" }}
+          style={{ top: errorMsg ? "2.4rem" : "-7rem" }}
         >
-          a{errorMsg}
+          {errorMsg}
         </p>
 
         <p
           className={styles.safeMsg}
-          style={{ top: !successMsg ? "2.4rem" : "-7rem" }}
+          style={{ top: successMsg ? "2.4rem" : "-7rem" }}
 
         >
           {successMsg}
