@@ -422,12 +422,16 @@ const updateChanges = () => {
 
     return  (logAccount.profilePictureUrl && isPurchaseDone) ? (
     <>
+        {isPurchaseHistory ? 
+        <div className={styles.purchaseDivCover}>
+          <Purchase setIsPurchaseHistory={setIsPurchaseHistory} accountId={logAccount.id} token={token}/>
+        </div>
+         : <></>}
         {loading &&  <div className={styles.loadingContainerPage}>
             <img src={spinnerBlack} alt="Loading..." className={styles.loadingImage} />
         </div>}
         <div className={styles.accountCover}>
         <div className={styles.container}>
-            {isPurchaseHistory ? <Purchase setIsPurchaseHistory={setIsPurchaseHistory} accountId={logAccount.id} token={token}/> : <></>}
             {logAccount.status == "CLOSED" ? closedAccount : <></>}
             <div className={`${styles.account} ${edit ? styles.active : ""}`}>
               {edit ? (

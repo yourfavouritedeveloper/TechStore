@@ -213,3 +213,171 @@
     text-align: center;
     margin: 1rem 0;
 }
+
+@media (max-width: 1540px) {
+ .containerOf {
+    padding: 1rem 0rem;
+    top:-1.5rem;
+
+    
+}
+
+.purchaseDiv {
+
+    transform: translate(-50%, -45%) scale(0.8);
+
+    
+} 
+}
+
+@media (max-width: 1240px) {
+ .containerOf {
+    padding: 1.1rem 0rem;
+    top:-2.21rem;
+
+    
+}
+
+.purchaseDiv {
+
+    transform: translate(-50%, -45%) scale(0.6);
+
+    
+} 
+}
+
+
+@media (max-width: 950px) {
+ .containerOf {
+    padding: 1.1rem 0rem;
+    top:-2.21rem;
+
+    
+}
+
+.purchaseDiv {
+
+    transform: translate(-50%, -46%) scale(0.4);
+
+    
+} 
+}
+
+
+@media (max-width: 750px) {
+ .containerOf {
+    padding: 1.1rem 0rem;
+    top:-2.21rem;
+
+    
+}
+
+.purchaseDiv {
+
+    transform: translate(-50%, -46%) scale(0.8);
+    width: 45rem;
+    position: fixed;
+    height: 50rem;
+    
+} 
+
+
+
+
+.purchaseList li .code {
+    top:1rem;
+    left:-30.5%;
+
+}
+
+
+
+
+.purchaseList li .date {
+    color:#8d8d8d;
+    font-size: clamp(1rem,1.2rem,5rem);
+    position: relative;
+    top:-3.7rem;
+    right:-29.5rem;
+} 
+
+
+
+
+
+
+.productImage {
+  left:-13.7rem;
+
+}
+
+
+
+.productName {
+
+  top:-7.4rem;
+  left:-8.8rem;
+  line-height: 0.9;
+  width: 22rem;
+  text-align: left;
+  white-space:initial;
+
+}
+
+.productCompany {
+
+  font-size: 0.95rem;
+  top:-8.4rem;
+  left:-8.8rem;
+
+}
+
+.productQuantity{
+  top:-7.3rem;
+  right:-16rem;
+}
+
+.productPrice {
+  font-size: 1.2rem;
+  color: #313131;
+  position: absolute;
+  top:-4.4rem;
+  left:-8.8rem;
+}
+}
+
+@media (max-width: 580px) {
+ .containerOf {
+    padding: 1.1rem 0rem;
+    top:-2.21rem;
+
+    
+}
+
+.purchaseDiv {
+
+    transform: translate(-50%, -46%) scale(0.6);
+    width: 45rem;
+    position: fixed;
+    height: 50rem;
+    
+} 
+}
+
+@media (max-width: 580px) {
+ .containerOf {
+    padding: 1.1rem 0rem;
+    top:-2.21rem;
+
+    
+}
+
+.purchaseDiv {
+
+    transform: translate(-50%, -46%) scale(0.48);
+    width: 45rem;
+    position: fixed;
+    height: 50rem;
+    
+} 
+}

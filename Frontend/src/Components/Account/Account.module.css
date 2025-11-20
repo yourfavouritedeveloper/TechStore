@@ -1409,6 +1409,7 @@
 
 @media (max-width: 1540px) {
 
+
 .accountCover {
   margin-top: -17.2rem;
   transform: scale(0.8);
@@ -1828,7 +1829,7 @@
 }
 
 .activityContainer.hidden {
-  right:-75%;
+  right:-35rem;
   pointer-events: none; 
 }
 
