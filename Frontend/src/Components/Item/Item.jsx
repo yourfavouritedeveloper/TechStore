@@ -605,7 +605,7 @@ function Item({ name, productId }) {
 
     return item.productImageUrl ? (<>
 
-        <p className={styles.success} style={{ top: successMessage ? "10.15rem" : "-1rem" }}>{successMessage}</p>
+        <p className={styles.success} style={{ top: successMessage ? "7rem" : "-1rem" }}>{successMessage}</p>
 
 
         {isChoice ? <Choice item={item} setIsChoice={setIsChoice} /> : null}
