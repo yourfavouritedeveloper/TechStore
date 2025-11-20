@@ -1403,3 +1403,563 @@
   transform: scale(1.03);
   background: #c0c0c0;
 }
+
+
+@media (max-width: 1540px) {
+
+.accountCover {
+  margin-top: -17.2rem;
+  transform: scale(0.8);
+}
+
+.container {
+    height: 171.5rem;
+}
+
+}
+
+
+@media (max-width: 1240px) {
+
+.accountCover {
+  margin-top: -29.5rem;
+  transform: scale(0.6);
+}
+
+.container {
+    height: 147.5rem;
+}
+
+}
+
+@media (max-width: 950px) {
+
+.accountCover {
+  margin-top: -33.5rem;
+  transform: scale(0.4);
+}
+
+.container {
+    height: 111rem;
+}
+
+}
+
+@media (max-width: 750px) {
+
+.accountCover {
+  margin-top: -25rem;
+  transform: scale(0.8);
+}
+
+.container {
+    height: 244rem;
+}
+
+.account {
+    transform: translateX(-50%);
+
+}
+
+.account.active {
+      width: 43rem; 
+      height: 50rem; 
+      top: 15rem;
+      left: 50%;
+      transform: translateX(-50%);
+}
+
+
+
+.account.active .pp {
+    width: 11rem;
+    top: 9rem;  
+}
+
+.editPpTitle {
+
+    top:3rem;
+    left:6rem;
+
+}
+
+.uploadButton{
+
+    left:8rem;
+    top: 8rem;
+
+
+}
+
+
+
+.ppPreviewTitle {
+
+    top:3rem;
+    right: 6rem;
+
+}
+
+.ppPreview {
+ 
+    left: 24.2rem;         
+    top: 7.9rem;  
+}
+
+
+
+.account.active .name {
+    top: 0rem;    
+    background: linear-gradient(-90deg, rgba(49, 49, 49, 0.644), rgba(255, 255, 255, 0));
+    padding: 26rem 1rem;
+    padding-left: 2rem;
+ 
+}
+
+
+.editName {
+    color: rgb(0, 0, 0);
+
+    right: 32rem;
+    margin-right: 2.2rem;
+    top: 23rem;
+  
+}
+
+.nameInput {
+
+  top: 26rem;
+  left: 6rem;
+  width: 13.7%;
+
+
+
+  padding: 0.5rem 5rem;
+  padding-left: 2rem;
+
+  
+}
+
+.editUsername {
+    color: rgb(0, 0, 0);
+
+    right: 13.5rem;
+    margin-right: 2.2rem;
+    top: 23rem;
+  
+}
+
+.usernameInput {
+
+  top: 26rem;
+  right: 8rem;
+  width: 14%;
+
+  height: 1.5rem;
+
+
+
+  padding: 0.5rem 5rem;
+  padding-left: 2rem;
+  
+}
+
+.errorUsername {
+  top: 25rem;
+  right: 8rem;
+  width: 25.7%;
+  height: 1.5rem;
+
+
+ 
+  padding: 0.5rem 0.8rem;
+  padding-top: 2.5rem;
+  font-size: 1rem;
+
+}
+
+.confirmUsername {
+
+  top: 25rem;
+  right: 8rem;
+  width: 18.7%;
+
+  height: 1.5rem;
+
+
+  border-radius: 1rem;
+  padding: 0.5rem 2.42rem;
+  padding-top: 2.5rem;
+
+  
+}
+
+.editPassword {
+    color: rgb(0, 0, 0);
+
+    margin-right:-7.5rem; 
+    left: 6.3rem;
+    top: 33rem;        
+    font-size: clamp(1rem, 1.1rem, 10rem);    
+}
+
+.passwordInput {
+  top: 34.5rem;
+  left: 6rem;
+  width: 19.5%;
+  height: 1.5rem;
+
+    font-family: "PoppinsRegular";
+
+
+
+  padding: 0.5rem 5rem;
+  padding-left: 1rem;
+  padding-right: 3rem;
+ 
+}
+
+.editPasswordAgain {
+    color: rgb(0, 0, 0);
+
+    margin-right:0rem; 
+    left: 6.2rem;
+    top: 40rem;
+}
+
+.passwordAgainInput {
+  top: 41.5rem;
+  left: 6rem;
+  width: 19.5%;
+
+
+
+
+
+  padding: 0.5rem 5rem;
+  padding-left: 1rem;
+  padding-right: 3rem;
+  font-size: 1rem;
+   
+}
+
+
+
+.toggleBtn1 {
+
+    top:36.43rem;
+    left:7rem;
+    margin-left: 6rem;
+
+}
+
+
+
+.toggleBtn2 {
+
+    top:43.53rem;
+    left:7rem;
+    margin-left: 6rem;
+
+}
+
+
+.passwordContainer {
+    right:8rem; 
+    top: 33.8rem; 
+    padding: 0rem  0.5rem;
+    padding-top:2rem;
+
+}
+
+
+
+.passwordTitle {
+    font-size: clamp(0.5rem, 1.2rem, 10rem); 
+    top:0rem;
+    left:-0.3rem;
+}
+
+
+
+.cartContainer {
+    width: 41.5rem;
+    height: 8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 30rem;
+
+}
+.descriptionTitle {
+
+    top: 36rem; 
+    left: 50%;
+    transform: translateX(-156%);
+
+}
+
+.descriptionTitle.active {
+    top: 34rem; 
+    transform: translateX(-348%);
+  
+}
+
+.accountDescription {
+    position: absolute;
+    top:42rem;
+    width: 41.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 15rem;
+    background-color: rgb(230, 230, 230);
+    border-radius: 1.2rem;
+    overflow-y: scroll;
+    transition: all 0.8s ease;
+}
+
+.accountDescription.active {
+    width: 92rem;    
+    top:40rem;
+    left: 50%;
+    transform: translateX(-150%);
+
+}
+
+.descriptionInput {
+  position: absolute;
+  top: 1rem;
+  left: 1%;
+  width: 90.5%;
+
+    font-family: "PoppinsRegular";
+
+  background-color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 1rem;
+
+  padding: 8rem 5rem;
+  padding-top: 2rem;
+  padding-left: 2rem;
+  font-size: 1rem;
+  color: #333;
+  resize: none; 
+  outline: none; 
+  
+  overflow-y: auto;
+
+  transition: all 1s ease;
+}
+
+
+.description {
+    font-family: "PoppinsRegular";
+    font-size: clamp(0.8rem, 1rem, 10rem);
+    margin-top: 1.3rem; 
+    text-align: left;
+    position: absolute;
+    width: 90%;
+    left: 4.5%;
+    color: rgb(49, 49, 49);
+}
+
+
+.editContainer {
+    height: 6.5rem;
+    width: 48rem;
+    right:50%;
+    transform: translateX(50%) scale(0.86);
+    top:7rem;
+    border-radius: 1.2rem;
+    position: absolute;
+    z-index:5;
+    transition: all 1s ease;
+}
+
+.editContainer.active {
+  background-color: #76abff;
+  right:50%;
+  width: 50rem;
+    transform: translateX(50%) scale(0.86);
+}
+
+.errorEditContainer {
+    height: 6.5rem;
+    width: 48rem;
+    right:50%;
+    transform: translateX(50%) scale(0.89);
+    top:7rem;
+    border-radius: 1.2rem;
+    position: absolute;
+    z-index:5;
+    transition: all 1s ease;
+}
+
+
+
+.activityContainer {
+    height: 41.5rem;
+    width: 48rem;
+    right:50%;
+    transform: translateX(50%) scale(0.865);
+    top:55.5rem;
+    border-radius: 1.2rem;
+    position: absolute;
+    transition: all 1s ease;
+}
+
+
+.spentContainer {
+    height: 41.5rem;
+    width: 48rem;
+    left: 50%;
+    transform: translateX(-50%) scale(0.867);
+    margin-top: 81rem;
+    border-radius: 1.2rem;
+    position: absolute; 
+
+}
+
+.activityContainer.hidden {
+  right:-45%;
+  pointer-events: none; 
+}
+
+
+.itemsContainer {
+
+    width: 49rem;
+    min-height: 50rem;
+    left: 50%;
+    transform: translateX(-50%) scale(0.85);
+
+    top: 89rem;
+    padding-top: 1rem;
+  
+}
+
+.itemTitle {
+
+    left: 10%;
+    top:0rem;
+}
+
+.itemSubtitle{
+
+    margin-top: 6.3rem; 
+    width: 80%;
+    left: 10.2%;
+}
+
+
+
+
+.items .guarantee {
+    position: absolute;
+    top:2.7rem;   
+    right: 1rem;  
+    font-size: clamp(0rem, 0.87rem, 2rem);
+    color: #1d3c94;
+}
+
+
+
+.items {
+    
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem; 
+    padding: 0 5rem; 
+    box-sizing: border-box;
+    list-style-type: none;
+
+    
+}
+
+.purchaseContainer {
+    position: absolute; 
+    background-color: rgb(230, 230, 230);
+    width: 36.7rem;
+    height: auto;
+    min-height:41.5rem;
+    right: 50%;
+    padding: 0rem 2.5rem;
+    transform: translateX(50%);
+    margin-top: 121rem;
+    border-radius: 1.2rem;
+    overflow: hidden;      
+}
+
+.deleteContainer {
+    background-color: rgb(230, 230, 230);
+    height: 20.5rem;
+    width: 41.5rem;
+    right:50%;
+    transform: translateX(50%);
+    top:251rem;
+    border-radius: 1.2rem;
+    position: absolute;
+    z-index:5;
+    transition: all 1s ease;  
+}
+
+.deleteContainer .deactivate {
+  display: inline-block;
+  margin-top: 30px;
+  text-decoration: none;
+  background: #ffffff;
+  color: #313131;
+  font-size: clamp(0rem,1.4rem,3rem);
+  font-family: "PoppinsLight";
+  border-radius: 0.7rem;
+  left:-1.7rem;
+  top:13.2rem;
+  position: relative;
+  padding: 0.7rem 1.8rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.4s ease;
+}
+
+
+.deleteContainer .delete {
+  display: inline-block;
+  margin-top: 30px;
+  text-decoration: none;
+  background: #ffffff;
+  color: rgb(255, 99, 99);
+  font-size: clamp(0rem,1.4rem,3rem);
+  left:-0.4rem;
+  top:13.2rem;
+  position: relative;
+  font-family: "PoppinsLight";
+  border-radius: 0.7rem;
+  padding: 0.7rem 2.3rem;
+  border: 1px solid rgb(255, 99, 99);
+  cursor: pointer;
+  transition: background 0.4s ease;
+}
+
+}
+
+
+@media (max-width: 580px) {
+  .accountCover {
+  margin-top: -36rem;
+  transform: scale(0.63);
+}
+
+.container {
+    height: 193rem;
+}
+}
+
+@media (max-width: 450px) {
+  .accountCover {
+  margin-top: -39.5rem;
+  transform: scale(0.53);
+}
+
+.container {
+    height: 170rem;
+}
+}

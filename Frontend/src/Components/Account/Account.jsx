@@ -425,6 +425,7 @@ const updateChanges = () => {
         {loading &&  <div className={styles.loadingContainerPage}>
             <img src={spinnerBlack} alt="Loading..." className={styles.loadingImage} />
         </div>}
+        <div className={styles.accountCover}>
         <div className={styles.container}>
             {isPurchaseHistory ? <Purchase setIsPurchaseHistory={setIsPurchaseHistory} accountId={logAccount.id} token={token}/> : <></>}
             {logAccount.status == "CLOSED" ? closedAccount : <></>}
@@ -487,7 +488,7 @@ const updateChanges = () => {
                         const newUsername = e.target.value;
                         setDraftAccount((prev) => ({ ...prev, username: newUsername  }));
                         axios.get(
-                        `https://techstore-3fvk.onrender.com/api/v1/accounts/username/${newUsername}`,
+                        `https://techstore-3fvk.onrender.com/api/v1/accounts/available/username?username=${newUsername}`,
                           
                         {
                           headers: {
@@ -498,10 +499,11 @@ const updateChanges = () => {
                       )
                       .then((response) => {
                         setCheckAccount(response.data);
-                        if(response.data?.username === newUsername) {
+                        if(!response.data && newUsername!==logAccount.username) {
                           setIsError(true);
                         }
                         else {
+                          setIsError(false);
                         }
                         
                       })
@@ -834,6 +836,7 @@ const updateChanges = () => {
           <button className={styles.deactivate} onClick={handleDeactivate}>Deactivate Account</button>
           <button className={styles.delete} onClick={handleDelete}>Delete Account</button>
         </div>
+      </div>
             {cropModalOpen && (
       <div className={styles.cropModal}>
         <div className={styles.cropContainer}>
@@ -855,9 +858,12 @@ const updateChanges = () => {
             onChange={(e) => setZoom(e.target.value)}
           />
         </div>
+        
         <button onClick={saveCroppedImage}>Save</button>
         <button onClick={() => setCropModalOpen(false)}>Cancel</button>
+        
       </div>
+      
     )}
     </>) : (
         <>
