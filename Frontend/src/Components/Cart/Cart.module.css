@@ -711,6 +711,7 @@
     min-height: 35rem;
     left:50%;
     padding-top: 2.5rem;
+    padding-bottom: 2rem;
     transform: translateX(-50%);
     box-shadow: -5px 0px 40px rgba(0, 0, 0, 0.445);
     width: 36rem;
@@ -724,7 +725,7 @@
 
 .total750Div .summaryDiv {
     position: relative;
-    top: 0rem;
+    top: -2rem;
     min-height: 8rem;
     padding-bottom: 2rem;
     width: 33rem;
@@ -798,7 +799,7 @@
 
 .total750Div .discountDiv {
     position: relative;
-    top: -3.5rem;
+    top: -5.5rem;
     min-height: 10rem;
     width: 33rem;
     border-bottom: 1px solid rgb(204, 204, 204);   
@@ -859,7 +860,7 @@
 
 .total750Div .orderTotalDiv {
     position: relative;
-    top: -5.5rem;
+    top: -7.5rem;
     min-height: 2rem;
     margin-top: -2rem;
     width: 33rem;
@@ -900,7 +901,7 @@
     padding: 1rem 9rem;
     width: 8rem;
     position: relative;
-    top:-2.8rem;
+    top:-4.8rem;
 }
 
 
@@ -912,7 +913,7 @@
     padding: 0rem 9rem;
     white-space: nowrap;
     position: relative;
-    top:-26.2rem;
+    bottom:-18.5rem;
     border: none;    
 }
 
