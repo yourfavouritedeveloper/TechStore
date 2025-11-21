@@ -369,6 +369,7 @@ function AddItem({ highlight, setHighlight, username}) {
                 width: "100%",
                 left: buttonActive ? "-65%" : "0%"
             }}>
+                <div className={styles.middleCover}>
                 <div className={styles.design}>
                     <motion.div
                         className={styles.box1}
@@ -421,12 +422,12 @@ function AddItem({ highlight, setHighlight, username}) {
                     style={{
                         left: buttonActive ? "90%" : "83%"
                     }}>
-                    <p className={styles.title}
-                    style={{left: newPage || lastPage ? "2%" : "12.5%"}}>
+                    <p className={newPage || lastPage ? styles.nextTitle : styles.title}
+                    >
                         {newPage ? (lastPage ? "Property Overview" : "General Overview") : "Add a New Product"}
                     </p>
-                    <p className={styles.subtitle}
-                    style={{left: newPage || lastPage ? "6.5%" : "17%"}}>
+                    <p className={newPage || lastPage ? styles.nextSubTitle : styles.subtitle}
+                    >
                         {newPage ? (lastPage ? "Add the essential product characteristics that describe its functionality and build." : "Provide a brief overview of the product, including its main features and general information.") :
                             "Add your brand-new product here and make it shine. Pick a category, upload images or videos, and fill in all the details to showcase your product to the world. Once saved, it will be live and ready for customers to discover!"
                         }</p>
@@ -446,10 +447,12 @@ function AddItem({ highlight, setHighlight, username}) {
 
                 </motion.div>
                 </div>
+                </div>
             </div>
 
             <div className={styles.right}
                 style={{ right: lastPage ? "100%" : "-8%" }}>
+                    <div className={styles.rightCover}>
                 <div className={styles.productForm}>
 
                     <div className={styles.generalInfo}>
@@ -692,9 +695,10 @@ function AddItem({ highlight, setHighlight, username}) {
                 </div>
 
 
-
+                </div>
             </div>
             <div className={styles.last}>
+                <div className={styles.lastCover}>
                 <div className={styles.productForm}>
                     <div className={styles.properties}>
                         <p className={styles.propertiesTitle}>Properties</p>
@@ -798,7 +802,7 @@ function AddItem({ highlight, setHighlight, username}) {
                         <button className={styles.submit} onClick={submitClick}>Add Product</button>
                         <button className={styles.cancel} onClick={cancelClick}>Cancel</button>
                     </div>
-
+                </div>
                 </div>
             </div>
         </div>

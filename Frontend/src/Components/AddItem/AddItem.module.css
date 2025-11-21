@@ -40,7 +40,20 @@
 }
 
 
+    .middleCover {
+        margin-top: 24rem;
+    }
 
+    .rightCover {
+        margin-top: 29.5rem;
+        transform: translateX(0%);
+    }
+
+
+    .lastCover {
+        margin-top: 29.5rem;
+        transform: translateX(0%);
+    }
 
 
 
@@ -238,7 +251,26 @@
     font-family: "PoppinsSemiBold";
     color: white;
     margin: 0;
+    transition: all 0.3s ease;
 }
+
+
+.middle .addItemContainer .nextTitle {
+    font-size: clamp(2rem, 7.5rem, 10rem);
+    line-height: 0.85;
+    top: 30%;
+    position: relative;
+    width: 60%;
+    left: 2%;
+    text-align: right;
+    letter-spacing: -0.02em;
+    font-family: "PoppinsSemiBold";
+    color: white;
+    margin: 0;
+    transition: all 0.3s ease;
+
+}
+
 
 
 .middle .addItemContainer .subtitle {
@@ -247,13 +279,45 @@
     top: 35%;
     position: relative;
     width: 55.3%;
-    left: 15%;
+    left: 17%;
     text-align: right;
     letter-spacing: -0.02rem;
     font-family: "PoppinsLight";
     color: white;
     margin: 0;
 
+}
+
+
+
+.middle .addItemContainer .nextSubTitle {
+    font-size: clamp(1rem, 1.4rem, 2rem);
+    line-height: 1.2;
+    top: 35%;
+    position: relative;
+    width: 55.3%;
+    left: 6%;
+    text-align: right;
+    letter-spacing: -0.02rem;
+    font-family: "PoppinsLight";
+    color: white;
+    margin: 0;
+
+}
+
+
+.middle .addItemContainer .addButton {
+    border: none;
+    background-color: white;
+    border-radius: 1.6rem;
+    cursor: pointer;
+    position: absolute;
+    font-family: "PoppinsLight";
+    padding: 1.1rem 3.8rem;
+    top: 94%;
+    right: 27.5%;
+    font-size: clamp(1rem, 1.9rem, 10rem);
+    transition: all 0.3s ease;
 }
 
 .middle .addItemContainer .addButton {
@@ -286,7 +350,7 @@
     font-family: "PoppinsSemiBold";
     padding: 0.4rem 1.8rem;
     top: 34rem;
-    right: 46%;
+    right: 26%;
     font-size: clamp(1rem, 2rem, 10rem);
     transition: all 0.3s ease;
 }
@@ -304,6 +368,8 @@
     font-size: clamp(1rem, 2rem, 10rem);
     transition: all 0.3s ease;
 }
+
+
 
 
 
@@ -1381,4 +1447,51 @@ select:focus {
     background-color: #e42434;
     color: white;
     border: none;
+}
+
+@media (max-width: 1540px) {
+    .middleCover {
+        margin-top: 24rem;
+        transform: scale(0.8);
+    }
+
+    .rightCover {
+        margin-top: 18.8rem;
+        transform: translateX(-10%) scale(0.8);
+    }
+
+    .middle .addItemContainer .nextTitle {
+        left: 19.5%;
+    
+    }
+
+    .middle .addItemContainer .nextSubTitle {
+
+        left: 23.5%;
+
+
+    }
+
+    .middle .addItemContainer .back {
+
+        top: 34rem;
+        margin-right: -12rem;
+        right: 26%;
+
+    }
+
+    .middle .addItemContainer .next {
+
+        top: 34rem;
+        right: 21.1%;
+
+    }
+
+    .lastCover {
+        margin-top: 18.8rem;
+        transform: translateX(-10%)scale(0.8);
+    }
+
+
+
 }

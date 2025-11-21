@@ -366,26 +366,7 @@ const handleVideoChange = async (e) => {
 
     return (<>
         <div className={styles.container}>
-            {zoomed && <>
-                <div className={styles.subContainer}>
-                    {imageUrl && <>
-                        <p className={styles.text}>Click on image to return</p>
-                        <img
-                            className={zoomed ? styles.zoomed : styles.normal}
-                            src={imageUrl}
-                            width="25%"
-                            style={{
-                                marginTop: "1rem",
-                                borderRadius: "1rem",
-                                cursor: "pointer",
-                                transition: "transform 0.3s ease-in-out",
-                                transform: zoomed ? "scale(2)" : "scale(1)",
-                            }}
-                            onClick={() => setZoomed(!zoomed)}
-                        />
-                    </>}
-                </div>
-            </>}
+
 
 
         
