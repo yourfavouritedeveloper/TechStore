@@ -392,6 +392,7 @@ const handleVideoChange = async (e) => {
 
             <div className={styles.right}
                 style={{ right: lastPage ? "100%" : "0%" }}>
+                    <div className={styles.editCover}>
                 <div className={styles.productForm}>
 
                     <div className={styles.generalInfo}>
@@ -734,7 +735,7 @@ const handleVideoChange = async (e) => {
                     </div>
 
 
-
+                </div>
                 </div>
 
 
