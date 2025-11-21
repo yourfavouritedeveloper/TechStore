@@ -76,6 +76,7 @@
     top:50%;
     left:40%;
     transform: translate(-65%,-50%);
+    transition: all 1s ease;
 
 
 }
@@ -232,6 +233,8 @@
     transform: translate(-5%,-45%);
 
 }
+
+
 
 .middle .addItemContainer {
     width: 70rem;
@@ -741,6 +744,8 @@ select:focus {
     color: rgb(131, 131, 131);
 }
 
+
+
 .priceInfo .isDiscountLabel {
     top: 61%;
     left: 12%;
@@ -769,6 +774,8 @@ select:focus {
     resize: none;
     font-family: "PoppinsRegular";
 }
+
+
 
 .priceInfo .discountLabel {
     top: 61%;
@@ -1225,6 +1232,7 @@ select:focus {
     transition: all 0.3s ease;
 }
 
+
 .last .measurements {
     background-color: rgb(255, 255, 255);
     width: 29rem;
@@ -1493,5 +1501,597 @@ select:focus {
     }
 
 
+
+}
+
+
+@media (max-width: 1240px) {
+    .middleCover {
+        margin-top: 17rem;
+        transform: scale(0.6);
+    }
+
+    .rightCover {
+        margin-top: 6.7rem;
+        transform: translateX(-21.4%) scale(0.57);
+    }
+
+    .middle .addItemContainer .nextTitle {
+        left: 33%;
+    
+    }
+
+    .middle .addItemContainer .nextSubTitle {
+        width: 33rem;
+        left: 45.5%;
+
+
+    }
+
+    .middle .addItemContainer .back {
+
+        top: 34rem;
+        margin-right: -21rem;
+        right: 26%;
+
+    }
+
+    .middle .addItemContainer .next {
+
+        top: 34rem;
+        right: 7.1%;
+
+    }
+
+    .lastCover {
+        margin-top: 6.7rem;
+        transform: translateX(-21.4%) scale(0.57);
+    }
+
+
+
+}
+
+@media (max-width: 950px) {
+    .middleCover {
+        margin-top: 11.5rem;
+        width: 80rem;
+        margin-left: -16rem; 
+        transform: scale(0.4);
+    }
+
+    .rightCover {
+        margin-top: -2.3rem;
+        transform: translateX(-30%) scale(0.4);
+    }
+
+    .middle .addItemContainer .nextTitle {
+        left: 30%;
+    
+    }
+
+    .middle .addItemContainer .nextSubTitle {
+        width: 33rem;
+        left: 42.5%;
+
+
+    }
+
+    .middle .addItemContainer .back {
+
+        top: 34rem;
+        margin-right: -19rem;
+        right: 26%;
+
+    }
+
+    .middle .addItemContainer .next {
+
+        top: 34rem;
+        right: 10.1%;
+
+    }
+
+    .lastCover {
+        margin-top: 6.7rem;
+        transform: translateX(-21.4%) scale(0.57);
+    }
+
+
+
+}
+
+@media (max-width: 750px) {
+    .middleCover {
+        margin-top: 14.5rem;
+        width: 80rem;
+        margin-left: -33rem; 
+        transform: translateX(42vw) scale(0.6);
+    }
+
+    .rightCover {
+        margin-top: -12.3rem;
+        transform: translateX(0%) scale(0.65);
+        height: 150rem;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        
+    }
+
+    .middle {
+        position: fixed;
+    }
+
+    .middle .design {
+        width: 60rem;
+        position: absolute;
+        height: 50rem;
+        top:50%;
+        left:50%;
+        transform: translate(-38.5%,25%) scale(1.05);
+
+
+    }
+
+
+    .middle .addItemContainer {
+        width: 70rem;
+        position: absolute;
+        top:30%;
+        margin-left: -25rem;
+        transform: scale(0.8);
+    }
+
+       .middle .addItemContainer .title {
+            text-align: left;
+            font-size: 10rem;
+            width: 70rem;
+            left:-6%;
+            margin-top: -3.5rem;
+
+        }
+
+    .middle .addItemContainer .nextTitle {
+        margin-top: 15rem;
+        left: -47%;
+        font-size: 6rem;
+        transform: translateX(115vw)
+    
+    }
+
+        .middle .addItemContainer .subtitle {
+            text-align: left;
+            left: -5.5%;
+            width: 50rem;
+
+
+        }
+
+    .middle .addItemContainer .nextSubTitle {
+        width: 29rem;
+        left: -29.5%;
+       transform: translateX(115vw)
+
+
+    }
+
+    .middle .addItemContainer .addButton {
+        left:-6%;
+        right: 31%;
+    }
+
+    .middle .addItemContainer .back {
+
+        top: 49rem;
+        margin-right: 36.5rem;
+        right: 6%;
+        transform: translateX(115vw)
+
+    }
+
+    .middle .addItemContainer .next {
+
+        top: 49rem;
+        right: 88%;
+        transform: translateX(115vw)
+
+    }
+
+    .lastCover {
+        margin-top: -2.3rem;
+        transform: translateX(0%) scale(0.65);
+        height: 150rem;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+
+    .right {
+    position: absolute;
+    width: 65%;
+    right: 0%;
+    height: 150rem;
+    background-color: rgb(248, 248, 248);
+    transition: all 1s ease;
+    z-index: 1;
+    transform: scale(1.26);
+}
+
+.productForm {
+    position: relative;
+    width: 63rem;
+    top: 45.5%;
+    transform: translate(-20%, 2%);
+    height: 117rem;
+
+}
+
+
+
+.productForm .generalInfo {
+    background-color: rgb(255, 255, 255);
+    width: 21rem;
+    height: 19rem;
+    position: absolute;
+    top: 13%;
+    left: 50%;
+    transform: translate(-83%, -78rem) scale(1);
+    box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
+    border-radius: 1rem;
+    z-index: 6;
+}
+
+
+.productForm .specifiedInfo {
+    background-color: rgb(255, 255, 255);
+    width: 21rem;
+    height: 7rem;
+    position: absolute;
+    top: 26.8%;
+    z-index: 6;
+    left: 50%;
+    transform: translate(-83%, -73.5rem) scale(1);
+    box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
+    border-radius: 1rem;
+}
+
+
+.productForm .priceInfo {
+    background-color: rgb(255, 255, 255);
+    width: 21rem;
+    height: 12rem;
+    position: absolute;
+    top: 31.67%;
+    left: 50%;
+    z-index: 6;
+    transform: translate(-83%, -70.5rem) scale(1);
+    box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
+    border-radius: 1rem;
+}
+.videoSection {
+    top: 41%;
+    left: 50%;
+    transform: translate(-83%, -67.5rem) scale(1);
+    width: 17rem;
+    height: 26rem;
+    position: absolute;
+    padding: 2rem;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+
+.categoryContainer {
+    top: 43.3%;
+    left: 50%;
+    transform: translate(-83%, -38.4rem) scale(1);
+    width: 17rem;
+    height: 4.5rem;
+    position: absolute;
+    padding: 2rem;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.generalInfo .productNameLabel {
+    top: 19%;
+    left: 18.5%;
+
+}
+.generalInfo .productDescriptionLabel {
+    left: 21.4%;
+
+}
+.generalInfo .productLongDescriptionLabel {
+    left: 24.2%;
+
+}
+
+.specifiedInfo .productCompanyLabel {
+    left: 14%;
+
+}
+.priceInfo .productPriceLabel {
+    left: 12.3%;
+  
+}
+
+.priceInfo .isDiscountLabel {
+    left: 15%;
+
+}
+
+.priceInfo .discountLabel {
+    left: 65.8%;
+    white-space: nowrap;
+
+}
+.videoSection .productImageLabel {
+    left: 21.3%;
+
+}
+
+.videoSection .productVideoLabel {
+    left: 20.3%;
+}
+
+.last {
+    position: absolute;
+    width: 65%;
+    right: -8%;
+    top:-10rem;
+    height: 150rem;
+    background-color: rgb(248, 248, 248);
+    transition: all 1s ease;
+    z-index: 0;
+    transform: scale(1.26);
+
+}
+
+.last .properties {
+    background-color: rgb(255, 255, 255);
+    width: 21rem;
+    height: 38.9rem;
+    position: absolute;
+    top: 4.3%;
+    left: 50%;
+    transform: translate(-83%, -71rem) scale(1);
+    box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
+    border-radius: 1rem;
+    overflow-y: auto;
+
+}
+.last .measurements {
+    background-color: rgb(255, 255, 255);
+    width: 21rem;
+    height: 27rem;
+    position: absolute;
+    top: 24%;
+    left: 50%;
+    transform: translate(-83%, -53.5rem) scale(1);
+    box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
+    border-radius: 1rem;
+}
+.last .submittion {
+    background-color: rgb(255, 255, 255);
+    width: 21rem;
+    height: 11rem;
+    position: absolute;
+    top: 47%;
+    left: 50%;
+    transform: translate(-83%, -51.5rem) scale(1);
+    box-shadow: 0px 0px 10px rgba(185, 185, 185, 0.26);
+    border-radius: 1rem;
+}
+
+}
+
+@media (max-width: 580px) {
+    .middleCover {
+        margin-top: 15.5rem;
+        width: 80rem;
+        margin-left: -35.7rem; 
+        transform: translateX(46vw) scale(0.48);
+    }
+
+    .rightCover {
+        margin-top: -17.5rem;
+        transform: translateX(1%) scale(0.55);
+        height: 150rem;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        
+    }
+
+       .middle .addItemContainer .nextTitle {
+        margin-top: 15rem;
+        left: -32%;
+        font-size: 6rem;
+        transform: translateX(115vw)
+    
+    }
+
+
+
+    .middle .addItemContainer .nextSubTitle {
+        width: 31rem;
+        left: -17%;
+       transform: translateX(115vw)
+
+
+    }
+
+
+    .middle .addItemContainer .back {
+
+        top: 49rem;
+        margin-right: 25.5rem;
+        right: 16%;
+        transform: translateX(115vw)
+
+    }
+
+    .middle .addItemContainer .next {
+
+        top: 49rem;
+        right: 72.1%;
+        transform: translateX(115vw)
+
+    }
+
+    .lastCover {
+        margin-top: -17.5rem;
+        transform: translateX(1%) scale(0.55);
+        height: 150rem;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+
+        .right {
+    position: absolute;
+    width: 76%;
+    right: 3%;
+    height: 150rem;
+    background-color: rgb(248, 248, 248);
+    transition: all 1s ease;
+    z-index: 1;
+    transform: scale(1.3);
+}
+
+    .productForm {
+    position: relative;
+    width: 70rem;
+    top: 45.5%;
+    transform: translate(-23%, 2%);
+    height: 117rem;
+
+}
+
+.last {
+    position: absolute;
+    width: 76%;
+    right: -8%;
+    top:2rem;
+    height: 150rem;
+    background-color: rgb(248, 248, 248);
+    transition: all 1s ease;
+    z-index: 0;
+    transform: scale(1.3);
+
+}
+
+
+    
+
+}
+
+
+@media (max-width: 450px) {
+    .middleCover {
+        margin-top: 15.5rem;
+        width: 80rem;
+        margin-left: -36.4rem; 
+        transform: translateX(46vw) scale(0.4);
+    }
+
+    .rightCover {
+        margin-top: -19.5rem;
+        transform: translateX(3%) scale(0.54);
+        height: 150rem;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        
+    }
+
+       .middle .addItemContainer .nextTitle {
+        margin-top: 15rem;
+        left: -17%;
+        font-size: 6rem;
+        transform: translateX(105vw) scale(0.85);
+    
+    }
+
+
+
+    .middle .addItemContainer .nextSubTitle {
+        width: 26rem;
+        left: 2%;
+       transform: translateX(105vw) scale(0.95);
+
+
+    }
+
+
+    .middle .addItemContainer .back {
+
+        top: 49rem;
+        margin-right:18.5rem;
+        right: 16%;
+        transform: translateX(105vw)
+
+    }
+
+    .middle .addItemContainer .next {
+
+        top: 49rem;
+        right: 62.1%;
+        transform: translateX(105vw)
+
+    }
+
+    .lastCover {
+        margin-top: -17.5rem;
+        transform: translateX(3%) scale(0.54);
+        height: 150rem;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+
+        .right {
+    position: absolute;
+    width: 77%;
+    right: 1%;
+    height: 150rem;
+    background-color: rgb(248, 248, 248);
+    transition: all 1s ease;
+    z-index: 1;
+    transform: scale(1.25);
+}
+
+    .productForm {
+    position: relative;
+    width: 70rem;
+    top: 45.5%;
+    transform: translate(-25%, 2%);
+    height: 117rem;
+
+}
+
+.last {
+    position: absolute;
+    width: 77%;
+    right: -9%;
+    top:2rem;
+    height: 150rem;
+    background-color: rgb(248, 248, 248);
+    transition: all 1s ease;
+    z-index: 0;
+    transform: scale(1.3);
+
+}
+
+
+
+
+    
 
 }

@@ -338,7 +338,13 @@ function AddItem({ highlight, setHighlight, username}) {
         setFormData(initialFormData);
     }
 
+    const [isSmall, setIsSmall] = useState(window.innerWidth <= 750);
 
+    useEffect(() => {
+    const handleResize = () => setIsSmall(window.innerWidth <= 750);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
 
     return (<>
@@ -367,10 +373,9 @@ function AddItem({ highlight, setHighlight, username}) {
 
             <div className={styles.middle} style={{
                 width: "100%",
-                left: buttonActive ? "-65%" : "0%"
-            }}>
+                left:buttonActive ? ( isSmall ? "-55%" : "-65%") : "0%"}}>
                 <div className={styles.middleCover}>
-                <div className={styles.design}>
+                <div className={styles.design} style={{left:(newPage || lastPage) ? "-40rem" : "40%"}}>
                     <motion.div
                         className={styles.box1}
                         initial={{ rotate: -35, x: -200 }}
