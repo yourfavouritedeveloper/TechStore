@@ -13,7 +13,7 @@ const PASSWORD = import.meta.env.VITE_API_PASSWORD;
 function Cart({ cart, setCart }) {
   const { account, logout, token,refreshToken, refreshAccessToken } = useContext(AuthContext);
   
-
+  const [expanded, setExpanded] = useState(false);
   const [isAdding, setIsAdding] = useState(false);
   const [pendingUpdate, setPendingUpdate] = useState(null);
   const [discount, setDiscount] = useState(0);
@@ -21,6 +21,18 @@ function Cart({ cart, setCart }) {
   const [logAccount, setLogAccount] = useState({});
   const navigate = useNavigate();
   const location = useLocation();
+
+const [isSmall, setIsSmall] = useState(window.innerWidth <= 750);
+
+useEffect(() => {
+  const handleResize = () => {
+    setIsSmall(window.innerWidth <= 750);
+  };
+
+  window.addEventListener("resize", handleResize);
+
+  return () => window.removeEventListener("resize", handleResize);
+}, []);
 
   useEffect(() => {
     if (!logAccount?.status) return;
@@ -220,9 +232,56 @@ const handleCheckout = async () => {
   }
 
 
-  return (
+  return (<>
+          {isSmall && cart.products.length > 0 && (<>
+              <div className={expanded ? styles.total750Div : styles.shortTotal750Div}>
+                <div className={styles.summaryDiv} style={{display : !expanded ? "none" : ""}}>
+                  <p className={styles.summaryTitle} style={{display : !expanded ? "none" : ""}}>Order Summary</p>
+                  {cart.products.map((product) => (
+                    <>
+                      <div className={styles.orderProductDiv} style={{display : !expanded ? "none" : ""}}>
+                        <p className={styles.orderAmount}>{"x" + cart.amounts?.[product.id]}</p>
+                        <p key={product.id} className={styles.orderName}>
+                          {product.name}
+                        </p>
+                        <p className={styles.orderTotal}>{product.discount ? (product.price * ((100 - product.discount) / 100) * cart.amounts[product.id]).toFixed(2) : (product.price * cart.amounts[product.id]).toFixed(2)}₼</p>
+                      </div>
+
+                    </>
+
+                  ))}
+                </div>
+                <div className={styles.discountDiv} style={{display : !expanded ? "none" : ""}}>
+                  <p className={styles.amountTitle}>Amount</p>
+                  <p className={styles.amount}>{total}₼</p>
+                  <p className={styles.discountTitle}>Discount</p>
+                  <p className={styles.discount}>{discount}₼</p>
+                </div>
+                <div className={styles.orderTotalDiv}>
+                  <button className={styles.showMore} onClick={() => setExpanded(!expanded)}>{expanded ? "Close Details" : "Show Details"}</button>
+                  <p className={styles.totalPriceTitle}>Order Total </p>
+                  <p className={styles.totalPrice}>{(cart.totalPrice).toFixed(2)}₼</p>
+                </div>
+                <Link className={styles.checkout} onClick={handleCheckout} 
+                disabled={isAdding} style={{padding : isAdding ? "1rem 13.5rem" : "1rem 9rem"}}>  {isAdding && <span className={styles.spinner}></span>}
+                           {isAdding ? "" : "Go Checkout"}</Link>
+              </div>
+              
+        </>)}
     <div className={styles.container}
-    style={{minHeight: cart.products.length > 0 ? "55vh" : "36.9vw",}}>
+          style={{
+        minHeight:
+          cart.products.length > 0
+            ? ( window.innerWidth <= 750 ? 
+            `max(48rem,${20 + cart.products.length * 10}vh)` 
+            : `max(15rem,${20 + cart.products.length * 10}vh)`
+            ) : (window.innerWidth <= 750
+            ? "46.9rem"
+            : "36.9vw"),
+      }}>
+        
+
+      <div className={styles.cartCoverDiv}>
       <div className={styles.div} style={{
         top: cart.products.length > 0 ? "-4.9rem" : "-2rem",
         position: cart.products.length > 0 ? "relative" : "fixed",
@@ -234,7 +293,7 @@ const handleCheckout = async () => {
       }}>
         <div className={styles.circle1}></div>
         <div className={styles.circle2}></div>
-        <div className={styles.titleDiv}>
+        <div className={styles.titleDiv} style={{ display : cart.products.length > 0 ? "" : "none"}}>
           <p className={styles.title}>Shopping Cart</p>
           <p className={styles.count}>
             {cart.products.length +
@@ -290,7 +349,9 @@ const handleCheckout = async () => {
                   </div>
                 );
               })}
-              <div className={styles.totalDiv}>
+
+
+              {!isSmall && <div className={styles.totalDiv}>
                 <div className={styles.summaryDiv}>
                   <p className={styles.summaryTitle}>Order Summary</p>
                   {cart.products.map((product) => (
@@ -320,8 +381,8 @@ const handleCheckout = async () => {
                 <Link className={styles.checkout} onClick={handleCheckout} 
                 disabled={isAdding} style={{padding : isAdding ? "1rem 13.5rem" : "1rem 9rem"}}>  {isAdding && <span className={styles.spinner}></span>}
                                   {isAdding ? "" : "Go Checkout"}</Link>
-              </div>
-
+              </div>              
+            }
             </>) : (<>
             <div className={styles.empty}>
                 <img className={styles.samsungs} src={Samsungs} alt="" />
@@ -331,9 +392,10 @@ const handleCheckout = async () => {
             </>)}
         </div>
 
-
+      </div>
       </div>
     </div>
+    </>
   );
 }
 
