@@ -1388,12 +1388,14 @@
   color: white;
 
 
+
 }
 
 .cropModal button:first-of-type:hover {
-    transform: scale(1.03);
     background: #1864df; 
 }
+
+
 
 .cropModal button:last-of-type {
   background: #eee;
@@ -1402,7 +1404,6 @@
 }
 
 .cropModal button:last-of-type:hover {
-  transform: scale(1.03);
   background: #c0c0c0;
 }
 
@@ -1419,6 +1420,33 @@
     height: 171.5rem;
 }
 
+.cropContainer {
+  transform: translate(-50%, -62%) scale(0.8);
+  
+}
+
+
+.cropModal button {
+  top:15rem;
+  transform: scale(0.8);
+}
+
+
+.cropModal button:first-of-type {
+
+  left:1rem;
+  
+
+
+}
+
+
+.cropModal button:last-of-type {
+
+  left: -1rem;
+
+}
+
 }
 
 
@@ -1432,6 +1460,33 @@
 .container {
     height: 147.5rem;
 }
+
+.cropContainer {
+  transform: translate(-50%, -62%) scale(0.6);
+  
+}
+
+.cropModal button {
+  top:10rem;
+  transform: scale(0.6);
+}
+
+.cropModal button:first-of-type {
+
+  left:2rem;
+  
+
+
+}
+
+
+.cropModal button:last-of-type {
+
+  left: -2rem;
+
+}
+
+
 
 }
 
@@ -1452,9 +1507,61 @@
   pointer-events: none; 
 }
 
+
+.cropContainer {
+  transform: translate(-50%, -55%) scale(0.4);
+  
+}
+
+.cropModal button {
+  top:8rem;
+  transform: scale(0.4);
+}
+
+.cropModal button:first-of-type {
+
+  left:3.5rem;
+  
+
+
+}
+
+
+.cropModal button:last-of-type {
+
+  left: -3.5rem;
+
+}
+
 }
 
 @media (max-width: 750px) {
+
+  .cropContainer {
+  transform: translate(-50%, -55%) scale(0.8);
+  
+}
+
+.cropModal button {
+  top:15rem;
+  transform: scale(0.8);
+}
+
+.cropModal button:first-of-type {
+
+  left:0.5rem;
+  
+
+
+}
+
+
+.cropModal button:last-of-type {
+
+  left: -0.5rem;
+
+}
+
 
 .accountCover {
   margin-top: -25rem;
@@ -1952,6 +2059,33 @@
 
 
 @media (max-width: 580px) {
+
+    .cropContainer {
+  transform: translate(-50%, -60%) scale(0.6);
+  
+}
+
+.cropModal button {
+  top:11rem;
+  transform: scale(0.6);
+}
+
+.cropModal button:first-of-type {
+
+  left:1.5rem;
+  
+
+
+}
+
+
+.cropModal button:last-of-type {
+
+  left: -1.5rem;
+
+}
+
+
   .accountCover {
   margin-top: -40.5rem;
   transform: scale(0.63);
@@ -1963,6 +2097,32 @@
 }
 
 @media (max-width: 450px) {
+
+    .cropContainer {
+  transform: translate(-50%, -60%) scale(0.6);
+  
+}
+
+.cropModal button {
+  top:11rem;
+  transform: scale(0.6);
+}
+
+.cropModal button:first-of-type {
+
+  left:1.5rem;
+  
+
+
+}
+
+
+.cropModal button:last-of-type {
+
+  left: -1.5rem;
+
+}
+
   .accountCover {
   margin-top: -45rem;
   transform: scale(0.53);
