@@ -670,7 +670,7 @@
 
     font-size: clamp(1rem, 1.15rem, 5rem);
     left: 69.1%;
-    top: 43%;
+    top: 4.295rem;
 }
 
 .productTotal {
@@ -678,7 +678,7 @@
     font-size: clamp(1rem, 1.15rem, 5rem);
 
     right: -84.9%;
-    top: 20.52%;
+    top: 2.12rem;
 }
 
 .decrease {
@@ -1086,14 +1086,14 @@
     }
 
     .shortTotal750Div {
-        bottom: 2.5rem;
+        bottom: -1.5rem;
         transform: translateX(-50%) scale(0.62);
 
 
     }
 
     .total750Div {
-    bottom: 2.5rem;
+    bottom: -0.5rem;
     transform: translateX(-50%) scale(0.62);
 
 }
