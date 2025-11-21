@@ -1953,22 +1953,22 @@
 
 @media (max-width: 580px) {
   .accountCover {
-  margin-top: -36.5rem;
+  margin-top: -40.5rem;
   transform: scale(0.63);
 }
 
 .container {
-    height: 196rem;
+    height: 215rem;
 }
 }
 
 @media (max-width: 450px) {
   .accountCover {
-  margin-top: -40.2rem;
+  margin-top: -45rem;
   transform: scale(0.53);
 }
 
 .container {
-    height: 173rem;
+    height: 193rem;
 }
 }

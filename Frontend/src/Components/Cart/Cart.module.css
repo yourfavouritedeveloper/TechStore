@@ -69,6 +69,8 @@
     right: -43.6%;
 }
 
+
+
 .cartDiv {
     width: 80rem;
     position: relative;
@@ -445,6 +447,7 @@
     border: 1.9px solid rgb(170, 170, 170);
     border-radius: 1rem;
     width: 64.7rem;
+    top:5rem;
     height: 30rem;
     position: relative;
 }
@@ -530,4 +533,580 @@
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 1540px) {
+    .cartCoverDiv {
+        transform: translateY(-10%) scale(0.8);
+    }
+
+    .div {
+       min-height: 59.6vw;
+        margin-bottom: -14rem;
+
+    }
+
+    .container {
+    padding-bottom: 14.5rem;
+
+}
+
+}
+
+@media (max-width: 1240px) {
+    .cartCoverDiv {
+        transform:translateY(-19%) scale(0.6);
+    }
+
+    .div {
+       min-height: 49.6vw;
+       margin-bottom: -28rem;
+    }
+
+    .container {
+    padding-bottom: 15.5rem;
+
+}
+
+
+
+}
+
+@media (max-width: 950px) {
+    .cartCoverDiv {
+        transform:translateY(-29%) scale(0.4);
+    }
+
+    .div {
+       min-height: 49.6vw;
+       margin-bottom: -28rem;
+    }
+
+    .container {
+    padding-bottom: 3.5rem;
+
+}
+
+}
+
+@media (max-width: 750px) {
+
+    .cartCoverDiv {
+        transform:translateY(-19%) scale(0.8);
+    }
+
+    
+
+    .container {
+    padding-bottom: 12.5rem;
+
+}
+
+    .div {
+       min-height: 49.6vw;
+       margin-bottom: -8rem;
+    }
+
+.titleDiv {
+    width: 44rem;
+    transform: translate(-52.5%, 130%);
+}
+
+.title {
+    left: -31.3%;
+}
+
+.count {
+    right: -40.6%;
+}
+
+.cartDiv {
+    width: 44rem;
+    top: 8rem;
+    transform: translate(-50%, 3rem);
+
+
+}
+
+
+
+.productQuantityTitle {
+
+    left: 21.15rem;
+
+}
+
+.productPriceTitle {
+
+    left: 30.2rem;
+
+}
+
+.productTotalTitle {
+    left: 37.2rem;
+
+}
+
+.productDiv {
+    width: 45rem;
+    height: 10rem;
+    top: 0%;
+    left: 50%;
+    transform: translate(-52.5%, 15%);
+
+
+}
+
+
+.productName {
+ 
+    font-size: clamp(1rem, 1.05rem, 5rem);
+    width: 29%;
+
+}
+
+
+.productPrice {
+
+    font-size: clamp(1rem, 1.15rem, 5rem);
+    left: 69.1%;
+    top: 43%;
+}
+
+.productTotal {
+
+    font-size: clamp(1rem, 1.15rem, 5rem);
+
+    right: -84.9%;
+    top: 20.52%;
+}
+
+.decrease {
+
+    left: 21rem;
+
+}
+
+.increase {
+
+    right: 15rem;
+
+
+
+}
+
+
+.number {
+
+    right:18rem;
+
+
+}
+
+
+
+.total750Div {
+    position: fixed;
+    bottom: 1.2rem;
+    min-height: 35rem;
+    left:50%;
+    padding-top: 2.5rem;
+    transform: translateX(-50%);
+    box-shadow: -5px 0px 40px rgba(0, 0, 0, 0.445);
+    width: 36rem;
+        z-index: 5;
+    border-radius: 0.5rem;
+    background-color: white;
+        transition:  all 0.3s ease;
+
+
+}
+
+.total750Div .summaryDiv {
+    position: relative;
+    top: 0rem;
+    min-height: 8rem;
+    padding-bottom: 2rem;
+    width: 33rem;
+    left:1.4rem;
+    border-bottom: 1px solid rgb(204, 204, 204);
+
+
+
+}
+
+.total750Div .orderProductDiv{
+    position: relative;
+    min-height: 5rem;
+    margin-bottom: -4.5rem;
+    width: 33rem;
+
+
+
+}
+
+.total750Div .summaryTitle {
+    position: relative;
+    z-index: 5;
+    width: 50%;
+    text-align: left;
+    font-size: clamp(1rem, 1.4rem, 10rem);
+    font-family: "PoppinsSemiBold";
+    top: 1.3rem;
+    line-height: 1;
+    color: #383838;
+    left: 2.3rem;  
+}
+
+.total750Div .orderAmount {
+     position: relative;
+    z-index: 5;
+    width: 60%;
+    text-align: left;
+    font-size: clamp(1rem, 1.2rem, 10rem);
+    font-family: "PoppinsLight";
+    top: 1.96rem;
+    color: #808080;
+    left: 2.3rem;   
+}
+
+.total750Div .orderName {
+     position: relative;
+    z-index: 5;
+    width: 50%;
+    text-align: left;
+    font-size: clamp(1rem, 1.2rem, 10rem);
+    font-family: "PoppinsLight";
+    top: -0.69rem;
+    line-height: 1;
+    color: #808080;
+    left: 4rem;   
+}
+
+.total750Div .orderTotal {
+     position: relative;
+    z-index: 5;
+    width: 50%;
+    text-align: left;
+    font-size: clamp(1rem, 1.2rem, 10rem);
+    font-family: "PoppinsRegular";
+    top: -3.05rem;
+    line-height: 1;
+    color: #383838;
+    left: 25.5rem;   
+}
+
+.total750Div .discountDiv {
+    position: relative;
+    top: -3.5rem;
+    min-height: 10rem;
+    width: 33rem;
+    border-bottom: 1px solid rgb(204, 204, 204);   
+        left:1.4rem; 
+}
+
+.total750Div .amountTitle {
+    position: relative;
+    z-index: 5;
+    width: 60%;
+    text-align: left;
+    font-size: clamp(1rem, 1.2rem, 10rem);
+    font-family: "PoppinsLight";
+    top: 4.46rem;
+    color: #808080;
+    left: 2.3rem;     
+}
+
+.total750Div .amount {
+     position: relative;
+    z-index: 5;
+    width: 50%;
+    text-align: left;
+    font-size: clamp(1rem, 1.2rem, 10rem);
+    font-family: "PoppinsRegular";
+    top: 1.8rem;
+    line-height: 1;
+    color: #383838;
+    left:25.65rem;   
+}
+
+
+.total750Div .discountTitle {
+    position: relative;
+    z-index: 5;
+    width: 60%;
+    text-align: left;
+    font-size: clamp(1rem, 1.2rem, 10rem);
+    font-family: "PoppinsLight";
+    top: 1.2rem;
+    color: #808080;
+    left: 2.3rem;     
+}
+
+.total750Div .discount {
+     position: relative;
+    z-index: 5;
+    width: 50%;
+    text-align: left;
+    font-size: clamp(1rem, 1.2rem, 10rem);
+    font-family: "PoppinsRegular";
+    top: -1.5rem;
+    line-height: 1;
+    color: #383838;
+    left: 25.7rem;   
+}
+
+
+.total750Div .orderTotalDiv {
+    position: relative;
+    top: -5.5rem;
+    min-height: 2rem;
+    margin-top: -2rem;
+    width: 33rem;
+    border-bottom: 1px solid rgb(204, 204, 204);  
+        left:1.4rem;   
+}
+
+.total750Div .totalPriceTitle {
+    position: relative;
+    z-index: 5;
+    width: 60%;
+    text-align: left;
+    font-size: clamp(1rem, 1.4rem, 10rem);
+    color: #383838;
+    font-family: "PoppinsSemiBold";
+    top: 2.7rem;
+    left: 2.3rem;     
+
+}
+
+.total750Div .totalPrice {
+    position: relative;
+    z-index: 5;
+    width: 60%;
+    text-align: left;
+    font-size: clamp(1rem, 1.4rem, 10rem);
+    color: #383838;
+    font-family: "PoppinsSemiBold";
+    top: -0.85rem;
+    right: -75.5%;
+}
+
+.total750Div .checkout {
+    color:white;
+    background-color: rgb(255, 148, 148);
+    font-size: clamp(1rem,1.7rem,5rem);
+    font-family: "PoppinsRegular";
+    padding: 1rem 9rem;
+    width: 8rem;
+    position: relative;
+    top:-2.8rem;
+}
+
+
+.total750Div .showMore {
+    color:rgb(0, 0, 0);
+    background-color: #af000000;
+    font-size: clamp(1rem,1.4rem,5rem);
+    font-family: "PoppinsRegular";
+    padding: 0rem 9rem;
+    white-space: nowrap;
+    position: relative;
+    top:-26.2rem;
+    border: none;    
+}
+
+
+
+
+.shortTotal750Div {
+    position: fixed;
+    bottom: 1rem;
+    height: 12.5rem;
+    left:50%;
+    transform: translateX(-50%);
+    box-shadow: -5px 0px 40px rgba(0, 0, 0, 0.445);
+    width: 36rem;
+    z-index: 5;
+    border-radius: 0.5rem;
+    background-color: white;
+    transition:  all 0.3s ease;
+
+}
+
+
+
+
+.shortTotal750Div .orderTotalDiv {
+    position: relative;
+    top: 2.5rem;
+    height: 6.2rem;
+    width: 27rem;
+    left:50%;
+    transform: translateX(-50%);
+    border-bottom: 1px solid rgb(204, 204, 204);  
+
+}
+
+.shortTotal750Div .totalPriceTitle {
+    position: relative;
+    z-index: 5;
+    width: 60%;
+    text-align: left;
+    font-size: clamp(1rem, 1.4rem, 10rem);
+    color: #383838;
+    font-family: "PoppinsSemiBold";
+    top: 3.65rem;
+    left: 0.3rem;     
+
+}
+
+.shortTotal750Div  .totalPrice {
+    position: relative;
+    z-index: 5;
+    width: 60%;
+    text-align: left;
+    font-size: clamp(1rem, 1.4rem, 10rem);
+    color: #383838;
+    font-family: "PoppinsSemiBold";
+    top: 0.15rem;
+    right: -76.5%;
+}
+
+.shortTotal750Div  .checkout {
+    color:white;
+    background-color: rgb(255, 148, 148);
+    font-size: clamp(1rem,1.4rem,5rem);
+    font-family: "PoppinsRegular";
+    padding: 1rem 9rem;
+    width: 10rem;
+    position: relative;
+    top:-1.5rem;
+}
+
+
+.shortTotal750Div .showMore {
+    color:rgb(0, 0, 0);
+    background-color: #af000000;
+    font-size: clamp(1rem,1.4rem,5rem);
+    font-family: "PoppinsRegular";
+    padding: 0rem 9rem;
+    white-space: nowrap;
+    position: relative;
+    top:-1.5rem;
+    border: none;    
+}
+
+
+.empty {
+
+    width: 44.7rem;
+    left:50%;
+    transform: translateX(-93%);
+    height: 35rem;
+    top:0rem;
+}
+
+.samsungs {
+    position: absolute;
+    width: 84%;
+    bottom: 0rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.emptyTitle {
+    top: 1rem;
+    line-height: 1;
+    width: 38rem;
+    white-space: inherit;
+
+}
+
+.emptyButton {
+
+    top: 10.5rem;
+
+
+}
+
+}
+
+
+@media (max-width: 580px) {
+
+    .cartCoverDiv {
+        transform:translateY(-25%) scale(0.6);
+    }
+
+    
+
+    .container {
+    padding-bottom: 1.5rem;
+
+}
+
+    .div {
+       min-height: 49.6vw;
+       margin-bottom: -8rem;
+    }
+
+    .shortTotal750Div {
+        bottom: 2.5rem;
+        transform: translateX(-50%) scale(0.75);
+
+
+    }
+
+    .total750Div {
+    bottom: 2.5rem;
+    transform: translateX(-50%) scale(0.75);
+
+}
+
+}
+
+
+@media (max-width: 450px) {
+
+    .cartCoverDiv {
+        transform:translateY(-27.5%) scale(0.5);
+    }
+
+    
+
+    .container {
+    padding-bottom: 0rem;
+
+}
+
+    .div {
+       min-height: 49.6vw;
+       margin-bottom: -8rem;
+    }
+
+    .shortTotal750Div {
+        bottom: 2.5rem;
+        transform: translateX(-50%) scale(0.62);
+
+
+    }
+
+    .total750Div {
+    bottom: 2.5rem;
+    transform: translateX(-50%) scale(0.62);
+
+}
+
+.empty {
+
+    width: 44.7rem;
+    left:50%;
+    transform: translateX(-93%);
+    height: 35rem;
+    top:9rem;
+}
+
+
+
 }
