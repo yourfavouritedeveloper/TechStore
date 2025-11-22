@@ -16,7 +16,7 @@
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
   background-size: 50px 50px;
   animation: float 20s linear infinite;
 }
@@ -25,6 +25,7 @@
   0% {
     transform: translate(0, 0);
   }
+
   100% {
     transform: translate(50px, 50px);
   }
@@ -46,11 +47,19 @@
   text-align: center;
 }
 
+.containerDiv {
+  width: 50rem;
+  left: 50%;
+  height: 10rem;
+  transform: translate(5%, -55%) scale(1);
+}
+
 @keyframes slideUp {
   from {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -81,9 +90,11 @@
     opacity: 0;
     transform: translateX(-50%) scale(0);
   }
+
   50% {
     transform: translateX(-50%) scale(1.2);
   }
+
   100% {
     opacity: 1;
     transform: translateX(-50%) scale(1);
@@ -159,12 +170,12 @@
 
 
 
-@media (min-width: 640px) {
+@media (min-width: 750px) {
   .actions {
     flex-direction: row;
     justify-content: center;
   }
-  
+
   .button {
     min-width: 180px;
   }
@@ -174,7 +185,7 @@
   .div {
     padding: 3rem 2rem;
   }
-  
+
   .div::before {
     width: 60px;
     height: 60px;
@@ -190,7 +201,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: 
+  background-image:
     radial-gradient(circle, #ffd700 2px, transparent 2px),
     radial-gradient(circle, #ff6b6b 2px, transparent 2px),
     radial-gradient(circle, #4ecdc4 2px, transparent 2px),
@@ -206,23 +217,184 @@
   0% {
     transform: translateY(0);
   }
+
   100% {
     transform: translateY(100vh);
   }
 }
 
 .notTitle {
-  color: #e53e3e;
+  color: #ff6464;
 
   margin-bottom: 1rem;
 }
 
 .notsubTitle {
-  color: #718096;
+  color: #a3b5d0;
   line-height: 1.6;
 }
 
 .loading {
   color: white;
-  font-size: clamp(1rem,2.5em,5rem);
+  font-size: clamp(1rem, 2.5em, 5rem);
+}
+
+@media (max-width: 1540px) {
+
+  .containerDiv {
+    width: 50rem;
+    left: 50%;
+    height: 10rem;
+    transform: translate(5%, -55%) scale(1);
+  }
+
+  .notTitle {
+    font-size: 2rem;
+    margin-left: -4rem;
+    margin-top: 6rem;
+    margin-bottom: 0rem;
+  }
+
+  .notsubTitle {
+    margin-left: -4rem;
+    font-size: 2.3rem;
+    line-height: 0.2;
+  }
+
+  .loading {
+    margin-top: 8rem;
+    margin-left: -4rem;
+    font-size: clamp(1rem, 2.5em, 5rem);
+  }
+
+}
+
+@media (max-width: 1240px) {
+
+  .containerDiv {
+    width: 50rem;
+    left: 50%;
+    height: 10rem;
+    transform: translate(4%, -50%) scale(0.8);
+  }
+
+  .notTitle {
+    font-size: 2rem;
+    margin-left: -6rem;
+    margin-top: 6rem;
+    margin-bottom: 0rem;
+  }
+
+  .notsubTitle {
+    margin-left: -6rem;
+    font-size: 2.3rem;
+    line-height: 0.2;
+  }
+
+  .loading {
+    margin-top: 7rem;
+    margin-left: -4rem;
+    font-size: clamp(1rem, 2.5em, 5rem);
+  }
+
+}
+
+@media (max-width: 950px) {
+
+  .containerDiv {
+    width: 50rem;
+    left: 0%;
+    margin-left: -3.2rem;
+    height: 10rem;
+    transform: translate(5vw, -50%) scale(0.6);
+  }
+
+}
+
+@media (max-width: 750px) {
+
+  .containerDiv {
+    width: 50rem;
+    left: 0%;
+    margin-left: 50%;
+    height: 10rem;
+    transform: translate(-64%, -120%) scale(1);
+  }
+
+  .notTitle {
+    font-size: 2rem;
+    margin-left: 15rem;
+    margin-top: 11rem;
+    white-space: nowrap;
+    position: relative;
+    left: 22.5rem;
+    transform: translateX(-25vw);
+    margin-bottom: 0rem;
+  }
+
+  .notsubTitle {
+    margin-left: 15rem;
+    width: 30rem;
+    margin-top: 1rem;
+    position: relative;
+    left: 22.5rem;
+    transform: translateX(-25vw);
+    font-size: 2.3rem;
+    line-height: 0.9;
+  }
+
+  .loading {
+    margin-top: 12rem;
+    margin-left: 0%;
+    left: 15.5rem;
+    position: relative;
+    white-space: nowrap;
+    transform: translateX(-20vw);
+    font-size: clamp(1rem, 2rem, 5rem);
+  }
+
+}
+
+
+@media (max-width: 450px) {
+
+  .containerDiv {
+    width: 50rem;
+    left: 0%;
+    margin-left: 65%;
+    height: 10rem;
+    transform: translate(-35vw, -140%) scale(1);
+  }
+
+  .notTitle {
+    font-size: 2rem;
+    margin-left: -18.7rem;
+    margin-top: 11rem;
+    left: 10rem;
+    transform: translateX(5vw);
+    margin-bottom: 0rem;
+  }
+
+  .notsubTitle {
+    margin-left: -18.7rem;
+    width: 27rem;
+    margin-top: 1rem;
+    left: 10rem;
+    transform: translateX(5vw);
+    font-size: 2rem;
+    line-height: 0.9;
+  }
+
+  .loading {
+    margin-top: 12rem;
+    margin-left: 0%;
+    left: 5.5rem;
+    position: relative;
+    white-space: nowrap;
+    transform: translateX(-15vw);
+    font-size: clamp(1rem, 1.7rem, 5rem);
+  }
+
+
+
 }
