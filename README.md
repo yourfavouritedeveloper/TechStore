@@ -2,10 +2,13 @@
 
 ![TechStore](./Frontend/public/brand.png)
 
-TechStore is a full-stack e-commerce web application focused on selling technology products such as mobile phones, laptops, and accessories.  
-It features a modern React frontend with dynamic filtering and sorting, and a robust Spring Boot backend exposing REST APIs connected to a PostgreSQL database and Redis cache.  
-The project is containerized with Docker for easy deployment and designed with JWT-based authentication for secure access.
+TechStore is a full-stack e-commerce web application focused on selling technology products such as mobile phones, laptops, monitors, and accessories.
+It features a modern React frontend with dynamic filtering, responsive UI behavior, and hash-based routing, and a robust Spring Boot backend exposing secure REST APIs.
 
+On the backend, TechStore integrates **PostgreSQL** for persistent storage, **Redis** for caching and token storage, and **Stripe** for online payments.
+The system uses **JWT authentication** with refresh tokens, email verification, and **Liquibase** migration scripts for version-controlled schema updates.
+
+The entire application is containerized using **Docker** for consistent deployment across environments.
 
 ## 🌐Live Deployment
 
@@ -16,6 +19,7 @@ The project is containerized with Docker for easy deployment and designed with J
 
 - [Purpose](#purpose)
 - [Features](#key-features)  
+- [Advanced Security & Core System Components](#advanced-security-and-core-system-components)
 - [Tech Stack](#architecture-overview)  
 - [Getting Started](#getting-started)  
   - [Prerequisites](#prerequisites)  
@@ -30,38 +34,69 @@ The project is containerized with Docker for easy deployment and designed with J
 
 
 
-## Purpose
+### Purpose
 
 The primary goal of TechStore is to demonstrate how to build a full-featured e-commerce platform using contemporary technologies. It showcases:
 
 - Efficient frontend state management and UI filtering techniques  
-- Secure backend development with JWT authentication and role-based access control  
+- Secure backend development with **Spring Security** and JWT authentication with role-based access control  
 - Integration with PostgreSQL for persistent data storage and Redis for caching  
+- Utilization of **MapStruct** for efficient data transfer object (DTO) mapping.
+- Implementation of event-driven architecture with **Kafka** for handling key events (e.g., order processing).
 - Deployment best practices using Docker and cloud hosting services  
 
 This project also serves as a portfolio piece for fullstack Java developers who want to demonstrate real-world skills.
 
+---
+
 ## Key Features
 
-- **User Authentication:** Register, login, and role-based access control using JWT tokens  
-- **Product Catalog:** Browse products by categories such as mobile phones, laptops, and accessories  
-- **Filtering & Sorting:** Dynamic client-side filters for price, date, popularity, and more  
-- **Popular & Best-selling Products:** Separate sections highlighting trending and frequently purchased items  
-- **Responsive Design:** Works seamlessly on desktops, tablets, and mobile devices  
-- **RESTful API:** Backend exposing secure endpoints for product data, user management, and purchases  
-- **Caching Layer:** Redis cache to improve response times for popular data  
-- **Dockerized Setup:** Containerized backend and frontend for consistency across development and production  
-- **Cloud Deployment:** Backend hosted on Render, frontend on GitHub Pages  
+- **Advanced Authentication:** Secure Register/Login utilizing **Spring Security**, featuring **JWT Access** and **Refresh Tokens** for a robust authentication lifecycle.
+- **Role-Based Access Control (RBAC):** Fine-grained authorization to restrict access to sensitive endpoints (e.g., admin-only API calls).
+- **Secure Payments:** Full integration with the **Stripe Payment Gateway** for secure checkout and customer management.
+- **Account Verification:** Mandatory **Email Verification** using a **One-Time Password (OTP)** mechanism, facilitated by Spring Mail/SendGrid.
+- **Asynchronous Messaging:** Decoupled service communication and background task processing (like order confirmation and inventory updates) using **Spring Kafka**.
+- **RESTful API Documentation:** Interactive, auto-generated API documentation using **SpringDoc OpenAPI (Swagger UI)**.
+- **Data Integrity:** Version-controlled database schema management using **Liquibase**.
+- **Performance:** Redis caching layer to significantly improve response times for frequently requested data.
+- **Responsive Design:** Works seamlessly on desktops, tablets, and mobile devices.  
+- **Dockerized Setup:** Containerized backend and frontend for consistency across development and production.  
 
+---
+
+## Advanced Security & Core System Components
+
+This section provides a deeper look into the critical, non-trivial components of the TechStore backend.
+
+### 1. Secure Authentication (JWT Lifecycle)
+* **Access/Refresh Tokens:** The system employs a dual-token strategy. The **Access Token** is short-lived for securing API calls, while the longer-lived **Refresh Token** is used solely to obtain a new Access Token without re-authentication, enhancing both security and user experience.
+* **Role-Based Access Control (RBAC):** Using Spring Security, access to administrative endpoints (e.g., `/api/v1/accounts/all`) is strictly restricted based on user roles (`ADMIN`, `USER`).
+* **Token Storage:** **Redis** is utilized for efficient, non-persistent storage of JWT refresh tokens and blacklisted tokens, enabling quick invalidation.
+
+### 2. Payment Gateway Integration (Stripe)
+* **Secure Checkout:** The backend uses the **Stripe Java SDK** to manage all payment flows.
+* **Customer Auto-Creation:** Upon user registration (`/api/v1/accounts/register`), a corresponding **Stripe Customer** object is automatically created to facilitate future purchases, subscriptions, and centralized transaction history.
+* **Endpoint Delegation:** The `/api/v1/purchases/checkout` endpoint securely creates Stripe Checkout Sessions, delegating the handling of sensitive card data entirely to Stripe.
+
+### 3. Account Verification & Recovery
+* **Email Verification (OTP):** New user accounts must be verified via email. The system generates a secure **One-Time Password (OTP)** and sends it via email (using Spring Mail/SendGrid). The account remains inactive until the user successfully verifies the OTP via `/api/v1/accounts/otp/verify`.
+* **Password Recovery:** A similar OTP mechanism is used for secure password recovery requests (`/api/v1/accounts/recovery/password`), ensuring only the email owner can initiate a password change.
+
+### 4. Event-Driven Architecture (Kafka)
+* **Decoupled Processing:** **Spring Kafka** is implemented to handle asynchronous tasks such as logging, sending post-purchase notifications, updating inventory, or performing analytics.
+* **Reliability:** Decoupling critical steps ensures the immediate purchase API call remains fast and non-blocking, improving the overall fault tolerance and scalability of the e-commerce platform.
+
+---
 
 ## Architecture Overview
 
-- **Frontend:** React (with Vite), Axios for API calls, React Router for navigation, CSS modules for styling  
-- **Backend:** Spring Boot (Java 21), Spring Security with JWT, PostgreSQL as the main database, Redis for caching  
-- **Storage:** Product images and static resources served securely with proper access control  
-- **Deployment:** Docker for containerization, automated CI/CD pipelines for builds and deployments  
+- **Frontend:** React (with Vite), Axios for API calls, React Router for navigation, CSS modules for styling.  
+- **Backend:** **Spring Boot (Java 21)**, **Spring Security with JWT**, PostgreSQL as the main database, Redis for caching, **SpringDoc OpenAPI** for API documentation, **Spring Kafka** for event messaging.
+- **Data Mapping:** **MapStruct** for type-safe and performant object mapping.
+- **Storage:** Product images and static resources served securely with proper access control.  
+- **Deployment:** Docker for containerization, automated CI/CD pipelines for builds and deployments.  
 
-
+---
 
 ## Tech Stack
 
@@ -77,6 +112,23 @@ This project also serves as a portfolio piece for fullstack Java developers who 
 
 
 
+## Tech Stack
+
+| Layer        | Technology             | Key Feature |
+|--------------|------------------------|-------------|
+| Frontend     | React, Vite, Axios     | Dynamic UI, State Management |
+| Backend      | Java 21, Spring Boot   | **Spring Security**, **SpringDoc OpenAPI** |
+| Database     | PostgreSQL             | **Liquibase** (Schema Migration) |
+| Cache        | Redis, Jedis           | Session & Token Storage, Data Caching |
+| Authentication | JWT                   | Access & Refresh Tokens, RBAC |
+| Payments     | **Stripe** | Checkout and Customer Management |
+| Messaging    | **Spring Kafka** | Event-Driven Architecture, Decoupling |
+| Utilities    | **MapStruct**, Lombok | DTO Mapping, Boilerplate Reduction |
+| Containerization | Docker               | Consistency across Environments |
+| Deployment   | Render, GitHub Pages   | Cloud Hosting |
+
+---
+
 ## Getting Started
 
 ### Prerequisites
@@ -87,10 +139,11 @@ Before you start, make sure you have installed:
 - [Gradle 8.5+](https://gradle.org/install/)
 - [Node.js & npm](https://nodejs.org/) (or yarn)
 - [Docker](https://www.docker.com/get-started) (optional but recommended)
-- PostgreSQL database
-- Redis server
+- **PostgreSQL database**
+- **Redis server**
 
 
+---
 
 ## Backend Setup
 
@@ -106,14 +159,20 @@ Before you start, make sure you have installed:
     - Edit src/main/resources/application.yml (or application.properties) and update the PostgreSQL and Redis connection properties:
 
    ```yaml
-   spring:
-     datasource:
-       url: jdbc:postgresql://localhost:5432/your_db_name
-       username: your_username
-       password: your_password
-     redis:
-       host: localhost
-       port: 6379
+        spring:
+        datasource:
+            url: jdbc:postgresql://localhost:5432/your_db_name
+            username: your_username
+            password: your_password
+        redis:
+            host: localhost
+            port: 6379
+        kafka:
+            bootstrap-servers: localhost:9092 # Update with your Kafka broker address
+
+        # Add Stripe keys and SendGrid/Mail properties as required
+        stripe:
+        secret-key: sk_...
    ```
 
 3. **Build the backend:**
@@ -204,16 +263,18 @@ Before you start, make sure you have installed:
 
 - **Authentication:** Some endpoints require JWT tokens; ensure login is performed
 
+- **API Documentation:** If you can't access Swagger UI, ensure the springdoc dependencies are correctly packaged and the application is running
+
 - **Image Loading:** Verify authentication settings allow public access to /images/** if used publicly
 
 - **404 Errors:** Confirm static assets are correctly served and URLs are properly formed
 
 ## Authentication and Security
-- JWT-based authentication secures backend endpoints.
+- Spring Security and JWT-based authentication secure backend endpoints.
 
 - Public endpoints such as product listings and image resources have been configured to allow unauthenticated access.
 
-- Make sure to add /images/** and /api/v1/products/** to your Spring Security permitAll() configuration to prevent unauthorized errors on static assets and product API calls.
+- Make sure to add /images/**, /api/v1/products/**, and /swagger-ui/** (for documentation) to your Spring Security permitAll() configuration to prevent unauthorized errors.
 
 
 
@@ -275,12 +336,29 @@ TechStore/
 │   ├── src/
 │   │   ├── assets/
 │   │   ├── Components/
+│   │   │   ├── Account/
+│   │   │   ├── AddItem/
 │   │   │   ├── Background/
 │   │   │   ├── Body/
+│   │   │   ├── Campaign/
+│   │   │   ├── CampaignAdd/
+│   │   │   ├── CampaignPage/
+│   │   │   ├── Cart/
+│   │   │   ├── Category/
+│   │   │   ├── Choice/
+│   │   │   ├── EditItem/
+│   │   │   ├── Filter/
 │   │   │   ├── Footer/
+│   │   │   ├── Item/
 │   │   │   ├── Items/
+│   │   │   ├── Login/
+│   │   │   ├── Main/
 │   │   │   ├── Model/
 │   │   │   ├── Nav/
+│   │   │   ├── Product/
+│   │   │   ├── Purchase/
+│   │   │   ├── Recovery/
+│   │   │   ├── Success/
 │   │   │   └── Utils/
 │   │   ├── Pages/
 │   │   ├── App.*
@@ -302,44 +380,92 @@ TechStore/
 
 ## Account API
 
-| Method | Endpoint                                 | Description                                              |
-|--------|------------------------------------------|----------------------------------------------------------|
-| GET    | `/api/v1/accounts/{id}`                   | Get account by ID                                        |
-| GET    | `/api/v1/accounts/username/{username}`   | Get account by username                                  |
-| GET    | `/api/v1/accounts/all`                    | Get all accounts                                        |
-| POST   | `/api/v1/accounts/register`               | Register a new account                                  |
-| POST   | `/api/v1/accounts/login`                  | Log in an account                                      |
-| PUT    | `/api/v1/accounts/update/{id}`            | Update account details (partial updates via query params) |
-| PUT    | `/api/v1/accounts/delete/{id}`            | Soft delete (close) an account                          |
-| DELETE | `/api/v1/accounts/remove/{id}`            | Hard delete an account                                 |
+| Method | Endpoint | Description |
+|--------|---------|-------------|
+| GET    | `/api/v1/accounts/{id}` | Get account by ID |
+| GET    | `/api/v1/accounts/username/{username}` | Get account by username |
+| GET    | `/api/v1/accounts/email/{email}` | Get account by email |
+| GET    | `/api/v1/accounts/all` | Get all accounts (Admin only) |
+| POST   | `/api/v1/accounts/register` | Register a new account (Stripe customer auto-creation) |
+| POST   | `/api/v1/accounts/login` | Log in and receive JWT access + refresh tokens |
+| POST   | `/api/v1/accounts/refreshToken` | Generate a new access token using a refresh token |
+| PUT    | `/api/v1/accounts/update` | Update account details |
+| PUT    | `/api/v1/accounts/password` | Change account password |
+| PUT    | `/api/v1/accounts/uploadProfilePicture` | Upload or update profile picture |
+| PUT    | `/api/v1/accounts/otp/send` | Send OTP verification code to email |
+| PUT    | `/api/v1/accounts/otp/verify` | Verify OTP and activate account |
+| PUT    | `/api/v1/accounts/recovery/password` | Request password recovery email |
+| PUT    | `/api/v1/accounts/delete/{id}` | Soft delete (close) an account |
+| PUT    | `/api/v1/accounts/activate/{id}` | Reactivate a previously closed account |
+| DELETE | `/api/v1/accounts/remove/{id}` | Permanently delete an account |
 
 ---
 
+## Cart API
+
+| Method | Endpoint | Description |
+|--------|---------|-------------|
+| GET    | `/api/v1/carts/id/{id}` | Get cart by ID |
+| GET    | `/api/v1/carts/account/{accountId}` | Get cart by account ID |
+| GET    | `/api/v1/carts/all` | Get all carts |
+| POST   | `/api/v1/carts/create` | Create a new cart |
+| PUT    | `/api/v1/carts/update` | Update cart details |
+| PUT    | `/api/v1/carts/add/product/{cartId}` | Add a product to a cart |
+| PUT    | `/api/v1/carts/remove/product/{cartId}` | Remove a product from a cart |
+| PUT    | `/api/v1/carts/delete/{id}` | Soft delete a cart |
+| DELETE | `/api/v1/carts/remove/{id}` | Permanently delete a cart |
+
+---
+
+## Comment API
+
+| Method | Endpoint | Description |
+|--------|---------|-------------|
+| GET    | `/api/v1/comments/{id}` | Get comment by ID |
+| GET    | `/api/v1/comments/fromAccount` | Get comments by sender account |
+| GET    | `/api/v1/comments/toAccount` | Get comments by receiver account |
+| GET    | `/api/v1/comments/product` | Get comments by product ID |
+| POST   | `/api/v1/comments/comment/{fromAccount}` | Add a comment to a product |
+| POST   | `/api/v1/comments/reply/{commentId}/{fromAccount}/{toAccount}` | Reply to a comment |
+| POST   | `/api/v1/comments/like` | Like a comment |
+| PUT    | `/api/v1/comments/delete/{id}` | Soft delete a comment |
+| DELETE | `/api/v1/comments/remove/{id}` | Permanently delete a comment |
+
+---
+
+
 ## Product API
 
-| Method | Endpoint                                  | Description                                              |
-|--------|-------------------------------------------|----------------------------------------------------------|
-| GET    | `/api/v1/products/{id}`                    | Get product by ID                                      |
-| GET    | `/api/v1/products/all`                     | Get all products                                      |
-| GET    | `/api/v1/products/popular`                 | Get top 5 most popular products                         |
-| GET    | `/api/v1/products/bought`                  | Get top 5 most bought products                          |
-| POST   | `/api/v1/products/create`                   | Create a new product                                  |
-| PUT    | `/api/v1/products/update/{id}`              | Update product details (partial updates via query params) |
-| PUT    | `/api/v1/products/delete/{id}`              | Soft delete (close) a product                          |
-| DELETE | `/api/v1/products/remove/{id}`              | Hard delete a product                                 |
+| Method | Endpoint | Description |
+|--------|---------|-------------|
+| POST   | `/api/v1/products/uploadProductImage` | Upload product image |
+| POST   | `/api/v1/products/uploadProductVideo` | Upload product video |
+| GET    | `/api/v1/products/id/{id}` | Get product by ID |
+| GET    | `/api/v1/products/name/{name}` | Get product by name |
+| GET    | `/api/v1/products/all` | Get all products |
+| GET    | `/api/v1/products/account/{accountId}` | Get products by account |
+| GET    | `/api/v1/products/popular` | Get top 5 most popular products |
+| GET    | `/api/v1/products/bought` | Get top 5 most bought products |
+| POST   | `/api/v1/products/create` | Create a new product |
+| PUT    | `/api/v1/products/update` | Update product details |
+| PUT    | `/api/v1/products/update/rating/{productId}` | Update product rating |
+| PUT    | `/api/v1/products/delete/{id}` | Soft delete a product |
+| DELETE | `/api/v1/products/remove/{id}` | Permanently delete a product |
 
 ---
 
 ## Purchase API
 
-| Method | Endpoint                                    | Description                                              |
-|--------|---------------------------------------------|----------------------------------------------------------|
-| GET    | `/api/v1/purchases/{id}`                     | Get purchase by ID                                     |
-| GET    | `/api/v1/purchases/account/{id}`             | Get all purchases for a specific account                |
-| GET    | `/api/v1/purchases/all`                      | Get all purchases                                      |
-| POST   | `/api/v1/purchases/purchase/{accountId}`     | Make a purchase (with product IDs and amount as query params) |
-| PUT    | `/api/v1/purchases/delete/{id}`              | Soft delete (close) a purchase                          |
-| DELETE | `/api/v1/purchases/remove/{id}`              | Hard delete a purchase                                 |
+| Method | Endpoint | Description |
+|--------|---------|-------------|
+| POST   | `/api/v1/purchases/purchase` | Make a purchase |
+| POST   | `/api/v1/purchases/checkout` | Stripe checkout |
+| GET    | `/api/v1/purchases/{id}` | Get purchase by ID |
+| GET    | `/api/v1/purchases/account/from/{id}` | Get purchases by buyer account |
+| GET    | `/api/v1/purchases/account/to/{id}` | Get purchases by seller account |
+| GET    | `/api/v1/purchases/all` | Get all purchases |
+| PUT    | `/api/v1/purchases/delete/{id}` | Soft delete a purchase |
+| DELETE | `/api/v1/purchases/remove/{id}` | Permanently delete a purchase |
 
 ---
 
@@ -354,8 +480,10 @@ TechStore/
 
 ## Conclusion
 
-This API provides a robust foundation for managing users, products, and purchases within the TechStore application.  
-With clear RESTful conventions and support for both soft and hard deletes, it ensures flexibility and data integrity.  
+This API provides a robust foundation for managing users, products, and purchases within the TechStore application.
 
-For any questions, feature requests, or contributions, please feel free to open an issue or submit a pull request.  
-Happy coding! 
+With clear RESTful conventions, comprehensive security from Spring Security, schema control via Liquibase, payment integration with Stripe, event handling with Kafka, and auto-generated documentation via SpringDoc OpenAPI, it ensures flexibility and data integrity.
+
+For any questions, feature requests, or contributions, please feel free to open an issue or submit a pull request.
+
+Happy coding!
