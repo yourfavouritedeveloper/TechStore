@@ -2150,6 +2150,15 @@ body {
 
     }
 
+    .similarItem .avail {
+        position: absolute;
+        top: 16.7rem;
+        left: 18.4rem;
+        font-family: "PoppinsMedium";
+        font-size: clamp(0rem, 0.84rem, 2rem);
+        color: #1d3c94;
+    }
+
 
     .itemVideo .videoText {
 
@@ -2933,6 +2942,7 @@ body {
         margin-bottom: -38rem;
 
     }
+
     .headerContainer {
         top: 2.3rem;
         width: 55rem;
