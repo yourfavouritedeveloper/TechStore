@@ -20,7 +20,8 @@ The entire application is containerized using **Docker** for consistent deployme
 - [Purpose](#purpose)
 - [Features](#key-features)  
 - [Advanced Security & Core System Components](#advanced-security-and-core-system-components)
-- [Tech Stack](#architecture-overview)  
+- [Tech Stack](#architecture-overview) 
+- [Database Schema](#database-schema)
 - [Getting Started](#getting-started)  
   - [Prerequisites](#prerequisites)  
   - [Backend Setup](#backend-setup)  
@@ -93,7 +94,6 @@ This section provides a deeper look into the critical, non-trivial components of
 
 ---
 
-## Tech Stack
 
 | Layer        | Technology             |
 |--------------|------------------------|
@@ -123,6 +123,21 @@ This section provides a deeper look into the critical, non-trivial components of
 | Deployment   | Render, GitHub Pages   | Cloud Hosting |
 
 ---
+
+
+## Database Schema
+
+![DatabaseSchema](./Frontend/public/database_schema.png)
+
+- The Accounts table stores all users, including customers and sellers, with their credentials, roles, and financial details. 
+- The Products table contains all items available for sale, linked to the seller account, with pricing, category, and analytics like rating and popularity. 
+- The Carts table represents each user's shopping cart and tracks which products are added and their quantities.
+- The Purchases table records completed transactions, linking buyers, sellers, products, and payment details.
+- Comments and RefreshTokens tables manage user feedback on products and authentication tokens, respectively.
+
+
+---
+
 
 ## Getting Started
 
