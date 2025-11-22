@@ -10,20 +10,20 @@ function Success() {
   const { account, token } = useContext(AuthContext);
 
   useEffect(() => {
-    if (!token) return; 
+    if (!token) return;
     const savePurchase = async () => {
       const purchaseData = sessionStorage.getItem("checkoutPayload");
 
-            console.log("Raw checkoutPayload from sessionStorage:", purchaseData);
+      console.log("Raw checkoutPayload from sessionStorage:", purchaseData);
 
       if (!purchaseData) {
-        
+
         setLoading(false);
         return;
       }
 
       const parsedPurchase = JSON.parse(purchaseData);
-            console.log("Parsed checkoutPayload:", parsedPurchase);
+      console.log("Parsed checkoutPayload:", parsedPurchase);
 
       setPurchase(parsedPurchase);
 
@@ -34,7 +34,7 @@ function Success() {
       }
 
       try {
-                console.log("Posting purchase to backend:", parsedPurchase);
+        console.log("Posting purchase to backend:", parsedPurchase);
 
         const res = await axios.post(
           "https://techstore-3fvk.onrender.com/api/v1/purchases/purchase",
@@ -45,7 +45,7 @@ function Success() {
             },
           }
         );
-                console.log("Backend response for purchase save:", res.data);
+        console.log("Backend response for purchase save:", res.data);
 
       } catch (err) {
         console.error("Error saving purchase:", err.response || err);
@@ -58,40 +58,48 @@ function Success() {
     savePurchase();
   }, [token]);
 
-  if (loading) {
-    return (
-      <div className={styles.container}>
-        <p className={styles.loading}>Loading purchase details...</p>
-      </div>
-    );
-  }
-
   if (!purchase) {
     return (
       <div className={styles.container}>
-        <p className={styles.notTitle}>Page is not accessible</p>
-        <p className={styles.notsubTitle}>Purchase information could not be found.</p>
+        <div className={styles.containerDiv}>
+          <p className={styles.notTitle}>Page is not accessible</p>
+          <p className={styles.notsubTitle}>Purchase information could not be found.</p>
+        </div>
       </div>
     );
   }
 
+  if (loading) {
+    return (
+      <div className={styles.container}>
+        <div className={styles.containerDiv}>
+          <p className={styles.loading}>Loading purchase details...</p>
+        </div>
+      </div>
+    );
+  }
+
+
+
   return (
     <div className={styles.container}>
-      <div className={styles.div}>
-        <p className={styles.title}>Payment Successful!</p>
-        <p className={styles.message}>
-          Thank you for your purchase, <strong>{account?.username || "Customer"}</strong>!
-        </p>
-        <p className={styles.subMessage}>
-          Your order has been successfully placed. You’ll receive a confirmation email shortly.
-        </p>
-        <div className={styles.actions}>
-          <Link to={`/account/${account.username}/cart`} className={styles.button}>
-            View Cart
-          </Link>
-          <Link to="/product" className={`${styles.button} ${styles.secondary}`}>
-            Continue Shopping
-          </Link>
+      <div className={styles.containerDiv}>
+        <div className={styles.div}>
+          <p className={styles.title}>Payment Successful!</p>
+          <p className={styles.message}>
+            Thank you for your purchase, <strong>{account?.username || "Customer"}</strong>!
+          </p>
+          <p className={styles.subMessage}>
+            Your order has been successfully placed. You’ll receive a confirmation email shortly.
+          </p>
+          <div className={styles.actions}>
+            <Link to={`/account/${account.username}/cart`} className={styles.button}>
+              View Cart
+            </Link>
+            <Link to="/product" className={`${styles.button} ${styles.secondary}`}>
+              Continue Shopping
+            </Link>
+          </div>
         </div>
       </div>
     </div>
