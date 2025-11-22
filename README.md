@@ -82,9 +82,6 @@ This section provides a deeper look into the critical, non-trivial components of
 * **Email Verification (OTP):** New user accounts must be verified via email. The system generates a secure **One-Time Password (OTP)** and sends it via email (using Spring Mail/SendGrid). The account remains inactive until the user successfully verifies the OTP via `/api/v1/accounts/otp/verify`.
 * **Password Recovery:** A similar OTP mechanism is used for secure password recovery requests (`/api/v1/accounts/recovery/password`), ensuring only the email owner can initiate a password change.
 
-### 4. Event-Driven Architecture (Kafka)
-* **Decoupled Processing:** **Spring Kafka** is implemented to handle asynchronous tasks such as logging, sending post-purchase notifications, updating inventory, or performing analytics.
-* **Reliability:** Decoupling critical steps ensures the immediate purchase API call remains fast and non-blocking, improving the overall fault tolerance and scalability of the e-commerce platform.
 
 ---
 
