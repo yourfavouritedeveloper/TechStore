@@ -42,7 +42,6 @@ The primary goal of TechStore is to demonstrate how to build a full-featured e-c
 - Secure backend development with **Spring Security** and JWT authentication with role-based access control  
 - Integration with PostgreSQL for persistent data storage and Redis for caching  
 - Utilization of **MapStruct** for efficient data transfer object (DTO) mapping.
-- Implementation of event-driven architecture with **Kafka** for handling key events (e.g., order processing).
 - Deployment best practices using Docker and cloud hosting services  
 
 This project also serves as a portfolio piece for fullstack Java developers who want to demonstrate real-world skills.
@@ -55,7 +54,6 @@ This project also serves as a portfolio piece for fullstack Java developers who 
 - **Role-Based Access Control (RBAC):** Fine-grained authorization to restrict access to sensitive endpoints (e.g., admin-only API calls).
 - **Secure Payments:** Full integration with the **Stripe Payment Gateway** for secure checkout and customer management.
 - **Account Verification:** Mandatory **Email Verification** using a **One-Time Password (OTP)** mechanism, facilitated by Spring Mail/SendGrid.
-- **Asynchronous Messaging:** Decoupled service communication and background task processing (like order confirmation and inventory updates) using **Spring Kafka**.
 - **RESTful API Documentation:** Interactive, auto-generated API documentation using **SpringDoc OpenAPI (Swagger UI)**.
 - **Data Integrity:** Version-controlled database schema management using **Liquibase**.
 - **Performance:** Redis caching layer to significantly improve response times for frequently requested data.
@@ -88,7 +86,7 @@ This section provides a deeper look into the critical, non-trivial components of
 ## Architecture Overview
 
 - **Frontend:** React (with Vite), Axios for API calls, React Router for navigation, CSS modules for styling.  
-- **Backend:** **Spring Boot (Java 21)**, **Spring Security with JWT**, PostgreSQL as the main database, Redis for caching, **SpringDoc OpenAPI** for API documentation, **Spring Kafka** for event messaging.
+- **Backend:** **Spring Boot (Java 21)**, **Spring Security with JWT**, PostgreSQL as the main database, Redis for caching, **SpringDoc OpenAPI** for API documentation.
 - **Data Mapping:** **MapStruct** for type-safe and performant object mapping.
 - **Storage:** Product images and static resources served securely with proper access control.  
 - **Deployment:** Docker for containerization, automated CI/CD pipelines for builds and deployments.  
